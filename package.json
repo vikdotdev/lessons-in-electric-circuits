@@ -1,0 +1,15 @@
+{
+  "name": "lessons-in-electric-circuits",
+  "version": "0.1.0",
+  "description": "Lessons In Electronic Circuits by Tony R. Kuphaldt in markdown for convenient convertability.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Viktor Habchak",
+  "license": "ISC",
+  "dependencies": {
+    "node-pandoc": "^0.3.0",
+    "turndown": "^5.0.3"
+  }
+}

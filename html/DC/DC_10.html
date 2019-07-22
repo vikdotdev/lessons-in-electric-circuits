@@ -1,0 +1,1920 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume I (DC) - Chapter 10</title>
+  <meta name="description" content="DC Network Analysis">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, kvl, kcl, kirchhoff's voltage law, kirchhoff's current law, simultaneous equations, systems of equations, linear equations, branch current, mesh, mesh current, network theorem, theorem, millman's theorem, superposition, superposition theorem, maximum power transfer theorem, maximum power transfer, impedance, thevenin's theorem, thevenin, norton, norton's theorem, current source, voltage source, delta-y, y-delta, equivalent circuit">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="DC_9.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DC_11.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume I</h1>
+<h1>Chapter 10</h1>
+
+
+
+
+<h1>DC NETWORK ANALYSIS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid33660"><u>What is network analysis?</u></a></li>
+<li><a href="#xtocid33661"><u>Branch current method</u></a></li>
+<li><a href="#xtocid33662"><u>Mesh current method</u></a></li>
+<ul>
+<li><a href="#xtocid33663"><u>Mesh Current, conventional method</u></a></li>
+<li><a href="#xtocid33664"><u>Mesh current by inspection</u></a></li>
+</ul>
+<li><a href="#xtocid33665"><u>Node voltage method </u></a></li>
+<li><a href="#xtocid33666"><u>Introduction to network theorems</u></a></li>
+<li><a href="#xtocid33667"><u>Millman's Theorem</u></a></li>
+<li><a href="#xtocid33668"><u>Superposition Theorem</u></a></li>
+<li><a href="#xtocid33669"><u>Thevenin's Theorem</u></a></li>
+<li><a href="#xtocid336610"><u>Norton's Theorem</u></a></li>
+<li><a href="#xtocid336611"><u>Thevenin-Norton equivalencies</u></a></li>
+<li><a href="#xtocid336612"><u>Millman's Theorem revisited</u></a></li>
+<li><a href="#xtocid336613"><u>Maximum Power Transfer Theorem</u></a></li>
+<li><a href="#xtocid336614"><u>&#916;-Y and Y-&#916; conversions</u></a></li>
+<li><a href="#xtocid336615"><u>Contributors</u></a></li>
+<li><a href="#xtocid336616">Bibliography</a></li></ul>
+
+<h2><u><a name="xtocid33660">What is network analysis?</a></u></h2>
+
+<a name="Analysis, network"></a>
+<a name="Network analysis"></a>
+
+<p>
+Generally speaking, <i>network analysis</i> is any structured technique used to mathematically analyze a circuit (a &ldquo;network&rdquo; of interconnected components).  Quite often the technician or engineer will encounter circuits containing multiple sources of power or component configurations which defy simplification by series/parallel analysis techniques.  In those cases, he or she will be forced to use other means.  This chapter presents a few techniques useful in analyzing such complex circuits.
+</p>
+
+<p>
+To illustrate how even a simple circuit can defy analysis by breakdown into series and parallel portions, take start with this series-parallel circuit:
+</p>
+
+<p> <img src="00206.png"> </p>
+
+<p>
+To analyze the above circuit, one would first find the equivalent of R<sub>2</sub> and R<sub>3</sub> in parallel, then add R<sub>1</sub> in series to arrive at a total resistance.  Then, taking the voltage of battery B<sub>1</sub> with that total circuit resistance, the total current could be calculated through the use of Ohm's Law (I=E/R), then that current figure used to calculate voltage drops in the circuit.  All in all, a fairly simple procedure.
+</p>
+
+<p>
+However, the addition of just one more battery could change all of that:
+</p>
+
+<p> <img src="00207.png"> </p>
+
+<p>
+Resistors R<sub>2</sub> and R<sub>3</sub> are no longer in parallel with each other, because B<sub>2</sub> has been inserted into R<sub>3</sub>'s branch of the circuit.  Upon closer inspection, it appears there are <i>no</i> two resistors in this circuit directly in series or parallel with each other.  This is the crux of our problem: in series-parallel analysis, we started off by identifying sets of resistors that <i>were</i> directly in series or parallel with each other, reducing them to single equivalent resistances.  If there are no resistors in a simple series or parallel configuration with each other, then what can we do?
+</p>
+
+<p>
+It should be clear that this seemingly simple circuit, with only three resistors, is impossible to reduce as a combination of simple series and simple parallel sections: it is something different altogether.  However, this is not the only type of circuit defying series/parallel analysis:
+</p>
+
+<p> <img src="00208.png"> </p>
+
+<p>
+Here we have a bridge circuit, and for the sake of example we will suppose that it is <i>not</i> balanced (ratio R<sub>1</sub>/R<sub>4</sub> not equal to ratio R<sub>2</sub>/R<sub>5</sub>).  If it were balanced, there would be zero current through R<sub>3</sub>, and it could be approached as a series/parallel combination circuit (R<sub>1</sub>--R<sub>4</sub> // R<sub>2</sub>--R<sub>5</sub>).  However, any current through R<sub>3</sub> makes a series/parallel analysis impossible.  R<sub>1</sub> is not in series with R<sub>4</sub> because there's another path for electrons to flow through R<sub>3</sub>.  Neither is R<sub>2</sub> in series with R<sub>5</sub> for the same reason.  Likewise, R<sub>1</sub> is not in parallel with R<sub>2</sub> because R<sub>3</sub> is separating their bottom leads.  Neither is R<sub>4</sub> in parallel with R<sub>5</sub>.  Aaarrggghhhh!
+</p>
+
+<p>
+Although it might not be apparent at this point, the heart of the problem is the existence of multiple unknown quantities.  At least in a series/parallel combination circuit, there was a way to find total resistance and total voltage, leaving total current as a single unknown value to calculate (and then that current was used to satisfy previously unknown variables in the reduction process until the entire circuit could be analyzed).  With these problems, more than one parameter (variable) is unknown at the most basic level of circuit simplification.
+</p>
+
+<p>
+With the two-battery circuit, there is no way to arrive at a value for &ldquo;total resistance,&rdquo; because there are <i>two</i> sources of power to provide voltage and current (we would need <i>two</i> &ldquo;total&rdquo; resistances in order to proceed with any Ohm's Law calculations).  With the unbalanced bridge circuit, there is such a thing as total resistance across the one battery (paving the way for a calculation of total current), but that total current immediately splits up into unknown proportions at each end of the bridge, so no further Ohm's Law calculations for voltage (E=IR) can be carried out.
+</p>
+
+<a name="Equations, simultaneous"></a>
+<a name="Equations, systems of"></a>
+<a name="Simultaneous equations"></a>
+<a name="Systems of equations"></a>
+
+<p>
+So what can we do when we're faced with multiple unknowns in a circuit?  The answer is initially found in a mathematical process known as <i>simultaneous equations</i> or <i>systems of equations</i>, whereby multiple unknown variables are solved by relating them to each other in multiple equations.  In a scenario with only one unknown (such as every Ohm's Law equation we've dealt with thus far), there only needs to be a single equation to solve for the single unknown:
+</p>
+
+<p> <img src="10170.png"> </p>
+
+<p>
+However, when we're solving for multiple unknown values, we need to have the same number of equations as we have unknowns in order to reach a solution.  There are several methods of solving simultaneous equations, all rather intimidating and all too complex for explanation in this chapter.  However, many scientific and programmable calculators are able to solve for simultaneous unknowns, so it is recommended to use such a calculator when first learning how to analyze these circuits.
+</p>
+
+<p>
+<i>This is not as scary as it may seem at first</i>.  Trust me!
+</p>
+
+<p>
+Later on we'll see that some clever people have found tricks to avoid having to use simultaneous equations on these types of circuits.  We call these tricks <i>network theorems</i>, and we will explore a few later in this chapter.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Some circuit configurations (&ldquo;networks&rdquo;) cannot be solved by reduction according to series/parallel circuit rules, due to multiple unknown values.</li>
+<li>Mathematical techniques to solve for multiple unknowns (called &ldquo;simultaneous equations&rdquo; or &ldquo;systems&rdquo;) can be applied to basic Laws of circuits to solve networks.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33661">Branch current method</a></u></h2>
+
+<a name="Analysis, Branch Current method"></a>
+<a name="Branch Current analysis"></a>
+
+<p>
+The first and most straightforward network analysis technique is called the <i>Branch Current Method</i>.  In this method, we assume directions of currents in a network, then write equations describing their relationships to each other through Kirchhoff's and Ohm's Laws.  Once we have one equation for every unknown current, we can solve the simultaneous equations and determine all currents, and therefore all voltage drops in the network.
+</p>
+
+<p>
+Let's use this circuit to illustrate the method:
+</p>
+
+<p> <img src="00209.png"> </p>
+
+<p>
+The first step is to choose a node (junction of wires) in the circuit to use as a point of reference for our unknown currents.  I'll choose the node joining the right of R<sub>1</sub>, the top of R<sub>2</sub>, and the left of R<sub>3</sub>.
+</p>
+
+<p> <img src="00210.png"> </p>
+
+<p>
+At this node, guess which directions the three wires' currents take, labeling the three currents as I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>, respectively.  Bear in mind that these directions of current are speculative at this point.  Fortunately, if it turns out that any of our guesses were wrong, we will know when we mathematically solve for the currents (any &ldquo;wrong&rdquo; current directions will show up as negative numbers in our solution).
+</p>
+
+<p> <img src="00211.png"> </p>
+
+<p>
+Kirchhoff's Current Law (KCL) tells us that the algebraic sum of currents entering and exiting a node must equal zero, so we can relate these three currents (I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>) to each other in a single equation.  For the sake of convention, I'll denote any current <i>entering</i> the node as positive in sign, and any current <i>exiting</i> the node as negative in sign:
+</p>
+
+<p> <img src="10171.png"> </p>
+
+<p>
+The next step is to label all voltage drop polarities across resistors according to the assumed directions of the currents.  Remember that the &ldquo;upstream&rdquo; end of a resistor will always be negative, and the &ldquo;downstream&rdquo; end of a resistor positive with respect to each other, since electrons are negatively charged:
+</p>
+
+<p> <img src="00212.png"> </p> 
+
+<p>
+The battery polarities, of course, remain as they were according to their symbology (short end negative, long end positive).  It is OK if the polarity of a resistor's voltage drop doesn't match with the polarity of the nearest battery, so long as the resistor voltage polarity is correctly based on the assumed direction of current through it.  In some cases we may discover that current will be forced <i>backwards</i> through a battery, causing this very effect.  The important thing to remember here is to base all your resistor polarities and subsequent calculations on the directions of current(s) initially assumed.  As stated earlier, if your assumption happens to be incorrect, it will be apparent once the equations have been solved (by means of a negative solution).  The magnitude of the solution, however, will still be correct.
+</p>
+
+<p>
+Kirchhoff's Voltage Law (KVL) tells us that the algebraic sum of all voltages in a loop must equal zero, so we can create more equations with current terms (I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>) for our simultaneous equations.  To obtain a KVL equation, we must tally voltage drops in a loop of the circuit, as though we were measuring with a real voltmeter.  I'll choose to trace the left loop of this circuit first, starting from the upper-left corner and moving counter-clockwise (the choice of starting points and directions is arbitrary).  The result will look like this:
+</p>
+
+<p> <img src="00384.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00385.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00386.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00387.png"> </p>
+
+<p>
+Having completed our trace of the left loop, we add these voltage indications together for a sum of zero:
+</p>
+
+<p> <img src="10172.png"> </p>
+
+<p>
+Of course, we don't yet know what the voltage is across R<sub>1</sub> or R<sub>2</sub>, so we can't insert those values into the equation as numerical figures at this point.  However, we <i>do</i> know that all three voltages must algebraically add to zero, so the equation is true.  We can go a step further and express the unknown voltages as the product of the corresponding unknown currents (I<sub>1</sub> and I<sub>2</sub>) and their respective resistors, following Ohm's Law (E=IR), as well as eliminate the 0 term:
+</p>
+
+<p> <img src="10173.png"> </p>
+
+<p>
+Since we know what the values of all the resistors are in ohms, we can just substitute those figures into the equation to simplify things a bit:
+</p>
+
+<p> <img src="10174.png"> </p>
+
+<p>
+You might be wondering why we went through all the trouble of manipulating this equation from its initial form (-28 + E<sub>R2</sub> + E<sub>R1</sub>).  After all, the last two terms are still unknown, so what advantage is there to expressing them in terms of unknown voltages or as unknown currents (multiplied by resistances)?  The purpose in doing this is to get the KVL equation expressed using the <i>same unknown variables</i> as the KCL equation, for this is a necessary requirement for any simultaneous equation solution method.  To solve for three unknown currents (I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>), we must have three equations relating these three <i>currents</i> (not <i>voltages</i>!) together.
+</p>
+
+<p>
+Applying the same steps to the right loop of the circuit (starting at the chosen node and moving counter-clockwise), we get another KVL equation:
+</p>
+
+<p> <img src="00388.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00389.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00390.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00391.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="10175.png"> </p>
+
+<p>
+Knowing now that the voltage across each resistor can be and <i>should be</i> expressed as the product of the corresponding current and the (known) resistance of each resistor, we can re-write the equation as such:
+</p>
+
+<p> <img src="10176.png"> </p>
+
+<p>
+Now we have a mathematical system of three equations (one KCL equation and two KVL equations) and three unknowns:
+</p>
+
+<p> <img src="10177.png"> </p>
+
+<p>
+For some methods of solution (especially any method involving a calculator), it is helpful to express each unknown term in each equation, with any constant value to the right of the equal sign, and with any &ldquo;unity&rdquo; terms expressed with an explicit coefficient of 1.  Re-writing the equations again, we have:
+</p>
+
+<p> <img src="10178.png"> </p>
+
+<p>
+Using whatever solution techniques are available to us, we should arrive at a solution for the three unknown current values:
+</p>
+
+<p> <img src="10179.png"> </p>
+
+<p>
+So, I<sub>1</sub> is 5 amps, I<sub>2</sub> is 4 amps, and I<sub>3</sub> is a negative 1 amp.  But what does &ldquo;negative&rdquo; current mean?  In this case, it means that our <i>assumed</i> direction for I<sub>3</sub> was opposite of its <i>real</i> direction.  Going back to our original circuit, we can re-draw the current arrow for I<sub>3</sub> (and re-draw the polarity of R<sub>3</sub>'s voltage drop to match):
+</p>
+
+<p> <img src="00213.png"> </p>
+
+<p>
+Notice how current is being pushed backwards through battery 2 (electrons flowing &ldquo;up&rdquo;) due to the higher voltage of battery 1 (whose current is pointed &ldquo;down&rdquo; as it normally would)!  Despite the fact that battery B<sub>2</sub>'s polarity is trying to push electrons down in that branch of the circuit, electrons are being forced backwards through it due to the superior voltage of battery B<sub>1</sub>.  Does this mean that the stronger battery will always &ldquo;win&rdquo; and the weaker battery always get current forced through it backwards?  No!  It actually depends on both the batteries' relative voltages <i>and</i> the resistor values in the circuit.  The only sure way to determine what's going on is to take the time to mathematically analyze the network.
+</p>
+
+<p>
+Now that we know the magnitude of all currents in this circuit, we can calculate voltage drops across all resistors with Ohm's Law (E=IR):
+</p>
+
+<p> <img src="10180.png"> </p>
+
+<p>
+Let us now analyze this network using SPICE to verify our voltage figures.<a href="#spi.bibitem">[spi]</a>  We could analyze current as well with SPICE, but since that requires the insertion of extra components into the circuit, and because we know that if the voltages are all the same and all the resistances are the same, the currents <i>must</i> all be the same, I'll opt for the less complex analysis.  Here's a re-drawing of our circuit, complete with node numbers for SPICE to reference:
+</p>
+
+<p> <img src="00214.png"> </p>
+
+<br> </br>
+
+<pre>
+network analysis example   
+v1 1 0  
+v2 3 0 dc 7    
+r1 1 2 4      
+r2 2 0 2
+r3 2 3 1
+.dc v1 28 28 1  
+.print dc v(1,2) v(2,0) v(2,3)  
+.end    
+</pre>
+
+<br> </br>
+
+<pre>
+v1            v(1,2)      v(2)        v(2,3)          
+2.800E+01     2.000E+01   8.000E+00   1.000E+00
+</pre>
+
+<br> </br>
+
+<p>
+Sure enough, the voltage figures all turn out to be the same: 20 volts across R<sub>1</sub> (nodes 1 and 2), 8 volts across R<sub>2</sub> (nodes 2 and 0), and 1 volt across R<sub>3</sub> (nodes 2 and 3).  Take note of the signs of all these voltage figures: they're all positive values!  SPICE bases its polarities on the order in which nodes are listed, the first node being positive and the second node negative.  For example, a figure of positive (+) 20 volts between nodes 1 and 2 means that node 1 is positive with respect to node 2.  If the figure had come out negative in the SPICE analysis, we would have known that our actual polarity was &ldquo;backwards&rdquo; (node 1 negative with respect to node 2).  Checking the node orders in the SPICE listing, we can see that the polarities all match what we determined through the Branch Current method of analysis.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Steps to follow for the &ldquo;Branch Current&rdquo; method of analysis:</li>
+<li>(1) Choose a node and assume directions of currents.</li>
+<li>(2) Write a KCL equation relating currents at the node.</li>
+<li>(3) Label resistor voltage drop polarities based on assumed currents.</li>
+<li>(4) Write KVL equations for each loop of the circuit, substituting the product IR for E in each resistor term of the equations.</li>
+<li>(5) Solve for unknown branch currents (simultaneous equations).</li>
+<li>(6) If any solution is negative, then the assumed direction of current for that solution is wrong!</li>
+<li>(7) Solve for voltage drops across all resistors (E=IR).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33662">Mesh current method</a></u></h2>
+
+<a name="Analysis, Mesh Current method"></a>
+<a name="Mesh Current analysis"></a>
+<a name="Analysis, Loop Current method"></a>
+<a name="Loop Current analysis"></a>
+
+
+<p>
+The <i>Mesh Current Method</i>, also known as the   <i>Loop Current Method</i>, is quite similar to the Branch Current method in that it uses simultaneous equations, Kirchhoff's Voltage Law, and Ohm's Law to determine unknown currents in a network.  It differs from the Branch Current method in that it does <i>not</i> use Kirchhoff's Current Law, and it is usually able to solve a circuit with less unknown variables and less simultaneous equations, which is especially nice if you're forced to solve without a calculator.
+</p>
+
+
+<h3><u><a name="xtocid33663">Mesh Current, conventional method</a></u></h3>
+
+<p>
+Let's see how this method works on the same example problem:
+</p>
+
+<p> <img src="00209.png"> </p>
+
+<p>
+The first step in the Mesh Current method is to identify &ldquo;loops&rdquo; within the circuit encompassing all components.  In our example circuit, the loop formed by B<sub>1</sub>, R<sub>1</sub>, and R<sub>2</sub> will be the first while the loop formed by B<sub>2</sub>, R<sub>2</sub>, and R<sub>3</sub> will be the second.  The strangest part of the Mesh Current method is envisioning circulating currents in each of the loops.  In fact, this method gets its name from the idea of these currents meshing together between loops like sets of spinning gears:
+</p>
+
+<p> <img src="00215.png"> </p>
+
+<p>
+The choice of each current's direction is entirely arbitrary, just as in the Branch Current method, but the resulting equations are easier to solve if the currents are going the same direction through intersecting components (note how currents I<sub>1</sub> and I<sub>2</sub> are both going &ldquo;up&rdquo; through resistor R<sub>2</sub>, where they &ldquo;mesh,&rdquo; or intersect).  If the assumed direction of a mesh current is wrong, the answer for that current will have a negative value.
+</p>
+
+<a name="Voltage polarity"></a>
+
+<p>
+The next step is to label all voltage drop polarities across resistors according to the assumed directions of the mesh currents.  Remember that the &ldquo;upstream&rdquo; end of a resistor will always be negative, and the &ldquo;downstream&rdquo; end of a resistor positive with respect to each other, since electrons are negatively charged.  The battery polarities, of course, are dictated by their symbol orientations in the diagram, and may or may not &ldquo;agree&rdquo; with the resistor polarities (assumed current directions):
+</p>
+
+<p> <img src="00216.png"> </p>
+
+<p>
+Using Kirchhoff's Voltage Law, we can now step around each of these loops, generating equations representative of the component voltage drops and polarities.  As with the Branch Current method, we will denote a resistor's voltage drop as the product of the resistance (in ohms) and its respective mesh current (that quantity being unknown at this point).  Where two currents mesh together, we will write that term in the equation with resistor current being the <i>sum</i> of the two meshing currents.
+</p>
+
+<p>
+Tracing the left loop of the circuit, starting from the upper-left corner and moving counter-clockwise (the choice of starting points and directions is ultimately irrelevant), counting polarity as if we had a voltmeter in hand, red lead on the point ahead and black lead on the point behind, we get this equation:
+</p>
+
+<p> <img src="10181.png"> </p>
+
+<p>
+Notice that the middle term of the equation uses the sum of mesh currents I<sub>1</sub> and I<sub>2</sub> as the current through resistor R<sub>2</sub>.  This is because mesh currents I<sub>1</sub> and I<sub>2</sub> are going the same direction through R<sub>2</sub>, and thus complement each other.  Distributing the coefficient of 2 to the I<sub>1</sub> and I<sub>2</sub> terms, and then combining I<sub>1</sub> terms in the equation, we can simplify as such:
+</p>
+
+<p> <img src="10182.png"> </p>
+
+<p>
+At this time we have one equation with two unknowns.  To be able to solve for two unknown mesh currents, we must have two equations.  If we trace the other loop of the circuit, we can obtain another KVL equation and have enough data to solve for the two currents.  Creature of habit that I am, I'll start at the upper-left hand corner of the right loop and trace counter-clockwise:
+</p>
+
+<p> <img src="10183.png"> </p>
+
+<p>
+Simplifying the equation as before, we end up with:
+</p>
+
+<p> <img src="10184.png"> </p>
+
+<p>
+Now, with two equations, we can use one of several methods to mathematically solve for the unknown currents I<sub>1</sub> and I<sub>2</sub>:
+</p>
+
+<p> <img src="10185.png"> </p>
+
+<p>
+Knowing that these solutions are values for <i>mesh</i> currents, not <i>branch</i> currents, we must go back to our diagram to see how they fit together to give currents through all components:
+</p>
+
+<p> <img src="00217.png"> </p>
+
+<p>
+The solution of -1 amp for I<sub>2</sub> means that our initially assumed direction of current was incorrect.  In actuality, I<sub>2</sub> is flowing in a counter-clockwise direction at a value of (positive) 1 amp:
+</p>
+
+<p> <img src="00218.png"> </p>
+
+<p>
+This change of current direction from what was first assumed will alter the polarity of the voltage drops across R<sub>2</sub> and R<sub>3</sub> due to current I<sub>2</sub>.  From here, we can say that the current through R<sub>1</sub> is 5 amps, with the voltage drop across R<sub>1</sub> being the product of current and resistance (E=IR), 20 volts (positive on the left and negative on the right).  Also, we can safely say that the current through R<sub>3</sub> is 1 amp, with a voltage drop of 1 volt (E=IR), positive on the left and negative on the right.  But what is happening at R<sub>2</sub>?
+</p>
+
+<p>
+Mesh current I<sub>1</sub> is going &ldquo;up&rdquo; through R<sub>2</sub>, while mesh current I<sub>2</sub> is going &ldquo;down&rdquo; through R<sub>2</sub>.  To determine the actual current through R<sub>2</sub>, we must see how mesh currents I<sub>1</sub> and I<sub>2</sub> interact (in this case they're in opposition), and algebraically add them to arrive at a final value.  Since I<sub>1</sub> is going &ldquo;up&rdquo; at 5 amps, and I<sub>2</sub> is going &ldquo;down&rdquo; at 1 amp, the <i>real</i> current through R<sub>2</sub> must be a value of 4 amps, going &ldquo;up:&rdquo;
+</p>
+
+<p> <img src="00219.png"> </p>
+
+<p>
+A current of 4 amps through R<sub>2</sub>'s resistance of 2 &#937; gives us a voltage drop of 8 volts (E=IR), positive on the top and negative on the bottom.
+</p>
+
+<p>
+The primary advantage of Mesh Current analysis is that it generally allows for the solution of a large network with fewer unknown values and fewer simultaneous equations.  Our example problem took three equations to solve the Branch Current method and only two equations using the Mesh Current method.  This advantage is much greater as networks increase in complexity:
+</p>
+
+<p> <img src="00220.png"> </p>
+
+<p>
+To solve this network using Branch Currents, we'd have to establish five variables to account for each and every unique current in the circuit (I<sub>1</sub> through I<sub>5</sub>).  This would require five equations for solution, in the form of two KCL equations and three KVL equations (two equations for KCL at the nodes, and three equations for KVL in each loop):
+</p>
+
+<p> <img src="00221.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="10186.png"> </p>
+
+<p>
+I suppose if you have nothing better to do with your time than to solve for five unknown variables with five equations, you might not mind using the Branch Current method of analysis for this circuit.  For those of us who <i>have</i> better things to do with our time, the Mesh Current method is a whole lot easier, requiring only three unknowns and three equations to solve:
+</p>
+
+<p> <img src="00222.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="10187.png"> </p>
+
+<p>
+Less equations to work with is a decided advantage, especially when performing simultaneous equation solution by hand (without a calculator).
+</p>
+
+<a name="Wheatstone bridge, unbalanced"></a>
+
+<p>
+Another type of circuit that lends itself well to Mesh Current is the unbalanced Wheatstone Bridge.  Take this circuit, for example:
+</p>
+
+<p> <img src="00485.png"> </p> 
+
+<p>
+Since the ratios of R<sub>1</sub>/R<sub>4</sub> and R<sub>2</sub>/R<sub>5</sub> are unequal, we know that there will be voltage across resistor R<sub>3</sub>, and some amount of current through it.  As discussed at the beginning of this chapter, this type of circuit is irreducible by normal series-parallel analysis, and may only be analyzed by some other method.
+</p>
+
+<p>
+We could apply the Branch Current method to this circuit, but it would require <i>six</i> currents (I<sub>1</sub> through I<sub>6</sub>), leading to a very large set of simultaneous equations to solve.  Using the Mesh Current method, though, we may solve for all currents and voltages with much fewer variables.
+</p>
+
+<p>
+The first step in the Mesh Current method is to draw just enough mesh currents to account for all components in the circuit.  Looking at our bridge circuit, it should be obvious where to place two of these currents:
+</p>
+
+<p> <img src="00486.png"> </p> 
+
+<p>
+The directions of these mesh currents, of course, is arbitrary.  However, two mesh currents is not enough in this circuit, because neither I<sub>1</sub> nor I<sub>2</sub> goes through the battery.  So, we must add a third mesh current, I<sub>3</sub>:
+</p>
+
+<p> <img src="00487.png"> </p> 
+
+<p>
+Here, I have chosen I<sub>3</sub> to loop from the bottom side of the battery, through R<sub>4</sub>, through R<sub>1</sub>, and back to the top side of the battery.  This is not the only path I could have chosen for I<sub>3</sub>, but it seems the simplest.
+</p>
+
+<p>
+Now, we must label the resistor voltage drop polarities, following each of the assumed currents' directions:
+</p>
+
+<p> <img src="00488.png"> </p> 
+
+<p>
+Notice something very important here: at resistor R<sub>4</sub>, the polarities for the respective mesh currents do not agree.  This is because those mesh currents (I<sub>2</sub> and I<sub>3</sub>) are going through R<sub>4</sub> in different directions.  This does not preclude the use of the Mesh Current method of analysis, but it does complicate it a bit. Though later, we will show how to avoid the R<sub>4</sub> current clash. (See Example below)
+
+</p>
+
+<p>
+Generating a KVL equation for the top loop of the bridge, starting from the top node and tracing in a clockwise direction:
+</p>
+
+<p> <img src="10272.png"> </p> 
+
+<p>
+In this equation, we represent the common directions of currents by their <i>sums</i> through common resistors.  For example, resistor R<sub>3</sub>, with a value of 100 &#937;, has its voltage drop represented in the above KVL equation by the expression 100(I<sub>1</sub> + I<sub>2</sub>), since both currents I<sub>1</sub> and I<sub>2</sub> go through R<sub>3</sub> from right to left.  The same may be said for resistor R<sub>1</sub>, with its voltage drop expression shown as 150(I<sub>1</sub> + I<sub>3</sub>), since both I<sub>1</sub> and I<sub>3</sub> go from bottom to top through that resistor, and thus work <i>together</i> to generate its voltage drop.
+</p>
+
+<p>
+Generating a KVL equation for the bottom loop of the bridge will not be so easy, since we have two currents going against each other through resistor R<sub>4</sub>.  Here is how I do it (starting at the right-hand node, and tracing counter-clockwise):
+</p>
+
+<p> <img src="10273.png"> </p> 
+
+<p>
+Note how the second term in the equation's original form has resistor R<sub>4</sub>'s value of 300 &#937; multiplied by the <i>difference</i> between I<sub>2</sub> and I<sub>3</sub> (I<sub>2</sub> - I<sub>3</sub>).  This is how we represent the combined effect of two mesh currents going in opposite directions through the same component.  Choosing the appropriate mathematical signs is very important here: 300(I<sub>2</sub> - I<sub>3</sub>) does not mean the same thing as 300(I<sub>3</sub> - I<sub>2</sub>).  I chose to write 300(I<sub>2</sub> - I<sub>3</sub>) because I was thinking first of I<sub>2</sub>'s effect (creating a positive voltage drop, measuring with an imaginary voltmeter across R<sub>4</sub>, red lead on the bottom and black lead on the top), and secondarily of I<sub>3</sub>'s effect (creating a negative voltage drop, red lead on the bottom and black lead on the top).  If I had thought in terms of I<sub>3</sub>'s effect first and I<sub>2</sub>'s effect secondarily, holding my imaginary voltmeter leads in the same positions (red on bottom and black on top), the expression would have been -300(I<sub>3</sub> - I<sub>2</sub>).  Note that this expression <i>is</i> mathematically equivalent to the first one: +300(I<sub>2</sub> - I<sub>3</sub>).
+</p>
+
+<p>
+Well, that takes care of two equations, but I still need a third equation to complete my simultaneous equation set of three variables, three equations.  This third equation must also include the battery's voltage, which up to this point does not appear in either two of the previous KVL equations.  To generate this equation, I will trace a loop again with my imaginary voltmeter starting from the battery's bottom (negative) terminal, stepping clockwise (again, the direction in which I step is arbitrary, and does not need to be the same as the direction of the mesh current in that loop):
+</p>
+
+<p> <img src="10274.png"> </p> 
+
+<p>
+Solving for I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> using whatever simultaneous equation method we prefer:
+</p>
+
+<p> <img src="10275.png"> </p> 
+
+<p>
+<b>Example:</b>
+</p>
+
+<p>
+Use Octave to find the solution  for I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> from the above simplified form of equations. <a href="#octav.bibitem">[octav]</a> 
+</p>
+
+
+<p><b>Solution:</b></p>
+<p>
+In Octave, an open source Matlab&#174; clone, enter the coefficients into the A matrix between square brackets  with column elements comma separated, and rows semicolon separated.<a href="#octav.bibitem">[octav]</a>  Enter the voltages into the column vector: b. The unknown currents: I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> are calculated by the command: x=A\b. These are contained within the x column vector.
+</p>
+
+<pre>
+&nbsp;
+&nbsp;       octave:1>A = [300,100,150;100,650,-300;-150,300,-450]
+&nbsp;       A =
+&nbsp;         300  100  150
+&nbsp;         100  650  -300
+&nbsp;         -150 300  -450
+&nbsp;
+&nbsp;       octave:2> b = [0;0;-24]
+&nbsp;       b =
+&nbsp;         0
+&nbsp;         0
+&nbsp;         -24
+&nbsp;              
+&nbsp;       octave:3> x = A\b
+&nbsp;       x =
+&nbsp;         -0.093793
+&nbsp;          0.077241
+&nbsp;          0.136092
+</pre>
+
+
+
+
+<p>
+The negative value arrived at for I<sub>1</sub> tells us that the assumed direction for that mesh current was incorrect.  Thus, the actual current values through each resistor is as such:
+</p>
+
+<p> <img src="00489.png"> </p> 
+
+<p>
+Calculating voltage drops across each resistor:
+</p>
+
+<p> <img src="00490.png"> </p> 
+
+<p>
+A SPICE simulation confirms the accuracy of our voltage calculations:<a href="#spi.bibitem">[spi]</a>
+</p>
+
+<p> <img src="00491.png"> </p> 
+
+<br> </br>
+
+<pre>
+unbalanced wheatstone bridge   
+v1 1 0  
+r1 1 2 150      
+r2 1 3 50       
+r3 2 3 100      
+r4 2 0 300      
+r5 3 0 250      
+.dc v1 24 24 1  
+.print dc v(1,2) v(1,3) v(3,2) v(2,0) v(3,0)    
+.end    
+</pre>
+
+<br> </br>
+
+<pre>
+v1            v(1,2)      v(1,3)      v(3,2)      v(2)        v(3)            
+2.400E+01     6.345E+00   4.690E+00   1.655E+00   1.766E+01   1.931E+01
+</pre>
+
+
+<p>
+<b>Example:</b>
+</p>
+
+<p>
+(a) Find a new path for current I<sub>3</sub> that does not produce a conflicting polarity on any resistor compared to I<sub>1</sub> or  I<sub>2</sub>. R<sub>4</sub> was the offending component. (b) Find values for  I<sub>1</sub>, I<sub>2</sub>,  and I<sub>3</sub>. (c) Find the five resistor currents and compare to the previous values.
+</p>
+
+
+<p>
+<b>Solution: </b><a href="#dvn.bibitem">[dvn]</a>
+</p>
+
+<p>
+(a) Route I<sub>3</sub> through R<sub>5</sub>, R<sub>3</sub> and R<sub>1</sub> as shown:
+</p>
+
+<p> <img src="00494.png"> </p>
+<p>
+Note that the conflicting polarity on R<sub>4</sub> has been removed. Moreover, none of the other resistors have conflicting polarities. 
+
+</p>
+
+
+<p>
+(b) Octave, an open source (free) matlab clone, yields a mesh current vector at &ldquo;x&rdquo;:<a href="#octav.bibitem">[octav]</a>
+</p>
+
+<pre>
+&nbsp;       octave:1> A = [300,100,250;100,650,350;-250,-350,-500]
+&nbsp;       A =
+&nbsp;         300  100  250
+&nbsp;         100  650  350
+&nbsp;         -250  -350  -500
+      
+&nbsp;       octave:2> b = [0;0;-24]
+&nbsp;       b =
+&nbsp;         0
+&nbsp;         0
+&nbsp;       -24
+              
+&nbsp;       octave:3> x = A\b
+&nbsp;       x =
+&nbsp;         -0.093793
+&nbsp;         -0.058851
+&nbsp;          0.136092
+</pre>
+
+<p>
+Not all currents I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> are the same (I<sub>2</sub>) as the previous bridge because of different loop paths
+However, the resistor currents  compare to the previous values:
+</p>
+
+<pre>
+&nbsp;       I<sub>R1</sub> = I<sub>1</sub> + I<sub>3</sub> = -93.793 ma + 136.092 ma = 42.299 ma
+&nbsp;       I<sub>R2</sub> = I<sub>1</sub> = -93.793 ma
+&nbsp;       I<sub>R3</sub> = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub> = -93.793 ma -58.851 ma  + 136.092 ma =  -16.552 ma
+&nbsp;       I<sub>R4</sub> = I<sub>2</sub> = -58.851 ma
+&nbsp;       I<sub>R5</sub> = I<sub>2</sub> + I<sub>3</sub> = -58.851 ma  + 136.092 ma = 77.241 ma
+</pre>
+
+<p>
+Since the resistor currents are the same as the previous values, the resistor voltages will be identical and need not be calculated again.
+</p>
+
+
+<br> </br>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Steps to follow for the &ldquo;Mesh Current&rdquo; method of analysis:</li>
+<li>(1) Draw mesh currents in loops of circuit, enough to account for all components.</li>
+<li>(2) Label resistor voltage drop polarities based on assumed directions of mesh currents.</li>
+<li>(3) Write KVL equations for each loop of the circuit, substituting the product IR for E in each resistor term of the equation.  Where two mesh currents intersect through a component, express the current as the algebraic sum of those two mesh currents (i.e. I<sub>1</sub> + I<sub>2</sub>) if the currents go in the same direction through that component.  If not, express the current as the difference (i.e. I<sub>1</sub> - I<sub>2</sub>).</li>
+<li>(4) Solve for unknown mesh currents (simultaneous equations).</li>
+<li>(5) If any solution is negative, then the assumed current direction is wrong!</li>
+<li>(6) Algebraically add mesh currents to find current in components sharing multiple mesh currents.</li>
+<li>(7) Solve for voltage drops across all resistors (E=IR).</li>
+</ul>
+
+
+
+
+
+<h3><u><a name="xtocid33664">Mesh current by inspection</a></u></h3>
+
+<p>
+We take a second look at the &ldquo;mesh current method&rdquo; with all the currents running counterclockwise (ccw). The motivation is to simplify the writing of mesh equations by ignoring the resistor voltage drop polarity. Though, we must pay attention to the polarity of voltage sources with respect to assumed current direction. The sign of the resistor voltage drops will follow a fixed pattern.
+</p>
+
+<p>
+If we write a set of conventional  mesh current equations for the circuit below, where we do pay attention to the signs of the voltage drop across the resistors, we may rearrange the coefficients into a fixed pattern:
+</p>
+
+<p> <img src="00501.png"> </p>
+
+<p>
+Once rearranged, we may write equations by inspection. The signs of the coefficients follow a fixed pattern in the pair above, or the set of three in the rules below.
+</p>
+
+<ul>
+<li><b>Mesh current rules:</b></li>
+<li>This method assumes electron flow (not conventional current flow) voltage sources.  Replace any current source in parallel with a resistor with an equivalent voltage source in series with an equivalent resistance.</li>
+<li>Ignoring current direction or voltage polarity on resistors, draw counterclockwise current loops traversing all components. Avoid nested loops.</li>
+<li>Write voltage-law equations in terms of unknown currents currents: I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>. Equation 1 coefficient 1, equation 2, coefficient 2, and equation 3 coefficient 3 are the positive sums of resistors around the respective loops.
+<li>All other coefficients are negative, representative of the resistance common to a pair of loops. Equation 1 coefficient 2 is the resistor common to loops 1 and 2, coefficient 3 the resistor common to loops 1 an 3. Repeat for other equations and coefficients.</li>
+<pre>
+&nbsp; +(sum of R's loop 1)I<sub>1</sub> - (common R loop 1-2)I<sub>2</sub> - (common R loop 1-3)I<sub>3</sub>   = E<sub>1</sub>
+&nbsp; -(common R loop 1-2)I<sub>1</sub> + (sum of R's loop 2)I<sub>2</sub> - (common R loop 2-3)I<sub>3</sub>   = E<sub>2</sub>
+&nbsp; -(common R loop 1-3)I<sub>1</sub> - (common R loop 2-3)I<sub>2</sub> + (sum of R's loop 3)I<sub>3</sub>   = E<sub>3</sub>
+</pre>
+</li>
+<li>The right hand side of the equations is equal to any electron current flow voltage source. A voltage rise with respect to the counterclockwise assumed current is positive, and 0 for no voltage source.</li>
+<li>Solve equations for mesh currents:I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub>   . Solve for  currents through individual resistors with KCL. Solve for voltages with Ohms Law and KVL.</li>
+</ul>
+
+
+<p>
+While the above rules are specific for a three mesh circuit, the rules may be extended to smaller or larger meshes. The figure below illustrates the application of the rules. The three currents are all drawn in the same direction, counterclockwise.  One  KVL equation is written for each of the three loops. Note that there is no polarity drawn on the resistors. We do not need it to determine the signs of the coefficients. Though we do need to pay attention to the polarity of the voltage source with respect to current direction. The I<sub>3</sub>counterclockwise current traverses the 24V source from (+) to (-). This is a voltage rise for electron current flow. Therefore, the third equation right hand side is +24V.
+</p>
+
+<p> <img src="00495.png"> </p>
+
+
+
+<p>
+In Octave, enter the coefficients into the A matrix with column elements comma separated, and rows semicolon separated. Enter the voltages into the column vector b. Solve for the  unknown currents: I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> with the command: x=A\b. These currents are contained within the x column vector. The positive values indicate that the three mesh currents all flow in the assumed counterclockwise direction.
+</p>
+
+<pre>
+&nbsp;          octave:2> A=[300,-100,-150;-100,650,-300;-150,-300,450]
+&nbsp;          A =
+&nbsp;            300  -100  -150
+&nbsp;            -100  650  -300
+&nbsp;            -150  -300  450
+
+&nbsp;          octave:3> b=[0;0;24]
+&nbsp;          b =
+&nbsp;             0
+&nbsp;             0
+&nbsp;            24
+
+&nbsp;          octave:4> x=A\b
+&nbsp;          x =
+&nbsp;            0.093793
+&nbsp;            0.077241
+&nbsp;            0.136092
+</pre>
+
+
+<p>
+The mesh currents  match the previous solution by a different mesh current method.. The calculation of resistor voltages and currents will be identical to the previous solution. No need to repeat here.
+</p>
+
+<p>
+Note that electrical engineering texts are based on conventional current flow. The loop-current, mesh-current method in those text will run the assumed mesh currents <b>clockwise</b>.<a href="#aef.bibitem">[aef]</a> The conventional current flows out the (+) terminal of the battery through the circuit, returning to the (-) terminal. A conventional current voltage rise corresponds to tracing the assumed current from (-) to (+) through any voltage sources.
+</p>
+
+
+<p>
+One more example of a previous circuit follows. The resistance around loop 1 is 6 &#937;, around loop 2: 3 &#937;. The resistance common to both loops is 2 &#937;. Note the coefficients of I<sub>1</sub> and I<sub>2</sub> in the pair of equations. Tracing the assumed counterclockwise loop 1 current through B<sub>1</sub> from (+) to (-) corresponds to an electron current flow voltage rise. Thus, the sign of the 28 V is positive. The loop 2 counter clockwise assumed current traces (-) to (+) through B<sub>2</sub>, a voltage drop. Thus, the sign of B<sub>2</sub> is negative, -7 in the 2nd mesh equation. Once again, there are no polarity markings on the resistors. Nor do they figure into the equations.
+</p>
+
+<p> <img src="00496.png"> </p>
+
+<p>
+The currents I<sub>1</sub> = 5 A, and I<sub>2</sub> = 1 A are both positive. They both flow in the direction of the counterclockwise loops. This compares with previous results.
+</p>
+
+
+<ul>
+<li><b>Summary:</b></li>
+<li>The modified mesh-current method avoids having to determine the signs of the equation coefficients by drawing all mesh currents counterclockwise for electron current flow.</li>
+<li>However, we do need to determine the sign of any voltage sources in the loop. The voltage source is positive if the assumed ccw  current flows with the battery (source). The sign is negative if the assumed ccw current flows against the battery.</li>
+<li>See rules above for details.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33665">Node voltage method </a></u></h2>
+
+<a name="Node voltage analysis"></a>
+<a name="Analysis, node voltage"></a>
+
+
+<p>
+The node voltage method of analysis solves for unknown voltages at circuit nodes in terms of a system of KCL equations. This analysis looks strange because it involves replacing voltage sources with equivalent current sources. Also, resistor values in ohms  are replaced by equivalent conductances in siemens, G = 1/R. The siemens (S) is the unit of conductance, having replaced the mho unit. In any event S = &#937;<sup>-1</sup>. And S = mho (obsolete). 
+</p>
+
+
+<p>
+We start with a circuit having conventional voltage sources. A common node E<sub>0</sub> is chosen as a reference point. The node voltages  E<sub>1</sub> and E<sub>2</sub>  are  calculated with respect to this point.
+</p>
+
+<p> <img src="00497.png"> </p>
+
+<p>
+A voltage source in series with a  resistance must be replaced by an equivalent current source in parallel with the resistance. We will write KCL equations for each node. The right hand side of the equation is the value of the current source feeding the node.
+</p>
+
+<p> <img src="00498.png"> </p>
+
+
+
+
+<p>
+Replacing  voltage sources and associated  series resistors with equivalent current sources and parallel resistors yields the modified circuit.  Substitute  resistor conductances in siemens for resistance in ohms.
+
+</p>
+
+<pre>
+&nbsp;          I<sub>1</sub> = E<sub>1</sub>/R<sub>1</sub> = 10/2 = 5 A
+&nbsp;          I<sub>2</sub> = E<sub>2</sub>/R<sub>5</sub> = 4/1  = 4 A
+&nbsp;          G<sub>1</sub> = 1/R<sub>1</sub> = 1/2 &#937;   = 0.5 S
+&nbsp;          G<sub>2</sub> = 1/R<sub>2</sub> = 1/4 &#937;   = 0.25 S
+&nbsp;          G<sub>3</sub> = 1/R<sub>3</sub> = 1/2.5 &#937; = 0.4 S
+&nbsp;          G<sub>4</sub> = 1/R<sub>4</sub> = 1/5 &#937;   = 0.2 S
+&nbsp;          G<sub>5</sub> = 1/R<sub>5</sub> = 1/1 &#937;   = 1.0 S
+</pre>
+
+<p> <img src="00499.png"> </p>
+
+<p>
+The Parallel conductances (resistors) may be combined by addition of the conductances. Though, we will not redraw the circuit. The circuit is ready for application of the node voltage method.
+</p>
+
+<pre>
+&nbsp;          G<sub>A</sub> = G<sub>1</sub> + G<sub>2</sub> = 0.5 S + 0.25 S = 0.75 S
+&nbsp;          G<sub>B</sub> = G<sub>4</sub> + G<sub>5</sub> = 0.2 S + 1 S = 1.2 S 
+</pre>
+
+
+<p>
+Deriving a general node voltage method, we write a pair of KCL equations in terms of unknown node voltages V<sub>1</sub> and V<sub>2</sub> this one time. We do this to illustrate a pattern for writing equations by inspection.
+</p>
+
+
+<pre>
+&nbsp;          G<sub>A</sub>E<sub>1</sub> + G<sub>3</sub>(E<sub>1</sub> - E<sub>2</sub>) = I<sub>1</sub>             (1)
+&nbsp;          G<sub>B</sub>E<sub>2</sub> - G<sub>3</sub>(E<sub>1</sub> - E<sub>2</sub>) = I<sub>2</sub>             (2)
+
+
+&nbsp;          (G<sub>A</sub> + G<sub>3</sub> )E<sub>1</sub>         -G<sub>3</sub>E<sub>2</sub> = I<sub>1</sub>     (1)
+&nbsp;                 -G<sub>3</sub>E<sub>1</sub> + (G<sub>B</sub> + G<sub>3</sub>)E<sub>2</sub> = I<sub>2</sub>     (2)
+</pre>
+
+<p>
+The coefficients of the last pair of equations above have been rearranged to show  a pattern. The sum of conductances connected to the first node is the positive coefficient of the first voltage in equation (1). The sum of conductances connected to the second node is the positive coefficient of the second voltage in equation (2). The other coefficients are negative, representing  conductances between nodes. For both equations, the right hand side is equal to the respective  current source connected to the node. This pattern allows us to quickly write the equations by inspection.  This leads to a set of rules for the node voltage method of analysis.
+</p>
+
+
+<ul>
+<li><b>Node voltage rules:</b></li>
+<li>Convert voltage sources in series with a resistor to an equivalent current source with the resistor in parallel.</li>
+<li>Change resistor values to conductances.</li>
+<li>Select a reference node(E<sub>0</sub>)</li>
+<li>Assign unknown voltages (E<sub>1</sub>)(E<sub>2</sub>) ... (E<sub>N</sub>)to remaining nodes.</li>
+<li>Write a KCL equation for each node 1,2, ... N. The positive coefficient of the first voltage in the first equation is the sum of conductances connected to the node. The coefficient for the second voltage in the second equation is the sum of conductances connected to that node. Repeat for coefficient of third voltage, third equation, and other equations. These coefficients fall on a diagonal.</li>
+<li>All other coefficients for all equations are negative, representing conductances between nodes. The first equation, second coefficient is the conductance from node 1 to node 2, the third coefficient is the conductance from node 1 to node 3. Fill in negative coefficients for other equations.</li>
+<li>The right hand side of the equations is the current source connected to the respective nodes.</li>
+<li>Solve system of equations for unknown node voltages.</li>
+</ul>
+
+<p>
+<b>Example:</b> Set up the equations and solve for the node voltages using the numerical values in the above figure.
+</p>
+
+
+<p>
+<b>Solution:</b>
+</p>
+
+
+<pre>
+&nbsp;          (0.5+0.25+0.4)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5 
+&nbsp;         -(0.4)E<sub>1</sub> +(0.4+0.2+1.0)E<sub>2</sub> = -4
+&nbsp;          (1.15)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5 
+&nbsp;         -(0.4)E<sub>1</sub> +(1.6)E<sub>2  </sub> = -4
+&nbsp;          E<sub>1</sub> =  3.8095
+&nbsp;          E<sub>2</sub> = -1.5476
+</pre>
+
+
+<p>
+The solution of two equations can be performed with a calculator, or with octave (not shown).<a href="#octav.bibitem">[octav]</a> 
+<!--Split, cannot handle two cites in one line, split line with.-->
+The solution is verified with SPICE based on the original schematic diagram with voltage sources. <a href="#spi.bibitem">[spi]</a> Though, the circuit with the current sources could have been simulated.
+</p>
+
+
+
+<pre>
+&nbsp;          V1 11 0 DC 10
+&nbsp;          V2 22 0 DC -4
+&nbsp;          r1 11 1 2
+&nbsp;          r2 1 0 4
+&nbsp;          r3 1 2 2.5
+&nbsp;          r4 2 0 5
+&nbsp;          r5 2 22 1
+&nbsp;          .DC V1 10 10 1 V2 -4 -4 1 
+&nbsp;          .print DC V(1) V(2)
+&nbsp;          .end
+
+&nbsp;               v(1)            v(2)
+&nbsp;           3.809524e+00    -1.547619e+00
+</pre>
+
+
+<p>
+One more example. This one has three nodes.  We do not list the conductances on the schematic diagram. However, G<sub>1</sub> = 1/R<sub>1</sub>, etc.
+
+</p>
+
+<p> <img src="00500.png"> </p>
+
+<p>
+There are three nodes to write equations for by inspection. Note that the coefficients are positive for equation (1) E<sub>1</sub>, equation (2) E<sub>2</sub>, and equation (3) E<sub>3</sub>. These are the sums of all conductances connected to the nodes. All other coefficients are negative, representing a conductance between nodes. The right hand side of the equations is the associated current source, 0.136092 A for the only current source at node 1. The other equations are zero on the right hand side for lack of current sources.  We are too lazy to calculate the conductances for the resistors on the diagram. Thus, the subscripted G's are the coefficients.
+</p>
+
+
+<pre>
+&nbsp;          (G<sub>1</sub> + G<sub>2</sub>)E<sub>1</sub>              -G<sub>1</sub>E<sub>2</sub>             -G<sub>2</sub>E<sub>3</sub>      = 0.136092
+&nbsp;                -G<sub>1</sub>E<sub>1</sub>  +(G<sub>1</sub> + G<sub>3</sub> + G<sub>4</sub>)E<sub>2</sub>             -G<sub>3</sub>E<sub>3</sub>      = 0
+&nbsp;                -G<sub>2</sub>E<sub>1</sub>              -G<sub>3</sub>E<sub>2</sub> +(G<sub>2</sub> + G<sub>3</sub> + G<sub>5</sub>)E<sub>3</sub>      = 0
+</pre>
+
+<p>
+We are so lazy that we enter reciprocal resistances and sums of reciprocal resistances into the octave &ldquo;A&rdquo; matrix, letting octave compute the matrix of conductances after &ldquo;A=&rdquo;.<a href="#octav.bibitem">[octav]</a> The initial entry line was so long that it was split into three rows. This is different than previous examples. The entered &ldquo;A&rdquo; matrix is delineated by starting and ending square brackets. Column elements are space separated. Rows are &ldquo;new line&rdquo; separated. Commas and semicolons are not need as separators. Though, the current vector at &ldquo;b&rdquo; is semicolon separated to yield a column vector of currents.
+</p>
+
+
+<pre>
+&nbsp;          octave:12> A = [1/150+1/50 -1/150 -1/50
+&nbsp;          > -1/150 1/150+1/100+1/300 -1/100
+&nbsp;          > -1/50 -1/100 1/50+1/100+1/250]
+&nbsp;          A =
+&nbsp;             0.0266667  -0.0066667  -0.0200000
+&nbsp;            -0.0066667   0.0200000  -0.0100000
+&nbsp;            -0.0200000  -0.0100000   0.0340000
+
+&nbsp;          octave:13> b = [0.136092;0;0]
+&nbsp;          b =
+&nbsp;             0.13609
+&nbsp;             0.00000
+&nbsp;             0.00000
+
+&nbsp;          octave:14> x=A\b
+&nbsp;          x =
+&nbsp;             24.000
+&nbsp;             17.655
+&nbsp;             19.310
+</pre>
+
+
+<p>
+Note that the &ldquo;A&rdquo; matrix diagonal coefficients are positive, That all other coefficients are negative.
+</p>
+
+<p>
+The solution as a voltage vector is at &ldquo;x&rdquo;. E<sub>1</sub> = 24.000 V,  E<sub>2</sub> = 17.655 V, E<sub>3</sub> = 19.310 V.  These three voltages compare to the previous mesh current and SPICE solutions to the unbalanced bridge problem. This is no coincidence, for the 0.13609 A current source was purposely chosen to yield the 24 V used as a voltage source in that problem.
+</p>
+
+
+<ul>
+<li>Summary</li>
+<li>Given a network of conductances and current sources, the  node voltage method of circuit analysis solves for unknown node voltages from KCL equations.</li>
+<li>See rules above for details in writing the equations by inspection.</li>
+<li>The unit of conductance G is the siemens S. Conductance is the reciprocal of resistance: G = 1/R</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33666">Introduction to network theorems</a></u></h2>
+
+<a name="Network theorem"></a>
+<a name="Theorem, network"></a>
+
+<p>
+Anyone who's studied geometry should be familiar with the concept of a <i>theorem</i>: a relatively simple rule used to solve a problem, derived from a more intensive analysis using fundamental rules of mathematics.  At least hypothetically, any problem in math can be solved just by using the simple rules of arithmetic (in fact, this is how modern digital computers carry out the most complex mathematical calculations: by repeating many cycles of additions and subtractions!), but human beings aren't as consistent or as fast as a digital computer.  We need &ldquo;shortcut&rdquo; methods in order to avoid procedural errors.
+</p>
+
+<p>
+In electric network analysis, the fundamental rules are Ohm's Law and Kirchhoff's Laws.  While these humble laws may be applied to analyze just about any circuit configuration (even if we have to resort to complex algebra to handle multiple unknowns), there are some &ldquo;shortcut&rdquo; methods of analysis to make the math easier for the average human.
+</p>
+
+<p>
+As with any theorem of geometry or algebra, these network theorems are derived from fundamental rules.  In this chapter, I'm not going to delve into the formal proofs of any of these theorems.  If you doubt their validity, you can always empirically test them by setting up example circuits and calculating values using the &ldquo;old&rdquo; (simultaneous equation) methods versus the &ldquo;new&rdquo; theorems, to see if the answers coincide.  They always should!
+</p>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33667">Millman's Theorem</a></u></h2>
+
+<a name="Millman's Theorem"></a>
+<a name="Theorem, Millman's"></a>
+
+<p>
+In Millman's Theorem, the circuit is re-drawn as a parallel network of branches, each branch containing a resistor or series battery/resistor combination.  Millman's Theorem is applicable only to those circuits which can be re-drawn accordingly.  Here again is our example circuit used for the last two analysis methods:
+</p>
+
+<p> <img src="00209.png"> </p>
+
+<p>
+And here is that same circuit, re-drawn for the sake of applying Millman's Theorem:
+</p>
+
+<p> <img src="00223.png"> </p>
+
+<p>
+By considering the supply voltage within each branch and the resistance within each branch, Millman's Theorem will tell us the voltage across all branches.  Please note that I've labeled the battery in the rightmost branch as &ldquo;B<sub>3</sub>&rdquo; to clearly denote it as being in the third branch, even though there is no &ldquo;B<sub>2</sub>&rdquo; in the circuit!
+</p>
+
+<p>
+Millman's Theorem is nothing more than a long equation, applied to any circuit drawn as a set of parallel-connected branches, each branch with its own voltage source and series resistance:
+</p>
+
+<p> <img src="10188.png"> </p>
+ 
+<p>
+Substituting actual voltage and resistance figures from our example circuit for the variable terms of this equation, we get the following expression:
+</p>
+
+<p> <img src="10189.png"> </p>
+
+<p>
+The final answer of 8 volts is the voltage seen across all parallel branches, like this:
+</p>
+
+<p> <img src="00224.png"> </p>
+
+<p>
+The polarity of all voltages in Millman's Theorem are referenced to the same point.  In the example circuit above, I used the bottom wire of the parallel circuit as my reference point, and so the voltages within each branch (28 for the R<sub>1</sub> branch, 0 for the R<sub>2</sub> branch, and 7 for the R<sub>3</sub> branch) were inserted into the equation as positive numbers.  Likewise, when the answer came out to 8 volts (positive), this meant that the top wire of the circuit was positive with respect to the bottom wire (the original point of reference).  If both batteries had been connected backwards (negative ends up and positive ends down), the voltage for branch 1 would have been entered into the equation as a -28 volts, the voltage for branch 3 as -7 volts, and the resulting answer of -8 volts would have told us that the top wire was negative with respect to the bottom wire (our initial point of reference).
+</p>
+
+<p>
+To solve for resistor voltage drops, the Millman voltage (across the parallel network) must be compared against the voltage source within each branch, using the principle of voltages adding in series to determine the magnitude and polarity of voltage across each resistor:
+</p>
+
+<p> <img src="10190.png"> </p>
+
+<p>
+To solve for branch currents, each resistor voltage drop can be divided by its respective resistance (I=E/R):
+</p>
+
+<p> <img src="10191.png"> </p>
+
+<p>
+The direction of current through each resistor is determined by the polarity across each resistor, <i>not</i> by the polarity across each battery, as current can be forced backwards through a battery, as is the case with B<sub>3</sub> in the example circuit.  This is important to keep in mind, since Millman's Theorem doesn't provide as direct an indication of &ldquo;wrong&rdquo; current direction as does the Branch Current or Mesh Current methods.  You must pay close attention to the polarities of resistor voltage drops as given by Kirchhoff's Voltage Law, determining direction of currents from that.
+</p>
+
+<p> <img src="00226.png"> </p>
+
+<p>
+Millman's Theorem is very convenient for determining the voltage across a set of parallel branches, where there are enough voltage sources present to preclude solution via regular series-parallel reduction method.  It also is easy in the sense that it doesn't require the use of simultaneous equations.  However, it is limited in that it only applied to circuits which can be re-drawn to fit this form.  It cannot be used, for example, to solve an unbalanced bridge circuit.  And, even in cases where Millman's Theorem can be applied, the solution of individual resistor voltage drops can be a bit daunting to some, the Millman's Theorem equation only providing a single figure for branch voltage.
+</p>
+
+<p>
+As you will see, each network analysis method has its own advantages and disadvantages.  Each method is a tool, and there is no tool that is perfect for all jobs.  The skilled technician, however, carries these methods in his or her mind like a mechanic carries a set of tools in his or her tool box.  The more tools you have equipped yourself with, the better prepared you will be for any eventuality.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Millman's Theorem treats circuits as a parallel set of series-component branches.</li>
+<li>All voltages entered and solved for in Millman's Theorem are polarity-referenced at the same point in the circuit (typically the bottom wire of the parallel network).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33668">Superposition Theorem</a></u></h2>
+
+<a name="Superposition Theorem"></a>
+<a name="Theorem, Superposition"></a>
+
+<p>
+Superposition theorem is one of those strokes of genius that takes a complex subject and simplifies it in a way that makes perfect sense.  A theorem like Millman's certainly works well, but it is not quite obvious <i>why</i> it works so well.  Superposition, on the other hand, is obvious.
+</p>
+
+<p>
+The strategy used in the Superposition Theorem is to eliminate all but one source of power within a network at a time, using series/parallel analysis to determine voltage drops (and/or currents) within the modified network for each power source separately.  Then, once voltage drops and/or currents have been determined for each power source working separately, the values are all &ldquo;superimposed&rdquo; on top of each other (added algebraically) to find the actual voltage drops/currents with all sources active.  Let's look at our example circuit again and apply Superposition Theorem to it:
+</p>
+
+<p> <img src="00209.png"> </p>
+
+<p>
+Since we have two sources of power in this circuit, we will have to calculate two sets of values for voltage drops and/or currents, one for the circuit with only the 28 volt battery in effect. . .
+</p>
+
+<p> <img src="00227.png"> </p>
+
+<p>
+. . . and one for the circuit with only the 7 volt battery in effect:
+</p>
+
+<p> <img src="00228.png"> </p>
+
+<p>
+When re-drawing the circuit for series/parallel analysis with one source, all other voltage sources are replaced by wires (shorts), and all current sources with open circuits (breaks).  Since we only have voltage sources (batteries) in our example circuit, we will replace every inactive source during analysis with a wire.
+</p>
+
+<p>
+Analyzing the circuit with only the 28 volt battery, we obtain the following values for voltage and current:
+</p>
+
+<p> <img src="10192.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00229.png"> </p>
+
+<p>
+Analyzing the circuit with only the 7 volt battery, we obtain another set of values for voltage and current:
+</p>
+
+<p> <img src="10193.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00230.png"> </p>
+
+<p>
+When superimposing these values of voltage and current, we have to be very careful to consider polarity (voltage drop) and direction (electron flow), as the values have to be added <i>algebraically</i>.
+</p>
+
+<p> <img src="00231.png"> </p>
+
+<p>
+Applying these superimposed voltage figures to the circuit, the end result looks something like this:
+</p>
+
+<p> <img src="00232.png"> </p>
+
+<p>
+Currents add up algebraically as well, and can either be superimposed as done with the resistor voltage drops, or simply calculated from the final voltage drops and respective resistances (I=E/R).  Either way, the answers will be the same.  Here I will show the superposition method applied to current:
+</p>
+
+<p> <img src="00233.png"> </p>
+
+<p>
+Once again applying these superimposed figures to our circuit:
+</p>
+
+<p> <img src="00234.png"> </p>
+
+<p>
+Quite simple and elegant, don't you think?  It must be noted, though, that the Superposition Theorem works only for circuits that are reducible to series/parallel combinations for each of the power sources at a time (thus, this theorem is useless for analyzing an unbalanced bridge circuit), and it only works where the underlying equations are linear (no mathematical powers or roots).  The requisite of linearity means that Superposition Theorem is only applicable for determining voltage and current, <i>not power!!!</i>  Power dissipations, being nonlinear functions, do not algebraically add to an accurate total when only one source is considered at a time.  The need for linearity also means this Theorem cannot be applied in circuits where the resistance of a component changes with voltage or current.  Hence, networks containing components like lamps (incandescent or gas-discharge) or varistors could not be analyzed.
+</p>
+
+<p>
+Another prerequisite for Superposition Theorem is that all components must be &ldquo;bilateral,&rdquo; meaning that they behave the same with electrons flowing either direction through them.  Resistors have no polarity-specific behavior, and so the circuits we've been studying so far all meet this criterion.
+</p>
+
+<p>
+The Superposition Theorem finds use in the study of alternating current (AC) circuits, and semiconductor (amplifier) circuits, where sometimes AC is often mixed (superimposed) with DC.  Because AC voltage and current equations (Ohm's Law) are linear just like DC, we can use Superposition to analyze the circuit with just the DC power source, then just the AC power source, combining the results to tell what will happen with both AC and DC sources in effect.  For now, though, Superposition will suffice as a break from having to do simultaneous equations to analyze a circuit.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The Superposition Theorem states that a circuit can be analyzed with only one source of power at a time, the corresponding component voltages and currents algebraically added to find out what they'll do with all power sources in effect.</li>
+<li>To negate all but one power source for analysis, replace any source of voltage (batteries) with a wire; replace any current source with an open (break).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33669">Thevenin's Theorem</a></u></h2>
+
+<a name="Thevenin's Theorem"></a>
+<a name="Theorem, Thevenin's"></a>
+<a name="Nonlinear circuit"></a>
+<a name="Circuits, nonlinear"></a>
+
+<p>
+Thevenin's Theorem states that it is possible to simplify any linear circuit, no matter how complex, to an equivalent circuit with just a single voltage source and series resistance connected to a load.  The qualification of &ldquo;linear&rdquo; is identical to that found in the Superposition Theorem, where all the underlying equations must be linear (no exponents or roots).  If we're dealing with passive components (such as resistors, and later, inductors and capacitors), this is true.  However, there are some components (especially certain gas-discharge and semiconductor components) which are nonlinear: that is, their opposition to current <i>changes</i> with voltage and/or current.  As such, we would call circuits containing these types of components, <i>nonlinear circuits</i>.
+</p>
+
+<p>
+Thevenin's Theorem is especially useful in analyzing power systems and other circuits where one particular resistor in the circuit (called the &ldquo;load&rdquo; resistor) is subject to change, and re-calculation of the circuit is necessary with each trial value of load resistance, to determine voltage across it and current through it.  Let's take another look at our example circuit:
+</p>
+
+<p> <img src="00209.png"> </p>
+
+<p>
+Let's suppose that we decide to designate R<sub>2</sub> as the &ldquo;load&rdquo; resistor in this circuit.  We already have four methods of analysis at our disposal (Branch Current, Mesh Current, Millman's Theorem, and Superposition Theorem) to use in determining voltage across R<sub>2</sub> and current through R<sub>2</sub>, but each of these methods are time-consuming.  Imagine repeating any of these methods over and over again to find what would happen if the load resistance changed (changing load resistance is <i>very</i> common in power systems, as multiple loads get switched on and off as needed. the total resistance of their parallel connections changing depending on how many are connected at a time).  This could potentially involve a <i>lot</i> of work!
+</p>
+
+<a name="Equivalent circuit"></a>
+<a name="Circuit, equivalent"></a>
+
+<p>
+Thevenin's Theorem makes this easy by temporarily removing the load resistance from the original circuit and reducing what's left to an equivalent circuit composed of a single voltage source and series resistance.  The load resistance can then be re-connected to this &ldquo;Thevenin equivalent circuit&rdquo; and calculations carried out as if the whole network were nothing but a simple series circuit:
+</p>
+
+<p> <img src="00235.png"> </p>
+
+<p>
+. . . after Thevenin conversion . . .
+</p>
+
+<p> <img src="00236.png"> </p>
+
+<p>
+The &ldquo;Thevenin Equivalent Circuit&rdquo; is the electrical equivalent of B<sub>1</sub>, R<sub>1</sub>, R<sub>3</sub>, and B<sub>2</sub> as seen from the two points where our load resistor (R<sub>2</sub>) connects.
+</p>
+
+<p>
+The Thevenin equivalent circuit, if correctly derived, will behave exactly the same as the original circuit formed by B<sub>1</sub>, R<sub>1</sub>, R<sub>3</sub>, and B<sub>2</sub>.  In other words, the load resistor (R<sub>2</sub>) voltage and current should be exactly the same for the same value of load resistance in the two circuits.  The load resistor R<sub>2</sub> cannot &ldquo;tell the difference&rdquo; between the original network of B<sub>1</sub>, R<sub>1</sub>, R<sub>3</sub>, and B<sub>2</sub>, and the Thevenin equivalent circuit of E<sub>Thevenin</sub>, and R<sub>Thevenin</sub>, provided that the values for E<sub>Thevenin</sub> and R<sub>Thevenin</sub> have been calculated correctly.
+</p>
+
+<p>
+The advantage in performing the &ldquo;Thevenin conversion&rdquo; to the simpler circuit, of course, is that it makes load voltage and load current so much easier to solve than in the original network.  Calculating the equivalent Thevenin source voltage and series resistance is actually quite easy.  First, the chosen load resistor is removed from the original circuit, replaced with a break (open circuit):
+</p>
+
+<p> <img src="00237.png"> </p>
+
+<p>
+Next, the voltage between the two points where the load resistor used to be attached is determined.  Use whatever analysis methods are at your disposal to do this.  In this case, the original circuit with the load resistor removed is nothing more than a simple series circuit with opposing batteries, and so we can determine the voltage across the open load terminals by applying the rules of series circuits, Ohm's Law, and Kirchhoff's Voltage Law:
+</p>
+
+<p> <img src="10194.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00238.png"> </p>
+
+<p>
+The voltage between the two load connection points can be figured from the one of the battery's voltage and one of the resistor's voltage drops, and comes out to 11.2 volts.  This is our &ldquo;Thevenin voltage&rdquo; (E<sub>Thevenin</sub>) in the equivalent circuit:
+</p>
+
+<p> <img src="00239.png"> </p>
+
+<p>
+To find the Thevenin series resistance for our equivalent circuit, we need to take the original circuit (with the load resistor still removed), remove the power sources (in the same style as we did with the Superposition Theorem: voltage sources replaced with wires and current sources replaced with breaks), and figure the resistance from one load terminal to the other:
+</p>
+
+<p> <img src="00240.png"> </p>
+
+<p>
+With the removal of the two batteries, the total resistance measured at this location is equal to R<sub>1</sub> and R<sub>3</sub> in parallel: 0.8 &#937;.  This is our &ldquo;Thevenin resistance&rdquo; (R<sub>Thevenin</sub>) for the equivalent circuit:
+</p>
+
+<p> <img src="00241.png"> </p>
+
+<p>
+With the load resistor (2 &#937;) attached between the connection points, we can determine voltage across it and current through it as though the whole network were nothing more than a simple series circuit:
+</p>
+
+<p> <img src="10195.png"> </p>
+
+<p>
+Notice that the voltage and current figures for R<sub>2</sub> (8 volts, 4 amps) are identical to those found using other methods of analysis.  Also notice that the voltage and current figures for the Thevenin series resistance and the Thevenin source (<i>total</i>) do not apply to any component in the original, complex circuit.  Thevenin's Theorem is only useful for determining what happens to a <i>single</i> resistor in a network: the load.
+</p>
+
+<p>
+The advantage, of course, is that you can quickly determine what would happen to that single resistor if it were of a value other than 2 &#937; without having to go through a lot of analysis again.  Just plug in that other value for the load resistor into the Thevenin equivalent circuit and a little bit of series circuit calculation will give you the result.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Thevenin's Theorem is a way to reduce a network to an equivalent circuit composed of a single voltage source, series resistance, and series load.</li>
+<li>Steps to follow for Thevenin's Theorem:</li>
+<li>(1) Find the Thevenin source voltage by removing the load resistor from the original circuit and calculating voltage across the open connection points where the load resistor used to be.</li>
+<li>(2) Find the Thevenin resistance by removing all power sources in  the original circuit (voltage sources shorted and current sources open) and calculating total resistance between the open connection points.</li>
+<li>(3) Draw the Thevenin equivalent circuit, with the Thevenin voltage source in series with the Thevenin resistance.  The load resistor re-attaches between the two open points of the equivalent circuit.</li>
+<li>(4) Analyze voltage and current for the load resistor following the rules for series circuits.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336610">Norton's Theorem</a></u></h2>
+
+<a name="Norton's Theorem"></a>
+<a name="Theorem, Norton's"></a>
+
+<p>
+Norton's Theorem states that it is possible to simplify any linear circuit, no matter how complex, to an equivalent circuit with just a single current source and parallel resistance connected to a load.  Just as with Thevenin's Theorem, the qualification of &ldquo;linear&rdquo; is identical to that found in the Superposition Theorem: all underlying equations must be linear (no exponents or roots).
+</p>
+
+<p>
+Contrasting our original example circuit against the Norton equivalent: it looks something like this:
+</p>
+
+<p> <img src="00235.png"> </p>
+
+<p>
+. . . after Norton conversion . . .
+</p>
+
+<p> <img src="00242.png"> </p>
+
+<a name="Current source"></a>
+<a name="Source, current"></a>
+
+<p>
+Remember that a <i>current source</i> is a component whose job is to provide a constant amount of current, outputting as much or as little voltage necessary to maintain that constant current.
+</p>
+
+<p>
+As with Thevenin's Theorem, everything in the original circuit except the load resistance has been reduced to an equivalent circuit that is simpler to analyze.  Also similar to Thevenin's Theorem are the steps used in Norton's Theorem to calculate the Norton source current (I<sub>Norton</sub>) and Norton resistance (R<sub>Norton</sub>).
+</p>
+
+<p>
+As before, the first step is to identify the load resistance and remove it from the original circuit:
+</p>
+
+<p> <img src="00237.png"> </p>
+
+<p>
+Then, to find the Norton current (for the current source in the Norton equivalent circuit), place a direct wire (short) connection between the load points and determine the resultant current.  Note that this step is exactly opposite the respective step in Thevenin's Theorem, where we replaced the load resistor with a break (open circuit):
+</p>
+
+<p> <img src="00243.png"> </p>
+
+<p>
+With zero voltage dropped between the load resistor connection points, the current through R<sub>1</sub> is strictly a function of B<sub>1</sub>'s voltage and R<sub>1</sub>'s resistance: 7 amps (I=E/R).  Likewise, the current through R<sub>3</sub> is now strictly a function of B<sub>2</sub>'s voltage and R<sub>3</sub>'s resistance: 7 amps (I=E/R).  The total current through the short between the load connection points is the sum of these two currents: 7 amps + 7 amps = 14 amps.  This figure of 14 amps becomes the Norton source current (I<sub>Norton</sub>) in our equivalent circuit:
+</p>
+
+<p> <img src="00244.png"> </p>
+
+<p>
+Remember, the arrow notation for a current source points in the direction <i>opposite</i> that of electron flow.  Again, apologies for the confusion.  For better or for worse, this is standard electronic symbol notation.  Blame Mr. Franklin again!
+</p>
+
+<p>
+To calculate the Norton resistance (R<sub>Norton</sub>), we do the exact same thing as we did for calculating Thevenin resistance (R<sub>Thevenin</sub>): take the original circuit (with the load resistor still removed), remove the power sources (in the same style as we did with the Superposition Theorem: voltage sources replaced with wires and current sources replaced with breaks), and figure total resistance from one load connection point to the other:
+</p>
+
+<p> <img src="00240.png"> </p>
+
+<p>
+Now our Norton equivalent circuit looks like this:
+</p>
+
+<p> <img src="00245.png"> </p>
+
+<p>
+If we re-connect our original load resistance of 2 &#937;, we can analyze the Norton circuit as a simple parallel arrangement:
+</p>
+
+<p> <img src="10196.png"> </p>
+
+<p>
+As with the Thevenin equivalent circuit, the only useful information from this analysis is the voltage and current values for R<sub>2</sub>; the rest of the information is irrelevant to the original circuit.  However, the same advantages seen with Thevenin's Theorem apply to Norton's as well: if we wish to analyze load resistor voltage and current over several different values of load resistance, we can use the Norton equivalent circuit again and again, applying nothing more complex than simple parallel circuit analysis to determine what's happening with each trial load.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Norton's Theorem is a way to reduce a network to an equivalent circuit composed of a single current source, parallel resistance, and parallel load.</li>
+<li>Steps to follow for Norton's Theorem:</li>
+<li>(1) Find the Norton source current by removing the load resistor from the original circuit and calculating current through a short (wire) jumping across the open connection points where the load resistor used to be.</li>
+<li>(2) Find the Norton resistance by removing all power sources in the original circuit (voltage sources shorted and current sources open) and calculating total resistance between the open connection points.</li>
+<li>(3) Draw the Norton equivalent circuit, with the Norton current source in parallel with the Norton resistance.  The load resistor re-attaches between the two open points of the equivalent circuit.</li>
+<li>(4) Analyze voltage and current for the load resistor following the rules for parallel circuits.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336611">Thevenin-Norton equivalencies</a></u></h2>
+
+<a name="Equivalent circuit"></a>
+<a name="Circuit, equivalent"></a>
+
+<p>
+Since Thevenin's and Norton's Theorems are two equally valid methods of reducing a complex network down to something simpler to analyze, there must be some way to convert a Thevenin equivalent circuit to a Norton equivalent circuit, and vice versa (just what you were dying to know, right?).  Well, the procedure is very simple.
+</p>
+
+<p>
+You may have noticed that the procedure for calculating Thevenin resistance is identical to the procedure for calculating Norton resistance: remove all power sources and determine resistance between the open load connection points.  As such, Thevenin and Norton resistances for the same original network must be equal.  Using the example circuits from the last two sections, we can see that the two resistances are indeed equal:
+</p>
+
+<p> <img src="00241.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00245.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="10197.png"> </p>
+
+<p>
+Considering the fact that both Thevenin and Norton equivalent circuits are intended to behave the same as the original network in supplying voltage and current to the load resistor (as seen from the perspective of the load connection points), these two equivalent circuits, having been derived from the same original network should behave identically.
+</p>
+
+<p>
+This means that both Thevenin and Norton equivalent circuits should produce the same voltage across the load terminals with no load resistor attached.  With the Thevenin equivalent, the open-circuited voltage would be equal to the Thevenin source voltage (no circuit current present to drop voltage across the series resistor), which is 11.2 volts in this case.  With the Norton equivalent circuit, all 14 amps from the Norton current source would have to flow through the 0.8 &#937; Norton resistance, producing the exact same voltage, 11.2 volts (E=IR).  Thus, we can say that the Thevenin voltage is equal to the Norton current times the Norton resistance:
+</p>
+
+<p> <img src="10198.png"> </p>
+
+<p>
+So, if we wanted to convert a Norton equivalent circuit to a Thevenin equivalent circuit, we could use the same resistance and calculate the Thevenin voltage with Ohm's Law.
+</p>
+
+<p>
+Conversely, both Thevenin and Norton equivalent circuits should generate the same amount of current through a short circuit across the load terminals.  With the Norton equivalent, the short-circuit current would be exactly equal to the Norton source current, which is 14 amps in this case.  With the Thevenin equivalent, all 11.2 volts would be applied across the 0.8 &#937; Thevenin resistance, producing the exact same current through the short, 14 amps (I=E/R).  Thus, we can say that the Norton current is equal to the Thevenin voltage divided by the Thevenin resistance:
+</p>
+
+<p> <img src="10199.png"> </p>
+
+<p>
+This equivalence between Thevenin and Norton circuits can be a useful tool in itself, as we shall see in the next section.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Thevenin and Norton resistances are equal.</li>
+<li>Thevenin voltage is equal to Norton current times Norton resistance.</li>
+<li>Norton current is equal to Thevenin voltage divided by Thevenin resistance.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336612">Millman's Theorem revisited</a></u></h2>
+
+
+<a name="Millman's Theorem"></a>
+<a name="Theorem, Millman's"></a>
+
+<p>
+You may have wondered where we got that strange equation for the determination of &ldquo;Millman Voltage&rdquo; across parallel branches of a circuit where each branch contains a series resistance and voltage source:
+</p>
+
+<p> <img src="10188.png"> </p>
+
+<p>
+Parts of this equation seem familiar to equations we've seen before.  For instance, the denominator of the large fraction looks conspicuously like the denominator of our parallel resistance equation.  And, of course, the E/R terms in the numerator of the large fraction should give figures for current, Ohm's Law being what it is (I=E/R).
+</p>
+
+<p>
+Now that we've covered Thevenin and Norton source equivalencies, we have the tools necessary to understand Millman's equation.  What Millman's equation is actually doing is treating each branch (with its series voltage source and resistance) as a Thevenin equivalent circuit and then converting each one into equivalent Norton circuits.
+</p>
+
+<p> <img src="00223.png"> </p>
+
+<p>
+Thus, in the circuit above, battery B<sub>1</sub> and resistor R<sub>1</sub> are seen as a Thevenin source to be converted into a Norton source of 7 amps (28 volts / 4 &#937;) in parallel with a 4 &#937; resistor.  The rightmost branch will be converted into a 7 amp current source (7 volts / 1 &#937;) and 1 &#937; resistor in parallel.  The center branch, containing no voltage source at all, will be converted into a Norton source of 0 amps in parallel with a 2 &#937; resistor:
+</p>
+
+<p> <img src="00246.png"> </p>
+
+<p>
+Since current sources directly add their respective currents in parallel, the total circuit current will be 7 + 0 + 7, or 14 amps.  This addition of Norton source currents is what's being represented in the numerator of the Millman equation:
+</p>
+
+<p> <img src="10200.png"> </p>
+
+<p>
+All the Norton resistances are in parallel with each other as well in the equivalent circuit, so they diminish to create a total resistance.  This diminishing of source resistances is what's being represented in the denominator of the Millman's equation:
+</p>
+
+<p> <img src="10201.png"> </p>
+
+<p>
+In this case, the resistance total will be equal to 571.43 milliohms (571.43 m&#937;).  We can re-draw our equivalent circuit now as one with a single Norton current source and Norton resistance: 
+</p>
+
+<p> <img src="00247.png"> </p>
+
+<p>
+Ohm's Law can tell us the voltage across these two components now (E=IR):
+</p>
+
+<p> <img src="10202.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00248.png"> </p>
+
+<p>
+Let's summarize what we know about the circuit thus far.  We know that the total current in this circuit is given by the sum of all the branch voltages divided by their respective resistances.  We also know that the total resistance is found by taking the reciprocal of all the branch resistance reciprocals.  Furthermore, we should be well aware of the fact that total voltage across all the branches can be found by multiplying total current by total resistance (E=IR).  All we need to do is put together the two equations we had earlier for total circuit current and total resistance, multiplying them to find total voltage:
+</p>
+
+<p> <img src="10203.png"> </p>
+
+<p>
+The Millman's equation is nothing more than a Thevenin-to-Norton conversion matched together with the parallel resistance formula to find total voltage across all the branches of the circuit.  So, hopefully some of the mystery is gone now!
+</p>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336613">Maximum Power Transfer Theorem</a></u></h2>
+
+<a name="Maximum Power Transfer Theorem"></a>
+<a name="Theorem, Maximum Power Transfer"></a>
+
+<p>
+The Maximum Power Transfer Theorem is not so much a means of analysis as it is an aid to system design.  Simply stated, the maximum amount of power will be dissipated by a load resistance when that load resistance is equal to the Thevenin/Norton resistance of the network supplying the power.  If the load resistance is lower or higher than the Thevenin/Norton resistance of the source network, its dissipated power will be less than maximum.
+</p>
+
+<a name="Impedance"></a>
+
+<p>
+This is essentially what is aimed for in radio transmitter design , where the antenna or transmission line &ldquo;impedance&rdquo; is matched to final power amplifier &ldquo;impedance&rdquo; for maximum radio frequency power output.  Impedance, the overall opposition to AC and DC current, is very similar to resistance, and must be equal between source and load for the greatest amount of power to be transferred to the load.  A load impedance that is too high will result in low power output.  A load impedance that is too low will not only result in low power output, but possibly overheating of the amplifier due to the power dissipated in its internal (Thevenin or Norton) impedance.
+</p>
+
+<p>
+Taking our Thevenin equivalent example circuit, the Maximum Power Transfer Theorem tells us that the load resistance resulting in greatest power dissipation is equal in value to the Thevenin resistance (in this case, 0.8 &#937;):
+</p>
+
+<p> <img src="00249.png"> </p>
+
+<p>
+With this value of load resistance, the dissipated power will be 39.2 watts:
+</p>
+
+<p> <img src="10204.png"> </p>
+
+<p>
+If we were to try a lower value for the load resistance (0.5 &#937; instead of 0.8 &#937;, for example), our power dissipated by the load resistance would decrease:
+</p>
+
+<p> <img src="10205.png"> </p>
+
+<p>
+Power dissipation increased for both the Thevenin resistance and the total circuit, but it decreased for the load resistor.  Likewise, if we increase the load resistance (1.1 &#937; instead of 0.8 &#937;, for example), power dissipation will also be less than it was at 0.8 &#937; exactly:
+</p>
+
+<p> <img src="10206.png"> </p>
+
+<p>
+If you were designing a circuit for maximum power dissipation at the load resistance, this theorem would be very useful.  Having reduced a network down to a Thevenin voltage and resistance (or Norton current and resistance), you simply set the load resistance equal to that Thevenin or Norton equivalent (or vice versa) to ensure maximum power dissipation at the load.  Practical applications of this might include radio transmitter final amplifier stage design (seeking to maximize power delivered to the antenna or transmission line), a <i>grid tied inverter</i> loading a solar array, or electric vehicle design (seeking to maximize power delivered to drive motor).
+</p>
+
+<p>
+<b>The Maximum Power Transfer Theorem is not:</b> Maximum power transfer does not coincide with maximum efficiency. Application of The Maximum Power Transfer theorem to AC power distribution will not result in maximum or even high efficiency. The goal of high efficiency is more important for AC power distribution, which dictates a relatively low generator impedance compared to load impedance.
+</p>
+
+<p>
+Similar to AC power distribution, high fidelity audio amplifiers are designed for a relatively low output impedance and a relatively high speaker load impedance. As a ratio, "output impdance" : "load impedance" is known as <i>damping factor</i>, typically in the range of 100 to 1000.  <a href="#rar.bibitem">[rar]</a> <a href="#dfd.bibitem">[dfd]</a>
+</p>
+
+<p>
+Maximum power transfer does not coincide with the goal of lowest noise. For example, the low-level radio frequency amplifier between the antenna and a  radio receiver is often designed for lowest possible noise. This often requires a mismatch of the amplifier input impedance to the antenna as compared with that dictated by the maximum power transfer theorem. 
+</p>
+
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The <i>Maximum Power Transfer Theorem</i> states that the maximum amount of power will be dissipated by a load resistance if it is equal to the Thevenin or Norton resistance of the network supplying power.</li>
+<li>The Maximum Power Transfer Theorem does <b>not</b> satisfy the goal of  maximum efficiency.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336614">&#916;-Y and Y-&#916; conversions</a></u></h2>
+
+<a name="Delta-Y conversion"></a>
+<a name="Y-Delta conversion"></a>
+
+<p>
+In many circuit applications, we encounter components connected together in one of two ways to form a three-terminal network: the &ldquo;Delta,&rdquo; or &#916; (also known as the &ldquo;Pi,&rdquo; or &#960;) configuration, and the &ldquo;Y&rdquo; (also known as the &ldquo;T&rdquo;) configuration.
+</p>
+
+<p> <img src="00250.png"> </p>
+
+<a name="Equivalent circuit"></a>
+<a name="Circuit, equivalent"></a>
+
+<p>
+It is possible to calculate the proper values of resistors necessary to form one kind of network (&#916; or Y) that behaves identically to the other kind, as analyzed from the terminal connections alone.  That is, if we had two separate resistor networks, one &#916; and one Y, each with its resistors hidden from view, with nothing but the three terminals (A, B, and C) exposed for testing, the resistors could be sized for the two networks so that there would be no way to electrically determine one network apart from the other.  In other words, equivalent &#916; and Y networks behave identically.
+</p>
+
+<p>
+There are several equations used to convert one network to the other:
+</p>
+
+<p> <img src="10207.png"> </p>
+
+<p>
+&#916; and Y networks are seen frequently in 3-phase AC power systems (a topic covered in volume II of this book series), but even then they're usually balanced networks (all resistors equal in value) and conversion from one to the other need not involve such complex calculations.  When would the average technician ever need to use these equations?
+</p>
+
+<p>
+A prime application for &#916;-Y conversion is in the solution of unbalanced bridge circuits, such as the one below:
+</p>
+
+<p> <img src="00251.png"> </p>
+
+<p>
+Solution of this circuit with Branch Current or Mesh Current analysis is fairly involved, and neither the Millman nor Superposition Theorems are of any help, since there's only one source of power.  We could use Thevenin's or Norton's Theorem, treating R<sub>3</sub> as our load, but what fun would that be?  
+</p>
+
+<p>
+If we were to treat resistors R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> as being connected in a &#916; configuration (R<sub>ab</sub>, R<sub>ac</sub>, and R<sub>bc</sub>, respectively) and generate an equivalent Y network to replace them, we could turn this bridge circuit into a (simpler) series/parallel combination circuit:
+</p>
+
+<p> <img src="00252.png"> </p>
+
+<p>
+After the &#916;-Y conversion . . .
+</p>
+
+<p> <img src="00253.png"> </p>
+
+<p>
+If we perform our calculations correctly, the voltages between points A, B, and C will be the same in the converted circuit as in the original circuit, and we can transfer those values back to the original bridge configuration.
+</p>
+
+<p> <img src="10208.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="00254.png"> </p>
+
+<p>
+Resistors R<sub>4</sub> and R<sub>5</sub>, of course, remain the same at 18 &#937; and 12 &#937;, respectively.  Analyzing the circuit now as a series/parallel combination, we arrive at the following figures:
+</p>
+
+<p> <img src="10209.png"> </p>
+
+<p>
+We must use the voltage drops figures from the table above to determine the voltages between points A, B, and C, seeing how the add up (or subtract, as is the case with voltage between points B and C):
+</p>
+
+<p> <img src="00255.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="10210.png"> </p>
+
+<p>
+Now that we know these voltages, we can transfer them to the same points A, B, and C in the original bridge circuit:
+</p>
+
+<p> <img src="00256.png"> </p>
+
+<p>
+Voltage drops across R<sub>4</sub> and R<sub>5</sub>, of course, are exactly the same as they were in the converted circuit.
+</p>
+
+<p>
+At this point, we could take these voltages and determine resistor currents through the repeated use of Ohm's Law (I=E/R):
+</p>
+
+<p> <img src="10211.png"> </p>
+
+<p>
+A quick simulation with SPICE will serve to verify our work:<a href="#spi.bibitem">[spi]</a>
+</p>
+
+<p> <img src="00392.png"> </p>
+
+<br> </br>
+
+<pre>
+unbalanced bridge circuit   
+v1 1 0  
+r1 1 2 12       
+r2 1 3 18       
+r3 2 3 6
+r4 2 0 18       
+r5 3 0 12       
+.dc v1 10 10 1  
+.print dc v(1,2) v(1,3) v(2,3) v(2,0) v(3,0)    
+.end    
+</pre>
+
+<br> </br>
+
+<pre>
+v1            v(1,2)      v(1,3)      v(2,3)      v(2)        v(3)            
+1.000E+01     4.706E+00   5.294E+00   5.882E-01   5.294E+00   4.706E+00
+</pre>
+
+<br> </br>
+
+<p>
+The voltage figures, as read from left to right, represent voltage drops across the five respective resistors, R<sub>1</sub> through R<sub>5</sub>.  I could have shown currents as well, but since that would have required insertion of &ldquo;dummy&rdquo; voltage sources in the SPICE netlist, and since we're primarily interested in validating the &#916;-Y conversion equations and not Ohm's Law, this will suffice.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>&ldquo;Delta&rdquo; (&#916;) networks are also known as &ldquo;Pi&rdquo; (&#960;) networks.</li>
+<li>&ldquo;Y&rdquo; networks are also known as &ldquo;T&rdquo; networks.</li>
+<li>&#916; and Y networks can be converted to their equivalent counterparts with the proper resistance equations.  By &ldquo;equivalent,&rdquo; I mean that the two networks will be electrically identical as measured from the three terminals (A, B, and C).</li>
+<li>A bridge circuit can be simplified to a series/parallel circuit by converting half of it from a &#916; to a Y network.  After voltage drops between the original three connection points (A, B, and C) have been solved for, those voltages can be transferred back to the original bridge circuit, across those same equivalent points.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid336615">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Dejan Budimir</b> (January 2003): Suggested clarifications for explaining the Mesh Current method of circuit analysis.
+</p>
+
+<p>
+<b>Bill Heath</b> (December 2002): Pointed out several typographical errors.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+<p>
+<b>Davy Van Nieuwenborgh</b> (April 2004): Pointed out error in Mesh current section, supplied editorial material, end of section.
+</p>
+
+
+
+
+
+
+ 
+<h2><a name="xtocid336616">Bibliography</a></h2><br> 
+<ol>
+
+<li><a name="aef.bibitem">[aef] A.E. Fitzergerald, David E. Higginbotham, Arvin Grabel, <i>Basic Electrical Engineering</i>, (McGraw-Hill, 1975).</a></li>
+
+<li><a name="spi.bibitem">[spi] Tony Kuphaldt,<i>Using the Spice Circuit Simulation Program</i>, in&ldquo;Lessons in Electricity, Reference&rdquo;, Volume 5, Chapter 7, at <a href="http://www.ibiblio.org/obp/electricCircuits/Ref/">http://www.ibiblio.org/obp/electricCircuits/Ref/</a></a></li>
+
+<li><a name="dvn.bibitem">[dvn] Davy Van Nieuwenborgh, <i>private communications</i>, Theoretical Computer Science laboratory, Department of Computer Science, Vrije Universiteit Brussel (4/7/2004).</a></li>
+
+<li><a name="octav.bibitem">[octav] <i>Octave</i>, Matrix calculator open source program for Linux or MS Windows, at <a href="http://www.gnu.org/software/octave/">http://www.gnu.org/software/octave/</a></a> </li>
+
+
+<li><a name="rar.bibitem">[rar]Ray A. Rayburn , <i>private communications</i>, Senior Consultant K2 Audio, LLC; Fellow of the Audio Engineering Society, (6/29/2009).</a></li>
+
+<li><a name="dfd.bibitem">[dfd]Damping Factor De-Mystified , at <a href="http://www.sweetwater.com/shop/live-sound/power-amplifiers/buying-guide.php#2">http://www.sweetwater.com/shop/live-sound/power-amplifiers/buying-guide.php#2</a></a></li>
+
+
+
+
+</ol>
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DC_A3.html">Design Science License</a>.
+</p>
+
+<a href="DC_9.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DC_11.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+
