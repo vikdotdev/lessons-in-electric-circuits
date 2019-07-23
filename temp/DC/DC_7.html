@@ -1,0 +1,864 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+
+
+  <meta name="description" content="Series-Parallel Combination Circuits">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, series circuit, parallel circuit, volt, amp, ohm, voltage, current, resistance, qualitative analysis, troubleshooting, equivalent resistance">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<hr>
+
+<h1>Chapter 7</h1>
+
+
+
+
+<h1>SERIES-PARALLEL COMBINATION CIRCUITS</h1>
+<!--minitoc-->
+
+
+
+
+
+
+<ul>
+<li><a href="#xtocid33420"><u>What is a series-parallel circuit?</u></a></li>
+<li><a href="#xtocid33421"><u>Analysis technique</u></a></li>
+<li><a href="#xtocid33422"><u>Re-drawing complex schematics</u></a></li>
+<li><a href="#xtocid33423"><u>Component failure analysis</u></a></li>
+<li><a href="#xtocid33424"><u>Building series-parallel resistor circuits</u></a></li>
+<li><a href="#xtocid33425"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid33420">What is a series-parallel circuit?</a></u></h2>
+
+<p>
+With simple series circuits, all components are connected end-to-end to form only one path for electrons to flow through the circuit:
+</p>
+
+<p> <img src="html/DC/00082.png"> </p>
+
+<p>
+With simple parallel circuits, all components are connected between the same two sets of electrically common points, creating multiple paths for electrons to flow from one end of the battery to the other:
+</p>
+
+<p> <img src="html/DC/00083.png"> </p>
+
+<a name="Series circuit rules"></a>
+<a name="Rules, series circuits"></a>
+<a name="Parallel circuit rules"></a>
+<a name="Rules, parallel circuits"></a>
+
+<p>
+With each of these two basic circuit configurations, we have specific sets of rules describing voltage, current, and resistance relationships.
+</p>
+
+<ul>
+<li><b>Series Circuits:</b></li>
+<li>Voltage drops add to equal total voltage.</li>
+<li>All components share the same (equal) current.</li>
+<li>Resistances add to equal total resistance.</li>
+</ul>
+
+<br> </br>
+
+<ul>
+<li><b>Parallel Circuits:</b></li>
+<li>All components share the same (equal) voltage.</li>
+<li>Branch currents add to equal total current.</li>
+<li>Resistances diminish to equal total resistance.</li>
+</ul>
+
+<p>
+However, if circuit components are series-connected in some parts and parallel in others, we won't be able to apply a <i>single</i> set of rules to every part of that circuit.  Instead, we will have to identify which parts of that circuit are series and which parts are parallel, then selectively apply series and parallel rules as necessary to determine what is happening.  Take the following circuit, for instance:
+</p>
+
+<p> <img src="html/DC/00123.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/10126.png"> </p>
+
+<p>
+This circuit is neither simple series nor simple parallel.  Rather, it contains elements of both.  The current exits the bottom of the battery, splits up to travel through R<sub>3</sub> and R<sub>4</sub>, rejoins, then splits up again to travel through R<sub>1</sub> and R<sub>2</sub>, then rejoins again to return to the top of the battery.  There exists more than one path for current to travel (not series), yet there are more than two sets of electrically common points in the circuit (not parallel).
+</p>
+
+<p>
+Because the circuit is a combination of both series and parallel, we cannot apply the rules for voltage, current, and resistance "across the table" to begin analysis like we could when the circuits were one way or the other.  For instance, if the above circuit were simple series, we could just add up R<sub>1</sub> through R<sub>4</sub> to arrive at a total resistance, solve for total current, and then solve for all voltage drops.  Likewise, if the above circuit were simple parallel, we could just solve for branch currents, add up branch currents to figure the total current, and then calculate total resistance from total voltage and total current.  However, this circuit's solution will be more complex.
+</p>
+
+<p>
+The table will still help us manage the different values for series-parallel combination circuits, but we'll have to be careful how and where we apply the different rules for series and parallel.  Ohm's Law, of course, still works just the same for determining values within a vertical column in the table.
+</p>
+
+<p>
+If we are able to identify which parts of the circuit are series and which parts are parallel, we can analyze it in stages, approaching each part one at a time, using the appropriate rules to determine the relationships of voltage, current, and resistance.  The rest of this chapter will be devoted to showing you techniques for doing this.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The rules of series and parallel circuits must be applied selectively to circuits containing both types of interconnections.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33421">Analysis technique</a></u></h2>
+
+
+<a name="Series-parallel analysis"></a>
+<a name="Analysis, series-parallel"></a>
+
+<p>
+The goal of series-parallel resistor circuit analysis is to be able to determine all voltage drops, currents, and power dissipations in a circuit.  The general strategy to accomplish this goal is as follows:
+</p>
+
+
+<ul>
+<li>Step 1: Assess which resistors in a circuit are connected together in simple series or simple parallel.</li>
+<li>Step 2: Re-draw the circuit, replacing each of those series or parallel resistor combinations identified in step 1 with a single, equivalent-value resistor.  If using a table to manage variables, make a new table column for each resistance equivalent.</li>
+<li>Step 3: Repeat steps 1 and 2 until the entire circuit is reduced to one equivalent resistor.</li>
+<li>Step 4: Calculate total current from total voltage and total resistance (I=E/R).</li>
+<li>Step 5: Taking total voltage and total current values, go back to last step in the circuit reduction process and insert those values where applicable.</li>
+<li>Step 6: From known resistances and total voltage / total current values from step 5, use Ohm's Law to calculate unknown values (voltage or current) (E=IR or I=E/R).</li>
+<li>Step 7: Repeat steps 5 and 6 until all values for voltage and current are known in the original circuit configuration.  Essentially, you will proceed step-by-step from the simplified version of the circuit back into its original, complex form, plugging in values of voltage and current where appropriate until all values of voltage and current are known.</li>
+<li>Step 8: Calculate power dissipations from known voltage, current, and/or resistance values.</li>
+</ul>
+
+<p>
+This may sound like an intimidating process, but its much easier understood through example than through description.
+</p>
+
+<p> <img src="html/DC/00123.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/10126.png"> </p>
+
+<p>
+In the example circuit above, R<sub>1</sub> and R<sub>2</sub> are connected in a simple parallel arrangement, as are R<sub>3</sub> and R<sub>4</sub>.  Having been identified, these sections need to be converted into equivalent single resistors, and the circuit re-drawn:
+</p>
+
+<p> <img src="html/DC/00124.png"> </p>
+
+<p>
+The double slash (//) symbols represent "parallel" to show that the equivalent resistor values were calculated using the 1/(1/R) formula.  The 71.429 &#937; resistor at the top of the circuit is the equivalent of R<sub>1</sub> and R<sub>2</sub> in parallel with each other.  The 127.27 &#937; resistor at the bottom is the equivalent of R<sub>3</sub> and R<sub>4</sub> in parallel with each other.
+</p>
+
+<p>
+Our table can be expanded to include these resistor equivalents in their own columns:
+</p>
+
+<p> <img src="html/DC/10127.png"> </p>
+
+<p>
+It should be apparent now that the circuit has been reduced to a simple series configuration with only two (equivalent) resistances.  The final step in reduction is to add these two resistances to come up with a total circuit resistance.  When we add those two equivalent resistances, we get a resistance of 198.70 &#937;.  Now, we can re-draw the circuit as a single equivalent resistance and add the total resistance figure to the rightmost column of our table.  Note that the "Total" column has been relabeled (R<sub>1</sub>//R<sub>2</sub>--R<sub>3</sub>//R<sub>4</sub>) to indicate how it relates electrically to the other columns of figures.  The "--" symbol is used here to represent "series," just as the "//" symbol is used to represent "parallel."
+</p>
+
+<p> <img src="html/DC/00125.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/10128.png"> </p>
+
+<p>
+Now, total circuit current can be determined by applying Ohm's Law (I=E/R) to the "Total" column in the table:
+</p>
+
+<p> <img src="html/DC/10129.png"> </p>
+
+<p>
+Back to our equivalent circuit drawing, our total current value of 120.78 milliamps is shown as the only current here:
+</p>
+
+<p> <img src="html/DC/00126.png"> </p>
+
+<p>
+Now we start to work backwards in our progression of circuit re-drawings to the original configuration.  The next step is to go to the circuit where R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> are in series:
+</p>
+
+<p> <img src="html/DC/00127.png"> </p>
+
+<p>
+Since R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> are in series with each other, the current through those two sets of equivalent resistances must be the same.  Furthermore, the current through them must be the same as the total current, so we can fill in our table with the appropriate current values, simply copying the current figure from the Total column to the R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> columns:
+</p>
+
+<p> <img src="html/DC/10130.png"> </p>
+
+<p>
+Now, knowing the current through the equivalent resistors R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub>, we can apply Ohm's Law (E=IR) to the two right vertical columns to find voltage drops across them:
+</p>
+
+<p> <img src="html/DC/00128.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/10131.png"> </p>
+
+<p>
+Because we know R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> are parallel resistor equivalents, and we know that voltage drops in parallel circuits are the same, we can transfer the respective voltage drops to the appropriate columns on the table for those individual resistors.  In other words, we take another step backwards in our drawing sequence to the original configuration, and complete the table accordingly:
+</p>
+
+<p> <img src="html/DC/00129.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/10132.png"> </p>
+
+<p>
+Finally, the original section of the table (columns R<sub>1</sub> through R<sub>4</sub>) is complete with enough values to finish.  Applying Ohm's Law to the remaining vertical columns (I=E/R), we can determine the currents through R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, and R<sub>4</sub> individually:
+</p>
+
+<p> <img src="html/DC/10133.png"> </p>
+
+<p>
+Having found all voltage and current values for this circuit, we can show those values in the schematic diagram as such:
+</p>
+
+<p> <img src="html/DC/00130.png"> </p>
+
+<p>
+As a final check of our work, we can see if the calculated current values add up as they should to the total.  Since R<sub>1</sub> and R<sub>2</sub> are in parallel, their combined currents should add up to the total of 120.78 mA.  Likewise, since R<sub>3</sub> and R<sub>4</sub> are in parallel, their combined currents should also add up to the total of 120.78 mA.  You can check for yourself to verify that these figures do add up as expected.
+</p>
+
+<p>
+A computer simulation can also be used to verify the accuracy of these figures.  The following SPICE analysis will show all resistor voltages and currents (note the current-sensing vi1, vi2, . . . "dummy" voltage sources in series with each resistor in the netlist, necessary for the SPICE computer program to track current through each path).  These voltage sources will be set to have values of zero volts each so they will not affect the circuit in any way.
+</p>
+
+<p> <img src="html/DC/00131.png"> </p>
+
+<br> </br>
+
+<pre>
+series-parallel circuit
+v1 1 0
+vi1 1 2 dc 0
+vi2 1 3 dc 0
+r1 2 4 100
+r2 3 4 250
+vi3 4 5 dc 0
+vi4 4 6 dc 0
+r3 5 0 350
+r4 6 0 200
+.dc v1 24 24 1
+.print dc v(2,4) v(3,4) v(5,0) v(6,0)
+.print dc i(vi1) i(vi2) i(vi3) i(vi4)
+.end
+</pre>
+
+<br> </br>
+
+<p>
+I've annotated SPICE's output figures to make them more readable, denoting which voltage and current figures belong to which resistors.
+</p>
+
+<br> </br>
+
+<pre>
+v1            v(2,4)      v(3,4)      v(5)        v(6)
+2.400E+01     8.627E+00   8.627E+00   1.537E+01   1.537E+01
+Battery       R1 voltage  R2 voltage  R3 voltage  R4 voltage
+voltage
+</pre>
+
+<br> </br>
+
+<pre>
+v1            i(vi1)      i(vi2)      i(vi3)      i(vi4)
+2.400E+01     8.627E-02   3.451E-02   4.392E-02   7.686E-02
+Battery       R1 current  R2 current  R3 current  R4 current
+voltage
+</pre>
+
+<br> </br>
+
+<p>
+As you can see, all the figures do agree with the our calculated values.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>To analyze a series-parallel combination circuit, follow these steps:</li>
+<li>Reduce the original circuit to a single equivalent resistor, re-drawing the circuit in each step of reduction as simple series and simple parallel parts are reduced to single, equivalent resistors.</li>
+<li>Solve for total resistance.</li>
+<li>Solve for total current (I=E/R).</li>
+<li>Determine equivalent resistor voltage drops and branch currents one stage at a time, working backwards to the original circuit configuration again.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33422">Re-drawing complex schematics</a></u></h2>
+
+<a name="Re-drawing schematic diagrams"></a>
+
+<p>
+Typically, complex circuits are not arranged in nice, neat, clean schematic diagrams for us to follow.  They are often drawn in such a way that makes it difficult to follow which components are in series and which are in parallel with each other.  The purpose of this section is to show you a method useful for re-drawing circuit schematics in a neat and orderly fashion.  Like the stage-reduction strategy for solving series-parallel combination circuits, it is a method easier demonstrated than described.
+</p>
+
+<p>
+Let's start with the following (convoluted) circuit diagram.  Perhaps this diagram was originally drawn this way by a technician or engineer.  Perhaps it was sketched as someone traced the wires and connections of a real circuit.  In any case, here it is in all its ugliness:
+</p>
+
+<p> <img src="html/DC/00132.png"> </p>
+
+<p>
+With electric circuits and circuit diagrams, the length and routing of wire connecting components in a circuit matters little.  (Actually, in some AC circuits it becomes critical, and very long wire lengths can contribute unwanted resistance to both AC and DC circuits, but in most cases wire length is irrelevant.)  What this means for us is that we can lengthen, shrink, and/or bend connecting wires without affecting the operation of our circuit.
+</p>
+
+<p>
+The strategy I have found easiest to apply is to start by tracing the current from one terminal of the battery around to the other terminal, following the loop of components closest to the battery and ignoring all other wires and components for the time being.  While tracing the path of the loop, mark each resistor with the appropriate polarity for voltage drop.
+</p>
+
+<p>
+In this case, I'll begin my tracing of this circuit at the negative terminal of the battery and finish at the positive terminal, in the same general direction as the electrons would flow.  When tracing this direction, I will mark each resistor with the polarity of negative on the entering side and positive on the exiting side, for that is how the actual polarity will be as electrons (negative in charge) enter and exit a resistor:
+</p>
+
+<p> <img src="html/DC/00369.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00133.png"> </p>
+
+<p>
+Any components encountered along this short loop are drawn vertically in order:
+</p>
+
+<p> <img src="html/DC/00134.png"> </p>
+
+<p>
+Now, proceed to trace any loops of components connected around components that were just traced.  In this case, there's a loop around R<sub>1</sub> formed by R<sub>2</sub>, and another loop around R<sub>3</sub> formed by R<sub>4</sub>:
+</p>
+
+<p> <img src="html/DC/00135.png"> </p>
+
+<p>
+Tracing those loops, I draw R<sub>2</sub> and R<sub>4</sub> in parallel with R<sub>1</sub> and R<sub>3</sub> (respectively) on the vertical diagram.  Noting the polarity of voltage drops across R<sub>3</sub> and R<sub>1</sub>, I mark R<sub>4</sub> and R<sub>2</sub> likewise:
+</p>
+
+<p> <img src="html/DC/00136.png"> </p>
+
+<p>
+Now we have a circuit that is very easily understood and analyzed.  In this case, it is identical to the four-resistor series-parallel configuration we examined earlier in the chapter.
+</p>
+
+<p>
+Let's look at another example, even uglier than the one before:
+</p>
+
+<p> <img src="html/DC/00137.png"> </p>
+
+<p>
+The first loop I'll trace is from the negative (-) side of the battery, through R<sub>6</sub>, through R<sub>1</sub>, and back to the positive (+) end of the battery:
+</p>
+
+<p> <img src="html/DC/00138.png"> </p>
+
+<p>
+Re-drawing vertically and keeping track of voltage drop polarities along the way, our equivalent circuit starts out looking like this:
+</p>
+
+<p> <img src="html/DC/00139.png"> </p>
+
+<p>
+Next, we can proceed to follow the next loop around one of the traced resistors (R<sub>6</sub>), in this case, the loop formed by R<sub>5</sub> and R<sub>7</sub>.  As before, we start at the negative end of R<sub>6</sub> and proceed to the positive end of R<sub>6</sub>, marking voltage drop polarities across R<sub>7</sub> and R<sub>5</sub> as we go:
+</p>
+
+<p> <img src="html/DC/00140.png"> </p>
+
+<p>
+Now we add the R<sub>5</sub>--R<sub>7</sub> loop to the vertical drawing.  Notice how the voltage drop polarities across R<sub>7</sub> and R<sub>5</sub> correspond with that of R<sub>6</sub>, and how this is the same as what we found tracing R<sub>7</sub> and R<sub>5</sub> in the original circuit:
+</p>
+
+<p> <img src="html/DC/00141.png"> </p>
+
+<p>
+We repeat the process again, identifying and tracing another loop around an already-traced resistor.  In this case, the R<sub>3</sub>--R<sub>4</sub> loop around R<sub>5</sub> looks like a good loop to trace next:
+</p>
+
+<p> <img src="html/DC/00142.png"> </p>
+
+<p>
+Adding the R<sub>3</sub>--R<sub>4</sub> loop to the vertical drawing, marking the correct polarities as well:
+</p>
+
+<p> <img src="html/DC/00143.png"> </p>
+
+<p>
+With only one remaining resistor left to trace, then next step is obvious: trace the loop formed by R<sub>2</sub> around R<sub>3</sub>:
+</p>
+
+<p> <img src="html/DC/00144.png"> </p>
+
+<p>
+Adding R<sub>2</sub> to the vertical drawing, and we're finished!  The result is a diagram that's very easy to understand compared to the original:
+</p>
+
+<p> <img src="html/DC/00145.png"> </p>
+
+<p>
+This simplified layout greatly eases the task of determining where to start and how to proceed in reducing the circuit down to a single equivalent (total) resistance.  Notice how the circuit has been re-drawn, all we have to do is start from the right-hand side and work our way left, reducing simple-series and simple-parallel resistor combinations one group at a time until we're done.
+</p>
+
+<p>
+In this particular case, we would start with the simple parallel combination of R<sub>2</sub> and R<sub>3</sub>, reducing it to a single resistance.  Then, we would take that equivalent resistance (R<sub>2</sub>//R<sub>3</sub>) and the one in series with it (R<sub>4</sub>), reducing them to another equivalent resistance (R<sub>2</sub>//R<sub>3</sub>--R<sub>4</sub>).  Next, we would proceed to calculate the parallel equivalent of that resistance (R<sub>2</sub>//R<sub>3</sub>--R<sub>4</sub>) with R<sub>5</sub>, then in series with R<sub>7</sub>, then in parallel with R<sub>6</sub>, then in series with R<sub>1</sub> to give us a grand total resistance for the circuit as a whole.
+</p>
+
+<p>
+From there we could calculate total current from total voltage and total resistance (I=E/R), then "expand" the circuit back into its original form one stage at a time, distributing the appropriate values of voltage and current to the resistances as we go.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Wires in diagrams and in real circuits can be lengthened, shortened, and/or moved without affecting circuit operation.</li>
+<li>To simplify a convoluted circuit schematic, follow these steps:</li>
+<li>Trace current from one side of the battery to the other, following any single path ("loop") to the battery.  Sometimes it works better to start with the loop containing the most components, but regardless of the path taken the result will be accurate.  Mark polarity of voltage drops across each resistor as you trace the loop.  Draw those components you encounter along this loop in a vertical schematic.</li>
+<li>Mark traced components in the original diagram and trace remaining loops of components in the circuit.  Use polarity marks across traced components as guides for what connects where.  Document new components in loops on the vertical re-draw schematic as well.</li>
+<li>Repeat last step as often as needed until all components in  original diagram have been traced.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33423">Component failure analysis</a></u></h2>
+
+<blockquote>
+
+<p>
+<i>"I consider that I understand an equation when I can predict the properties of its solutions, without actually solving it."</i>
+</p>
+
+<p>
+<b>P.A.M Dirac, physicist</b>
+</p>
+
+</blockquote>
+
+<p>
+There is a lot of truth to that quote from Dirac.  With a little modification, I can extend his wisdom to electric circuits by saying, "I consider that I understand a circuit when I can predict the approximate effects of various changes made to it without actually performing any calculations."
+</p>
+
+<p>
+At the end of the series and parallel circuits chapter, we briefly considered how circuits could be analyzed in a <i>qualitative</i> rather than <i>quantitative</i> manner.  Building this skill is an important step towards becoming a proficient troubleshooter of electric circuits.  Once you have a thorough understanding of how any particular failure will affect a circuit (i.e. you don't have to perform any arithmetic to predict the results), it will be much easier to work the other way around: pinpointing the source of trouble by assessing how a circuit is behaving.
+</p>
+
+<a name="Qualitative analysis"></a>
+<a name="Analysis, qualitative"></a>
+
+<p>
+Also shown at the end of the series and parallel circuits chapter was how the table method works just as well for aiding failure analysis as it does for the analysis of healthy circuits.  We may take this technique one step further and adapt it for total qualitative analysis.  By <i>"qualitative"</i> I mean working with symbols representing "increase," "decrease," and "same" instead of precise numerical figures.  We can still use the principles of series and parallel circuits, and the concepts of Ohm's Law, we'll just use symbolic <i>qualities</i> instead of numerical <i>quantities</i>.  By doing this, we can gain more of an intuitive "feel" for how circuits work rather than leaning on abstract equations, attaining Dirac's definition of "understanding."
+</p>
+
+<p>
+Enough talk.  Let's try this technique on a real circuit example and see how it works:
+</p>
+
+<p> <img src="html/DC/00132.png"> </p>
+
+<p>
+This is the first "convoluted" circuit we straightened out for analysis in the last section.  Since you already know how this particular circuit reduces to series and parallel sections, I'll skip the process and go straight to the final form:
+</p>
+
+<p> <img src="html/DC/00136.png"> </p>
+
+<p>
+R<sub>3</sub> and R<sub>4</sub> are in parallel with each other; so are R<sub>1</sub> and R<sub>2</sub>.  The parallel equivalents of R<sub>3</sub>//R<sub>4</sub> and R<sub>1</sub>//R<sub>2</sub> are in series with each other.  Expressed in symbolic form, the total resistance for this circuit is as follows:
+</p>
+
+<br> </br>
+
+<p>
+R<sub>Total</sub> = (R<sub>1</sub>//R<sub>2</sub>)--(R<sub>3</sub>//R<sub>4</sub>)
+</p>
+
+<br> </br>
+
+<p>
+First, we need to formulate a table with all the necessary rows and columns for this circuit:
+</p>
+
+<p> <img src="html/DC/10135.png"> </p>
+
+<p>
+Next, we need a failure scenario.  Let's suppose that resistor R<sub>2</sub> were to fail shorted.  We will assume that all other components maintain their original values.  Because we'll be analyzing this circuit qualitatively rather than quantitatively, we won't be inserting any real numbers into the table.  For any quantity unchanged after the component failure, we'll use the word "same" to represent "no change from before."  For any quantity that has changed as a result of the failure, we'll use a down arrow for "decrease" and an up arrow for "increase."  As usual, we start by filling in the spaces of the table for individual resistances and total voltage, our "given" values:
+</p>
+
+<p> <img src="html/DC/10136.png"> </p>
+
+<p>
+The only "given" value different from the normal state of the circuit is R<sub>2</sub>, which we said was failed shorted (abnormally low resistance).  All other initial values are the same as they were before, as represented by the "same" entries.  All we have to do now is work through the familiar Ohm's Law and series-parallel principles to determine what will happen to all the other circuit values.
+</p>
+
+<p>
+First, we need to determine what happens to the resistances of parallel subsections R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub>.  If neither R<sub>3</sub> nor R<sub>4</sub> have changed in resistance value, then neither will their parallel combination.  However, since the resistance of R<sub>2</sub> has decreased while R<sub>1</sub> has stayed the same, their parallel combination must decrease in resistance as well:
+</p>
+
+<p> <img src="html/DC/10137.png"> </p>
+
+<p>
+Now, we need to figure out what happens to the total resistance.  This part is easy: when we're dealing with only one component change in the circuit, the change in total resistance will be in the same direction as the change of the failed component.  This is not to say that the <i>magnitude</i> of change between individual component and total circuit will be the same, merely the <i>direction</i> of change.  In other words, if any single resistor decreases in value, then the total circuit resistance must also decrease, and vice versa.  In this case, since R<sub>2</sub> is the only failed component, and its resistance has decreased, the total resistance <i>must</i> decrease:
+</p>
+
+<p> <img src="html/DC/10138.png"> </p>
+
+<a name="Ohm's Law, qualitative"></a>
+
+<p>
+Now we can apply Ohm's Law (qualitatively) to the Total column in the table.  Given the fact that total voltage has remained the same and total resistance has decreased, we can conclude that total current must increase (I=E/R).
+</p>
+
+<p>
+In case you're not familiar with the qualitative assessment of an equation, it works like this.  First, we write the equation as solved for the unknown quantity.  In this case, we're trying to solve for current, given voltage and resistance:
+</p>
+
+<p> <img src="html/DC/10139.png"> </p>
+
+<p>
+Now that our equation is in the proper form, we assess what change (if any) will be experienced by "I," given the change(s) to "E" and "R":
+</p>
+
+<p> <img src="html/DC/10140.png"> </p>
+
+<p>
+If the denominator of a fraction decreases in value while the numerator stays the same, then the overall value of the fraction must increase:
+</p>
+
+<p> <img src="html/DC/10141.png"> </p>
+
+<p>
+Therefore, Ohm's Law (I=E/R) tells us that the current (I) will increase.  We'll mark this conclusion in our table with an "up" arrow:
+</p>
+
+<p> <img src="html/DC/10142.png"> </p>
+
+<p>
+With all resistance places filled in the table and all quantities determined in the Total column, we can proceed to determine the other voltages and currents.  Knowing that the total resistance in this table was the result of R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> in <i>series</i>, we know that the value of total current will be the same as that in R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> (because series components share the same current).  Therefore, if total current increased, then current through R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> must also have increased with the failure of R<sub>2</sub>:
+</p>
+
+<p> <img src="html/DC/10143.png"> </p>
+
+<p>
+Fundamentally, what we're doing here with a qualitative usage of Ohm's Law and the rules of series and parallel circuits is no different from what we've done before with numerical figures.  In fact, its a lot easier because you don't have to worry about making an arithmetic or calculator keystroke error in a calculation.  Instead, you're just focusing on the <i>principles</i> behind the equations.  From our table above, we can see that Ohm's Law should be applicable to the R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> columns.  For R<sub>3</sub>//R<sub>4</sub>, we figure what happens to the voltage, given an increase in current and no change in resistance.  Intuitively, we can see that this must result in an increase in voltage across the parallel combination of R<sub>3</sub>//R<sub>4</sub>:
+</p>
+
+<p> <img src="html/DC/10144.png"> </p>
+
+<p>
+But how do we apply the same Ohm's Law formula (E=IR) to the R<sub>1</sub>//R<sub>2</sub> column, where we have resistance decreasing <i>and</i> current increasing?  It's easy to determine if only one variable is changing, as it was with R<sub>3</sub>//R<sub>4</sub>, but with two variables moving around and no definite numbers to work with, Ohm's Law isn't going to be much help.  However, there is another rule we can apply <i>horizontally</i> to determine what happens to the voltage across R<sub>1</sub>//R<sub>2</sub>: the rule for voltage in series circuits.  If the voltages across R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> add up to equal the total (battery) voltage and we know that the R<sub>3</sub>//R<sub>4</sub> voltage has increased while total voltage has stayed the same, then the voltage across R<sub>1</sub>//R<sub>2</sub> <i>must</i> have decreased with the change of R<sub>2</sub>'s resistance value:
+</p>
+
+<p> <img src="html/DC/10145.png"> </p>
+
+<p>
+Now we're ready to proceed to some new columns in the table.  Knowing that R<sub>3</sub> and R<sub>4</sub> comprise the parallel subsection R<sub>3</sub>//R<sub>4</sub>, and knowing that voltage is shared equally between parallel components, the increase in voltage seen across the parallel combination R<sub>3</sub>//R<sub>4</sub> must also be seen across R<sub>3</sub> and R<sub>4</sub> individually:
+</p>
+
+<p> <img src="html/DC/10146.png"> </p>
+
+<p>
+The same goes for R<sub>1</sub> and R<sub>2</sub>.  The voltage decrease seen across the parallel combination of R<sub>1</sub> and R<sub>2</sub> will be seen across R<sub>1</sub> and R<sub>2</sub> individually:
+</p>
+
+<p> <img src="html/DC/10147.png"> </p>
+
+<p>
+Applying Ohm's Law vertically to those columns with unchanged ("same") resistance values, we can tell what the current will do through those components.  Increased voltage across an unchanged resistance leads to increased current.  Conversely, decreased voltage across an unchanged resistance leads to decreased current:
+</p>
+
+<p> <img src="html/DC/10148.png"> </p>
+
+<p>
+Once again we find ourselves in a position where Ohm's Law can't help us: for R<sub>2</sub>, both voltage and resistance have decreased, but without knowing <i>how much</i> each one has changed, we can't use the I=E/R formula to qualitatively determine the resulting change in current.  However, we can still apply the rules of series and parallel circuits <i>horizontally</i>.  We know that the current through the R<sub>1</sub>//R<sub>2</sub> parallel combination has increased, and we also know that the current through R<sub>1</sub> has decreased.  One of the rules of parallel circuits is that total current is equal to the sum of the individual branch currents.  In this case, the current through R<sub>1</sub>//R<sub>2</sub> is equal to the current through R<sub>1</sub> added to the current through R<sub>2</sub>.  If current through R<sub>1</sub>//R<sub>2</sub> has increased while current through R<sub>1</sub> has decreased, current through R<sub>2</sub> <i>must</i> have increased:
+</p>
+
+<p> <img src="html/DC/10149.png"> </p>
+
+<p>
+And with that, our table of qualitative values stands completed.  This particular exercise may look laborious due to all the detailed commentary, but the actual process can be performed very quickly with some practice.  An important thing to realize here is that the general procedure is little different from quantitative analysis: start with the known values, then proceed to determining total resistance, then total current, then transfer figures of voltage and current as allowed by the rules of series and parallel circuits to the appropriate columns.
+</p>
+
+<p>
+A few general rules can be memorized to assist and/or to check your progress when proceeding with such an analysis:
+</p>
+
+<ul>
+<li>For any <i>single</i> component failure (open or shorted), the total resistance will always change in the same direction (either increase or decrease) as the resistance change of the failed component.</li>
+<li>When a component fails shorted, its resistance always decreases.  Also, the current through it will increase, and the voltage across it <i>may</i> drop.  I say "may" because in some cases it will remain the same (case in point: a simple parallel circuit with an ideal power source).</li>
+<li>When a component fails open, its resistance always increases.  The current through that component will decrease to zero, because it is an incomplete electrical path (no continuity).  This <i>may</i> result in an increase of voltage across it.  The same exception stated above applies here as well: in a simple parallel circuit with an ideal voltage source, the voltage across an open-failed component will remain unchanged.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33424">Building series-parallel resistor circuits</a></u></h2>
+
+<a name="Solderless breadboard"></a>
+<a name="Breadboard, solderless"></a>
+
+<p>
+Once again, when building battery/resistor circuits, the student or hobbyist is faced with several different modes of construction.  Perhaps the most popular is the <i>solderless breadboard</i>: a platform for constructing temporary circuits by plugging components and wires into a grid of interconnected points.  A breadboard appears to be nothing but a plastic frame with hundreds of small holes in it.  Underneath each hole, though, is a spring clip which connects to other spring clips beneath other holes.  The connection pattern between holes is simple and uniform:
+</p>
+
+<p> <img src="html/DC/00447.png"> </p>
+
+<p>
+Suppose we wanted to construct the following series-parallel combination circuit on a breadboard:
+</p>
+
+<p> <img src="html/DC/00123.png"> </p>
+
+<p>
+The recommended way to do so on a breadboard would be to arrange the resistors in approximately the same pattern as seen in the schematic, for ease of relation to the schematic.  If 24 volts is required and we only have 6-volt batteries available, four may be connected in series to achieve the same effect:
+</p>
+
+<p> <img src="html/DC/00458.png"> </p>
+
+<p>
+This is by no means the only way to connect these four resistors together to form the circuit shown in the schematic.  Consider this alternative layout:
+</p>
+
+<p> <img src="html/DC/00459.png"> </p>
+
+<a name="Terminal strip"></a>
+<a name="Barrier strip"></a>
+<a name="Terminal block"></a>
+
+<p>
+If greater permanence is desired without resorting to soldering or wire-wrapping, one could choose to construct this circuit on a <i>terminal strip</i> (also called a <i>barrier strip</i>, or <i>terminal block</i>).  In this method, components and wires are secured by mechanical tension underneath screws or heavy clips attached to small metal bars.  The metal bars, in turn, are mounted on a nonconducting body to keep them electrically isolated from each other.
+</p>
+
+<p>
+Building a circuit with components secured to a terminal strip isn't as easy as plugging components into a breadboard, principally because the components cannot be physically arranged to resemble the schematic layout.  Instead, the builder must understand how to "bend" the schematic's representation into the real-world layout of the strip.  Consider one example of how the same four-resistor circuit could be built on a terminal strip:
+</p>
+
+<p> <img src="html/DC/00460.png"> </p>
+
+<p>
+Another terminal strip layout, simpler to understand and relate to the schematic, involves anchoring parallel resistors (R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub>) to the same two terminal points on the strip like this:
+</p>
+
+<p> <img src="html/DC/00461.png"> </p>
+
+<p>
+Building more complex circuits on a terminal strip involves the same spatial-reasoning skills, but of course requires greater care and planning.  Take for instance this complex circuit, represented in schematic form:
+</p>
+
+<p> <img src="html/DC/00137.png"> </p>
+
+<p>
+The terminal strip used in the prior example barely has enough terminals to mount all seven resistors required for this circuit!  It will be a challenge to determine all the necessary wire connections between resistors, but with patience it can be done.  First, begin by installing and labeling all resistors on the strip.  The original schematic diagram will be shown next to the terminal strip circuit for reference:
+</p>
+
+<p> <img src="html/DC/00462.png"> </p>
+
+<p>
+Next, begin connecting components together wire by wire as shown in the schematic.  Over-draw connecting lines in the schematic to indicate completion in the real circuit.  Watch this sequence of illustrations as each individual wire is identified in the schematic, then added to the real circuit:
+</p>
+
+<p> <img src="html/DC/00463.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00464.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00465.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00466.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00467.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00468.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00469.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00470.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00471.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00472.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="html/DC/00473.png"> </p>
+
+<p>
+Although there are minor variations possible with this terminal strip circuit, the choice of connections shown in this example sequence is both electrically accurate (electrically identical to the schematic diagram) and carries the additional benefit of not burdening any one screw terminal on the strip with more than two wire ends, a good practice in any terminal strip circuit.
+</p>
+
+<p>
+An example of a "variant" wire connection might be the very last wire added (step 11), which I placed between the left terminal of R<sub>2</sub> and the left terminal of R<sub>3</sub>.  This last wire completed the parallel connection between R<sub>2</sub> and R<sub>3</sub> in the circuit.  However, I could have placed this wire instead between the left terminal of R<sub>2</sub> and the right terminal of R<sub>1</sub>, since the right terminal of R<sub>1</sub> is already connected to the left terminal of R<sub>3</sub> (having been placed there in step 9) and so is electrically common with that one point.  Doing this, though, would have resulted in <i>three</i> wires secured to the right terminal of R<sub>1</sub> instead of two, which is a <i>faux pax</i> in terminal strip etiquette.  Would the circuit have worked this way?  Certainly!  It's just that more than two wires secured at a single terminal makes for a "messy" connection: one that is aesthetically unpleasing and may place undue stress on the screw terminal.
+</p>
+
+<p>
+Another variation would be to reverse the terminal connections for resistor R<sub>7</sub>.  As shown in the last diagram, the voltage polarity across R<sub>7</sub> is negative on the left and positive on the right (- , +), whereas all the other resistor polarities are positive on the left and negative on the right (+ , -):
+</p>
+
+<p> <img src="html/DC/00492.png"> </p>
+
+<p>
+While this poses no electrical problem, it might cause confusion for anyone measuring resistor voltage drops with a voltmeter, especially an analog voltmeter which will "peg" downscale when subjected to a voltage of the wrong polarity.  For the sake of consistency, it might be wise to arrange all wire connections so that all resistor voltage drop polarities are the same, like this:
+</p>
+
+<p> <img src="html/DC/00493.png"> </p>
+
+<p>
+Though electrons do not care about such consistency in component layout, people do.  This illustrates an important aspect of any engineering endeavor: the human factor.  Whenever a design may be modified for easier comprehension and/or easier maintenance -- with no sacrifice of functional performance -- it should be done so.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Circuits built on terminal strips can be difficult to lay out, but when built they are robust enough to be considered permanent, yet easy to modify.</li>
+<li>It is bad practice to secure more than two wire ends and/or component leads under a single terminal screw or clip on a terminal strip.  Try to arrange connecting wires so as to avoid this condition.</li>
+<li>Whenever possible, build your circuits with clarity and ease of understanding in mind.  Even though component and wiring layout is usually of little consequence in DC circuit function, it matters significantly for the sake of the person who has to modify or troubleshoot it later.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid33425">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Tony Armstrong</b> (January 23, 2003): Suggested reversing polarity on resistor R<sub>7</sub> in last terminal strip circuit.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+<p>
+<b>Ron LaPlante</b> (October 1998): helped create "table" method of series and parallel circuit analysis.
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DC_A3.html">Design Science License</a>.
+</p>
+
+
+</body>
+</html>
+

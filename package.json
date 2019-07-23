@@ -4,8 +4,8 @@
   "description": "Lessons In Electronic Circuits by Tony R. Kuphaldt in readable and convertable formats.",
   "main": "index.js",
   "scripts": {
-    "md": "rm -rf markdown && node index.js",
-    "epub": "rm -rf epub && node index.js"
+    "md": "rm -rf markdown 2> /dev/null && node index.js",
+    "epub": "rm -rf epub 2> /dev/null && node index.js"
   },
   "author": "Viktor Habchak",
   "license": "ISC",
