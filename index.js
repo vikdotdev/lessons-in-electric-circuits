@@ -39,7 +39,7 @@ function makeEpub(bookName, title) {
   const tempFiles = getHtmlFiles(`temp/${bookName}`);
 
   shell.mkdir('-p', 'epub');
-  shell.exec(`pandoc  --metadata title="${title}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, code => {
+  shell.exec(`pandoc --epub-cover-image="html/${bookName}/cover.jpg" --metadata title="${title}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, code => {
     if (code == 0) {
       console.log(`${title} successfully compiled.`)
     } else {
