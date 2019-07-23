@@ -1,0 +1,5 @@
+---
+author: Tony R. Kuphaldt
+rights:  GNU Design Science License
+language: en-US
+...

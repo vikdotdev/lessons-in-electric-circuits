@@ -2,9 +2,9 @@
   "name": "lessons-in-electric-circuits",
   "version": "0.1.0",
   "description": "Lessons In Electronic Circuits by Tony R. Kuphaldt converted to epub.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "epub": "node src/index.js"
+    "epub": "node index.js"
   },
   "author": "Viktor Habchak",
   "license": "DSL",
