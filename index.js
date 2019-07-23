@@ -1,33 +1,32 @@
 const path = require('path');
 const fs = require('fs');
-const TurndownService = require('turndown')
+const shell = require('shelljs');
 
-function makeMarkdown(chapterPath) { // ex. html/DC
-  const turndownService = new TurndownService({
-    codeBlockStyle: 'fenced',
-  });
-
-  turndownService.remove('head');
-
-  const htmlFiles = fs.readdirSync(path.resolve(chapterPath));
-
-  const markdown = htmlFiles.map(fileName => {
-    const content = fs.readFileSync(`html/DC/${fileName}`, 'utf8');
-    return turndownService.turndown(content);
-  });
-
-  const folderName = chapterPath.replace(/html\/(\w)/, 'markdown/$1');
-  fs.mkdirSync(path.resolve('markdown'))
-  fs.mkdirSync(path.resolve(folderName));
-
-  markdown.forEach((data, i) => {
-    const fileName = htmlFiles[i].substr(0, htmlFiles[i].length - 5);
-    fs.writeFileSync(path.resolve(`${folderName}/${fileName}.md`), data);
-  });
+function createDir(bookPath, format) {
+  const folderName = bookPath.replace(/html\/(\w)/, `${format}/$1`);
+  shell.mkdir('-p', folderName);
 }
 
-makeMarkdown('html/DC');
-
-function makeEpub() {
+function stripHead(file) {
+  return shell.exec(`sed '/<head>/,/<\/head>/{//!d}' ${file}`);
 }
 
+function getHtmlFiles(bookPath) {
+  return fs
+    .readdirSync(path.resolve(bookPath))
+    .filter(f => f.match('.html'))
+    .map(f => `${bookPath}/${f}`)
+    .map(stripHead)
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+    .join(' ');
+}
+
+function makeEpub(bookPath, bookName) {
+  const htmlFiles = getHtmlFiles(bookPath);
+  createDir(bookPath);
+
+  shell.exec(`pandoc ${path.resolve(htmlFiles)} -o ${bookName}.epub`)
+}
+
+stripHead('html/DC/DC_1.html');
+//makeEpub('html/DC', 'DC - I');
