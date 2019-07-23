@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,18 +19,17 @@
 <a href="REF_8.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume V</h1>
 <h1>Chapter 7</h1>
 
 
 
 
-<h1>USING THE <i>SPICE</i> CIRCUIT SIMULATION PROGRAM</h1> 
+<h1>USING THE <i>SPICE</i> CIRCUIT SIMULATION PROGRAM</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid38780"><u>Introduction</u></a></li>
@@ -109,7 +108,7 @@ This introduction comes from the operating manual for a circuit simulation progr
 </p>
 
 <p>
-However, underneath the graphics skin of <i>Electronics Workbench</i> lies a robust (and free!) program called SPICE, which analyzes a circuit based on a text-file description of the circuit's components and connections.  What the user pays for with <i>Electronics Workbench</i> and other graphic circuit analysis programs is the convenient "point and click" interface, while SPICE does the actual mathematical analysis. 
+However, underneath the graphics skin of <i>Electronics Workbench</i> lies a robust (and free!) program called SPICE, which analyzes a circuit based on a text-file description of the circuit's components and connections.  What the user pays for with <i>Electronics Workbench</i> and other graphic circuit analysis programs is the convenient "point and click" interface, while SPICE does the actual mathematical analysis.
 </p>
 
 <p>
@@ -175,7 +174,7 @@ In an interpreted computer language, the computer holds a special program called
 
 <a name="Interpreter"></a>
 
-<p> <img src="01041.png"> </p> 
+<p> <img src="01041.png"> </p>
 
 <p>
 
@@ -189,13 +188,13 @@ In an interpreted computer language, the computer holds a special program called
 In a compiled computer language, the program you wrote is translated all at once into the computer's own language by a special program called a <i>compiler</i>.  After the program you've written has been "compiled," the resulting <i>executable</i> file needs no further translation to be understood directly by the computer.  It can now be "run" on a computer whether or not compiler software has been installed on that computer:
 </p>
 
-<p> <img src="01042.png"> </p> 
+<p> <img src="01042.png"> </p>
 
 <p>
 SPICE is an interpreted language.  In order for a computer to be able to understand the SPICE instructions you type, it must have the SPICE program (interpreter) installed:
 </p>
 
-<p> <img src="01043.png"> </p> 
+<p> <img src="01043.png"> </p>
 
 <a name="FORTRAN, computer language"></a>
 <a name="BASIC, computer language"></a>
@@ -276,7 +275,7 @@ Once you have a SPICE output stored in a <tt>.txt</tt> file, you can use a text 
 The netlist file format required by SPICE is quite simple.  A netlist file is nothing more than a plain ASCII text file containing multiple lines of text, each line describing either a circuit component or special SPICE command.  Circuit architecture is specified by assigning numbers to each component's connection points in each line, connections between components designated by common numbers.  Examine the following example circuit diagram and its corresponding SPICE file.  Please bear in mind that the circuit diagram exists only to make the simulation easier for human beings to understand.  SPICE only understands netlists:
 </p>
 
-<p> <img src="01004.png"> </p> 
+<p> <img src="01004.png"> </p>
 
 <br> </br>
 
@@ -284,7 +283,7 @@ The netlist file format required by SPICE is quite simple.  A netlist file is no
 Example netlist
 v1 1 0 dc 15
 r1 1 0 2.2k
-r2 1 2 3.3k     
+r2 1 2 3.3k
 r3 2 0 150
 .end
 </pre>
@@ -317,19 +316,19 @@ To simulate this circuit, the user would type those six lines of text on a text 
 <pre>
 1*******10/10/99 ******** spice 2g.6 3/15/83 ********07:32:42*****
 
-0example netlist    
+0example netlist
 
 0****   input listing                 temperature =   27.000 deg c
 
- v1 1 0 dc 15    
- r1 1 0 2.2k     
- r2 1 2 3.3k     
- r3 2 0 150      
- .end    
+ v1 1 0 dc 15
+ r1 1 0 2.2k
+ r2 1 2 3.3k
+ r3 2 0 150
+ .end
 
 *****10/10/99 *********  spice 2g.6  3/15/83 ******07:32:42******
 
-0example netlist   
+0example netlist
 0****   small signal bias solution     temperature =   27.000 deg c
 
 
@@ -345,7 +344,7 @@ To simulate this circuit, the user would type those six lines of text on a text 
 
 
      total power dissipation   1.67E-01  watts
-         
+
         job concluded
 0         total job time            0.02
 1*******10/10/99 ********  spice 2g.6  3/15/83 ******07:32:42*****
@@ -371,12 +370,12 @@ The SPICE output listing shown above is a little verbose for most peoples' taste
 <br> </br>
 
 <pre>
-example netlist    
-v1 1 0 dc 15    
-r1 1 0 2.2k     
-r2 1 2 3.3k     
-r3 2 0 150      
-.end    
+example netlist
+v1 1 0 dc 15
+r1 1 0 2.2k
+r2 1 2 3.3k
+r3 2 0 150
+.end
 </pre>
 
 <br> </br>
@@ -437,7 +436,7 @@ Remember that this tutorial is not exhaustive by any means, and that all descrip
 </p>
 
 <p>
-<i>All</i> components in a SPICE source file are primarily identified by the first letter in each respective line.  Characters following the identifying letter are used to distinguish one component of a certain type from another of the same type (r1, r2, r3, rload, rpullup, etc.), and need not follow any particular naming convention, so long as no more than eight characters are used in both the component identifying letter and the distinguishing name. 
+<i>All</i> components in a SPICE source file are primarily identified by the first letter in each respective line.  Characters following the identifying letter are used to distinguish one component of a certain type from another of the same type (r1, r2, r3, rload, rpullup, etc.), and need not follow any particular naming convention, so long as no more than eight characters are used in both the component identifying letter and the distinguishing name.
 </p>
 
 <a name="Component names, SPICE"></a>
@@ -533,13 +532,13 @@ The unit (ohms, volts, farads, henrys, etc.) is automatically determined by the 
 
 <pre>
 General form:  c[name] [node1] [node2] [value] ic=[initial voltage]
-Example 1:     c1 12 33 10u 
+Example 1:     c1 12 33 10u
 Example 2:     c1 12 33 10u ic=3.5
 &nbsp;
 </pre>
 
 <p>
-<b>Comments:</b>  The "initial condition" (<tt>ic=</tt>) variable is the capacitor's voltage in units of <i>volts</i> at the start of DC analysis.  It is an optional value, with the starting voltage assumed to be zero if unspecified.  Starting current values for capacitors are interpreted by SPICE only if the <tt>.tran</tt> analysis option is invoked (with the "<tt>uic</tt>" option). 
+<b>Comments:</b>  The "initial condition" (<tt>ic=</tt>) variable is the capacitor's voltage in units of <i>volts</i> at the start of DC analysis.  It is an optional value, with the starting voltage assumed to be zero if unspecified.  Starting current values for capacitors are interpreted by SPICE only if the <tt>.tran</tt> analysis option is invoked (with the "<tt>uic</tt>" option).
 </p>
 
 
@@ -551,13 +550,13 @@ Example 2:     c1 12 33 10u ic=3.5
 
 <pre>
 General form:  l[name] [node1] [node2] [value] ic=[initial current]
-Example 1:     l1 12 33 133m 
+Example 1:     l1 12 33 133m
 Example 2:     l1 12 33 133m ic=12.7m
 &nbsp;
 </pre>
 
 <p>
-<b>Comments:</b>  The "initial condition" (<tt>ic=</tt>) variable is the inductor's current in units of <i>amps</i> at the start of DC analysis.  It is an optional value, with the starting current assumed to be zero if unspecified.  Starting current values for inductors are interpreted by SPICE only if the .tran analysis option is invoked.  
+<b>Comments:</b>  The "initial condition" (<tt>ic=</tt>) variable is the inductor's current in units of <i>amps</i> at the start of DC analysis.  It is an optional value, with the starting current assumed to be zero if unspecified.  Starting current values for inductors are interpreted by SPICE only if the .tran analysis option is invoked.
 </p>
 
 
@@ -740,7 +739,7 @@ Example:       .model m2n2222 npn is=19f bf=150 vaf=100 ikf=.18
 </pre>
 
 <pre>
-Example:       .model m2n2907 pnp is=1.1p bf=200 nf=1.2 vaf=50 
+Example:       .model m2n2907 pnp is=1.1p bf=200 nf=1.2 vaf=50
 +                     ikf=0.1 ise=13p ne=1.9 br=6 rc=0.6 cje=23p
 +                     vje=0.85 mje=1.25 tf=0.5n cjc=19p vjc=0.5
 +                     mjc=0.2 tr=34n xtb=1.5
@@ -1064,7 +1063,7 @@ Example 2:     v1 1 0 ac 12 240 sin   (12 V &#8736; 240<sup>o</sup>)
 </p>
 
 <pre>
-General form:  v[name] [+node] [-node] sin([offset] [voltage] 
+General form:  v[name] [+node] [-node] sin([offset] [voltage]
 +               [freq] [delay] [damping factor])
 Example 1:     v1 1 0 sin(0 12 60 0 0)
 </pre>
@@ -1094,7 +1093,7 @@ Example 1:     v1 1 0 sin(0 12 60 0 0)
 </p>
 
 <p>
-<b>Comments:</b>  This method of specifying AC voltage sources works well if you're using multiple sources at different frequencies from each other.  Representing phase shift is tricky, though, necessitating the use of the <i>delay</i> factor. 
+<b>Comments:</b>  This method of specifying AC voltage sources works well if you're using multiple sources at different frequencies from each other.  Representing phase shift is tricky, though, necessitating the use of the <i>delay</i> factor.
 </p>
 
 <br> </br>
@@ -1127,7 +1126,7 @@ Example 1:     v1 1 0 dc 12
 </pre>
 
 <p>
-<b>Comments:</b> Nothing noteworthy here! 
+<b>Comments:</b> Nothing noteworthy here!
 </p>
 
 <br> </br>
@@ -1208,9 +1207,9 @@ Example 2:     i1 1 0 ac 1m 240 sin   (1 mA &#8736; 240<sup>o</sup>)
 </p>
 
 <pre>
-General form:  i[name] [+node] [-node] sin([offset] 
+General form:  i[name] [+node] [-node] sin([offset]
 +              [current] [freq] 0 0)
-Example 1:     i1 1 0 sin(0 1.5 60 0 0)  
+Example 1:     i1 1 0 sin(0 1.5 60 0 0)
 </pre>
 
 <br> </br>
@@ -1372,10 +1371,10 @@ Example 1:        .dc vin 1.5 15 0.5
 </p>
 
 <pre>
-General form:  .tran [increment] [stop_time] [start_time] 
+General form:  .tran [increment] [stop_time] [start_time]
 +                    [comp_interval]
-Example 1:     .tran 1m 50m uic 
-Example 2:     .tran .5m 32m 0 .01m 
+Example 1:     .tran 1m 50m uic
+Example 2:     .tran .5m 32m 0 .01m
 </pre>
 
 <p>
@@ -1518,7 +1517,7 @@ Example 1:     .width out=80
 <a name="Option, <i>width</i>, SPICE"></a>
 
 <p>
-<b>Comments:</b>  The <tt>.width</tt> card can be used to control the width of text output lines upon analysis.  This is especially handy when plotting graphs with the <tt>.plot</tt> card.  The default value is 120, which can cause problems on 80-character terminal displays unless set to 80 with this command. 
+<b>Comments:</b>  The <tt>.width</tt> card can be used to control the width of text output lines upon analysis.  This is especially handy when plotting graphs with the <tt>.plot</tt> card.  The default value is 120, which can cause problems on 80-character terminal displays unless set to 80 with this command.
 </p>
 
 
@@ -1628,7 +1627,7 @@ SPICE cannot handle open circuits of any kind.  If your netlist specifies a circ
 SPICE cannot handle certain uninterrupted loops of components in a circuit, namely voltage sources and inductors.  The following loops will cause SPICE to abort analysis:
 </p>
 
-<p> <img src="01005.png"> </p> 
+<p> <img src="01005.png"> </p>
 
 <pre>
 netlist
@@ -1639,22 +1638,22 @@ l3 2 4 25m
 
 <br> </br>
 
-<p> <img src="01006.png"> </p> 
+<p> <img src="01006.png"> </p>
 
 <pre>
 netlist
-v1 1 0 dc 12  
-l1 1 0 150m 
+v1 1 0 dc 12
+l1 1 0 150m
 </pre>
 
 <br> </br>
 
-<p> <img src="01007.png"> </p> 
+<p> <img src="01007.png"> </p>
 
 <pre>
 netlist
-c1 5 6 33u  
-c2 6 7 47u 
+c1 5 6 33u
+c2 6 7 47u
 </pre>
 
 <br> </br>
@@ -1671,7 +1670,7 @@ In order to make these component configurations acceptable to SPICE, you must in
 To fix the parallel inductor problem, insert a very low-value resistor in series with each offending inductor.
 </p>
 
-<p> <img src="01008.png"> </p> 
+<p> <img src="01008.png"> </p>
 
 <pre>
 original netlist
@@ -1701,7 +1700,7 @@ The extremely low-resistance resistors R<sub>bogus1</sub> and R<sub>bogus2</sub>
 To fix the voltage source / inductor loop, insert a very low-value resistor in series with the two components.
 </p>
 
-<p> <img src="01009.png"> </p> 
+<p> <img src="01009.png"> </p>
 
 <pre>
 original netlist
@@ -1728,7 +1727,7 @@ As in the previous example with parallel inductors, it is important to make the 
 To fix the series capacitor circuit, one of the capacitors must have a resistor shunting across it.  SPICE requires a DC current path to each capacitor for analysis.
 </p>
 
-<p> <img src="01010.png"> </p> 
+<p> <img src="01010.png"> </p>
 
 <pre>
 original netlist
@@ -1765,7 +1764,7 @@ The R<sub>bogus</sub> value of 9 Tera-ohms provides a DC current path to C<sub>1
 Although printing or plotting of voltage is quite easy in SPICE, the output of current values is a bit more difficult.  Voltage measurements are specified by declaring the appropriate circuit nodes.  For example, if we desire to know the voltage across a capacitor whose leads connect between nodes 4 and 7, we might make out <tt>.print</tt> statement look like this:
 </p>
 
-<p> <img src="01011.png"> </p> 
+<p> <img src="01011.png"> </p>
 
 <pre>
 c1 4 7 22u
@@ -1778,7 +1777,7 @@ c1 4 7 22u
 However, if we wanted to have SPICE measure the <i>current</i> through that capacitor, it wouldn't be quite so easy.  Currents in SPICE must be specified in relation to a voltage source, not any arbitrary component.  For example:
 </p>
 
-<p> <img src="01012.png"> </p> 
+<p> <img src="01012.png"> </p>
 
 <pre>
 c1 4 7 22u
@@ -1792,7 +1791,7 @@ vinput 6 4 ac 1 sin
 This <tt>.print</tt> card instructs SPICE to print the current through voltage source V<sub>input</sub>, which happens to be the same as the current through our capacitor between nodes 4 and 7.  But what if there is no such voltage source in our circuit to reference for current measurement?  One solution is to insert a shunt resistor into the circuit and measure voltage across it.  In this case, I have chosen a shunt resistance value of 1 &#937; to produce 1 volt per amp of current through C<sub>1</sub>:
 </p>
 
-<p> <img src="01013.png"> </p> 
+<p> <img src="01013.png"> </p>
 
 <pre>
 c1 4 7 22u
@@ -1806,10 +1805,10 @@ rshunt 6 4 1
 However, the insertion of an extra resistance into our circuit large enough to drop a meaningful voltage for the intended range of current might adversely affect things.  A better solution for SPICE is this, although one would never seek such a current measurement solution in real life:
 </p>
 
-<p> <img src="01014.png"> </p> 
+<p> <img src="01014.png"> </p>
 
 <pre>
-c1 4 7 22u 
+c1 4 7 22u
 vbogus 6 4 dc 0
 .print ac i(vbogus)
 </pre>
@@ -1824,16 +1823,16 @@ Inserting a "bogus" DC voltage source of zero volts doesn't affect circuit opera
 It should also be noted that the way SPICE assigns a polarity to current measurements is a bit odd.  Take the following circuit as an example:
 </p>
 
-<p> <img src="01015.png"> </p> 
+<p> <img src="01015.png"> </p>
 
 <pre>
-example    
-v1 1 0    
-r1 1 2 5k 
-r2 2 0 5k  
-.dc v1 10 10 1  
-.print dc i(v1) 
-.end    
+example
+v1 1 0
+r1 1 2 5k
+r2 2 0 5k
+.dc v1 10 10 1
+.print dc i(v1)
+.end
 </pre>
 
 <br> </br>
@@ -1842,17 +1841,17 @@ r2 2 0 5k
 With 10 volts total voltage and 10 k&#937; total resistance, you might expect SPICE to tell you there's going to be 1 mA (1e-03) of current through voltage source V<sub>1</sub>, but in actuality SPICE will output a figure of <i>negative</i> 1 mA (-1e-03)!  SPICE regards current out of the negative end of a DC voltage source (the normal direction) to be a negative value of current rather than a positive value of current.  There are times I'll throw in a "bogus" voltage source in a DC circuit like this simply to get SPICE to output a <i>positive</i> current value:
 </p>
 
-<p> <img src="01016.png"> </p> 
+<p> <img src="01016.png"> </p>
 
 <pre>
 example
-v1 1 0      
-r1 1 2 5k   
-r2 2 3 5k        
-vbogus 3 0 dc 0   
-.dc v1 10 10 1    
-.print dc i(vbogus)     
-.end    
+v1 1 0
+r1 1 2 5k
+r2 2 3 5k
+vbogus 3 0 dc 0
+.dc v1 10 10 1
+.print dc i(vbogus)
+.end
 </pre>
 
 <br> </br>
@@ -1904,7 +1903,7 @@ All output listings for these examples have been "trimmed" of extraneous informa
 
 <h3><u><a name="xtocid387826">Multiple-source DC resistor network, part 1</a></u></h3>
 
-<p> <img src="01017.png"> </p> 
+<p> <img src="01017.png"> </p>
 
 <p>
 Without a <tt>.dc</tt> card and a <tt>.print</tt> or <tt>.plot</tt> card, the output for this netlist will only display voltages for nodes 1, 2, and 3 (with reference to node 0, of course).
@@ -1960,7 +1959,7 @@ total power dissipation   4.39E-02  watts
 
 <h3><u><a name="xtocid387827">Multiple-source DC resistor network, part 2</a></u></h3>
 
-<p> <img src="01017.png"> </p> 
+<p> <img src="01017.png"> </p>
 
 <p>
 By adding a <tt>.dc</tt> analysis card and specifying source V<sub>1</sub> from 24 volts to 24 volts in 1 step (in other words, 24 volts steady), we can use the <tt>.print</tt> card analysis to print out voltages between any two points we desire.  Oddly enough, when the <tt>.dc</tt> analysis option is invoked, the default voltage printouts for each node (to ground) disappears, so we end up having to explicitly specify them in the <tt>.print</tt> card to see them at all.
@@ -2004,7 +2003,7 @@ v1           v(1)        v(2)        v(3)        v(1,2)      v(2,3)
 
 <h3><u><a name="xtocid387828">RC time-constant circuit</a></u></h3>
 
-<p> <img src="01018.png"> </p> 
+<p> <img src="01018.png"> </p>
 
 <p>
 For DC analysis, the initial conditions of any reactive component (C or L) must be specified (voltage for capacitors, current for inductors).  This is provided by the last data field of each capacitor card (<tt>ic=0</tt>).  To perform a DC analysis, the <tt>.tran</tt> ("<i>transient</i>") analysis option must be specified, with the first data field specifying time increment in seconds, the second specifying total analysis timespan in seconds, and the "<tt>uic</tt>" telling it to "use initial conditions" when analyzing.
@@ -2024,7 +2023,7 @@ c2 1 2 22u ic=0
 r1 2 0 3.3k
 .tran .05 1 uic
 .print tran v(1,2)
-.end 
+.end
 </pre>
 
 <br> </br>
@@ -2034,7 +2033,7 @@ r1 2 0 3.3k
 </p>
 
 <pre>
-time          v(1,2)          
+time          v(1,2)
 0.000E+00     7.701E-06
 5.000E-02     1.967E+00
 1.000E-01     3.551E+00
@@ -2067,7 +2066,7 @@ time          v(1,2)
 
 <h3><u><a name="xtocid387829">Plotting and analyzing a simple AC sinewave voltage</a></u></h3>
 
-<p> <img src="01019.png"> </p> 
+<p> <img src="01019.png"> </p>
 
 <p>
 This exercise does show the proper setup for plotting instantaneous values of a sine-wave voltage source with the <tt>.plot</tt> function (as a <i>transient</i> analysis).  Not surprisingly, the Fourier analysis in this deck also requires the <tt>.tran</tt> (transient) analysis option to be specified over a suitable time range.  The time range in this particular deck allows for a Fourier analysis with rather poor accuracy.  The more cycles of the fundamental frequency that the transient analysis is performed over, the more precise the Fourier analysis will be.  This is not a quirk of SPICE, but rather a basic principle of waveforms.
@@ -2085,8 +2084,8 @@ rload 1 0 10k
 * change tran card to the following for better Fourier precision
 * .tran 1m 30m .01m     and include .options card:
 * .options itl5=30000
-.tran 1m 30m 
-.plot tran v(1) 
+.tran 1m 30m
+.plot tran v(1)
 .four 60 v(1)
 .end
 </pre>
@@ -2098,7 +2097,7 @@ rload 1 0 10k
 </p>
 
 <pre>
-time      v(1)     -2.000E+01  -1.000E+01    0.000E+00    1.000E+01  
+time      v(1)     -2.000E+01  -1.000E+01    0.000E+00    1.000E+01
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 0.000E+00  0.000E+00 .         .             *             .       .
 1.000E-03  5.487E+00 .         .             .       *     .       .
@@ -2137,7 +2136,7 @@ time      v(1)     -2.000E+01  -1.000E+01    0.000E+00    1.000E+01
 <br> </br>
 
 <pre>
- fourier components of transient response v(1)    
+ fourier components of transient response v(1)
 dc component =  -1.885E-03
 harmonic   frequency    fourier    normalized    phase     normalized
 no            (hz)     component    component    (deg)    phase (deg)
@@ -2162,7 +2161,7 @@ total harmonic distortion =      0.186350  percent
 
 <h3><u><a name="xtocid387830">Simple AC resistor-capacitor circuit</a></u></h3>
 
-<p> <img src="01021.png"> </p> 
+<p> <img src="01021.png"> </p>
 
 <p>
 The <tt>.ac</tt> card specifies the points of ac analysis from 60Hz to 60Hz, at a single point.  This card, of course, is a bit more useful for multi-frequency analysis, where a range of frequencies can be analyzed in steps.  The <tt>.print</tt> card outputs the AC voltage between nodes 1 and 2, and the AC voltage between node 2 and ground.
@@ -2191,7 +2190,7 @@ c1 2 0 100u
 </p>
 
 <pre>
-freq          v(1,2)      v(2)        
+freq          v(1,2)      v(2)
 6.000E+01     8.990E+00   7.949E+00
 </pre>
 
@@ -2204,7 +2203,7 @@ freq          v(1,2)      v(2)
 
 <h3><u><a name="xtocid387831">Low-pass filter</a></u></h3>
 
-<p> <img src="01022.png"> </p> 
+<p> <img src="01022.png"> </p>
 
 <p>
 This low-pass filter blocks AC and passes DC to the R<sub>load</sub> resistor.  Typical of a filter used to suppress ripple from a rectifier circuit, it actually has a resonant frequency, technically making it a band-pass filter.  However, it works well anyway to pass DC and block the high-frequency harmonics generated by the AC-to-DC rectification process.  Its performance is measured with an AC source sweeping from 500 Hz to 15 kHz.  If desired, the <tt>.print</tt> card can be substituted or supplemented with a <tt>.plot</tt> card to show AC voltage at node 4 graphically.
@@ -2233,7 +2232,7 @@ c1 3 0 100u
 <br> </br>
 
 <pre>
-freq          v(4)            
+freq          v(4)
 5.000E+02     1.935E-01
 1.000E+03     3.275E-02
 1.500E+03     1.057E-02
@@ -2269,38 +2268,38 @@ freq          v(4)
 <br> </br>
 
 <pre>
-freq       v(4)  1.000E-06     1.000E-04    1.000E-02    1.000E+00 
+freq       v(4)  1.000E-06     1.000E-04    1.000E-02    1.000E+00
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-5.000E+02  1.935E-01 .             .             .        *    . 
+5.000E+02  1.935E-01 .             .             .        *    .
 1.000E+03  3.275E-02 .             .             .   *         .
-1.500E+03  1.057E-02 .             .             *             . 
-2.000E+03  4.614E-03 .             .           * .             . 
-2.500E+03  2.402E-03 .             .         *   .             . 
-3.000E+03  1.403E-03 .             .       *     .             . 
-3.500E+03  8.884E-04 .             .      *      .             .  
-4.000E+03  5.973E-04 .             .    *        .             .  
-4.500E+03  4.206E-04 .             .   *         .             .    
-5.000E+03  3.072E-04 .             .  *          .             .   
-5.500E+03  2.311E-04 .             .  *          .             .  
-6.000E+03  1.782E-04 .             . *           .             .   
-6.500E+03  1.403E-04 .             .*            .             .  
-7.000E+03  1.124E-04 .             *             .             .  
-7.500E+03  9.141E-05 .             *             .             .   
-8.000E+03  7.536E-05 .            *.             .             .   
-8.500E+03  6.285E-05 .            *.             .             . 
-9.000E+03  5.296E-05 .           * .             .             .   
-9.500E+03  4.504E-05 .           * .             .             .  
-1.000E+04  3.863E-05 .          *  .             .             .   
-1.050E+04  3.337E-05 .          *  .             .             .  
-1.100E+04  2.903E-05 .         *   .             .             .   
-1.150E+04  2.541E-05 .         *   .             .             .  
-1.200E+04  2.237E-05 .        *    .             .             .  
-1.250E+04  1.979E-05 .        *    .             .             .  
-1.300E+04  1.760E-05 .        *    .             .             .  
-1.350E+04  1.571E-05 .       *     .             .             .  
-1.400E+04  1.409E-05 .       *     .             .             .  
-1.450E+04  1.268E-05 .       *     .             .             .  
-1.500E+04  1.146E-05 .      *      .             .             .   
+1.500E+03  1.057E-02 .             .             *             .
+2.000E+03  4.614E-03 .             .           * .             .
+2.500E+03  2.402E-03 .             .         *   .             .
+3.000E+03  1.403E-03 .             .       *     .             .
+3.500E+03  8.884E-04 .             .      *      .             .
+4.000E+03  5.973E-04 .             .    *        .             .
+4.500E+03  4.206E-04 .             .   *         .             .
+5.000E+03  3.072E-04 .             .  *          .             .
+5.500E+03  2.311E-04 .             .  *          .             .
+6.000E+03  1.782E-04 .             . *           .             .
+6.500E+03  1.403E-04 .             .*            .             .
+7.000E+03  1.124E-04 .             *             .             .
+7.500E+03  9.141E-05 .             *             .             .
+8.000E+03  7.536E-05 .            *.             .             .
+8.500E+03  6.285E-05 .            *.             .             .
+9.000E+03  5.296E-05 .           * .             .             .
+9.500E+03  4.504E-05 .           * .             .             .
+1.000E+04  3.863E-05 .          *  .             .             .
+1.050E+04  3.337E-05 .          *  .             .             .
+1.100E+04  2.903E-05 .         *   .             .             .
+1.150E+04  2.541E-05 .         *   .             .             .
+1.200E+04  2.237E-05 .        *    .             .             .
+1.250E+04  1.979E-05 .        *    .             .             .
+1.300E+04  1.760E-05 .        *    .             .             .
+1.350E+04  1.571E-05 .       *     .             .             .
+1.400E+04  1.409E-05 .       *     .             .             .
+1.450E+04  1.268E-05 .       *     .             .             .
+1.500E+04  1.146E-05 .      *      .             .             .
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </pre>
 
@@ -2311,13 +2310,13 @@ freq       v(4)  1.000E-06     1.000E-04    1.000E-02    1.000E+00
 
 <h3><u><a name="xtocid387832">Multiple-source AC network</a></u></h3>
 
-<p> <img src="01023.png"> </p> 
+<p> <img src="01023.png"> </p>
 
 <p>
-One of the idiosyncrasies of SPICE is its inability to handle any loop in a circuit exclusively composed of series voltage sources and inductors.  Therefore, the "loop" of V<sub>1</sub>-L<sub>1</sub>-L<sub>2</sub>-V<sub>2</sub>-V<sub>1</sub> is unacceptable.  To get around this, I had to insert a <i>low</i>-resistance resistor somewhere in that loop to break it up.  Thus, we have R<sub>bogus</sub> between 3 and 4 (with 1 pico-ohm of resistance), and V<sub>2</sub> between 4 and 0.  The circuit above is the original design, while the circuit below has R<sub>bogus</sub> inserted to avoid the SPICE error.  
+One of the idiosyncrasies of SPICE is its inability to handle any loop in a circuit exclusively composed of series voltage sources and inductors.  Therefore, the "loop" of V<sub>1</sub>-L<sub>1</sub>-L<sub>2</sub>-V<sub>2</sub>-V<sub>1</sub> is unacceptable.  To get around this, I had to insert a <i>low</i>-resistance resistor somewhere in that loop to break it up.  Thus, we have R<sub>bogus</sub> between 3 and 4 (with 1 pico-ohm of resistance), and V<sub>2</sub> between 4 and 0.  The circuit above is the original design, while the circuit below has R<sub>bogus</sub> inserted to avoid the SPICE error.
 </p>
 
-<p> <img src="01024.png"> </p> 
+<p> <img src="01024.png"> </p>
 
 <br> </br>
 
@@ -2345,7 +2344,7 @@ rbogus 3 4 1e-12
 </p>
 
 <pre>
-freq          v(2)            
+freq          v(2)
 3.000E+01     1.413E+02
 </pre>
 
@@ -2357,7 +2356,7 @@ freq          v(2)
 
 <h3><u><a name="xtocid387833">AC phase shift demonstration</a></u></h3>
 
-<p> <img src="01025.png"> </p> 
+<p> <img src="01025.png"> </p>
 
 <p>
 The currents through each leg are indicated by the voltage drops across each respective shunt resistor (1 amp = 1 volt through 1 &#937;), output by the <tt>v(1,2)</tt> and <tt>v(1,3)</tt> terms of the <tt>.print</tt> card.  The phase of the currents through each leg are indicated by the phase of the voltage drops across each respective shunt resistor, output by the <tt>vp(1,2)</tt> and <tt>vp(1,3)</tt> terms in the <tt>.print</tt> card.
@@ -2388,7 +2387,7 @@ r1 3 0 6.3k
 </p>
 
 <pre>
-freq          v(1,2)      v(1,3)      vp(1,2)     vp(1,3)     
+freq          v(1,2)      v(1,3)      vp(1,2)     vp(1,3)
 1.000E+03     6.366E-04   6.349E-04  -9.000E+01   0.000E+00
 </pre>
 
@@ -2400,10 +2399,10 @@ freq          v(1,2)      v(1,3)      vp(1,2)     vp(1,3)
 
 <h3><u><a name="xtocid387834">Transformer circuit</a></u></h3>
 
-<p> <img src="01040.png"> </p> 
+<p> <img src="01040.png"> </p>
 
 <p>
-SPICE understands transformers as a set of mutually coupled inductors.  Thus, to simulate a transformer in SPICE, you must specify the primary and secondary windings as separate inductors, then instruct SPICE to link them together with a "<tt>k</tt>" card specifying the coupling constant.  For ideal transformer simulation, the coupling constant would be unity (1).  However, SPICE can't handle this value, so we use something like 0.999 as the coupling factor.  
+SPICE understands transformers as a set of mutually coupled inductors.  Thus, to simulate a transformer in SPICE, you must specify the primary and secondary windings as separate inductors, then instruct SPICE to link them together with a "<tt>k</tt>" card specifying the coupling constant.  For ideal transformer simulation, the coupling constant would be unity (1).  However, SPICE can't handle this value, so we use something like 0.999 as the coupling factor.
 </p>
 
 <p>
@@ -2421,22 +2420,22 @@ The L<sub>1</sub>/L<sub>2</sub> inductance ratio of 100:1 provides a 10:1 step-d
 </p>
 
 <pre>
-transformer                                                                     
-v1 1 0 ac 120 sin       
+transformer
+v1 1 0 ac 120 sin
 rbogus0 1 6 1e-3
-l1 6 0 100      
+l1 6 0 100
 l2 2 4 1
-l3 3 5 25       
-k1 l1 l2 0.999  
-k2 l2 l3 0.999  
-k3 l1 l3 0.999  
-r1 2 4 1000     
-r2 3 5 1000     
+l3 3 5 25
+k1 l1 l2 0.999
+k2 l2 l3 0.999
+k3 l1 l3 0.999
+r1 2 4 1000
+r2 3 5 1000
 rbogus1 5 0 1e10
 rbogus2 4 0 1e10
-.ac lin 1 60 60 
-.print ac v(1,0) v(2,0) v(3,0)  
-.end    
+.ac lin 1 60 60
+.print ac v(1,0) v(2,0) v(3,0)
+.end
 </pre>
 
 <br> </br>
@@ -2446,7 +2445,7 @@ rbogus2 4 0 1e10
 </p>
 
 <pre>
-freq          v(1)        v(2)        v(3)            
+freq          v(1)        v(2)        v(3)
 6.000E+01     1.200E+02   1.199E+01   5.993E+01
 </pre>
 
@@ -2462,7 +2461,7 @@ In this example, R<sub>bogus0</sub> is a very low-value resistor, serving to bre
 
 <h3><u><a name="xtocid387835">Full-wave bridge rectifier</a></u></h3>
 
-<p> <img src="01026.png"> </p> 
+<p> <img src="01026.png"> </p>
 
 <p>
 Diodes, like all semiconductor components in SPICE, must be modeled so that SPICE knows all the nitty-gritty details of how they're supposed to work.  Fortunately, SPICE comes with a few generic models, and the diode is the most basic.  Notice the <tt>.model</tt> card which simply specifies "<tt>d</tt>" as the generic diode model for <tt>mod1</tt>.  Again, since we're plotting the waveforms here, we need to specify all parameters of the AC source in a single card and print/plot all values using the <tt>.tran</tt> option.
@@ -2484,7 +2483,7 @@ d3 3 1 mod1
 d4 3 0 mod1
 .model mod1 d
 .tran .5m 25m
-.plot tran v(1,0) v(2,3) 
+.plot tran v(1,0) v(2,3)
 .end
 </pre>
 
@@ -2497,10 +2496,10 @@ d4 3 0 mod1
 <pre>
 legend:
 
-*: v(1)    
-+: v(2,3)  
+*: v(1)
++: v(2,3)
 
-    time      v(1)    
+    time      v(1)
 
 (*)--------- -2.000E+01  -1.000E+01   0.000E+00   1.000E+01  2.000E+01
 (+)--------- -5.000E+00   0.000E+00   5.000E+00   1.000E+01  1.500E+01
@@ -2568,7 +2567,7 @@ legend:
 
 <h3><u><a name="xtocid387836">Common-base BJT transistor amplifier</a></u></h3>
 
-<p> <img src="01027.png"> </p> 
+<p> <img src="01027.png"> </p>
 
 <p>
 This analysis sweeps the input voltage (Vin) from 0 to 5 volts in 0.1 volt increments, then prints out the voltage between the collector and emitter leads of the transistor v(2,3).  The transistor (Q1) is an NPN with a forward Beta of 50.
@@ -2587,7 +2586,7 @@ vin 0 4 dc
 rc 1 2 800
 re 3 4 100
 q1 2 0 3 mod1
-.model mod1 npn bf=50 
+.model mod1 npn bf=50
 .dc vin 0 5 0.1
 .print dc v(2,3)
 .plot dc v(2,3)
@@ -2601,7 +2600,7 @@ q1 2 0 3 mod1
 </p>
 
 <pre>
-vin           v(2,3)          
+vin           v(2,3)
 0.000E+00     2.400E+01
 1.000E-01     2.410E+01
 2.000E-01     2.420E+01
@@ -2658,59 +2657,59 @@ vin           v(2,3)
 <br> </br>
 
 <pre>
-vin        v(2,3) 0.000E+00    1.000E+01    2.000E+01     3.000E+01  
+vin        v(2,3) 0.000E+00    1.000E+01    2.000E+01     3.000E+01
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-0.000E+00  2.400E+01 .             .             .     *       .  
-1.000E-01  2.410E+01 .             .             .     *       . 
-2.000E-01  2.420E+01 .             .             .     *       . 
+0.000E+00  2.400E+01 .             .             .     *       .
+1.000E-01  2.410E+01 .             .             .     *       .
+2.000E-01  2.420E+01 .             .             .     *       .
 3.000E-01  2.430E+01 .             .             .     *       .
-4.000E-01  2.440E+01 .             .             .     *       .  
-5.000E-01  2.450E+01 .             .             .     *       .   
-6.000E-01  2.460E+01 .             .             .     *       .   
-7.000E-01  2.466E+01 .             .             .      *      .   
-8.000E-01  2.439E+01 .             .             .     *       .   
-9.000E-01  2.383E+01 .             .             .    *        .  
-1.000E+00  2.317E+01 .             .             .   *         .  
-1.100E+00  2.246E+01 .             .             .  *          .   
-1.200E+00  2.174E+01 .             .             . *           .   
-1.300E+00  2.101E+01 .             .             .*            .    
-1.400E+00  2.026E+01 .             .             *             .   
-1.500E+00  1.951E+01 .             .            *.             .     
-1.600E+00  1.876E+01 .             .           * .             .    
-1.700E+00  1.800E+01 .             .          *  .             .     
-1.800E+00  1.724E+01 .             .         *   .             .   
-1.900E+00  1.648E+01 .             .        *    .             .   
-2.000E+00  1.572E+01 .             .       *     .             .   
-2.100E+00  1.495E+01 .             .      *      .             .    
-2.200E+00  1.418E+01 .             .     *       .             .    
-2.300E+00  1.342E+01 .             .    *        .             .    
-2.400E+00  1.265E+01 .             .   *         .             .    
-2.500E+00  1.188E+01 .             .  *          .             .      
-2.600E+00  1.110E+01 .             . *           .             .     
-2.700E+00  1.033E+01 .             *             .             .     
-2.800E+00  9.560E+00 .            *.             .             .    
-2.900E+00  8.787E+00 .           * .             .             .   
-3.000E+00  8.014E+00 .          *  .             .             .    
-3.100E+00  7.240E+00 .         *   .             .             .    
-3.200E+00  6.465E+00 .        *    .             .             .   
-3.300E+00  5.691E+00 .       *     .             .             .     
-3.400E+00  4.915E+00 .      *      .             .             .    
-3.500E+00  4.140E+00 .     *       .             .             .   
-3.600E+00  3.364E+00 .    *        .             .             .    
-3.700E+00  2.588E+00 .   *         .             .             .   
-3.800E+00  1.811E+00 .  *          .             .             .     
-3.900E+00  1.034E+00 .*            .             .             .    
-4.000E+00  2.587E-01 *             .             .             .     
-4.100E+00  9.744E-02 *             .             .             .     
-4.200E+00  7.815E-02 *             .             .             .     
-4.300E+00  6.806E-02 *             .             .             .    
-4.400E+00  6.141E-02 *             .             .             .    
-4.500E+00  5.657E-02 *             .             .             .    
-4.600E+00  5.281E-02 *             .             .             .    
-4.700E+00  4.981E-02 *             .             .             .     
-4.800E+00  4.734E-02 *             .             .             .   
-4.900E+00  4.525E-02 *             .             .             .     
-5.000E+00  4.346E-02 *             .             .             .             
+4.000E-01  2.440E+01 .             .             .     *       .
+5.000E-01  2.450E+01 .             .             .     *       .
+6.000E-01  2.460E+01 .             .             .     *       .
+7.000E-01  2.466E+01 .             .             .      *      .
+8.000E-01  2.439E+01 .             .             .     *       .
+9.000E-01  2.383E+01 .             .             .    *        .
+1.000E+00  2.317E+01 .             .             .   *         .
+1.100E+00  2.246E+01 .             .             .  *          .
+1.200E+00  2.174E+01 .             .             . *           .
+1.300E+00  2.101E+01 .             .             .*            .
+1.400E+00  2.026E+01 .             .             *             .
+1.500E+00  1.951E+01 .             .            *.             .
+1.600E+00  1.876E+01 .             .           * .             .
+1.700E+00  1.800E+01 .             .          *  .             .
+1.800E+00  1.724E+01 .             .         *   .             .
+1.900E+00  1.648E+01 .             .        *    .             .
+2.000E+00  1.572E+01 .             .       *     .             .
+2.100E+00  1.495E+01 .             .      *      .             .
+2.200E+00  1.418E+01 .             .     *       .             .
+2.300E+00  1.342E+01 .             .    *        .             .
+2.400E+00  1.265E+01 .             .   *         .             .
+2.500E+00  1.188E+01 .             .  *          .             .
+2.600E+00  1.110E+01 .             . *           .             .
+2.700E+00  1.033E+01 .             *             .             .
+2.800E+00  9.560E+00 .            *.             .             .
+2.900E+00  8.787E+00 .           * .             .             .
+3.000E+00  8.014E+00 .          *  .             .             .
+3.100E+00  7.240E+00 .         *   .             .             .
+3.200E+00  6.465E+00 .        *    .             .             .
+3.300E+00  5.691E+00 .       *     .             .             .
+3.400E+00  4.915E+00 .      *      .             .             .
+3.500E+00  4.140E+00 .     *       .             .             .
+3.600E+00  3.364E+00 .    *        .             .             .
+3.700E+00  2.588E+00 .   *         .             .             .
+3.800E+00  1.811E+00 .  *          .             .             .
+3.900E+00  1.034E+00 .*            .             .             .
+4.000E+00  2.587E-01 *             .             .             .
+4.100E+00  9.744E-02 *             .             .             .
+4.200E+00  7.815E-02 *             .             .             .
+4.300E+00  6.806E-02 *             .             .             .
+4.400E+00  6.141E-02 *             .             .             .
+4.500E+00  5.657E-02 *             .             .             .
+4.600E+00  5.281E-02 *             .             .             .
+4.700E+00  4.981E-02 *             .             .             .
+4.800E+00  4.734E-02 *             .             .             .
+4.900E+00  4.525E-02 *             .             .             .
+5.000E+00  4.346E-02 *             .             .             .
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </pre>
 
@@ -2722,23 +2721,23 @@ vin        v(2,3) 0.000E+00    1.000E+01    2.000E+01     3.000E+01
 
 <h3><u><a name="xtocid387837">Common-source JFET amplifier with self-bias</a></u></h3>
 
-<p> <img src="01028.png"> </p> 
+<p> <img src="01028.png"> </p>
 
 <p>
 <b>Netlist:</b>
 </p>
 
 <pre>
-common source jfet amplifier                       
-vin 1 0 sin(0 1 60 0 0) 
-vdd 3 0 dc 20   
-rdrain 3 2 10k      
-rsource 4 0 1k       
-j1 2 1 4 mod1   
-.model mod1 njf 
-.tran 1m 30m    
+common source jfet amplifier
+vin 1 0 sin(0 1 60 0 0)
+vdd 3 0 dc 20
+rdrain 3 2 10k
+rsource 4 0 1k
+j1 2 1 4 mod1
+.model mod1 njf
+.tran 1m 30m
 .plot tran v(2,0) v(1,0)
-.end    
+.end
 </pre>
 
 <br> </br>
@@ -2749,9 +2748,9 @@ j1 2 1 4 mod1
 
 <pre>
 legend:
-*: v(2)    
-+: v(1)    
-time      v(2)    
+*: v(2)
++: v(1)
+time      v(2)
 (*)---------  1.400E+01    1.600E+01   1.800E+01  2.000E+01 2.200E+01
 (+)--------- -1.000E+00   -5.000E-01   0.000E+00  5.000E-01 1.000E+00
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2798,7 +2797,7 @@ time      v(2)
 
 <h3><u><a name="xtocid387838">Inverting op-amp circuit</a></u></h3>
 
-<p> <img src="01029.png"> </p> 
+<p> <img src="01029.png"> </p>
 
 <p>
 To simulate an ideal operational amplifier in SPICE, we use a voltage-dependent voltage source as a differential amplifier with extremely high gain.  The "<tt>e</tt>" card sets up the dependent voltage source with four nodes, 3 and 0 for voltage output, and 1 and 0 for voltage input.  No power supply is needed for the dependent voltage source, unlike a real operational amplifier.  The voltage gain is set at 999,000 in this case.  The input voltage source (V<sub>1</sub>) sweeps from 0 to 3.5 volts in 0.05 volt steps.
@@ -2812,7 +2811,7 @@ To simulate an ideal operational amplifier in SPICE, we use a voltage-dependent 
 
 <pre>
 Inverting opamp
-v1 2 0 dc 
+v1 2 0 dc
 e 3 0 0 1 999k
 r1 3 1 3.29k
 r2 1 2 1.18k
@@ -2828,7 +2827,7 @@ r2 1 2 1.18k
 </p>
 
 <pre>
-v1            v(3)            
+v1            v(3)
 0.000E+00     0.000E+00
 5.000E-02    -1.394E-01
 1.000E-01    -2.788E-01
@@ -2912,7 +2911,7 @@ v1            v(3)
 
 <h3><u><a name="xtocid387839">Noninverting op-amp circuit</a></u></h3>
 
-<p> <img src="01030.png"> </p> 
+<p> <img src="01030.png"> </p>
 
 <p>
 Another example of a SPICE quirk: since the dependent voltage source "<tt>e</tt>" isn't considered a load to voltage source V<sub>1</sub>, SPICE interprets V<sub>1</sub> to be open-circuited and will refuse to analyze it.  The fix is to connect R<sub>bogus</sub> in parallel with V<sub>1</sub> to act as a DC load.  Being directly connected across V<sub>1</sub>, the resistance of R<sub>bogus</sub> is not crucial to the operation of the circuit, so 10 k&#937; will work fine.  I decided not to sweep the V<sub>1</sub> input voltage at all in this circuit for the sake of keeping the netlist and output listing simple.
@@ -2954,7 +2953,7 @@ node     voltage   node     voltage   node    voltage
 
 <h3><u><a name="xtocid387840">Instrumentation amplifier</a></u></h3>
 
-<p> <img src="01031.png"> </p> 
+<p> <img src="01031.png"> </p>
 
 <p>
 Note the very high-resistance R<sub>bogus1</sub> and R<sub>bogus2</sub> resistors in the netlist (not shown in schematic for brevity) across each input voltage source, to keep SPICE from thinking V<sub>1</sub> and V<sub>2</sub> were open-circuited, just like the other op-amp circuit examples.
@@ -2995,7 +2994,7 @@ r6 8 0 10k
 </p>
 
 <pre>
-v1            v(9)        v(3,6)      
+v1            v(9)        v(3,6)
 0.000E+00     1.500E+01  -1.500E+01
 1.000E+00     1.200E+01  -1.200E+01
 2.000E+00     9.000E+00  -9.000E+00
@@ -3018,7 +3017,7 @@ v1            v(9)        v(3,6)
 
 <h3><u><a name="xtocid387841">Op-amp integrator with sinewave input</a></u></h3>
 
-<p> <img src="01032.png"> </p> 
+<p> <img src="01032.png"> </p>
 
 <br> </br>
 
@@ -3045,11 +3044,11 @@ e 3 0 0 2 999k
 
 <pre>
 legend:
-*: v(1)    
-+: v(3)    
-time       v(1)    
-(*)-------- -2.000E+01    -1.000E+01     0.000E+00     1.000E+01  
-(+)-------- -6.000E-02    -4.000E-02    -2.000E-02     0.000E+00  
+*: v(1)
++: v(3)
+time       v(1)
+(*)-------- -2.000E+01    -1.000E+01     0.000E+00     1.000E+01
+(+)-------- -6.000E-02    -4.000E-02    -2.000E-02     0.000E+00
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 0.000E+00  6.536E-08 .        .             *             +       .
 1.000E-03  5.516E+00 .        .             .       *    +.       .
@@ -3079,7 +3078,7 @@ time       v(1)
 2.500E-02 -1.486E-03 .+       .             *             .       .
 2.600E-02 -5.489E+00 . +      .     *       .             .       .
 2.700E-02 -1.021E+01 .    +   *             .             .       .
-2.800E-02 -1.355E+01 .   *    . +           .             .       . 
+2.800E-02 -1.355E+01 .   *    . +           .             .       .
 2.900E-02 -1.488E+01 . *      .       +     .             .       .
 3.000E-02 -1.427E+01 .  *     .             .+            .       .
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -3094,7 +3093,7 @@ time       v(1)
 
 <h3><u><a name="xtocid387842">Op-amp integrator with squarewave input</a></u></h3>
 
-<p> <img src="01033.png"> </p> 
+<p> <img src="01033.png"> </p>
 
 <br> </br>
 
@@ -3121,9 +3120,9 @@ e 3 0 0 2 999k
 
 <pre>
 legend:
-*: v(1)    
-+: v(3)    
-time       v(1)    
+*: v(1)
++: v(3)
+time       v(1)
 (*)-------- -1.000E+00   -5.000E-01     0.000E+00  5.000E-01  1.000E+00
 (+)-------- -1.000E-01   -5.000E-02     0.000E+00  5.000E-02  1.000E-01
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

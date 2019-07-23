@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,19 +20,18 @@
 <a href="SEMI_8.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume III</h1>
 <h1>Chapter 7</h1>
 
 
 
 
-<h1>THYRISTORS</h1> 
+<h1>THYRISTORS</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid36140"><u>Hysteresis</u></a></li>
@@ -107,11 +106,11 @@ Note how throughout this cycle, the air exhibits hysteresis.  When not conductin
 In electronic terms, what we have here in the action of lightning is a simple <i>relaxation oscillator</i>.  Oscillators are electronic circuits that produce an oscillating (AC) voltage from a steady supply of DC power.  A relaxation oscillator is one that works on the principle of a charging capacitor that is suddenly discharged every time its voltage reaches a critical threshold value.  One of the simplest relaxation oscillators in existence is comprised of three components (not counting the DC power supply): a resistor, capacitor, and neon lamp in  Figure <a href="#03189.png">  below</a>.
 </p>
 
- 
-<a name="03189.png"></a> 
-<p> <img src="03189.png"> </p> 
-<p><i>Simple relaxation oscillator</i></p> 
- 
+
+<a name="03189.png"></a>
+<p> <img src="03189.png"> </p>
+<p><i>Simple relaxation oscillator</i></p>
+
 
 <p>
 Neon lamps are nothing more than two metal electrodes inside a sealed glass bulb, separated by the neon gas inside.  At room temperatures and with no applied voltage, the lamp has nearly infinite resistance.  However, once a certain threshold voltage is exceeded (this voltage depends on the gas pressure and geometry of the lamp), the neon gas will become ionized (turned into a plasma) and its resistance dramatically reduced.  In effect, the neon lamp exhibits the same characteristics as air in a lightning storm, complete with the emission of light as a result of the discharge, albeit on a much smaller scale.
@@ -128,11 +127,11 @@ The capacitor in the relaxation oscillator circuit shown above charges at an inv
 While gas-discharge lamps are more commonly used as sources of illumination, their hysteric properties were leveraged in slightly more sophisticated variants known as <i>thyratron tubes</i>.  Essentially a gas-filled triode tube (a triode being a three-element vacuum electron tube performing much a similar function to the N-channel, D-type IGFET), the thyratron tube could be turned on with a small control voltage applied between grid and cathode, and turned off by reducing the plate-to-cathode voltage.
 </p>
 
- 
-<a name="03018.png"></a> 
-<p> <img src="03018.png"> </p> 
-<p><i>Simple thyratron control circuit</i></p> 
- 
+
+<a name="03018.png"></a>
+<p> <img src="03018.png"> </p>
+<p><i>Simple thyratron control circuit</i></p>
+
 
 <p>
 In essence, thyratron tubes were <i>controlled</i> versions of neon lamps built specifically for switching current to a load.  The dot inside the circle of the schematic symbol indicates a gas fill, as opposed to the hard vacuum normally seen in other electron tube designs.  In the circuit shown above in Figure <a href="#03018.png">  above</a>. the thyratron tube allows current through the load in one direction (note the polarity across the load resistor) when triggered by the small DC control voltage connected between grid and cathode.  Note that the load's power source is AC, which provides a clue about how the thyratron turns off after its been triggered on: since AC voltage periodically passes through a condition of 0 volts between half-cycles, the current through an AC-powered load must also periodically halt.  This brief pause of current between half-cycles gives the tube's gas time to cool, letting it return to its normal "off" state.  Conduction may resume only if enough voltage is applied by the AC power source (some other time in the wave's cycle) <i>and</i> if the DC control voltage allows it.
@@ -142,14 +141,14 @@ In essence, thyratron tubes were <i>controlled</i> versions of neon lamps built 
 An oscilloscope display of load voltage in such a circuit would look something like Figure <a href="#03190.png">  below</a>.
 </p>
 
- 
-<a name="03190.png"></a> 
-<p> <img src="03190.png"> </p> 
-<p><i>Thyratron waveforms</i></p> 
- 
+
+<a name="03190.png"></a>
+<p> <img src="03190.png"> </p>
+<p><i>Thyratron waveforms</i></p>
+
 
 <p>
-As the AC supply voltage climbs from zero volts to its first peak, the load voltage remains at zero (no load current) until the threshold voltage is reached.  At that point, the tube switches "on" and begins to conduct, the load voltage now following the AC voltage through the rest of the half cycle.  Load voltage exists (and thus load current) even when the AC voltage waveform has dropped below the threshold value of the tube.  This is hysteresis at work: the tube stays in its conductive mode past the point where it first turned on, continuing to conduct until there the supply voltage drops off to almost zero volts.  Because thyratron tubes are one-way (diode) devices, no voltage develops across the load through the negative half-cycle of AC.  In practical thyratron circuits, multiple tubes arranged in some form of full-wave rectifier circuit to facilitate full-wave DC power to the load.  
+As the AC supply voltage climbs from zero volts to its first peak, the load voltage remains at zero (no load current) until the threshold voltage is reached.  At that point, the tube switches "on" and begins to conduct, the load voltage now following the AC voltage through the rest of the half cycle.  Load voltage exists (and thus load current) even when the AC voltage waveform has dropped below the threshold value of the tube.  This is hysteresis at work: the tube stays in its conductive mode past the point where it first turned on, continuing to conduct until there the supply voltage drops off to almost zero volts.  Because thyratron tubes are one-way (diode) devices, no voltage develops across the load through the negative half-cycle of AC.  In practical thyratron circuits, multiple tubes arranged in some form of full-wave rectifier circuit to facilitate full-wave DC power to the load.
 </p>
 
 <a name="Voltage-controlled oscillator"></a>
@@ -159,18 +158,18 @@ As the AC supply voltage climbs from zero volts to its first peak, the load volt
 The thyratron tube has been applied to a relaxation oscillator circuit. <a href="#VTS.bibitem">[VTS]</a> The  frequency is controlled by a small DC voltage between grid and cathode.  (See Figure <a href="#03191.png">  below</a>) This  voltage-controlled oscillator is known as a <i>VCO</i>.  Relaxation oscillators produce a very non-sinusoidal output, and they exist mostly as demonstration circuits (as is the case here) or in applications where the harmonic rich waveform is desirable. <a href="#MET.bibitem">[MET]</a>
 </p>
 
- 
-<a name="03191.png"></a> 
-<p> <img src="03191.png"> </p> 
-<p><i>Voltage controlled thyratron relaxation oscillator</i></p> 
- 
+
+<a name="03191.png"></a>
+<p> <img src="03191.png"> </p>
+<p><i>Voltage controlled thyratron relaxation oscillator</i></p>
+
 
 <p>
 I speak of thyratron tubes in the past tense for good reason: modern semiconductor components have obsoleted thyratron tube technology for all but a few very special applications.  It is no coincidence that the word <i>thyristor</i> bears so much similarity to the word <i>thyratron</i>, for this class of semiconductor components does much the same thing: use <i>hy</i>ste<i>r</i>etically switch current on and off.  It is these modern devices that we now turn our attention to.
 </p>
 
 
-  
+
 <ul>
 <li><b>REVIEW:</b></li>
 <li>Electrical <i>hysteresis</i>, the tendency for a component to remain "on" (conducting) after it begins to conduct and to remain "off" (nonconducting) after it ceases to conduct, helps to explain why lightning bolts exist as momentary surges of current rather than continuous discharges through the air.</li>
@@ -185,7 +184,7 @@ I speak of thyratron tubes in the past tense for good reason: modern semiconduct
 
 
 
- 
+
 <a name="ShockleyDiode"></a>
 
 <h2><u><a name="xtocid36142">The Shockley Diode</a></u></h2>
@@ -202,41 +201,41 @@ I speak of thyratron tubes in the past tense for good reason: modern semiconduct
 Our exploration of thyristors begins with a device called the <i>four-layer diode</i>, also known as a <i>PNPN diode</i>, or a <i>Shockley diode</i> after its inventor, William Shockley.  This is not to be confused with a <i>Schottky diode</i>, that two-layer metal-semiconductor device known for its high switching speed.  A crude illustration of the Shockley diode, often seen in textbooks, is a four-layer sandwich of P-N-P-N semiconductor material, Figure <a href="#03192.png">  below</a>.
 </p>
 
- 
-<a name="03192.png"></a> 
-<p> <img src="03192.png"> </p> 
-<p><i>Shockley or 4-layer diode</i></p> 
- 
+
+<a name="03192.png"></a>
+<p> <img src="03192.png"> </p>
+<p><i>Shockley or 4-layer diode</i></p>
+
 
 <p>
 Unfortunately, this simple illustration does nothing to enlighten the viewer on how it works or why.  Consider an alternative rendering of the device's construction in Figure <a href="#03193.png">  below</a>.
 </p>
 
- 
-<a name="03193.png"></a> 
-<p> <img src="03193.png"> </p> 
-<p><i>Transistor equivalent of Shockley diode</i></p> 
- 
+
+<a name="03193.png"></a>
+<p> <img src="03193.png"> </p>
+<p><i>Transistor equivalent of Shockley diode</i></p>
+
 
 <p>
 Shown like this, it appears to be a set of interconnected bipolar transistors, one PNP and the other NPN.  Drawn using standard schematic symbols, and respecting the layer doping concentrations not shown in the last image, the Shockley diode looks like this (Figure <a href="#03194.png">  below</a>)
 </p>
 
- 
-<a name="03194.png"></a> 
-<p> <img src="03194.png"> </p> 
-<p><i>Shockley diode: physical diagram, equivalent schematic diagram, and schematic symbol.</i></p> 
- 
+
+<a name="03194.png"></a>
+<p> <img src="03194.png"> </p>
+<p><i>Shockley diode: physical diagram, equivalent schematic diagram, and schematic symbol.</i></p>
+
 
 <p>
 Let's connect one of these devices to a source of variable voltage and see what happens: (Figure <a href="#03195.png">  below</a>)
 </p>
 
- 
-<a name="03195.png"></a> 
-<p> <img src="03195.png"> </p> 
-<p><i>Powered Shockley diode equivalent circuit.</i></p> 
- 
+
+<a name="03195.png"></a>
+<p> <img src="03195.png"> </p>
+<p><i>Powered Shockley diode equivalent circuit.</i></p>
+
 
 <p>
 With no voltage applied, of course there will be no current.  As voltage is initially increased, there will still be no current because neither transistor is able to turn on: both will be in cutoff mode.  To understand why this is, consider what it takes to turn a bipolar junction transistor on: current through the base-emitter junction.  As you can see in the diagram, base current through the lower transistor is controlled by the upper transistor, and the base current through the upper transistor is controlled by the lower transistor.  In other words, neither transistor can turn on until the <i>other</i> transistor turns on.  What we have here, in vernacular terms, is known as a Catch-22.
@@ -254,41 +253,41 @@ So, we can force a Shockley diode to turn on by applying sufficient voltage betw
 If we graph this sequence of events and plot the results on an I/V graph, the hysteresis is evident.  First, we will observe the circuit as the DC voltage source (battery) is set to zero voltage:  (Figure <a href="#03196.png">  below</a>)
 </p>
 
- 
-<a name="03196.png"></a> 
-<p> <img src="03196.png"> </p> 
-<p><i>Zero applied voltage; zero current</i></p> 
- 
+
+<a name="03196.png"></a>
+<p> <img src="03196.png"> </p>
+<p><i>Zero applied voltage; zero current</i></p>
+
 
 <p>
 Next, we will steadily increase the DC voltage.  Current through the circuit is at or nearly at zero, as the breakdown limit has not been reached for either transistor: (Figure <a href="#03197.png">  below</a>)
 </p>
 
- 
-<a name="03197.png"></a> 
-<p> <img src="03197.png"> </p> 
-<p><i>Some applied voltage; still no current</i></p> 
- 
+
+<a name="03197.png"></a>
+<p> <img src="03197.png"> </p>
+<p><i>Some applied voltage; still no current</i></p>
+
 
 <p>
 When the voltage breakdown limit of one transistor is reached, it will begin to conduct collector current even though no base current has gone through it yet.  Normally, this sort of treatment would destroy a bipolar junction transistor, but the PNP junctions comprising a Shockley diode are engineered to take this kind of abuse, similar to the way a Zener diode is built to handle reverse breakdown without sustaining damage.  For the sake of illustration I'll assume the lower transistor breaks down first, sending current through the base of the upper transistor: (Figure <a href="#03198.png">  below</a>)
 </p>
 
- 
-<a name="03198.png"></a> 
-<p> <img src="03198.png"> </p> 
-<p><i>More voltage applied; lower transistor breaks down</i></p> 
- 
+
+<a name="03198.png"></a>
+<p> <img src="03198.png"> </p>
+<p><i>More voltage applied; lower transistor breaks down</i></p>
+
 
 <p>
 As the upper transistor receives base current, it turns on as expected.  This action allows the lower transistor to conduct normally, the two transistors "sealing" themselves in the "on" state.  Full current is quickly seen in the circuit: (Figure <a href="#03199.png">  below</a>)
 </p>
 
- 
-<a name="03199.png"></a> 
-<p> <img src="03199.png"> </p> 
-<p><i>Transistors are now fully conducting.</i></p> 
- 
+
+<a name="03199.png"></a>
+<p> <img src="03199.png"> </p>
+<p><i>Transistors are now fully conducting.</i></p>
+
 
 <p>
 The positive feedback mentioned earlier in this chapter is clearly evident here.  When one transistor breaks down, it allows current through the device structure.  This current may be viewed as the "output" signal of the device.  Once an output current is established, it works to hold both transistors in saturation, thus ensuring the continuation of a substantial output current.  In other words, an output current "feeds back" positively to the input (transistor base current) to keep both transistors in the "on" state, thus reinforcing (or <i>regenerating</i>) itself.
@@ -298,21 +297,21 @@ The positive feedback mentioned earlier in this chapter is clearly evident here.
 With both transistors maintained in a state of saturation with the presence of ample base current, each will continue to conduct even if the applied voltage is greatly reduced from the breakdown level.  The effect of positive feedback is to keep both transistors in a state of saturation despite the loss of input stimulus (the original, high voltage needed to break down one transistor and cause a base current through the other transistor): (Figure <a href="#03200.png">  below</a>)
 </p>
 
- 
-<a name="03200.png"></a> 
-<p> <img src="03200.png"> </p> 
-<p><i>Current maintained even when voltage is reduced</i></p> 
- 
+
+<a name="03200.png"></a>
+<p> <img src="03200.png"> </p>
+<p><i>Current maintained even when voltage is reduced</i></p>
+
 
 <p>
 If the DC voltage source is turned down too far, though, the circuit will eventually reach a point where there isn't enough current to sustain both transistors in saturation.  As one transistor passes less and less collector current, it reduces the base current for the other transistor, thus reducing base current for the first transistor.  The vicious cycle continues rapidly until both transistors fall into cutoff:  (Figure <a href="#03201.png">  below</a>)
 </p>
 
- 
-<a name="03201.png"></a> 
-<p> <img src="03201.png"> </p> 
-<p><i>If voltage drops too low, both transistors shut off.</i></p> 
- 
+
+<a name="03201.png"></a>
+<p> <img src="03201.png"> </p>
+<p><i>If voltage drops too low, both transistors shut off.</i></p>
+
 
 <p>
 Here, positive feedback is again at work: the fact that the cause/effect cycle between both transistors is "vicious" (a decrease in current through one works to decrease current through the other, further decreasing current through the first transistor) indicates a positive relationship between output (controlled current) and input (controlling current through the transistors' bases).
@@ -322,11 +321,11 @@ Here, positive feedback is again at work: the fact that the cause/effect cycle b
 The resulting curve on the graph is classically hysteretic: as the input signal (voltage) is increased and decreased, the output (current) does not follow the same path going down as it did going up:  (Figure <a href="#03202.png">  below</a>)
 </p>
 
- 
-<a name="03202.png"></a> 
-<p> <img src="03202.png"> </p> 
-<p><i>Hysteretic curve</i></p> 
- 
+
+<a name="03202.png"></a>
+<p> <img src="03202.png"> </p>
+<p><i>Hysteretic curve</i></p>
+
 
 <p>
 Put in simple terms, the Shockley diode tends to stay on once its turned on, and stay off once its turned off.   No "in-between" or "active" mode in its operation: it is a purely on or off device, as are all thyristors.
@@ -346,11 +345,11 @@ A few special terms apply to Shockley diodes and all other thyristor devices bui
 Note that Shockley diodes may be fired in a way other than breakover: excessive <i>voltage rise</i>, or <i>dv/dt</i>.  If the applied voltage across the diode increases at a high rate of change, it may trigger.  This is able to cause latching (turning on) of the diode due to inherent junction capacitances within the transistors.  Capacitors, as you may recall, oppose <i>changes</i> in voltage by drawing or supplying current.  If the applied voltage across a Shockley diode rises at too fast a rate, those tiny capacitances will draw enough current during that time to activate the transistor pair, turning them both on.  Usually, this form of latching is undesirable, and can be minimized by filtering high-frequency (fast voltage rises) from the diode with series inductors and parallel resistor-capacitor networks called <i>snubbers</i>:  (Figure <a href="#03203.png">  below</a>)
 </p>
 
- 
-<a name="03203.png"></a> 
-<p> <img src="03203.png"> </p> 
-<p><i>Both the series inductor and parallel resistor-capacitor &ldquo;snubber&rdquo; circuit help minimize the Shockley diode's exposure to excessively rising voltage.</i></p> 
- 
+
+<a name="03203.png"></a>
+<p> <img src="03203.png"> </p>
+<p><i>Both the series inductor and parallel resistor-capacitor &ldquo;snubber&rdquo; circuit help minimize the Shockley diode's exposure to excessively rising voltage.</i></p>
+
 
 <a name="Critical rate of voltage rise"></a>
 <a name="Voltage rise, critical rate of"></a>
@@ -358,7 +357,7 @@ Note that Shockley diodes may be fired in a way other than breakover: excessive 
 <p>
 The voltage rise limit of a Shockley diode is referred to as the <i>critical rate of voltage rise</i>.  Manufacturers usually provide this specification for the devices they sell.
 </p>
- 
+
 <ul>
 <li><b>REVIEW:</b></li>
 <li>Shockley diodes are four-layer PNPN semiconductor devices.  These behave as a pair of interconnected PNP and NPN transistors.</li>
@@ -374,7 +373,7 @@ The voltage rise limit of a Shockley diode is referred to as the <i>critical rat
 
 
 
- 
+
 <a name="DIAClnk"></a>
 
 <h2><u><a name="xtocid36143">The DIAC</a></u></h2>
@@ -385,21 +384,21 @@ The voltage rise limit of a Shockley diode is referred to as the <i>critical rat
 Like all diodes, Shockley diodes are unidirectional devices; that is, these only conduct current in one direction.  If bidirectional (AC) operation is desired, two Shockley diodes may be joined in parallel facing different directions to form a new kind of thyristor, the <i>DIAC</i>:  (Figure <a href="#03204.png">  below</a>)
 </p>
 
- 
-<a name="03204.png"></a> 
-<p> <img src="03204.png"> </p> 
-<p><i>The DIAC</i></p> 
- 
+
+<a name="03204.png"></a>
+<p> <img src="03204.png"> </p>
+<p><i>The DIAC</i></p>
+
 
 <p>
 A DIAC operated with a DC voltage across it behaves exactly the same as a Shockley diode.  With AC, however, the behavior is different from what one might expect.  Because alternating current repeatedly reverses direction, DIACs will not stay latched longer than one-half cycle.  If a DIAC becomes latched, it will continue to conduct current only as long as voltage is available to push enough current in that direction.  When the AC polarity reverses, as it must twice per cycle, the DIAC will drop out due to insufficient current, necessitating another breakover before it conducts again.  The result is the current waveform in Figure <a href="#03205.png">  below</a>.
 </p>
 
- 
-<a name="03205.png"></a> 
-<p> <img src="03205.png"> </p> 
-<p><i>DIAC waveforms</i></p> 
- 
+
+<a name="03205.png"></a>
+<p> <img src="03205.png"> </p>
+<p><i>DIAC waveforms</i></p>
+
 
 <p>
 DIACs are almost never used alone, but in conjunction with other thyristor devices.
@@ -424,11 +423,11 @@ Shockley diodes are curious devices, but rather limited in application.  Their u
 The progression from Shockley diode to SCR is achieved with one small addition, actually nothing more than a third wire connection to the existing PNPN structure:  (Figure <a href="#03206.png">  below</a>)
 </p>
 
- 
-<a name="03206.png"></a> 
-<p> <img src="03206.png"> </p> 
-<p><i>The Silicon-Controlled Rectifier (SCR)</i></p> 
- 
+
+<a name="03206.png"></a>
+<p> <img src="03206.png"> </p>
+<p><i>The Silicon-Controlled Rectifier (SCR)</i></p>
+
 
 <a name="Floating"></a>
 <a name="Critical rate of voltage rise"></a>
@@ -451,11 +450,11 @@ This method of securing SCR conduction is called <i>triggering</i>, and it is by
 It should be mentioned that SCRs may <i>sometimes</i> be turned off by directly shorting their gate and cathode terminals together, or by "reverse-triggering" the gate with a negative voltage (in reference to the cathode), so that the lower transistor is forced into cutoff.  I say this is "sometimes" possible because it involves shunting all of the upper transistor's collector current past the lower transistor's base.  This current may be substantial, making triggered shut-off of an SCR difficult at best.  A variation of the SCR, called a <i>Gate-Turn-Off</i> thyristor, or <i>GTO</i>, makes this task easier.  But even with a GTO, the gate current required to turn it off may be as much as 20% of the anode (load) current!  The schematic symbol for a GTO is shown in the following illustration:  (Figure <a href="#03276.png">  below</a>)
 </p>
 
- 
-<a name="03276.png"></a> 
-<p> <img src="03276.png"> </p> 
-<p><i>The Gate Turn-Off thyristor (GTO)</i></p> 
- 
+
+<a name="03276.png"></a>
+<p> <img src="03276.png"> </p>
+<p><i>The Gate Turn-Off thyristor (GTO)</i></p>
+
 
 <p>
 SCRs and GTOs share the same equivalent schematics (two transistors connected in a positive-feedback fashion), the only differences being details of construction designed to grant the NPN transistor a greater &#946; than the PNP.  This allows a smaller gate current (forward or reverse) to exert a greater degree of control over conduction from cathode to anode, with the PNP transistor's latched state being more dependent upon the NPN's than vice versa.  The Gate-Turn-Off thyristor is also known by the name of <i>Gate-Controlled Switch</i>, or <i>GCS</i>.
@@ -465,11 +464,11 @@ SCRs and GTOs share the same equivalent schematics (two transistors connected in
 A rudimentary test of SCR function, or at least terminal identification, may be performed with an ohmmeter.  Because the internal connection between gate and cathode is a single PN junction, a meter should indicate continuity between these terminals with the red test lead on the gate and the black test lead on the cathode like this:  (Figure <a href="#03207.png">  below</a>)
 </p>
 
- 
-<a name="03207.png"></a> 
-<p> <img src="03207.png"> </p> 
-<p><i>Rudimentary test of SCR</i></p> 
- 
+
+<a name="03207.png"></a>
+<p> <img src="03207.png"> </p>
+<p><i>Rudimentary test of SCR</i></p>
+
 
 <p>
 All other continuity measurements performed on an SCR will show "open" ("OL" on some digital multimeter displays).  It must be understood that this test is very crude and does <i>not</i> constitute a comprehensive assessment of the SCR.  It is possible for an SCR to give good ohmmeter indications and still be defective.  Ultimately, the only way to test an SCR is to subject it to a load current.
@@ -479,11 +478,11 @@ All other continuity measurements performed on an SCR will show "open" ("OL" on 
 If you are using a multimeter with a "diode check" function, the gate-to-cathode junction voltage indication you get may or may not correspond to what's expected of a silicon PN junction (approximately 0.7 volts).  In some cases, you will read a much lower junction voltage: mere hundredths of a volt.  This is due to an internal resistor connected between the gate and cathode incorporated within some SCRs.  This resistor is added to make the SCR less susceptible to false triggering by spurious voltage spikes, from circuit "noise" or from static electric discharge.  In other words, having a resistor connected across the gate-cathode junction requires that a <i>strong</i> triggering signal (substantial current) be applied to latch the SCR.  This feature is often found in larger SCRs, not on small SCRs.  Bear in mind that an SCR with an internal resistor connected between gate and cathode will indicate continuity <i>in both directions</i> between those two terminals:  (Figure <a href="#03324.png">  below</a>)
 </p>
 
- 
-<a name="03324.png"></a> 
-<p> <img src="03324.png"> </p> 
-<p><i>Larger SCRs have gate to cathode resistor.</i></p> 
- 
+
+<a name="03324.png"></a>
+<p> <img src="03324.png"> </p>
+<p><i>Larger SCRs have gate to cathode resistor.</i></p>
+
 
 <a name="Sensitive gate, SCR"></a>
 
@@ -495,11 +494,11 @@ If you are using a multimeter with a "diode check" function, the gate-to-cathode
 The test circuit for an SCR is both practical as a diagnostic tool for checking suspected SCRs and also an excellent aid to understanding basic SCR operation.  A DC voltage source is used for powering the circuit, and two pushbutton switches are used to latch and unlatch the SCR, respectively:  (Figure <a href="#03208.png">  below</a>)
 </p>
 
- 
-<a name="03208.png"></a> 
-<p> <img src="03208.png"> </p> 
-<p><i>SCR testing circuit</i></p> 
- 
+
+<a name="03208.png"></a>
+<p> <img src="03208.png"> </p>
+<p><i>SCR testing circuit</i></p>
+
 
 <p>
 Actuating the normally-open "on" pushbutton switch connects the gate to the anode, allowing current from the negative terminal of the battery, through the cathode-gate PN junction, through the switch, through the load resistor, and back to the battery.  This gate current should force the SCR to latch on, allowing current to go directly from cathode to anode without further triggering through the gate.  When the "on" pushbutton is released, the load should remain energized.
@@ -523,11 +522,11 @@ For the test to be fully comprehensive, more than the triggering action needs to
 In this simple form, the SCR test circuit could suffice as a start/stop control circuit for a DC motor, lamp, or other practical load:  (Figure <a href="#03209.png">  below</a>)
 </p>
 
- 
-<a name="03209.png"></a> 
-<p> <img src="03209.png"> </p> 
-<p><i>DC motor start/stop control circuit</i></p> 
- 
+
+<a name="03209.png"></a>
+<p> <img src="03209.png"> </p>
+<p><i>DC motor start/stop control circuit</i></p>
+
 
 <a name="Power supply schematic, AC-DC"></a>
 <a name="AC-DC power supply schematic"></a>
@@ -537,11 +536,11 @@ In this simple form, the SCR test circuit could suffice as a start/stop control 
 Another practical use for the SCR in a DC circuit is as a <i>crowbar</i> device for overvoltage protection.  A "crowbar" circuit consists of an SCR placed in parallel with the output of a DC power supply, for placing a direct short-circuit on the output of that supply to prevent excessive voltage from reaching the load.  Damage to the SCR and power supply is prevented by the judicious placement of a fuse or substantial series resistance ahead of the SCR to limit short-circuit current:  (Figure <a href="#03210.png">  below</a>)
 </p>
 
- 
-<a name="03210.png"></a> 
-<p> <img src="03210.png"> </p> 
-<p><i>Crowbar circuit used in DC power supply</i></p> 
- 
+
+<a name="03210.png"></a>
+<p> <img src="03210.png"> </p>
+<p><i>Crowbar circuit used in DC power supply</i></p>
+
 
 <p>
 Some device or circuit sensing the output voltage will be connected to the gate of the SCR, so that when an overvoltage condition occurs, voltage will be applied between the gate and cathode, triggering the SCR and forcing the fuse to blow.  The effect will be approximately the same as dropping a solid steel crowbar directly across the output terminals of the power supply, hence the name of the circuit.
@@ -555,10 +554,10 @@ Most applications of the SCR are for AC power control, despite the fact that SCR
 </p>
 
 
- 
-<a name="03205a.png"></a> 
-<p> <img src="03205.png"> </p> 
-<p><i>DIAC bidirectional response</i></p> 
+
+<a name="03205a.png"></a>
+<p> <img src="03205.png"> </p>
+<p><i>DIAC bidirectional response</i></p>
 
 <p>
 With the DIAC, that breakover voltage limit was a fixed quantity.  With the SCR, we have control over exactly when the device becomes latched by triggering the gate at any point in time along the waveform.  By connecting a suitable control circuit to the gate of an SCR, we can "chop" the sine wave at any point to allow for time-proportioned power control to a load.
@@ -568,11 +567,11 @@ With the DIAC, that breakover voltage limit was a fixed quantity.  With the SCR,
 Take the circuit in  Figure <a href="#03211.png">  below</a> as an example.  Here, an SCR is positioned in a circuit to control power to a load from an AC source.
 </p>
 
- 
-<a name="03211.png"></a> 
-<p> <img src="03211.png"> </p> 
-<p><i>SCR control of AC power</i></p> 
- 
+
+<a name="03211.png"></a>
+<p> <img src="03211.png"> </p>
+<p><i>SCR control of AC power</i></p>
+
 
 <p>
 Being a unidirectional (one-way) device, at most we can only deliver half-wave power to the load, in the half-cycle of AC where the supply voltage polarity is positive on the top and negative on the bottom.  However, for demonstrating the basic concept of time-proportional control, this simple circuit is better than one controlling full-wave power (which would require two SCRs).
@@ -582,41 +581,41 @@ Being a unidirectional (one-way) device, at most we can only deliver half-wave p
 With no triggering to the gate, and the AC source voltage well below the SCR's breakover voltage rating, the SCR will never turn on.  Connecting the SCR gate to the anode through a standard rectifying diode (to prevent reverse current through the gate in the event of the SCR containing a built-in gate-cathode resistor), will allow the SCR to be triggered almost immediately at the beginning of every positive half-cycle:  (Figure <a href="#03212.png">  below</a>)
 </p>
 
- 
-<a name="03212.png"></a> 
-<p> <img src="03212.png"> </p> 
-<p><i>Gate connected directly to anode through a diode; nearly complete half-wave current through load.</i></p> 
- 
+
+<a name="03212.png"></a>
+<p> <img src="03212.png"> </p>
+<p><i>Gate connected directly to anode through a diode; nearly complete half-wave current through load.</i></p>
+
 
 <p>
 We can delay the triggering of the SCR, however, by inserting some resistance into the gate circuit, thus increasing the amount of voltage drop required before enough gate current triggers the SCR.  In other words, if we make it harder for electrons to flow through the gate by adding a resistance, the AC voltage will have to reach a higher point in its cycle before there will be enough gate current to turn the SCR on.  The result is in Figure <a href="#03213.png">  below</a>.
 </p>
- 
- 
-<a name="03213.png"></a> 
-<p> <img src="03213.png"> </p> 
-<p><i>Resistance inserted in gate circuit; less than half-wave current through load.</i></p> 
- 
+
+
+<a name="03213.png"></a>
+<p> <img src="03213.png"> </p>
+<p><i>Resistance inserted in gate circuit; less than half-wave current through load.</i></p>
+
 
 <p>
 With the half-sine wave chopped up to a greater degree by delayed triggering of the SCR, the load receives less average power (power is delivered for less time throughout a cycle).  By making the series gate resistor variable, we can make adjustments to the time-proportioned power:  (Figure <a href="#03214.png">  below</a>)
 </p>
 
- 
-<a name="03214.png"></a> 
-<p> <img src="03214.png"> </p> 
-<p><i>Increasing the resistance raises the threshold level, causing less power to be delivered to the load. Decreasing the resistance lowers the threshold level, causing more power to be delivered to the load.</i></p> 
- 
+
+<a name="03214.png"></a>
+<p> <img src="03214.png"> </p>
+<p><i>Increasing the resistance raises the threshold level, causing less power to be delivered to the load. Decreasing the resistance lowers the threshold level, causing more power to be delivered to the load.</i></p>
+
 
 <p>
 Unfortunately, this control scheme has a significant limitation.  In using the AC source waveform for our SCR triggering signal, we limit control to the first half of the waveform's half-cycle.  In other words, it is not possible for us to wait until <i>after</i> the wave's peak to trigger the SCR.  This means we can turn down the power only to the point where the SCR turns on at the very peak of the wave:  (Figure <a href="#03215.png">  below</a>)
 </p>
 
- 
-<a name="03215.png"></a> 
-<p> <img src="03215.png"> </p> 
-<p><i>Circuit at minimum power setting</i></p> 
- 
+
+<a name="03215.png"></a>
+<p> <img src="03215.png"> </p>
+<p><i>Circuit at minimum power setting</i></p>
+
 
 <p>
 Raising the trigger threshold any more will cause the circuit to not trigger at all, since not even the peak of the AC power voltage will be enough to trigger the SCR.  The result will be no power to the load.
@@ -626,11 +625,11 @@ Raising the trigger threshold any more will cause the circuit to not trigger at 
 An ingenious solution to this control dilemma is found in the addition of a phase-shifting capacitor to the circuit:  (Figure <a href="#03216.png">  below</a>)
 </p>
 
- 
-<a name="03216.png"></a> 
-<p> <img src="03216.png"> </p> 
-<p><i>Addition of a phase-shifting capacitor to the circuit</i></p> 
- 
+
+<a name="03216.png"></a>
+<p> <img src="03216.png"> </p>
+<p><i>Addition of a phase-shifting capacitor to the circuit</i></p>
+
 
 <p>
 The smaller waveform shown on the graph is voltage across the capacitor.   For the sake of illustrating the phase shift, I'm assuming a condition of maximum control resistance where the SCR is not triggering at all with no load current, save for what little current goes through the control resistor and capacitor.  This capacitor voltage will be phase-shifted anywhere from 0<sup>o</sup> to 90<sup>o</sup> lagging behind the power source AC waveform.  When this phase-shifted voltage reaches a high enough level, the SCR will trigger.
@@ -640,11 +639,11 @@ The smaller waveform shown on the graph is voltage across the capacitor.   For t
 With  enough voltage across the capacitor to periodically trigger the SCR, the resulting load current waveform will look something like Figure <a href="#03217.png">  below</a>)
 </p>
 
- 
-<a name="03217.png"></a> 
-<p> <img src="03217.png"> </p> 
-<p><i>Phase-shifted signal triggers SCR into conduction.</i></p> 
- 
+
+<a name="03217.png"></a>
+<p> <img src="03217.png"> </p>
+<p><i>Phase-shifted signal triggers SCR into conduction.</i></p>
+
 
 <p>
 Because the capacitor waveform is still <i>rising</i> after the main AC power waveform has reached its peak, it becomes possible to trigger the SCR at a threshold level beyond that peak, thus chopping the load current wave further than it was possible with the simpler circuit.  In reality, the capacitor voltage waveform is a bit more complex that what is shown here, its sinusoidal shape distorted every time the SCR latches on.  However, what I'm trying to illustrate here is the delayed triggering action gained with the phase-shifting RC network; thus, a simplified, undistorted waveform serves the purpose well.
@@ -654,11 +653,11 @@ Because the capacitor waveform is still <i>rising</i> after the main AC power wa
 SCRs may also be triggered, or "fired," by more complex circuits.  While the circuit previously shown is sufficient for a simple application like a lamp control, large industrial motor controls often rely on more sophisticated triggering methods.  Sometimes, pulse transformers are used to couple a triggering circuit to the gate and cathode of an SCR to provide electrical isolation between the triggering and power circuits:  (Figure <a href="#03218.png">  below</a>)
 </p>
 
- 
-<a name="03218.png"></a> 
-<p> <img src="03218.png"> </p> 
-<p><i>Transformer coupling of trigger signal provides isolation.</i></p> 
- 
+
+<a name="03218.png"></a>
+<p> <img src="03218.png"> </p>
+<p><i>Transformer coupling of trigger signal provides isolation.</i></p>
+
 
 <a name="Rectifier, controlled"></a>
 <a name="Controlled rectifier"></a>
@@ -668,31 +667,31 @@ SCRs may also be triggered, or "fired," by more complex circuits.  While the cir
 When multiple SCRs are used to control power, their cathodes are often <i>not</i> electrically common, making it difficult to connect a single triggering circuit to all SCRs equally.  An example of this is the <i>controlled bridge rectifier</i> shown in  Figure <a href="#03219.png">  below</a>.
 </p>
 
- 
-<a name="03219.png"></a> 
-<p> <img src="03219.png"> </p> 
-<p><i>Controlled bridge rectifier</i></p> 
- 
+
+<a name="03219.png"></a>
+<p> <img src="03219.png"> </p>
+<p><i>Controlled bridge rectifier</i></p>
+
 
 <p>
 In any bridge rectifier circuit, the rectifying diodes (in this example, the rectifying SCRs) must conduct in opposite pairs.  SCR<sub>1</sub> and SCR<sub>3</sub> must be fired simultaneously, and  SCR<sub>2</sub> and SCR<sub>4</sub> must be fired together as a pair.  As you will notice, though, these pairs of SCRs do not share the same cathode connections, meaning that it would not work to simply parallel their respective gate connections and connect a single voltage source to trigger both:  (Figure <a href="#03220.png">  below</a>)
 </p>
 
- 
-<a name="03220.png"></a> 
-<p> <img src="03220.png"> </p> 
-<p><i>This strategy will not work for triggering SCR<sub>2</sub> and SCR<sub>4</sub> as a pair.</i></p> 
- 
+
+<a name="03220.png"></a>
+<p> <img src="03220.png"> </p>
+<p><i>This strategy will not work for triggering SCR<sub>2</sub> and SCR<sub>4</sub> as a pair.</i></p>
+
 
 <p>
 Although the triggering voltage source shown will trigger SCR<sub>4</sub>, it will not trigger SCR<sub>2</sub> properly because the two thyristors do not share a common cathode connection to reference that triggering voltage.  Pulse transformers connecting the two thyristor gates to a common triggering voltage source <i>will</i> work, however:  (Figure <a href="#03221.png">  below</a>)
 </p>
 
- 
-<a name="03221.png"></a> 
-<p> <img src="03221.png"> </p> 
-<p><i>Transformer coupling of the gates allows triggering of SCR<sub>2</sub> and SCR<sub>4</sub> . </i></p> 
- 
+
+<a name="03221.png"></a>
+<p> <img src="03221.png"> </p>
+<p><i>Transformer coupling of the gates allows triggering of SCR<sub>2</sub> and SCR<sub>4</sub> . </i></p>
+
 
 <p>
 Bear in mind that this circuit only shows the gate connections for two out of the four SCRs.  Pulse transformers and triggering sources for SCR<sub>1</sub> and SCR<sub>3</sub>, as well as the details of the pulse sources themselves, have been omitted for the sake of simplicity.
@@ -702,11 +701,11 @@ Bear in mind that this circuit only shows the gate connections for two out of th
 Controlled bridge rectifiers are not limited to single-phase designs.  In most industrial control systems, AC power is available in three-phase form for maximum efficiency, and solid-state control circuits are built to take advantage of that.  A three-phase controlled rectifier circuit built with SCRs, without pulse transformers or triggering circuitry shown, would look like Figure <a href="#03222.png">  below</a>.
 </p>
 
- 
-<a name="03222.png"></a> 
-<p> <img src="03222.png"> </p> 
-<p><i>Three-phase bridge SCR control of load</i></p> 
- 
+
+<a name="03222.png"></a>
+<p> <img src="03222.png"> </p>
+<p><i>Three-phase bridge SCR control of load</i></p>
+
 
 <ul>
 <li><b>REVIEW:</b></li>
@@ -733,21 +732,21 @@ Controlled bridge rectifiers are not limited to single-phase designs.  In most i
 SCRs are unidirectional (one-way) current devices, making them useful for controlling DC only.  If two SCRs are joined in back-to-back parallel fashion just like two Shockley diodes were joined together to form a DIAC, we have a new device known as the <i>TRIAC</i>:  (Figure <a href="#03223.png">  below</a>)
 </p>
 
- 
-<a name="03223.png"></a> 
-<p> <img src="03223.png"> </p> 
-<p><i>The TRIAC SCR equivalent and, TRIAC schematic symbol</i></p> 
- 
+
+<a name="03223.png"></a>
+<p> <img src="03223.png"> </p>
+<p><i>The TRIAC SCR equivalent and, TRIAC schematic symbol</i></p>
+
 
 <p>
 Because individual SCRs are more flexible to use in advanced control systems, these are more commonly seen in circuits like motor drives; TRIACs are usually seen in simple, low-power applications like household dimmer switches.  A simple lamp dimmer circuit is shown in Figure <a href="#03224.png">  below</a>, complete with the phase-shifting resistor-capacitor network necessary for after-peak firing.
 </p>
 
- 
-<a name="03224.png"></a> 
-<p> <img src="03224.png"> </p> 
-<p><i>TRIAC phase-control of power</i></p> 
- 
+
+<a name="03224.png"></a>
+<p> <img src="03224.png"> </p>
+<p><i>TRIAC phase-control of power</i></p>
+
 
 <a name="Harmonic"></a>
 <a name="Harmonic, even vs. odd"></a>
@@ -755,18 +754,18 @@ Because individual SCRs are more flexible to use in advanced control systems, th
 <a name="Waveform symmetry and harmonics"></a>
 
 <p>
-TRIACs are notorious for not firing <i>symmetrically</i>.  This means these usually won't trigger at the exact same gate voltage level for one polarity as for the other.  Generally speaking, this is undesirable, because unsymmetrical firing results in a current waveform with a greater variety of harmonic frequencies.  Waveforms that are symmetrical above and below their average centerlines are comprised of only odd-numbered harmonics.  Unsymmetrical waveforms, on the other hand, contain even-numbered harmonics (which may or may not be accompanied by odd-numbered harmonics as well).  
+TRIACs are notorious for not firing <i>symmetrically</i>.  This means these usually won't trigger at the exact same gate voltage level for one polarity as for the other.  Generally speaking, this is undesirable, because unsymmetrical firing results in a current waveform with a greater variety of harmonic frequencies.  Waveforms that are symmetrical above and below their average centerlines are comprised of only odd-numbered harmonics.  Unsymmetrical waveforms, on the other hand, contain even-numbered harmonics (which may or may not be accompanied by odd-numbered harmonics as well).
 </p>
 
 <p>
 In the interest of reducing total harmonic content in power systems, the fewer and less diverse the harmonics, the better -- one more reason  individual SCRs are favored over TRIACs for complex, high-power control circuits.  One way to make the TRIAC's current waveform more symmetrical is to use a device external to the TRIAC to time the triggering pulse.  A DIAC placed in series with the gate does a fair job of this:  (Figure <a href="#03225.png">  below</a>)
 </p>
 
- 
-<a name="03225.png"></a> 
-<p> <img src="03225.png"> </p> 
-<p><i>DIAC improves symmetry of control</i></p> 
- 
+
+<a name="03225.png"></a>
+<p> <img src="03225.png"> </p>
+<p><i>DIAC improves symmetry of control</i></p>
+
 <p>
 DIAC breakover voltages tend to be much more symmetrical (the same in one polarity as the other) than TRIAC triggering voltage thresholds.  Since the DIAC prevents any gate current until the triggering voltage has reached a certain, repeatable level in either direction, the firing point of the TRIAC from one half-cycle to the next tends to be more consistent, and the waveform more symmetrical above and below its centerline.
 </p>
@@ -783,21 +782,21 @@ From the equivalent circuit diagram shown earlier, one might think that main ter
 This is made most evident by contrasting two simple circuit designs, one that works and one that doesn't.  The following two circuits are a variation of the lamp dimmer circuit shown earlier, the phase-shifting capacitor and DIAC removed for simplicity's sake.  Although the resulting circuit lacks the fine control ability of the more complex version (with capacitor and DIAC), it <i>does</i> function:  (Figure <a href="#03226.png">  below</a>)
 </p>
 
- 
-<a name="03226.png"></a> 
-<p> <img src="03226.png"> </p> 
-<p><i>This circuit with the gate to MT<sub>2</sub> does function.</i></p> 
- 
+
+<a name="03226.png"></a>
+<p> <img src="03226.png"> </p>
+<p><i>This circuit with the gate to MT<sub>2</sub> does function.</i></p>
+
 
 <p>
 Suppose we were to swap the two main terminals of the TRIAC around.  According to the equivalent circuit diagram shown earlier in this section, the swap should make no difference.  The circuit ought to work:  (Figure <a href="#03227.png">  below</a>)
 </p>
 
- 
-<a name="03227.png"></a> 
-<p> <img src="03227.png"> </p> 
-<p><i>With the gate swapped to MT<sub>1</sub>, this circuit does not function.</i></p> 
- 
+
+<a name="03227.png"></a>
+<p> <img src="03227.png"> </p>
+<p><i>With the gate swapped to MT<sub>1</sub>, this circuit does not function.</i></p>
+
 
 <p>
 However, if this circuit is built, it will be found that it does not work!  The load will receive no power, the TRIAC refusing to fire at all, no matter how low or high a resistance value the control resistor is set to.  The key to successfully triggering a TRIAC is to make sure the gate receives its triggering current from the <i>main terminal 2</i> side of the circuit (the main terminal on the opposite side of the TRIAC symbol from the gate terminal).  Identification of the MT<sub>1</sub> and MT<sub>2</sub> terminals must be done via the TRIAC's part number with reference to a data sheet or book.
@@ -830,26 +829,26 @@ Like bipolar transistors, SCRs and TRIACs are also manufactured as light-sensiti
 Optically-controlled SCRs are often known by the acronym <i>LASCR</i>, or <b>L</b>ight <b>A</b>ctivated <b>SCR</b>.  Its symbol, not surprisingly, looks like  Figure <a href="#03228.png">  below</a>.
 </p>
 
- 
-<a name="03228.png"></a> 
-<p> <img src="03228.png"> </p> 
-<p><i>Light activated SCR</i></p> 
- 
+
+<a name="03228.png"></a>
+<p> <img src="03228.png"> </p>
+<p><i>Light activated SCR</i></p>
+
 
 <p>
 Optically-controlled TRIACs don't receive the honor of having their own acronym, but instead are humbly known as opto-TRIACs.  Their schematic symbol is shown in  Figure <a href="#03229.png">  below</a>.
 </p>
 
- 
-<a name="03229.png"></a> 
-<p> <img src="03229.png"> </p> 
-<p><i>Opto-TRIAC</i></p> 
- 
+
+<a name="03229.png"></a>
+<p> <img src="03229.png"> </p>
+<p><i>Opto-TRIAC</i></p>
+
 
 <p>
 Optothyristors (a general term for either the LASCR or the opto-TRIAC) are commonly found inside sealed "optoisolator" modules.
 </p>
- 
+
 
 
 
@@ -865,10 +864,10 @@ Optothyristors (a general term for either the LASCR or the opto-TRIAC) are commo
 <b>Unijunction transistor:</b> Although a unijunction transistor is not a thyristor, this device can trigger larger thyristors with a pulse at base B1. A <i>unijunction transistor</i> is composed of a bar of N-type silicon having a P-type connection in the middle.  See Figure <a href="#03504.png">  below</a>(a). The connections at the ends of the bar are known as bases B1 and B2; the P-type mid-point is the emitter. With the emitter disconnected, the total resistance R<sub>BBO</sub>,  a datasheet item, is the sum of R<sub>B1</sub> and R<sub>B2</sub> as shown in  Figure <a href="#03504.png">  below</a>(b).  R<sub>BBO</sub> ranges from 4-12k&#937; for different device types. The intrinsic standoff ratio &#951; is the ratio of  R<sub>B1</sub> to  R<sub>BBO</sub>. It varies from 0.4 to 0.8 for different devices. The schematic symbol is Figure <a href="#03504.png">  below</a>(c)
 </p>
 
- 
-<a name="03504.png"></a> 
-<p> <img src="03504.png"> </p> 
-<p><i>Unijunction transistor: (a) Construction, (b) Model, (c) Symbol</i></p> 
+
+<a name="03504.png"></a>
+<p> <img src="03504.png"> </p>
+<p><i>Unijunction transistor: (a) Construction, (b) Model, (c) Symbol</i></p>
 
 
 <p>
@@ -881,20 +880,20 @@ I<sub>P</sub> and I<sub>V</sub>, are datasheet parameters; For a 2n2647, I<sub>P
 
 
 
- 
-<a name="03508.png"></a> 
-<p> <img src="03508.png"> </p> 
-<p><i>Unijunction transistor: (a) emitter characteristic curve, (b) model for V<sub>P .</sub></i></p> 
+
+<a name="03508.png"></a>
+<p> <img src="03508.png"> </p>
+<p><i>Unijunction transistor: (a) emitter characteristic curve, (b) model for V<sub>P .</sub></i></p>
 
 
 <p>
 The relaxation oscillator in Figure <a href="#03506.png">  below</a> is an application of the unijunction oscillator. R<sub>E</sub> charges C<sub>E</sub> until the peak point. The unijunction emitter terminal has no effect on the capacitor until this point is reached. Once the capacitor voltage, V<sub>E</sub>, reaches the peak voltage point V<sub>P</sub>, the lowered  emitter-base1 E-B1 resistance quickly discharges the capacitor. Once  the capacitor discharges below the valley point V<sub>V</sub>, the E-RB1 resistance reverts back to high resistance, and the capacitor is free to charge again.
 </p>
 
- 
-<a name="03506.png"></a> 
-<p> <img src="03506.png"> </p> 
-<p><i>Unijunction transistor relaxation oscillator and waveforms. Oscillator drives SCR.</i></p> 
+
+<a name="03506.png"></a>
+<p> <img src="03506.png"> </p>
+<p><i>Unijunction transistor relaxation oscillator and waveforms. Oscillator drives SCR.</i></p>
 
 
 <p>
@@ -902,7 +901,7 @@ During capacitor discharge through the E-B1 saturation resistance, a pulse may b
 </p>
 
 <p>
-The charging resistor R<sub>E</sub> must fall within certain limits. It must be small enough to allow I<sub>P</sub> to flow based on the V<sub>BB</sub> supply less V<sub>P</sub>. It must be large enough to supply I<sub>V</sub> based on the V<sub>BB</sub> supply less V<sub>V</sub>. <a href="#MHW.bibitem">[MHW]</a>  The equations and an example for a 2n2647: 
+The charging resistor R<sub>E</sub> must fall within certain limits. It must be small enough to allow I<sub>P</sub> to flow based on the V<sub>BB</sub> supply less V<sub>P</sub>. It must be large enough to supply I<sub>V</sub> based on the V<sub>BB</sub> supply less V<sub>V</sub>. <a href="#MHW.bibitem">[MHW]</a>  The equations and an example for a 2n2647:
 </p>
 
 <p> <img src="13080.png"> </p>
@@ -911,13 +910,13 @@ The charging resistor R<sub>E</sub> must fall within certain limits. It must be 
 <a name="Transistor, programmable unijunction"></a>
 
 <p>
-<b>Programmable Unijunction Transistor (PUT):</b> Although the unijunction transistor is listed as obsolete (read expensive if obtainable), the programmable unijunction transistor is alive and well. It is inexpensive and in production. Though it serves a function similar to the unijunction transistor, the PUT is a three terminal thyristor. The PUT shares the four-layer structure typical of thyristors shown in Figure <a href="#03507.png">  below</a>. Note that the gate, an N-type layer near the anode,  is known as an &ldquo;anode gate&rdquo;. Moreover, the gate lead on the schematic symbol is attached to the anode end of the symbol. 
+<b>Programmable Unijunction Transistor (PUT):</b> Although the unijunction transistor is listed as obsolete (read expensive if obtainable), the programmable unijunction transistor is alive and well. It is inexpensive and in production. Though it serves a function similar to the unijunction transistor, the PUT is a three terminal thyristor. The PUT shares the four-layer structure typical of thyristors shown in Figure <a href="#03507.png">  below</a>. Note that the gate, an N-type layer near the anode,  is known as an &ldquo;anode gate&rdquo;. Moreover, the gate lead on the schematic symbol is attached to the anode end of the symbol.
 </p>
 
- 
-<a name="03507.png"></a> 
-<p> <img src="03507.png"> </p> 
-<p><i>Programmable unijunction transistor: Characteristic curve, internal construction, schematic symbol.</i></p> 
+
+<a name="03507.png"></a>
+<p> <img src="03507.png"> </p>
+<p><i>Programmable unijunction transistor: Characteristic curve, internal construction, schematic symbol.</i></p>
 
 
 <p>
@@ -925,23 +924,23 @@ The characteristic curve for the programmable unijunction transistor in Figure <
 </p>
 
 <p>
-The PUT equivalent of the unijunction transistor is shown in Figure <a href="#03509.png">  below</a>. External PUT resistors R1 and R2 replace unijunction transistor internal resistors R<sub>B1</sub> and R<sub>B2</sub>, respectively. These resistors allow the calculation of the intrinsic standoff ratio &#951;. 
+The PUT equivalent of the unijunction transistor is shown in Figure <a href="#03509.png">  below</a>. External PUT resistors R1 and R2 replace unijunction transistor internal resistors R<sub>B1</sub> and R<sub>B2</sub>, respectively. These resistors allow the calculation of the intrinsic standoff ratio &#951;.
 </p>
 
- 
-<a name="03509.png"></a> 
-<p> <img src="03509.png"> </p> 
-<p><i>PUT equivalent of unijunction transistor</i></p> 
+
+<a name="03509.png"></a>
+<p> <img src="03509.png"> </p>
+<p><i>PUT equivalent of unijunction transistor</i></p>
 
 
 <p>
 Figure <a href="#03505.png">  below</a> shows the PUT version of the  unijunction relaxation oscillator Figure <a href="#03506.png">  previous</a>. Resistor R charges the capacitor until the peak point, Figure <a href="#03507.png">  previous</a>, then heavy conduction moves the operating point down the negative resistance slope to the valley point.  A current spike flows through the cathode during capacitor discharge, developing a voltage spike across the cathode resistors. After capacitor discharge, the operating point resets back to the slope up to the peak point.
 </p>
 
- 
-<a name="03505.png"></a> 
-<p> <img src="03505.png"> </p> 
-<p><i>PUT relaxation oscillator</i></p> 
+
+<a name="03505.png"></a>
+<p> <img src="03505.png"> </p>
+<p><i>PUT relaxation oscillator</i></p>
 
 
 <p>
@@ -967,7 +966,7 @@ Choosing R &#62; 143k guarantees that the operating point can reset from the val
 
 
 
- 
+
 <a name="put1.tbl"><p><i>Selected 2n6027 PUT parameters, adapted from 2n6027 datasheet. <a href="#ON1.bibitem">[ON1]</a></i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -1032,12 +1031,12 @@ Choosing R &#62; 143k guarantees that the operating point can reset from the val
 Figure <a href="#03510.png">  below</a> show the PUT relaxation oscillator with the final resistor values. A practical application of a PUT triggering an SCR is also shown. This circuit needs a V<sub>BB</sub> unfiltered supply (not shown) divided down from the bridge rectifier to reset the relaxation oscillator after each power zero crossing. The variable resistor should have a minimum resistor in series with it to prevent a low pot setting from hanging at the valley point.
 </p>
 
- 
-<a name="03510.png"></a> 
-<p> <img src="03510.png"> </p> 
-<p><i>PUT relaxation oscillator with component values. PUT drives SCR lamp dimmer.</i></p> 
 
-  
+<a name="03510.png"></a>
+<p> <img src="03510.png"> </p>
+<p><i>PUT relaxation oscillator with component values. PUT drives SCR lamp dimmer.</i></p>
+
+
 <p>
 PUT timing circuits are said to be usable to 10kHz.  If a linear ramp is required instead of an exponential ramp, replace the charging resistor with a constant current source such as a FET based constant current diode. A substitute PUT may be built from a PNP and NPN silicon transistor as shown for the SCS equivalent circuit in Figure <a href="#03319.png">  below</a> by omitting the cathode gate and using the anode gate.
 </p>
@@ -1067,11 +1066,11 @@ PUT timing circuits are said to be usable to 10kHz.  If a linear ramp is require
 If we take the equivalent circuit for an SCR and add another external terminal, connected to the base of the top transistor and the collector of the bottom transistor, we have a device known as a <i>silicon-controlled-switch</i>, or <i>SCS</i>:  (Figure <a href="#03319.png">  below</a>)
 </p>
 
- 
-<a name="03319.png"></a> 
-<p> <img src="03319.png"> </p> 
-<p><i>The Silicon-Controlled Switch(SCS)</i></p> 
- 
+
+<a name="03319.png"></a>
+<p> <img src="03319.png"> </p>
+<p><i>The Silicon-Controlled Switch(SCS)</i></p>
+
 
 <a name="Forced commutation"></a>
 <a name="Commutation, forced"></a>
@@ -1080,11 +1079,11 @@ If we take the equivalent circuit for an SCR and add another external terminal, 
 This extra terminal allows more control to be exerted over the device, particularly in the mode of <i>forced commutation</i>, where an external signal forces it to turn off while the main current through the device has not yet fallen below the holding current value.  Note that  the motor is in the anode  gate circuit in  Figure <a href="#03320.png">  below</a>. This is correct, although it doesn't look right. The anode lead is required to switch the SCS off. Therefore the motor cannot be in series with the anode.
 </p>
 
- 
-<a name="03320.png"></a> 
-<p> <img src="03320.png"> </p> 
-<p><i>SCS: Motor start/stop circuit, equivalent circuit with two transistors.</i></p> 
- 
+
+<a name="03320.png"></a>
+<p> <img src="03320.png"> </p>
+<p><i>SCS: Motor start/stop circuit, equivalent circuit with two transistors.</i></p>
+
 
 <p>
 When the "on" pushbutton switch is actuated, the voltage applied between the cathode gate and the cathode, forward-biases the lower transistor's base-emitter junction, and turning it on.  The top transistor of the SCS is ready to conduct, having been supplied with a current path from its emitter terminal (the SCS's anode terminal) through resistor R<sub>2</sub> to the positive side of the power supply.  As in the case of the SCR, both transistors turn on and maintain each other in the "on" mode.  When the lower transistor turns on, it conducts the motor's load current, and the motor starts and runs.
@@ -1127,11 +1126,11 @@ Two relatively recent technologies designed to reduce the "driving" (gate trigge
 The MOS-gated thyristor uses a MOSFET to initiate conduction through the upper (PNP) transistor of a standard thyristor structure, thus triggering the device.  Since a MOSFET requires negligible current to "drive" (cause it to saturate), this makes the thyristor as a whole very easy to trigger:  (Figure <a href="#03331.png">  below</a>)
 </p>
 
- 
-<a name="03331.png"></a> 
-<p> <img src="03331.png"> </p> 
-<p><i>MOS-gated thyristor equivalent circuit</i></p> 
- 
+
+<a name="03331.png"></a>
+<p> <img src="03331.png"> </p>
+<p><i>MOS-gated thyristor equivalent circuit</i></p>
+
 
 <p>
 Given the fact that ordinary SCRs are quite easy to "drive" as it is, the practical advantage of using an even more sensitive device (a MOSFET) to initiate triggering is debatable.  Also, placing a MOSFET at the gate input of the thyristor now makes it <i>impossible</i> to turn it off by a reverse-triggering signal.  Only low-current dropout can make this device stop conducting after it has been latched.
@@ -1141,11 +1140,11 @@ Given the fact that ordinary SCRs are quite easy to "drive" as it is, the practi
 A device of arguably greater value would be a fully-controllable thyristor, whereby a small gate signal could both trigger the thyristor and force it to turn off.  Such a device does exist, and it is called the <i>MOS Controlled Thyristor</i>, or <i>MCT</i>.  It uses a pair of MOSFETs connected to a common gate terminal, one to trigger the thyristor and the other to "untrigger" it:  (Figure <a href="#03332.png">  below</a>)
 </p>
 
- 
-<a name="03332.png"></a> 
-<p> <img src="03332.png"> </p> 
-<p><i>MOS-controlled thyristor (MCT) equivalent circuit</i></p> 
- 
+
+<a name="03332.png"></a>
+<p> <img src="03332.png"> </p>
+<p><i>MOS-controlled thyristor (MCT) equivalent circuit</i></p>
+
 
 <p>
 A positive gate voltage (with respect to the cathode) turns on the upper (N-channel) MOSFET, allowing base current through the upper (PNP) transistor, which latches the transistor pair in an "on" state.  Once both transistors are fully latched, there will be little voltage dropped between anode and cathode, and the thyristor will remain latched as long as the controlled current exceeds the minimum (holding) current value.  However, if a negative gate voltage is applied (with respect to the anode, which is at nearly the same voltage as the cathode in the latched state), the lower MOSFET will turn on and "short" between the lower (NPN) transistor's base and emitter terminals, thus forcing it into cutoff.  Once the NPN transistor cuts off, the PNP transistor will drop out of conduction, and the whole thyristor turns off.  Gate voltage has full control over conduction through the MCT: to turn it on and to turn it off.
@@ -1170,8 +1169,8 @@ This device is still a thyristor, though.  If zero voltage is  applied between g
 
 
 
- 
-<h2><a name="xtocid361410">Bibliography</a></h2><br> 
+
+<h2><a name="xtocid361410">Bibliography</a></h2><br>
 <ol>
 
 <li><a name="VTS.bibitem">[VTS]&ldquo;Phattytron PT-1 Vacuum Tube Synthesizer&rdquo;, The Audio Playground Synthesizer Museum  at <a href="http://www.keyboardmuseum.com/ar/m/meta/pt1.html">http://www.keyboardmuseum.com/ar/m/meta/pt1.html</a></a> </li>
@@ -1189,7 +1188,7 @@ This device is still a thyristor, though.  If zero voltage is  applied between g
 
 
 Unijunction Transistor
-by 
+by
 
 http://baec.tripod.com/DEC90/uni_tran.htm
 </ol>

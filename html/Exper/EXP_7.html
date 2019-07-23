@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,18 +19,17 @@
 <a href="EXP_8.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume VI</h1>
 <h1>Chapter 7</h1>
 
 
 
 
-<h1>DIGITAL INTEGRATED CIRCUITS</h1> 
+<h1>DIGITAL INTEGRATED CIRCUITS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid39740"><u>Introduction</u></a></li>
@@ -71,7 +70,7 @@ Circuits using <i>TTL</i> technology require a regulated power supply voltage of
 When building digital circuits using integrated circuit "chips," it is highly recommended that you use a breadboard with power supply "rail" connections along the length.  These are sets of holes in the breadboard that are electrically common along the entire length of the board.  Connect one to the positive terminal of a battery, and the other to the negative terminal, and DC power will be available to any area of the breadboard via connection through short jumper wires:
 </p>
 
-<p> <img src="05282.png"> </p> 
+<p> <img src="05282.png"> </p>
 
 <p>
 With so many of these integrated circuits having "reset," "enable," and "disable" terminals needing to be maintained in a "high" or "low" state, not to mention the V<sub>DD</sub> (or V<sub>CC</sub>) and ground power terminals which require connection to the power supply, having both terminals of the power supply readily available for connection at any point along the board's length is very useful.
@@ -145,7 +144,7 @@ Most breadboards that I have seen have these power supply "rail" holes, but some
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05291.png"> </p> 
+<p> <img src="05291.png"> </p>
 
 <br> </br>
 
@@ -153,7 +152,7 @@ Most breadboards that I have seen have these power supply "rail" holes, but some
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05292.png"> </p> 
+<p> <img src="05292.png"> </p>
 
 <br> </br>
 
@@ -169,10 +168,10 @@ To begin, connect a single NAND gate to two input switches and one LED, as shown
 It is highly recommended that you have a datasheet for the 4011 chip available when you build your circuit.  Don't just follow the illustration shown above!  It is important that you develop the skill of reading datasheets, especially "pinout" diagrams, when connecting IC terminals to other circuit elements.  The datasheet's connection diagram is an essential piece of information to have.  Shown here is my own rendition of what any 4011 datasheet shows:
 </p>
 
-<p> <img src="05293.png"> </p> 
+<p> <img src="05293.png"> </p>
 
 <p>
-In the breadboard illustration, I've shown the circuit built using the lower-left NAND gate: pin #'s 1 and 2 are the inputs, and pin #3 is the output.  Pin #'s 14 and 7 conduct DC power to all four gate circuits inside the IC chip, "V<sub>DD</sub>" representing the positive side of the power supply (+V), and "Gnd" representing the negative side of the power supply (-V), or ground.  Sometimes the negative power supply terminal will be labeled "V<sub>SS</sub>" instead of "Gnd" on a datasheet, but it means the same thing.  
+In the breadboard illustration, I've shown the circuit built using the lower-left NAND gate: pin #'s 1 and 2 are the inputs, and pin #3 is the output.  Pin #'s 14 and 7 conduct DC power to all four gate circuits inside the IC chip, "V<sub>DD</sub>" representing the positive side of the power supply (+V), and "Gnd" representing the negative side of the power supply (-V), or ground.  Sometimes the negative power supply terminal will be labeled "V<sub>SS</sub>" instead of "Gnd" on a datasheet, but it means the same thing.
 </p>
 
 <p>
@@ -201,7 +200,7 @@ The two 10 k&#937; resistors are placed in the circuit to avoid floating input c
 With the NAND gate connected to the two switches and one LED as shown, you are ready to develop a "truth table" for the NAND gate.  Even if you already know what a NAND gate truth table looks like, this is a good exercise in experimentation: discovering a circuit's behavioral principles by induction.  Draw a truth table on a piece of paper like this:
 </p>
 
-<p> <img src="05294.png"> </p> 
+<p> <img src="05294.png"> </p>
 
 <p>
 The "A" and "B" columns represent the two input switches, respectively.  When the switch is on, its state is "high" or 1.  When the switch is off, its state is "low," or 0, as ensured by its pulldown resistor.  The gate's output, of course, is represented by the LED: whether it is lit (1) or unlit (0).  After placing the switches in every possible combination of states and recording the LED's status, compare the resulting truth table with what a NAND gate's truth table should be.
@@ -215,7 +214,7 @@ As you can imagine, this breadboard circuit is not limited to testing NAND gates
 An improvement you might want to make to this circuit is to assign a couple of LEDs to indicate input status, in addition to the one LED assigned to indicate the output.  This makes operation a little more interesting to observe, and has the further benefit of indicating if a switch fails to close (or open) by showing the <i>true</i> input signal to the gate, rather than forcing you to infer input status from switch position:
 </p>
 
-<p> <img src="05295.png"> </p> 
+<p> <img src="05295.png"> </p>
 
 
 
@@ -286,7 +285,7 @@ An improvement you might want to make to this circuit is to assign a couple of L
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05296.png"> </p> 
+<p> <img src="05296.png"> </p>
 
 <br> </br>
 
@@ -294,7 +293,7 @@ An improvement you might want to make to this circuit is to assign a couple of L
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05297.png"> </p> 
+<p> <img src="05297.png"> </p>
 
 <br> </br>
 
@@ -306,7 +305,7 @@ An improvement you might want to make to this circuit is to assign a couple of L
 The 4001 integrated circuit is a CMOS quad NOR gate, identical in input, output, and power supply pin assignments to the 4011 quad NAND gate.  Its "pinout," or "connection," diagram is as such:
 </p>
 
-<p> <img src="05298.png"> </p> 
+<p> <img src="05298.png"> </p>
 
 <a name="Hysteresis"></a>
 
@@ -319,7 +318,7 @@ When two NOR gates are cross-connected as shown in the schematic diagram, there 
 <a name="Latched state"></a>
 
 <p>
-If we designate the left switch as the "Set" input and the right switch as the "Reset," the left LED will be the "Q" output and the right LED the "Q-not" output.  With the Set input "high" (switch on) and the Reset input "low," Q will go "high" and Q-not will go "low."  This is known as the <i>set</i> state of the circuit.  Making the Reset input "high" and the Set input "low" reverses the latch circuit's output state: Q "low" and Q-not "high."  This is known as the <i>reset</i> state of the circuit.  If both inputs are placed into the "low" state, the circuit's Q and Q-not outputs will remain in their last states, "remembering" their prior settings.  This is known as the <i>latched</i> state of the circuit.  
+If we designate the left switch as the "Set" input and the right switch as the "Reset," the left LED will be the "Q" output and the right LED the "Q-not" output.  With the Set input "high" (switch on) and the Reset input "low," Q will go "high" and Q-not will go "low."  This is known as the <i>set</i> state of the circuit.  Making the Reset input "high" and the Set input "low" reverses the latch circuit's output state: Q "low" and Q-not "high."  This is known as the <i>reset</i> state of the circuit.  If both inputs are placed into the "low" state, the circuit's Q and Q-not outputs will remain in their last states, "remembering" their prior settings.  This is known as the <i>latched</i> state of the circuit.
 </p>
 
 <a name="Invalid state"></a>
@@ -332,7 +331,7 @@ Because the outputs have been designated "Q" and "Q-not," it is implied that the
 Since the "latched" state is a hysteretic condition whereby the last output states are "remembered," one might wonder what will happen if the circuit powers up this way, with <i>no previous state to hold</i>.  To experiment, place both switches in their off positions, making both Set and Reset inputs low, then disconnect one of the battery wires from the breadboard.  Then, quickly make and break contact between that battery wire and its proper connection point on the breadboard, noting the status of the two LEDs as the circuit is powered up again and again:
 </p>
 
-<p> <img src="05299.png"> </p> 
+<p> <img src="05299.png"> </p>
 
 <a name="Race condition"></a>
 
@@ -430,7 +429,7 @@ This is one reason I favor the use of a voltmeter as a logic "probe" for determi
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05300.png"> </p> 
+<p> <img src="05300.png"> </p>
 
 <br> </br>
 
@@ -438,7 +437,7 @@ This is one reason I favor the use of a voltmeter as a logic "probe" for determi
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05301.png"> </p> 
+<p> <img src="05301.png"> </p>
 
 <br> </br>
 
@@ -454,7 +453,7 @@ Although this circuit uses NAND gates instead of NOR gates, its behavior is iden
 This kind of latch circuit (also called a <i>gated S-R latch</i>), may be constructed from two NOR gates and two AND gates, but the NAND gate design is easier to build since it makes use of all four gates in a single integrated circuit.
 </p>
 
-<p> <img src="05302.png"> </p> 
+<p> <img src="05302.png"> </p>
 
 
 
@@ -490,7 +489,7 @@ This kind of latch circuit (also called a <i>gated S-R latch</i>), may be constr
 </p>
 
 <p>
-Although the parts list calls for a ten-segment LED unit, the illustration shows two individual LEDs being used instead.  This is due to lack of room on my breadboard to mount the switch assembly, two integrated circuits, and the bargraph.  If you have room on your breadboard, feel free to use the bargraph as called for in the parts list, and as shown in prior latch circuits. 
+Although the parts list calls for a ten-segment LED unit, the illustration shows two individual LEDs being used instead.  This is due to lack of room on my breadboard to mount the switch assembly, two integrated circuits, and the bargraph.  If you have room on your breadboard, feel free to use the bargraph as called for in the parts list, and as shown in prior latch circuits.
 </p>
 
 <br> </br>
@@ -525,7 +524,7 @@ Although the parts list calls for a ten-segment LED unit, the illustration shows
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05303.png"> </p> 
+<p> <img src="05303.png"> </p>
 
 <br> </br>
 
@@ -533,7 +532,7 @@ Although the parts list calls for a ten-segment LED unit, the illustration shows
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05304.png"> </p> 
+<p> <img src="05304.png"> </p>
 
 <br> </br>
 
@@ -545,13 +544,13 @@ Although the parts list calls for a ten-segment LED unit, the illustration shows
 The only difference between a <i>gated</i> (or <i>enabled</i>) latch and a flip-flop is that a flip-flop is enabled only on the rising or falling <i>edge</i> of a "clock" signal, rather than for the entire duration of a "high" enable signal.  Converting an enabled latch into a flip-flop simply requires that a "pulse detector" circuit be added to the Enable input, so that the edge of a clock pulse generates a brief "high" Enable pulse:
 </p>
 
-<p> <img src="05305.png"> </p> 
+<p> <img src="05305.png"> </p>
 
 <p>
 The single NOR gate and three inverter gates create this effect by exploiting the propagation delay time of multiple, cascaded gates.  In this experiment, I use three NOR gates with paralleled inputs to create three inverters, thus using all four NOR gates of a 4001 integrated circuit:
 </p>
 
-<p> <img src="05306.png"> </p> 
+<p> <img src="05306.png"> </p>
 
 <p>
 Normally, when using a NOR gate as an inverter, one input would be grounded while the other acts as the inverter input, to minimize input capacitance and increase speed.  Here, however, slow response is <i>desired</i>, and so I parallel the NOR inputs to make inverters rather than use the more conventional method.
@@ -654,7 +653,7 @@ The audio detector will be used to assess signal frequency.  If you have access 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05280.png"> </p> 
+<p> <img src="05280.png"> </p>
 
 <br> </br>
 
@@ -662,7 +661,7 @@ The audio detector will be used to assess signal frequency.  If you have access 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05281.png"> </p> 
+<p> <img src="05281.png"> </p>
 
 <br> </br>
 
@@ -690,7 +689,7 @@ Two terminals on the 4017 chip, "Reset" and "Clock Enable," are maintained in a 
 If the 4017's "Reset" terminal is connected to one of its ten output terminals, its counting sequence will be cut short, or <i>truncated</i>.  You may experiment with this by disconnecting the "Reset" terminal from ground, then connecting a long jumper wire to the "Reset" terminal for easy connection to the outputs at the ten-segment LED bargraph.  Notice how many (or how few) LEDs light up with the "Reset" connected to any one of the outputs:
 </p>
 
-<p> <img src="05283.png"> </p> 
+<p> <img src="05283.png"> </p>
 
 <p>
 Counters such as the 4017 may be used as digital frequency dividers, to take a clock signal and produce a pulse occurring at some integer factor of the clock frequency.  For example, if the clock signal from the 555 timer is 200 Hz, and the 4017 is configured for a full-count sequence (the "Reset" terminal connected to ground, giving a full, ten-step count), a signal with a period ten times as long (20 Hz) will be present at any of the 4017's output terminals.  In other words, each output terminal will cycle <i>once</i> for every <i>ten</i> cycles of the clock signal: a frequency ten times as slow.
@@ -700,7 +699,7 @@ Counters such as the 4017 may be used as digital frequency dividers, to take a c
 To experiment with this principle, connect your audio detector between output 0 (pin #3) of the 4017 and ground, through a very small capacitor (0.047 &#181;F to 0.001 &#181;F).  The capacitor is used for "coupling" AC signals only, to that you may audibly detect pulses without placing a DC (resistive) load on the counter chip output.  With the 4017 "Reset" terminal grounded, you will have a full-count sequence, and you will hear a "click" in the headphones every time the "0" LED lights up, corresponding to 1/10 of the 555's actual output frequency:
 </p>
 
-<p> <img src="05285.png"> </p> 
+<p> <img src="05285.png"> </p>
 
 <p>
 In fact, knowing this mathematical relationship between clicks heard in the headphone and the clock frequency allows us to measure the clock frequency to a fair degree of precision.  Using a stopwatch or other timepiece, count the number of clicks heard in one full minute while connected to the 4017's "0" output.  Using a 1 M&#937; resistor and 0.1 &#181;F capacitor in the 555 timing circuit, and a power supply voltage of 13 volts (instead of 6), I counted 79 clicks in one minute from my circuit.  Your circuit may produce slightly different results.  Multiply the number of pulses counted at the "0" output by 10 to obtain the number of cycles produced by the 555 timer during that same time (my circuit: 79 x 10 = 790 cycles).  Divide this number by 60 to obtain the number of timer cycles elapsed in each second (my circuit: 790/60 = 13.17).  This final figure is the clock frequency in Hz.
@@ -710,13 +709,13 @@ In fact, knowing this mathematical relationship between clicks heard in the head
 Now, leaving one test probe of the audio detector connected to ground, take the other test probe (the one with the coupling capacitor connected in series) and connect it to pin #3 of the 555 timer.  The buzzing you hear is the undivided clock frequency:
 </p>
 
-<p> <img src="05284.png"> </p> 
+<p> <img src="05284.png"> </p>
 
 <p>
 By connecting the 4017's "Reset" terminal to one of the output terminals, a truncated sequence will result.  If we are using the 4017 as a frequency divider, this means the output frequency will be a different factor of the clock frequency: 1/9, 1/8, 1/7, 1/6, 1/5, 1/4, 1/3, or 1/2, depending on which output terminal we connect the "Reset" jumper wire to.  Re-connect the audio detector test probe to output "0" of the 4017 (pin #3), and connect the "Reset" terminal jumper to the sixth LED from the left on the bargraph.  This should produce a 1/5 frequency division ratio:
 </p>
 
-<p> <img src="05286.png"> </p> 
+<p> <img src="05286.png"> </p>
 
 <p>
 Counting the number of clicks heard in one minute again, you should obtain a number approximately twice as large as what was counted with the 4017 configured for a 1/10 ratio, because 1/5 is twice as large a ratio as 1/10.  If you do not obtain a count that is exactly twice what you obtained before, it is because of error inherent to the method of counting cycles: coordinating your sense of hearing with the display of a stopwatch or other time-keeping device.
@@ -733,13 +732,13 @@ Try replacing the 1 M&#937; timing resistor in the 555 circuit with one of great
 A final lesson that may be learned from this circuit is that of switch contact "bounce."  For this, you will need a switch to provide clock signals to the 4017 chip, instead of the 555 timer.  Re-connect the "Reset" jumper wire to ground to enable a full ten-step count sequence, and disconnect the 555's output from the 4017's "Clock" input terminal.  Connect a switch in series with a 10 k&#937; <i>pulldown</i> resistor, and connect this assembly to the 4017 "Clock" input as shown:
 </p>
 
-<p> <img src="05287.png"> </p> 
+<p> <img src="05287.png"> </p>
 
 <p>
 
 </p>
 
-<p> <img src="05288.png"> </p> 
+<p> <img src="05288.png"> </p>
 
 <a name="Floating input, defined"></a>
 
@@ -767,13 +766,13 @@ One way to combat this problem is to use a timing circuit to produce a single pu
 The 555 timer circuit is capable of functioning as a debouncer, if the "Trigger" input is connected to the switch as such:
 </p>
 
-<p> <img src="05289.png"> </p> 
+<p> <img src="05289.png"> </p>
 
 <p>
 
 </p>
 
-<p> <img src="05290.png"> </p> 
+<p> <img src="05290.png"> </p>
 
 <p>
 Please note that since we are using the 555 once again to provide a clock signal to the 4017, we must re-connect pin #3 of the 555 chip to pin #14 of the 4017 chip!  Also, if you have altered the values of the resistor or capacitor in the 555 timer circuit, you should return to the original 1 M&#937; and 0.1 &#181;F components.
@@ -824,7 +823,7 @@ This experiment may be built using only one 8-position DIP switch, but the conce
 </p>
 
 <p>
-For extra effect, choose different colors of LED: green for "Go" and red for "No go." 
+For extra effect, choose different colors of LED: green for "Go" and red for "No go."
 </p>
 
 <br> </br>
@@ -855,7 +854,7 @@ For extra effect, choose different colors of LED: green for "Go" and red for "No
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05314.png"> </p> 
+<p> <img src="05314.png"> </p>
 
 <br> </br>
 
@@ -863,7 +862,7 @@ For extra effect, choose different colors of LED: green for "Go" and red for "No
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05315.png"> </p> 
+<p> <img src="05315.png"> </p>
 
 <br> </br>
 
@@ -958,7 +957,7 @@ The NOR gate logic performs a simple task: prevent either of the LEDs from turni
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05317.png"> </p> 
+<p> <img src="05317.png"> </p>
 
 <br> </br>
 
@@ -966,7 +965,7 @@ The NOR gate logic performs a simple task: prevent either of the LEDs from turni
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05316.png"> </p> 
+<p> <img src="05316.png"> </p>
 
 <br> </br>
 
@@ -1053,7 +1052,7 @@ Following this philosophy, build the 555 timer circuit first, before even pluggi
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05318.png"> </p> 
+<p> <img src="05318.png"> </p>
 
 <br> </br>
 
@@ -1061,7 +1060,7 @@ Following this philosophy, build the 555 timer circuit first, before even pluggi
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05319.png"> </p> 
+<p> <img src="05319.png"> </p>
 
 <br> </br>
 

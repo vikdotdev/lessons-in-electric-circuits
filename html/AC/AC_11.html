@@ -1,12 +1,12 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
 <title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 11</title>
   <meta name="description" content="Power Factor">
-  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, resistance, reactance, impedance, instantaneous power, instantaneous voltage, instantaneous current, true power, real power, reactive power, apparent power, watt, w, var, volt-amp-reactive, va, volt-amp, kva, kvar, inductance, capacitance, power factor correction, power factor"> 
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, resistance, reactance, impedance, instantaneous power, instantaneous voltage, instantaneous current, true power, real power, reactive power, apparent power, watt, w, var, volt-amp-reactive, va, volt-amp, kva, kvar, inductance, capacitance, power factor correction, power factor">
 
 </head>
 
@@ -19,18 +19,17 @@
 <a href="AC_12.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume II</h1>
 <h1>Chapter 11</h1>
 
 
 
 
-<h1>POWER FACTOR</h1> 
+<h1>POWER FACTOR</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid35180"><u>Power in resistive and reactive AC circuits</u></a></li>
@@ -48,11 +47,11 @@
 Consider a circuit for a single-phase AC power system, where a 120 volt, 60 Hz AC voltage source is delivering power to a resistive load: (Figure <a href="#02211.png">  below</a>)
 </p>
 
- 
-<a name="02211.png"></a> 
-<p> <img src="02211.png"> </p> 
-<p><i>Ac source drives a purely resistive load.</i></p> 
- 
+
+<a name="02211.png"></a>
+<p> <img src="02211.png"> </p>
+<p><i>Ac source drives a purely resistive load.</i></p>
+
 
 <p>
 
@@ -60,16 +59,16 @@ Consider a circuit for a single-phase AC power system, where a 120 volt, 60 Hz A
 
 <br> </br>
 
-<p> <img src="12120.png"> </p> 
+<p> <img src="12120.png"> </p>
 
 <p>
 In this example, the current to the load would be 2 amps, RMS.  The power dissipated at the load would be 240 watts.  Because this load is purely resistive (no reactance), the current is in phase with the voltage, and calculations look similar to that in an equivalent DC circuit.  If we were to plot the voltage, current, and power waveforms for this circuit, it would look like Figure <a href="#02055b.png">  below</a>.
 </p>
 
- 
-<a name="02055b.png"></a> 
-<p> <img src="02055.png"> </p>  
-<p><i>Current is in phase with voltage in a resistive circuit.</i></p> 
+
+<a name="02055b.png"></a>
+<p> <img src="02055.png"> </p>
+<p><i>Current is in phase with voltage in a resistive circuit.</i></p>
 
 
 <p>
@@ -88,11 +87,11 @@ As strange as it may seem, the best way to proceed with AC power calculations is
 For comparison, let's consider a simple AC circuit with a purely reactive load in Figure <a href="#02212.png">  below</a>.
 </p>
 
- 
-<a name="02212.png"></a> 
-<p> <img src="02212.png"> </p> 
-<p><i>AC circuit with a purely reactive (inductive) load.</i></p> 
- 
+
+<a name="02212.png"></a>
+<p> <img src="02212.png"> </p>
+<p><i>AC circuit with a purely reactive (inductive) load.</i></p>
+
 
 <p>
 
@@ -100,7 +99,7 @@ For comparison, let's consider a simple AC circuit with a purely reactive load i
 
 <br> </br>
 
-<p> <img src="12121.png"> </p> 
+<p> <img src="12121.png"> </p>
 
 <p>
 
@@ -108,10 +107,10 @@ For comparison, let's consider a simple AC circuit with a purely reactive load i
 
 <br> </br>
 
- 
-<a name="02059b.png"></a> 
-<p> <img src="02059.png"> </p>  
-<p><i>Power is not dissipated in a purely reactive load. Though it is alternately absorbed from and returned to the source.</i></p> 
+
+<a name="02059b.png"></a>
+<p> <img src="02059.png"> </p>
+<p><i>Power is not dissipated in a purely reactive load. Though it is alternately absorbed from and returned to the source.</i></p>
 
 
 <p>
@@ -122,11 +121,11 @@ Note that the power alternates equally between cycles of positive and negative. 
 Now, let's consider an AC circuit with a load consisting of both inductance and resistance in Figure <a href="#02213.png">  below</a>.
 </p>
 
- 
-<a name="02213.png"></a> 
-<p> <img src="02213.png"> </p> 
-<p><i>AC circuit with both reactance and resistance.</i></p> 
- 
+
+<a name="02213.png"></a>
+<p> <img src="02213.png"> </p>
+<p><i>AC circuit with both reactance and resistance.</i></p>
+
 
 <p>
 
@@ -134,7 +133,7 @@ Now, let's consider an AC circuit with a load consisting of both inductance and 
 
 <br> </br>
 
-<p> <img src="12122.png"> </p> 
+<p> <img src="12122.png"> </p>
 
 <p>
 At a frequency of 60 Hz, the 160 millihenrys of inductance gives us 60.319 &#937; of inductive reactance.  This reactance combines with the 60 &#937; of resistance to form a total load impedance of 60 + j60.319 &#937;, or 85.078 &#937; &#8736; 45.152<sup>o</sup>.  If we're not concerned with phase angles (which we're not at this point), we may calculate current in the circuit by taking the polar magnitude of the voltage source (120 volts) and dividing it by the polar magnitude of the impedance (85.078 &#937;).  With a power supply voltage of 120 volts RMS, our load current is 1.410 amps.  This is the figure an RMS ammeter would indicate if connected in series with the resistor and inductor.
@@ -144,11 +143,11 @@ At a frequency of 60 Hz, the 160 millihenrys of inductance gives us 60.319 &#937
 We already know that reactive components dissipate zero power, as they equally absorb power from, and return power to, the rest of the circuit.  Therefore, any inductive reactance in this load will likewise dissipate zero power.  The only thing left to dissipate power here is the resistive portion of the load impedance.  If we look at the waveform plot of voltage, current, and total power for this circuit, we see how this combination works in Figure <a href="#02214.png">  below</a>.
 </p>
 
- 
-<a name="02214.png"></a> 
-<p> <img src="02214.png"> </p> 
-<p><i>A combined resistive/reactive circuit dissipates more power than it returns to the source. The reactance dissipates no power; though, the resistor does.</i></p> 
- 
+
+<a name="02214.png"></a>
+<p> <img src="02214.png"> </p>
+<p><i>A combined resistive/reactive circuit dissipates more power than it returns to the source. The reactance dissipates no power; though, the resistor does.</i></p>
+
 
 <p>
 As with any reactive circuit, the power alternates between positive and negative instantaneous values over time.  In a purely reactive circuit that alternation between positive and negative power is equally divided, resulting in a net power dissipation of zero.  However, in circuits with mixed resistance and reactance like this one, the power waveform will still alternate between positive and negative, but the amount of positive power will exceed the amount of negative power.  In other words, the combined inductive/resistive load will consume more power than it returns back to the source.
@@ -212,7 +211,7 @@ As a rule, true power is a function of a circuit's dissipative elements, usually
 There are several power equations relating the three types of power to resistance, reactance, and impedance (all using scalar quantities):
 </p>
 
-<p> <img src="12123.png"> </p> 
+<p> <img src="12123.png"> </p>
 
 <p>
 Please note that there are two equations each for the calculation of true and reactive power.  There are three equations available for the calculation of apparent power, P=IE being useful <i>only</i> for that purpose.  Examine the following circuits and see how these three types of power interrelate for: a purely resistive load in  Figure <a href="#02215.png">  below</a>,
@@ -223,14 +222,14 @@ and a resistive/reactive load in Figure <a href="#02217.png">  below</a>.
 
 
 <p>
-Resistive load only: 
+Resistive load only:
 </p>
 
- 
-<a name="02215.png"></a> 
-<p> <img src="02215.png"> </p> 
-<p><i>True power, reactive power, and apparent power for a purely resistive load.</i></p> 
- 
+
+<a name="02215.png"></a>
+<p> <img src="02215.png"> </p>
+<p><i>True power, reactive power, and apparent power for a purely resistive load.</i></p>
+
 
 
 
@@ -238,11 +237,11 @@ Resistive load only:
 Reactive load only:
 </p>
 
- 
-<a name="02216.png"></a> 
-<p> <img src="02216.png"> </p> 
-<p><i>True power, reactive power, and apparent power for a purely reactive load.</i></p> 
- 
+
+<a name="02216.png"></a>
+<p> <img src="02216.png"> </p>
+<p><i>True power, reactive power, and apparent power for a purely reactive load.</i></p>
+
 
 
 
@@ -250,11 +249,11 @@ Reactive load only:
 Resistive/reactive load:
 </p>
 
- 
-<a name="02217.png"></a> 
-<p> <img src="02217.png"> </p> 
-<p><i>True power, reactive power, and apparent power for a resistive/reactive load.</i></p> 
- 
+
+<a name="02217.png"></a>
+<p> <img src="02217.png"> </p>
+<p><i>True power, reactive power, and apparent power for a resistive/reactive load.</i></p>
+
 
 
 
@@ -265,11 +264,11 @@ Resistive/reactive load:
 These three types of power -- true, reactive, and apparent -- relate to one another in trigonometric form.  We call this the <i>power triangle</i>: (Figure <a href="#02218.png">  below</a>).
 </p>
 
- 
-<a name="02218.png"></a> 
-<p> <img src="02218.png"> </p> 
-<p><i>Power triangle relating appearant power to true power and reactive power. </i></p> 
- 
+
+<a name="02218.png"></a>
+<p> <img src="02218.png"> </p>
+<p><i>Power triangle relating appearant power to true power and reactive power. </i></p>
+
 
 <p>
 Using the laws of trigonometry, we can solve for the length of any side (amount of any type of power), given the lengths of the other two sides, or the length of one side and an angle.
@@ -296,7 +295,7 @@ Using the laws of trigonometry, we can solve for the length of any side (amount 
 As was mentioned before, the angle of this &ldquo;power triangle&rdquo; graphically indicates the ratio between the amount of dissipated (or <i>consumed</i>) power and the amount of absorbed/returned power.  It also happens to be the same angle as that of the circuit's impedance in polar form.  When expressed as a fraction, this ratio between true power and apparent power is called the <i>power factor</i> for this circuit.  Because true power and apparent power form the adjacent and hypotenuse sides of a right triangle, respectively, the power factor ratio is also equal to the cosine of that phase angle.  Using values from the last example circuit:
 </p>
 
-<p> <img src="12124.png"> </p> 
+<p> <img src="12124.png"> </p>
 
 <p>
 It should be noted that power factor, like all ratio measurements, is a <i>unitless</i> quantity.
@@ -326,17 +325,17 @@ Poor power factor can be corrected, paradoxically, by adding another load to the
 Since we know that the (uncorrected) reactive power is 119.998 VAR (inductive), we need to calculate the correct capacitor size to produce the same quantity of (capacitive) reactive power.  Since this capacitor will be directly in parallel with the source (of known voltage), we'll use the power formula which starts from voltage and reactance:
 </p>
 
-<p> <img src="12125.png"> </p> 
+<p> <img src="12125.png"> </p>
 
 <p>
 Let's use a rounded capacitor value of 22 &#181;F and see what happens to our circuit: (Figure <a href="#02219.png">  below</a>)
 </p>
 
- 
-<a name="02219.png"></a> 
-<p> <img src="02219.png"> </p> 
-<p><i>Parallel capacitor corrects lagging power factor of inductive load. V2 and node numbers: 0, 1, 2, and 3 are SPICE related, and may be ignored for the moment.</i></p> 
- 
+
+<a name="02219.png"></a>
+<p> <img src="02219.png"> </p>
+<p><i>Parallel capacitor corrects lagging power factor of inductive load. V2 and node numbers: 0, 1, 2, and 3 are SPICE related, and may be ignored for the moment.</i></p>
+
 
 <p>
 
@@ -344,13 +343,13 @@ Let's use a rounded capacitor value of 22 &#181;F and see what happens to our ci
 
 
 
-<p> <img src="12126.png"> </p> 
+<p> <img src="12126.png"> </p>
 
 <p>
 The power factor for the circuit, overall, has been substantially improved.  The main current has been decreased from 1.41 amps to 994.7 milliamps, while the power dissipated at the load resistor remains unchanged at 119.365 watts.  The power factor is much closer to being 1:
 </p>
 
-<p> <img src="12127.png"> </p> 
+<p> <img src="12127.png"> </p>
 
 <p>
 Since the impedance angle is still a positive number, we know that the circuit, overall, is still more inductive than it is capacitive.  If our power factor correction efforts had been perfectly on-target, we would have arrived at an impedance angle of exactly zero, or purely resistive.  If we had added too large of a capacitor in parallel, we would have ended up with an impedance angle that was negative, indicating that the circuit was more capacitive than inductive.
@@ -380,14 +379,14 @@ A SPICE simulation of the circuit of (Figure <a href="#02219.png">  above</a>) s
 The Nutmeg plot of the various currents with respect to the applied voltage V<sub>total</sub> is shown in  (Figure <a href="#22057.png">  below</a>).  The reference is  V<sub>total</sub>, to which all other measurements are compared. This is because the applied voltage, V<sub>total</sub>, appears across the parallel branches of the circuit. There is no single current common to all components. We can compare those currents to V<sub>total</sub>.
 </p>
 
- 
-<a name="22057.png"></a> 
-<p> <img src="22057.png"> </p> 
-<p><i>Zero phase angle due to in-phase V<sub>total</sub> and I<sub>total</sub> . The lagging I<sub>L</sub> with respect to V<sub>total</sub> is corrected by a leading I<sub>C</sub> .</i></p> 
- 
+
+<a name="22057.png"></a>
+<p> <img src="22057.png"> </p>
+<p><i>Zero phase angle due to in-phase V<sub>total</sub> and I<sub>total</sub> . The lagging I<sub>L</sub> with respect to V<sub>total</sub> is corrected by a leading I<sub>C</sub> .</i></p>
+
 
 <p>
-Note that the total current (I<sub>total</sub>) is in phase with the applied voltage (V<sub>total</sub>), indicating a phase angle of near zero. This is no coincidence. Note that the lagging current, I<sub>L</sub> of the inductor would have caused the total current to have a lagging phase somewhere between  (I<sub>total</sub>) and  I<sub>L</sub>. However, the leading capacitor current, I<sub>C</sub>, compensates for the lagging inductor current. The result is a total current phase-angle somewhere  between the inductor and capacitor currents. Moreover, that total current  (I<sub>total</sub>) was forced to be in-phase with the total applied voltage (V<sub>total</sub>), by the calculation of an appropriate capacitor value.  
+Note that the total current (I<sub>total</sub>) is in phase with the applied voltage (V<sub>total</sub>), indicating a phase angle of near zero. This is no coincidence. Note that the lagging current, I<sub>L</sub> of the inductor would have caused the total current to have a lagging phase somewhere between  (I<sub>total</sub>) and  I<sub>L</sub>. However, the leading capacitor current, I<sub>C</sub>, compensates for the lagging inductor current. The result is a total current phase-angle somewhere  between the inductor and capacitor currents. Moreover, that total current  (I<sub>total</sub>) was forced to be in-phase with the total applied voltage (V<sub>total</sub>), by the calculation of an appropriate capacitor value.
 </p>
 
 <p>
@@ -430,84 +429,84 @@ If a circuit is predominantly inductive, we say that its power factor is <i>lagg
 <a name="Power factor meter"></a>
 
 <p>
-When the need arises to correct for poor power factor in an AC power system, you probably won't have the luxury of knowing the load's exact inductance in henrys to use for your calculations.  You may be fortunate enough to have an instrument called a <i>power factor meter</i> to tell you what the power factor is (a number between 0 and 1), and the apparent power (which can be figured by taking a voltmeter reading in volts and multiplying by an ammeter reading in amps).  In less favorable circumstances you may have to use an oscilloscope to compare voltage and current waveforms, measuring phase shift in <i>degrees</i> and calculating power factor by the cosine of that phase shift.  
+When the need arises to correct for poor power factor in an AC power system, you probably won't have the luxury of knowing the load's exact inductance in henrys to use for your calculations.  You may be fortunate enough to have an instrument called a <i>power factor meter</i> to tell you what the power factor is (a number between 0 and 1), and the apparent power (which can be figured by taking a voltmeter reading in volts and multiplying by an ammeter reading in amps).  In less favorable circumstances you may have to use an oscilloscope to compare voltage and current waveforms, measuring phase shift in <i>degrees</i> and calculating power factor by the cosine of that phase shift.
 </p>
 
 <p>
 Most likely, you will have access to a wattmeter for measuring true power, whose reading you can compare against a calculation of apparent power (from multiplying total voltage and total current measurements).  From the values of true and apparent power, you can determine reactive power and power factor.  Let's do an example problem to see how this works: (Figure <a href="#02220.png">  below</a>)
 </p>
 
- 
-<a name="02220.png"></a> 
-<p> <img src="02220.png"> </p> 
-<p><i>Wattmeter reads true power; product of voltmeter and ammeter readings yields appearant power.</i></p> 
- 
+
+<a name="02220.png"></a>
+<p> <img src="02220.png"> </p>
+<p><i>Wattmeter reads true power; product of voltmeter and ammeter readings yields appearant power.</i></p>
+
 
 <p>
 First, we need to calculate the apparent power in kVA.  We can do this by multiplying load voltage by load current:
 </p>
 
-<p> <img src="12128.png"> </p> 
+<p> <img src="12128.png"> </p>
 
 <p>
 As we can see, 2.308 kVA is a much larger figure than 1.5 kW, which tells us that the power factor in this circuit is rather poor (substantially less than 1).  Now, we figure the power factor of this load by dividing the true power by the apparent power:
 </p>
 
-<p> <img src="12129.png"> </p> 
+<p> <img src="12129.png"> </p>
 
 <p>
 Using this value for power factor, we can draw a power triangle, and from that determine the reactive power of this load: (Figure <a href="#02221.png">  below</a>)
 </p>
 
- 
-<a name="02221.png"></a> 
-<p> <img src="02221.png"> </p> 
-<p><i>Reactive power may be calculated from true power and appearant power.</i></p> 
- 
+
+<a name="02221.png"></a>
+<p> <img src="02221.png"> </p>
+<p><i>Reactive power may be calculated from true power and appearant power.</i></p>
+
 
 <p>
 To determine the unknown (reactive power) triangle quantity, we use the Pythagorean Theorem &ldquo;backwards,&rdquo; given the length of the hypotenuse (apparent power) and the length of the adjacent side (true power):
 </p>
 
-<p> <img src="12130.png"> </p> 
+<p> <img src="12130.png"> </p>
 
 <p>
 If this load is an electric motor, or most any other industrial AC load, it will have a lagging (inductive) power factor, which means that we'll have to correct for it with a <i>capacitor</i> of appropriate size, wired in parallel.  Now that we know the amount of reactive power (1.754 kVAR), we can calculate the size of capacitor needed to counteract its effects:
 </p>
 
-<p> <img src="12131.png"> </p> 
+<p> <img src="12131.png"> </p>
 
 <p>
 Rounding this answer off to 80 &#181;F, we can place that size of capacitor in the circuit and calculate the results: (Figure <a href="#02222.png">  below</a>)
 </p>
 
- 
-<a name="02222.png"></a> 
-<p> <img src="02222.png"> </p> 
-<p><i>Parallel capacitor corrects lagging (inductive) load.</i></p> 
- 
+
+<a name="02222.png"></a>
+<p> <img src="02222.png"> </p>
+<p><i>Parallel capacitor corrects lagging (inductive) load.</i></p>
+
 
 <p>
 An 80 &#181;F capacitor will have a capacitive reactance of 33.157 &#937;, giving a current of 7.238 amps, and a corresponding reactive power of 1.737 kVAR (for the capacitor <i>only</i>).  Since the capacitor's current is 180<sup>o</sup> out of phase from the the load's inductive contribution to current draw, the capacitor's reactive power will directly subtract from the load's reactive power, resulting in:
 </p>
 
-<p> <img src="12132.png"> </p> 
+<p> <img src="12132.png"> </p>
 
 <p>
 This correction, of course, will not change the amount of true power consumed by the load, but it will result in a substantial reduction of apparent power, and of the total current drawn from the 240 Volt source: (Figure <a href="#02223.png">  below</a>)
 </p>
 
- 
-<a name="02223.png"></a> 
-<p> <img src="02223.png"> </p> 
-<p><i>Power triangle before and after capacitor correction.</i></p> 
- 
+
+<a name="02223.png"></a>
+<p> <img src="02223.png"> </p>
+<p><i>Power triangle before and after capacitor correction.</i></p>
+
 
 <p>
 The new apparent power can be found from the true and new reactive power values, using the standard form of the Pythagorean Theorem:
 </p>
 
-<p> <img src="12133.png"> </p> 
+<p> <img src="12133.png"> </p>
 
 <p>
 This gives a corrected power factor of (1.5kW / 1.5009 kVA), or 0.99994, and a new total current of (1.50009 kVA / 240 Volts), or 6.25 amps, a substantial improvement over the uncorrected value of 9.615 amps!  This lower total current will translate to less heat losses in the circuit wiring, meaning greater system efficiency (less power wasted).

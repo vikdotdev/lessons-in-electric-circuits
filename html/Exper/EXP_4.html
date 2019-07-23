@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,19 +19,18 @@
 <a href="EXP_5.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume VI</h1>
 <h1>Chapter 4</h1>
 
 
 
 
-<h1>AC CIRCUITS</h1> 
+<h1>AC CIRCUITS</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid39500"><u>Introduction</u></a></li>
@@ -142,7 +141,7 @@ If you decide to equip your power supply with a fuse, be sure to get a <i>slow-a
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05001.png"> </p> 
+<p> <img src="05001.png"> </p>
 
 <br> </br>
 
@@ -150,7 +149,7 @@ If you decide to equip your power supply with a fuse, be sure to get a <i>slow-a
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05002.png"> </p> 
+<p> <img src="05002.png"> </p>
 
 <br> </br>
 
@@ -184,7 +183,7 @@ Plug the cord into a wall socket and turn the switch on.  You should be able to 
 It would be advisable to keep this project assembled for use in powering other experiments shown in this book.  From here on, I will designate this "low-voltage AC power supply" using this illustration:
 </p>
 
-<p> <img src="05008.png"> </p> 
+<p> <img src="05008.png"> </p>
 
 <br> </br>
 
@@ -197,7 +196,7 @@ It would be advisable to keep this project assembled for use in powering other e
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05003.png"> </p> 
+<p> <img src="05003.png"> </p>
 
 <br> </br>
 
@@ -207,7 +206,7 @@ It would be advisable to keep this project assembled for use in powering other e
 
 <pre>
 transformer with center-tap secondary
-v1 1 0 ac 120 sin       
+v1 1 0 ac 120 sin
 rbogus1 1 2 1e-3
 l1 2 0 10
 l2 5 4 0.025
@@ -223,16 +222,16 @@ rload2 4 3 1k
 .ac lin 1 60 60
 
 * Prints primary voltage between nodes 2 and 0:
-.print ac v(2,0) 
+.print ac v(2,0)
 
 * Prints (top) secondary voltage between nodes 5 and 4:
-.print ac v(5,4) 
+.print ac v(5,4)
 
 * Prints (bottom) secondary voltage between nodes 4 and 3:
-.print ac v(4,3) 
+.print ac v(4,3)
 
 * Prints (total) secondary voltage between nodes 5 and 3:
-.print ac v(5,3) 
+.print ac v(5,3)
 .end
 </pre>
 
@@ -299,7 +298,7 @@ rload2 4 3 1k
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05004.png"> </p> 
+<p> <img src="05004.png"> </p>
 
 <br> </br>
 
@@ -307,7 +306,7 @@ rload2 4 3 1k
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05005.png"> </p> 
+<p> <img src="05005.png"> </p>
 
 <br> </br>
 
@@ -407,7 +406,7 @@ If you've made your transformer with unequal-turn windings. try it in step-up ve
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05006.png"> </p> 
+<p> <img src="05006.png"> </p>
 
 <br> </br>
 
@@ -415,7 +414,7 @@ If you've made your transformer with unequal-turn windings. try it in step-up ve
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05007.png"> </p> 
+<p> <img src="05007.png"> </p>
 
 <br> </br>
 
@@ -515,7 +514,7 @@ The tolerance (precision) rating for the 1 k&#937; resistor is irrelevant.  The 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05009.png"> </p> 
+<p> <img src="05009.png"> </p>
 
 <br> </br>
 
@@ -523,7 +522,7 @@ The tolerance (precision) rating for the 1 k&#937; resistor is irrelevant.  The 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05010.png"> </p> 
+<p> <img src="05010.png"> </p>
 
 <br> </br>
 
@@ -539,7 +538,7 @@ This experiment is identical in construction to the "Sensitive Voltage Detector"
 The headphones, most likely being stereo units (separate left and right speakers) will have a three-contact plug.  You will be connecting to only two of those three contact points.  If you only have a "mono" headphone set with a two-contact plug, just connect to those two contact points.  You may either connect the two stereo speakers in series or in parallel.  I've found the series connection to work best, that is, to produce the most sound from a small signal:
 </p>
 
-<p> <img src="05011.png"> </p> 
+<p> <img src="05011.png"> </p>
 
 <p>
 Solder all wire connections well.  This detector system is extremely sensitive, and any loose wire connections in the circuit will add unwanted noise to the sounds produced by the measured voltage signal.  The two diodes connected in parallel with the transformer's primary winding, along with the series-connected 1 k&#937; resistor, work together to "clip" the input voltage to a maximum of about 0.7 volts.  This does one thing and one thing only: limit the amount of sound the headphones can produce.  The system will work without the diodes and resistor in place, but there will be no limit to sound volume in the circuit, and the resulting sound caused by accidentally connecting the test leads across a substantial voltage source (like a battery) can be deafening!
@@ -561,13 +560,13 @@ For connection across any non-trivial source of voltage (1 volt and greater), th
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05012.png"> </p> 
+<p> <img src="05012.png"> </p>
 
 <p>
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05014.png"> </p> 
+<p> <img src="05014.png"> </p>
 
 <p>
 Adjust the 100 k&#937; voltage divider potentiometer to about mid-range when initially sensing a voltage signal of unknown magnitude.  If the sound is too loud, turn the potentiometer down and try again.  If too soft, turn it up and try again.  This detector even senses DC and radio-frequency signals (frequencies below and above the audio range, respectively), a "click" being heard whenever the test leads make or break contact with the source under test.  With my cheap headphones, I've been able to detect currents of less than 1/10 of a microamp (< 0.1 &#181;A) DC, and similarly low-magnitude RF signals up to 2 MHz.
@@ -596,7 +595,7 @@ Most small signal sources have high internal impedances, some much higher than t
 As with the low-voltage AC power supply experiment, I recommend building this detector in a permanent fashion (mounting all components inside of a box, and providing nice test lead wires) so it can be easily used in the future.  Constructed as such, it might look something like this:
 </p>
 
-<p> <img src="05013.png"> </p> 
+<p> <img src="05013.png"> </p>
 
 
 
@@ -652,7 +651,7 @@ What is needed for an electromagnet coil is a coil with <i>many</i> turns of wir
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05015.png"> </p> 
+<p> <img src="05015.png"> </p>
 
 <br> </br>
 
@@ -660,7 +659,7 @@ What is needed for an electromagnet coil is a coil with <i>many</i> turns of wir
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05016.png"> </p> 
+<p> <img src="05016.png"> </p>
 
 <br> </br>
 
@@ -739,7 +738,7 @@ Whether or not stray magnetic fields like these pose any health hazard to the hu
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05017.png"> </p> 
+<p> <img src="05017.png"> </p>
 
 <br> </br>
 
@@ -747,7 +746,7 @@ Whether or not stray magnetic fields like these pose any health hazard to the hu
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05018.png"> </p> 
+<p> <img src="05018.png"> </p>
 
 <br> </br>
 
@@ -842,7 +841,7 @@ If you obtain two alternators, you may use one as a generator and the other as a
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05019.png"> </p> 
+<p> <img src="05019.png"> </p>
 
 <a name="Stator winding, alternator"></a>
 <a name="Field winding, alternator"></a>
@@ -867,7 +866,7 @@ Many modern alternators are equipped with built-in "regulator" circuits that aut
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05020.png"> </p> 
+<p> <img src="05020.png"> </p>
 
 <br> </br>
 
@@ -891,10 +890,10 @@ Disassemble the unit and locate terminals for connecting to the two carbon brush
 <a name="Terminal, "ring" lug"></a>
 
 <p>
-Locate the three-phase line connections coming from the stator windings and connect wires to them as well, extending these wires outside the alternator case through some vent holes.  Use the largest gauge wire that is convenient to work with for these wires, as they may be carrying substantial current.  As with the field wires, route them in such a way that the rotor will turn freely with the alternator reassembled.  The stator winding line terminals are easy to locate: the three of them connect to three terminals on the diode assembly, usually with "ring-lug" terminals soldered to the ends of the wires.  
+Locate the three-phase line connections coming from the stator windings and connect wires to them as well, extending these wires outside the alternator case through some vent holes.  Use the largest gauge wire that is convenient to work with for these wires, as they may be carrying substantial current.  As with the field wires, route them in such a way that the rotor will turn freely with the alternator reassembled.  The stator winding line terminals are easy to locate: the three of them connect to three terminals on the diode assembly, usually with "ring-lug" terminals soldered to the ends of the wires.
 </p>
 
-<p> <img src="05021.png"> </p> 
+<p> <img src="05021.png"> </p>
 
 <p>
 I recommend that you solder ring-lug terminals to your wires, and attach them underneath the terminal nuts along with the stator wire ends, so that each diode block terminal is securing two ring lugs.
@@ -912,7 +911,7 @@ When the alternator has been assembled, try spinning the shaft and listen for an
 If and when it spins freely as it should, connect the two "field" wires to a 6-volt battery.  Connect an voltmeter to any two of the three-phase line connections:
 </p>
 
-<p> <img src="05022.png"> </p> 
+<p> <img src="05022.png"> </p>
 
 <p>
 With the multimeter set to the "DC volts" function, <i>slowly</i> rotate the alternator shaft.  The voltmeter reading should alternate between positive and negative as the shaft it turned: a demonstration of very slow alternating voltage (AC voltage) being generated.  If this test is successful, switch the multimeter to the "AC volts" setting and try again.  Try spinning the shaft slow and fast, comparing voltmeter readings between the two conditions.
@@ -938,7 +937,7 @@ If you have a second alternator, modify it as you modified the first one, connec
 Connect each of the three-phase line wires of the first alternator to the respective wires of the second alternator.  Connect the field wires of one alternator to a 6 volt battery.  This alternator will be the generator.  Wrap rope around the sheave in preparation to spin it.  Take the two field wires of the second alternator and short them together.  This alternator will be the motor:
 </p>
 
-<p> <img src="05023.png"> </p> 
+<p> <img src="05023.png"> </p>
 
 <p>
 Spin the generator shaft while watching the motor shaft's rotation.  Try reversing any <i>two</i> of the three-phase line connections between the two units and spin the generator again.  What is different this time?
@@ -959,13 +958,13 @@ In the first motor setup, where the field wires were simple shorted together, th
 If you are feeling particularly ambitious and are skilled in metal fabrication techniques, you may make your own high-power generator platform by connecting the modified alternator to a bicycle.  I've built an arrangement that looks like this:
 </p>
 
-<p> <img src="05024.png"> </p> 
+<p> <img src="05024.png"> </p>
 
 <p>
 The rear wheel drives the generator sheave with a <i>long</i> v-belt.  This belt also supports the rear of the bicycle, maintaining a constant tension when a rider is pedaling the bicycle.  The generator hangs from a steel support structure (I used welded 2-inch square tubing, but a frame could be made out of lumber).  Not only is this machine practical, but it is reliable enough to be used as an exercise machine, and it is inexpensive to make:
 </p>
 
-<p> <img src="55001.jpg"> </p> 
+<p> <img src="55001.jpg"> </p>
 
 <p>
 You can see a bank of three 12-volt "RV" light bulbs behind the bicycle unit (in the lower-left corner of the photograph), which I use for a load when riding the bicycle as an exercise machine.  A set of three switches is mounted at the front of the bicycle, where I can turn loads on and off while riding.
@@ -1053,7 +1052,7 @@ By rectifying the three-phase AC power produced, it is possible to have the alte
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05332.png"> </p> 
+<p> <img src="05332.png"> </p>
 
 <br> </br>
 
@@ -1063,11 +1062,11 @@ By rectifying the three-phase AC power produced, it is possible to have the alte
 
 
 <p>
-There are two parts lists to choose from depending  upon the availability of 120VAC or 220VAC.  Choose the one for your location. This set of instructions is for the 120VAC version. 
+There are two parts lists to choose from depending  upon the availability of 120VAC or 220VAC.  Choose the one for your location. This set of instructions is for the 120VAC version.
 </p>
 
 <p>
-This is a simplified version of a "permanent capacitor split-phase induction motor". By simplified, we mean the coils  only requires a few hundred turns of wire  instead of a few thousand. This is easier to wind. Though, the larger few thousand turns model is impressive. There are two stator coils as shown in the illustration above. Approximately 440 turns of #32 AWG (American wire gauge) enameled magnet wire are wound over a one inch length of a slightly longer section of  1.75 inch diameter toilet paper tube. To avoid counting the turns, close-wind four layers of magnet wire over a one inch width of the tube. See (b) above. Leave a few inches of magnet wire for the leads. Tape the beginning lead near the end of the tube so that the windings will cover and anchor the tape. Do not cut the final width of the cardboard tube until the winding is finished. Close wind a single layer. Tape or cement the first layer to prevent unwinding before proceeding to the second layer. Though it is possible to wind additional layers directly over existing layers, consider applying  tape or paper between the layers as shown in schematic (b). After four layers are wound, glue the windings in place. 
+This is a simplified version of a "permanent capacitor split-phase induction motor". By simplified, we mean the coils  only requires a few hundred turns of wire  instead of a few thousand. This is easier to wind. Though, the larger few thousand turns model is impressive. There are two stator coils as shown in the illustration above. Approximately 440 turns of #32 AWG (American wire gauge) enameled magnet wire are wound over a one inch length of a slightly longer section of  1.75 inch diameter toilet paper tube. To avoid counting the turns, close-wind four layers of magnet wire over a one inch width of the tube. See (b) above. Leave a few inches of magnet wire for the leads. Tape the beginning lead near the end of the tube so that the windings will cover and anchor the tape. Do not cut the final width of the cardboard tube until the winding is finished. Close wind a single layer. Tape or cement the first layer to prevent unwinding before proceeding to the second layer. Though it is possible to wind additional layers directly over existing layers, consider applying  tape or paper between the layers as shown in schematic (b). After four layers are wound, glue the windings in place.
 </p>
 
 <p>
@@ -1076,7 +1075,7 @@ If close winding four layers of magnet wire it too difficult, scramble wind 440 
 
 
 <p>
-Cut the finished  winding from the end of the cardboard tube with a razor knife allowing the form to extend a little beyond the winding. Strip the enamel from  an inch off the ends of the  pair of lead wires with  sandpaper. Splice the bare ends to heavier gauge insulated hook-up wire. Solder the splice. Insulate with tape or heat-shrink tubing. Secure the splice to the coil body.  Then proceed with a second identical coil. 
+Cut the finished  winding from the end of the cardboard tube with a razor knife allowing the form to extend a little beyond the winding. Strip the enamel from  an inch off the ends of the  pair of lead wires with  sandpaper. Splice the bare ends to heavier gauge insulated hook-up wire. Solder the splice. Insulate with tape or heat-shrink tubing. Secure the splice to the coil body.  Then proceed with a second identical coil.
 </p>
 
 
@@ -1086,7 +1085,7 @@ Refer to both the schematic diagram and the illustration for assembly. Note that
 
 
 <p>
-The rotor must be made of a ferromagnetic material like a steel can lid or bottle cap. The illustration below shows how to make the rotor. Select a circular rotor either smaller than the coil forms or a little larger. Use geometry to locate and mark the center. The center needs to be dimpled.  Select an eighth inch diameter (a few mm) nail (a) and file or grind the point round as shown at (b). Place the rotor atop a piece of soft wood (c) and hammer the rounded point into the center (d). Practice on a piece of similar scrap metal. Take care not to pierce the rotor. A dished rotor (f) or a lid (g) balance better than the flat rotor (e). The pivot point (e) may be a straight pin driven through a movable wooden pedestal, or through the main board. The tip of a ball-point pen also works. If the rotor does not balance atop the pivot, remove metal from the heavy side. 
+The rotor must be made of a ferromagnetic material like a steel can lid or bottle cap. The illustration below shows how to make the rotor. Select a circular rotor either smaller than the coil forms or a little larger. Use geometry to locate and mark the center. The center needs to be dimpled.  Select an eighth inch diameter (a few mm) nail (a) and file or grind the point round as shown at (b). Place the rotor atop a piece of soft wood (c) and hammer the rounded point into the center (d). Practice on a piece of similar scrap metal. Take care not to pierce the rotor. A dished rotor (f) or a lid (g) balance better than the flat rotor (e). The pivot point (e) may be a straight pin driven through a movable wooden pedestal, or through the main board. The tip of a ball-point pen also works. If the rotor does not balance atop the pivot, remove metal from the heavy side.
 </p>
 
 
@@ -1176,7 +1175,7 @@ For lack of #32 AWG magnet wire try 440 turns of slightly  a larger diameter (le
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05336.png"> </p> 
+<p> <img src="05336.png"> </p>
 
 <br> </br>
 
@@ -1205,12 +1204,12 @@ Refer to both the schematic diagram and the illustration for assembly.   Note th
 
 
 <p>
-If this device is intended for use by non-technicians as an unsupervised exhibit, all exposed bare terminations like the capacitor must be made finger safe by covering with shields. The switch and fuse mentioned above are  necessary. Finally, the enamel on the coils only provides a single layer of insulation. For safety,  a second layer such as an insulating wrapping, Plexiglas box, or other means is called for. Replace all wooden components with Plexiglas for superior fire safety in an unsupervised exhibit. 
+If this device is intended for use by non-technicians as an unsupervised exhibit, all exposed bare terminations like the capacitor must be made finger safe by covering with shields. The switch and fuse mentioned above are  necessary. Finally, the enamel on the coils only provides a single layer of insulation. For safety,  a second layer such as an insulating wrapping, Plexiglas box, or other means is called for. Replace all wooden components with Plexiglas for superior fire safety in an unsupervised exhibit.
 </p>
 
 
 <p>
-The rotor must be made of a ferromagnetic material like a steel vegetable can, fruitcake can, etc.  A too long vegetable can may be cut in half.   The illustration for the previous small induction motor shows rotor dimpled bearing and pivot details.  The rotor may be smaller than the coil forms as in the case of a cut down vegetable can. It can even be as small as the can lid rotor used with the previous small motor. It is also possible to drive a rotor larger than the coils, which is the case with the fruitcake can.  Locate and mark the center of the rotor. The center needs to be dimpled.  Select an eighth inch diameter (a few mm) nail (a) and file or grind the point round. Use this and a block of wood to dimple the rotor as shown in the previous small motor A  fairly long can balances better than a flat rotor due to the lower center of gravity.  The tip of a ball point pen works well as a pivot for larger rotors.   Mount the pivot to a movable wooden pedestal.   
+The rotor must be made of a ferromagnetic material like a steel vegetable can, fruitcake can, etc.  A too long vegetable can may be cut in half.   The illustration for the previous small induction motor shows rotor dimpled bearing and pivot details.  The rotor may be smaller than the coil forms as in the case of a cut down vegetable can. It can even be as small as the can lid rotor used with the previous small motor. It is also possible to drive a rotor larger than the coils, which is the case with the fruitcake can.  Locate and mark the center of the rotor. The center needs to be dimpled.  Select an eighth inch diameter (a few mm) nail (a) and file or grind the point round. Use this and a block of wood to dimple the rotor as shown in the previous small motor A  fairly long can balances better than a flat rotor due to the lower center of gravity.  The tip of a ball point pen works well as a pivot for larger rotors.   Mount the pivot to a movable wooden pedestal.
 </p>
 
 
@@ -1233,7 +1232,7 @@ Three models of this motor have been built using #33 AWG magnet wire  because a 
 </p>
 
 <p>
-It is possible to reverse the direction of rotation by reversing one of the coils. If the coils are mounted to movable pallets, rotate one coil 180<sup>o</sup>. Another method, especially usefull with fixed coils, is to wire one of the coils to a DPDT polarity reversing switch. For example, disconnect L2 and wire it to the wipers (center contacts) of the DPDT switch. The top contacts go to the 120 Vac. The top contacts also  go to the the bottom contacts in an X-crossover pattern. 
+It is possible to reverse the direction of rotation by reversing one of the coils. If the coils are mounted to movable pallets, rotate one coil 180<sup>o</sup>. Another method, especially usefull with fixed coils, is to wire one of the coils to a DPDT polarity reversing switch. For example, disconnect L2 and wire it to the wipers (center contacts) of the DPDT switch. The top contacts go to the 120 Vac. The top contacts also  go to the the bottom contacts in an X-crossover pattern.
 </p>
 
 
@@ -1293,7 +1292,7 @@ I recommend ceramic disk capacitors, because they are insensitive to polarity (n
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05025.png"> </p> 
+<p> <img src="05025.png"> </p>
 
 <br> </br>
 
@@ -1301,7 +1300,7 @@ I recommend ceramic disk capacitors, because they are insensitive to polarity (n
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05026.png"> </p> 
+<p> <img src="05026.png"> </p>
 
 <br> </br>
 
@@ -1340,7 +1339,7 @@ Given that the power supply frequency is 60 Hz (household power frequency in the
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05027.png"> </p> 
+<p> <img src="05027.png"> </p>
 
 <p>
 The two large-value resistors R<sub>bogus1</sub> and R<sub>bogus1</sub> are connected across the capacitors to provide a DC path to ground in order that SPICE will work.  This is a "fix" for one of SPICE's quirks, to avoid it from seeing the capacitors as open circuits in its analysis.  These two resistors are entirely unnecessary in the real circuit.
@@ -1363,9 +1362,9 @@ rbogus1 3 4 1e9
 rbogus2 4 0 1e9
 .ac lin 1 60 60
 * Voltage across each component:
-.print ac v(1,2) v(2,3) v(3,4) v(4,0) 
+.print ac v(1,2) v(2,3) v(3,4) v(4,0)
 * Voltage across pairs of similar components
-.print ac v(1,3) v(3,0)  
+.print ac v(1,3) v(3,0)
 .end
 </pre>
 
@@ -1428,7 +1427,7 @@ Large, low-frequency ("woofer") speakers are most appropriate for this experimen
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05231.png"> </p> 
+<p> <img src="05231.png"> </p>
 
 <br> </br>
 
@@ -1436,7 +1435,7 @@ Large, low-frequency ("woofer") speakers are most appropriate for this experimen
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05232.png"> </p> 
+<p> <img src="05232.png"> </p>
 
 <br> </br>
 
@@ -1496,7 +1495,7 @@ In this experiment, you'll learn how to use an electronic musical keyboard as a 
 </p>
 
 <p>
-The "impedance matching transformer" is a small-size transformer easily obtained from an electronics supply store.  One may be scavenged from a small, junk radio: it connects between the speaker and the circuit board (amplifier), so is easily identifiable by location.  The primary winding is rated in ohms of impedance (1000 &#937;), and is usually center-tapped.  The secondary winding is 8 &#937; and not center-tapped.  These impedance figures are not the same as DC resistance, so don't expect to read 1000 &#937; and 8 &#937; with your ohmmeter -- however, the 1000 &#937; winding will read <i>more</i> resistance than the 8 &#937; winding, because it has more turns.  
+The "impedance matching transformer" is a small-size transformer easily obtained from an electronics supply store.  One may be scavenged from a small, junk radio: it connects between the speaker and the circuit board (amplifier), so is easily identifiable by location.  The primary winding is rated in ohms of impedance (1000 &#937;), and is usually center-tapped.  The secondary winding is 8 &#937; and not center-tapped.  These impedance figures are not the same as DC resistance, so don't expect to read 1000 &#937; and 8 &#937; with your ohmmeter -- however, the 1000 &#937; winding will read <i>more</i> resistance than the 8 &#937; winding, because it has more turns.
 </p>
 
 <p>
@@ -1535,7 +1534,7 @@ If such a transformer cannot be obtained for the experiment, a regular 120V/6V s
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05028.png"> </p> 
+<p> <img src="05028.png"> </p>
 
 <br> </br>
 
@@ -1543,7 +1542,7 @@ If such a transformer cannot be obtained for the experiment, a regular 120V/6V s
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05029.png"> </p> 
+<p> <img src="05029.png"> </p>
 
 <br> </br>
 
@@ -1560,7 +1559,7 @@ Normally, a student of electronics in a school would have access to a device cal
 </p>
 
 <p>
-To "tap in" to the AC voltage produced by the keyboard, you'll need to insert a plug into the headphone jack (sometimes just labeled "phone" on the keyboard) complete with two wires for connection to circuits of your own design.  When you insert the plug into the jack, the normal speaker built in to the keyboard will be disconnected (assuming the keyboard is equipped with one), and the signal that used to power that speaker will be available at the plug wires.  In this particular experiment, I recommend using the keyboard to power the 8 &#937; side of an audio "output" transformer to step up voltage to a higher level.  If using a power transformer instead of an audio output transformer, connect the keyboard to the low-voltage winding so that it operates as a step-up device.  Keyboards produce very low voltage signals, so there is no shock hazard in this experiment. 
+To "tap in" to the AC voltage produced by the keyboard, you'll need to insert a plug into the headphone jack (sometimes just labeled "phone" on the keyboard) complete with two wires for connection to circuits of your own design.  When you insert the plug into the jack, the normal speaker built in to the keyboard will be disconnected (assuming the keyboard is equipped with one), and the signal that used to power that speaker will be available at the plug wires.  In this particular experiment, I recommend using the keyboard to power the 8 &#937; side of an audio "output" transformer to step up voltage to a higher level.  If using a power transformer instead of an audio output transformer, connect the keyboard to the low-voltage winding so that it operates as a step-up device.  Keyboards produce very low voltage signals, so there is no shock hazard in this experiment.
 </p>
 
 <a name="Harmonics"></a>
@@ -1647,7 +1646,7 @@ The Winscope program I've used was written by Dr. Constantin Zeldovich, for free
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05030.png"> </p> 
+<p> <img src="05030.png"> </p>
 
 <br> </br>
 
@@ -1655,7 +1654,7 @@ The Winscope program I've used was written by Dr. Constantin Zeldovich, for free
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05031.png"> </p> 
+<p> <img src="05031.png"> </p>
 
 <br> </br>
 
@@ -1752,7 +1751,7 @@ Parts and equipment for this experiment are identical to those required for the 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05030.png"> </p> 
+<p> <img src="05030.png"> </p>
 
 <br> </br>
 
@@ -1760,7 +1759,7 @@ Parts and equipment for this experiment are identical to those required for the 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05031.png"> </p> 
+<p> <img src="05031.png"> </p>
 
 <br> </br>
 
@@ -1851,7 +1850,7 @@ The power transformer is used simply as an inductor, with only one winding conne
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05032.png"> </p> 
+<p> <img src="05032.png"> </p>
 
 <br> </br>
 
@@ -1859,7 +1858,7 @@ The power transformer is used simply as an inductor, with only one winding conne
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05033.png"> </p> 
+<p> <img src="05033.png"> </p>
 
 <br> </br>
 
@@ -1884,7 +1883,7 @@ If an inductor and a capacitor are connected in parallel with each other, and th
 A tank circuit's natural frequency, called the <i>resonant frequency</i>, is determined by the size of the inductor and the size of the capacitor, according to the following equation:
 </p>
 
-<p> <img src="15001.png"> </p> 
+<p> <img src="15001.png"> </p>
 
 <p>
 Many small power transformers have primary (120 volt) winding inductances of approximately 1 H.  Use this figure as a rough estimate of inductance for your circuit to calculate expected oscillation frequency.
@@ -1917,7 +1916,7 @@ Resistance may be intentionally added to the circuit -- either in series or para
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05034.png"> </p> 
+<p> <img src="05034.png"> </p>
 
 <p>
 R<sub>stray</sub> is placed in the circuit to dampen oscillations and produce a more realistic simulation.  A lower R<sub>stray</sub> value causes longer-lived oscillations because less energy is dissipated.  Eliminating this resistor from the circuit results in endless oscillation.
@@ -2007,7 +2006,7 @@ Telephone cable is also available from hardware stores.  Any unshielded multicon
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05176.png"> </p> 
+<p> <img src="05176.png"> </p>
 
 <br> </br>
 
@@ -2015,7 +2014,7 @@ Telephone cable is also available from hardware stores.  Any unshielded multicon
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05177.png"> </p> 
+<p> <img src="05177.png"> </p>
 
 <br> </br>
 
@@ -2027,7 +2026,7 @@ Telephone cable is also available from hardware stores.  Any unshielded multicon
 Connect the motor to the battery using two of the telephone cable's four conductors.  The motor should run, as expected.  Now, connect the audio signal detector across the motor terminals, with the 0.047 &#181;F capacitor in series, like this:
 </p>
 
-<p> <img src="05178.png"> </p> 
+<p> <img src="05178.png"> </p>
 
 <a name="AC coupling, oscilloscope"></a>
 <a name="Oscilloscope coupling"></a>
@@ -2040,25 +2039,25 @@ You should be able to hear a "buzz" or "whine" in the headphones, representing t
 Ideally, one would expect nothing but pure DC voltage at the motor's terminals, because the motor is connected directly in parallel with the battery.  Since the motor's terminals are electrically common with the respective terminals of the battery, and the battery's nature is to maintain a constant DC voltage, nothing but DC voltage should appear at the motor terminals, right?  Well, because of resistance internal to the battery and along the conductor lengths, current pulses drawn by the motor produce oscillating voltage "dips" at the motor terminals, causing the AC "noise" heard by the detector:
 </p>
 
-<p> <img src="05179.png"> </p> 
+<p> <img src="05179.png"> </p>
 
 <p>
 Use the audio detector to measure "noise" voltage directly across the battery.  Since the AC noise is produced in this circuit by pulsating voltage drops along stray resistances, the less resistance we measure across, the less noise voltage we should detect:
 </p>
 
-<p> <img src="05180.png"> </p> 
+<p> <img src="05180.png"> </p>
 
 <p>
 You may also measure noise voltage dropped along either of the telephone cable conductors supplying power to the motor, by connecting the audio detector between both ends of a single cable conductor.  The noise detected here originates from current pulses through the resistance of the wire:
 </p>
 
-<p> <img src="05181.png"> </p> 
+<p> <img src="05181.png"> </p>
 
 <p>
 Now that we have established how AC noise is created and distributed in this circuit, let's explore how it is <i>coupled</i> to adjacent wires in the cable.  Use the audio detector to measure voltage between one of the motor terminals and one of the unused wires in the telephone cable.  The 0.047 &#181;F capacitor is not needed in this exercise, because there is no DC voltage between these points for the detector to detect anyway:
 </p>
 
-<p> <img src="05182.png"> </p> 
+<p> <img src="05182.png"> </p>
 
 <p>
 The noise voltage detected here is due to stray capacitance between adjacent cable conductors creating an AC current "path" between the wires.  Remember that no current actually goes <i>through</i> a capacitance, but the alternate charging and discharging action of a capacitance, whether it be intentional or unintentional, provides <i>alternating</i> current a pathway of sorts.
@@ -2072,7 +2071,7 @@ If we were to try and conduct a voltage signal between one of the unused wires a
 If the additional signal was a DC signal, with no AC expected in it, we could mitigate the problem of coupled noise by "decoupling" the AC noise with a relatively large capacitor connected across the DC signal's conductors.  Use the 0.22 &#181;F capacitor for this purpose, as shown:
 </p>
 
-<p> <img src="05183.png"> </p> 
+<p> <img src="05183.png"> </p>
 
 <a name="Decoupling capacitor"></a>
 <a name="Capacitor, decoupling"></a>
@@ -2085,7 +2084,7 @@ The <i>decoupling capacitor</i> acts as a practical short-circuit to any AC nois
 Another way of minimizing coupled noise in a cable is to avoid having two circuits share a common conductor.  To illustrate, connect the audio detector between the two unused wires and listen for a noise signal:
 </p>
 
-<p> <img src="05184.png"> </p> 
+<p> <img src="05184.png"> </p>
 
 <p>
 There should be far less noise detected between any two of the unused conductors than between one unused conductor and one used in the motor circuit.  The reason for this drastic reduction in noise is that stray capacitance between cable conductors tends to couple the <i>same</i> noise voltage to <i>both</i> of the unused conductors in approximately equal proportions.  Thus, when measuring voltage <i>between</i> those two conductors, the detector only "sees" the difference between two approximately identical noise signals.

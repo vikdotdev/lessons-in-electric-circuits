@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,18 +20,17 @@
 <a href="SEMI_9.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume III</h1>
 <h1>Chapter 8</h1>
 
 
 
 
-<h1>OPERATIONAL AMPLIFIERS</h1> 
+<h1>OPERATIONAL AMPLIFIERS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid36220"><u>Introduction</u></a></li>
@@ -68,7 +67,7 @@ The operational amplifier is arguably the most useful single device in analog el
 <p>
 One key to the usefulness of these little circuits is in the engineering principle of feedback, particularly <i>negative</i> feedback, which constitutes the foundation of almost all automatic control processes.  The principles presented here in operational amplifier circuits, therefore, extend well beyond the immediate scope of electronics.  It is well worth the electronics student's time to learn these principles and learn them well.
 </p>
- 
+
 
 
 
@@ -83,7 +82,7 @@ One key to the usefulness of these little circuits is in the engineering princip
 For ease of drawing complex circuit diagrams, electronic amplifiers are often symbolized by a simple triangle shape, where the internal components are not individually represented.  This symbology is very handy for cases where an amplifier's construction is irrelevant to the greater function of the overall circuit, and it is worthy of familiarization:
 </p>
 
-<p> <img src="03022.png"> </p> 
+<p> <img src="03022.png"> </p>
 
 <a name="Ground"></a>
 
@@ -91,7 +90,7 @@ For ease of drawing complex circuit diagrams, electronic amplifiers are often sy
 The +V and -V connections denote the positive and negative sides of the DC power supply, respectively.  The input and output voltage connections are shown as single conductors, because it is assumed that all signal voltages are referenced to a common connection in the circuit called <i>ground</i>.  Often (but not always!), one pole of the DC power supply, either positive or negative, is that ground reference point.  A practical amplifier circuit (showing the input voltage source, load resistance, and power supply) might look like this:
 </p>
 
-<p> <img src="03023.png"> </p> 
+<p> <img src="03023.png"> </p>
 
 <p>
 Without having to analyze the actual transistor design of the amplifier, you can readily discern the whole circuit's function: to take an input signal (V<sub>in</sub>), amplify it, and drive a load resistance (R<sub>load</sub>).  To complete the above schematic, it would be good to specify the gains of that amplifier (A<sub>V</sub>, A<sub>I</sub>, A<sub>P</sub>) and the Q (bias) point for any needed mathematical analysis.
@@ -104,7 +103,7 @@ Without having to analyze the actual transistor design of the amplifier, you can
 If it is necessary for an amplifier to be able to output true AC voltage (reversing polarity) to the load, a <i>split</i> DC power supply may be used, whereby the ground point is electrically "centered" between +V and -V.  Sometimes the split power supply configuration is referred to as a <i>dual</i> power supply.
 </p>
 
-<p> <img src="03024.png"> </p> 
+<p> <img src="03024.png"> </p>
 
 <p>
 The amplifier is still being supplied with 30 volts overall, but with the split voltage DC power supply, the output voltage across the load resistor can now swing from a theoretical maximum of +15 volts to -15 volts, instead of +30 volts to 0 volts.  This is an easy way to get true alternating current (AC) output from an amplifier without resorting to capacitive or inductive (transformer) coupling on the output.  The peak-to-peak amplitude of this amplifier's output between cutoff and saturation remains unchanged.
@@ -119,13 +118,13 @@ The amplifier is still being supplied with 30 volts overall, but with the split 
 By signifying a transistor amplifier within a larger circuit with a triangle symbol, we ease the task of studying and analyzing more complex amplifiers and circuits.  One of these more complex amplifier types that we'll be studying is called the <i>differential amplifier</i>.  Unlike normal amplifiers, which amplify a single input signal (often called <i>single-ended</i> amplifiers), differential amplifiers amplify the voltage difference between two input signals.  Using the simplified triangle amplifier symbol, a differential amplifier looks like this:
 </p>
 
-<p> <img src="03025.png"> </p> 
+<p> <img src="03025.png"> </p>
 
 <p>
 The two input leads can be seen on the left-hand side of the triangular amplifier symbol, the output lead on the right-hand side, and the +V and -V power supply leads on top and bottom.  As with the other example, all voltages are referenced to the circuit's ground point.  Notice that one input lead is marked with a (-) and the other is marked with a (+).  Because a differential amplifier amplifies the difference in voltage between the two inputs, each input influences the output voltage in opposite ways.  Consider the following table of input/output voltages for a differential amplifier with a voltage gain of 4:
 </p>
 
-<p> <img src="13002.png"> </p> 
+<p> <img src="13002.png"> </p>
 
 <a name="Input, inverting"></a>
 <a name="Input, noninverting"></a>
@@ -138,7 +137,7 @@ An increasingly positive voltage on the (+) input tends to drive the output volt
 It may be helpful to think of a differential amplifier as a variable voltage source controlled by a sensitive voltmeter, as such:
 </p>
 
-<p> <img src="03231.png"> </p> 
+<p> <img src="03231.png"> </p>
 
 <p>
 Bear in mind that the above illustration is only a <i>model</i> to aid in understanding the behavior of a differential amplifier.  It is not a realistic schematic of its actual design.  The "G" symbol represents a galvanometer, a sensitive voltmeter movement.  The potentiometer connected between +V and -V provides a variable voltage at the output pin (with reference to one side of the DC power supply), that variable voltage set by the reading of the galvanometer.  It must be understood that any load powered by the output of a differential amplifier gets its current from the DC power source (battery), <i>not</i> the input signal.  The input signal (to the galvanometer) merely <i>controls</i> the output.
@@ -148,13 +147,13 @@ Bear in mind that the above illustration is only a <i>model</i> to aid in unders
 This concept may at first be confusing to students new to amplifiers.  With all these polarities and polarity markings (- and +) around, its easy to get confused and not know what the output of a differential amplifier will be.  To address this potential confusion, here's a simple rule to remember:
 </p>
 
-<p> <img src="03026.png"> </p> 
+<p> <img src="03026.png"> </p>
 
 <p>
 When the polarity of the <i>differential</i> voltage matches the markings for inverting and noninverting inputs, the output will be positive.  When the polarity of the differential voltage clashes with the input markings, the output will be negative.  This bears some similarity to the mathematical sign displayed by digital voltmeters based on input voltage polarity.  The red test lead of the voltmeter (often called the "positive" lead because of the color red's popular association with the positive side of a power supply in electronic wiring) is more positive than the black, the meter will display a positive voltage figure, and vice versa:
 </p>
 
-<p> <img src="03027.png"> </p> 
+<p> <img src="03027.png"> </p>
 
 <p>
 Just as a voltmeter will only display the voltage <i>between</i> its two test leads, an ideal differential amplifier only amplifies the potential difference between its two input connections, not the voltage between any one of those connections and ground.  The output polarity of a differential amplifier, just like the signed indication of a digital voltmeter, depends on the relative polarities of the differential voltage between the two input connections.
@@ -186,7 +185,7 @@ If the input voltages to this amplifier represented mathematical quantities (as 
 <h2><u><a name="xtocid36222">The "operational" amplifier</a></u></h2>
 
 <p>
-Long before the advent of digital electronic technology, computers were built to electronically perform calculations by employing voltages and currents to represent numerical quantities.  This was especially useful for the simulation of physical processes.  A variable voltage, for instance, might represent velocity or force in a physical system.  Through the use of resistive voltage dividers and voltage amplifiers, the mathematical operations of division and multiplication could be easily performed on these signals.  
+Long before the advent of digital electronic technology, computers were built to electronically perform calculations by employing voltages and currents to represent numerical quantities.  This was especially useful for the simulation of physical processes.  A variable voltage, for instance, might represent velocity or force in a physical system.  Through the use of resistive voltage dividers and voltage amplifiers, the mathematical operations of division and multiplication could be easily performed on these signals.
 </p>
 
 <a name="Calculus"></a>
@@ -195,7 +194,7 @@ Long before the advent of digital electronic technology, computers were built to
 The reactive properties of capacitors and inductors lend themselves well to the simulation of variables related by calculus functions.  Remember how the current through a capacitor was a function of the voltage's rate of change, and how that rate of change was designated in calculus as the <i>derivative</i>?  Well, if voltage across a capacitor were made to represent the velocity of an object, the current through the capacitor would represent the force required to accelerate or decelerate that object, the capacitor's capacitance representing the object's mass:
 </p>
 
-<p> <img src="13003.png"> </p> 
+<p> <img src="13003.png"> </p>
 
 <a name="Differentiation"></a>
 
@@ -227,13 +226,13 @@ Modern op-amps, like the popular model 741, are high-performance, inexpensive in
 The following diagram shows the pin connections for single op-amps (741 included) when housed in an 8-pin DIP (<b>D</b>ual <b>I</b>nline <b>P</b>ackage) integrated circuit:
 </p>
 
-<p> <img src="03028.png"> </p> 
+<p> <img src="03028.png"> </p>
 
 <p>
 Some models of op-amp come two to a package, including the popular models TL082 and 1458.  These are called "dual" units, and are typically housed in an 8-pin DIP package as well, with the following pin connections:
 </p>
 
-<p> <img src="03245.png"> </p> 
+<p> <img src="03245.png"> </p>
 
 <p>
 Operational amplifiers are also available four to a package, usually in 14-pin DIP arrangements.  Unfortunately, pin assignments aren't as standard for these "quad" op-amps as they are for the "dual" or single units.  Consult the manufacturer datasheet(s) for details.
@@ -249,7 +248,7 @@ Practical operational amplifier voltage gains are in the range of 200,000 or mor
 One application is called the <i>comparator</i>.  For all practical purposes, we can say that the output of an op-amp will be saturated fully positive if the (+) input is more positive than the (-) input, and saturated fully negative if the (+) input is less positive than the (-) input.  In other words, an op-amp's extremely high voltage gain makes it useful as a device to compare two voltages and change output voltage states when one input exceeds the other in magnitude.
 </p>
 
-<p> <img src="03030.png"> </p> 
+<p> <img src="03030.png"> </p>
 
 <p>
 In the above circuit, we have an op-amp connected as a comparator, comparing the input voltage with a reference voltage set by the potentiometer (R<sub>1</sub>).  If V<sub>in</sub> drops below the voltage set by R<sub>1</sub>, the op-amp's output will saturate to +V, thereby lighting up the LED.  Otherwise, if V<sub>in</sub> is above the reference voltage, the LED will remain off.  If V<sub>in</sub> is a voltage signal produced by a measuring instrument, this comparator circuit could function as a "low" alarm, with the trip-point set by R<sub>1</sub>.  Instead of an LED, the op-amp output could drive a relay, a transistor, an SCR, or any other device capable of switching power to a load such as a solenoid valve, to take action in the event of a low alarm.
@@ -259,7 +258,7 @@ In the above circuit, we have an op-amp connected as a comparator, comparing the
 Another application for the comparator circuit shown is a square-wave converter.  Suppose that the input voltage applied to the inverting (-) input was an AC sine wave rather than a stable DC voltage.  In that case, the output voltage would transition between opposing states of saturation whenever the input voltage was equal to the reference voltage produced by the potentiometer.  The result would be a square wave:
 </p>
 
-<p> <img src="03031.png"> </p> 
+<p> <img src="03031.png"> </p>
 
 <a name="Duty cycle, square wave"></a>
 
@@ -267,7 +266,7 @@ Another application for the comparator circuit shown is a square-wave converter.
 Adjustments to the potentiometer setting would change the reference voltage applied to the noninverting (+) input, which would change the points at which the sine wave would cross, changing the on/off times, or <i>duty cycle</i> of the square wave:
 </p>
 
-<p> <img src="03032.png"> </p> 
+<p> <img src="03032.png"> </p>
 
 <a name="Pulse-width modulation"></a>
 <a name="PWM"></a>
@@ -277,10 +276,10 @@ It should be evident that the AC input voltage would not have to be a sine wave 
 </p>
 
 <p>
-Another comparator application is that of the bargraph driver.  If we had several op-amps connected as comparators, each with its own reference voltage connected to the inverting input, but each one monitoring the same voltage signal on their noninverting inputs, we could build a bargraph-style meter such as what is commonly seen on the face of stereo tuners and graphic equalizers.  As the signal voltage (representing radio signal strength or audio sound level) increased, each comparator would "turn on" in sequence and send power to its respective LED.  With each comparator switching "on" at a different level of audio sound, the number of LED's illuminated would indicate how strong the signal was. 
+Another comparator application is that of the bargraph driver.  If we had several op-amps connected as comparators, each with its own reference voltage connected to the inverting input, but each one monitoring the same voltage signal on their noninverting inputs, we could build a bargraph-style meter such as what is commonly seen on the face of stereo tuners and graphic equalizers.  As the signal voltage (representing radio signal strength or audio sound level) increased, each comparator would "turn on" in sequence and send power to its respective LED.  With each comparator switching "on" at a different level of audio sound, the number of LED's illuminated would indicate how strong the signal was.
 </p>
 
-<p> <img src="03033.png"> </p> 
+<p> <img src="03033.png"> </p>
 
 <p>
 In the circuit shown above, LED<sub>1</sub> would be the first to light up as the input voltage increased in a positive direction.  As the input voltage continued to increase, the other LED's would illuminate in succession, until all were lit.
@@ -318,10 +317,10 @@ This very same technology is used in some analog-to-digital signal converters, n
 If we connect the output of an op-amp to its inverting input and apply a voltage signal to the noninverting input, we find that the output voltage of the op-amp closely follows that input voltage (I've neglected to draw in the power supply, +V/-V wires, and ground symbol for simplicity):
 </p>
 
-<p> <img src="03034.png"> </p> 
+<p> <img src="03034.png"> </p>
 
 <p>
-As V<sub>in</sub> increases, V<sub>out</sub> will increase in accordance with the differential gain.  However, as V<sub>out</sub> increases, that output voltage is fed back to the inverting input, thereby acting to decrease the voltage differential between inputs, which acts to bring the output down.  What will happen for any given voltage input is that the op-amp will output a voltage very nearly equal to V<sub>in</sub>, but just low enough so that there's enough voltage difference left between V<sub>in</sub> and the (-) input to be amplified to generate the output voltage.  
+As V<sub>in</sub> increases, V<sub>out</sub> will increase in accordance with the differential gain.  However, as V<sub>out</sub> increases, that output voltage is fed back to the inverting input, thereby acting to decrease the voltage differential between inputs, which acts to bring the output down.  What will happen for any given voltage input is that the op-amp will output a voltage very nearly equal to V<sub>in</sub>, but just low enough so that there's enough voltage difference left between V<sub>in</sub> and the (-) input to be amplified to generate the output voltage.
 </p>
 
 <a name="Feedback, negative"></a>
@@ -336,7 +335,7 @@ The circuit will quickly reach a point of stability (known as <i>equilibrium</i>
 Because the op-amp's gain is so high, the voltage on the inverting input can be maintained almost equal to V<sub>in</sub>.  Let's say that our op-amp has a differential voltage gain of 200,000.  If V<sub>in</sub> equals 6 volts, the output voltage will be 5.999970000149999 volts.  This creates just enough differential voltage (6 volts - 5.999970000149999 volts = 29.99985 &#181;V) to cause 5.999970000149999 volts to be manifested at the output terminal, and the system holds there in balance.  As you can see, 29.99985 &#181;V is not a lot of differential, so for practical calculations, we can assume that the differential voltage between the two input wires is held by negative feedback exactly at 0 volts.
 </p>
 
-<p> <img src="03035.png"> </p> 
+<p> <img src="03035.png"> </p>
 
 <p>
 
@@ -344,7 +343,7 @@ Because the op-amp's gain is so high, the voltage on the inverting input can be 
 
 <br> </br>
 
-<p> <img src="03036.png"> </p> 
+<p> <img src="03036.png"> </p>
 
 <p>
 One great advantage to using an op-amp with negative feedback is that the actual voltage gain of the op-amp doesn't matter, so long as its very large.  If the op-amp's differential gain were 250,000 instead of 200,000, all it would mean is that the output voltage would hold just a little closer to V<sub>in</sub> (less differential voltage needed between inputs to generate the required output).  In the circuit just illustrated, the output voltage would still be (for all practical purposes) equal to the non-inverting input voltage.  Op-amp gains, therefore, do not have to be precisely set by the factory in order for the circuit designer to build an amplifier circuit with precise gain.  Negative feedback makes the system self-correcting.  The above circuit as a whole will simply follow the input voltage with a stable gain of 1.
@@ -354,7 +353,7 @@ One great advantage to using an op-amp with negative feedback is that the actual
 Going back to our differential amplifier model, we can think of the operational amplifier as being a variable voltage source controlled by an extremely sensitive <i>null detector</i>, the kind of meter movement or other sensitive measurement device used in bridge circuits to detect a condition of balance (zero volts).  The "potentiometer" inside the op-amp creating the variable voltage will move to whatever position it must to "balance" the inverting and noninverting input voltages so that the "null detector" has zero voltage across it:
 </p>
 
-<p> <img src="03232.png"> </p> 
+<p> <img src="03232.png"> </p>
 
 <a name="Voltage follower"></a>
 <a name="Voltage buffer"></a>
@@ -397,10 +396,10 @@ It should be mentioned that many op-amps cannot swing their output voltages exac
 If we add a voltage divider to the negative feedback wiring so that only a <i>fraction</i> of the output voltage is fed back to the inverting input instead of the full amount, the output voltage will be a <i>multiple</i> of the input voltage (please bear in mind that the power supply connections to the op-amp have been omitted once again for simplicity's sake):
 </p>
 
-<p> <img src="03037.png"> </p> 
+<p> <img src="03037.png"> </p>
 
 <p>
-If R<sub>1</sub> and R<sub>2</sub> are both equal and V<sub>in</sub> is 6 volts, the op-amp will output whatever voltage is needed to drop 6 volts across R<sub>1</sub> (to make the inverting input voltage equal to 6 volts, as well, keeping the voltage difference between the two inputs equal to zero).  With the 2:1 voltage divider of R<sub>1</sub> and R<sub>2</sub>, this will take 12 volts at the output of the op-amp to accomplish.  
+If R<sub>1</sub> and R<sub>2</sub> are both equal and V<sub>in</sub> is 6 volts, the op-amp will output whatever voltage is needed to drop 6 volts across R<sub>1</sub> (to make the inverting input voltage equal to 6 volts, as well, keeping the voltage difference between the two inputs equal to zero).  With the 2:1 voltage divider of R<sub>1</sub> and R<sub>2</sub>, this will take 12 volts at the output of the op-amp to accomplish.
 </p>
 
 <p>
@@ -411,7 +410,7 @@ Another way of analyzing this circuit is to start by calculating the magnitude a
 Upon examining the last illustration, one might wonder, "where does that 6 mA of current go?"  The last illustration doesn't show the entire current path, but in reality it comes from the negative side of the DC power supply, through ground, through R<sub>1</sub>, through R<sub>2</sub>, through the output pin of the op-amp, and then back to the positive side of the DC power supply through the output transistor(s) of the op-amp.  Using the null detector/potentiometer model of the op-amp, the current path looks like this:
 </p>
 
-<p> <img src="03233.png"> </p> 
+<p> <img src="03233.png"> </p>
 
 <p>
 The 6 volt signal source does not have to supply any current for the circuit: it merely commands the op-amp to balance voltage between the inverting (-) and noninverting (+) input pins, and in so doing produce an output voltage that is twice the input due to the dividing effect of the two 1 k&#937; resistors.
@@ -421,7 +420,7 @@ The 6 volt signal source does not have to supply any current for the circuit: it
 We can change the voltage gain of this circuit, overall, just by adjusting the values of R<sub>1</sub> and R<sub>2</sub> (changing the ratio of output voltage that is fed back to the inverting input).  Gain can be calculated by the following formula:
 </p>
 
-<p> <img src="13004.png"> </p> 
+<p> <img src="13004.png"> </p>
 
 <p>
 Note that the voltage gain for this design of amplifier circuit can never be less than 1.  If we were to lower R<sub>2</sub> to a value of zero ohms, our circuit would be essentially identical to the voltage follower, with the output directly connected to the inverting input.  Since the voltage follower has a gain of 1, this sets the lower gain limit of the noninverting amplifier.  However, the gain can be increased far beyond 1, by increasing R<sub>2</sub> in proportion to R<sub>1</sub>.
@@ -442,7 +441,7 @@ Just as with the voltage follower, we see that the differential gain of the op-a
 Let's see what happens if we retain negative feedback through a voltage divider, but apply the input voltage at a different location:
 </p>
 
-<p> <img src="03038.png"> </p> 
+<p> <img src="03038.png"> </p>
 
 <a name="Virtual ground"></a>
 <a name="Ground, virtual"></a>
@@ -455,7 +454,7 @@ By grounding the noninverting input, the negative feedback from the output seeks
 We can change the overall voltage gain of this circuit, overall, just by adjusting the values of R<sub>1</sub> and R<sub>2</sub> (changing the ratio of output voltage that is fed back to the inverting input).  Gain can be calculated by the following formula:
 </p>
 
-<p> <img src="13005.png"> </p> 
+<p> <img src="13005.png"> </p>
 
 <a name="Amplifier, inverting"></a>
 <a name="Inverting amplifier"></a>
@@ -492,55 +491,55 @@ A helpful analogy for understanding divided feedback amplifier circuits is that 
 Take for example the following noninverting op-amp circuit.  We know from the prior section that the voltage gain of a noninverting amplifier configuration can never be less than unity (1).  If we draw a lever diagram next to the amplifier schematic, with the distance between fulcrum and lever ends representative of resistor values, the motion of the lever will signify changes in voltage at the input and output terminals of the amplifier:
 </p>
 
-<p> <img src="03236.png"> </p> 
+<p> <img src="03236.png"> </p>
 
 <p>
 Physicists call this type of lever, with the input force (effort) applied between the fulcrum and output (load), a <i>third-class</i> lever.  It is characterized by an output displacement (motion) at least as large than the input displacement -- a "gain" of at least 1 -- and in the same direction.  Applying a positive input voltage to this op-amp circuit is analogous to displacing the "input" point on the lever upward:
 </p>
 
-<p> <img src="03237.png"> </p> 
+<p> <img src="03237.png"> </p>
 
 <p>
 Due to the displacement-amplifying characteristics of the lever, the "output" point will move twice as far as the "input" point, and in the same direction.  In the electronic circuit, the output voltage will equal twice the input, with the same polarity.  Applying a negative input voltage is analogous to moving the lever downward from its level "zero" position, resulting in an amplified output displacement that is also negative:
 </p>
 
-<p> <img src="03238.png"> </p> 
+<p> <img src="03238.png"> </p>
 
 <p>
 If we alter the resistor ratio R<sub>2</sub>/R<sub>1</sub>, we change the gain of the op-amp circuit.  In lever terms, this means moving the input point in relation to the fulcrum and lever end, which similarly changes the displacement "gain" of the machine:
 </p>
 
-<p> <img src="03239.png"> </p> 
+<p> <img src="03239.png"> </p>
 
 <p>
 Now, any input signal will become amplified by a factor of four instead of by a factor of two:
 </p>
 
-<p> <img src="03240.png"> </p> 
+<p> <img src="03240.png"> </p>
 
 <p>
 Inverting op-amp circuits may be modeled using the lever analogy as well.  With the inverting configuration, the ground point of the feedback voltage divider is the op-amp's inverting input with the input to the left and the output to the right.  This is mechanically equivalent to a <i>first-class</i> lever, where the input force (effort) is on the opposite side of the fulcrum from the output (load):
 </p>
 
-<p> <img src="03241.png"> </p> 
+<p> <img src="03241.png"> </p>
 
 <p>
 With equal-value resistors (equal-lengths of lever on each side of the fulcrum), the output voltage (displacement) will be equal in magnitude to the input voltage (displacement), but of the opposite polarity (direction).  A positive input results in a negative output:
 </p>
 
-<p> <img src="03242.png"> </p> 
+<p> <img src="03242.png"> </p>
 
 <p>
 Changing the resistor ratio R<sub>2</sub>/R<sub>1</sub> changes the gain of the amplifier circuit, just as changing the fulcrum position on the lever changes its mechanical displacement "gain."  Consider the following example, where R<sub>2</sub> is made twice as large as R<sub>1</sub>:
 </p>
 
-<p> <img src="03243.png"> </p> 
+<p> <img src="03243.png"> </p>
 
 <p>
 With the inverting amplifier configuration, though, gains of less than 1 are possible, just as with first-class levers.  Reversing R<sub>2</sub> and R<sub>1</sub> values is analogous to moving the fulcrum to its complementary position on the lever: one-third of the way from the output end.  There, the output displacement will be one-half the input displacement:
 </p>
 
-<p> <img src="03244.png"> </p> 
+<p> <img src="03244.png"> </p>
 
 
 
@@ -553,7 +552,7 @@ With the inverting amplifier configuration, though, gains of less than 1 are pos
 <h2><u><a name="xtocid36226">Voltage-to-current signal conversion</a></u></h2>
 
 <p>
-In instrumentation circuitry, DC signals are often used as analog representations of physical measurements such as temperature, pressure, flow, weight, and motion.  Most commonly, <i>DC current</i> signals are used in preference to <i>DC voltage</i> signals, because current signals are exactly equal in magnitude throughout the series circuit loop carrying current from the source (measuring device) to the load (indicator, recorder, or controller), whereas voltage signals in a parallel circuit may vary from one end to the other due to resistive wire losses.  Furthermore, current-sensing instruments typically have low impedances (while voltage-sensing instruments have high impedances), which gives current-sensing instruments greater electrical noise immunity.  
+In instrumentation circuitry, DC signals are often used as analog representations of physical measurements such as temperature, pressure, flow, weight, and motion.  Most commonly, <i>DC current</i> signals are used in preference to <i>DC voltage</i> signals, because current signals are exactly equal in magnitude throughout the series circuit loop carrying current from the source (measuring device) to the load (indicator, recorder, or controller), whereas voltage signals in a parallel circuit may vary from one end to the other due to resistive wire losses.  Furthermore, current-sensing instruments typically have low impedances (while voltage-sensing instruments have high impedances), which gives current-sensing instruments greater electrical noise immunity.
 </p>
 
 <a name="Current source"></a>
@@ -562,7 +561,7 @@ In instrumentation circuitry, DC signals are often used as analog representation
 In order to use current as an analog representation of a physical quantity, we have to have some way of generating a precise amount of current within the signal circuit.  But how do we generate a precise current signal when we might not know the resistance of the loop?  The answer is to use an amplifier designed to hold current to a prescribed value, applying as much or as little voltage as necessary to the load circuit to maintain that value.  Such an amplifier performs the function of a <i>current source</i>.  An op-amp with negative feedback is a perfect candidate for such a task:
 </p>
 
-<p> <img src="03039.png"> </p> 
+<p> <img src="03039.png"> </p>
 
 <a name="4-20 milliamp signal"></a>
 <a name="10-50 milliamp signal"></a>
@@ -602,13 +601,13 @@ Another name for this circuit is <i>transconductance amplifier</i>.  In electron
 If we take three equal resistors and connect one end of each to a common point, then apply three input voltages (one to each of the resistors' free ends), the voltage seen at the common point will be the mathematical <i>average</i> of the three.
 </p>
 
-<p> <img src="03040.png"> </p> 
+<p> <img src="03040.png"> </p>
 
 <p>
 This circuit is really nothing more than a practical application of Millman's Theorem:
 </p>
 
-<p> <img src="03041.png"> </p> 
+<p> <img src="03041.png"> </p>
 
 <a name="Passive averager"></a>
 <a name="Averager"></a>
@@ -617,7 +616,7 @@ This circuit is really nothing more than a practical application of Millman's Th
 This circuit is commonly known as a <i>passive averager</i>, because it generates an average voltage with non-amplifying components.  <i>Passive</i> simply means that it is an unamplified circuit.  The large equation to the right of the averager circuit comes from Millman's Theorem, which describes the voltage produced by multiple voltage sources connected together through individual resistances.  Since the three resistors in the averager circuit are equal to each other, we can simplify Millman's formula by writing R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> simply as R (one, equal resistance instead of three individual resistances):
 </p>
 
-<p> <img src="13006.png"> </p> 
+<p> <img src="13006.png"> </p>
 
 <a name="Noninverting summer"></a>
 
@@ -625,13 +624,13 @@ This circuit is commonly known as a <i>passive averager</i>, because it generate
 If we take a passive averager and use it to connect three input voltages into an op-amp amplifier circuit with a gain of 3, we can turn this <i>averaging</i> function into an <i>addition</i> function.  The result is called a <i>noninverting summer</i> circuit:
 </p>
 
-<p> <img src="03042.png"> </p> 
+<p> <img src="03042.png"> </p>
 
 <p>
 With a voltage divider composed of a 2 k&#937; / 1 k&#937; combination, the noninverting amplifier circuit will have a voltage gain of 3.  By taking the voltage from the passive averager, which is the sum of V<sub>1</sub>, V<sub>2</sub>, and V<sub>3</sub> divided by 3, and multiplying that average by 3, we arrive at an output voltage equal to the <i>sum</i> of V<sub>1</sub>, V<sub>2</sub>, and V<sub>3</sub>:
 </p>
 
-<p> <img src="13007.png"> </p> 
+<p> <img src="13007.png"> </p>
 
 <a name="Inverting summer"></a>
 
@@ -639,13 +638,13 @@ With a voltage divider composed of a 2 k&#937; / 1 k&#937; combination, the noni
 Much the same can be done with an inverting op-amp amplifier, using a passive averager as part of the voltage divider feedback circuit.  The result is called an <i>inverting summer</i> circuit:
 </p>
 
-<p> <img src="03043.png"> </p> 
+<p> <img src="03043.png"> </p>
 
 <p>
 Now, with the right-hand sides of the three averaging resistors connected to the virtual ground point of the op-amp's inverting input, Millman's Theorem no longer directly applies as it did before.  The voltage at the virtual ground is now held at 0 volts by the op-amp's negative feedback, whereas before it was free to float to the average value of V<sub>1</sub>, V<sub>2</sub>, and V<sub>3</sub>.  However, with all resistor values equal to each other, the currents through each of the three resistors will be proportional to their respective input voltages.  Since those three currents will <i>add</i> at the virtual ground node, the algebraic sum of those currents through the feedback resistor will produce a voltage at V<sub>out</sub> equal to V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub>, except with reversed polarity.  The reversal in polarity is what makes this circuit an <i>inverting</i> summer:
 </p>
 
-<p> <img src="13008.png"> </p> 
+<p> <img src="13008.png"> </p>
 
 <p>
 Summer (adder) circuits are quite useful in analog computer design, just as multiplier and divider circuits would be.  Again, it is the extremely high differential gain of the op-amp which allows us to build these useful circuits with a bare minimum of components.
@@ -666,31 +665,31 @@ Summer (adder) circuits are quite useful in analog computer design, just as mult
 <h2><u><a name="xtocid36228">Building a differential amplifier</a></u></h2>
 
 <p>
-An op-amp with no feedback is already a differential amplifier, amplifying the voltage difference between the two inputs.  However, its gain cannot be controlled, and it is generally too high to be of any practical use.  So far, our application of negative feedback to op-amps has resulting in the practical loss of one of the inputs, the resulting amplifier only good for amplifying a single voltage signal input.  With a little ingenuity, however, we can construct an op-amp circuit maintaining both voltage inputs, yet with a controlled gain set by external resistors. 
+An op-amp with no feedback is already a differential amplifier, amplifying the voltage difference between the two inputs.  However, its gain cannot be controlled, and it is generally too high to be of any practical use.  So far, our application of negative feedback to op-amps has resulting in the practical loss of one of the inputs, the resulting amplifier only good for amplifying a single voltage signal input.  With a little ingenuity, however, we can construct an op-amp circuit maintaining both voltage inputs, yet with a controlled gain set by external resistors.
 </p>
 
-<p> <img src="03044.png"> </p> 
+<p> <img src="03044.png"> </p>
 
 <p>
 If all the resistor values are equal, this amplifier will have a differential voltage gain of 1.  The analysis of this circuit is essentially the same as that of an inverting amplifier, except that the noninverting input (+) of the op-amp is at a voltage equal to a fraction of V<sub>2</sub>, rather than being connected directly to ground.  As would stand to reason, V<sub>2</sub> functions as the noninverting input and V<sub>1</sub> functions as the inverting input of the final amplifier circuit.  Therefore:
 </p>
 
-<p> <img src="13009.png"> </p> 
+<p> <img src="13009.png"> </p>
 
 <p>
-If we wanted to provide a differential gain of anything other than 1, we would have to adjust the resistances in <i>both</i> upper and lower voltage dividers, necessitating multiple resistor changes and balancing between the two dividers for symmetrical operation.  This is not always practical, for obvious reasons. 
+If we wanted to provide a differential gain of anything other than 1, we would have to adjust the resistances in <i>both</i> upper and lower voltage dividers, necessitating multiple resistor changes and balancing between the two dividers for symmetrical operation.  This is not always practical, for obvious reasons.
 </p>
 
 <p>
 Another limitation of this amplifier design is the fact that its input impedances are rather low compared to that of some other op-amp configurations, most notably the noninverting (single-ended input) amplifier.  Each input voltage source has to drive current through a resistance, which constitutes far less impedance than the bare input of an op-amp alone.  The solution to this problem, fortunately, is quite simple.  All we need to do is "buffer" each input voltage signal through a voltage follower like this:
 </p>
 
-<p> <img src="03045.png"> </p> 
+<p> <img src="03045.png"> </p>
 
 <p>
 Now the V<sub>1</sub> and V<sub>2</sub> input lines are connected straight to the inputs of two voltage-follower op-amps, giving very high impedance.  The two op-amps on the left now handle the driving of current through the resistors instead of letting the input voltage sources (whatever they may be) do it.  The increased complexity to our circuit is minimal for a substantial benefit.
 </p>
- 
+
 
 
 
@@ -705,19 +704,19 @@ Now the V<sub>1</sub> and V<sub>2</sub> input lines are connected straight to th
 As suggested before, it is beneficial to be able to adjust the gain of the amplifier circuit without having to change more than one resistor value, as is necessary with the previous design of differential amplifier.  The so-called <i>instrumentation</i> builds on the last version of differential amplifier to give us that capability:
 </p>
 
-<p> <img src="03046.png"> </p> 
+<p> <img src="03046.png"> </p>
 
 <p>
 This intimidating circuit is constructed from a buffered differential amplifier stage with three new resistors linking the two buffer circuits together.  Consider all resistors to be of equal value except for R<sub>gain</sub>.  The negative feedback of the upper-left op-amp causes the voltage at point 1 (top of R<sub>gain</sub>) to be equal to V<sub>1</sub>.  Likewise, the voltage at point 2 (bottom of R<sub>gain</sub>) is held to a value equal to V<sub>2</sub>.  This establishes a voltage drop across R<sub>gain</sub> equal to the voltage difference between V<sub>1</sub> and V<sub>2</sub>.  That voltage drop causes a current through R<sub>gain</sub>, and since the feedback loops of the two input op-amps draw no current, that same amount of current through R<sub>gain</sub> must be going through the two "R" resistors above and below it.  This produces a voltage drop between points 3 and 4 equal to:
 </p>
 
-<p> <img src="13010.png"> </p> 
+<p> <img src="13010.png"> </p>
 
 <p>
 The regular differential amplifier on the right-hand side of the circuit then takes this voltage drop between points 3 and 4, and amplifies it by a gain of 1 (assuming again that all "R" resistors are of equal value).  Though this looks like a cumbersome way to build a differential amplifier, it has the distinct advantages of possessing extremely high input impedances on the V<sub>1</sub> and V<sub>2</sub> inputs (because they connect straight into the noninverting inputs of their respective op-amps), and adjustable gain that can be set by a single resistor.  Manipulating the above formula a bit, we have a general expression for overall voltage gain in the instrumentation amplifier:
 </p>
 
-<p> <img src="13011.png"> </p> 
+<p> <img src="13011.png"> </p>
 
 <p>
 Though it may not be obvious by looking at the schematic, we can change the differential gain of the instrumentation amplifier simply by changing the value of one resistor: R<sub>gain</sub>.  Yes, we could still change the overall gain by changing the values of some of the other resistors, but this would necessitate <i>balanced</i> resistor value changes for the circuit to remain symmetrical.  Please note that the lowest gain possible with the above circuit is obtained with R<sub>gain</sub> completely open (infinite resistance), and that gain value is 1.
@@ -746,7 +745,7 @@ By introducing electrical reactance into the feedback loops of op-amp amplifier 
 Capacitance can be defined as the measure of a capacitor's opposition to changes in voltage.  The greater the capacitance, the more the opposition.  Capacitors oppose voltage change by creating current in the circuit: that is, they either charge or discharge in response to a change in applied voltage.  So, the more capacitance a capacitor has, the greater its charge or discharge current will be for any given rate of voltage change across it.  The equation for this is quite simple:
 </p>
 
-<p> <img src="03047.png"> </p> 
+<p> <img src="03047.png"> </p>
 
 <p>
 The <i>dv/dt</i> fraction is a calculus expression representing the rate of voltage change over time.  If the DC supply in the above circuit were steadily increased from a voltage of 15 volts to a voltage of 16 volts over a time span of 1 hour, the current through the capacitor would most likely be <i>very</i> small, because of the very low rate of voltage change (dv/dt = 1 volt / 3600 seconds).  However, if we steadily increased the DC supply from 15 volts to 16 volts over a shorter time span of 1 second, the rate of voltage change would be much higher, and thus the charging current would be much higher (3600 times higher, to be exact).  Same amount of change in voltage, but vastly different <i>rates</i> of change, resulting in vastly different amounts of current in the circuit.
@@ -760,10 +759,10 @@ To put some definite numbers to this formula, if the voltage across a 47 &#181;F
 We can build an op-amp circuit which measures change in voltage by measuring current through a capacitor, and outputs a voltage proportional to that current:
 </p>
 
-<p> <img src="03048.png"> </p> 
+<p> <img src="03048.png"> </p>
 
 <p>
-The right-hand side of the capacitor is held to a voltage of 0 volts, due to the "virtual ground" effect.  Therefore, current "through" the capacitor is solely due to <i>change</i> in the input voltage.  A steady input voltage won't cause a current through C, but a <i>changing</i> input voltage will.  
+The right-hand side of the capacitor is held to a voltage of 0 volts, due to the "virtual ground" effect.  Therefore, current "through" the capacitor is solely due to <i>change</i> in the input voltage.  A steady input voltage won't cause a current through C, but a <i>changing</i> input voltage will.
 </p>
 
 <p>
@@ -774,7 +773,7 @@ Capacitor current moves through the feedback resistor, producing a drop across i
 The formula for determining voltage output for the differentiator is as follows:
 </p>
 
-<p> <img src="13012.png"> </p> 
+<p> <img src="13012.png"> </p>
 
 <p>
 Applications for this, besides representing the derivative calculus function inside of an analog computer, include rate-of-change indicators for process instrumentation.  One such rate-of-change signal application might be for monitoring (or controlling) the rate of temperature change in a furnace, where too high or too low of a temperature rise rate could be detrimental.  The DC voltage produced by the differentiator circuit could be used to drive a comparator, which would signal an alarm or activate a control if the rate of change exceeded a pre-set level.
@@ -792,7 +791,7 @@ In process control, the derivative function is used to make control decisions fo
 On the other hand, there are applications where we need precisely the opposite function, called <i>integration</i> in calculus.  Here, the op-amp circuit would generate an output voltage proportional to the magnitude and duration that an input voltage signal has deviated from 0 volts.  Stated differently, a constant input signal would generate a certain <i>rate of change</i> in the output voltage: differentiation in reverse.  To do this, all we have to do is swap the capacitor and resistor in the previous circuit:
 </p>
 
-<p> <img src="03049.png"> </p> 
+<p> <img src="03049.png"> </p>
 
 <p>
 As before, the negative feedback of the op-amp ensures that the inverting input will be held at 0 volts (the virtual ground).  If the input voltage is exactly 0 volts, there will be no current through the resistor, therefore no charging of the capacitor, and therefore the output voltage will not change.  We cannot guarantee what voltage will be at the output with respect to ground in this condition, but we can say that the output voltage <i>will be constant</i>.
@@ -806,7 +805,7 @@ However, if we apply a constant, positive voltage to the input, the op-amp outpu
 The formula for determining voltage output for the integrator is as follows:
 </p>
 
-<p> <img src="13013.png"> </p> 
+<p> <img src="13013.png"> </p>
 
 <p>
 One application for this device would be to keep a "running total" of radiation exposure, or dosage, if the input voltage was a proportional signal supplied by an electronic radiation detector.  Nuclear radiation can be just as damaging at low intensities for long periods of time as it is at high intensities for short periods of time.  An integrator circuit would take both the intensity (input voltage magnitude) and time into account, generating an output voltage representing total radiation dosage.
@@ -847,7 +846,7 @@ The basic principle of negative feedback is that the output tends to drive in a 
 With negative feedback (the output voltage "fed back" somehow to the inverting input), the circuit tends to prevent itself from driving the output to full saturation.  Rather, the output voltage drives only as high or as low as needed to balance the two inputs' voltages:
 </p>
 
-<p> <img src="03051.png"> </p> 
+<p> <img src="03051.png"> </p>
 
 <p>
 Whether the output is directly fed back to the inverting (-) input or coupled through a set of components, the effect is the same: the extremely high differential voltage gain of the op-amp will be "tamed" and the circuit will respond according to the dictates of the feedback "loop" connecting output to inverting input.
@@ -860,13 +859,13 @@ Whether the output is directly fed back to the inverting (-) input or coupled th
 Another type of feedback, namely <i>positive feedback</i>, also finds application in op-amp circuits.  Unlike negative feedback, where the output voltage is "fed back" to the inverting (-) input, with positive feedback the output voltage is somehow routed back to the noninverting (+) input.  In its simplest form, we could connect a straight piece of wire from output to noninverting input and see what happens:
 </p>
 
-<p> <img src="03052.png"> </p> 
+<p> <img src="03052.png"> </p>
 
 <p>
 The inverting input remains disconnected from the feedback loop, and is free to receive an external voltage.  Let's see what happens if we ground the inverting input:
 </p>
 
-<p> <img src="03053.png"> </p> 
+<p> <img src="03053.png"> </p>
 
 <p>
 With the inverting input grounded (maintained at zero volts), the output voltage will be dictated by the magnitude and polarity of the voltage at the noninverting input.  If that voltage happens to be positive, the op-amp will drive its output positive as well, feeding that positive voltage back to the noninverting input, which will result in full positive output saturation.  On the other hand, if the voltage on the noninverting input happens to start out negative, the op-amp's output will drive in the negative direction, feeding back to the noninverting input and resulting in full negative saturation.
@@ -885,35 +884,35 @@ So, an op-amp with positive feedback tends to stay in whatever output state its 
 </p>
 
 <p>
-Hysteresis can be a useful property for a comparator circuit to have.  As we've seen before, comparators can be used to produce a square wave from any sort of ramping waveform (sine wave, triangle wave, sawtooth wave, etc.) input.  If the incoming AC waveform is noise-free (that is, a "pure" waveform), a simple comparator will work just fine.  
+Hysteresis can be a useful property for a comparator circuit to have.  As we've seen before, comparators can be used to produce a square wave from any sort of ramping waveform (sine wave, triangle wave, sawtooth wave, etc.) input.  If the incoming AC waveform is noise-free (that is, a "pure" waveform), a simple comparator will work just fine.
 </p>
 
-<p> <img src="03054.png"> </p> 
+<p> <img src="03054.png"> </p>
 
 <p>
 However, if there exist any anomalies in the waveform such as harmonics or "spikes" which cause the voltage to rise and fall significantly within the timespan of a single cycle, a comparator's output might switch states unexpectedly:
 </p>
 
-<p> <img src="03055.png"> </p> 
+<p> <img src="03055.png"> </p>
 
 <p>
 Any time there is a transition through the reference voltage level, no matter how tiny that transition may be, the output of the comparator will switch states, producing a square wave with "glitches."
 </p>
 
 <p>
-If we add a little positive feedback to the comparator circuit, we will introduce hysteresis into the output.  This hysteresis will cause the output to remain in its current state unless the AC input voltage undergoes a <i>major</i> change in magnitude.  
+If we add a little positive feedback to the comparator circuit, we will introduce hysteresis into the output.  This hysteresis will cause the output to remain in its current state unless the AC input voltage undergoes a <i>major</i> change in magnitude.
 </p>
 
-<p> <img src="03056.png"> </p> 
+<p> <img src="03056.png"> </p>
 
 <p>
 What this feedback resistor creates is a dual-reference for the comparator circuit.  The voltage applied to the noninverting (+) input as a reference which to compare with the incoming AC voltage changes depending on the value of the op-amp's output voltage.  When the op-amp output is saturated positive, the reference voltage at the noninverting input will be more positive than before.  Conversely, when the op-amp output is saturated negative, the reference voltage at the noninverting input will be more negative than before.  The result is easier to understand on a graph:
 </p>
 
-<p> <img src="03057.png"> </p> 
+<p> <img src="03057.png"> </p>
 
 <p>
-When the op-amp output is saturated positive, the upper reference voltage is in effect, and the output won't drop to a negative saturation level unless the AC input rises <i>above</i> that upper reference level.  Conversely, when the op-amp output is saturated negative, the lower reference voltage is in effect, and the output won't rise to a positive saturation level unless the AC input drops <i>below</i> that lower reference level.  The result is a clean square-wave output again, despite significant amounts of distortion in the AC input signal.  In order for a "glitch" to cause the comparator to switch from one state to another, it would have to be at least as big (tall) as the difference between the upper and lower reference voltage levels, and at the right point in time to cross both those levels. 
+When the op-amp output is saturated positive, the upper reference voltage is in effect, and the output won't drop to a negative saturation level unless the AC input rises <i>above</i> that upper reference level.  Conversely, when the op-amp output is saturated negative, the lower reference voltage is in effect, and the output won't rise to a positive saturation level unless the AC input drops <i>below</i> that lower reference level.  The result is a clean square-wave output again, despite significant amounts of distortion in the AC input signal.  In order for a "glitch" to cause the comparator to switch from one state to another, it would have to be at least as big (tall) as the difference between the upper and lower reference voltage levels, and at the right point in time to cross both those levels.
 </p>
 
 <a name="Oscillator, op-amp"></a>
@@ -923,7 +922,7 @@ When the op-amp output is saturated positive, the upper reference voltage is in 
 Another application of positive feedback in op-amp circuits is in the construction of oscillator circuits.  An <i>oscillator</i> is a device that produces an alternating (AC), or at least pulsing, output voltage.  Technically, it is known as an <i>astable</i> device: having no stable output state (no equilibrium whatsoever).  Oscillators are very useful devices, and they are easily made with just an op-amp and a few external components.
 </p>
 
-<p> <img src="03058.png"> </p> 
+<p> <img src="03058.png"> </p>
 
 <p>
 When the output is saturated positive, the V<sub>ref</sub> will be positive, and the capacitor will charge up in a positive direction.  When V<sub>ramp</sub> exceeds V<sub>ref</sub> by the tiniest margin, the output will saturate negative, and the capacitor will charge in the opposite direction (polarity).  Oscillation occurs because the positive feedback is instantaneous and the negative feedback is delayed (by means of an RC time constant).  The frequency of this oscillator may be adjusted by varying the size of any component.
@@ -943,7 +942,7 @@ When the output is saturated positive, the V<sub>ref</sub> will be positive, and
 
 
 <p>
-Real operational have some imperfections compared to an &ldquo;ideal&rdquo; model. A real device deviates from a perfect difference amplifier. One minus one may not be zero. It may have have an offset like an analog meter which is not zeroed. The inputs may draw current. The characteristics may drift with age and temperature. Gain may be reduced at high frequencies, and phase may shift from input to output. These imperfection may cause no noticable errors in some applications, unacceptable errors in others. In some cases these errors may be compensated for. Sometimes a higher quality, higher cost device is required. 
+Real operational have some imperfections compared to an &ldquo;ideal&rdquo; model. A real device deviates from a perfect difference amplifier. One minus one may not be zero. It may have have an offset like an analog meter which is not zeroed. The inputs may draw current. The characteristics may drift with age and temperature. Gain may be reduced at high frequencies, and phase may shift from input to output. These imperfection may cause no noticable errors in some applications, unacceptable errors in others. In some cases these errors may be compensated for. Sometimes a higher quality, higher cost device is required.
 </p>
 
 
@@ -957,7 +956,7 @@ Real operational have some imperfections compared to an &ldquo;ideal&rdquo; mode
 As stated before, an ideal differential amplifier only amplifies the voltage <i>difference</i> between its two inputs.  If the two inputs of a differential amplifier were to be shorted together (thus ensuring zero potential difference between them), there should be no change in output voltage for any amount of voltage applied between those two shorted inputs and ground:
 </p>
 
-<p> <img src="03059.png"> </p> 
+<p> <img src="03059.png"> </p>
 
 <a name="Common-mode voltage"></a>
 <a name="Voltage, common-mode"></a>
@@ -966,7 +965,7 @@ As stated before, an ideal differential amplifier only amplifies the voltage <i>
 Voltage that is common between either of the inputs and ground, as "V<sub>common-mode</sub>" is in this case, is called <i>common-mode voltage</i>.  As we vary this common voltage, the perfect differential amplifier's output voltage should hold absolutely steady (no change in output for any arbitrary change in common-mode input).  This translates to a <i>common-mode voltage gain</i> of zero.
 </p>
 
-<p> <img src="13014.png"> </p> 
+<p> <img src="13014.png"> </p>
 
 <p>
 The operational amplifier, being a differential amplifier with high differential gain, would ideally have zero common-mode gain as well.  In real life, however, this is not easily attained.  Thus, common-mode voltages will invariably have some effect on the op-amp's output voltage.
@@ -979,7 +978,7 @@ The operational amplifier, being a differential amplifier with high differential
 The performance of a real op-amp in this regard is most commonly measured in terms of its differential voltage gain (how much it amplifies the difference between two input voltages) versus its common-mode voltage gain (how much it amplifies a common-mode voltage).  The ratio of the former to the latter is called the <i>common-mode rejection ratio</i>, abbreviated as CMRR:
 </p>
 
-<p> <img src="13015.png"> </p> 
+<p> <img src="13015.png"> </p>
 
 <p>
 An ideal op-amp, with zero common-mode gain would have an infinite CMRR.  Real op-amps have high CMRRs, the ubiquitous 741 having something around 70 dB, which works out to a little over 3,000 in terms of a ratio.
@@ -993,36 +992,36 @@ Because the common mode rejection ratio in a typical op-amp is so high, common-m
 A consideration to keep in mind, though, is common-mode gain in differential op-amp circuits such as instrumentation amplifiers.  Outside of the op-amp's sealed package and extremely high differential gain, we may find common-mode gain introduced by an imbalance of resistor values.  To demonstrate this, we'll run a SPICE analysis on an instrumentation amplifier with inputs shorted together (no differential voltage), imposing a common-mode voltage to see what happens.  First, we'll run the analysis showing the output voltage of a perfectly balanced circuit.  We should expect to see no change in output voltage as the common-mode voltage changes:
 </p>
 
-<p> <img src="03060.png"> </p> 
+<p> <img src="03060.png"> </p>
 
 <br> </br>
 
 <pre>
-instrumentation amplifier 
-v1 1 0  
-rin1 1 0 9e12   
-rjump 1 4 1e-12 
-rin2 4 0 9e12   
-e1 3 0 1 2 999k 
-e2 6 0 4 5 999k 
-e3 9 0 8 7 999k 
-rload 9 0 10k   
-r1 2 3 10k      
-rgain 2 5 10k   
-r2 5 6 10k      
-r3 3 7 10k      
-r4 7 9 10k      
-r5 6 8 10k      
-r6 8 0 10k      
-.dc v1 0 10 1   
-.print dc v(9)  
-.end  
+instrumentation amplifier
+v1 1 0
+rin1 1 0 9e12
+rjump 1 4 1e-12
+rin2 4 0 9e12
+e1 3 0 1 2 999k
+e2 6 0 4 5 999k
+e3 9 0 8 7 999k
+rload 9 0 10k
+r1 2 3 10k
+rgain 2 5 10k
+r2 5 6 10k
+r3 3 7 10k
+r4 7 9 10k
+r5 6 8 10k
+r6 8 0 10k
+.dc v1 0 10 1
+.print dc v(9)
+.end
 </pre>
 
 <br> </br>
 
 <pre>
-v1            v(9)            
+v1            v(9)
 0.000E+00     0.000E+00
 1.000E+00     1.355E-16
 2.000E+00     2.710E-16
@@ -1045,13 +1044,13 @@ Aside from very small deviations (actually due to quirks of SPICE rather than re
 <br> </br>
 
 <pre>
-v1           v(9)            
+v1           v(9)
 0.000E+00     0.000E+00
 1.000E+00    -2.439E-02
 2.000E+00    -4.878E-02
 3.000E+00    -7.317E-02   This time we see a significant variation
 4.000E+00    -9.756E-02   (from 0 to 0.2439 volts) in output voltage
-5.000E+00    -1.220E-01   as the common-mode input voltage sweeps 
+5.000E+00    -1.220E-01   as the common-mode input voltage sweeps
 6.000E+00    -1.463E-01   from 0 to 10 volts as it did before.
 7.000E+00    -1.707E-01
 8.000E+00    -1.951E-01
@@ -1096,10 +1095,10 @@ While this problem may seem easy to avoid, its possibility is more likely than y
 <a name="Offset voltage, op-amp"></a>
 
 <p>
-Another practical concern for op-amp performance is <i>voltage offset</i>.  That is, effect of having the output voltage something other than zero volts when the two input terminals are shorted together.  Remember that operational amplifiers are differential amplifiers above all: they're supposed to amplify the difference in voltage between the two input connections and nothing more.  When that input voltage difference is exactly zero volts, we would (ideally) expect to have exactly zero volts present on the output.  However, in the real world this rarely happens.  Even if the op-amp in question has zero common-mode gain (infinite CMRR), the output voltage may not be at zero when both inputs are shorted together.  This deviation from zero is called <i>offset</i>.  
+Another practical concern for op-amp performance is <i>voltage offset</i>.  That is, effect of having the output voltage something other than zero volts when the two input terminals are shorted together.  Remember that operational amplifiers are differential amplifiers above all: they're supposed to amplify the difference in voltage between the two input connections and nothing more.  When that input voltage difference is exactly zero volts, we would (ideally) expect to have exactly zero volts present on the output.  However, in the real world this rarely happens.  Even if the op-amp in question has zero common-mode gain (infinite CMRR), the output voltage may not be at zero when both inputs are shorted together.  This deviation from zero is called <i>offset</i>.
 </p>
 
-<p> <img src="03061.png"> </p> 
+<p> <img src="03061.png"> </p>
 
 <p>
 A perfect op-amp would output exactly zero volts with both its inputs shorted together and grounded.  However, most op-amps off the shelf will drive their outputs to a saturated level, either negative or positive.  In the example shown above, the output voltage is saturated at a value of positive 14.7 volts, just a bit less than +V (+15 volts) due to the positive saturation limit of this particular op-amp.  Because the offset in this op-amp is driving the output to a completely saturated point, there's no way of telling how much voltage offset is present at the output.  If the +V/-V split power supply was of a high enough voltage, who knows, maybe the output would be several hundred volts one way or the other due to the effects of offset!
@@ -1109,7 +1108,7 @@ A perfect op-amp would output exactly zero volts with both its inputs shorted to
 For this reason, offset voltage is usually expressed in terms of the equivalent amount of <i>input</i> voltage differential producing this effect.  In other words, we imagine that the op-amp is perfect (no offset whatsoever), and a small voltage is being applied in series with one of the inputs to force the output voltage one way or the other away from zero.  Being that op-amp differential gains are so high, the figure for "input offset voltage" doesn't have to be much to account for what we see with shorted inputs:
 </p>
 
-<p> <img src="03062.png"> </p> 
+<p> <img src="03062.png"> </p>
 
 <a name="Offset null, op-amp"></a>
 
@@ -1117,12 +1116,12 @@ For this reason, offset voltage is usually expressed in terms of the equivalent 
 Offset voltage will tend to introduce slight errors in any op-amp circuit.  So how do we compensate for it?  Unlike common-mode gain, there are usually provisions made by the manufacturer to trim the offset of a packaged op-amp.  Usually, two extra terminals on the op-amp package are reserved for connecting an external "trim" potentiometer.  These connection points are labeled <i>offset null</i> and are used in this general way:
 </p>
 
-<p> <img src="03063.png"> </p> 
+<p> <img src="03063.png"> </p>
 
 <p>
 On single op-amps such as the 741 and 3130, the offset null connection points are pins 1 and 5 on the 8-pin DIP package.  Other models of op-amp may have the offset null connections located on different pins, and/or require a slightly difference configuration of trim potentiometer connection.  Some op-amps don't provide offset null pins at all!  Consult the manufacturer's specifications for details.
 </p>
- 
+
 
 
 
@@ -1143,22 +1142,22 @@ Inputs on an op-amp have extremely high input impedances.  That is, the input cu
 This idyllic picture, however, is not entirely true.  Op-amps, especially those op-amps with bipolar transistor inputs, have to have some amount of current through their input connections in order for their internal circuits to be properly biased.  These currents, logically, are called <i>bias currents</i>.  Under certain conditions, op-amp bias currents may be problematic.  The following circuit illustrates one of those problem conditions:
 </p>
 
-<p> <img src="03064.png"> </p> 
+<p> <img src="03064.png"> </p>
 
 <a name="Thermocouple"></a>
 <a name="Reference junction, thermocouple"></a>
 
 <p>
-At first glance, we see no apparent problems with this circuit.  A thermocouple, generating a small voltage proportional to temperature (actually, a voltage proportional to the <i>difference</i> in temperature between the measurement junction and the "reference" junction formed when the alloy thermocouple wires connect with the copper wires leading to the op-amp) drives the op-amp either positive or negative.  In other words, this is a kind of comparator circuit, comparing the temperature between the end thermocouple junction and the reference junction (near the op-amp).  The problem is this: the wire loop formed by the thermocouple does not provide a path for both input bias currents, because both bias currents are trying to go the same way (either into the op-amp or out of it).  
+At first glance, we see no apparent problems with this circuit.  A thermocouple, generating a small voltage proportional to temperature (actually, a voltage proportional to the <i>difference</i> in temperature between the measurement junction and the "reference" junction formed when the alloy thermocouple wires connect with the copper wires leading to the op-amp) drives the op-amp either positive or negative.  In other words, this is a kind of comparator circuit, comparing the temperature between the end thermocouple junction and the reference junction (near the op-amp).  The problem is this: the wire loop formed by the thermocouple does not provide a path for both input bias currents, because both bias currents are trying to go the same way (either into the op-amp or out of it).
 </p>
 
-<p> <img src="03065.png"> </p> 
+<p> <img src="03065.png"> </p>
 
 <p>
 In order for this circuit to work properly, we must ground one of the input wires, thus providing a path to (or from) ground for both currents:
 </p>
 
-<p> <img src="03066.png"> </p> 
+<p> <img src="03066.png"> </p>
 
 <p>
 Not necessarily an obvious problem, but a very real one!
@@ -1168,7 +1167,7 @@ Not necessarily an obvious problem, but a very real one!
 Another way input bias currents may cause trouble is by dropping unwanted voltages across circuit resistances.  Take this circuit for example:
 </p>
 
-<p> <img src="03067.png"> </p> 
+<p> <img src="03067.png"> </p>
 
 <p>
 We expect a voltage follower circuit such as the one above to reproduce the input voltage precisely at the output.  But what about the resistance in series with the input voltage source?  If there is any bias current through the noninverting (+) input at all, it will drop some voltage across R<sub>in</sub>, thus making the voltage at the noninverting input unequal to the actual V<sub>in</sub> value.  Bias currents are usually in the microamp range, so the voltage drop across R<sub>in</sub> won't be very much, unless R<sub>in</sub> is very large.  One example of an application where the input resistance (R<sub>in</sub>) <i>would</i> be very large is that of pH probe electrodes, where one electrode contains an ion-permeable glass barrier (a very poor conductor, with millions of &#937; of resistance).
@@ -1182,7 +1181,7 @@ If we were actually building an op-amp circuit for pH electrode voltage measurem
 One way to do so is based on the assumption that the two input bias currents will be the same.  In reality, they are often close to being the same, the difference between them referred to as the <i>input offset current</i>.  If they are the same, then we should be able to cancel out the effects of input resistance voltage drop by inserting an equal amount of resistance in series with the other input, like this:
 </p>
 
-<p> <img src="03068.png"> </p> 
+<p> <img src="03068.png"> </p>
 
 <p>
 With the additional resistance added to the circuit, the output voltage will be closer to V<sub>in</sub> than before, even if there is some offset between the two input currents.
@@ -1192,7 +1191,7 @@ With the additional resistance added to the circuit, the output voltage will be 
 For both inverting and noninverting amplifier circuits, the bias current compensating resistor is placed in series with the noninverting (+) input to compensate for bias current voltage drops in the divider network:
 </p>
 
-<p> <img src="03069.png"> </p> 
+<p> <img src="03069.png"> </p>
 
 <p>
 
@@ -1200,33 +1199,33 @@ For both inverting and noninverting amplifier circuits, the bias current compens
 
 <br> </br>
 
-<p> <img src="03070.png"> </p> 
+<p> <img src="03070.png"> </p>
 
 <p>
-In either case, the compensating resistor value is determined by calculating the parallel resistance value of R<sub>1</sub> and R<sub>2</sub>.  Why is the value equal to the <i>parallel</i> equivalent of R<sub>1</sub> and R<sub>2</sub>?  When using the Superposition Theorem to figure how much voltage drop will be produced by the inverting (-) input's bias current, we treat the bias current as though it were coming from a current source inside the op-amp and short-circuit all voltage sources (V<sub>in</sub> and V<sub>out</sub>).  This gives two parallel paths for bias current (through R<sub>1</sub> and through R<sub>2</sub>, both to ground).  We want to duplicate the bias current's effect on the noninverting (+) input, so the resistor value we choose to insert in series with that input needs to be equal to R<sub>1</sub> in parallel with R<sub>2</sub>. 
+In either case, the compensating resistor value is determined by calculating the parallel resistance value of R<sub>1</sub> and R<sub>2</sub>.  Why is the value equal to the <i>parallel</i> equivalent of R<sub>1</sub> and R<sub>2</sub>?  When using the Superposition Theorem to figure how much voltage drop will be produced by the inverting (-) input's bias current, we treat the bias current as though it were coming from a current source inside the op-amp and short-circuit all voltage sources (V<sub>in</sub> and V<sub>out</sub>).  This gives two parallel paths for bias current (through R<sub>1</sub> and through R<sub>2</sub>, both to ground).  We want to duplicate the bias current's effect on the noninverting (+) input, so the resistor value we choose to insert in series with that input needs to be equal to R<sub>1</sub> in parallel with R<sub>2</sub>.
 </p>
 
 <p>
 A related problem, occasionally experienced by students just learning to build operational amplifier circuits, is caused by a lack of a common ground connection to the power supply.  It is <i>imperative</i> to proper op-amp function that some terminal of the DC power supply be common to the "ground" connection of the input signal(s).  This provides a complete path for the bias currents, feedback current(s), and for the load (output) current.  Take this circuit illustration, for instance, showing a properly grounded power supply:
 </p>
 
-<p> <img src="03233.png"> </p> 
+<p> <img src="03233.png"> </p>
 
 <p>
 Here, arrows denote the path of electron flow through the power supply batteries, both for powering the op-amp's internal circuitry (the "potentiometer" inside of it that controls output voltage), and for powering the feedback loop of resistors R<sub>1</sub> and R<sub>2</sub>.  Suppose, however, that the ground connection for this "split" DC power supply were to be removed.  The effect of doing this is profound:
 </p>
 
-<p> <img src="03363.png"> </p> 
+<p> <img src="03363.png"> </p>
 
 <p>
 No electrons may flow in or out of the op-amp's output terminal, because the pathway to the power supply is a "dead end."  Thus, no electrons flow through the ground connection to the left of R<sub>1</sub>, neither through the feedback loop.  This effectively renders the op-amp useless: it can neither sustain current through the feedback loop, nor through a grounded load, since there is no connection from any point of the power supply to ground.
 </p>
 
 <p>
-The bias currents are also stopped, because they rely on a path to the power supply and back to the input source through ground.  The following diagram shows the bias currents (only), as they go through the input terminals of the op-amp, through the base terminals of the input transistors, and eventually through the power supply terminal(s) and back to ground.  
+The bias currents are also stopped, because they rely on a path to the power supply and back to the input source through ground.  The following diagram shows the bias currents (only), as they go through the input terminals of the op-amp, through the base terminals of the input transistors, and eventually through the power supply terminal(s) and back to ground.
 </p>
 
-<p> <img src="03364.png"> </p> 
+<p> <img src="03364.png"> </p>
 
 <p>
 Without a ground reference on the power supply, the bias currents will have no complete path for a circuit, and they will halt.  Since bipolar junction transistors are current-controlled devices, this renders the input stage of the op-amp useless as well, as both input transistors will be forced into cutoff by the complete lack of base current.
@@ -1260,7 +1259,7 @@ Being semiconductor devices, op-amps are subject to slight changes in behavior w
 <p>
 To minimize op-amp drift, we can select an op-amp made to have minimum drift, and/or we can do our best to keep the operating temperature as stable as possible.  The latter action may involve providing some form of temperature control for the inside of the equipment housing the op-amp(s).  This is not as strange as it may first seem.  Laboratory-standard precision voltage reference generators, for example, are sometimes known to employ "ovens" for keeping their sensitive components (such as zener diodes) at constant temperatures.  If extremely high accuracy is desired over the usual factors of cost and flexibility, this may be an option worth looking at.
 </p>
- 
+
 <ul>
 <li><b>REVIEW:</b></li>
 <li>Op-amps, being semiconductor devices, are susceptible to variations in temperature.  Any variations in amplifier performance resulting from changes in temperature is known as <i>drift</i>.  Drift is best minimized with environmental temperature control.</li>
@@ -1321,22 +1320,22 @@ Op-amp manufacturers will publish the frequency response curves for their produc
 In order to illustrate the phase shift from input to output of an operational amplifier (op-amp), the OPA227 was tested in our lab.  The OPA227 was constructed in a typical non-inverting  configuration (Figure <a href="#53004.jpg">  below</a>).
 </p>
 
- 
-<a name="53004.jpg"></a> 
-<p> <img src="53004.jpg"> </p> 
-<p><i>OPA227 Non-inverting stage</i></p> 
+
+<a name="53004.jpg"></a>
+<p> <img src="53004.jpg"> </p>
+<p><i>OPA227 Non-inverting stage</i></p>
 
 
 <p>
-The circuit configuration calls for a signal gain of  &#8773;34 V/V or &#8773;50 dB.  The input excitation at Vsrc was  set to 10 mVp, and three frequencies of interest: 2.2 kHz, 22 kHz, and 220 MHz. 
+The circuit configuration calls for a signal gain of  &#8773;34 V/V or &#8773;50 dB.  The input excitation at Vsrc was  set to 10 mVp, and three frequencies of interest: 2.2 kHz, 22 kHz, and 220 MHz.
 <!--split for double ref-->
 The OPA227's open loop gain and phase curve vs. frequency is shown in Figure <a href="#53005.jpg">  below</a>.
 </p>
 
- 
-<a name="53005.jpg"></a> 
-<p> <img src="53005.jpg"> </p> 
-<p><i>A<sub>V</sub> and &#934;  vs. Frequency plot</i></p> 
+
+<a name="53005.jpg"></a>
+<p> <img src="53005.jpg"> </p>
+<p><i>A<sub>V</sub> and &#934;  vs. Frequency plot</i></p>
 
 
 <p>
@@ -1345,45 +1344,45 @@ To help predict the closed loop phase shift from input to output, we can use the
 
 
 <p>
-What is actually at work here is the negative feedback from the closed loop modifies the open loop  response.  Closing the loop with negative feedback  establishes a closed loop pole at 22 kHz.  Much like the dominant pole in the open loop phase  curve, we will expect phase shift in the closed  loop response.  How much phase shift will we see? 
+What is actually at work here is the negative feedback from the closed loop modifies the open loop  response.  Closing the loop with negative feedback  establishes a closed loop pole at 22 kHz.  Much like the dominant pole in the open loop phase  curve, we will expect phase shift in the closed  loop response.  How much phase shift will we see?
 </p>
 
 <p>
-Since the new pole is now at 22 kHz, this is also  the -3 dB point as the pole starts to roll off the  closed loop again at 20 dB per decade as stated earlier.  As with any pole in basic control theory, phase shift starts to occur one decade in frequency  before the pole, and ends at 90<sup>o</sup> of phase shift  one decade in frequency after the pole.  So what does this predict for the closed loop response in our circuit? 
+Since the new pole is now at 22 kHz, this is also  the -3 dB point as the pole starts to roll off the  closed loop again at 20 dB per decade as stated earlier.  As with any pole in basic control theory, phase shift starts to occur one decade in frequency  before the pole, and ends at 90<sup>o</sup> of phase shift  one decade in frequency after the pole.  So what does this predict for the closed loop response in our circuit?
 </p>
 
 <p>
-This will predict phase shift starting at 2.2 kHz, with 45<sup>o</sup> of phase shift at the -3 dB point of 22 kHz, and finally ending with 90<sup>o</sup> of phase shift at 220 kHz. The three  Figures shown below are  oscilloscope captures at the frequencies of interest for our OPA227 circuit.  Figure <a href="#53006.jpg">  below</a> is set for 2.2 kHz, and no noticeable phase shift is present. 
+This will predict phase shift starting at 2.2 kHz, with 45<sup>o</sup> of phase shift at the -3 dB point of 22 kHz, and finally ending with 90<sup>o</sup> of phase shift at 220 kHz. The three  Figures shown below are  oscilloscope captures at the frequencies of interest for our OPA227 circuit.  Figure <a href="#53006.jpg">  below</a> is set for 2.2 kHz, and no noticeable phase shift is present.
 <!--split for double ref-->
-Figure <a href="#53007.jpg">  below</a> is set for 220 kHz, and &#8773;45<sup>o</sup> of phase shift is  recorded.  
+Figure <a href="#53007.jpg">  below</a> is set for 220 kHz, and &#8773;45<sup>o</sup> of phase shift is  recorded.
 <!--split for double ref-->
 Finally,  Figure <a href="#53008.jpg">  below</a> is set for 220 MHz, and the expected &#8773;90<sup>o</sup> of phase shift is recorded. The scope plots were captured using a LeCroy 44x Wavesurfer. The final scope plot used a x1 probe with the trigger set to HF reject.
 </p>
 <br> </br>
- 
 
- 
-<a name="53006.jpg"></a> 
-<p> <img src="53006.jpg"> </p> 
-<p><i>OPA227 Av=50dB @ 2.2 kHz</i></p> 
 
-<br> </br>
- 
-<a name="53007.jpg"></a> 
-<p> <img src="53007.jpg"> </p> 
-<p><i>OPA227 Av=50dB @ 22 kHz</i></p> 
+
+<a name="53006.jpg"></a>
+<p> <img src="53006.jpg"> </p>
+<p><i>OPA227 Av=50dB @ 2.2 kHz</i></p>
 
 <br> </br>
- 
-<a name="53008.jpg"></a> 
-<p> <img src="53008.jpg"> </p> 
-<p><i>OPA227 Av=50dB @ 220 kHz</i></p> 
 
-   
+<a name="53007.jpg"></a>
+<p> <img src="53007.jpg"> </p>
+<p><i>OPA227 Av=50dB @ 22 kHz</i></p>
 
-   
+<br> </br>
 
-   
+<a name="53008.jpg"></a>
+<p> <img src="53008.jpg"> </p>
+<p><i>OPA227 Av=50dB @ 220 kHz</i></p>
+
+
+
+
+
+
 
 <p>
 
@@ -1402,13 +1401,13 @@ Finally,  Figure <a href="#53008.jpg">  below</a> is set for 220 MHz, and the ex
 While mention of operational amplifiers typically provokes visions of semiconductor devices built as integrated circuits on a miniature silicon chip, the first op-amps were actually vacuum tube circuits.  The first commercial, general purpose operational amplifier was manufactured by the George A. Philbrick Researches, Incorporated, in 1952.  Designated the K2-W, it was built around two twin-triode tubes mounted in an assembly with an octal (8-pin) socket for easy installation and servicing in electronic equipment chassis of that era.  The assembly looked something like this:
 </p>
 
-<p> <img src="03234.png"> </p> 
+<p> <img src="03234.png"> </p>
 
 <p>
 The schematic diagram shows the two tubes, along with ten resistors and two capacitors, a fairly simple circuit design even by 1952 standards:
 </p>
 
-<p> <img src="03235.png"> </p> 
+<p> <img src="03235.png"> </p>
 
 <a name="Differential pair"></a>
 
@@ -1428,11 +1427,11 @@ With the advent of solid-state transistors, op-amps with far less quiescent powe
 It isn't very difficult to build a crude operational amplifier using discrete components.  A schematic of one such circuit is shown in Figure <a href="#03322.png">  below</a>.
 </p>
 
- 
-<a name="03322.png"></a> 
-<p> <img src="03322.png"> </p> 
-<p><i>A simple operational amplifier made from discrete components.</i></p> 
- 
+
+<a name="03322.png"></a>
+<p> <img src="03322.png"> </p>
+<p><i>A simple operational amplifier made from discrete components.</i></p>
+
 
 <a name="Differential pair"></a>
 
@@ -1448,11 +1447,11 @@ With the advent of integrated-circuit (IC) technology, op-amp designs experience
 The internal schematic diagram for a model 741 op-amp is shown in Figure <a href="#03323.png">  below</a>.
 </p>
 
- 
-<a name="03323.png"></a> 
-<p> <img src="03323.png"> </p> 
-<p><i>Schematic diagram of a model 741 op-amp.</i></p> 
- 
+
+<a name="03323.png"></a>
+<p> <img src="03323.png"> </p>
+<p><i>Schematic diagram of a model 741 op-amp.</i></p>
+
 
 <a name="Small-scale integration"></a>
 <a name="SSI"></a>
@@ -1462,13 +1461,13 @@ By integrated circuit standards, the 741 is a very simple device: an example of 
 </p>
 
 <p>
-For the hobbyist, student, or engineer desiring greater performance, there are literally hundreds of op-amp models to choose from.  Many sell for less than a dollar apiece, even retail!  Special-purpose instrumentation and radio-frequency (RF) op-amps may be quite a bit more expensive.  In this section I will showcase several popular and affordable op-amps, comparing and contrasting their performance specifications.  The venerable 741 is included as a "benchmark" for comparison, although it is, as I said before, considered an obsolete design.  
+For the hobbyist, student, or engineer desiring greater performance, there are literally hundreds of op-amp models to choose from.  Many sell for less than a dollar apiece, even retail!  Special-purpose instrumentation and radio-frequency (RF) op-amps may be quite a bit more expensive.  In this section I will showcase several popular and affordable op-amps, comparing and contrasting their performance specifications.  The venerable 741 is included as a "benchmark" for comparison, although it is, as I said before, considered an obsolete design.
 </p>
 
 
 
 
- 
+
 <a name="opamp1.tbl"><p><i>Widely used operational amplifiers</i></p></a>
 
 <table border="1" style="background-color: #E0FFFF; " >
@@ -1522,7 +1521,7 @@ For the hobbyist, student, or engineer desiring greater performance, there are l
 
 
 <p>
-Listed in Table  <a href="#opamp1.tbl">  above</a> are but a few of the low-cost operational amplifier models widely available from electronics suppliers.  Most of them are available through retail supply stores such as Radio Shack.  All are under $1.00 cost direct from the manufacturer (year 2001 prices).  As you can see, there is substantial variation in performance between some of these units.  Take for instance the parameter of input bias current: the CA3130 wins the prize for lowest, at 0.05 nA (or 50 pA), and the LM833 has the highest at slightly over 1 &#181;A.  The model CA3130 achieves its incredibly low bias current through the use of MOSFET transistors in its input stage.  One manufacturer advertises the 3130's input impedance as 1.5 tera-ohms, or 1.5 x 10<sup>12</sup> &#937;!  Other op-amps shown here with low bias current figures use JFET input transistors, while the high bias current models use bipolar input transistors.  
+Listed in Table  <a href="#opamp1.tbl">  above</a> are but a few of the low-cost operational amplifier models widely available from electronics suppliers.  Most of them are available through retail supply stores such as Radio Shack.  All are under $1.00 cost direct from the manufacturer (year 2001 prices).  As you can see, there is substantial variation in performance between some of these units.  Take for instance the parameter of input bias current: the CA3130 wins the prize for lowest, at 0.05 nA (or 50 pA), and the LM833 has the highest at slightly over 1 &#181;A.  The model CA3130 achieves its incredibly low bias current through the use of MOSFET transistors in its input stage.  One manufacturer advertises the 3130's input impedance as 1.5 tera-ohms, or 1.5 x 10<sup>12</sup> &#937;!  Other op-amps shown here with low bias current figures use JFET input transistors, while the high bias current models use bipolar input transistors.
 </p>
 
 <p>
@@ -1530,7 +1529,7 @@ While the 741 is specified in many electronic project schematics and showcased i
 </p>
 
 <p>
-My own personal recommendations for op-amps are as such: when low bias current is a priority (such as in low-speed integrator circuits), choose the 3130.  For general-purpose DC amplifier work, the 1458 offers good performance (and you get two op-amps in the space of one package).  For an upgrade in performance, choose the model 353, as it is a pin-compatible replacement for the 1458.  The 353 is designed with JFET input circuitry for very low bias current, and has a bandwidth 4 times are great as the 1458, although its output current limit is lower (but still short-circuit protected).  It may be more difficult to find on the shelf of your local electronics supply house, but it is just as reasonably priced as the 1458.  
+My own personal recommendations for op-amps are as such: when low bias current is a priority (such as in low-speed integrator circuits), choose the 3130.  For general-purpose DC amplifier work, the 1458 offers good performance (and you get two op-amps in the space of one package).  For an upgrade in performance, choose the model 353, as it is a pin-compatible replacement for the 1458.  The 353 is designed with JFET input circuitry for very low bias current, and has a bandwidth 4 times are great as the 1458, although its output current limit is lower (but still short-circuit protected).  It may be more difficult to find on the shelf of your local electronics supply house, but it is just as reasonably priced as the 1458.
 </p>
 
 <p>
@@ -1547,7 +1546,7 @@ Special-purpose op-amps are available for modest cost which provide better perfo
 
 
 
- 
+
 <a name="opamp2.tbl"><p><i>High bandwidth operational amplifiers</i></p></a>
 
 <table border="1" style="background-color: #E0FFFF; " >
@@ -1578,7 +1577,7 @@ The CLC404 lists at $21.80 (almost as much as George Philbrick's first commercia
 </p>
 
 
- 
+
 <a name="opamp3.tbl"><p><i>High current operational amplifiers</i></p></a>
 
 <table border="1" style="background-color: #E0FFFF; " >

@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,18 +20,17 @@
 <a href="DIGI_3.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume IV</h1>
 <h1>Chapter 2</h1>
 
 
 <!--Modified 11/14/2004 (DC) -- Added Paul Stokes name to the contributor's list see contrib.sml for change details-->
 
-<h1>BINARY ARITHMETIC</h1> 
+<h1>BINARY ARITHMETIC</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid36940"><u>Numbers versus numeration</u></a></li>
@@ -47,7 +46,7 @@
 <a name="Numeration system"></a>
 
 <p>
-It is imperative to understand that the type of numeration system used to represent numbers has no impact upon the outcome of any arithmetical function (addition, subtraction, multiplication, division, roots, powers, or logarithms).  A number is a number is a number; one plus one will always equal two (so long as we're dealing with <i>real</i> numbers), no matter how you symbolize one, one, and two.  A prime number in decimal form is still prime if its shown in binary form, or octal, or hexadecimal.  &#960; is still the ratio between the circumference and diameter of a circle, no matter what symbol(s) you use to denote its value.  The essential functions and interrelations of mathematics are unaffected by the particular system of symbols we might choose to represent quantities.  This distinction between <i>numbers</i> and <i>systems of numeration</i> is critical to understand.  
+It is imperative to understand that the type of numeration system used to represent numbers has no impact upon the outcome of any arithmetical function (addition, subtraction, multiplication, division, roots, powers, or logarithms).  A number is a number is a number; one plus one will always equal two (so long as we're dealing with <i>real</i> numbers), no matter how you symbolize one, one, and two.  A prime number in decimal form is still prime if its shown in binary form, or octal, or hexadecimal.  &#960; is still the ratio between the circumference and diameter of a circle, no matter what symbol(s) you use to denote its value.  The essential functions and interrelations of mathematics are unaffected by the particular system of symbols we might choose to represent quantities.  This distinction between <i>numbers</i> and <i>systems of numeration</i> is critical to understand.
 </p>
 
 <p>
@@ -57,7 +56,7 @@ The essential distinction between the two is much like that between an object an
 <p>
 That being said, performing a simple arithmetic operation such as addition (longhand) in binary form can be confusing to a person accustomed to working with decimal numeration only.  In this lesson, we'll explore the techniques used to perform simple arithmetic functions on binary numbers, since these techniques will be employed in the design of electronic circuits to do the same.  You might take longhand addition and subtraction for granted, having used a calculator for so long, but deep inside that calculator's circuitry all those operations are performed "longhand," using binary numeration.  To understand how that's accomplished, we need to review to the basics of arithmetic.
 </p>
- 
+
 
 
 
@@ -107,7 +106,7 @@ The addition problem on the left did not require any bits to be carried, since t
 <p>
 As we'll see later, there are ways that electronic circuits can be built to perform this very task of addition, by representing each bit of each binary number as a voltage signal (either "high," for a 1; or "low" for a 0).  This is the very foundation of all the arithmetic which modern digital computers perform.
 </p>
- 
+
 
 
 
@@ -148,7 +147,7 @@ As you can see, we have to be careful when we start using bits for any purpose o
 <a name="Sign-magnitude"></a>
 
 <p>
-Representing negative five as 1101<sub>2</sub> is an example of the <i>sign-magnitude</i> system of negative binary numeration.  By using the leftmost bit as a sign indicator and not a place-weighted value, I am sacrificing the "pure" form of binary notation for something that gives me a practical advantage: the representation of negative numbers.  The leftmost bit is read as the sign, either positive or negative, and the remaining bits are interpreted according to the standard binary notation: left to right, place weights in multiples of two. 
+Representing negative five as 1101<sub>2</sub> is an example of the <i>sign-magnitude</i> system of negative binary numeration.  By using the leftmost bit as a sign indicator and not a place-weighted value, I am sacrificing the "pure" form of binary notation for something that gives me a practical advantage: the representation of negative numbers.  The leftmost bit is read as the sign, either positive or negative, and the remaining bits are interpreted according to the standard binary notation: left to right, place weights in multiples of two.
 </p>
 
 <p>
@@ -240,7 +239,7 @@ It is critically important to remember that the place of the negative-weight bit
 </p>
 
 
- 
+
 
 
 
@@ -297,7 +296,7 @@ Since we've already defined our number bit field as three bits plus the negative
 </p>
 
 <p>
-Another way to understand why we discard that extra bit is to remember that the leftmost bit of the lower number possesses a negative weight, in this case equal to negative eight.  When we add these two binary numbers together, what we're actually doing with the MSBs is subtracting the lower number's MSB from the upper number's MSB.  In subtraction, one never "carries" a digit or bit on to the next left place-weight.  
+Another way to understand why we discard that extra bit is to remember that the leftmost bit of the lower number possesses a negative weight, in this case equal to negative eight.  When we add these two binary numbers together, what we're actually doing with the MSBs is subtracting the lower number's MSB from the upper number's MSB.  In subtraction, one never "carries" a digit or bit on to the next left place-weight.
 </p>
 
 <p>
@@ -307,9 +306,9 @@ Let's try another example, this time with larger numbers.  If we want to add -25
 <br> </br>
 
 <pre>
-+25<sub>10</sub>  = 011001<sub>2</sub> (showing all six bits)      
++25<sub>10</sub>  = 011001<sub>2</sub> (showing all six bits)
 One's complement of 11001<sub>2</sub> = 100110<sub>2</sub>
-One's complement + 1 = two's complement = 100111<sub>2</sub>        
+One's complement + 1 = two's complement = 100111<sub>2</sub>
 -25<sub>10</sub> = 100111<sub>2</sub>
 </pre>
 
@@ -327,7 +326,7 @@ Now, let's represent positive eighteen in binary form, showing all six bits:
 
 <pre>
 .              18<sub>10</sub>  = 010010<sub>2</sub>
-.       
+.
 .       Now, let's add them together and see what we get:
 .
 .                     11   <--- Carry bits
@@ -346,11 +345,11 @@ Since there were no "extra" bits on the left, there are no bits to discard.  The
 <br> </br>
 
 <pre>
-(1 x -32<sub>10</sub>)  +  (1 x 16<sub>10</sub>)  +  (1 x 8<sub>10</sub>)  +  (1 x 1<sub>10</sub>)  = -7<sub>10</sub> 
+(1 x -32<sub>10</sub>)  +  (1 x 16<sub>10</sub>)  +  (1 x 8<sub>10</sub>)  +  (1 x 1<sub>10</sub>)  = -7<sub>10</sub>
 </pre>
 
 <br> </br>
- 
+
 <p>
 Indeed -7<sub>10</sub> is the proper sum of -25<sub>10</sub>  and 18<sub>10</sub>.
 </p>
@@ -379,8 +378,8 @@ One caveat with signed binary numbers is that of <i>overflow</i>, where the answ
 .                           1  11  <--- Carry bits
 .    (Showing sign bits)    010001
 .                         + 010011
-.                         -------- 
-.                           100100 
+.                         --------
+.                           100100
 </pre>
 
 <br> </br>
@@ -402,8 +401,8 @@ A similar error will occur if we add two negative numbers together to produce a 
 .    (Showing sign bits)    101111
 .                         + 101101
 .                         --------
-.                          1011100 
-.                          |            
+.                          1011100
+.                          |
 .                  Discard extra bit
 .
 FINAL ANSWER:   011100<sub>2</sub>   = +28<sub>10</sub>
@@ -422,7 +421,7 @@ Let's try these two problems again, except this time using the seventh bit for a
 <br> </br>
 
 <pre>
-.         17<sub>10</sub> + 19<sub>10</sub>                     (-17<sub>10</sub>) + (-19<sub>10</sub>) 
+.         17<sub>10</sub> + 19<sub>10</sub>                     (-17<sub>10</sub>) + (-19<sub>10</sub>)
 .
 .          1  11                           11 1111
 .         0010001                           1101111
@@ -475,7 +474,7 @@ The singular reason for learning and using the binary numeration system in elect
 If we were to build a circuit to represent a binary number, we would have to allocate enough transistor circuits to represent as many bits as we desire.  In other words, in designing a digital circuit, we must first decide how many bits (maximum) we would like to be able to represent, since each bit requires one on/off circuit to represent it.  This is analogous to designing an abacus to digitally represent decimal numbers: we must decide how many digits we wish to handle in this primitive "calculator" device, for each digit requires a separate rod with its own beads.
 </p>
 
-<p> <img src="04315.png"> </p> 
+<p> <img src="04315.png"> </p>
 
 <p>
 A ten-rod abacus would be able to represent a ten-digit decimal number, or a maxmium value of 9,999,999,999.  If we wished to represent a larger number on this abacus, we would be unable to, unless additional rods could be added to it.
@@ -492,7 +491,7 @@ Eight bits, grouped together to form a single binary quantity, is known as a <i>
 </p>
 
 <p>
-A multitude of terms have followed byte and nibble for labeling specfiic groupings of binary bits.  Most of the terms shown here are informal, and have not been made "authoritative" by any standards group or other sanctioning body.  However, their inclusion into this chapter is warranted by their occasional appearance in technical literature, as well as the levity they add to an otherwise dry subject: 
+A multitude of terms have followed byte and nibble for labeling specfiic groupings of binary bits.  Most of the terms shown here are informal, and have not been made "authoritative" by any standards group or other sanctioning body.  However, their inclusion into this chapter is warranted by their occasional appearance in technical literature, as well as the levity they add to an otherwise dry subject:
 </p>
 
 <a name="Bit"></a>

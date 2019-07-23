@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,18 +20,17 @@
 <a href="DIGI_6.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume IV</h1>
 <h1>Chapter 5</h1>
 
 
 
 
-<h1>ELECTROMECHANICAL RELAYS</h1> 
+<h1>ELECTROMECHANICAL RELAYS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid37180"><u>Relay construction</u></a></li>
@@ -46,7 +45,7 @@
 An electric current through a conductor will produce a magnetic field at right angles to the direction of electron flow.  If that conductor is wrapped into a coil shape, the magnetic field produced will be oriented along the length of the coil.  The greater the current, the greater the strength of the magnetic field, all other factors being equal:
 </p>
 
-<p> <img src="04040.png"> </p> 
+<p> <img src="04040.png"> </p>
 
 <p>
 Inductors react against changes in current because of the energy stored in this magnetic field.  When we construct a transformer from two inductor coils around a common iron core, we use this field to transfer energy from one coil to the other.  However, there are simpler and more direct uses for electromagnetic fields than the applications we've seen with inductors and transformers.  The magnetic field produced by a coil of current-carrying wire can be used to exert a mechanical force on any magnetic object, just as we can use a permanent magnet to attract magnetic objects, except that this magnet (formed by the coil) can be turned on or off by switching the current on or off through the coil.
@@ -68,7 +67,7 @@ Relays are extremely useful when we have a need to control a large amount of cur
 Just as with transistors, the relay's ability to control one electrical signal with another finds application in the construction of logic functions.  This topic will be covered in greater detail in another lesson.  For now, the relay's "amplifying" ability will be explored.
 </p>
 
-<p> <img src="04041.png"> </p> 
+<p> <img src="04041.png"> </p>
 
 <p>
 In the above schematic, the relay's coil is energized by the low-voltage (12 VDC) source, while the single-pole, single-throw (SPST) contact interrupts the high-voltage (480 VAC) circuit.  It is quite likely that the current required to energize the relay coil will be hundreds of times less than the current rating of the contact.  Typical relay coil currents are well below 1 amp, while typical contact ratings for industrial relays are at least 10 amps.
@@ -86,7 +85,7 @@ Relay contacts may be open-air pads of metal alloy, mercury tubes, or even magne
 Shown here are three small relays (about two inches in height, each), installed on a panel as part of an electrical control system at a municipal water treatment plant:
 </p>
 
-<p> <img src="54009.jpg"> </p> 
+<p> <img src="54009.jpg"> </p>
 
 <p>
 The relay units shown here are called "octal-base," because they plug into matching sockets, the electrical connections secured via eight metal pins on the relay bottom.  The screw terminal connections you see in the photograph where wires connect to the relays are actually part of the socket assembly, into which each relay is plugged.  This type of construction facilitates easy removal and replacement of the relay(s) in the event of failure.
@@ -133,7 +132,7 @@ The hysteresis, or difference between pull-in and drop-out currents, results in 
 When a relay is used to switch a large amount of electrical power through its contacts, it is designated by a special name: <i>contactor</i>.  Contactors typically have multiple contacts, and those contacts are usually (but not always) normally-open, so that power to the load is shut off when the coil is de-energized.  Perhaps the most common industrial use for contactors is the control of electric motors.
 </p>
 
-<p> <img src="04042.png"> </p> 
+<p> <img src="04042.png"> </p>
 
 <p>
 The top three contacts switch the respective phases of the incoming 3-phase AC power, typically at least 480 Volts for motors 1 horsepower or greater.  The lowest contact is an "auxiliary" contact which has a current rating much lower than that of the large motor power contacts, but is actuated by the same armature as the power contacts.  The auxiliary contact is often used in a relay logic circuit, or for some other part of the motor control scheme, typically switching 120 Volt AC power instead of the motor voltage.  One contactor may have several auxiliary contacts, either normally-open or normally-closed, if required.
@@ -154,7 +153,7 @@ Overload heater function is often misunderstood.  They are not fuses; that is, i
 Shown here is a contactor for a three-phase electric motor, installed on a panel as part of an electrical control system at a municipal water treatment plant:
 </p>
 
-<p> <img src="54010.jpg"> </p> 
+<p> <img src="54010.jpg"> </p>
 
 <p>
 Three-phase, 480 volt AC power comes in to the three normally-open contacts at the top of the contactor via screw terminals labeled "L1," "L2," and "L3" (The "L2" terminal is hidden behind a square-shaped "snubber" circuit connected across the contactor's coil terminals).  Power to the motor exits the overload heater assembly at the bottom of this device via screw terminals labeled "T1," "T2," and "T3."
@@ -174,7 +173,7 @@ A white pushbutton located between the "T1" and "T2" line heaters serves as a wa
 As a footnote, heater elements may be used as a crude current shunt resistor for determining whether or not a motor is drawing current when the contactor is closed.  There may be times when you're working on a motor control circuit, where the contactor is located far away from the motor itself.  How do you know if the motor is consuming power when the contactor coil is energized and the armature has been pulled in?  If the motor's windings are burnt open, you could be sending voltage to the motor through the contactor contacts, but still have zero current, and thus no motion from the motor shaft.  If a clamp-on ammeter isn't available to measure line current, you can take your multimeter and measure millivoltage across each heater element: if the current is zero, the voltage across the heater will be zero (unless the heater element itself is open, in which case the voltage across it will be large); if there is current going to the motor through that phase of the contactor, you will read a definite millivoltage across that heater:
 </p>
 
-<p> <img src="04316.png"> </p> 
+<p> <img src="04316.png"> </p>
 
 <p>
 This is an especially useful trick to use for troubleshooting 3-phase AC motors, to see if one phase winding is burnt open or disconnected, which will result in a rapidly destructive condition known as "single-phasing."  If one of the lines carrying power to the motor is open, it will not have any current through it (as indicated by a 0.00 mV reading across its heater), although the other two lines will (as indicated by small amounts of voltage dropped across the respective heaters).
@@ -211,13 +210,13 @@ Time-delay relay contacts must be specified not only as either normally-open or 
 First we have the normally-open, timed-closed (NOTC) contact.  This type of contact is normally open when the coil is unpowered (de-energized).  The contact is closed by the application of power to the relay coil, but only after the coil has been continuously powered for the specified amount of time.  In other words, the <i>direction</i> of the contact's motion (either to close or to open) is identical to a regular NO contact, but there is a delay in <i>closing</i> direction.  Because the delay occurs in the direction of coil energization, this type of contact is alternatively known as a normally-open, <i>on</i>-delay:
 </p>
 
-<p> <img src="04043.png"> </p> 
+<p> <img src="04043.png"> </p>
 
 <p>
 The following is a timing diagram of this relay contact's operation:
 </p>
 
-<p> <img src="04044.png"> </p> 
+<p> <img src="04044.png"> </p>
 
 <a name="Normally-open, timed-open contact"></a>
 <a name="Time delay relay contact, NOTO"></a>
@@ -226,13 +225,13 @@ The following is a timing diagram of this relay contact's operation:
 Next we have the normally-open, timed-open (NOTO) contact.  Like the NOTC contact, this type of contact is normally open when the coil is unpowered (de-energized), and closed by the application of power to the relay coil.  However, unlike the NOTC contact, the timing action occurs upon <i>de-energization</i> of the coil rather than upon energization.  Because the delay occurs in the direction of coil de-energization, this type of contact is alternatively known as a normally-open, <i>off</i>-delay:
 </p>
 
-<p> <img src="04045.png"> </p> 
+<p> <img src="04045.png"> </p>
 
 <p>
 The following is a timing diagram of this relay contact's operation:
 </p>
 
-<p> <img src="04046.png"> </p> 
+<p> <img src="04046.png"> </p>
 
 <a name="Normally-closed, timed-open contact"></a>
 <a name="Time delay relay contact, NCTO"></a>
@@ -241,13 +240,13 @@ The following is a timing diagram of this relay contact's operation:
 Next we have the normally-closed, timed-open (NCTO) contact.  This type of contact is normally closed when the coil is unpowered (de-energized).  The contact is opened with the application of power to the relay coil, but only after the coil has been continuously powered for the specified amount of time.  In other words, the <i>direction</i> of the contact's motion (either to close or to open) is identical to a regular NC contact, but there is a delay in the <i>opening</i> direction.  Because the delay occurs in the direction of coil energization, this type of contact is alternatively known as a normally-closed, <i>on</i>-delay:
 </p>
 
-<p> <img src="04047.png"> </p> 
+<p> <img src="04047.png"> </p>
 
 <p>
 The following is a timing diagram of this relay contact's operation:
 </p>
 
-<p> <img src="04048.png"> </p> 
+<p> <img src="04048.png"> </p>
 
 <a name="Normally-closed, timed-closed contact"></a>
 <a name="Time delay relay contact, NCTC"></a>
@@ -256,13 +255,13 @@ The following is a timing diagram of this relay contact's operation:
 Finally we have the normally-closed, timed-closed (NCTC) contact.  Like the NCTO contact, this type of contact is normally closed when the coil is unpowered (de-energized), and opened by the application of power to the relay coil.  However, unlike the NCTO contact, the timing action occurs upon <i>de-energization</i> of the coil rather than upon energization.  Because the delay occurs in the direction of coil de-energization, this type of contact is alternatively known as a normally-closed, <i>off</i>-delay:
 </p>
 
-<p> <img src="04049.png"> </p> 
+<p> <img src="04049.png"> </p>
 
 <p>
 The following is a timing diagram of this relay contact's operation:
 </p>
 
-<p> <img src="04050.png"> </p> 
+<p> <img src="04050.png"> </p>
 
 <p>
 Time-delay relays are very important for use in industrial control logic circuits.  Some examples of their use include:
@@ -284,7 +283,7 @@ Time-delay relays are very important for use in industrial control logic circuit
 The older, mechanical time-delay relays used pneumatic dashpots or fluid-filled piston/cylinder arrangements to provide the "shock absorbing" needed to delay the motion of the armature.  Newer designs of time-delay relays use electronic circuits with resistor-capacitor (RC) networks to generate a time delay, then energize a normal (instantaneous) electromechanical relay coil with the electronic circuit's output.  The electronic-timer relays are more versatile than the older, mechanical models, and less prone to failure.  Many models provide advanced timer features such as "one-shot" (one measured output pulse for every transition of the input from de-energized to energized), "recycle" (repeated on/off output cycles for as long as the input connection is energized) and "watchdog" (changes state if the input signal does not repeatedly cycle on and off).
 </p>
 
-<p> <img src="04051.png"> </p> 
+<p> <img src="04051.png"> </p>
 
 <p>
 
@@ -292,7 +291,7 @@ The older, mechanical time-delay relays used pneumatic dashpots or fluid-filled 
 
 <br> </br>
 
-<p> <img src="04052.png"> </p> 
+<p> <img src="04052.png"> </p>
 
 <p>
 
@@ -300,7 +299,7 @@ The older, mechanical time-delay relays used pneumatic dashpots or fluid-filled 
 
 <br> </br>
 
-<p> <img src="04053.png"> </p> 
+<p> <img src="04053.png"> </p>
 
 <p>
 The "watchdog" timer is especially useful for monitoring of computer systems.  If a computer is being used to control a critical process, it is usually recommended to have an automatic alarm to detect computer "lockup" (an abnormal halting of program execution due to any number of causes).  An easy way to set up such a monitoring system is to have the computer regularly energize and de-energize the coil of a watchdog timer relay (similar to the output of the "recycle" timer).  If the computer execution halts for any reason, the signal it outputs to the watchdog relay coil will stop cycling and freeze in one or the other state.  A short time thereafter, the watchdog relay will "time out" and signal a problem.
@@ -366,22 +365,22 @@ There are many types of protective relays, some with highly specialized function
 </p>
 
 <pre>
-12 = Overspeed          
-24 = Overexcitation          
+12 = Overspeed
+24 = Overexcitation
 25 = Syncrocheck
-27 = Bus/Line undervoltage        
+27 = Bus/Line undervoltage
 32 = Reverse power (anti-motoring)
-38 = Stator overtemp (RTD)     
-39 = Bearing vibration     
-40 = Loss of excitation           
+38 = Stator overtemp (RTD)
+39 = Bearing vibration
+40 = Loss of excitation
 46 = Negative sequence undercurrent (phase current imbalance)
 47 = Negative sequence undervoltage (phase voltage imbalance)
-49 = Bearing overtemp (RTD)      
+49 = Bearing overtemp (RTD)
 50 = Instantaneous overcurrent
-51 = Time overcurrent      
+51 = Time overcurrent
 51V = Time overcurrent -- voltage restrained
-55 = Power factor          
-59 = Bus overvoltage 
+55 = Power factor
+59 = Bus overvoltage
 60FL = Voltage transformer fuse failure
 67 = Phase/Ground directional current
 79 = Autoreclose
@@ -411,7 +410,7 @@ There are many types of protective relays, some with highly specialized function
 As versatile as electromechanical relays can be, they do suffer many limitations.  They can be expensive to build, have a limited contact cycle life, take up a lot of room, and switch slowly, compared to modern semiconductor devices.  These limitations are especially true for large power contactor relays.  To address these limitations, many relay manufacturers offer "solid-state" relays, which use an SCR, TRIAC, or transistor output instead of mechanical contacts to switch the controlled power.  The output device (SCR, TRIAC, or transistor) is optically-coupled to an LED light source inside the relay.  The relay is turned on by energizing this LED, usually with low-voltage DC power.  This optical isolation between input to output rivals the best that electromechanical relays can offer.
 </p>
 
-<p> <img src="04054.png"> </p> 
+<p> <img src="04054.png"> </p>
 
 <p>
 Being solid-state devices, there are no moving parts to wear out, and they are able to switch on and off much faster than any mechanical relay armature can move.  There is no sparking between contacts, and no problems with contact corrosion.  However, solid-state relays are still too expensive to build in very high current ratings, and so electromechanical contactors continue to dominate that application in industry today.
@@ -425,7 +424,7 @@ One significant advantage of a solid-state SCR or TRIAC relay over an electromec
 </p>
 
 <p>
-One disadvantage of solid state relays is their tendency to fail "shorted" on their outputs, while electromechanical relay contacts tend to fail "open."  In either case, it is possible for a relay to fail in the other mode, but these are the most common failures.  Because a "fail-open" state is generally considered safer than a "fail-closed" state, electromechanical relays are still favored over their solid-state counterparts in many applications.  
+One disadvantage of solid state relays is their tendency to fail "shorted" on their outputs, while electromechanical relay contacts tend to fail "open."  In either case, it is possible for a relay to fail in the other mode, but these are the most common failures.  Because a "fail-open" state is generally considered safer than a "fail-closed" state, electromechanical relays are still favored over their solid-state counterparts in many applications.
 </p>
 
 

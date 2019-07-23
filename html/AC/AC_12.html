@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,18 +19,17 @@
 <a href="AC_13.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume II</h1>
 <h1>Chapter 12</h1>
 
 
 
 
-<h1>AC METERING CIRCUITS</h1> 
+<h1>AC METERING CIRCUITS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid35260"><u>AC voltmeters and ammeters</u></a></li>
@@ -54,11 +53,11 @@
 AC electromechanical meter movements come in two basic arrangements: those based on DC movement designs, and those engineered specifically for AC use.  Permanent-magnet moving coil (PMMC) meter movements will not work correctly if directly connected to alternating current, because the direction of needle movement will change with each half-cycle of the AC. (Figure <a href="#02224.png">  below</a>)  Permanent-magnet meter movements, like permanent-magnet motors, are devices whose motion depends on the polarity of the applied voltage (or, you can think of it in terms of the direction of the current).
 </p>
 
- 
-<a name="02224.png"></a> 
-<p> <img src="02224.png"> </p> 
-<p><i>Passing AC through this D'Arsonval meter movement causes useless flutter of the needle.</i></p> 
- 
+
+<a name="02224.png"></a>
+<p> <img src="02224.png"> </p>
+<p><i>Passing AC through this D'Arsonval meter movement causes useless flutter of the needle.</i></p>
+
 
 <a name="D'Arsonval meter movement"></a>
 <a name="Diode"></a>
@@ -68,21 +67,21 @@ AC electromechanical meter movements come in two basic arrangements: those based
 In order to use a DC-style meter movement such as the D'Arsonval design, the alternating current must be <i>rectified</i> into DC.  This is most easily accomplished through the use of devices called <i>diodes</i>.  We saw diodes used in an example circuit demonstrating the creation of harmonic frequencies from a distorted (or rectified) sine wave.  Without going into elaborate detail over how and why diodes work as they do, just remember that they each act like a one-way valve for electrons to flow: acting as a conductor for one polarity and an insulator for another.  Oddly enough, the arrowhead in each diode symbol points <i>against</i> the permitted direction of electron flow rather than with it as one might expect.  Arranged in a bridge, four diodes will serve to steer AC through the meter movement in a constant direction throughout all portions of the AC cycle: (Figure <a href="#02225.png">  below</a>)
 </p>
 
- 
-<a name="02225.png"></a> 
-<p> <img src="02225.png"> </p> 
-<p><i>Passing AC through this Rectified AC meter movement will drive it in one direction.</i></p> 
- 
+
+<a name="02225.png"></a>
+<p> <img src="02225.png"> </p>
+<p><i>Passing AC through this Rectified AC meter movement will drive it in one direction.</i></p>
+
 
 <p>
 Another strategy for a practical AC meter movement is to redesign the movement without the inherent polarity sensitivity of the DC types.  This means avoiding the use of permanent magnets.  Probably the simplest design is to use a nonmagnetized iron vane to move the needle against spring tension, the vane being attracted toward a stationary coil of wire energized by the AC quantity to be measured as in Figure <a href="#02246.png">  below</a>.
 </p>
 
- 
-<a name="02246.png"></a> 
-<p> <img src="02246.png"> </p> 
-<p><i>Iron-vane electromechanical meter movement.</i></p> 
- 
+
+<a name="02246.png"></a>
+<p> <img src="02246.png"> </p>
+<p><i>Iron-vane electromechanical meter movement.</i></p>
+
 
 <p>
 Electrostatic attraction between two metal plates separated by an air gap is an alternative mechanism for generating a needle-moving force proportional to applied voltage.  This works just as well for AC as it does for DC, or should I say, just as poorly!  The forces involved are very small, much smaller than the magnetic attraction between an energized coil and an iron vane, and as such these &ldquo;electrostatic&rdquo; meter movements tend to be fragile and easily disturbed by physical movement.  But, for some high-voltage AC applications, the electrostatic movement is an elegant technology.  If nothing else, this technology possesses the advantage of extremely high input impedance, meaning that no current need be drawn from the circuit under test.  Also, electrostatic meter movements are capable of measuring very high voltages without need for range resistors or other, external apparatus.
@@ -95,11 +94,11 @@ Electrostatic attraction between two metal plates separated by an air gap is an 
 When a sensitive meter movement needs to be re-ranged to function as an AC voltmeter, series-connected &ldquo;multiplier&rdquo; resistors and/or resistive voltage dividers may be employed just as in DC meter design: (Figure <a href="#02315.png">  below</a>)
 </p>
 
- 
-<a name="02315.png"></a> 
-<p> <img src="02315.png"> </p> 
-<p><i>Multiplier resistor (a) or resistive divider (b) scales the range of the basic  meter movement.</i></p> 
- 
+
+<a name="02315.png"></a>
+<p> <img src="02315.png"> </p>
+<p><i>Multiplier resistor (a) or resistive divider (b) scales the range of the basic  meter movement.</i></p>
+
 
 <a name="Capacitor, multiplier"></a>
 
@@ -107,21 +106,21 @@ When a sensitive meter movement needs to be re-ranged to function as an AC voltm
 Capacitors may be used instead of resistors, though, to make voltmeter divider circuits.  This strategy has the advantage of being non-dissipative (no true power consumed and no heat produced): (Figure <a href="#02316.png">  below</a>)
 </p>
 
- 
-<a name="02316.png"></a> 
-<p> <img src="02316.png"> </p> 
-<p><i>AC voltmeter with capacitive divider.</i></p> 
- 
+
+<a name="02316.png"></a>
+<p> <img src="02316.png"> </p>
+<p><i>AC voltmeter with capacitive divider.</i></p>
+
 
 <p>
 If the meter movement is electrostatic, and thus inherently capacitive in nature, a single &ldquo;multiplier&rdquo; capacitor may be connected in series to give it a greater voltage measuring range, just as a series-connected multiplier resistor gives a moving-coil (inherently resistive) meter movement a greater voltage range: (Figure <a href="#02317.png">  below</a>)
 </p>
 
- 
-<a name="02317.png"></a> 
-<p> <img src="02317.png"> </p> 
-<p><i>An electrostatic meter movement may use a capacitive multiplier to multiply the scale of the basic meter movement..</i></p> 
- 
+
+<a name="02317.png"></a>
+<p> <img src="02317.png"> </p>
+<p><i>An electrostatic meter movement may use a capacitive multiplier to multiply the scale of the basic meter movement..</i></p>
+
 
 <a name="Cathode Ray Tube"></a>
 <a name="CRT"></a>
@@ -139,10 +138,10 @@ The Cathode Ray Tube (CRT) mentioned in the DC metering chapter is ideally suite
 With some of the advantages and disadvantages of these meter movement technologies having been discussed already, there is another factor crucially important for the designer and user of AC metering instruments to be aware of.  This is the issue of RMS measurement.  As we already know, AC measurements are often cast in a scale of DC power equivalence, called <i>RMS</i> (<b>R</b>oot-<b>M</b>ean-<b>S</b>quare) for the sake of meaningful comparisons with DC and with other AC waveforms of varying shape.  None of the meter movement technologies so far discussed inherently measure the RMS value of an AC quantity.  Meter movements relying on the motion of a mechanical needle (&ldquo;rectified&rdquo; D'Arsonval, iron-vane, and electrostatic) all tend to mechanically average the instantaneous values into an overall average value for the waveform.  This average value is not necessarily the same as RMS, although many times it is mistaken as such.  Average and RMS values rate against each other as such for these three common waveform shapes: (Figure <a href="#02016a.png">  below</a>)
 </p>
 
- 
-<a name="02016a.png"></a> 
-<p> <img src="02016.png"> </p>  
-<p><i>RMS, Average, and Peak-to-Peak values for sine, square, and triangle waves.</i></p> 
+
+<a name="02016a.png"></a>
+<p> <img src="02016.png"> </p>
+<p><i>RMS, Average, and Peak-to-Peak values for sine, square, and triangle waves.</i></p>
 
 
 <a name="Average amplitude, AC"></a>
@@ -151,13 +150,13 @@ With some of the advantages and disadvantages of these meter movement technologi
 Since RMS seems to be the kind of measurement most people are interested in obtaining with an instrument, and electromechanical meter movements naturally deliver <i>average</i> measurements rather than RMS, what are AC meter designers to do?  Cheat, of course!  Typically the assumption is made that the waveform shape to be measured is going to be sine (by far the most common, especially for power systems), and then the meter movement scale is altered by the appropriate multiplication factor.  For sine waves we see that RMS is equal to 0.707 times the peak value while Average is 0.637 times the peak, so we can divide one figure by the other to obtain an average-to-RMS conversion factor of 1.109:
 </p>
 
-<p> <img src="12134.png"> </p> 
+<p> <img src="12134.png"> </p>
 
 <p>
 In other words, the meter movement will be calibrated to indicate approximately 1.11 times higher than it would ordinarily (naturally) indicate with no special accommodations.  It must be stressed that this &ldquo;cheat&rdquo; only works well when the meter is used to measure pure sine wave sources.  Note that for triangle waves, the ratio between RMS and Average is not the same as for sine waves:
 </p>
 
-<p> <img src="12135.png"> </p> 
+<p> <img src="12135.png"> </p>
 
 <p>
 With square waves, the RMS and Average values are identical!  An AC meter calibrated to accurately read RMS voltage or current on a pure sine wave will <i>not</i> give the proper value while indicating the magnitude of anything other than a perfect sine wave.  This includes triangle waves, square waves, or any kind of distorted sine wave.  With harmonics becoming an ever-present phenomenon in large AC power systems, this matter of accurate RMS measurement is no small matter.
@@ -171,11 +170,11 @@ The astute reader will note that I have omitted the CRT &ldquo;movement&rdquo; f
 One answer is to design the meter movement around the very definition of RMS: the effective heating value of an AC voltage/current as it powers a resistive load.  Suppose that the AC source to be measured is connected across a resistor of known value, and the heat output of that resistor is measured with a device like a thermocouple.  This would provide a far more direct measurement means of RMS than any conversion factor could, for it will work with ANY waveform shape whatsoever: (Figure <a href="#02247.png">  below</a>)
 </p>
 
- 
-<a name="02247.png"></a> 
-<p> <img src="02247.png"> </p> 
-<p><i>Direct reading thermal RMS voltmeter accommodates any wave shape.</i></p> 
- 
+
+<a name="02247.png"></a>
+<p> <img src="02247.png"> </p>
+<p><i>Direct reading thermal RMS voltmeter accommodates any wave shape.</i></p>
+
 
 <p>
 While the device shown above is somewhat crude and would suffer from unique engineering problems of its own, the concept illustrated is very sound.  The resistor converts the AC voltage or current quantity into a thermal (heat) quantity, effectively squaring the values in real-time.  The system's mass works to average these values by the principle of thermal inertia, and then the meter scale itself is calibrated to give an indication based on the square-root of the thermal measurement: perfect Root-Mean-Square indication all in one device!  In fact, one major instrument manufacturer has implemented this technique into its high-end line of handheld electronic multimeters for &ldquo;true-RMS&rdquo; capability.
@@ -192,21 +191,21 @@ While the device shown above is somewhat crude and would suffer from unique engi
 Calibrating AC voltmeters and ammeters for different full-scale ranges of operation is much the same as with DC instruments: series &ldquo;multiplier&rdquo; resistors are used to give voltmeter movements higher range, and parallel &ldquo;shunt&rdquo; resistors are used to allow ammeter movements to measure currents beyond their natural range.  However, we are not limited to these techniques as we were with DC: because we can use transformers with AC, meter ranges can be electromagnetically rather than resistively &ldquo;stepped up&rdquo; or &ldquo;stepped down,&rdquo; sometimes far beyond what resistors would have practically allowed for.  Potential Transformers (PT's) and Current Transformers (CT's) are precision instrument devices manufactured to produce very precise ratios of transformation between primary and secondary windings.  They can allow small, simple AC meter movements to indicate extremely high voltages and currents in power systems with accuracy and complete electrical isolation (something multiplier and shunt resistors could never do): (Figure <a href="#02226.png">  below</a>)
 </p>
 
- 
-<a name="02226.png"></a> 
-<p> <img src="02226.png"> </p> 
-<p><i>(CT) Current transformer scales current down. (PT) Potential transformer scales voltage down.</i></p> 
- 
+
+<a name="02226.png"></a>
+<p> <img src="02226.png"> </p>
+<p><i>(CT) Current transformer scales current down. (PT) Potential transformer scales voltage down.</i></p>
+
 
 <p>
 Shown here is a voltage and current meter panel from a three-phase AC system.  The three &ldquo;donut&rdquo; current transformers (CT's) can be seen in the rear of the panel.  Three AC ammeters (rated 5 amps full-scale deflection each) on the front of the panel indicate current through each conductor going through a CT.  As this panel has been removed from service, there are no current-carrying conductors threaded through the center of the CT &ldquo;donuts&rdquo; anymore: (Figure <a href="#52009.jpg">  below</a>)
 </p>
 
- 
-<a name="52009.jpg"></a> 
-<p> <img src="52009.jpg"> </p> 
-<p><i>Toroidal current transformers scale high current levels down for application to 5 A full-scale AC ammeters. </i></p> 
- 
+
+<a name="52009.jpg"></a>
+<p> <img src="52009.jpg"> </p>
+<p><i>Toroidal current transformers scale high current levels down for application to 5 A full-scale AC ammeters. </i></p>
+
 
 <p>
 Because of the expense (and often large size) of instrument transformers, they are not used to scale AC meters for any applications other than high voltage and high current.  For scaling a milliamp or microamp movement to a range of 120 volts or 5 amps, normal precision resistors (multipliers and shunts) are used, just as with DC.
@@ -247,21 +246,21 @@ One simple but crude method of frequency measurement in power systems utilizes t
 Imagine a row of progressively-sized tuning forks arranged side-by-side.  They are all mounted on a common base, and that base is vibrated at the frequency of the measured AC voltage (or current) by means of an electromagnet.  Whichever tuning fork is closest in resonant frequency to the frequency of that vibration will tend to shake the most (or the loudest).  If the forks' tines were flimsy enough, we could see the relative motion of each by the length of the blur we would see as we inspected each one from an end-view perspective.  Well, make a collection of &ldquo;tuning forks&rdquo; out of a strip of sheet metal cut in a pattern akin to a rake, and you have the <i>vibrating reed</i> frequency meter: (Figure <a href="#02248.png">  below</a>)
 </p>
 
- 
-<a name="02248.png"></a> 
-<p> <img src="02248.png"> </p> 
-<p><i>Vibrating reed frequency meter diagram.</i></p> 
- 
+
+<a name="02248.png"></a>
+<p> <img src="02248.png"> </p>
+<p><i>Vibrating reed frequency meter diagram.</i></p>
+
 
 <p>
 The user of this meter views the ends of all those unequal length reeds as they are collectively shaken at the frequency of the applied AC voltage to the coil.  The one closest in resonant frequency to the applied AC will vibrate the most, looking something like Figure <a href="#02249.png">  below</a>.
 </p>
 
- 
-<a name="02249.png"></a> 
-<p> <img src="02249.png"> </p> 
-<p><i>Vibrating reed frequency meter front panel.</i></p> 
- 
+
+<a name="02249.png"></a>
+<p> <img src="02249.png"> </p>
+<p><i>Vibrating reed frequency meter front panel.</i></p>
+
 
 <p>
 Vibrating reed meters, obviously, are not precision instruments, but they are very simple and therefore easy to manufacture to be rugged.  They are often found on small engine-driven generator sets for the purpose of setting engine speed so that the frequency is somewhat close to 60 (50 in Europe) Hertz.
@@ -273,11 +272,11 @@ Vibrating reed meters, obviously, are not precision instruments, but they are ve
 While reed-type meters are imprecise, their operational principle is not.  In lieu of mechanical resonance, we may substitute electrical resonance and design a frequency meter using an inductor and capacitor in the form of a tank circuit (parallel inductor and capacitor). See Figure <a href="#02250.png">  below</a>. One or both components are made adjustable, and a meter is placed in the circuit to indicate maximum amplitude of voltage across the two components.  The adjustment knob(s) are calibrated to show resonant frequency for any given setting, and the frequency is read from them after the device has been adjusted for maximum indication on the meter.  Essentially, this is a tunable filter circuit which is adjusted and then read in a manner similar to a bridge circuit (which must be balanced for a &ldquo;null&rdquo; condition and then read).
 </p>
 
- 
-<a name="02250.png"></a> 
-<p> <img src="02250.png"> </p> 
-<p><i>Resonant frequency meter &ldquo;peaks&rdquo; as  L-C resonant frequency is tuned to test frequency.</i></p> 
- 
+
+<a name="02250.png"></a>
+<p> <img src="02250.png"> </p>
+<p><i>Resonant frequency meter &ldquo;peaks&rdquo; as  L-C resonant frequency is tuned to test frequency.</i></p>
+
 
 <a name="Counter"></a>
 
@@ -298,7 +297,7 @@ In frequency as in other types of electrical measurement, the most accurate mean
 <a name="Piezoelectricity"></a>
 
 <p>
-For that frequency standard, we turn our attention back to the tuning fork, or at least a more modern variation of it called the <i>quartz crystal</i>.  Quartz is a naturally occurring mineral possessing a very interesting property called <i>piezoelectricity</i>.  Piezoelectric materials produce a voltage across their length when physically stressed, and will physically deform when an external voltage is applied across their lengths.  This deformation is very, very slight in most cases, but it does exist.  
+For that frequency standard, we turn our attention back to the tuning fork, or at least a more modern variation of it called the <i>quartz crystal</i>.  Quartz is a naturally occurring mineral possessing a very interesting property called <i>piezoelectricity</i>.  Piezoelectric materials produce a voltage across their length when physically stressed, and will physically deform when an external voltage is applied across their lengths.  This deformation is very, very slight in most cases, but it does exist.
 </p>
 
 <p>
@@ -311,21 +310,21 @@ Quartz rock is elastic (springy) within that small range of bending which an ext
 Chips of quartz rock can be precisely cut for desired resonant frequencies, and that chip mounted securely inside a protective shell with wires extending for connection to an external electric circuit.  When packaged as such, the resulting device is simply called a <i>crystal</i> (or sometimes &ldquo;<i>xtal</i>&rdquo;). The schematic symbol is shown in Figure <a href="#02227.png">  below</a>.
 </p>
 
- 
-<a name="02227.png"></a> 
-<p> <img src="02227.png"> </p> 
-<p><i>Crystal (frequency determing element) schematic symbol.</i></p> 
- 
+
+<a name="02227.png"></a>
+<p> <img src="02227.png"> </p>
+<p><i>Crystal (frequency determing element) schematic symbol.</i></p>
+
 
 <p>
 Electrically, that quartz chip is equivalent to a series LC resonant circuit.  (Figure <a href="#02228.png">  below</a>)  The dielectric properties of quartz contribute an additional capacitive element to the equivalent circuit.
 </p>
 
- 
-<a name="02228.png"></a> 
-<p> <img src="02228.png"> </p> 
-<p><i>Quartz crystal equivalent circuit.</i></p> 
- 
+
+<a name="02228.png"></a>
+<p> <img src="02228.png"> </p>
+<p><i>Quartz crystal equivalent circuit.</i></p>
+
 
 <p>
 The &ldquo;capacitance&rdquo; and &ldquo;inductance&rdquo; shown in series are merely electrical equivalents of the quartz's mechanical resonance properties: they do not exist as discrete components within the crystal.  The capacitance shown in parallel due to the wire connections across the dielectric (insulating) quartz body is real, and it has an effect on the resonant response of the whole system.  A full discussion on crystal dynamics is not necessary here, but what needs to be understood about crystals is this resonant circuit equivalence and how it can be exploited within an oscillator circuit to achieve an output voltage with a stable, known frequency.
@@ -338,7 +337,7 @@ Crystals, as resonant elements, typically have much higher &ldquo;Q&rdquo; (<i>q
 </p>
 
 <p>
-For laboratory applications, though, even greater frequency stability may be desired.  To achieve this, the crystal in question may be placed in a temperature stabilized environment (usually an oven), thus eliminating frequency errors due to thermal expansion and contraction of the quartz.  
+For laboratory applications, though, even greater frequency stability may be desired.  To achieve this, the crystal in question may be placed in a temperature stabilized environment (usually an oven), thus eliminating frequency errors due to thermal expansion and contraction of the quartz.
 </p>
 
 <a name="Atomic clock"></a>
@@ -349,14 +348,14 @@ For the ultimate in a frequency standard though, nothing discovered thus far sur
 </p>
 
 <p>
-Now we get to the practical part: once we have a <i>source</i> of accurate frequency, how do we compare that against an unknown frequency to obtain a measurement?  One way is to use a CRT as a frequency-comparison device.  Cathode Ray Tubes typically have means of deflecting the electron beam in the horizontal as well as the vertical axis.  If metal plates are used to electrostatically deflect the electrons, there will be a pair of plates to the left and right of the beam as well as a pair of plates above and below the beam as in Figure <a href="#02229.png">  below</a>. 
+Now we get to the practical part: once we have a <i>source</i> of accurate frequency, how do we compare that against an unknown frequency to obtain a measurement?  One way is to use a CRT as a frequency-comparison device.  Cathode Ray Tubes typically have means of deflecting the electron beam in the horizontal as well as the vertical axis.  If metal plates are used to electrostatically deflect the electrons, there will be a pair of plates to the left and right of the beam as well as a pair of plates above and below the beam as in Figure <a href="#02229.png">  below</a>.
 </p>
 
- 
-<a name="02229.png"></a> 
-<p> <img src="02229.png"> </p> 
-<p><i>Cathode ray tube (CRT) with vertical and horizontal deflection plates.</i></p> 
- 
+
+<a name="02229.png"></a>
+<p> <img src="02229.png"> </p>
+<p><i>Cathode ray tube (CRT) with vertical and horizontal deflection plates.</i></p>
+
 
 <a name="Lissajous figure"></a>
 <a name="Figure, Lissajous"></a>
@@ -371,61 +370,61 @@ If we allow one AC signal to deflect the beam up and down (connect that AC volta
 If the two frequencies are the same, we will obtain a simple figure on the screen of the CRT, the shape of that figure being dependent upon the phase shift between the two AC signals.  Here is a sampling of Lissajous figures for two sine-wave signals of equal frequency, shown as they would appear on the face of an oscilloscope (an AC voltage-measuring instrument using a CRT as its &ldquo;movement&rdquo;).  The first picture is of the Lissajous figure formed by two AC voltages perfectly in phase with each other: (Figure <a href="#02230.png">  below</a>)
 </p>
 
- 
-<a name="02230.png"></a> 
-<p> <img src="02230.png"> </p> 
-<p><i>Lissajous figure: same frequency, zero degrees phase shift.</i></p> 
- 
+
+<a name="02230.png"></a>
+<p> <img src="02230.png"> </p>
+<p><i>Lissajous figure: same frequency, zero degrees phase shift.</i></p>
+
 
 <p>
 If the two AC voltages are not in phase with each other, a straight line will not be formed.  Rather, the Lissajous figure will take on the appearance of an oval, becoming perfectly circular if the phase shift is exactly 90<sup>o</sup> between the two signals, and if their amplitudes are equal: (Figure <a href="#02231.png">  below</a>)
 </p>
 
- 
-<a name="02231.png"></a> 
-<p> <img src="02231.png"> </p> 
-<p><i>Lissajous figure: same frequency, 90 or 270 degrees phase shift.</i></p> 
- 
+
+<a name="02231.png"></a>
+<p> <img src="02231.png"> </p>
+<p><i>Lissajous figure: same frequency, 90 or 270 degrees phase shift.</i></p>
+
 
 <p>
 Finally, if the two AC signals are directly opposing one another in phase (180<sup>o</sup> shift), we will end up with a line again, only this time it will be oriented in the opposite direction: (Figure <a href="#02232.png">  below</a>)
 </p>
 
- 
-<a name="02232.png"></a> 
-<p> <img src="02232.png"> </p> 
-<p><i>Lissajous figure: same frequency, 180 degrees phase shift.</i></p> 
- 
+
+<a name="02232.png"></a>
+<p> <img src="02232.png"> </p>
+<p><i>Lissajous figure: same frequency, 180 degrees phase shift.</i></p>
+
 
 <p>
 When we are faced with signal frequencies that are not the same, Lissajous figures get quite a bit more complex.  Consider the following examples and their given vertical/horizontal frequency ratios: (Figure <a href="#02233.png">  below</a>)
 </p>
 
- 
-<a name="02233.png"></a> 
-<p> <img src="02233.png"> </p> 
-<p><i>Lissajous figure: Horizontal frequency is twice that of vertical.</i></p> 
- 
+
+<a name="02233.png"></a>
+<p> <img src="02233.png"> </p>
+<p><i>Lissajous figure: Horizontal frequency is twice that of vertical.</i></p>
+
 
 <p>
 The more complex the ratio between horizontal and vertical frequencies, the more complex the Lissajous figure.  Consider the following illustration of a 3:1 frequency ratio between horizontal and vertical: (Figure <a href="#02234.png">  below</a>)
 </p>
 
- 
-<a name="02234.png"></a> 
-<p> <img src="02234.png"> </p> 
-<p><i>Lissajous figure: Horizontal frequency is three times that of vertical.</i></p> 
- 
+
+<a name="02234.png"></a>
+<p> <img src="02234.png"> </p>
+<p><i>Lissajous figure: Horizontal frequency is three times that of vertical.</i></p>
+
 
 <p>
 . . . and a 3:2 frequency ratio (horizontal = 3, vertical = 2) in Figure <a href="#02235.png">  below</a>.
 </p>
 
- 
-<a name="02235.png"></a> 
-<p> <img src="02235.png"> </p> 
-<p><i>Lissajous figure: Horizontal/vertical frequency ratio is 3:2.</i></p> 
- 
+
+<a name="02235.png"></a>
+<p> <img src="02235.png"> </p>
+<p><i>Lissajous figure: Horizontal/vertical frequency ratio is 3:2.</i></p>
+
 
 <p>
 In cases where the frequencies of the two AC signals are not exactly a simple ratio of each other (but close), the Lissajous figure will appear to &ldquo;move,&rdquo; slowly changing orientation as the phase angle between the two waveforms rolls between 0<sup>o</sup> and 180<sup>o</sup>.  If the two frequencies are locked in an exact integer ratio between each other, the Lissajous figure will be stable on the viewscreen of the CRT.
@@ -465,11 +464,11 @@ Three phase power measurement can be accomplished using two dynamometer movement
 An ingenious method of deriving an electronic power meter (one that generates an electric signal representing power in the system rather than merely move a pointer) is based on the Hall effect.  The Hall effect is an unusual effect first noticed by E. H. Hall in 1879, whereby a voltage is generated along the width of a current-carrying conductor exposed to a perpendicular magnetic field: (Figure <a href="#02236.png">  below</a>)
 </p>
 
- 
-<a name="02236.png"></a> 
-<p> <img src="02236.png"> </p> 
-<p><i>Hall effect: Voltage is proportional to current and strength of the perpendicular magnetic field.</i></p> 
- 
+
+<a name="02236.png"></a>
+<p> <img src="02236.png"> </p>
+<p><i>Hall effect: Voltage is proportional to current and strength of the perpendicular magnetic field.</i></p>
+
 
 <p>
 The voltage generated across the width of the flat, rectangular conductor is directly proportional to both the magnitude of the current through it and the strength of the magnetic field.  Mathematically, it is a product (multiplication) of these two variables.  The amount of &ldquo;Hall Voltage&rdquo; produced for any given set of conditions also depends on the type of material used for the flat, rectangular conductor.  It has been found that specially prepared &ldquo;semiconductor&rdquo; materials produce a greater Hall voltage than do metals, and so modern Hall Effect devices are made of these.
@@ -479,11 +478,11 @@ The voltage generated across the width of the flat, rectangular conductor is dir
 It makes sense then that if we were to build a device using a Hall-effect sensor where the current through the conductor was pushed by AC voltage from an external circuit and the magnetic field was set up by a pair or wire coils energized by the current of the AC power circuit, the Hall voltage would be in direct proportion to the multiple of circuit current and voltage.  Having no mass to move (unlike an electromechanical movement), this device is able to provide <i>instantaneous</i> power measurement: (Figure <a href="#02237.png">  below</a>)
 </p>
 
- 
-<a name="02237.png"></a> 
-<p> <img src="02237.png"> </p> 
-<p><i>Hall effect power sensor measures instantaneous power.</i></p> 
- 
+
+<a name="02237.png"></a>
+<p> <img src="02237.png"> </p>
+<p><i>Hall effect power sensor measures instantaneous power.</i></p>
+
 
 <p>
 Not only will the output voltage of the Hall effect device be the representation of instantaneous power at any point in time, but it will also be a DC signal!  This is because the Hall voltage polarity is dependent upon <i>both</i> the polarity of the magnetic field and the direction of current through the conductor.  If both current direction and magnetic field polarity reverses -- as it would ever half-cycle of the AC power -- the output voltage polarity will stay the same.
@@ -541,11 +540,11 @@ A simple way for a technician to determine power quality in their system without
 Another qualitative measurement of power quality is the oscilloscope test: connect an oscilloscope (CRT) to the AC voltage and observe the shape of the wave.  Anything other than a clean sine wave could be an indication of trouble: (Figure <a href="#02238.png">  below</a>)
 </p>
 
- 
-<a name="02238.png"></a> 
-<p> <img src="02238.png"> </p> 
-<p><i>This is a moderately ugly &ldquo;sine&rdquo; wave. Definite harmonic content here!</i></p> 
- 
+
+<a name="02238.png"></a>
+<p> <img src="02238.png"> </p>
+<p><i>This is a moderately ugly &ldquo;sine&rdquo; wave. Definite harmonic content here!</i></p>
+
 
 <a name="Spectrum, frequency"></a>
 <a name="Spectrum analyzer"></a>
@@ -555,11 +554,11 @@ Another qualitative measurement of power quality is the oscilloscope test: conne
 Still, if quantitative analysis (definite, numerical figures) is necessary, there is no substitute for an instrument specifically designed for that purpose.  Such an instrument is called a <i>power quality meter</i> and is sometimes better known in electronic circles as a low-frequency <i>spectrum analyzer</i>.  What this instrument does is provide a graphical representation on a CRT or digital display screen of the AC voltage's frequency &ldquo;spectrum.&rdquo;  Just as a prism splits a beam of white light into its constituent color components (how much red, orange, yellow, green, and blue is in that light), the spectrum analyzer splits a mixed-frequency signal into its constituent frequencies, and displays the result in the form of a histogram: (Figure <a href="#02239.png">  below</a>)
 </p>
 
- 
-<a name="02239.png"></a> 
-<p> <img src="02239.png"> </p> 
-<p><i>Power quality meter is a low frequency spectrum analyzer. </i></p> 
- 
+
+<a name="02239.png"></a>
+<p> <img src="02239.png"> </p>
+<p><i>Power quality meter is a low frequency spectrum analyzer. </i></p>
+
 
 <p>
 Each number on the horizontal scale of this meter represents a harmonic of the fundamental frequency.  For American power systems, the &ldquo;1&rdquo; represents 60 Hz (the 1st harmonic, or <i>fundamental</i>), the &ldquo;3&rdquo; for 180 Hz (the 3rd harmonic), the &ldquo;5&rdquo; for 300 Hz (the 5th harmonic), and so on.  The black rectangles represent the relative magnitudes of each of these harmonic components in the measured AC voltage.  A pure, 60 Hz sine wave would show only a tall black bar over the &ldquo;1&rdquo; with no black bars showing at all over the other frequency markers on the scale, because a pure sine wave has no harmonic content.
@@ -601,20 +600,20 @@ As we saw with DC measurement circuits, the circuit configuration known as a <i>
 To review, the bridge circuit works as a pair of two-component voltage dividers connected across the same source voltage, with a <i>null-detector</i> meter movement connected between them to indicate a condition of &ldquo;balance&rdquo; at zero volts: (Figure <a href="#02240.png">  below</a>)
 </p>
 
- 
-<a name="02240.png"></a> 
-<p> <img src="02240.png"> </p> 
-<p><i>A balanced bridge shows a &ldquo;null&rdquo;, or minimum reading,  on the indicator.</i></p> 
- 
+
+<a name="02240.png"></a>
+<p> <img src="02240.png"> </p>
+<p><i>A balanced bridge shows a &ldquo;null&rdquo;, or minimum reading,  on the indicator.</i></p>
+
 
 <p>
 Any one of the four resistors in the above bridge can be the resistor of unknown value, and its value can be determined by a ratio of the other three, which are &ldquo;calibrated,&rdquo; or whose resistances are known to a precise degree.  When the bridge is in a balanced condition (zero voltage as indicated by the null detector), the ratio works out to be this:
 </p>
 
-<p> <img src="12136.png"> </p> 
+<p> <img src="12136.png"> </p>
 
 <p>
-One of the advantages of using a bridge circuit to measure resistance is that the voltage of the power source is irrelevant.  Practically speaking, the higher the supply voltage, the easier it is to detect a condition of imbalance between the four resistors with the null detector, and thus the more sensitive it will be.  A greater supply voltage leads to the possibility of increased measurement precision.  However, there will be no fundamental error introduced as a result of a lesser or greater power supply voltage unlike other types of resistance measurement schemes. 
+One of the advantages of using a bridge circuit to measure resistance is that the voltage of the power source is irrelevant.  Practically speaking, the higher the supply voltage, the easier it is to detect a condition of imbalance between the four resistors with the null detector, and thus the more sensitive it will be.  A greater supply voltage leads to the possibility of increased measurement precision.  However, there will be no fundamental error introduced as a result of a lesser or greater power supply voltage unlike other types of resistance measurement schemes.
 </p>
 
 <a name="Null detector, AC bridge"></a>
@@ -629,11 +628,11 @@ Impedance bridges work the same, only the balance equation is with <i>complex</i
 One way to maximize the effectiveness of audio headphones as a null detector is to connect them to the signal source through an impedance-matching transformer.  Headphone speakers are typically low-impedance units (8 &#937;), requiring substantial current to drive, and so a step-down transformer helps &ldquo;match&rdquo; low-current signals to the impedance of the headphone speakers.  An audio output transformer works well for this purpose: (Figure <a href="#02298.png">  below</a>)
 </p>
 
- 
-<a name="02298.png"></a> 
-<p> <img src="02298.png"> </p> 
-<p><i>&ldquo;Modern&rdquo; low-Ohm headphones require an impedance matching transformer for use as a sensitive null detector.</i></p> 
- 
+
+<a name="02298.png"></a>
+<p> <img src="02298.png"> </p>
+<p><i>&ldquo;Modern&rdquo; low-Ohm headphones require an impedance matching transformer for use as a sensitive null detector.</i></p>
+
 
 <p>
 Using a pair of headphones that completely surround the ears (the &ldquo;closed-cup&rdquo; type), I've been able to detect currents of less than 0.1 &#181;A with this simple detector circuit.  Roughly equal performance was obtained using two different step-down transformers: a small power transformer (120/6 volt ratio), and an audio output transformer (1000:8 ohm impedance ratio).  With the pushbutton switch in place to interrupt current, this circuit is usable for detecting signals from DC to over 2 MHz: even if the frequency is far above or below the audio range, a &ldquo;click&rdquo; will be heard from the headphones each time the switch is pressed and released.
@@ -643,11 +642,11 @@ Using a pair of headphones that completely surround the ears (the &ldquo;closed-
 Connected to a resistive bridge, the whole circuit looks like Figure <a href="#02299.png">  below</a>.
 </p>
 
- 
-<a name="02299.png"></a> 
-<p> <img src="02299.png"> </p> 
-<p><i>Bridge with sensitive AC null detector.</i></p> 
- 
+
+<a name="02299.png"></a>
+<p> <img src="02299.png"> </p>
+<p><i>Bridge with sensitive AC null detector.</i></p>
+
 
 <p>
 Listening to the headphones as one or more of the resistor &ldquo;arms&rdquo; of the bridge is adjusted, a condition of balance will be realized when the headphones fail to produce &ldquo;clicks&rdquo; (or tones, if the bridge's power source frequency is within audio range) as the switch is actuated.
@@ -657,17 +656,17 @@ Listening to the headphones as one or more of the resistor &ldquo;arms&rdquo; of
 When describing general AC bridges, where <i>impedances</i> and not just resistances must be in proper ratio for balance, it is sometimes helpful to draw the respective bridge legs in the form of box-shaped components, each one with a certain impedance: (Figure <a href="#02241.png">  below</a>)
 </p>
 
- 
-<a name="02241.png"></a> 
-<p> <img src="02241.png"> </p> 
-<p><i>Generalized AC impedance bridge: Z = nonspecific complex impedance.</i></p> 
- 
+
+<a name="02241.png"></a>
+<p> <img src="02241.png"> </p>
+<p><i>Generalized AC impedance bridge: Z = nonspecific complex impedance.</i></p>
+
 
 <p>
 For this general form of AC bridge to balance, the impedance ratios of each branch must be equal:
 </p>
 
-<p> <img src="12137.png"> </p> 
+<p> <img src="12137.png"> </p>
 
 <p>
 Again, it must be stressed that the impedance quantities in the above equation <i>must</i> be complex, accounting for both magnitude and phase angle.  It is insufficient that the impedance magnitudes alone be balanced; without phase angles in balance as well, there will still be voltage across the terminals of the null detector and the bridge will not be balanced.
@@ -682,11 +681,11 @@ A couple of simple bridge circuits are shown below, one for inductance  (Figure 
 and one for capacitance: (Figure <a href="#02243.png">  below</a>)
 </p>
 
- 
-<a name="02242.png"></a> 
-<p> <img src="02242.png"> </p> 
-<p><i>Symmetrical bridge measures unknown inductor by comparison to a standard inductor.</i></p> 
- 
+
+<a name="02242.png"></a>
+<p> <img src="02242.png"> </p>
+<p><i>Symmetrical bridge measures unknown inductor by comparison to a standard inductor.</i></p>
+
 
 <p>
 
@@ -694,11 +693,11 @@ and one for capacitance: (Figure <a href="#02243.png">  below</a>)
 
 
 
- 
-<a name="02243.png"></a> 
-<p> <img src="02243.png"> </p> 
-<p><i>Symmetrical bridge measures unknown capacitor by comparison to a standard capacitor.</i></p> 
- 
+
+<a name="02243.png"></a>
+<p> <img src="02243.png"> </p>
+<p><i>Symmetrical bridge measures unknown capacitor by comparison to a standard capacitor.</i></p>
+
 
 <a name="Bridge, symmetrical"></a>
 
@@ -713,11 +712,11 @@ Simple &ldquo;symmetrical&rdquo; bridges such as these are so named because they
 An example of a little extra complexity added to compensate for real-world effects can be found in the so-called <i>Wien bridge</i>, which uses a parallel capacitor-resistor standard impedance to balance out an unknown series capacitor-resistor combination.  (Figure <a href="#02244.png">  below</a>) All capacitors have some amount of internal resistance, be it literal or equivalent (in the form of dielectric heating losses) which tend to spoil their otherwise perfectly reactive natures.  This internal resistance may be of interest to measure, and so the Wien bridge attempts to do so by providing a balancing impedance that isn't &ldquo;pure&rdquo; either:
 </p>
 
- 
-<a name="02244.png"></a> 
-<p> <img src="02244.png"> </p> 
-<p><i>Wein Bridge measures both capacitive C<sub>x</sub> and resistive R<sub>x</sub>  components of &ldquo;real&rdquo; capacitor.</i></p> 
- 
+
+<a name="02244.png"></a>
+<p> <img src="02244.png"> </p>
+<p><i>Wein Bridge measures both capacitive C<sub>x</sub> and resistive R<sub>x</sub>  components of &ldquo;real&rdquo; capacitor.</i></p>
+
 
 <p>
 Being that there are two standard components to be adjusted (a resistor and a capacitor) this bridge will take a little more time to balance than the others we've seen so far.  The combined effect of R<sub>s</sub> and C<sub>s</sub> is to alter the magnitude and phase angle until the bridge achieves a condition of balance.  Once that balance is achieved, the settings of R<sub>s</sub> and C<sub>s</sub> can be read from their calibrated knobs, the parallel impedance of the two determined mathematically, and the unknown capacitance and resistance determined mathematically from the balance equation (Z<sub>1</sub>/Z<sub>2</sub> = Z<sub>3</sub>/Z<sub>4</sub>).
@@ -731,11 +730,11 @@ It is assumed in the operation of the Wien bridge that the standard capacitor ha
 An interesting variation on this theme is found in the next bridge circuit, used to precisely measure inductances.
 </p>
 
- 
-<a name="02245.png"></a> 
-<p> <img src="02245.png"> </p> 
-<p><i>Maxwell-Wein bridge measures an inductor in terms of a capacitor standard.</i></p> 
- 
+
+<a name="02245.png"></a>
+<p> <img src="02245.png"> </p>
+<p><i>Maxwell-Wein bridge measures an inductor in terms of a capacitor standard.</i></p>
+
 
 <a name="Maxwell-Wien bridge circuit"></a>
 <a name="Bridge, Maxwell-Wien"></a>
@@ -745,7 +744,7 @@ This ingenious bridge circuit is known as the <i>Maxwell-Wien bridge</i> (someti
 </p>
 
 <p>
-Another advantage of using a Maxwell bridge to measure inductance rather than a symmetrical inductance bridge is the elimination of measurement error due to mutual inductance between two inductors.  Magnetic fields can be difficult to shield, and even a small amount of coupling between coils in a bridge can introduce substantial errors in certain conditions.  With no second inductor to react with in the Maxwell bridge, this problem is eliminated. 
+Another advantage of using a Maxwell bridge to measure inductance rather than a symmetrical inductance bridge is the elimination of measurement error due to mutual inductance between two inductors.  Magnetic fields can be difficult to shield, and even a small amount of coupling between coils in a bridge can introduce substantial errors in certain conditions.  With no second inductor to react with in the Maxwell bridge, this problem is eliminated.
 </p>
 
 <p>
@@ -764,22 +763,22 @@ There are more variations beyond these designs, but a full discussion is not war
 A potential problem in sensitive AC bridge circuits is that of stray capacitance between either end of the null detector unit and ground (earth) potential.  Because capacitances can &ldquo;conduct&rdquo; alternating current by charging and discharging, they form stray current paths to the AC voltage source which may affect bridge balance: (Figure <a href="#02318.png">  below</a>)
 </p>
 
- 
-<a name="02318.png"></a> 
-<p> <img src="02318.png"> </p> 
-<p><i>Stray capacitance to ground may introduce errors into the bridge.</i></p> 
- 
+
+<a name="02318.png"></a>
+<p> <img src="02318.png"> </p>
+<p><i>Stray capacitance to ground may introduce errors into the bridge.</i></p>
+
 
 <p>
 While reed-type meters are imprecise, their operational principle is not.  In lieu of mechanical resonance, we may substitute electrical resonance and design a frequency meter using an inductor and capacitor in the form of a tank circuit (parallel inductor and capacitor).  One or both components are made adjustable, and a meter is placed in the circuit to indicate maximum amplitude of voltage across the two components.  The adjustment knob(s) are calibrated to show resonant frequency for any given setting, and the frequency is read from them after the device has been adjusted for maximum indication on the meter.  Essentially, this is a tunable filter circuit which is adjusted and then read in a manner similar to a bridge circuit (which must be balanced for a &ldquo;null&rdquo; condition and then read).
 The problem is worsened if the AC voltage source is firmly grounded at one end, the total stray impedance for leakage currents made far less and any leakage currents through these stray capacitances made greater as a result: (Figure <a href="#02319.png">  below</a>)
 </p>
 
- 
-<a name="02319.png"></a> 
-<p> <img src="02319.png"> </p> 
-<p><i>Stray capacitance errors are more severe if one side of the AC supply is grounded.</i></p> 
- 
+
+<a name="02319.png"></a>
+<p> <img src="02319.png"> </p>
+<p><i>Stray capacitance errors are more severe if one side of the AC supply is grounded.</i></p>
+
 
 <a name="Wagner earth"></a>
 
@@ -787,11 +786,11 @@ The problem is worsened if the AC voltage source is firmly grounded at one end, 
 One way of greatly reducing this effect is to keep the null detector at ground potential, so there will be no AC voltage between it and the ground, and thus no current through stray capacitances.  However, directly connecting the null detector to ground is not an option, as it would create a <i>direct</i> current path for stray currents, which would be worse than any capacitive path.  Instead, a special voltage divider circuit called a <i>Wagner ground</i> or <i>Wagner earth</i> may be used to maintain the null detector at ground potential without the need for a direct connection to the null detector. (Figure <a href="#02320.png">  below</a>)
 </p>
 
- 
-<a name="02320.png"></a> 
-<p> <img src="02320.png"> </p> 
-<p><i>Wagner ground for AC supply minimizes the effects of stray capacitance to ground on the bridge.</i></p> 
- 
+
+<a name="02320.png"></a>
+<p> <img src="02320.png"> </p>
+<p><i>Wagner ground for AC supply minimizes the effects of stray capacitance to ground on the bridge.</i></p>
+
 
 <p>
 The Wagner earth circuit is nothing more than a voltage divider, designed to have the voltage ratio and phase shift as each side of the bridge.  Because the midpoint of the Wagner divider is directly grounded, any other divider circuit (including either side of the bridge) having the same voltage proportions and phases as the Wagner divider, and powered by the same AC voltage source, will be at ground potential as well.  Thus, the Wagner earth divider forces the null detector to be at ground potential, without a direct connection between the detector and ground.
@@ -801,11 +800,11 @@ The Wagner earth circuit is nothing more than a voltage divider, designed to hav
 There is often a provision made in the null detector connection to confirm proper setting of the Wagner earth divider circuit: a two-position switch, (Figure <a href="#02321.png">  below</a>) so that one end of the null detector may be connected to either the bridge or the Wagner earth.  When the null detector registers zero signal in both switch positions, the bridge is not only guaranteed to be balanced, but the null detector is also guaranteed to be at zero potential with respect to ground, thus eliminating any errors due to leakage currents through stray detector-to-ground capacitances:
 </p>
 
- 
-<a name="02321.png"></a> 
-<p> <img src="02321.png"> </p> 
-<p><i>Switch-up position allows adjustment of the Wagner ground.</i></p> 
- 
+
+<a name="02321.png"></a>
+<p> <img src="02321.png"> </p>
+<p><i>Switch-up position allows adjustment of the Wagner ground.</i></p>
+
 
 <ul>
 <li><b>REVIEW:</b></li>
@@ -838,11 +837,11 @@ Just as devices have been made to measure certain physical quantities and repeat
 It is often necessary to be able to detect and transmit the physical position of mechanical parts via electrical signals.  This is especially true in the fields of automated machine tool control and robotics.  A simple and easy way to do this is with a potentiometer: (Figure <a href="#02251.png">  below</a>)
 </p>
 
- 
-<a name="02251.png"></a> 
-<p> <img src="02251.png"> </p> 
-<p><i>Potentiometer tap voltage indicates position of an object slaved to the shaft. </i></p> 
- 
+
+<a name="02251.png"></a>
+<p> <img src="02251.png"> </p>
+<p><i>Potentiometer tap voltage indicates position of an object slaved to the shaft. </i></p>
+
 
 <p>
 However, potentiometers have their own unique problems.  For one, they rely on physical contact between the &ldquo;wiper&rdquo; and the resistance strip, which means they suffer the effects of physical wear over time.  As potentiometers wear, their proportional output versus shaft position becomes less and less certain.  You might have already experienced this effect when adjusting the volume control on an old radio: when twisting the knob, you might hear &ldquo;scratching&rdquo; sounds coming out of the speakers.  Those noises are the result of poor wiper contact in the volume control potentiometer.
@@ -860,11 +859,11 @@ Also, this physical contact between wiper and strip creates the possibility of a
 Using AC instead of DC, we are able to completely avoid sliding contact between parts if we use a <i>variable transformer</i> instead of a potentiometer.  Devices made for this purpose are called LVDT's, which stands for <b>L</b>inear <b>V</b>ariable <b>D</b>ifferential <b>T</b>ransformers.  The design of an LVDT looks like this: (Figure <a href="#02252.png">  below</a>)
 </p>
 
- 
-<a name="02252.png"></a> 
-<p> <img src="02252.png"> </p> 
-<p><i>AC output of linear variable differential transformer (LVDT) indicates core position.</i></p> 
- 
+
+<a name="02252.png"></a>
+<p> <img src="02252.png"> </p>
+<p><i>AC output of linear variable differential transformer (LVDT) indicates core position.</i></p>
+
 
 <p>
 Obviously, this device is a <i>transformer</i>: it has a single primary winding powered by an external source of AC voltage, and two secondary windings connected in series-bucking fashion.  It is <i>variable</i> because the core is free to move between the windings.  It is <i>differential</i> because of the way the two secondary windings are connected.  Being arranged to oppose each other (180<sup>o</sup> out of phase) means that the output of this device will be the <i>difference</i> between the voltage output of the two secondary windings.  When the core is centered and both windings are outputting the same voltage, the net result at the output terminals will be zero volts.  It is called <i>linear</i> because the core's freedom of motion is straight-line.
@@ -896,11 +895,11 @@ A variation on the LVDT is the RVDT, or <b>R</b>otary <b>V</b>ariable <b>D</b>if
 Continuing with this principle, we have what is known as a <i>Synchro</i> or <i>Selsyn</i>, which is a device constructed a lot like a wound-rotor polyphase AC motor or generator.  The rotor is free to revolve a full 360<sup>o</sup>, just like a motor.  On the rotor is a single winding connected to a source of AC voltage, much like the primary winding of an LVDT.  The stator windings are usually in the form of a three-phase Y, although synchros with more than three phases have been built. (Figure <a href="#02253.png">  below</a>) A device with a  two-phase stator is known as a <i>resolver</i>. A resolver produces sine and cosine outputs which indicate shaft position.
 </p>
 
- 
-<a name="02253.png"></a> 
-<p> <img src="02253.png"> </p> 
-<p><i>A  synchro is wound with a three-phase stator winding, and a rotating field. A resolver has a two-phase stator.</i></p> 
- 
+
+<a name="02253.png"></a>
+<p> <img src="02253.png"> </p>
+<p><i>A  synchro is wound with a three-phase stator winding, and a rotating field. A resolver has a two-phase stator.</i></p>
+
 
 <p>
 Voltages induced in the stator windings from the rotor's AC excitation are <i>not</i> phase-shifted by 120<sup>o</sup> as in a real three-phase generator.  If the rotor were energized with DC current rather than AC and the shaft spun continuously, then the voltages would be true three-phase.  But this is not how a synchro is designed to be operated.  Rather, this is a <i>position-sensing</i> device much like an RVDT, except that its output signal is much more definite.  With the rotor energized by AC, the stator winding voltages will be proportional in magnitude to the angular position of the rotor, phase either 0<sup>o</sup> or 180<sup>o</sup> shifted, like a regular LVDT or RVDT.  You could think of it as a transformer with one primary winding and three secondary windings, each secondary winding oriented at a unique angle.  As the rotor is slowly turned, each winding in turn will line up directly with the rotor, producing full voltage, while the other windings will produce something less than full voltage.
@@ -910,11 +909,11 @@ Voltages induced in the stator windings from the rotor's AC excitation are <i>no
 Synchros are often used in pairs.  With their rotors connected in parallel and energized by the same AC voltage source, their shafts will match position to a high degree of accuracy: (Figure <a href="#02254.png">  below</a>)
 </p>
 
- 
-<a name="02254.png"></a> 
-<p> <img src="02254.png"> </p> 
-<p><i>Synchro shafts are slaved to each other. Rotating one moves the other.</i></p> 
- 
+
+<a name="02254.png"></a>
+<p> <img src="02254.png"> </p>
+<p><i>Synchro shafts are slaved to each other. Rotating one moves the other.</i></p>
+
 
 <p>
 Such &ldquo;transmitter/receiver&rdquo; pairs have been used on ships to relay rudder position, or to relay navigational gyro position over fairly long distances.  The only difference between the &ldquo;transmitter&rdquo; and the &ldquo;receiver&rdquo; is which one gets turned by an outside force.  The &ldquo;receiver&rdquo; can just as easily be used as the &ldquo;transmitter&rdquo; by forcing its shaft to turn and letting the synchro on the left match position.
@@ -924,11 +923,11 @@ Such &ldquo;transmitter/receiver&rdquo; pairs have been used on ships to relay r
 If the receiver's rotor is left unpowered, it will act as a position-error detector, generating an AC voltage at the rotor if the shaft is anything other than 90<sup>o</sup> or 270<sup>o</sup> shifted from the shaft position of the transmitter.  The receiver rotor will no longer generate any torque and consequently will no longer automatically match position with the transmitter's: (Figure <a href="#02255.png">  below</a>)
 </p>
 
- 
-<a name="02255.png"></a> 
-<p> <img src="02255.png"> </p> 
-<p><i>AC voltmeter registers voltage if the receiver rotor is not rotated exactly 90 or 270 degrees from the transmitter rotor.</i></p> 
- 
+
+<a name="02255.png"></a>
+<p> <img src="02255.png"> </p>
+<p><i>AC voltmeter registers voltage if the receiver rotor is not rotated exactly 90 or 270 degrees from the transmitter rotor.</i></p>
+
 
 <p>
 This can be thought of almost as a sort of bridge circuit that achieves balance only if the receiver shaft is brought to one of two (matching) positions with the transmitter shaft.
@@ -938,33 +937,33 @@ This can be thought of almost as a sort of bridge circuit that achieves balance 
 One rather ingenious application of the synchro is in the creation of a phase-shifting device, provided that the stator is energized by three-phase AC: (Figure <a href="#02256.png">  below</a>)
 </p>
 
- 
-<a name="02256.png"></a> 
-<p> <img src="02256.png"> </p> 
-<p><i>Full rotation of the rotor will smoothly shift the phase from 0<sup>o</sup> all the way to 360<sup>o</sup> (back to 0<sup>o</sup>).</i></p> 
- 
+
+<a name="02256.png"></a>
+<p> <img src="02256.png"> </p>
+<p><i>Full rotation of the rotor will smoothly shift the phase from 0<sup>o</sup> all the way to 360<sup>o</sup> (back to 0<sup>o</sup>).</i></p>
+
 
 <p>
-As the synchro's rotor is turned, the rotor coil will progressively align with each stator coil, their respective magnetic fields being 120<sup>o</sup> phase-shifted from one another.  In between those positions, these phase-shifted fields will mix to produce a rotor voltage somewhere between 0<sup>o</sup>, 120<sup>o</sup>, or 240<sup>o</sup> shift.  The practical result is a device capable of providing an infinitely variable-phase AC voltage with the twist of a knob (attached to the rotor shaft).  
+As the synchro's rotor is turned, the rotor coil will progressively align with each stator coil, their respective magnetic fields being 120<sup>o</sup> phase-shifted from one another.  In between those positions, these phase-shifted fields will mix to produce a rotor voltage somewhere between 0<sup>o</sup>, 120<sup>o</sup>, or 240<sup>o</sup> shift.  The practical result is a device capable of providing an infinitely variable-phase AC voltage with the twist of a knob (attached to the rotor shaft).
 </p>
 
 
- 
+
 <a name="inductosyn"></a>
 <a name="Inductosyn"></a>
 
 <p>
-A synchro or a resolver may measure linear motion if geared  with a rack and pinion mechanism. A linear movement of a few inches (or cm) resulting in multiple revolutions of the synchro (resolver) generates a train of sinewaves. An <i>Inductosyn</i>&#174; is a linear version of the resolver. It outputs signals like a resolver; though, it bears slight resemblance. 
+A synchro or a resolver may measure linear motion if geared  with a rack and pinion mechanism. A linear movement of a few inches (or cm) resulting in multiple revolutions of the synchro (resolver) generates a train of sinewaves. An <i>Inductosyn</i>&#174; is a linear version of the resolver. It outputs signals like a resolver; though, it bears slight resemblance.
 </p>
 
 <p>
 The Inductosyn consists of two parts: a fixed serpentine winding having a 0.1 in or 2 mm pitch, and a movable winding known as a <i>slider</i>.  (Figure <a href="#02518.png">  below</a>) The slider has a pair of windings having the same pitch as the fixed winding. The slider windings are offset by a quarter pitch so both sine and cosine waves are produced by movement. One slider winding is adequate for counting pulses, but provides no direction information. The 2-phase windings provide direction information in the  phasing of the sine and cosine waves. Movement by one pitch produces a cycle of sine and cosine waves; multiple pitches produce a train of waves.
 </p>
 
- 
-<a name="02518.png"></a> 
-<p> <img src="02518.png"> </p> 
-<p><i>Inductosyn: (a) Fixed serpentine winding, (b) movable slider 2-phase windings. Adapted from Figure 6.16 <a href="#WAK.bibitem">[WAK]</a></i></p> 
+
+<a name="02518.png"></a>
+<p> <img src="02518.png"> </p>
+<p><i>Inductosyn: (a) Fixed serpentine winding, (b) movable slider 2-phase windings. Adapted from Figure 6.16 <a href="#WAK.bibitem">[WAK]</a></i></p>
 
 
 <p>
@@ -999,31 +998,31 @@ Medical researchers have long made use of capacitive sensing to detect physiolog
 Like inductive transducers, capacitive transducers can also be made to be self-contained units, unlike the direct physiological examples described above.  Some transducers work by making one of the capacitor plates movable, either in such a way as to vary the overlapping area or the distance between the plates.  Other transducers work by moving a dielectric material in and out between two fixed plates: (Figure <a href="#02257.png">  below</a>)
 </p>
 
- 
-<a name="02257.png"></a> 
-<p> <img src="02257.png"> </p> 
-<p><i>Variable capacitive transducer varies; (a) area of overlap, (b) distance between plates, (c) amount of dielectric between plates.</i></p> 
- 
+
+<a name="02257.png"></a>
+<p> <img src="02257.png"> </p>
+<p><i>Variable capacitive transducer varies; (a) area of overlap, (b) distance between plates, (c) amount of dielectric between plates.</i></p>
+
 
 <p>
 Transducers with greater sensitivity and immunity to changes in other variables can be obtained by way of differential design, much like the concept behind the LVDT (Linear Variable <i>Differential</i> Transformer).  Here are a few examples of differential capacitive transducers: (Figure <a href="#02258.png">  below</a>)
 </p>
 
- 
-<a name="02258.png"></a> 
-<p> <img src="02258.png"> </p> 
-<p><i>Differential capacitive transducer varies capacitance ratio by changing: (a) area of overlap, (b) distance between plates, (c) dielectric between plates. </i></p> 
- 
+
+<a name="02258.png"></a>
+<p> <img src="02258.png"> </p>
+<p><i>Differential capacitive transducer varies capacitance ratio by changing: (a) area of overlap, (b) distance between plates, (c) dielectric between plates. </i></p>
+
 
 <p>
 As you can see, all of the differential devices shown in the above illustration have <i>three</i> wire connections rather than two: one wire for each of the &ldquo;end&rdquo; plates and one for the &ldquo;common&rdquo; plate.  As the capacitance between one of the &ldquo;end&rdquo; plates and the &ldquo;common&rdquo; plate changes, the capacitance between the other &ldquo;end&rdquo; plate and the &ldquo;common&rdquo; plate is such to change in the opposite direction.  This kind of transducer lends itself very well to implementation in a bridge circuit: (Figure <a href="#02259.png">  below</a>)
 </p>
 
- 
-<a name="02259.png"></a> 
-<p> <img src="02259.png"> </p> 
-<p><i>Differential capacitive transducer bridge measurement circuit.</i></p> 
- 
+
+<a name="02259.png"></a>
+<p> <img src="02259.png"> </p>
+<p><i>Differential capacitive transducer bridge measurement circuit.</i></p>
+
 
 <a name="Bridge circuit"></a>
 
@@ -1041,28 +1040,28 @@ The bridge circuit is not the only way to effectively interpret the differential
 An interesting alternative to the bridge circuit for interpreting differential capacitance is the <i>twin-T</i>.  It requires the use of diodes, those &ldquo;one-way valves&rdquo; for electric current mentioned earlier in the chapter: (Figure <a href="#02337.png">  below</a>)
 </p>
 
- 
-<a name="02337.png"></a> 
-<p> <img src="02337.png"> </p> 
-<p><i>Differential capacitive transducer &ldquo;Twin-T&rdquo; measurement circuit.</i></p> 
- 
+
+<a name="02337.png"></a>
+<p> <img src="02337.png"> </p>
+<p><i>Differential capacitive transducer &ldquo;Twin-T&rdquo; measurement circuit.</i></p>
+
 
 <p>
 This circuit might be better understood if re-drawn to resemble more of a bridge configuration: (Figure <a href="#02338.png">  below</a>)
 </p>
 
- 
-<a name="02338.png"></a> 
-<p> <img src="02338.png"> </p> 
-<p><i>Differential capacitor transducer &ldquo;Twin-T&rdquo; measurement circuit redrawn as a bridge.Output is across R<sub>load</sub>.</i></p> 
- 
+
+<a name="02338.png"></a>
+<p> <img src="02338.png"> </p>
+<p><i>Differential capacitor transducer &ldquo;Twin-T&rdquo; measurement circuit redrawn as a bridge.Output is across R<sub>load</sub>.</i></p>
+
 
 <p>
 Capacitor C<sub>1</sub> is charged by the AC voltage source during every positive half-cycle (positive as measured in reference to the ground point), while C<sub>2</sub> is charged during every negative half-cycle.  While one capacitor is being charged, the other capacitor discharges (at a slower rate than it was charged) through the three-resistor network.  As a consequence, C<sub>1</sub> maintains a positive DC voltage with respect to ground, and C<sub>2</sub> a negative DC voltage with respect to ground.
 </p>
 
 <p>
-If the capacitive transducer is displaced from center position, one capacitor will increase in capacitance while the other will decrease.  This has little effect on the peak voltage charge of each capacitor, as there is negligible resistance in the charging current path from source to capacitor, resulting in a very short time constant (&#964;).  However, when it comes time to discharge through the resistors, the capacitor with the greater capacitance value will hold its charge longer, resulting in a greater average DC voltage over time than the lesser-value capacitor.  
+If the capacitive transducer is displaced from center position, one capacitor will increase in capacitance while the other will decrease.  This has little effect on the peak voltage charge of each capacitor, as there is negligible resistance in the charging current path from source to capacitor, resulting in a very short time constant (&#964;).  However, when it comes time to discharge through the resistors, the capacitor with the greater capacitance value will hold its charge longer, resulting in a greater average DC voltage over time than the lesser-value capacitor.
 </p>
 
 <p>
@@ -1073,11 +1072,11 @@ The load resistor (R<sub>load</sub>), connected at one end to the point between 
 Across the load resistor, there is both AC and DC voltage present, with only the DC voltage being significant to the difference in capacitance.  If desired, a low-pass filter may be added to the output of this circuit to block the AC, leaving only a DC signal to be interpreted by measurement circuitry: (Figure <a href="#02339.png">  below</a>)
 </p>
 
- 
-<a name="02339.png"></a> 
-<p> <img src="02339.png"> </p> 
-<p><i>Addition of low-pass filter to &ldquo;twin-T&rdquo; feeds pure DC to measurement indicator. </i></p> 
- 
+
+<a name="02339.png"></a>
+<p> <img src="02339.png"> </p>
+<p><i>Addition of low-pass filter to &ldquo;twin-T&rdquo; feeds pure DC to measurement indicator. </i></p>
+
 
 <a name="Duty cycle"></a>
 
@@ -1112,8 +1111,8 @@ Contributors to this chapter are listed in chronological order of their contribu
 
 
 
- 
-<h2><a name="xtocid35267">Bibliography</a></h2><br> 
+
+<h2><a name="xtocid35267">Bibliography</a></h2><br>
 <ol>
 <li><a name="WAK.bibitem">[WAK]Waltt Kestler, &ldquo;Position and Motion Sensors&rdquo;,  Analog Devices. <a href="http://www.analog.com/UploadedFiles/Associated_Docs324695618448506532114843952501435805318549066180119988Fsect6.PDF">http://www.analog.com/UploadedFiles/Associated_Docs/324695618448506532114843952501435805318549066180119988Fsect6.PDF</a></a></li>
 </ol>

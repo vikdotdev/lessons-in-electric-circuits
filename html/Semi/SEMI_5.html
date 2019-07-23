@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,17 +20,16 @@
 <a href="SEMI_6.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume III</h1>
 <h1>Chapter 5</h1>
 
 
 
 
-<h1>JUNCTION FIELD-EFFECT TRANSISTORS</h1> 
+<h1>JUNCTION FIELD-EFFECT TRANSISTORS</h1>
 <!--minitoc-->
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid35980"><u>Introduction</u></a></li>
@@ -59,13 +58,13 @@ A <i>transistor</i> is a linear semiconductor device that controls current with 
 All field-effect transistors are <i>unipolar</i> rather than <i>bipolar</i> devices.  That is, the main current through them is comprised either of electrons through an N-type semiconductor or holes through a P-type semiconductor.  This becomes more evident when a physical diagram of the device is seen:
 </p>
 
-<p> <img src="03149.png"> </p> 
+<p> <img src="03149.png"> </p>
 
 <p>
 In a junction field-effect transistor, or JFET, the controlled current passes from source to drain, or from drain to source as the case may be.  The controlling voltage is applied between the gate and source.  Note how the current does not have to cross through a PN junction on its way between source and drain: the path (called a <i>channel</i>) is an uninterrupted block of semiconductor material.  In the image just shown, this channel is an N-type semiconductor.  P-type channel JFETs are also manufactured:
 </p>
 
-<p> <img src="03150.png"> </p> 
+<p> <img src="03150.png"> </p>
 
 <p>
 Generally, N-channel JFETs are more commonly used than P-channel.  The reasons for this have to do with obscure details of semiconductor theory, which I'd rather not discuss in this chapter.  As with bipolar transistors, I believe the best way to introduce field-effect transistor usage is to avoid theory whenever possible and concentrate instead on operational characteristics.  The only practical difference between N- and P-channel JFETs you need to concern yourself with now is biasing of the PN junction formed between the gate material and the channel.
@@ -75,7 +74,7 @@ Generally, N-channel JFETs are more commonly used than P-channel.  The reasons f
 With no voltage applied between gate and source, the channel is a wide-open path for electrons to flow.  However, if a voltage is applied between gate and source of such polarity that it reverse-biases the PN junction, the flow between source and drain connections becomes limited, or regulated, just as it was for bipolar transistors with a set amount of base current.  Maximum gate-source voltage "pinches off" all current through source and drain, thus forcing the JFET into cutoff mode.  This behavior is due to the depletion region of the PN junction expanding under the influence of a reverse-bias voltage, eventually occupying the entire width of the channel if the voltage is great enough.  This action may be likened to reducing the flow of a liquid through a flexible hose by squeezing it: with enough force, the hose will be constricted enough to completely block the flow.
 </p>
 
-<p> <img src="03158.png"> </p> 
+<p> <img src="03158.png"> </p>
 
 <p>
 Note how this operational behavior is exactly opposite of the bipolar junction transistor.  Bipolar transistors are <i>normally-off</i> devices: no current through the base, no current through the collector or the emitter.  JFETs, on the other hand, are <i>normally-on</i> devices: no voltage applied to the gate allows maximum current through the source and drain.  Also take note that the amount of current allowed through a JFET is determined by a <i>voltage</i> signal rather than a <i>current</i> signal as with bipolar transistors.  In fact, with the gate-source PN junction reverse-biased, there should be nearly zero current through the gate connection.  For this reason, we classify the JFET as a <i>voltage-controlled device</i>, and the bipolar transistor as a <i>current-controlled device</i>.
@@ -103,13 +102,13 @@ This is a very condensed overview of JFET operation.  In the next section, we'll
 Like its bipolar cousin, the field-effect transistor may be used as an on/off switch controlling electrical power to a load.  Let's begin our investigation of the JFET as a switch with our familiar switch/lamp circuit:
 </p>
 
-<p> <img src="03074.png"> </p> 
+<p> <img src="03074.png"> </p>
 
 <p>
 Remembering that the <i>controlled</i> current in a JFET flows between source and drain, we substitute the source and drain connections of a JFET for the two ends of the switch in the above circuit:
 </p>
 
-<p> <img src="03151.png"> </p> 
+<p> <img src="03151.png"> </p>
 
 <p>
 If you haven't noticed by now, the source and drain connections on a JFET look identical on the schematic symbol.  Unlike the bipolar junction transistor where the emitter is clearly distinguished from the collector by the arrowhead, a JFET's source and drain lines both run perpendicular into the bar representing the semiconductor channel.  This is no accident, as the source and drain lines of a JFET are often interchangeable in practice!  In other words, JFETs are usually able to handle channel current in either direction, from source to drain or from drain to source.
@@ -119,13 +118,13 @@ If you haven't noticed by now, the source and drain connections on a JFET look i
 Now all we need in the circuit is a way to control the JFET's conduction.  With zero applied voltage between gate and source, the JFET's channel will be "open," allowing full current to the lamp.  In order to turn the lamp off, we will need to connect another source of DC voltage between the gate and source connections of the JFET like this:
 </p>
 
-<p> <img src="03152.png"> </p> 
+<p> <img src="03152.png"> </p>
 
 <p>
 Closing this switch will "pinch off" the JFET's channel, thus forcing it into cutoff and turning the lamp off:
 </p>
 
-<p> <img src="03153.png"> </p> 
+<p> <img src="03153.png"> </p>
 
 <p>
 Note that there is no current going through the gate.  As a reverse-biased PN junction, it firmly opposes the flow of any electrons through it.  As a voltage-controlled device, the JFET requires negligible input current.  This is an advantageous trait of the JFET over the bipolar transistor: there is virtually zero power required of the controlling signal.
@@ -135,13 +134,13 @@ Note that there is no current going through the gate.  As a reverse-biased PN ju
 Opening the control switch again should disconnect the reverse-biasing DC voltage from the gate, thus allowing the transistor to turn back on.  Ideally, anyway, this is how it works.  In practice this may not work at all:
 </p>
 
-<p> <img src="03154.png"> </p> 
+<p> <img src="03154.png"> </p>
 
 <p>
 Why is this?  Why doesn't the JFET's channel open up again and allow lamp current through like it did before with no voltage applied between gate and source?  The answer lies in the operation of the reverse-biased gate-source junction.  The depletion region within that junction acts as an insulating barrier separating gate from source.  As such, it possesses a certain amount of <i>capacitance</i> capable of storing an electric charge potential.  After this junction has been forcibly reverse-biased by the application of an external voltage, it will tend to hold that reverse-biasing voltage as a stored charge even after the source of that voltage has been disconnected.  What is needed to turn the JFET on again is to bleed off that stored charge between the gate and source through a resistor:
 </p>
 
-<p> <img src="03155.png"> </p> 
+<p> <img src="03155.png"> </p>
 
 <p>
 This resistor's value is not very important.  The capacitance of the JFET's gate-source junction is very small, and so even a rather high-value bleed resistor creates a fast RC time constant, allowing the transistor to resume conduction with little delay once the switch is opened.
@@ -174,7 +173,7 @@ Like the bipolar transistor, it matters little where or what the controlling vol
 Testing a JFET with a multimeter might seem to be a relatively easy task, seeing as how it has only one PN junction to test: either measured between gate and source, or between gate and drain.
 </p>
 
-<p> <img src="03156.png"> </p> 
+<p> <img src="03156.png"> </p>
 
 <p>
 
@@ -182,7 +181,7 @@ Testing a JFET with a multimeter might seem to be a relatively easy task, seeing
 
 <br> </br>
 
-<p> <img src="03157.png"> </p> 
+<p> <img src="03157.png"> </p>
 
 <p>
 Testing continuity through the drain-source channel is another matter, though.  Remember from the last section how a stored charge across the capacitance of the gate-channel PN junction could hold the JFET in a pinched-off state without any external voltage being applied across it?  This can occur even when you're holding the JFET in your hand to test it!  Consequently, any meter reading of continuity through that channel will be unpredictable, since you don't necessarily know if a charge is being stored by the gate-channel junction.  Of course, if you know beforehand which terminals on the device are the gate, source, and drain, you may connect a jumper wire between gate and source to eliminate any stored charge and then proceed to test source-drain continuity with no problem.  However, if you <i>don't</i> know which terminals are which, the unpredictability of the source-drain connection may confuse your determination of terminal identity.
@@ -213,20 +212,20 @@ Since the JFET channel is a single, uninterrupted piece of semiconductor materia
 JFETs, like bipolar transistors, are able to "throttle" current in a mode between cutoff and saturation called the <i>active</i> mode.  To better understand JFET operation, let's set up a SPICE simulation similar to the one used to explore basic bipolar transistor function:
 </p>
 
-<p> <img src="03159.png"> </p> 
+<p> <img src="03159.png"> </p>
 
 <br> </br>
 
 <pre>
-jfet simulation                                                   
-vin 0 1 dc 1   
-j1 2 1 0 mod1   
-vammeter 3 2 dc 0       
-v1 3 0 dc       
-.model mod1 njf 
-.dc v1 0 2 0.05 
-.plot dc i(vammeter)    
-.end    
+jfet simulation
+vin 0 1 dc 1
+j1 2 1 0 mod1
+vammeter 3 2 dc 0
+v1 3 0 dc
+.model mod1 njf
+.dc v1 0 2 0.05
+.plot dc i(vammeter)
+.end
 </pre>
 
 <p>
@@ -236,7 +235,7 @@ Note that the transistor labeled "Q<sub>1</sub>" in the schematic is represented
 <br> </br>
 
 
-<!--i(vammeter)-->    
+<!--i(vammeter)-->
 <!--|     0.000E+00     5.000E-05     1.000E-04    1.500E-04  2.000E-04-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 <!--1.010E-12 *             .             .             .            .-->
@@ -284,7 +283,7 @@ Note that the transistor labeled "Q<sub>1</sub>" in the schematic is represented
 
 
 <br> </br>
-<p> <img src="23015.png"> </p> 
+<p> <img src="23015.png"> </p>
 <br> </br>
 
 <p>
@@ -298,21 +297,21 @@ Like the BJT, the JFET tends to regulate the controlled current at a fixed level
 <br> </br>
 
 <pre>
-jfet simulation                                                                 
-vin 0 1 dc 1    
-j1 2 1 0 mod1   
-vammeter 3 2 dc 0       
-v1 3 0 dc       
-.model mod1 njf 
-.dc v1 0 50 2   
-.plot dc i(vammeter)    
-.end    
+jfet simulation
+vin 0 1 dc 1
+j1 2 1 0 mod1
+vammeter 3 2 dc 0
+v1 3 0 dc
+.model mod1 njf
+.dc v1 0 50 2
+.plot dc i(vammeter)
+.end
 </pre>
 
 <br> </br>
 
 
-<!--i(vammeter)-->     
+<!--i(vammeter)-->
 <!--|     0.000E+00     5.000E-05     1.000E-04     1.500E-04  2.000E-04-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 <!--1.010E-12 *             .             .             .            .-->
@@ -345,7 +344,7 @@ v1 3 0 dc
 
 
 <br> </br>
-<p> <img src="23016.png"> </p> 
+<p> <img src="23016.png"> </p>
 <br> </br>
 
 <p>
@@ -359,21 +358,21 @@ Because the input voltage has control over the constriction of the JFET's channe
 <br> </br>
 
 <pre>
-jfet simulation                                                                 
-vin 0 1 dc 0.5  
-j1 2 1 0 mod1   
-vammeter 3 2 dc 0       
-v1 3 0 dc       
-.model mod1 njf 
-.dc v1 0 50 2   
-.plot dc i(vammeter)    
-.end    
+jfet simulation
+vin 0 1 dc 0.5
+j1 2 1 0 mod1
+vammeter 3 2 dc 0
+v1 3 0 dc
+.model mod1 njf
+.dc v1 0 50 2
+.plot dc i(vammeter)
+.end
 </pre>
 
 <br> </br>
 
 
-<!--i(vammeter)-->     
+<!--i(vammeter)-->
 <!--|     0.000E+00    1.000E-04     2.000E-04     3.000E-04  4.000E-04-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 <!--5.100E-13 *             .             .             .            .-->
@@ -406,7 +405,7 @@ v1 3 0 dc
 
 
 <br> </br>
-<p> <img src="23017.png"> </p> 
+<p> <img src="23017.png"> </p>
 <br> </br>
 <p>
 As expected, the drain current is greater now than it was in the previous simulation.  With less reverse-bias voltage impressed across the gate-source junction, the depletion region is not as wide as it was before, thus "opening" the channel for charge carriers and increasing the drain current figure.
@@ -419,21 +418,21 @@ Please note, however, the actual value of this new current figure: 225 &#181;A (
 <br> </br>
 
 <pre>
-jfet simulation                                                                 
-vin 0 1 dc 0.25 
-j1 2 1 0 mod1   
-vammeter 3 2 dc 0       
-v1 3 0 dc       
-.model mod1 njf 
-.dc v1 0 50 2   
-.plot dc i(vammeter)    
-.end    
+jfet simulation
+vin 0 1 dc 0.25
+j1 2 1 0 mod1
+vammeter 3 2 dc 0
+v1 3 0 dc
+.model mod1 njf
+.dc v1 0 50 2
+.plot dc i(vammeter)
+.end
 </pre>
 
 <br> </br>
 
 
-<!--i(vammeter)-->     
+<!--i(vammeter)-->
 <!--|      0.000E+00     1.000E-04     2.000E-04     3.000E-04  4.000E-04-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 <!-- 2.600E-13 *             .             .             .           .-->
@@ -466,7 +465,7 @@ v1 3 0 dc
 
 
 <br> </br>
-<p> <img src="23018.png"> </p> 
+<p> <img src="23018.png"> </p>
 <br> </br>
 
 <p>
@@ -480,15 +479,15 @@ To obtain a better understanding of what is going on here, we should run a diffe
 <br> </br>
 
 <pre>
-jfet simulation                                                                 
-vin 0 1 dc      
-j1 2 1 0 mod1   
-vammeter 3 2 dc 0       
-v1 3 0 dc 25    
-.model mod1 njf 
-.dc vin 0 2 0.1 
-.plot dc i(vammeter)    
-.end    
+jfet simulation
+vin 0 1 dc
+j1 2 1 0 mod1
+vammeter 3 2 dc 0
+v1 3 0 dc 25
+.model mod1 njf
+.dc vin 0 2 0.1
+.plot dc i(vammeter)
+.end
 </pre>
 
 <br> </br>
@@ -496,32 +495,32 @@ v1 3 0 dc 25
 
 <!--vin     i(vammeter) 0.000E+00   2.000E-04     4.000E-04   6.000E-04-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-<!-- 0.000E+00  4.000E-04 .             .             *             .--> 
-<!-- 1.000E-01  3.610E-04 .             .          *  .             .--> 
-<!-- 2.000E-01  3.240E-04 .             .        *    .             .--> 
-<!-- 3.000E-01  2.890E-04 .             .     *       .             .--> 
-<!-- 4.000E-01  2.560E-04 .             .   *         .             .--> 
-<!-- 5.000E-01  2.250E-04 .             . *           .             .-->  
-<!-- 6.000E-01  1.960E-04 .             *             .             .--> 
+<!-- 0.000E+00  4.000E-04 .             .             *             .-->
+<!-- 1.000E-01  3.610E-04 .             .          *  .             .-->
+<!-- 2.000E-01  3.240E-04 .             .        *    .             .-->
+<!-- 3.000E-01  2.890E-04 .             .     *       .             .-->
+<!-- 4.000E-01  2.560E-04 .             .   *         .             .-->
+<!-- 5.000E-01  2.250E-04 .             . *           .             .-->
+<!-- 6.000E-01  1.960E-04 .             *             .             .-->
 <!-- 7.000E-01  1.690E-04 .           * .             .             .-->
-<!-- 8.000E-01  1.440E-04 .         *   .             .             .--> 
-<!-- 9.000E-01  1.210E-04 .       *     .             .             .--> 
+<!-- 8.000E-01  1.440E-04 .         *   .             .             .-->
+<!-- 9.000E-01  1.210E-04 .       *     .             .             .-->
 <!-- 1.000E+00  1.000E-04 .      *      .             .             .-->
 <!-- 1.100E+00  8.100E-05 .     *       .             .             .-->
 <!-- 1.200E+00  6.400E-05 .   *         .             .             .-->
 <!-- 1.300E+00  4.900E-05 .  *          .             .             .-->
 <!-- 1.400E+00  3.600E-05 .  *          .             .             .-->
 <!-- 1.500E+00  2.500E-05 . *           .             .             .-->
-<!-- 1.600E+00  1.600E-05 .*            .             .             .--> 
-<!-- 1.700E+00  9.000E-06 .*            .             .             .--> 
-<!-- 1.800E+00  4.000E-06 *             .             .             .--> 
-<!-- 1.900E+00  1.000E-06 *             .             .             .--> 
+<!-- 1.600E+00  1.600E-05 .*            .             .             .-->
+<!-- 1.700E+00  9.000E-06 .*            .             .             .-->
+<!-- 1.800E+00  4.000E-06 *             .             .             .-->
+<!-- 1.900E+00  1.000E-06 *             .             .             .-->
 <!-- 2.000E+00  2.701E-11 *             .             .             .-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 
 
 <br> </br>
-<p> <img src="23019.png"> </p> 
+<p> <img src="23019.png"> </p>
 <br> </br>
 
 <p>
@@ -539,13 +538,13 @@ Linearity is generally important for a transistor because it allows it to faithf
 A JFET's characteristic curves display the same current-regulating behavior as for a BJT, and the nonlinearity between gate-to-source voltage and drain current is evident in the disproportionate vertical spacings between the curves:
 </p>
 
-<p> <img src="03160.png"> </p> 
+<p> <img src="03160.png"> </p>
 
 <p>
 To better comprehend the current-regulating behavior of the JFET, it might be helpful to draw a model made up of simpler, more common components, just as we did for the BJT:
 </p>
 
-<p> <img src="03161.png"> </p> 
+<p> <img src="03161.png"> </p>
 
 <a name="Bilateral"></a>
 
@@ -554,10 +553,10 @@ In the case of the JFET, it is the <i>voltage</i> across the reverse-biased gate
 </p>
 
 <p>
-A contrast of the JFET's characteristic curves against the curves for a bipolar transistor reveals a notable difference: the linear (straight) portion of each curve's non-horizontal area is surprisingly long compared to the respective portions of a BJT's characteristic curves: 
+A contrast of the JFET's characteristic curves against the curves for a bipolar transistor reveals a notable difference: the linear (straight) portion of each curve's non-horizontal area is surprisingly long compared to the respective portions of a BJT's characteristic curves:
 </p>
 
-<p> <img src="03162.png"> </p> 
+<p> <img src="03162.png"> </p>
 
 <p>
 
@@ -565,7 +564,7 @@ A contrast of the JFET's characteristic curves against the curves for a bipolar 
 
 <br> </br>
 
-<p> <img src="03163.png"> </p> 
+<p> <img src="03163.png"> </p>
 
 <a name="Ohmic region, JFET"></a>
 
@@ -573,7 +572,7 @@ A contrast of the JFET's characteristic curves against the curves for a bipolar 
 A JFET transistor operated in the <i>triode region</i> tends to act very much like a plain resistor as measured from drain to source.  Like all simple resistances, its current/voltage graph is a straight line.  For this reason, the triode region (non-horizontal) portion of a JFET's characteristic curve is sometimes referred to as the <i>ohmic region</i>.  In this mode of operation where there isn't enough drain-to-source voltage to bring drain current up to the regulated point, the drain current is directly proportional to the drain-to-source voltage.  In a carefully designed circuit, this phenomenon can be used to an advantage.  Operated in this region of the curve, the JFET acts like a voltage-controlled <i>resistance</i> rather than a voltage-controlled <i>current regulator</i>, and the appropriate model for the transistor is different:
 </p>
 
-<p> <img src="03164.png"> </p> 
+<p> <img src="03164.png"> </p>
 
 <a name="Rheostat"></a>
 
@@ -588,20 +587,20 @@ Here and here alone the rheostat (variable resistor) model of a transistor is ac
 <a name="Siemens"></a>
 
 <p>
-Because JFETs are <i>voltage</i>-controlled current regulators (at least when they're allowed to operate in their active), their inherent amplification factor cannot be expressed as a unitless ratio as with BJTs.  In other words, there is no &#946; ratio for a JFET.  This is true for all voltage-controlled active devices, including other types of field-effect transistors and even electron tubes.  There is, however, an expression of controlled (drain) current to controlling (gate-source) voltage, and it is called <i>transconductance</i>.  Its unit is Siemens, the same unit for conductance (formerly known as the <i>mho</i>).  
+Because JFETs are <i>voltage</i>-controlled current regulators (at least when they're allowed to operate in their active), their inherent amplification factor cannot be expressed as a unitless ratio as with BJTs.  In other words, there is no &#946; ratio for a JFET.  This is true for all voltage-controlled active devices, including other types of field-effect transistors and even electron tubes.  There is, however, an expression of controlled (drain) current to controlling (gate-source) voltage, and it is called <i>transconductance</i>.  Its unit is Siemens, the same unit for conductance (formerly known as the <i>mho</i>).
 </p>
 
 <p>
-Why this choice of units?  Because the equation takes on the general form of current (output signal) divided by voltage (input signal).  
+Why this choice of units?  Because the equation takes on the general form of current (output signal) divided by voltage (input signal).
 </p>
 
-<p> <img src="13024.png"> </p> 
+<p> <img src="13024.png"> </p>
 
 <p>
 Unfortunately, the transconductance value for any JFET is not a stable quantity: it varies significantly with the amount of gate-to-source control voltage applied to the transistor.  As we saw in the SPICE simulations, the drain current does not change proportionally with changes in gate-source voltage.  To calculate drain current for any given gate-source voltage, there is another equation that may be used.  It is obviously nonlinear upon inspection (note the power of 2), reflecting the nonlinear behavior we've already experienced in simulation:
 </p>
 
-<p> <img src="13023.png"> </p> 
+<p> <img src="13023.png"> </p>
 
 <ul>
 <li><b>REVIEW:</b></li>

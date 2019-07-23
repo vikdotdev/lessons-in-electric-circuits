@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -20,19 +20,18 @@
 <a href="SEMI_5.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume III</h1>
 <h1>Chapter 4</h1>
 
 
 
 
-<h1>BIPOLAR JUNCTION TRANSISTORS</h1> 
+<h1>BIPOLAR JUNCTION TRANSISTORS</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid35900"><u>Introduction</u></a></li>
@@ -82,11 +81,11 @@ My intent here is to focus as exclusively as possible on the practical function 
 A bipolar transistor consists of a three-layer &ldquo;sandwich&rdquo; of doped (extrinsic) semiconductor materials, either P-N-P in Figure <a href="#03071.png">  below</a>(b) or N-P-N at (d).  Each layer forming the transistor has a specific name, and each layer is provided with a wire contact for connection to a circuit. The schematic symbols are shown in Figure <a href="#03071.png">  below</a>(a) and (d).
 </p>
 
- 
-<a name="03071.png"></a> 
-<p> <img src="03071.png"> </p> 
-<p><i>BJT transistor: (a) PNP schematic symbol, (b) physical layout (c) NPN symbol, (d) layout.</i></p> 
- 
+
+<a name="03071.png"></a>
+<p> <img src="03071.png"> </p>
+<p><i>BJT transistor: (a) PNP schematic symbol, (b) physical layout (c) NPN symbol, (d) layout.</i></p>
+
 
 
 <p>
@@ -97,11 +96,11 @@ The functional difference between a PNP transistor and an NPN transistor is the 
 Bipolar transistors work as current-controlled current <i>regulators</i>.  In other words, transistors restrict the amount of current passed according to a smaller, controlling current.  The main current that is <i>controlled</i> goes from collector to emitter, or from emitter to collector, depending on the type of transistor it is (PNP or NPN, respectively).  The small current that <i>controls</i> the main current goes from base to emitter, or from emitter to base, once again depending on the kind  of transistor it is (PNP or NPN, respectively).  According to the standards of semiconductor symbology, the arrow always points <i>against</i> the direction of electron flow.  (Figure <a href="#03073.png">  below</a>)
 </p>
 
- 
-<a name="03073.png"></a> 
-<p> <img src="03073.png"> </p> 
-<p><i>Small Base-Emitter current controls large Collector-Emitter current flowing against emitter arrow.</i></p> 
- 
+
+<a name="03073.png"></a>
+<p> <img src="03073.png"> </p>
+<p><i>Small Base-Emitter current controls large Collector-Emitter current flowing against emitter arrow.</i></p>
+
 
 <p>
 Bipolar transistors are called <i>bi</i>polar because the main flow of electrons through them takes place in <i>two</i> types of semiconductor material: P and N, as the main current goes from emitter to collector (or vice versa).  In other words, two types of charge carriers -- electrons and holes -- comprise this main current through the transistor.
@@ -146,11 +145,11 @@ Suppose we had a lamp that we wanted to turn on and off with a switch.  Such a c
 For the sake of illustration, let's insert a transistor in place of the switch to show how it can control the flow of electrons through the lamp.  Remember that the controlled current through a transistor must go between collector and emitter.  Since it is the current through the lamp that we want to control, we must position the collector and emitter of our transistor where the two contacts of the switch were.  We must also make sure that the lamp's current will move <i>against</i> the direction of the emitter arrow symbol to ensure that the transistor's junction bias will be correct as in  Figure <a href="#03075.png">  below</a>(b).
 </p>
 
- 
-<a name="03075.png"></a> 
-<p> <img src="03075.png"> </p> 
-<p><i>(a) mechanical switch, (b) NPN transistor switch, (c) PNP transistor switch.</i></p> 
- 
+
+<a name="03075.png"></a>
+<p> <img src="03075.png"> </p>
+<p><i>(a) mechanical switch, (b) NPN transistor switch, (c) PNP transistor switch.</i></p>
+
 
 <p>
 A PNP transistor could also have been chosen for the job. Its application is shown in Figure <a href="#03075.png">  above</a>(c).
@@ -158,18 +157,18 @@ A PNP transistor could also have been chosen for the job. Its application is sho
 
 
 <p>
-The choice between NPN and PNP is really arbitrary.  All that matters is that the proper current directions are maintained for the sake of correct junction biasing (electron flow going <i>against</i> the transistor symbol's arrow).  
+The choice between NPN and PNP is really arbitrary.  All that matters is that the proper current directions are maintained for the sake of correct junction biasing (electron flow going <i>against</i> the transistor symbol's arrow).
 </p>
 
 <p>
 Going back to the NPN transistor in our example circuit, we are faced with the need to add something more so that we can have base current.  Without a connection to the base wire of the transistor, base current will be zero, and the transistor cannot turn on, resulting in a lamp that is always off.  Remember that for an NPN transistor, base current must consist of electrons flowing from emitter to base (against the emitter arrow symbol, just like the lamp current).  Perhaps the simplest thing to do would be to connect a switch between the base and collector wires of the transistor as in  Figure <a href="#03078.png">  below</a> (a).
 </p>
 
- 
-<a name="03078.png"></a> 
-<p> <img src="03078.png"> </p> 
-<p><i>Transistor: (a) cutoff, lamp off; (b) saturated, lamp on.</i></p> 
- 
+
+<a name="03078.png"></a>
+<p> <img src="03078.png"> </p>
+<p><i>Transistor: (a) cutoff, lamp off; (b) saturated, lamp on.</i></p>
+
 
 <a name="Floating"></a>
 <a name="Cutoff, transistor"></a>
@@ -195,31 +194,31 @@ Two points can be  made here, actually.  First is the fact that when used in
        relatively high-current load.  More importantly, the current-controlling behavior of the transistor enables us to use something completely different to turn the lamp on or off.  Consider  Figure <a href="#03079.png">  below</a>, where a pair of solar cells provides 1 V  to overcome the 0.7 V<sub>BE</sub> of the transistor to cause base current flow, which in turn controls the lamp.
 </p>
 
- 
-<a name="03079.png"></a> 
-<p> <img src="03079.png"> </p> 
-<p><i>Solar cell serves as light sensor.</i></p> 
- 
+
+<a name="03079.png"></a>
+<p> <img src="03079.png"> </p>
+<p><i>Solar cell serves as light sensor.</i></p>
+
 
 <p>
 Or, we could use a thermocouple (many connected in series) to provide the necessary base current to turn the transistor on in Figure <a href="#03080.png">  below</a>.
 </p>
 
- 
-<a name="03080.png"></a> 
-<p> <img src="03080.png"> </p> 
-<p><i>A single thermocouple provides less than 40 mV.  Many in series could produce in excess  of the 0.7 V transistor  V<sub>BE</sub> to cause base current flow and consequent collector current to the lamp.</i></p> 
- 
+
+<a name="03080.png"></a>
+<p> <img src="03080.png"> </p>
+<p><i>A single thermocouple provides less than 40 mV.  Many in series could produce in excess  of the 0.7 V transistor  V<sub>BE</sub> to cause base current flow and consequent collector current to the lamp.</i></p>
+
 
 <p>
 Even a microphone (Figure <a href="#03081.png">  below</a>) with enough voltage and current (from an amplifier) output could  turn the transistor on, provided its output is rectified from AC to DC so that the emitter-base PN junction within the transistor will always be forward-biased:
 </p>
 
- 
-<a name="03081.png"></a> 
-<p> <img src="03081.png"> </p> 
-<p><i> Amplified microphone signal is rectified to DC to bias the base of the transistor providing a larger collector current.</i></p> 
- 
+
+<a name="03081.png"></a>
+<p> <img src="03081.png"> </p>
+<p><i> Amplified microphone signal is rectified to DC to bias the base of the transistor providing a larger collector current.</i></p>
+
 
 <p>
 The point should be quite apparent by now: <i>any</i> sufficient source of DC current may be used to turn the transistor on, and that source of current only need be a fraction of the current needed to energize the lamp.  Here we see the transistor functioning not only as a switch, but as a true <i>amplifier</i>: using a relatively low-power signal to <i>control</i> a relatively large amount of power.  Please note that the actual power for lighting up the lamp comes from the battery to the right of the schematic.  It is not as though the small signal current from the solar cell, thermocouple, or microphone is being magically transformed into a greater amount of power.  Rather, those small power sources are simply <i>controlling</i> the battery's power to light up the lamp.
@@ -244,11 +243,11 @@ The point should be quite apparent by now: <i>any</i> sufficient source of DC cu
 Bipolar transistors are constructed of a three-layer semiconductor “sandwich,” either PNP or NPN. As such, transistors register as two diodes connected back-to-back when tested with a multimeter's “resistance” or “diode check” function as illustrated in Figure below. Low resistance readings on the base with the black negative (-) leads correspond to an N-type material in the base of a PNP transistor. On the symbol, the N-type material is "pointed" to by the arrow of the base-emitter junction, which is the base for this example. The P-type emitter corresponds to the other end of the arrow of the base-emitter junction, the emitter. The collector is very similar to the emitter, and is also a P-type material of the PN junction.
 </p>
 
- 
-<a name="03077.png"></a> 
-<p> <img src="03077.png"> </p> 
-<p><i>PNP transistor meter check: (a) forward B-E, B-C, resistance is low; (b) reverse B-E, B-C, resistance is &#8734;.</i></p> 
- 
+
+<a name="03077.png"></a>
+<p> <img src="03077.png"> </p>
+<p><i>PNP transistor meter check: (a) forward B-E, B-C, resistance is low; (b) reverse B-E, B-C, resistance is &#8734;.</i></p>
+
 
 
 <p>
@@ -266,7 +265,7 @@ If a multimeter with a &ldquo;diode check&rdquo; function is used in this test, 
 </p>
 
 <p>
-Knowing this, it becomes possible to determine which wire is which on an unmarked transistor.  This is important because transistor packaging, unfortunately, is not standardized.  All bipolar transistors have three wires, of course, but the positions of the three wires on the actual physical package are not arranged in any universal, standardized order. 
+Knowing this, it becomes possible to determine which wire is which on an unmarked transistor.  This is important because transistor packaging, unfortunately, is not standardized.  All bipolar transistors have three wires, of course, but the positions of the three wires on the actual physical package are not arranged in any universal, standardized order.
 </p>
 
 <p>
@@ -300,7 +299,7 @@ Suppose a technician finds a bipolar transistor and proceeds to measure continui
 
 
 <p>
-The only combinations of test points giving conducting meter readings are wires 1 and 3 (red test lead on 1 and black test lead on 3), and wires 2 and 3 (red test lead on 2 and black test lead on 3).  These two readings <i>must</i> indicate forward biasing of the emitter-to-base junction (0.655 volts) and the collector-to-base junction (0.621 volts).  
+The only combinations of test points giving conducting meter readings are wires 1 and 3 (red test lead on 1 and black test lead on 3), and wires 2 and 3 (red test lead on 2 and black test lead on 3).  These two readings <i>must</i> indicate forward biasing of the emitter-to-base junction (0.655 volts) and the collector-to-base junction (0.621 volts).
 </p>
 
 <p>
@@ -345,11 +344,11 @@ Knowing that a bipolar transistor behaves as two back-to-back diodes when tested
 To better illustrate this paradox, let's examine one of the transistor switch circuits using the physical diagram in Figure <a href="#03086.png">  below</a> rather than the schematic symbol to represent the transistor.  This way the two PN junctions will be easier to see.
 </p>
 
- 
-<a name="03086.png"></a> 
-<p> <img src="03086.png"> </p> 
-<p><i>A small base current flowing in the forward biased base-emitter junction allows a large current flow through the reverse biased base-collector junction. </i></p> 
- 
+
+<a name="03086.png"></a>
+<p> <img src="03086.png"> </p>
+<p><i>A small base current flowing in the forward biased base-emitter junction allows a large current flow through the reverse biased base-collector junction. </i></p>
+
 
 <p>
 A grey-colored diagonal arrow shows the direction of electron flow through the emitter-base junction.  This part makes sense, since the electrons are flowing from the N-type emitter to the P-type base: the junction is obviously forward-biased.  However, the base-collector junction is another matter entirely.  Notice how the grey-colored thick arrow is pointing in the direction of electron flow (up-wards) from base to collector.  With the base made of P-type material and the collector of N-type material, this direction of electron flow is clearly backwards to the direction normally associated with a PN junction!  A normal PN junction wouldn't permit this &ldquo;backward&rdquo; direction of flow, at least not without offering significant opposition.  However, a saturated transistor shows very little opposition to electrons, all the way from emitter to collector, as evidenced by the lamp's illumination!
@@ -359,11 +358,11 @@ A grey-colored diagonal arrow shows the direction of electron flow through the e
 Clearly then, something is going on here that defies the simple &ldquo;two-diode&rdquo; explanatory model of the bipolar transistor.  When I was first learning about transistor operation, I tried to construct my own transistor from two back-to-back diodes, as in Figure <a href="#03087.png">  below</a>.
 </p>
 
- 
-<a name="03087.png"></a> 
-<p> <img src="03087.png"> </p> 
-<p><i>A pair of back-to-back diodes don't act like a transistor!</i></p> 
- 
+
+<a name="03087.png"></a>
+<p> <img src="03087.png"> </p>
+<p><i>A pair of back-to-back diodes don't act like a transistor!</i></p>
+
 
 <p>
 My circuit didn't work, and I was mystified.  However useful the &ldquo;two diode&rdquo; description of a transistor might be for testing purposes, it doesn't explain how a transistor behaves as a controlled switch.
@@ -382,7 +381,7 @@ That doping concentrations play a crucial part in the special abilities of the t
 <p>
 Current through the emitter-base junction allows current through the reverse-biased base-collector junction.  The action of base current can be thought of as &ldquo;opening a gate&rdquo; for current through the collector.  More specifically, any given amount of emitter-to-base current <i>permits a limited amount</i> of base-to-collector current.  For every electron that passes through the emitter-base junction and on through the base wire, a certain, number of electrons pass through the base-collector junction and no more.
 </p>
- 
+
 <p>
 In the next section, this current-limiting of the transistor will be investigated in more detail.
 </p>
@@ -432,13 +431,13 @@ Let's set up a circuit for SPICE simulation to demonstrate what happens when a t
 <td>
 
 <pre>
-bipolar transistor simulation 
+bipolar transistor simulation
 i1 0 1 dc 20u
 q1 2 1 0 mod1
 vammeter 3 2 dc 0
 v1 3 0 dc
-.model mod1 npn 
-.dc v1 0 2 0.05 
+.model mod1 npn
+.dc v1 0 2 0.05
 .plot dc i(vammeter)
 .end
 </pre>
@@ -509,11 +508,11 @@ In the SPICE simulation, we'll set the current source at a constant value of 20 
 
 
 <br> </br>
- 
-<a name="23000.png"></a> 
-<p> <img src="23000.png"> </p> 
-<p><i>A  Sweeping collector voltage 0 to 2 V with base current constant at 20 &#181;A yields  constant 2 mA collector current in the saturation region. </i></p> 
- 
+
+<a name="23000.png"></a>
+<p> <img src="23000.png"> </p>
+<p><i>A  Sweeping collector voltage 0 to 2 V with base current constant at 20 &#181;A yields  constant 2 mA collector current in the saturation region. </i></p>
+
 <br> </br>
 
 <p>
@@ -565,7 +564,7 @@ Let's see what happens if we vary the battery voltage over a wider range, this t
 <td>
 
 <pre>
-bipolar transistor simulation 
+bipolar transistor simulation
 i1 0 1 dc 20u
 q1 2 1 0 mod1
 vammeter 3 2 dc 0
@@ -631,7 +630,7 @@ Now let's see what happens if we increase the controlling (I<sub>1</sub>) curren
 <td>
 
 <pre>
-bipolar transistor simulation 
+bipolar transistor simulation
 i1 0 1 dc 75u
 q1 2 1 0 mod1
 vammeter 3 2 dc 0
@@ -664,11 +663,11 @@ This voltage/current relationship is entirely different from what we're used to 
 Often it is useful to superimpose several collector current/voltage graphs for different base currents on the same graph as in Figure <a href="#03089.png">  below</a>.  A collection of curves like this -- one curve plotted for each distinct level of base current -- for a particular transistor is called the transistor's <i>characteristic curves</i>:
 </p>
 
- 
-<a name="03089.png"></a> 
-<p> <img src="03089.png"> </p> 
-<p><i>Voltage collector to emitter vs collector current for various base currents.</i></p> 
- 
+
+<a name="03089.png"></a>
+<p> <img src="03089.png"> </p>
+<p><i>Voltage collector to emitter vs collector current for various base currents.</i></p>
+
 
 <a name="Beta ratio"></a>
 <a name="&#946; ratio"></a>
@@ -677,7 +676,7 @@ Often it is useful to superimpose several collector current/voltage graphs for d
 Each curve on the graph reflects the collector current of the transistor, plotted over a range of collector-to-emitter voltages, for a given amount of base current.  Since a transistor tends to act as a current regulator, limiting collector current to a proportion set by the base current, it is useful to express this proportion as a standard transistor performance measure.  Specifically, the ratio of collector current to base current is known as the <i>Beta</i> ratio (symbolized by the Greek letter &#946;):
 </p>
 
-<p> <img src="13016.png"> </p> 
+<p> <img src="13016.png"> </p>
 
 <a name="Hybrid parameters"></a>
 <a name="hfe"></a>
@@ -701,11 +700,11 @@ The &#946; of a transistor does not  remain stable for all operating conditions.
 Sometimes it is helpful for comprehension to &ldquo;model&rdquo; complex electronic components with a collection of simpler, better-understood components.  The model in Figure <a href="#03090.png">  below</a> is used in many introductory electronics texts.
 </p>
 
- 
-<a name="03090.png"></a> 
-<p> <img src="03090.png"> </p> 
-<p><i>Elementary diode resistor transistor model.</i></p> 
- 
+
+<a name="03090.png"></a>
+<p> <img src="03090.png"> </p>
+<p><i>Elementary diode resistor transistor model.</i></p>
+
 
 <a name="Rheostat"></a>
 
@@ -717,11 +716,11 @@ This model casts the transistor as a combination of diode and rheostat (variable
 A better transistor model, often seen in more advanced textbooks, is shown in  Figure <a href="#03091.png">  below</a>.
 </p>
 
- 
-<a name="03091.png"></a> 
-<p> <img src="03091.png"> </p> 
-<p><i>Current source model of transistor.</i></p> 
- 
+
+<a name="03091.png"></a>
+<p> <img src="03091.png"> </p>
+<p><i>Current source model of transistor.</i></p>
+
 
 <p>
 It casts the transistor as a combination of diode and current source, the output of the current source being set at a multiple (&#946; ratio) of the base current.  This model is far more accurate in depicting the true input/output characteristics of a transistor: base current establishes a certain amount of collector <i>current</i>, rather than a certain amount of collector-emitter <i>resistance</i> as the first model implies.  Also, this model is favored when performing network analysis on transistor circuits, the current source being a well-understood theoretical component.  Unfortunately, using a current source to model the transistor's current-controlling behavior can be misleading: in no way will the transistor ever act as a <i>source</i> of electrical energy. The current source does not model the fact that its source of energy is a external power supply, similar to  an amplifier.
@@ -759,10 +758,10 @@ At the beginning of this chapter we saw how transistors could be used as switche
 One of the simpler transistor amplifier circuits to study  previously illustrated the transistor's switching ability.  (Figure <a href="#03079a.png">  below</a>)
 </p>
 
- 
-<a name="03079a.png"></a> 
-<p> <img src="03079.png"> </p>  
-<p><i>NPN transistor as a simple switch.</i></p> 
+
+<a name="03079a.png"></a>
+<p> <img src="03079.png"> </p>
+<p><i>NPN transistor as a simple switch.</i></p>
 
 
 <a name="Common-emitter amplifier"></a>
@@ -771,11 +770,11 @@ One of the simpler transistor amplifier circuits to study  previously illustrate
 It is called the <i>common-emitter</i> configuration because (ignoring the power supply battery) both the signal source and the load share the emitter lead as a common connection point shown in Figure <a href="#03102.png">  below</a>. This is not the only way in which a transistor may be used as an amplifier, as we will see in later sections of this chapter.
 </p>
 
- 
-<a name="03102.png"></a> 
-<p> <img src="03102.png"> </p> 
-<p><i>Common-emitter amplifier: The input and output signals both share a connection to the emitter.</i></p> 
- 
+
+<a name="03102.png"></a>
+<p> <img src="03102.png"> </p>
+<p><i>Common-emitter amplifier: The input and output signals both share a connection to the emitter.</i></p>
+
 
 <p>
 Before, a small solar cell current saturated a transistor, illuminating a lamp.  Knowing now that transistors are able to &ldquo;throttle&rdquo; their collector currents according to the amount of base current supplied by an input signal source, we should see that the brightness of the lamp in this circuit is controllable by the solar cell's light exposure.  When there is just a little light shone on the solar cell, the lamp will glow dimly.  The lamp's brightness will steadily increase as more light falls on the solar cell.
@@ -785,11 +784,11 @@ Before, a small solar cell current saturated a transistor, illuminating a lamp. 
 Suppose that we were interested in using the solar cell as a light intensity instrument.  We want to measure the intensity of incident light with the solar cell by using its output current to drive a meter movement.  It is possible to directly connect a meter movement to a solar cell (Figure <a href="#03093.png">  below</a>) for this purpose.  In fact, the simplest light-exposure meters for photography work are designed like this.
 </p>
 
- 
-<a name="03093.png"></a> 
-<p> <img src="03093.png"> </p> 
-<p><i>High intensity light directly drives light meter.</i></p> 
- 
+
+<a name="03093.png"></a>
+<p> <img src="03093.png"> </p>
+<p><i>High intensity light directly drives light meter.</i></p>
+
 
 <p>
 Although this approach might work for moderate light intensity measurements, it would not work as well for low light intensity measurements.  Because the solar cell has to supply the meter movement's power needs, the system is necessarily limited in its sensitivity.  Supposing that our need here is to measure very low-level light intensities, we are pressed to find another solution.
@@ -799,11 +798,11 @@ Although this approach might work for moderate light intensity measurements, it 
 Perhaps the most direct solution to this measurement problem is to use a transistor  (Figure <a href="#03094.png">  below</a>) to <i>amplify</i> the solar cell's current so that more meter deflection may be obtained for less incident light.
 </p>
 
- 
-<a name="03094.png"></a> 
-<p> <img src="03094.png"> </p> 
-<p><i>Cell current must be amplified for low intensity light.</i></p> 
- 
+
+<a name="03094.png"></a>
+<p> <img src="03094.png"> </p>
+<p><i>Cell current must be amplified for low intensity light.</i></p>
+
 
 <p>
 Current through the meter movement in this circuit will be &#946; times the solar cell current.  With a transistor &#946; of 100, this represents a substantial increase in measurement sensitivity.  It is prudent to point out that the additional power to move the meter needle comes from the battery on the far right of the circuit, not the solar cell itself.  All the solar cell's current does is <i>control</i> battery current to the meter to provide a greater meter reading than the solar cell could provide unaided.
@@ -817,11 +816,11 @@ Because the transistor is a current-regulating device, and because meter movemen
 Another way in which the common-emitter configuration may be used is to produce an output <i>voltage</i> derived from the input signal, rather than a specific output <i>current</i>.  Let's replace the meter movement with a plain resistor and measure voltage between collector and emitter in  Figure <a href="#03095.png">  below</a>
 </p>
 
- 
-<a name="03095.png"></a> 
-<p> <img src="03095.png"> </p> 
-<p><i>Common emitter amplifier develops voltage output due to current through load resistor.</i></p> 
- 
+
+<a name="03095.png"></a>
+<p> <img src="03095.png"> </p>
+<p><i>Common emitter amplifier develops voltage output due to current through load resistor.</i></p>
+
 
 <p>
 With the solar cell darkened (no current), the transistor will be in cutoff mode and behave as an open switch between collector and emitter.  This will produce maximum voltage drop between collector and emitter for maximum V<sub>output</sub>, equal to the full voltage of the battery.
@@ -849,7 +848,7 @@ A quick SPICE simulation (Figure <a href="#23003.png">  below</a>) of the circui
 <td>
 
 <pre>
-*common-emitter amplifier 
+*common-emitter amplifier
 i1 0 1 dc
 q1 2 1 0 mod1
 r 3 2 5000
@@ -900,11 +899,11 @@ v1 3 0 dc 15
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 
 
- 
-<a name="23003.png"></a> 
-<p> <img src="23003.png"> </p> 
-<p><i>Common emitter: collector voltage output vs base current input.</i></p> 
- 
+
+<a name="23003.png"></a>
+<p> <img src="23003.png"> </p>
+<p><i>Common emitter: collector voltage output vs base current input.</i></p>
+
 
 <p>
 At the beginning of the simulation in Figure <a href="#23003.png">  above</a> where the current source (solar cell) is outputting zero current, the transistor is in cutoff mode and the full 15 volts from the battery is shown at the amplifier output (between nodes 2 and 0).  As the solar cell's current begins to increase, the output voltage proportionally decreases, until the transistor reaches saturation at 30 &#181;A of base current (3 mA of collector current).  Notice how the output voltage trace on the graph is perfectly linear (1 volt steps from 15 volts to 1 volt) until the point of saturation, where it never quite reaches zero.  This is the effect mentioned earlier, where a saturated transistor can never achieve exactly zero voltage drop between collector and emitter due to internal junction effects.  What we do see is a sharp output voltage decrease from 1 volt to 0.2261 volts as the input current increases from 28 &#181;A to 30 &#181;A, and then a continuing decrease in output voltage from then on (albeit in progressively smaller steps).  The lowest the output voltage ever gets in this simulation is 0.1299 volts, asymptotically approaching zero.
@@ -914,35 +913,35 @@ At the beginning of the simulation in Figure <a href="#23003.png">  above</a> wh
 So far, we've seen the transistor used as an amplifier for DC signals.  In the solar cell light meter example, we were interested in amplifying the DC output of the solar cell to drive a DC meter movement, or to produce a DC output voltage.  However, this is not the only way in which a transistor may be employed as an amplifier.  Often an <i>AC</i> amplifier for amplifying <i>alternating</i> current and voltage signals is desired.  One common application of this is in audio electronics (radios, televisions, and public-address systems).  Earlier, we saw an example of the audio output of a tuning fork activating a transistor switch. (Figure <a href="#03081a.png">  below</a>)  Let's see if we can modify that circuit to send power to a speaker rather than to a lamp in Figure <a href="#03097.png">  below</a>.
 </p>
 
- 
-<a name="03081a.png"></a> 
-<p> <img src="03081.png"> </p>  
-<p><i>Transistor switch activated by audio.</i></p> 
+
+<a name="03081a.png"></a>
+<p> <img src="03081.png"> </p>
+<p><i>Transistor switch activated by audio.</i></p>
 
 
 <p>
 In the original circuit, a full-wave bridge rectifier was used to convert the microphone's AC output signal into a DC voltage to drive the input of the transistor.  All we cared about here was turning the lamp on with a sound signal from the microphone, and this arrangement sufficed for that purpose.  But now we want to actually reproduce the AC signal and drive a speaker.  This means we cannot rectify the microphone's output anymore, because we need undistorted AC signal to drive the transistor!  Let's remove the bridge rectifier and replace the lamp with a speaker:
 </p>
 
- 
-<a name="03097.png"></a> 
-<p> <img src="03097.png"> </p> 
-<p><i>Common emitter amplifier drives speaker with audio  frequency signal.</i></p> 
- 
+
+<a name="03097.png"></a>
+<p> <img src="03097.png"> </p>
+<p><i>Common emitter amplifier drives speaker with audio  frequency signal.</i></p>
+
 
 <p>
 Since the microphone may produce voltages exceeding the forward voltage drop of the base-emitter PN (diode) junction, I've placed a resistor in series with the microphone.  Let's simulate the circuit in  Figure <a href="#03098.png">  below</a> with SPICE. The netlist is included in  (Figure <a href="#23004.png">  below</a>)
 </p>
 
- 
-<a name="03098.png"></a> 
-<p> <img src="03098.png"> </p> 
-<p><i>SPICE version of common emitter audio amplifier.</i></p> 
- 
+
+<a name="03098.png"></a>
+<p> <img src="03098.png"> </p>
+<p><i>SPICE version of common emitter audio amplifier.</i></p>
+
 
 
 <!--legend:-->
-<!-- *: v(1)-->    
+<!-- *: v(1)-->
 <!-- +: i(v1)   -->
 <!--v(1)    -->
 <!--( *)-- -2.000E+00   -1.000E+00    0.000E+00    1.000E+00  2.000E+00-->
@@ -998,11 +997,11 @@ Since the microphone may produce voltages exceeding the forward voltage drop of 
 <td>
 
 <pre>
-common-emitter amplifier 
+common-emitter amplifier
 vinput 1 0 sin (0 1.5 2000 0 0)
 r1 1 2 1k
 q1 3 2 0 mod1
-rspkr 3 4 8 
+rspkr 3 4 8
 v1 4 0 dc 15
 .model mod1 npn
 .tran 0.02m 0.74m
@@ -1025,10 +1024,10 @@ The simulation plots  (Figure <a href="#23004.png">  above</a>) both the input v
 What's wrong with the circuit?  Why won't it faithfully reproduce the entire AC waveform from the microphone?  The answer to this question is found by close inspection of the transistor diode current source model in Figure <a href="#03091a.png">  below</a>.
 </p>
 
- 
-<a name="03091a.png"></a> 
-<p> <img src="03091.png"> </p>  
-<p><i>The model shows that base current flow in on direction.</i></p> 
+
+<a name="03091a.png"></a>
+<p> <img src="03091.png"> </p>
+<p><i>The model shows that base current flow in on direction.</i></p>
 
 
 <p>
@@ -1042,11 +1041,11 @@ Collector current is controlled, or regulated, through the constant-current mech
 The only way we can get the transistor to reproduce the entire waveform as current through the speaker is to keep the transistor in its active mode the entire time.  This means we must maintain current through the base during the entire input waveform cycle.  Consequently, the base-emitter diode junction must be kept forward-biased at all times.  Fortunately, this can be accomplished with  a DC <i>bias voltage</i> added to the input signal.  By connecting a sufficient DC voltage in series with the AC signal source, forward-bias can be maintained at all points throughout the wave cycle. (Figure <a href="#03099.png">  below</a>)
 </p>
 
- 
-<a name="03099.png"></a> 
-<p> <img src="03099.png"> </p> 
-<p><i>V<sub>bias</sub> keeps transistor in the active region.</i></p> 
- 
+
+<a name="03099.png"></a>
+<p> <img src="03099.png"> </p>
+<p><i>V<sub>bias</sub> keeps transistor in the active region.</i></p>
+
 
 
 
@@ -1057,7 +1056,7 @@ The only way we can get the transistor to reproduce the entire waveform as curre
 <td>
 
 <pre>
-common-emitter amplifier 
+common-emitter amplifier
 vinput 1 5 sin (0 1.5 2000 0 0)
 vbias 5 0 dc 2.3
 r1 1 2 1k
@@ -1079,8 +1078,8 @@ v1 4 0 dc 15
 
 
 <!--legend:-->
-<!--*: v(1)-->    
-<!--+: i(v1)-->  
+<!--*: v(1)-->
+<!--+: i(v1)-->
 <!--v(1)    -->
 <!--( *)--  0.000E+00   1.000E+00    2.000E+00    3.000E+00  4.000E+00-->
 <!--(+)--- -3.000E-01  -2.000E-01   -1.000E-01    0.000E+00  1.000E-01-->
@@ -1136,11 +1135,11 @@ With the bias voltage source of 2.3 volts in place, the transistor remains in it
 The illustration in Figure <a href="#03110.png">  below</a> is another view of the same circuit, this time with a few oscilloscopes (&ldquo;scopemeters&rdquo;) connected at crucial points to display all the pertinent signals.
 </p>
 
- 
-<a name="03110.png"></a> 
-<p> <img src="03110.png"> </p> 
-<p><i>Input is biased upward at base. Output is inverted.</i></p> 
- 
+
+<a name="03110.png"></a>
+<p> <img src="03110.png"> </p>
+<p><i>Input is biased upward at base. Output is inverted.</i></p>
+
 
 <p>
 The need for biasing a transistor amplifier circuit to obtain full waveform reproduction is an important consideration.  A separate section of this chapter will be devoted entirely to the subject biasing and biasing techniques.  For now, it is enough to understand that biasing may be necessary for proper voltage and current output from the amplifier.
@@ -1151,10 +1150,10 @@ Now that we have a functioning amplifier circuit, we can investigate its voltage
 </p>
 
 
- 
+
 <a name="bjt1.tbl"><p><i>BJT SPICE model parameters.</i></p></a>
 <pre>
-type        npn   
+type        npn
 is        1.00E-16
 bf         100.000
 nf           1.000
@@ -1265,8 +1264,8 @@ To be honest, this low voltage gain is not characteristic to <i>all</i> common-e
 
 <!--legend:-->
 <!-- *: v(1)-->
-<!-- +: v(4,3) --> 
-<!--v(1)-->    
+<!-- +: v(4,3) -->
+<!--v(1)-->
 <!--( *)--  0.000E+00    1.000E+00    2.000E+00    3.000E+00  4.000E+00-->
 <!--(+)-- -5.000E+00    0.000E+00    5.000E+00    1.000E+01  1.500E+01-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -1351,22 +1350,22 @@ This time the output voltage waveform in Figure <a href="#23007.png">  above</a>
 We can do another computer analysis of this circuit, this time instructing SPICE to analyze it from an AC point of view, giving us peak voltage figures for input and output instead of a time-based plot of the waveforms.  (Table <a href="#bjt2.tbl">  below</a>)
 </p>
 
- 
+
 <a name="bjt2.tbl"><p><i>SPICE netlist for printing AC input and output voltages.</i></p></a>
 <pre>
-common-emitter amplifier                                                        
-vinput 1 5 ac 1.5       
+common-emitter amplifier
+vinput 1 5 ac 1.5
 vbias 5 0 dc 2.3
-r1 1 2 1k       
-q1 3 2 0 mod1   
-rspkr 3 4 30    
-v1 4 0 dc 15    
-.model mod1 npn 
-.ac lin 1 2000 2000     
-.print ac v(1,0) v(4,3) 
-.end    
+r1 1 2 1k
+q1 3 2 0 mod1
+rspkr 3 4 30
+v1 4 0 dc 15
+.model mod1 npn
+.ac lin 1 2000 2000
+.print ac v(1,0) v(4,3)
+.end
 
-freq          v(1)        v(4,3)      
+freq          v(1)        v(4,3)
 2.000E+03     1.500E+00   4.418E+00
 </pre>
 
@@ -1375,13 +1374,13 @@ freq          v(1)        v(4,3)
 Peak voltage measurements of input and output show an input of 1.5 volts and an output of 4.418 volts.  This gives us a voltage gain ratio of 2.9453 (4.418 V / 1.5 V), or 9.3827 dB.
 </p>
 
-<p> <img src="13018.png"> </p> 
+<p> <img src="13018.png"> </p>
 
 <p>
 Because the current gain of the common-emitter amplifier is fixed by &#946;, and since the input and output voltages will be equal to the input and output currents multiplied by their respective resistors, we can derive an equation for approximate voltage gain:
 </p>
 
-<p> <img src="13017.png"> </p> 
+<p> <img src="13017.png"> </p>
 
 <p>
 As you can see, the predicted results for voltage gain are quite close to the simulated results.  With perfectly linear transistor behavior, the two sets of figures would exactly match.  SPICE does a reasonable job of accounting for the many &ldquo;quirks&rdquo; of bipolar transistor function in its analysis, hence the slight mismatch in voltage gain based on SPICE's output.
@@ -1420,9 +1419,9 @@ v1 4 0 dc 15
 
 
 <!--legend:-->
-<!--*: v(1)-->    
-<!--+: v(3)-->    
-<!--v(1)   --> 
+<!--*: v(1)-->
+<!--+: v(3)-->
+<!--v(1)   -->
 <!--( *)-  0.000E+00     1.000E+00     2.000E+00     3.000E+00  4.000E+00-->
 <!--(+)--  0.000E+00     5.000E+00     1.000E+01     1.500E+01  2.000E+01-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -1468,22 +1467,22 @@ v1 4 0 dc 15
 
 
 
- 
+
 <a name="bjt3.tbl"><p><i>SPICE netlist for AC analysis</i></p></a>
 <pre>
-common-emitter amplifier                                                        
-vinput 1 5 ac 1.5       
+common-emitter amplifier
+vinput 1 5 ac 1.5
 vbias 5 0 dc 2.3
-r1 1 2 1k       
-q1 3 2 0 mod1   
-rspkr 3 4 30    
-v1 4 0 dc 15    
-.model mod1 npn 
-.ac lin 1 2000 2000     
-.print ac v(1,0) v(3,0) 
-.end    
+r1 1 2 1k
+q1 3 2 0 mod1
+rspkr 3 4 30
+v1 4 0 dc 15
+.model mod1 npn
+.ac lin 1 2000 2000
+.print ac v(1,0) v(3,0)
+.end
 
-freq          v(1)        v(3)        
+freq          v(1)        v(3)
 2.000E+03     1.500E+00   4.418E+00
 </pre>
 
@@ -1496,11 +1495,11 @@ We still have a peak output voltage of 4.418 volts with a peak input voltage of 
 So far, the example circuits shown in this section have all used NPN transistors.  PNP transistors are just as valid to use as NPN in <i>any</i> amplifier configuration, as long as the proper polarity and current directions are maintained, and the common-emitter amplifier is no exception.  The output invertion and gain of a PNP transistor amplifier are the same as its NPN counterpart, just the battery polarities are different.  (Figure <a href="#03112.png">  below</a>)
 </p>
 
- 
-<a name="03112.png"></a> 
-<p> <img src="03112.png"> </p> 
-<p><i>PNP version of common emitter amplifier.</i></p> 
- 
+
+<a name="03112.png"></a>
+<p> <img src="03112.png"> </p>
+<p><i>PNP version of common emitter amplifier.</i></p>
+
 
 <ul>
 <li><b>REVIEW:</b></li>
@@ -1509,7 +1508,7 @@ So far, the example circuits shown in this section have all used NPN transistors
 <li>If the output voltage is measured between emitter and collector on a common-emitter amplifier, it will be 180<sup>o</sup> out of phase with the input voltage waveform.  Thus, the common-emitter amplifier is called an <i>inverting</i> amplifier circuit.</li>
 <li>The current gain of a common-emitter transistor amplifier with the load connected in series with the collector is equal to &#946;.  The voltage gain of a common-emitter transistor amplifier is approximately given here:</li>
 <li>
-<p> <img src="13019.png"> </p> 
+<p> <img src="13019.png"> </p>
 </li>
 <li>Where &ldquo;R<sub>out</sub>&rdquo; is the resistor connected in series with the collector and &ldquo;R<sub>in</sub>&rdquo; is the resistor connected in series with the base.</li>
 </ul>
@@ -1531,21 +1530,21 @@ So far, the example circuits shown in this section have all used NPN transistors
 Our next transistor configuration to study is a bit simpler for gain calculations.  Called the <i>common-collector</i> configuration, its schematic diagram is shown in Figure <a href="#03100.png">  below</a>.
 </p>
 
- 
-<a name="03100.png"></a> 
-<p> <img src="03100.png"> </p> 
-<p><i>Common collector amplifier has collector common to both input and output.</i></p> 
- 
+
+<a name="03100.png"></a>
+<p> <img src="03100.png"> </p>
+<p><i>Common collector amplifier has collector common to both input and output.</i></p>
+
 
 <p>
 It is called the <i>common-collector</i> configuration because (ignoring the power supply battery) both the signal source and the load share the collector lead as a common connection point as in Figure <a href="#03101.png">  below</a>.
 </p>
- 
- 
-<a name="03101.png"></a> 
-<p> <img src="03101.png"> </p> 
-<p><i>Common collector: Input is applied to base and collector. Output is from emitter-collector circuit.</i></p> 
- 
+
+
+<a name="03101.png"></a>
+<p> <img src="03101.png"> </p>
+<p><i>Common collector: Input is applied to base and collector. Output is from emitter-collector circuit.</i></p>
+
 
 <p>
 It should be apparent that the load resistor in the common-collector amplifier circuit receives both the base and collector currents, being placed in series with the emitter.  Since the emitter lead of a transistor is the one handling the most current (the sum of base and collector currents, since base and collector currents always mesh together to form the emitter current), it would be reasonable to presume that this amplifier will have a very large current gain.  This presumption is indeed correct: the current gain for a common-collector amplifier is quite large, larger than any other transistor amplifier configuration.  However, this is not necessarily what sets it apart from other amplifier designs.
@@ -1555,11 +1554,11 @@ It should be apparent that the load resistor in the common-collector amplifier c
 Let's proceed immediately to a SPICE analysis of this amplifier circuit, and you will be able to immediately see what is unique about this amplifier. The circuit is in Figure <a href="#03103.png">  below</a>. The netlist is in  Figure <a href="#23009.png">  below</a>.
 </p>
 
- 
-<a name="03103.png"></a> 
-<p> <img src="03103.png"> </p> 
-<p><i>Common collector amplifier for SPICE.</i></p> 
- 
+
+<a name="03103.png"></a>
+<p> <img src="03103.png"> </p>
+<p><i>Common collector amplifier for SPICE.</i></p>
+
 
 
 
@@ -1570,15 +1569,15 @@ Let's proceed immediately to a SPICE analysis of this amplifier circuit, and you
 <td>
 
 <pre>
-common-collector amplifier 
-vin 1 0 
-q1 2 1 3 mod1   
-v1 2 0 dc 15    
-rload 3 0 5k    
-.model mod1 npn 
-.dc vin 0 5 0.2 
-.plot dc v(3,0) 
-.end    
+common-collector amplifier
+vin 1 0
+q1 2 1 3 mod1
+v1 2 0 dc 15
+rload 3 0 5k
+.model mod1 npn
+.dc vin 0 5 0.2
+.plot dc v(3,0)
+.end
 </pre>
 
 </td>
@@ -1589,34 +1588,34 @@ rload 3 0 5k
 
 
 
-<!--vin        v(3)  0.000E+00     2.000E+00    4.000E+00    6.000E+00--> 
+<!--vin        v(3)  0.000E+00     2.000E+00    4.000E+00    6.000E+00-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-<!--0.000E+00  7.500E-08 *             .             .             .--> 
-<!--2.000E-01  7.501E-08 *             .             .             .-->  
-<!--4.000E-01  2.704E-06 *             .             .             .-->  
-<!--6.000E-01  4.954E-03 *             .             .             .-->  
-<!--8.000E-01  1.221E-01 .*            .             .             .-->    
-<!--1.000E+00  2.989E-01 . *           .             .             .-->  
-<!--1.200E+00  4.863E-01 .  *          .             .             .--> 
-<!--1.400E+00  6.777E-01 .    *        .             .             .-->  
-<!--1.600E+00  8.712E-01 .     *       .             .             .-->  
-<!--1.800E+00  1.066E+00 .      *      .             .             .-->  
-<!--2.000E+00  1.262E+00 .        *    .             .             .-->  
-<!--2.200E+00  1.458E+00 .         *   .             .             .-->  
-<!--2.400E+00  1.655E+00 .           * .             .             .-->   
-<!--2.600E+00  1.852E+00 .            *.             .             .-->   
-<!--2.800E+00  2.049E+00 .             *             .             .-->   
-<!--3.000E+00  2.247E+00 .             . *           .             .-->   
-<!--3.200E+00  2.445E+00 .             .  *          .             .-->  
-<!--3.400E+00  2.643E+00 .             .   *         .             .-->  
-<!--3.600E+00  2.841E+00 .             .     *       .             .-->  
+<!--0.000E+00  7.500E-08 *             .             .             .-->
+<!--2.000E-01  7.501E-08 *             .             .             .-->
+<!--4.000E-01  2.704E-06 *             .             .             .-->
+<!--6.000E-01  4.954E-03 *             .             .             .-->
+<!--8.000E-01  1.221E-01 .*            .             .             .-->
+<!--1.000E+00  2.989E-01 . *           .             .             .-->
+<!--1.200E+00  4.863E-01 .  *          .             .             .-->
+<!--1.400E+00  6.777E-01 .    *        .             .             .-->
+<!--1.600E+00  8.712E-01 .     *       .             .             .-->
+<!--1.800E+00  1.066E+00 .      *      .             .             .-->
+<!--2.000E+00  1.262E+00 .        *    .             .             .-->
+<!--2.200E+00  1.458E+00 .         *   .             .             .-->
+<!--2.400E+00  1.655E+00 .           * .             .             .-->
+<!--2.600E+00  1.852E+00 .            *.             .             .-->
+<!--2.800E+00  2.049E+00 .             *             .             .-->
+<!--3.000E+00  2.247E+00 .             . *           .             .-->
+<!--3.200E+00  2.445E+00 .             .  *          .             .-->
+<!--3.400E+00  2.643E+00 .             .   *         .             .-->
+<!--3.600E+00  2.841E+00 .             .     *       .             .-->
 <!--3.800E+00  3.039E+00 .             .      *      .             .-->
-<!--4.000E+00  3.237E+00 .             .        *    .             .-->  
-<!--4.200E+00  3.436E+00 .             .         *   .             .-->  
-<!--4.400E+00  3.634E+00 .             .          *  .             .-->   
-<!--4.600E+00  3.833E+00 .             .            *.             .-->  
-<!--4.800E+00  4.032E+00 .             .             *             .-->  
-<!--5.000E+00  4.230E+00 .             .             . *           .-->  
+<!--4.000E+00  3.237E+00 .             .        *    .             .-->
+<!--4.200E+00  3.436E+00 .             .         *   .             .-->
+<!--4.400E+00  3.634E+00 .             .          *  .             .-->
+<!--4.600E+00  3.833E+00 .             .            *.             .-->
+<!--4.800E+00  4.032E+00 .             .             *             .-->
+<!--5.000E+00  4.230E+00 .             .             . *           .-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 
 <p>
@@ -1631,11 +1630,11 @@ This is the unique quality of the common-collector amplifier: an output voltage 
 It is simple to understand why the output voltage of a common-collector amplifier is always nearly equal to the input voltage.  Referring to the diode current source transistor model in Figure <a href="#03104.png">  below</a>, we see that the base current must go through the base-emitter PN junction, which is equivalent to a normal rectifying diode.  If this junction is forward-biased (the transistor conducting current in either its active or saturated modes), it will have a voltage drop of approximately 0.7 volts, assuming silicon construction.  This 0.7 volt drop is largely irrespective of the actual magnitude of base current; thus, we can regard it as being constant:
 </p>
 
- 
-<a name="03104.png"></a> 
-<p> <img src="03104.png"> </p> 
-<p><i>Emitter follower: Emitter voltage follows base voltage (less a 0.7 V V<sub>BE</sub> drop.)</i></p> 
- 
+
+<a name="03104.png"></a>
+<p> <img src="03104.png"> </p>
+<p><i>Emitter follower: Emitter voltage follows base voltage (less a 0.7 V V<sub>BE</sub> drop.)</i></p>
+
 
 <a name="Kirchhoff's Voltage Law"></a>
 
@@ -1683,8 +1682,8 @@ rload 3 0 5k
 
 
 <!--legend:-->
-<!--*: v(1)-->    
-<!--+: v(3) -->   
+<!--*: v(1)-->
+<!--+: v(3) -->
 <!--v(1)   0.000E+00   1.000E+00     2.000E+00    3.000E+00  4.000E+00-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
 <!--2.300E+00 .            .       +     .   *         .            .-->
@@ -1734,38 +1733,38 @@ rload 3 0 5k
 The results of the SPICE simulation in Figure <a href="#23010.png">  below</a>  show that the output follows the input. The output is the same peak-to-peak amplitude as the input. Though, the DC level is shifted downward by one V<sub>BE</sub> diode drop.
 </p>
 
- 
-<a name="23010.png"></a> 
-<p> <img src="23010.png"> </p> 
-<p><i>Common collector (emitter-follower): Output V3 follows input V1 less a 0.7 V V<sub></sub>BE drop.</i></p> 
- 
+
+<a name="23010.png"></a>
+<p> <img src="23010.png"> </p>
+<p><i>Common collector (emitter-follower): Output V3 follows input V1 less a 0.7 V V<sub></sub>BE drop.</i></p>
+
 <br> </br>
 
 <p>
 Here's another view of the circuit  (Figure <a href="#03111.png">  below</a>) with oscilloscopes connected to several points of interest.
 </p>
 
- 
-<a name="03111.png"></a> 
-<p> <img src="03111.png"> </p> 
-<p><i>Common collector non-inverting voltage gain is 1.</i></p> 
- 
+
+<a name="03111.png"></a>
+<p> <img src="03111.png"> </p>
+<p><i>Common collector non-inverting voltage gain is 1.</i></p>
+
 
 <p>
 Since this amplifier configuration doesn't provide any voltage gain (in fact, in practice it actually has a voltage gain of slightly <i>less</i> than 1), its only amplifying factor is current.  The common-emitter amplifier configuration examined in the previous section had a current gain equal to the &#946; of the transistor, being that the input current went through the base and the output (load) current went through the collector, and &#946; by definition is the ratio between the collector and base currents.  In the common-collector configuration, though, the load is situated in series with the emitter, and thus its current is equal to the emitter current.  With the emitter carrying collector current <i>and</i> base current, the load in this type of amplifier has all the current of the collector running through it <i>plus</i> the input current of the base.  This yields a current gain of &#946; plus 1:
 </p>
 
-<p> <img src="13020.png"> </p> 
+<p> <img src="13020.png"> </p>
 
 <p>
 Once again, PNP transistors are just as valid to use in the common-collector configuration as NPN transistors.  The gain calculations are all the same, as is the non-inverting of the amplified signal.  The only difference is in voltage polarities and current directions shown in Figure <a href="#03113.png">  below</a>.
 </p>
 
- 
-<a name="03113.png"></a> 
-<p> <img src="03113.png"> </p> 
-<p><i>PNP version of the common-collector amplifier.</i></p> 
- 
+
+<a name="03113.png"></a>
+<p> <img src="03113.png"> </p>
+<p><i>PNP version of the common-collector amplifier.</i></p>
+
 
 <a name="Voltage regulator"></a>
 <a name="Regulator, voltage"></a>
@@ -1774,11 +1773,11 @@ Once again, PNP transistors are just as valid to use in the common-collector con
 A popular application of the common-collector amplifier is for regulated DC power supplies, where an unregulated (varying) source of DC voltage is clipped at a specified level to supply regulated (steady) voltage to a load.  Of course, zener diodes already provide this function of voltage regulation shown in Figure <a href="#03106.png">  below</a>.
 </p>
 
- 
-<a name="03106.png"></a> 
-<p> <img src="03106.png"> </p> 
-<p><i>Zener diode voltage regulator.</i></p> 
- 
+
+<a name="03106.png"></a>
+<p> <img src="03106.png"> </p>
+<p><i>Zener diode voltage regulator.</i></p>
+
 
 <p>
 However, when used in this direct fashion, the amount of current that may be supplied to the load is usually quite limited.  In essence, this circuit regulates voltage across the load by keeping current through the series resistor at a high enough level to drop all the excess power source voltage across it, the zener diode drawing more or less current as necessary to keep the voltage across itself steady.  For high-current loads, a plain zener diode voltage regulator would have to shunt a heavy current through the diode to be effective at regulating load voltage in the event of large load resistance or voltage source changes.
@@ -1788,11 +1787,11 @@ However, when used in this direct fashion, the amount of current that may be sup
 One popular way to increase the current-handling ability of a regulator circuit like this is to use a common-collector transistor to amplify current to the load, so that the zener diode circuit only has to handle the amount of current necessary to drive the base of the transistor.  (Figure <a href="#03107.png">  below</a>)
 </p>
 
- 
-<a name="03107.png"></a> 
-<p> <img src="03107.png"> </p> 
-<p><i>Common collector application: voltage regulator.</i></p> 
- 
+
+<a name="03107.png"></a>
+<p> <img src="03107.png"> </p>
+<p><i>Common collector application: voltage regulator.</i></p>
+
 
 <p>
 There's really only one caveat to this approach: the load voltage will be approximately 0.7 volts less than the zener diode voltage, due to the transistor's 0.7 volt base-emitter drop.  Since this 0.7 volt difference is fairly constant over a wide range of load currents, a zener diode with a 0.7 volt higher rating can be chosen for the application.
@@ -1804,27 +1803,27 @@ There's really only one caveat to this approach: the load voltage will be approx
 Sometimes the high current gain of a single-transistor, common-collector configuration isn't enough for a particular application.  If this is the case, multiple transistors may be staged together in a popular configuration known as a <i>Darlington pair</i>, just an extension of the common-collector concept shown in Figure <a href="#03108.png">  below</a>.
 </p>
 
- 
-<a name="03108.png"></a> 
-<p> <img src="03108.png"> </p> 
-<p><i>An NPN darlington pair.</i></p> 
- 
+
+<a name="03108.png"></a>
+<p> <img src="03108.png"> </p>
+<p><i>An NPN darlington pair.</i></p>
+
 
 <p>
 Darlington pairs essentially place one transistor as the common-collector load for another transistor, thus multiplying their individual current gains.  Base current through the upper-left transistor is amplified through that transistor's emitter, which is directly connected to the base of the lower-right transistor, where the current is again amplified.  The overall current gain is as follows:
 </p>
 
-<p> <img src="13021.png"> </p> 
+<p> <img src="13021.png"> </p>
 
 <p>
 Voltage gain is still nearly equal to 1 if the entire assembly is connected to a load in common-collector fashion, although the load voltage will be a full 1.4 volts less than the input voltage shown in Figure <a href="#03109.png">  below</a>.
 </p>
 
- 
-<a name="03109.png"></a> 
-<p> <img src="03109.png"> </p> 
-<p><i>Darlington pair based common-collector amplifier loses two V<sub>BE</sub> diode drops.</i></p> 
- 
+
+<a name="03109.png"></a>
+<p> <img src="03109.png"> </p>
+<p><i>Darlington pair based common-collector amplifier loses two V<sub>BE</sub> diode drops.</i></p>
+
 
 <p>
 Darlington pairs may be purchased as discrete units (two transistors in the same package), or may be built up from a pair of individual transistors.  Of course, if even more current gain is desired than what may be obtained with a pair, Darlington triplet or quadruplet assemblies may be constructed.
@@ -1854,21 +1853,21 @@ Darlington pairs may be purchased as discrete units (two transistors in the same
 The final transistor amplifier configuration (Figure <a href="#03114.png">  below</a>) we need to study is the <i>common-base</i>.  This configuration is more complex than the other two, and is less common due to its strange operating characteristics.
 </p>
 
- 
-<a name="03114.png"></a> 
-<p> <img src="03114.png"> </p> 
-<p><i>Common-base amplifier</i></p> 
- 
+
+<a name="03114.png"></a>
+<p> <img src="03114.png"> </p>
+<p><i>Common-base amplifier</i></p>
+
 
 <p>
 It is called the <i>common-base</i> configuration because (DC power source aside), the signal source and the load share the base of the transistor as a common connection point shown in Figure <a href="#03115.png">  below</a>.
 </p>
 
- 
-<a name="03115.png"></a> 
-<p> <img src="03115.png"> </p> 
-<p><i>Common-base amplifier: Input between emitter and base, output between collector and base.</i></p> 
- 
+
+<a name="03115.png"></a>
+<p> <img src="03115.png"> </p>
+<p><i>Common-base amplifier: Input between emitter and base, output between collector and base.</i></p>
+
 
 <p>
 Perhaps the most striking characteristic of this configuration is that the input signal source must carry the full emitter current of the transistor, as indicated by the heavy arrows in the first illustration.  As we know, the emitter current is greater than any other current in the transistor, being the sum of base and collector currents.  In the last two amplifier configurations, the signal source was connected to the base lead of the transistor, thus handling the <i>least</i> current possible.
@@ -1885,11 +1884,11 @@ Because the input current exceeds all other currents in the circuit, including t
 Since it obviously can't boost signal current, it only seems reasonable to expect it to boost signal voltage.  A SPICE simulation of the circuit in  Figure <a href="#03116.png">  below</a> will vindicate that assumption.
 </p>
 
- 
-<a name="03116.png"></a> 
-<p> <img src="03116.png"> </p> 
-<p><i>Common-base circuit for DC SPICE analysis.</i></p> 
- 
+
+<a name="03116.png"></a>
+<p> <img src="03116.png"> </p>
+<p><i>Common-base circuit for DC SPICE analysis.</i></p>
+
 
 <!--v(3,4)  0.000E+00   5.000E+00     1.000E+01    1.500E+01  2.000E+01-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -1957,24 +1956,24 @@ rload 3 4 5k
 
 
 <p>
-Notice in Figure <a href="#23011.png">  above</a> that the output voltage goes from practically nothing (cutoff) to 15.75 volts (saturation) with the input voltage being swept over a range of 0.6 volts to 1.2 volts.  In fact, the output voltage plot doesn't show a rise until about 0.7 volts at the input, and cuts off (flattens) at about 1.12 volts input.  This represents a rather large voltage gain with an output voltage span of 15.75 volts and an input voltage span of only 0.42 volts: a gain ratio of 37.5, or 31.48 dB.  Notice also how the output voltage (measured across R<sub>load</sub>) actually exceeds the power supply (15 volts) at saturation, due to the series-aiding effect of the input voltage source.  
+Notice in Figure <a href="#23011.png">  above</a> that the output voltage goes from practically nothing (cutoff) to 15.75 volts (saturation) with the input voltage being swept over a range of 0.6 volts to 1.2 volts.  In fact, the output voltage plot doesn't show a rise until about 0.7 volts at the input, and cuts off (flattens) at about 1.12 volts input.  This represents a rather large voltage gain with an output voltage span of 15.75 volts and an input voltage span of only 0.42 volts: a gain ratio of 37.5, or 31.48 dB.  Notice also how the output voltage (measured across R<sub>load</sub>) actually exceeds the power supply (15 volts) at saturation, due to the series-aiding effect of the input voltage source.
 </p>
 
 <p>
 A second set of SPICE analyses (circuit in Figure <a href="#03117.png">  below</a>) with an AC signal source (and DC bias voltage) tells the same story: a high voltage gain
 </p>
 
- 
-<a name="03117.png"></a> 
-<p> <img src="03117.png"> </p> 
-<p><i>Common-base circuit for SPICE AC analysis.</i></p> 
- 
+
+<a name="03117.png"></a>
+<p> <img src="03117.png"> </p>
+<p><i>Common-base circuit for SPICE AC analysis.</i></p>
+
 
 <!--legend:-->
-<!-- *: v(1)-->    
-<!-- +: v(5,2) --> 
+<!-- *: v(1)-->
+<!-- +: v(5,2) -->
 
-<!--v(1)-->    
+<!--v(1)-->
 <!--( *)- -2.000E-01    -1.000E-01     0.000E+00     1.000E-01  2.000E-01-->
 <!--(+)-- -1.500E+01    -1.000E+01    -5.000E+00     0.000E+00  5.000E+00-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -2061,20 +2060,20 @@ The AC SPICE analysis in Table <a href="#bjt4.tbl">  below</a> at a single frequ
 </p>
 
 
- 
+
 <a name="bjt4.tbl"><p><i>Common-base AC analysis at 2 kHz&ndash; netlist followed by output.</i></p></a>
 <pre>
-common-base amplifier                                                           
+common-base amplifier
 vin 5 2  ac 0.1 sin
-vbias 0 1  dc 0.95       
-r1 2 1 100      
-q1 4 0 5 mod1   
-v1 3 0 dc 15    
-rload 3 4 5k    
-.model mod1 npn 
-.ac dec 1 2000 2000     
-.print ac vm(5,2) vm(4,3) 
-.end    
+vbias 0 1  dc 0.95
+r1 2 1 100
+q1 4 0 5 mod1
+v1 3 0 dc 15
+rload 3 4 5k
+.model mod1 npn
+.ac dec 1 2000 2000
+.print ac vm(5,2) vm(4,3)
+.end
 
 frequency       mag(v(5,2))     mag(v(4,3))
 --------------------------------------------
@@ -2087,27 +2086,27 @@ frequency       mag(v(5,2))     mag(v(4,3))
 Voltage figures from the second analysis (Table <a href="#bjt4.tbl">  above</a>) show a voltage gain of 42.74 (4.274 V / 0.1 V), or 32.617 dB:
 </p>
 
-<p> <img src="13022.png"> </p> 
+<p> <img src="13022.png"> </p>
 
 <p>
 Here's another view of the circuit in Figure <a href="#03118.png">  below</a>, summarizing the phase relations and DC offsets of various signals in the circuit just simulated.
 </p>
 
- 
-<a name="03118.png"></a> 
-<p> <img src="03118.png"> </p> 
-<p><i>Phase relationships and offsets for NPN common base amplifier.</i></p> 
- 
+
+<a name="03118.png"></a>
+<p> <img src="03118.png"> </p>
+<p><i>Phase relationships and offsets for NPN common base amplifier.</i></p>
+
 
 <p>
 . . . and for a PNP transistor: Figure <a href="#03119.png">  below</a>.
 </p>
 
- 
-<a name="03119.png"></a> 
-<p> <img src="03119.png"> </p> 
-<p><i>Phase relationships and offsets for PNP common base amplifier.</i></p> 
- 
+
+<a name="03119.png"></a>
+<p> <img src="03119.png"> </p>
+<p><i>Phase relationships and offsets for PNP common base amplifier.</i></p>
+
 
 <p>
 Predicting voltage gain for the common-base amplifier configuration is quite difficult, and involves approximations of transistor behavior that are difficult to measure directly.  Unlike the other amplifier configurations, where voltage gain was either set by the ratio of two resistors (common-emitter), or fixed at an unchangeable value (common-collector), the voltage gain of the common-base amplifier depends largely on the amount of DC bias on the input signal.  As it turns out, the internal transistor resistance between emitter and base plays a major role in determining voltage gain, and this resistance changes with different levels of current through the emitter.
@@ -2132,11 +2131,11 @@ Although these analyses will all be conducted in the &ldquo;transfer function&rd
 common-base amp vbias=0.85V
 vin 5 2  sin (0 0.12 2000 0 0)
 vbias 0 1  dc 0.85
-r1 2 1 100      
-q1 4 0 5 mod1   
-v1 3 0 dc 15    
-rload 3 4 5k    
-.model mod1 npn 
+r1 2 1 100
+q1 4 0 5 mod1
+v1 3 0 dc 15
+rload 3 4 5k
+.model mod1 npn
 *.tran 0.02m 0.78m
 .tf v(4) vin
 .end
@@ -2151,11 +2150,11 @@ common-base amp current gain
 Iin 55 5 0A
 vin 55 2  sin (0 0.12 2000 0 0)
 vbias 0 1  dc 0.8753
-r1 2 1 100      
-q1 4 0 5 mod1   
-v1 3 0 dc 15    
-rload 3 4 5k    
-.model mod1 npn 
+r1 2 1 100
+q1 4 0 5 mod1
+v1 3 0 dc 15
+rload 3 4 5k
+.model mod1 npn
 *.tran 0.02m 0.78m
 .tf I(v1) Iin
 .end
@@ -2175,11 +2174,11 @@ v1 output impedance = 1.000000e+20
 
 
 <p>
-At the command line, <b>spice -b filename.cir</b> produces a printed output due to the <b>.tf</b> statement: transfer_function, output_impedance, and input_impedance. The abbreviated output listing is from runs with <b>vbias</b> at 0.85, 0.90, 0.95, 1.00 V as recorded in Table  <a href="#bjt6.tbl">  below</a>.   
+At the command line, <b>spice -b filename.cir</b> produces a printed output due to the <b>.tf</b> statement: transfer_function, output_impedance, and input_impedance. The abbreviated output listing is from runs with <b>vbias</b> at 0.85, 0.90, 0.95, 1.00 V as recorded in Table  <a href="#bjt6.tbl">  below</a>.
 </p>
 
 
- 
+
 <a name="bjt6.tbl"><p><i>SPICE output: Common-base transfer function.</i></p></a>
 <pre>
 Circuit: common-base amp vbias=0.85V
@@ -2245,14 +2244,14 @@ For a more elaborate circuit see &ldquo;Class A common-base small-signal high ga
 While the C-B (common-base) amplifier is known for wider bandwidth than the C-E (common-emitter) configuration, the low input impedance (10s of &#937;) of C-B is a limitation for many applications. The solution is to precede the C-B stage by a low gain C-E stage which has moderately high input impedance (k&#937;s). See Figure <a href="#03500.png">  below</a>. The stages are in a <i>cascode</i> configuration,  stacked in series,  as opposed to cascaded for a standard amplifier chain. See &ldquo;Capacitor coupled three stage common-emitter amplifier&rdquo; <a href="#03142L">Capacitor coupled</a> for a cascade example. The cascode amplifier configuration has both wide bandwidth and a moderately high input impedance.
 </p>
 
- 
-<a name="03500.png"></a> 
-<p> <img src="03500.png"> </p> 
-<p><i>The cascode amplifier is combined common-emitter and common-base. This is an AC circuit equivalent with batteries and capacitors replaced by short circuits.</i></p> 
+
+<a name="03500.png"></a>
+<p> <img src="03500.png"> </p>
+<p><i>The cascode amplifier is combined common-emitter and common-base. This is an AC circuit equivalent with batteries and capacitors replaced by short circuits.</i></p>
 
 
 <p>
-The key to understanding the wide bandwidth of the cascode configuration is the <i>Miller effect</i>. The <a href="#MILLER">Miller effect</a> is the multiplication of the bandwidth robbing collector-base capacitance by voltage gain A<sub>v</sub>. This C-B capacitance is smaller than the E-B capacitance. Thus, one would think that the C-B capacitance would have little effect. However, in the C-E configuration, the collector output signal is out of phase with the input at the base. The collector signal capacitively coupled back opposes the base signal. Moreover, the collector feedback is (1-A<sub>v</sub>) times larger than the base signal. Keep in mind that A<sub>v</sub> is a negative number for the inverting C-E amplifier. Thus, the small C-B capacitance appears (1+A|<sub>v</sub>|) times larger than its actual value. This capacitive gain reducing feedback increases with frequency, reducing the high frequency response of a C-E amplifier. 
+The key to understanding the wide bandwidth of the cascode configuration is the <i>Miller effect</i>. The <a href="#MILLER">Miller effect</a> is the multiplication of the bandwidth robbing collector-base capacitance by voltage gain A<sub>v</sub>. This C-B capacitance is smaller than the E-B capacitance. Thus, one would think that the C-B capacitance would have little effect. However, in the C-E configuration, the collector output signal is out of phase with the input at the base. The collector signal capacitively coupled back opposes the base signal. Moreover, the collector feedback is (1-A<sub>v</sub>) times larger than the base signal. Keep in mind that A<sub>v</sub> is a negative number for the inverting C-E amplifier. Thus, the small C-B capacitance appears (1+A|<sub>v</sub>|) times larger than its actual value. This capacitive gain reducing feedback increases with frequency, reducing the high frequency response of a C-E amplifier.
 </p>
 
 <p>
@@ -2270,23 +2269,23 @@ The way to reduce the common-emitter gain is to reduce the load resistance.  The
 </p>
 
 <a name="CASCODES"</a>
- 
-<a name="03502.png"></a> 
-<p> <img src="03502.png"> </p> 
-<p><i>SPICE: Cascode and common-emitter for comparison.</i></p> 
+
+<a name="03502.png"></a>
+<p> <img src="03502.png"> </p>
+<p><i>SPICE: Cascode and common-emitter for comparison.</i></p>
 
 <p>
 The SPICE version of both a cascode amplifier, and for comparison, a common-emitter amplifier is shown in Figure <a href="#03502.png">  above</a>. The netlist is in Table <a href="#cascode.tbl">  below</a>. The AC source V3 drives both amplifiers via node 4. The bias resistors for this circuit are calculated in an example problem <a href="#CASCODEB">cascode</a>.
 </p>
 
 
- 
-<a name="23044.png"></a> 
-<p> <img src="23044.png"> </p> 
-<p><i>SPICE waveforms. Note that Input is multiplied by 10 for visibility.</i></p> 
+
+<a name="23044.png"></a>
+<p> <img src="23044.png"> </p>
+<p><i>SPICE waveforms. Note that Input is multiplied by 10 for visibility.</i></p>
 
 
- 
+
 <a name="cascode.tbl"><p><i>SPICE netlist for printing AC input and output voltages.</i></p></a>
 <pre>
 *SPICE circuit <03502.eps> from XCircuit v3.20
@@ -2327,14 +2326,14 @@ The waveforms in Figure <a href="#23044.png">  above</a> show the operation of t
 </p>
 
 
- 
-<a name="23043.png"></a> 
-<p> <img src="23043.png"> </p> 
-<p><i>Cascode vs common-emitter banwidth.</i></p> 
+
+<a name="23043.png"></a>
+<p> <img src="23043.png"> </p>
+<p><i>Cascode vs common-emitter banwidth.</i></p>
 
 
 <p>
-Figure <a href="#23043.png">  above</a> shows the frequency response to both the cascode and common-emitter amplifiers. The SPICE statements responsible for the AC analysis, extracted from the listing: 
+Figure <a href="#23043.png">  above</a> shows the frequency response to both the cascode and common-emitter amplifiers. The SPICE statements responsible for the AC analysis, extracted from the listing:
 </p>
 
 <br> </br>
@@ -2349,12 +2348,12 @@ Note the &ldquo;ac 1&rdquo; is necessary at the end of the V3 statement. The cas
 </p>
 
 
- 
+
 <a name="CASCODElnk"></a>
 <pre>
 nutmeg 6 -> print frequency db(vm(3)) db(vm(13))
 
-Index   frequency     db(vm(3))  db(vm(13)) 
+Index   frequency     db(vm(3))  db(vm(13))
 22      0.158MHz      47.54      45.41
 33      1.995MHz      46.95      42.06
 37      5.012MHz      44.63      36.17
@@ -2406,11 +2405,11 @@ A half-wave output is not problematic for some applications.  In fact, some appl
 <i>For Class A</i> operation, the entire input waveform is faithfully reproduced.  Although I didn't introduce this concept back in the common-emitter section, this is what we were hoping to attain in our simulations.  Class A operation can only be obtained when the transistor spends its entire time in the active mode, never reaching either cutoff or saturation.  To achieve this, sufficient DC bias voltage is usually set at the level necessary to drive the transistor exactly halfway between cutoff and saturation.  This way, the AC input signal will be perfectly &ldquo;centered&rdquo; between the amplifier's high and low signal limit levels.
 </p>
 
- 
-<a name="03124.png"></a> 
-<p> <img src="03124.png"> </p> 
-<p><i>Class A: The amplifier output is a faithful reproduction of the input.</i></p> 
- 
+
+<a name="03124.png"></a>
+<p> <img src="03124.png"> </p>
+<p><i>Class A: The amplifier output is a faithful reproduction of the input.</i></p>
+
 
 <a name="Class B amplifier operation"></a>
 
@@ -2418,11 +2417,11 @@ A half-wave output is not problematic for some applications.  In fact, some appl
 <i>Class B</i> operation is what we had the first time an AC signal was applied to the common-emitter amplifier with no DC bias voltage.  The transistor spent half its time in active mode and the other half in cutoff with the input voltage too low (or even of the wrong polarity!) to forward-bias its base-emitter junction.
 </p>
 
- 
-<a name="03125.png"></a> 
-<p> <img src="03125.png"> </p> 
-<p><i>Class B: Bias is such that half (180<sup>o</sup>) of the waveform is reproduced.</i></p> 
- 
+
+<a name="03125.png"></a>
+<p> <img src="03125.png"> </p>
+<p><i>Class B: Bias is such that half (180<sup>o</sup>) of the waveform is reproduced.</i></p>
+
 
 <a name="Push-pull amplifier"></a>
 
@@ -2430,11 +2429,11 @@ A half-wave output is not problematic for some applications.  In fact, some appl
 By itself, an amplifier operating in class B mode is not very useful.  In most circumstances, the severe distortion introduced into the waveshape by eliminating half of it would be unacceptable.  However, class B operation is a useful mode of biasing if two amplifiers are operated as a <i>push-pull</i> pair, each amplifier handling only half of the waveform at a time:
 </p>
 
- 
-<a name="03126.png"></a> 
-<p> <img src="03126.png"> </p> 
-<p><i> Class B push pull amplifier: Each transistor reproduces half of the waveform. Combining the  halves produces a faithful reproduction of the whole wave.</i></p> 
- 
+
+<a name="03126.png"></a>
+<p> <img src="03126.png"> </p>
+<p><i> Class B push pull amplifier: Each transistor reproduces half of the waveform. Combining the  halves produces a faithful reproduction of the whole wave.</i></p>
+
 
 <p>
 Transistor Q<sub>1</sub> &ldquo;pushes&rdquo; (drives the output voltage in a positive direction with respect to ground), while transistor Q<sub>2</sub> &ldquo;pulls&rdquo; the output voltage (in a negative direction, toward 0 volts with respect to ground).  Individually, each of these transistors is operating in class B mode, active only for one-half of the input waveform cycle.  Together, however, both function as a team to produce an output waveform identical in shape to the input waveform.
@@ -2454,21 +2453,21 @@ Another class of amplifier operation known as <i>class AB</i>, is somewhere betw
 If the input signal bias for an amplifier is slightly negative (opposite of the bias polarity for class A operation), the output waveform will be further &ldquo;clipped&rdquo; than it was with class B biasing, resulting in an operation where the transistor spends most of the time in cutoff mode:
 </p>
 
- 
-<a name="03127.png"></a> 
-<p> <img src="03127.png"> </p> 
-<p><i>Class C: Conduction is for less than a half cycle (&#60; 180<sup>o</sup>).</i></p> 
- 
+
+<a name="03127.png"></a>
+<p> <img src="03127.png"> </p>
+<p><i>Class C: Conduction is for less than a half cycle (&#60; 180<sup>o</sup>).</i></p>
+
 
 <p>
 At first, this scheme may seem utterly pointless.  After all, how useful could an amplifier be if it clips the waveform as badly as this?  If the output is used directly with no conditioning of any kind, it would indeed be of questionable utility.  However, with the application of a tank circuit (parallel resonant inductor-capacitor combination) to the output, the occasional output surge produced by the amplifier can set in motion a higher-frequency oscillation maintained by the tank circuit.  This may be likened to a machine where a heavy flywheel is given an occasional &ldquo;kick&rdquo; to keep it spinning:
 </p>
 
- 
-<a name="03128.png"></a> 
-<p> <img src="03128.png"> </p> 
-<p><i>Class C amplifier driving a resonant circuit.</i></p> 
- 
+
+<a name="03128.png"></a>
+<p> <img src="03128.png"> </p>
+<p><i>Class C amplifier driving a resonant circuit.</i></p>
+
 
 <a name="Class C amplifier operation"></a>
 
@@ -2488,11 +2487,11 @@ Another kind of amplifier operation, significantly different from Class A, B, AB
 A class D amplifier reproduces the profile of the input voltage waveform by generating a rapidly-pulsing squarewave output.  The duty cycle of this output waveform (time &ldquo;on&rdquo; versus total cycle time) varies with the instantaneous amplitude of the input signal.  The  plots in  (Figure <a href="#03230.png">  below</a>  demonstrate this principle.
 </p>
 
- 
-<a name="03230.png"></a> 
-<p> <img src="03230.png"> </p> 
-<p><i>Class D amplifier: Input signal and unfiltered output.</i></p> 
- 
+
+<a name="03230.png"></a>
+<p> <img src="03230.png"> </p>
+<p><i>Class D amplifier: Input signal and unfiltered output.</i></p>
+
 
 <p>
 The greater the instantaneous voltage of the input signal, the greater the duty cycle of the output squarewave pulse.  If there can be any goal stated of the class D design, it is to avoid active-mode transistor operation.  Since the output transistor of a class D amplifier is never in the active mode, only cutoff or saturated, there will be little heat energy dissipated by it.  This results in very high power efficiency for the amplifier.  Of course, the disadvantage of this strategy is the overwhelming presence of harmonics on the output.  Fortunately, since these harmonic frequencies are typically much greater than the frequency of the input signal, these can be filtered out by a low-pass filter with relative ease, resulting in an output more closely resembling the original input signal waveform.  Class D technology is typically seen where extremely high power levels and relatively low frequencies are encountered, such as in industrial inverters (devices converting DC into AC power to run motors and other large devices) and high-performance audio amplifiers.
@@ -2501,7 +2500,7 @@ The greater the instantaneous voltage of the input signal, the greater the duty 
 <a name="Quiescent"></a>
 
 <p>
-A term you will likely come across in your studies of electronics is something called <i>quiescent</i>, which is a modifier designating the  zero input condition of a circuit.  Quiescent current, for example, is the amount of current in a circuit with zero input signal voltage applied.  Bias voltage in a transistor circuit forces the transistor to operate at a different level of collector current with zero input signal voltage than it would without that bias voltage.  Therefore, the amount of bias in an amplifier circuit determines its quiescent values. 
+A term you will likely come across in your studies of electronics is something called <i>quiescent</i>, which is a modifier designating the  zero input condition of a circuit.  Quiescent current, for example, is the amount of current in a circuit with zero input signal voltage applied.  Bias voltage in a transistor circuit forces the transistor to operate at a different level of collector current with zero input signal voltage than it would without that bias voltage.  Therefore, the amount of bias in an amplifier circuit determines its quiescent values.
 </p>
 
 <a name="Load line"></a>
@@ -2510,11 +2509,11 @@ A term you will likely come across in your studies of electronics is something c
 In a class A amplifier, the quiescent current should be exactly half of its saturation value (halfway between saturation and cutoff, cutoff by definition being zero).  Class B and class C amplifiers have quiescent current values of zero, since these are supposed to be cutoff with no signal applied.  Class AB amplifiers have very low quiescent current values, just above cutoff.  To illustrate this graphically, a &ldquo;load line&rdquo; is sometimes plotted over a transistor's characteristic curves to illustrate its range of operation while connected to a load resistance of specific value shown in  Figure <a href="#03144.png">  below</a>.
 </p>
 
- 
-<a name="03144.png"></a> 
-<p> <img src="03144.png"> </p> 
-<p><i>Example load line drawn over transistor characteristic curves from V<sub>supply</sub> to saturation current.</i></p> 
- 
+
+<a name="03144.png"></a>
+<p> <img src="03144.png"> </p>
+<p><i>Example load line drawn over transistor characteristic curves from V<sub>supply</sub> to saturation current.</i></p>
+
 
 <p>
 A load line is a plot of collector-to-emitter voltage over a range of collector currents.  At the lower-right corner of the load line, voltage is at maximum and current is at zero, representing a condition of cutoff.  At the upper-left corner of the line, voltage is at zero while current is at a maximum, representing a condition of saturation.  Dots marking where the load line intersects the various transistor curves represent realistic operating conditions for those base currents given.
@@ -2524,49 +2523,49 @@ A load line is a plot of collector-to-emitter voltage over a range of collector 
 Quiescent operating conditions may be shown on this graph in the form of a single dot along the load line.  For a class A amplifier, the quiescent point will be in the middle of the load line as in  (Figure <a href="#03145.png">  below</a>.
 </p>
 
- 
-<a name="03145.png"></a> 
-<p> <img src="03145.png"> </p> 
-<p><i>Quiescent point (dot) for class A.</i></p> 
- 
+
+<a name="03145.png"></a>
+<p> <img src="03145.png"> </p>
+<p><i>Quiescent point (dot) for class A.</i></p>
+
 
 <p>
 In this illustration, the quiescent point happens to fall on the curve representing a base current of 40 &#181;A.  If we were to change the load resistance in this circuit to a greater value, it would affect the slope of the load line, since a greater load resistance would limit the maximum collector current at saturation, but would not change the collector-emitter voltage at cutoff.  Graphically, the result is a load line with a different upper-left point and the same lower-right point as in  (Figure <a href="#03146.png">  below</a>)
 </p>
 
- 
-<a name="03146.png"></a> 
-<p> <img src="03146.png"> </p> 
-<p><i>Load line resulting from increased load resistance.</i></p> 
- 
+
+<a name="03146.png"></a>
+<p> <img src="03146.png"> </p>
+<p><i>Load line resulting from increased load resistance.</i></p>
+
 
 <p>
 Note how the new load line doesn't intercept the 75 &#181;A curve along its flat portion as before.  This is very important to realize because the non-horizontal portion of a characteristic curve represents a condition of saturation.  Having the load line intercept the 75 &#181;A curve outside of the curve's horizontal range means that the amplifier will be saturated at that amount of base current.  Increasing the load resistor value is what caused the load line to intercept the 75 &#181;A curve at this new point, and it indicates that saturation will occur at a lesser value of base current than before.
 </p>
 
 <p>
-With the old, lower-value load resistor in the circuit, a base current of 75 &#181;A would yield a proportional collector current (base current multiplied by &#946;).  In the first load line graph, a base current of 75 &#181;A gave a collector current almost twice what was obtained at 40 &#181;A, as the &#946; ratio would predict.  However,  collector current increases marginally between base currents 75 &#181;A and 40 &#181;A, because the transistor begins to lose sufficient collector-emitter voltage to continue to regulate collector current. 
+With the old, lower-value load resistor in the circuit, a base current of 75 &#181;A would yield a proportional collector current (base current multiplied by &#946;).  In the first load line graph, a base current of 75 &#181;A gave a collector current almost twice what was obtained at 40 &#181;A, as the &#946; ratio would predict.  However,  collector current increases marginally between base currents 75 &#181;A and 40 &#181;A, because the transistor begins to lose sufficient collector-emitter voltage to continue to regulate collector current.
 </p>
 
 <p>
 To maintain linear (no-distortion) operation, transistor amplifiers shouldn't be operated at points where the transistor will saturate; that is, where the load line will not potentially fall on the horizontal portion of a collector current curve.   We'd have to add a few more curves to the graph in  Figure <a href="#03147.png">  below</a> before we could tell just how far we could &ldquo;push&rdquo; this transistor with increased base currents before it saturates.
 </p>
 
- 
-<a name="03147.png"></a> 
-<p> <img src="03147.png"> </p> 
-<p><i>More base current curves shows saturation detail.</i></p> 
- 
+
+<a name="03147.png"></a>
+<p> <img src="03147.png"> </p>
+<p><i>More base current curves shows saturation detail.</i></p>
+
 
 <p>
 It appears in this graph that the highest-current point on the load line falling on the straight portion of a curve is the point on the 50 &#181;A curve.  This new point should be considered the maximum allowable input signal level for class A operation.  Also for class A operation, the bias should be set so that the quiescent point is halfway between this new maximum point and cutoff shown in Figure <a href="#03148.png">  below</a>.
 </p>
 
- 
-<a name="03148.png"></a> 
-<p> <img src="03148.png"> </p> 
-<p><i>New quiescent point avoids saturation region.</i></p> 
- 
+
+<a name="03148.png"></a>
+<p> <img src="03148.png"> </p>
+<p><i>New quiescent point avoids saturation region.</i></p>
+
 
 <p>
 Now that we know a little more about the consequences of different DC bias voltage levels, it is time to investigate practical biasing techniques.  So far, I've shown a small DC voltage source (battery) connected in series with the AC input signal to bias the amplifier for whatever desired class of operation.  In real life, the connection of a precisely-calibrated battery to the input of an amplifier is simply not practical.  Even if it were possible to customize a battery to produce just the right amount of voltage for any given bias requirement, that battery would not remain at its manufactured voltage indefinitely.  Once it started to discharge and its output voltage drooped, the amplifier would begin to drift toward class B operation.
@@ -2576,21 +2575,21 @@ Now that we know a little more about the consequences of different DC bias volta
 Take this circuit, illustrated in the common-emitter section for a SPICE simulation, for instance, in Figure <a href="#03099a.png">  below</a>.
 </p>
 
- 
-<a name="03099a.png"></a> 
-<p> <img src="03099.png"> </p>  
-<p><i>Impractical base battery bias.</i></p> 
+
+<a name="03099a.png"></a>
+<p> <img src="03099.png"> </p>
+<p><i>Impractical base battery bias.</i></p>
 
 
 <p>
 That 2.3 volt &ldquo;V<sub>bias</sub>&rdquo; battery would not be practical to include in a real amplifier circuit.  A far more practical method of obtaining bias voltage for this amplifier would be to develop the necessary 2.3 volts using a voltage divider network connected across the 15 volt battery.  After all, the 15 volt battery is already there by necessity, and voltage divider circuits are easy to design and build.  Let's see how this might look in Figure <a href="#03130.png">  below</a>.
 </p>
 
- 
-<a name="03130.png"></a> 
-<p> <img src="03130.png"> </p> 
-<p><i>Voltage divider bias.</i></p> 
- 
+
+<a name="03130.png"></a>
+<p> <img src="03130.png"> </p>
+<p><i>Voltage divider bias.</i></p>
+
 
 <p>
 If we choose a pair of resistor values for R<sub>2</sub> and R<sub>3</sub> that will produce 2.3 volts across R<sub>3</sub> from a total of 15 volts (such as 8466 &#937; for R<sub>2</sub> and 1533 &#937; for R<sub>3</sub>), we should have our desired value of 2.3 volts between base and emitter for biasing with no signal input.  The only problem is, this circuit configuration places the AC input signal source directly in parallel with R<sub>3</sub> of our voltage divider.  This is not acceptable, as the AC source will tend to overpower any DC voltage dropped across R<sub>3</sub>.  Parallel components <i>must</i> have the same voltage, so if an AC voltage source is directly connected across one resistor of a DC voltage divider, the AC source will &ldquo;win&rdquo; and there will be no DC bias voltage added to the signal.
@@ -2603,11 +2602,11 @@ If we choose a pair of resistor values for R<sub>2</sub> and R<sub>3</sub> that 
 One way to make this scheme work, although it may not be obvious <i>why</i> it will work, is to place a <i>coupling capacitor</i> between the AC voltage source and the voltage divider as in Figure <a href="#03131.png">  below</a>.
 </p>
 
- 
-<a name="03131.png"></a> 
-<p> <img src="03131.png"> </p> 
-<p><i>Coupling capacitor prevents voltage divider bias from flowing into signal generator.</i></p> 
- 
+
+<a name="03131.png"></a>
+<p> <img src="03131.png"> </p>
+<p><i>Coupling capacitor prevents voltage divider bias from flowing into signal generator.</i></p>
+
 
 <a name="Theorem, Superposition"></a>
 <a name="Superposition theorem"></a>
@@ -2620,31 +2619,31 @@ The capacitor forms a high-pass filter between the AC source and the DC voltage 
 With only the AC signal source in effect, and a capacitor with an arbitrarily low impedance at signal frequency, almost all the AC voltage appears across R<sub>3</sub>:
 </p>
 
- 
-<a name="03133.png"></a> 
-<p> <img src="03133.png"> </p> 
-<p><i>Due to the coupling capacitor's very low impedance at the signal frequency, it behaves much like a piece of wire, thus can be omitted for this step in superposition analysis.</i></p> 
- 
+
+<a name="03133.png"></a>
+<p> <img src="03133.png"> </p>
+<p><i>Due to the coupling capacitor's very low impedance at the signal frequency, it behaves much like a piece of wire, thus can be omitted for this step in superposition analysis.</i></p>
+
 
 <p>
 With only the DC source in effect, the capacitor appears to be an open circuit, and thus neither it nor the shorted AC signal source will have any effect on the operation of the R<sub>2</sub>--R<sub>3</sub> voltage divider in  Figure <a href="#03134.png">  below</a>.
 </p>
 
- 
-<a name="03134.png"></a> 
-<p> <img src="03134.png"> </p> 
-<p><i>The capacitor appears to be an open circuit as far at the DC analysis is concerned</i></p> 
- 
+
+<a name="03134.png"></a>
+<p> <img src="03134.png"> </p>
+<p><i>The capacitor appears to be an open circuit as far at the DC analysis is concerned</i></p>
+
 
 <p>
 Combining these two separate analyses in Figure <a href="#03132.png">  below</a>, we get a superposition of (almost) 1.5 volts AC and 2.3 volts DC, ready to be connected to the base of the transistor.
 </p>
 
- 
-<a name="03132.png"></a> 
-<p> <img src="03132.png"> </p> 
-<p><i>Combined AC and DC circuit.</i></p> 
- 
+
+<a name="03132.png"></a>
+<p> <img src="03132.png"> </p>
+<p><i>Combined AC and DC circuit.</i></p>
+
 
 <p>
 Enough talk -- its about time for a SPICE simulation of the whole amplifier circuit in Figure <a href="#23013.png">  below</a>.  We will use a capacitor value of 100 &#181;F to obtain an arbitrarily low (0.796 &#937;) impedance at 2000 Hz:
@@ -2667,7 +2666,7 @@ r2 4 5 8466
 r3 5 0 1533
 q1 3 2 0 mod1
 rspkr 3 4 8
-v1 4 0 dc 15 
+v1 4 0 dc 15
 .model mod1 npn
 .tran 0.02m 0.78m
 .plot tran v(1,0) i(v1)
@@ -2682,9 +2681,9 @@ v1 4 0 dc 15
 
 
 <!--legend:-->
-<!--*: v(1)-->    
-<!--+: i(v1)-->   
-<!--v(1)-->    
+<!--*: v(1)-->
+<!--+: i(v1)-->
+<!--v(1)-->
 <!--( *)- -2.000E+00   -1.000E+00    0.000E+00    1.000E+00   2.000E+00-->
 <!--(+)-- -3.000E-01   -2.000E-01   -1.000E-01    0.000E+00   1.000E-01-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -2740,11 +2739,11 @@ Note the substantial distortion in the output waveform in Figure <a href="#23013
 With the capacitor and R<sub>2</sub>--R<sub>3</sub> resistor network unloaded, it will provide exactly 2.3 volts worth of DC bias.  However, once we connect this network to the transistor, it is no longer unloaded.  Current drawn through the base of the transistor will load the voltage divider, thus reducing the DC bias voltage available for the transistor.  Using the diode current source transistor model in Figure <a href="#03135.png">  below</a> to illustrate, the bias problem becomes evident.
 </p>
 
- 
-<a name="03135.png"></a> 
-<p> <img src="03135.png"> </p> 
-<p><i>Diode transistor model shows loading of voltage divider.</i></p> 
- 
+
+<a name="03135.png"></a>
+<p> <img src="03135.png"> </p>
+<p><i>Diode transistor model shows loading of voltage divider.</i></p>
+
 
 <p>
 A voltage divider's output depends not only on the size of its constituent resistors, but also on how much current is being divided away from it through a load.  The base-emitter PN junction of the transistor is a load that decreases the DC voltage dropped across R<sub>3</sub>, due to the fact that the bias current joins with R<sub>3</sub>'s current to go through R<sub>2</sub>, upsetting the divider ratio formerly set by the resistance values of R<sub>2</sub> and R<sub>3</sub>.  To obtain a DC bias voltage of 2.3 volts, the values of R<sub>2</sub> and/or R<sub>3</sub> must be adjusted to compensate for the effect of base current loading. To <i>increase</i> the DC voltage dropped across R<sub>3</sub>, lower the value of R<sub>2</sub>, raise the value of R<sub>3</sub>, or both.
@@ -2771,8 +2770,8 @@ rspkr 3 4 8
 v1 4 0 dc 15
 .model mod1 npn
 .tran 0.02m 0.78m
-.plot tran v(1,0) i(v1) 
-.end 
+.plot tran v(1,0) i(v1)
+.end
 </pre>
 
 </td>
@@ -2784,9 +2783,9 @@ v1 4 0 dc 15
 
 
 <!--legend:-->
-<!--*: v(1)-->    
-<!--+: i(v1)-->   
-<!--v(1)-->    
+<!--*: v(1)-->
+<!--+: i(v1)-->
+<!--v(1)-->
 <!--( *)- -2.000E+00   -1.000E+00    0.000E+00     1.000E+00  2.000E+00-->
 <!--(+)-- -3.000E-01   -2.000E-01   -1.000E-01     0.000E+00  1.000E-01-->
 <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
@@ -2874,17 +2873,17 @@ The simplest biasing applies a <i>base-bias</i> resistor between the base and a 
 
 
 <p>
-Write a KVL (Krichhoff's voltage law) equation about the loop containing the battery, R<sub>B</sub>, and the V<sub>BE</sub> diode drop on the transistor in Figure <a href="#03487.png">  below</a>. Note that we use V<sub>BB</sub> for the base supply, even though it is actually V<sub>CC</sub>. If &#946; is large we can make the approximation that I<sub>C</sub> =I<sub>E</sub>. For silicon transistors V<sub>BE</sub>&#8773;0.7V.   
+Write a KVL (Krichhoff's voltage law) equation about the loop containing the battery, R<sub>B</sub>, and the V<sub>BE</sub> diode drop on the transistor in Figure <a href="#03487.png">  below</a>. Note that we use V<sub>BB</sub> for the base supply, even though it is actually V<sub>CC</sub>. If &#946; is large we can make the approximation that I<sub>C</sub> =I<sub>E</sub>. For silicon transistors V<sub>BE</sub>&#8773;0.7V.
 </p>
 
- 
-<a name="03487.png"></a> 
-<p> <img src="03487.png"> </p> 
-<p><i>Base-bias</i></p> 
- 
+
+<a name="03487.png"></a>
+<p> <img src="03487.png"> </p>
+<p><i>Base-bias</i></p>
+
 
 <p>
-Silicon small signal transistors typically have a &#946; in the range of 100-300. Assuming that we have a &#946;=100 transistor, what value of base-bias resistor is required to yield an emitter current of 1mA? 
+Silicon small signal transistors typically have a &#946; in the range of 100-300. Assuming that we have a &#946;=100 transistor, what value of base-bias resistor is required to yield an emitter current of 1mA?
 </p>
 
 <p>
@@ -2923,14 +2922,14 @@ Variations in bias due to temperature and beta may be  reduced by moving the V<s
 </p>
 
 <p>
-Write a KVL equation about the loop containing the battery, R<sub>C</sub> , R<sub>B</sub> , and the V<sub>BE</sub> drop. Substitute I<sub>C</sub>&#8773;I<sub>E</sub> and I<sub>B</sub>&#8773;I<sub>E</sub>/&#946;. Solving for I<sub>E</sub> yields the IE CFB-bias equation.  Solving for I<sub>B</sub> yields the IB CFB-bias equation.  
+Write a KVL equation about the loop containing the battery, R<sub>C</sub> , R<sub>B</sub> , and the V<sub>BE</sub> drop. Substitute I<sub>C</sub>&#8773;I<sub>E</sub> and I<sub>B</sub>&#8773;I<sub>E</sub>/&#946;. Solving for I<sub>E</sub> yields the IE CFB-bias equation.  Solving for I<sub>B</sub> yields the IB CFB-bias equation.
 </p>
 
- 
-<a name="03490.png"></a> 
-<p> <img src="03490.png"> </p> 
-<p><i>Collector-feedback bias.</i></p> 
- 
+
+<a name="03490.png"></a>
+<p> <img src="03490.png"> </p>
+<p><i>Collector-feedback bias.</i></p>
+
 
 <p>
 Find the required collector feedback bias resistor for an emitter current of 1 mA, a 4.7K collector load resistor, and a transistor with &#946;=100 .  Find the collector voltage V<sub>C</sub>. It should be approximately midway between V<sub>CC</sub> and ground.
@@ -2961,11 +2960,11 @@ We see that as beta changes from 100 to 300, the emitter current increases from 
 Inserting a resistor R<sub>E</sub> in the emitter circuit as in  Figure <a href="#03488.png">  below</a> causes <i>degeneration</i>, also known as negative feedback. This opposes a change in emitter current I<sub>E</sub> due to temperature changes, resistor tolerances, beta variation, or power supply tolerance. Typical tolerances are as follows: resistor&mdash; 5%, beta&mdash; 100-300, power supply&mdash; 5%.  Why might the emitter resistor stabilize a change in current? The polarity of the voltage drop across R<sub>E</sub> is due to the collector battery V<sub>CC</sub>. The end of the resistor closest to the (-) battery terminal is (-), the end closest to the (+) terminal it (+).  Note that the (-) end of R<sub>E</sub> is connected via V<sub>BB</sub> battery and R<sub>B</sub> to the base. Any increase in current flow through R<sub>E</sub>  will increase the magnitude of negative voltage applied to the base circuit, decreasing the base current, decreasing the emitter current. This decreasing emitter current partially compensates the original increase.
 </p>
 
- 
-<a name="03488.png"></a> 
-<p> <img src="03488.png"> </p> 
-<p><i>Emitter-bias</i></p> 
- 
+
+<a name="03488.png"></a>
+<p> <img src="03488.png"> </p>
+<p><i>Emitter-bias</i></p>
+
 
 <p>
 Note that base-bias battery V<sub>BB</sub> is used instead of V<sub>CC</sub> to bias the base in Figure <a href="#03488.png">  above</a>. Later we will show that the emitter-bias is more effective with a lower base bias battery. Meanwhile, we write the KVL equation for the loop through the base-emitter circuit, paying attention to the polarities on the components. We substitute I<sub>B</sub>&#8773;I<sub>E</sub>/&#946; and solve for emitter current I<sub>E</sub>. This equation can be solved for R<sub>B</sub> , equation: RB emitter-bias, Figure <a href="#03488.png">  above</a>.
@@ -2978,7 +2977,7 @@ Before applying the equations:  RB emitter-bias and IE emitter-bias, Figure <a h
 <p> <img src="13069.png"> </p>
 
 <p>
-Our first example sets the base-bias supply to high at V<sub>BB</sub> = V<sub>CC</sub> = 10V to show why a lower voltage is desirable. Determine the  required value of base-bias resistor R<sub>B</sub>. Choose a standard value resistor. Calculate the emitter current for &#946;=100 and &#946;=300. Compare the stabilization of the current to prior bias circuits.  
+Our first example sets the base-bias supply to high at V<sub>BB</sub> = V<sub>CC</sub> = 10V to show why a lower voltage is desirable. Determine the  required value of base-bias resistor R<sub>B</sub>. Choose a standard value resistor. Calculate the emitter current for &#946;=100 and &#946;=300. Compare the stabilization of the current to prior bias circuits.
 </p>
 
 
@@ -2993,7 +2992,7 @@ An 883k resistor was calculated for R<sub>B</sub>, an 870k chosen. At &#946;=100
 For &#946;=300 the emitter currents are shown in Table <a href="#emb1.tbl">  below</a>.
 </p>
 
- 
+
 <a name="emb1.tbl"><p><i>Emitter current comparison for &#946;=100, &#946;=300.</i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -3045,7 +3044,7 @@ Comparing the emitter currents for emitter-bias with V<sub>BB</sub> = 2V at &#94
 
 
 
- 
+
 <a name="emb2.tbl"><p><i>Emitter current comparison for &#946;=100, &#946;=300.</i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -3095,7 +3094,7 @@ The performance of the emitter-bias circuit with a 910<Onega> emitter resistor i
 </p>
 
 
- 
+
 <a name="emb3.tbl"><p><i>Emitter current comparison for &#946;=100, &#946;=300.</i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -3134,20 +3133,20 @@ As an exercise, rework the emitter-bias example with the emitter resistor revert
 <br> </br>
 </p>
 
-<p> <img src="13073.png"> </p> 
+<p> <img src="13073.png"> </p>
 
 <p>
 The 33k base resistor is a standard value, emitter current at &#946; = 100 is OK. The emitter current at &#946; = 300 is:
 </p>
 
-<p> <img src="13074.png"> </p> 
+<p> <img src="13074.png"> </p>
 
 <p>
 Table  <a href="#emb4.tbl">  below</a> below compares the exercise results 1mA and 1.38mA to the previous examples.
 </p>
 
 
- 
+
 <a name="emb4.tbl"><p><i>Emitter current comparison for &#946;=100, &#946;=300.</i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -3189,7 +3188,7 @@ Table  <a href="#emb4.tbl">  below</a> below compares the exercise results 1mA a
 The emitter-bias equations have been repeated in Figure <a href="#03489.png">  below</a> with the internal emitter resistance included for better accuracy. The <i>internal emitter resistance</i> is the resistance in the emitter circuit contained within the transistor package. This internal resistance r<sub>EE</sub> is significant when the (external) emitter resistor R<sub>E</sub> is small, or even zero. The value of internal resistance R<sub>EE</sub> is a function of emitter current I<sub>E</sub>, Table <a href="#emb5.tbl">  below</a>.
 </p>
 
- 
+
 <a name="emb5.tbl"><p><i>Derivation of r<sub>EE</sub></i></p></a>
 <pre>
 &nbsp;        r<sub>EE</sub> = KT/I<sub>E</sub>m
@@ -3198,7 +3197,7 @@ The emitter-bias equations have been repeated in Figure <a href="#03489.png">  b
 &nbsp;                T= temperature in Kelvins &#8773;300.
 &nbsp;                I<sub>E</sub> = emitter current
 &nbsp;                m = varies from 1 to 2 for Silicon
-&nbsp;        r<sub>EE</sub> &#8773; 0.026V/I<sub>E</sub> = 26mV/I<sub>E</sub>               
+&nbsp;        r<sub>EE</sub> &#8773; 0.026V/I<sub>E</sub> = 26mV/I<sub>E</sub>
 </pre>
 
 
@@ -3207,14 +3206,14 @@ The emitter-bias equations have been repeated in Figure <a href="#03489.png">  b
 For reference the 26mV approximation is listed as equation rEE in  Figure <a href="#03489.png">  below</a>.
 </p>
 
- 
-<a name="03489.png"></a> 
-<p> <img src="03489.png"> </p> 
-<p><i>Emitter-bias equations with internal emitter resistance r<sub>EE</sub> included..</i></p> 
- 
+
+<a name="03489.png"></a>
+<p> <img src="03489.png"> </p>
+<p><i>Emitter-bias equations with internal emitter resistance r<sub>EE</sub> included..</i></p>
+
 
 <p>
-The more accurate emitter-bias equations in Figure <a href="#03489.png">  above</a> may be derived by writing a KVL equation. Alternatively, start with equations IE emitter-bias and R<sub>B</sub> emitter-bias in Figure <a href="#03488.png">  previous</a>, substituting R<sub>E</sub> with r<sub>EE</sub>+R<sub>E</sub>. The result is equations IE EB and RB EB, respectively in  Figure <a href="#03489.png">  above</a>. 
+The more accurate emitter-bias equations in Figure <a href="#03489.png">  above</a> may be derived by writing a KVL equation. Alternatively, start with equations IE emitter-bias and R<sub>B</sub> emitter-bias in Figure <a href="#03488.png">  previous</a>, substituting R<sub>E</sub> with r<sub>EE</sub>+R<sub>E</sub>. The result is equations IE EB and RB EB, respectively in  Figure <a href="#03489.png">  above</a>.
 </p>
 
 <p>
@@ -3227,7 +3226,7 @@ Redo the R<sub>B</sub> calculation in the  previous example <a href="#13067L">em
 The inclusion of r<sub>EE</sub> in the calculation results in a lower value of the base resistor R<sub>B</sub> a shown in Table <a href="#emb6.tbl">  below</a>. It falls below the standard value 82k resistor instead of above it.
 </p>
 
- 
+
 <a name="emb6.tbl"><p><i>Effect of inclusion of r<sub>EE</sub> on calculated R<sub>B</sub></i></p></a>
 <table border="1" style="background-color: #E0FFFF; " >
 
@@ -3259,10 +3258,10 @@ The inclusion of r<sub>EE</sub> in the calculation results in a lower value of t
 One problem with emitter bias is that a considerable part of the output signal is dropped across the emitter resistor R<sub>E</sub> (Figure <a href="#03499.png">  below</a>).  This voltage drop across the emitter resistor is in series with the base and of opposite polarity compared with the input signal. (This is similar to a common collector configuration having &#60;1 gain.) This degeneration severely reduces the gain from base to collector. The solution for AC signal amplifiers is to bypass the emitter resistor with a capacitor. This restores the AC gain since the capacitor is a  short for AC signals.  The DC emitter current still experiences degeneration in the emitter resistor, thus, stabilizing the DC current.
 </p>
 
- 
-<a name="03499.png"></a> 
-<p> <img src="03499.png"> </p> 
-<p><i>Cbypass is required to prevent AC gain reduction.</i></p> 
+
+<a name="03499.png"></a>
+<p> <img src="03499.png"> </p>
+<p><i>Cbypass is required to prevent AC gain reduction.</i></p>
 
 
 
@@ -3274,7 +3273,7 @@ What value should the bypass capacitor be? That depends on the lowest frequency 
 
 
 <p>
-Note that the internal emitter resistance r<sub>EE</sub> is not bypassed by the bypass capacitor. 
+Note that the internal emitter resistance r<sub>EE</sub> is not bypassed by the bypass capacitor.
 </p>
 
 
@@ -3289,25 +3288,25 @@ Note that the internal emitter resistance r<sub>EE</sub> is not bypassed by the 
 <a name="Bias, BJT, voltage divider"></a>
 
 <p>
-Stable emitter bias requires a low voltage base bias supply, Figure <a href="#03494.png">  below</a>. The alternative to a base supply V<sub>BB</sub> is a voltage divider based on the collector supply V<sub>CC</sub>. 
+Stable emitter bias requires a low voltage base bias supply, Figure <a href="#03494.png">  below</a>. The alternative to a base supply V<sub>BB</sub> is a voltage divider based on the collector supply V<sub>CC</sub>.
 </p>
 
 
 
- 
-<a name="03494.png"></a> 
-<p> <img src="03494.png"> </p> 
-<p><i>Voltage Divider bias replaces base battery with voltage divider.</i></p> 
+
+<a name="03494.png"></a>
+<p> <img src="03494.png"> </p>
+<p><i>Voltage Divider bias replaces base battery with voltage divider.</i></p>
 
 
 <p>
 The design technique is to first work out an emitter-bias design, Then convert it to the voltage divider bias configuration by using Thevenin's Theorem. <a href="#TK1.bibitem">[TK1]</a>  The steps are shown graphically in Figure <a href="#03495.png">  below</a>. Draw the voltage divider without assigning values. Break the divider loose from the base. (The base of the transistor is the load.) Apply Thevenin's Theorem to yield a single Thevenin equivalent resistance Rth  and  voltage source Vth.
 </p>
 
- 
-<a name="03495.png"></a> 
-<p> <img src="03495.png"> </p> 
-<p><i>Thevenin's Theorem converts voltage divider to single supply Vth and resistance Rth.</i></p> 
+
+<a name="03495.png"></a>
+<p> <img src="03495.png"> </p>
+<p><i>Thevenin's Theorem converts voltage divider to single supply Vth and resistance Rth.</i></p>
 
 
 <p>
@@ -3326,10 +3325,10 @@ Convert this previous emitter-bias example to voltage divider bias.
 
 </p>
 
- 
-<a name="03496.png"></a> 
-<p> <img src="03496.png"> </p> 
-<p><i>Emitter-bias example converted to voltage divider bias.</i></p> 
+
+<a name="03496.png"></a>
+<p> <img src="03496.png"> </p>
+<p><i>Emitter-bias example converted to voltage divider bias.</i></p>
 
 
 <p>
@@ -3354,10 +3353,10 @@ R1 is a standard value of 220K. The closest standard value for R2 corresponding 
 <b>Problem:</b> Calculate the bias resistors for the cascode amplifier in Figure <a href="#03501.png">  below</a>. V<sub>B2</sub> is the  bias voltage for the common emitter stage. V<sub>B1</sub> is a fairly high voltage at 11.5 because we want the common-base stage to hold the emitter at 11.5-0.7=10.8V, about 11V.  (It will be 10V after accounting for the voltage drop across R<sub>B1</sub> .) That is, the common-base stage is the load, substitute for a resistor, for the common-emitter stage's collector. We desire a 1mA emitter current.
 </p>
 
- 
-<a name="03501.png"></a> 
-<p> <img src="03501.png"> </p> 
-<p><i>Bias for a cascode amplifier.</i></p> 
+
+<a name="03501.png"></a>
+<p> <img src="03501.png"> </p>
+<p><i>Bias for a cascode amplifier.</i></p>
 
 
 <p>
@@ -3390,10 +3389,10 @@ The final circuit diagram is shown in the &ldquo;Practical Analog Circuits&rdquo
 
 
 
- 
-<a name="03497.png"></a> 
-<p> <img src="03497.png"> </p> 
-<p><i>Biasing equations summary.</i></p> 
+
+<a name="03497.png"></a>
+<p> <img src="03497.png"> </p>
+<p><i>Biasing equations summary.</i></p>
 
 
 
@@ -3416,41 +3415,41 @@ To overcome the challenge of creating necessary DC bias voltage for an amplifier
 Most obvious is the fact that using a high-pass filter capacitor to couple the signal source to the amplifier means that the amplifier can only amplify AC signals.  A steady, DC voltage applied to the input would be blocked by the coupling capacitor just as much as the voltage divider bias voltage is blocked from the input source.  Furthermore, since capacitive reactance is frequency-dependent, lower-frequency AC signals will not be amplified as much as higher-frequency signals.  Non-sinusoidal signals will tend to be distorted, as the capacitor responds differently to each of the signal's constituent harmonics.  An extreme example of this would be a low-frequency square-wave signal in Figure <a href="#03136.png">  below</a>.
 </p>
 
- 
-<a name="03136.png"></a> 
-<p> <img src="03136.png"> </p> 
-<p><i>Capacitively coupled low frequency square-wave shows distortion.</i></p> 
- 
+
+<a name="03136.png"></a>
+<p> <img src="03136.png"> </p>
+<p><i>Capacitively coupled low frequency square-wave shows distortion.</i></p>
+
 
 <p>
 Incidentally, this same problem occurs when oscilloscope inputs are set to the &ldquo;AC coupling&rdquo; mode as in Figure <a href="#03137.png">  below</a>. In this mode, a coupling capacitor is inserted in series with the measured voltage signal to eliminate any vertical offset of the displayed waveform due to DC voltage combined with the signal.  This works fine   when the AC component of the measured signal is of a fairly high frequency, and the capacitor offers little impedance to the signal.  However, if the signal is of a low frequency, or contains considerable levels of harmonics over a wide frequency range, the oscilloscope's display of the waveform will not be accurate. (Figure <a href="#03137.png">  below</a>) Low frequency signals may be viewed by setting the oscilloscope to &ldquo;DC coupling&rdquo; in Figure <a href="#03139.png">  below</a>.
 </p>
 
- 
-<a name="03139.png"></a> 
-<p> <img src="03139.png"> </p> 
-<p><i>With DC coupling, the oscilloscope properly indicates the shape of the square wave coming from the signal generator.</i></p> 
- 
+
+<a name="03139.png"></a>
+<p> <img src="03139.png"> </p>
+<p><i>With DC coupling, the oscilloscope properly indicates the shape of the square wave coming from the signal generator.</i></p>
+
 
 <p>
 </p>
 
 
- 
-<a name="03137.png"></a> 
-<p> <img src="03137.png"> </p> 
-<p><i>Low frequency: With AC coupling, the high-pass filtering of the coupling capacitor distorts the square wave's shape so that what is seen is not an accurate representation of the real signal.</i></p> 
- 
+
+<a name="03137.png"></a>
+<p> <img src="03137.png"> </p>
+<p><i>Low frequency: With AC coupling, the high-pass filtering of the coupling capacitor distorts the square wave's shape so that what is seen is not an accurate representation of the real signal.</i></p>
+
 
 <p>
 In applications where the limitations of capacitive coupling (Figure <a href="#03136.png">  above</a>) would be intolerable, another solution may be used: <i>direct coupling</i>.  Direct coupling avoids the use of capacitors or any other frequency-dependent coupling component in favor of resistors.  A direct-coupled amplifier circuit is shown in Figure <a href="#03138.png">  below</a>.
 </p>
 
- 
-<a name="03138.png"></a> 
-<p> <img src="03138.png"> </p> 
-<p><i>Direct coupled amplifier: direct coupling to speaker.</i></p> 
- 
+
+<a name="03138.png"></a>
+<p> <img src="03138.png"> </p>
+<p><i>Direct coupled amplifier: direct coupling to speaker.</i></p>
+
 
 <p>
 With no capacitor to filter the input signal, this form of coupling exhibits no frequency dependence.  DC and AC signals alike will be amplified by the transistor with the same gain (the transistor itself may tend to amplify some frequencies better than others, but that is another subject entirely!).
@@ -3469,18 +3468,18 @@ So far, we've discussed a couple of methods for coupling an <i>input</i> signal 
 </p>
 
 <p>
-In our example circuit, the load is a speaker.  Most speakers are electromagnetic in design: that is, they use the force generated by an lightweight electromagnet coil suspended within a strong permanent-magnet field to move a thin paper or plastic cone, producing vibrations in the air which our ears interpret as sound.  An applied voltage of one polarity moves the cone outward, while a voltage of the opposite polarity will move the cone inward.  To exploit cone's full freedom of motion, the speaker must receive true (unbiased) AC voltage.  DC bias applied to the speaker coil offsets the cone from its natural center position, and this limits the back-and-forth motion it can sustain from the applied AC voltage without overtraveling.  However, our example circuit (Figure <a href="#03138.png">  above</a>) applies a varying voltage of only <i>one</i> polarity across the speaker, because the speaker is connected in series with the transistor which can only conduct current one way.   This  would be unacceptable for any high-power audio amplifier. 
+In our example circuit, the load is a speaker.  Most speakers are electromagnetic in design: that is, they use the force generated by an lightweight electromagnet coil suspended within a strong permanent-magnet field to move a thin paper or plastic cone, producing vibrations in the air which our ears interpret as sound.  An applied voltage of one polarity moves the cone outward, while a voltage of the opposite polarity will move the cone inward.  To exploit cone's full freedom of motion, the speaker must receive true (unbiased) AC voltage.  DC bias applied to the speaker coil offsets the cone from its natural center position, and this limits the back-and-forth motion it can sustain from the applied AC voltage without overtraveling.  However, our example circuit (Figure <a href="#03138.png">  above</a>) applies a varying voltage of only <i>one</i> polarity across the speaker, because the speaker is connected in series with the transistor which can only conduct current one way.   This  would be unacceptable for any high-power audio amplifier.
 </p>
 
 <p>
 Somehow we need to isolate the speaker from the DC bias of the collector current so that it only receives AC voltage.  One way to achieve this goal is to couple the transistor collector circuit to the speaker through a transformer in Figure <a href="#03140.png">  below</a>)
 </p>
 
- 
-<a name="03140.png"></a> 
-<p> <img src="03140.png"> </p> 
-<p><i>Transformer coupling isolates DC from the load (speaker).</i></p> 
- 
+
+<a name="03140.png"></a>
+<p> <img src="03140.png"> </p>
+<p><i>Transformer coupling isolates DC from the load (speaker).</i></p>
+
 
 <p>
 Voltage induced in the secondary (speaker-side) of the transformer will be strictly due to <i>variations</i> in collector current, because the mutual inductance of a transformer only works on <i>changes</i> in winding current.  In other words, only the AC portion of the collector current signal will be coupled to the secondary side for powering the speaker.  The speaker will &ldquo;see&rdquo; true alternating current at its terminals, without any DC bias.
@@ -3495,11 +3494,11 @@ Transformer output coupling works, and has the added benefit of being able to pr
 Another method to isolate the speaker from DC bias in the output signal is to alter the circuit a bit and use a coupling capacitor in a manner similar to coupling the input signal (Figure <a href="#03141.png">  below</a>) to the amplifier.
 </p>
 
- 
-<a name="03141.png"></a> 
-<p> <img src="03141.png"> </p> 
-<p><i>Capacitor coupling isolates DC from the load.</i></p> 
- 
+
+<a name="03141.png"></a>
+<p> <img src="03141.png"> </p>
+<p><i>Capacitor coupling isolates DC from the load.</i></p>
+
 
 <p>
 This circuit in Figure <a href="#03141.png">  above</a> resembles the more conventional form of common-emitter amplifier, with the transistor collector connected to the battery through a resistor.  The capacitor acts as a high-pass filter, passing most of the AC voltage to the speaker while blocking all DC voltage.  Again, the value of this coupling capacitor is chosen so that its impedance at the expected signal frequency will be arbitrarily low.
@@ -3510,29 +3509,29 @@ The blocking of DC voltage from an amplifier's output, be it via a transformer o
 </p>
 
 <a name="03142L"</a>
- 
-<a name="03142.png"></a> 
-<p> <img src="03142.png"> </p> 
-<p><i>Capacitor coupled three stage common-emitter amplifier.</i></p> 
- 
+
+<a name="03142.png"></a>
+<p> <img src="03142.png"> </p>
+<p><i>Capacitor coupled three stage common-emitter amplifier.</i></p>
+
 
 
 <p>
-While it is possible to directly couple each stage to the next (via a resistor rather than a capacitor), this makes the whole amplifier <i>very</i> sensitive to variations in the DC bias voltage of the first stage, since that DC voltage will be amplified along with the AC signal until the last stage.  In other words, the biasing of the first stage will affect the biasing of the second stage, and so on.  However, if the stages are capacitively coupled shown in the above illustration, the biasing of one stage has no effect on the biasing of the next, because DC voltage is blocked from passing on to the next stage.  
+While it is possible to directly couple each stage to the next (via a resistor rather than a capacitor), this makes the whole amplifier <i>very</i> sensitive to variations in the DC bias voltage of the first stage, since that DC voltage will be amplified along with the AC signal until the last stage.  In other words, the biasing of the first stage will affect the biasing of the second stage, and so on.  However, if the stages are capacitively coupled shown in the above illustration, the biasing of one stage has no effect on the biasing of the next, because DC voltage is blocked from passing on to the next stage.
 </p>
 
 <p>
 Transformer coupling between amplifier stages is also a possibility, but less often seen due to some of the problems inherent to transformers mentioned previously.  One notable exception to this rule is in radio-frequency amplifiers (Figure <a href="#03143.png">  below</a>) with small coupling transformers, having air cores (making them immune to saturation effects), that are part of a resonant circuit to block unwanted harmonic frequencies from passing on to subsequent stages.  The use of resonant circuits assumes that the signal frequency remains constant, which is typical of  radio circuitry.  Also, the &ldquo;flywheel&rdquo; effect of LC tank circuits allows for class C operation for high efficiency.
 </p>
 
- 
-<a name="03143.png"></a> 
-<p> <img src="03143.png"> </p> 
-<p><i>Three stage tuned RF amplifier illustrates transformer coupling.</i></p> 
- 
+
+<a name="03143.png"></a>
+<p> <img src="03143.png"> </p>
+<p><i>Three stage tuned RF amplifier illustrates transformer coupling.</i></p>
+
 
 <p>
-Note the  transformer coupling between transistors Q1, Q2, Q3, and Q4, <a href="SEMI_9.html#RegencyTr1">Regency TR1, Ch 9 </a>. The three intermediate frequency (IF) transformers within the dashed boxes couple the IF signal from collector to base of following transistor IF amplifiers. The <i>intermediate freqency</i> ampliers are RF amplifiers, though, at a different frequency than the antenna RF input.  
+Note the  transformer coupling between transistors Q1, Q2, Q3, and Q4, <a href="SEMI_9.html#RegencyTr1">Regency TR1, Ch 9 </a>. The three intermediate frequency (IF) transformers within the dashed boxes couple the IF signal from collector to base of following transistor IF amplifiers. The <i>intermediate freqency</i> ampliers are RF amplifiers, though, at a different frequency than the antenna RF input.
 </p>
 
 <p>
@@ -3549,7 +3548,7 @@ looks nothing like the original 4-transistor radio <a href="SEMI_9.html#RegencyT
 </p>
 
 <p>
-Even discrete transistors are inexpensive compared with transformers. Bulky audio transformers can be replaced by transistors. For example, a common-collector (emitter follower) configuration can impedance match a low output impedance like a speaker. It is also possible to replace large coupling capacitors with transistor circuitry. 
+Even discrete transistors are inexpensive compared with transformers. Bulky audio transformers can be replaced by transistors. For example, a common-collector (emitter follower) configuration can impedance match a low output impedance like a speaker. It is also possible to replace large coupling capacitors with transistor circuitry.
 </p>
 
 <p>
@@ -3558,13 +3557,13 @@ We still like to illustrate texts with transformer coupled audio amplifiers. The
 
 
 <p>
-The circuit in Figure <a href="#03474.png">  below</a> (a) is a simplified transformer coupled <i>push-pull</i> audio amplifier. In push-pull,  pair of transistors alternately  amplify the positive and negative portions of the input signal. Neither transistor nor the other conducts for no signal input. A positive input signal  will be positive at the top of the transformer secondary causing the top transistor to conduct. A negative input will yield a positive signal at the bottom of the secondary, driving the bottom transistor into conduction. Thus the transistors amplify alternate halves of a signal.  As drawn, neither transistor in Figure <a href="#03474.png">  below</a> (a) will conduct for an input below 0.7 Vpeak. A practical circuit connects the secondary center tap to a 0.7 V (or greater) resistor divider instead of ground to bias both transistor for true class B. 
+The circuit in Figure <a href="#03474.png">  below</a> (a) is a simplified transformer coupled <i>push-pull</i> audio amplifier. In push-pull,  pair of transistors alternately  amplify the positive and negative portions of the input signal. Neither transistor nor the other conducts for no signal input. A positive input signal  will be positive at the top of the transformer secondary causing the top transistor to conduct. A negative input will yield a positive signal at the bottom of the secondary, driving the bottom transistor into conduction. Thus the transistors amplify alternate halves of a signal.  As drawn, neither transistor in Figure <a href="#03474.png">  below</a> (a) will conduct for an input below 0.7 Vpeak. A practical circuit connects the secondary center tap to a 0.7 V (or greater) resistor divider instead of ground to bias both transistor for true class B.
 </p>
 
- 
-<a name="03474.png"></a> 
-<p> <img src="03474.png"> </p> 
-<p><i>(a) Transformer coupled push-pull amplifier. (b) Direct coupled <i>complementary-pair</i> amplifier replaces transformers with transistors.</i></p> 
+
+<a name="03474.png"></a>
+<p> <img src="03474.png"> </p>
+<p><i>(a) Transformer coupled push-pull amplifier. (b) Direct coupled <i>complementary-pair</i> amplifier replaces transformers with transistors.</i></p>
 
 
 
@@ -3626,11 +3625,11 @@ An amplifier circuit equipped with some amount of negative feedback is not only 
 Let's examine a simple amplifier circuit and see how we might introduce negative feedback into it, starting with Figure <a href="#03311.png">  below</a>.
 </p>
 
- 
-<a name="03311.png"></a> 
-<p> <img src="03311.png"> </p> 
-<p><i>Common-emitter amplifier without feedback.</i></p> 
- 
+
+<a name="03311.png"></a>
+<p> <img src="03311.png"> </p>
+<p><i>Common-emitter amplifier without feedback.</i></p>
+
 
 <p>
 The amplifier configuration shown here is a common-emitter, with a resistor bias network formed by R<sub>1</sub> and R<sub>2</sub>.  The capacitor couples V<sub>input</sub> to the amplifier so that the signal source doesn't have a DC voltage imposed on it by the R<sub>1</sub>/R<sub>2</sub> divider network.  Resistor R<sub>3</sub> serves the purpose of controlling voltage gain.  We could omit it for maximum voltage gain, but since base resistors like this are common in common-emitter amplifier circuits, we'll keep it in this schematic.
@@ -3640,21 +3639,21 @@ The amplifier configuration shown here is a common-emitter, with a resistor bias
 Like all common-emitter amplifiers, this one <i>inverts</i> the input signal as it is amplified.  In other words, a positive-going input voltage causes the output voltage to decrease, or move toward  negative, and vice versa.  The oscilloscope waveforms are shown in Figure <a href="#03312.png">  below</a>.
 </p>
 
- 
-<a name="03312.png"></a> 
-<p> <img src="03312.png"> </p> 
-<p><i>Common-emitter amplifier, no feedback, with reference waveforms for comparison.</i></p> 
- 
+
+<a name="03312.png"></a>
+<p> <img src="03312.png"> </p>
+<p><i>Common-emitter amplifier, no feedback, with reference waveforms for comparison.</i></p>
+
 
 <p>
 Because the output is an inverted, or mirror-image, reproduction of the input signal, any connection between the output (collector) wire and the input (base) wire of the transistor in Figure <a href="#03313.png">  below</a> will result in <i>negative</i> feedback.
 </p>
 
- 
-<a name="03313.png"></a> 
-<p> <img src="03313.png"> </p> 
-<p><i>Negative feedback, collector feedback, decreases the output signal.</i></p> 
- 
+
+<a name="03313.png"></a>
+<p> <img src="03313.png"> </p>
+<p><i>Negative feedback, collector feedback, decreases the output signal.</i></p>
+
 
 <p>
 The resistances of R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, and R<sub>feedback</sub> function together as a signal-mixing network so that the voltage seen at the base of the transistor (with respect to ground) is a weighted average of the input voltage and the feedback voltage, resulting in signal of reduced amplitude going into the transistor.  So, the amplifier circuit in Figure <a href="#03313.png">  above</a> will have reduced voltage gain, but improved linearity (reduced distortion) and increased bandwidth.
@@ -3664,11 +3663,11 @@ The resistances of R<sub>1</sub>, R<sub>2</sub>, R<sub>3</sub>, and R<sub>feedba
 A resistor connecting collector to base is not the only way to introduce negative feedback into this amplifier circuit, though.  Another method, although more difficult to understand at first, involves the placement of a resistor between the transistor's emitter terminal and circuit ground in Figure <a href="#03314.png">  below</a>.
 </p>
 
- 
-<a name="03314.png"></a> 
-<p> <img src="03314.png"> </p> 
-<p><i>Emitter feedback: A different method of introducing negative feedback into a circuit.</i></p> 
- 
+
+<a name="03314.png"></a>
+<p> <img src="03314.png"> </p>
+<p><i>Emitter feedback: A different method of introducing negative feedback into a circuit.</i></p>
+
 
 <p>
 This new feedback resistor drops voltage proportional to the emitter current through the transistor, and it does so in such a way as to oppose the input signal's influence on the base-emitter junction of the transistor.  Let's take a closer look at the emitter-base junction and see what difference this new resistor makes in  Figure <a href="#03315.png">  below</a>.
@@ -3721,11 +3720,11 @@ In practical common-emitter circuits, negative feedback isn't just a luxury; its
 Common-collector amplifiers, (Figure <a href="#03317.png">  below</a>) however, do not suffer from thermal runaway.  Why is this?  The answer has everything to do with negative feedback.
 </p>
 
- 
-<a name="03317.png"></a> 
-<p> <img src="03317.png"> </p> 
-<p><i>Common collector (emitter follower) amplifier.</i></p> 
- 
+
+<a name="03317.png"></a>
+<p> <img src="03317.png"> </p>
+<p><i>Common collector (emitter follower) amplifier.</i></p>
+
 
 <p>
 Note that the common-collector amplifier (Figure <a href="#03317.png">  above</a>) has its load resistor placed in exactly the same spot as we had the R<sub>feedback</sub> resistor in the last circuit in  Figure <a href="#03315.png">  above</a> (b): between emitter and ground.  This means that the only voltage impressed across the transistor's base-emitter junction is the <i>difference</i> between V<sub>input</sub> and V<sub>output</sub>, resulting in a very low voltage gain (usually close to 1 for a common-collector amplifier).  Thermal runaway is impossible for this amplifier: if base current happens to increase due to transistor heating, emitter current will likewise increase, dropping more voltage across the load, which in turn <i>subtracts</i> from V<sub>input</sub> to reduce the amount of voltage dropped between base and emitter.  In other words, the negative feedback afforded by placement of the load resistor makes the problem of thermal runaway <i>self-correcting</i>.  In exchange for a greatly reduced voltage gain, we get superb stability and immunity from thermal runaway.
@@ -3754,11 +3753,11 @@ By connecting a capacitor in parallel with the feedback resistor in Figure <a hr
 <a name="Bypass capacitor"></a>
 <a name="Capacitor, bypass"></a>
 
- 
-<a name="03318.png"></a> 
-<p> <img src="03318.png"> </p> 
-<p><i>High AC voltage gain reestablished by adding C<sub>bypass</sub> in parallel with R<sub>feedback</sub></i></p> 
- 
+
+<a name="03318.png"></a>
+<p> <img src="03318.png"> </p>
+<p><i>High AC voltage gain reestablished by adding C<sub>bypass</sub> in parallel with R<sub>feedback</sub></i></p>
+
 
 <p>
 The new capacitor &ldquo;bypasses&rdquo; AC from the transistor's emitter to ground, so that no appreciable AC voltage will be dropped from emitter to ground to &ldquo;feed back&rdquo; to the input and suppress voltage gain.  Direct current, on the other hand, cannot go through the bypass capacitor, and so must travel through the feedback resistor, dropping a DC voltage between emitter and ground which lowers the DC voltage gain and stabilizes the amplifier's DC response, preventing thermal runaway.  Because we want the reactance of this capacitor (X<sub>C</sub>) to be as low as possible, C<sub>bypass</sub> should be sized relatively large.  Because the polarity across this capacitor will never change, it is safe to use a polarized (electrolytic) capacitor for the task.
@@ -3768,18 +3767,18 @@ The new capacitor &ldquo;bypasses&rdquo; AC from the transistor's emitter to gro
 Another approach to the problem of negative feedback reducing voltage gain is to use multi-stage amplifiers rather than single-transistor amplifiers.  If the attenuated gain of a single transistor is insufficient for the task at hand, we can use more than one transistor to make up for the reduction caused by feedback.   An example circuit showing negative feedback in a three-stage common-emitter amplifier is Figure <a href="#03321.png">  below</a>.
 </p>
 
- 
-<a name="03321.png"></a> 
-<p> <img src="03321.png"> </p> 
-<p><i>Feedback around an &ldquo;odd&rdquo; number of direct coupled stages produce negative feedback.</i></p> 
- 
+
+<a name="03321.png"></a>
+<p> <img src="03321.png"> </p>
+<p><i>Feedback around an &ldquo;odd&rdquo; number of direct coupled stages produce negative feedback.</i></p>
+
 
 <p>
-The feedback path from the final output to the input is through a single resistor, R<sub>feedback</sub>.  Since each stage is a common-emitter amplifier (thus inverting), the odd number of stages from input to output will invert the output signal; the feedback will be negative (degenerative).  Relatively large amounts of feedback may be used without sacrificing voltage gain, because the three amplifier stages provide much gain to begin with.  
+The feedback path from the final output to the input is through a single resistor, R<sub>feedback</sub>.  Since each stage is a common-emitter amplifier (thus inverting), the odd number of stages from input to output will invert the output signal; the feedback will be negative (degenerative).  Relatively large amounts of feedback may be used without sacrificing voltage gain, because the three amplifier stages provide much gain to begin with.
 </p>
 
 <p>
-At first, this design philosophy may seem inelegant and perhaps even counter-productive.  Isn't this a rather crude way to overcome the loss in gain incurred through the use of negative feedback, to simply recover gain by adding stage after stage?  What is the point of creating a huge voltage gain using three transistor stages if we're just going to attenuate all that gain anyway with negative feedback?  The point, though perhaps not apparent at first, is increased predictability and stability from the circuit as a whole.  If the three transistor stages are designed to provide an arbitrarily high voltage gain (in the tens of thousands, or greater) with no feedback, it will be found that the addition of negative feedback causes the overall voltage gain to become less dependent of the individual stage gains, and approximately equal to the simple ratio R<sub>feedback</sub>/R<sub>in</sub>.  The more voltage gain the circuit has (without feedback), the more closely the voltage gain will approximate R<sub>feedback</sub>/R<sub>in</sub> once feedback is established.  In other words, voltage gain in this circuit is fixed by the values of two resistors, and nothing more.  
+At first, this design philosophy may seem inelegant and perhaps even counter-productive.  Isn't this a rather crude way to overcome the loss in gain incurred through the use of negative feedback, to simply recover gain by adding stage after stage?  What is the point of creating a huge voltage gain using three transistor stages if we're just going to attenuate all that gain anyway with negative feedback?  The point, though perhaps not apparent at first, is increased predictability and stability from the circuit as a whole.  If the three transistor stages are designed to provide an arbitrarily high voltage gain (in the tens of thousands, or greater) with no feedback, it will be found that the addition of negative feedback causes the overall voltage gain to become less dependent of the individual stage gains, and approximately equal to the simple ratio R<sub>feedback</sub>/R<sub>in</sub>.  The more voltage gain the circuit has (without feedback), the more closely the voltage gain will approximate R<sub>feedback</sub>/R<sub>in</sub> once feedback is established.  In other words, voltage gain in this circuit is fixed by the values of two resistors, and nothing more.
 </p>
 
 <a name="Operational amplifier"></a>
@@ -3828,7 +3827,7 @@ It is a bit more complicated for the common-emitter circuit. We need to know the
 &nbsp;                T= temperature in Kelvins &#8773;300.
 &nbsp;                I<sub>E</sub> = emitter current
 &nbsp;                m = varies from 1 to 2 for Silicon
-&nbsp;        R<sub>E</sub> &#8773; 0.026V/I<sub>E</sub> = 26mV/I<sub>E</sub>               
+&nbsp;        R<sub>E</sub> &#8773; 0.026V/I<sub>E</sub> = 26mV/I<sub>E</sub>
 </pre>
 
 Thus, for the common-emitter circuit Rin is
@@ -3848,7 +3847,7 @@ As an example the input resistance of a, &#946; = 100, CE configuration biased a
 Moreover, a more accurate Rin for the common-collector should have included r<sub>EE</sub>
 
 <pre>
-&nbsp;        Rin = &#946;(R<sub>E</sub> + r<sub>EE</sub>) 
+&nbsp;        Rin = &#946;(R<sub>E</sub> + r<sub>EE</sub>)
 </pre>
 This equation (above) is also applicable to a common-emitter configuration with an emitter resistor.
 </p>
@@ -3866,10 +3865,10 @@ The high input impedance of the common-collector configuration matches high impe
 The output impedances of the three basic configurations are listed in Figure <a href="#03486.png">  below</a>. The moderate output impedance of the common-emitter configuration helps make it a popular choice for general use. The Low output impedance of the common-collector is put to good use in impedance matching, for example, tranformerless matching to a 4 Ohm speaker. There do not appear to be any simple formulas for the output impedances. However, R. Victor Jones develops expressions for output resistance. <a href="#RVJ.bibitem">[RVJ]</a>
 </p>
 
- 
-<a name="03486.png"></a> 
-<p> <img src="03486.png"> </p> 
-<p><i>Amplifier characteristics, adapted from GE Transistor Manual, Figure 1.21.<a href="#GET.bibitem">[GET]</a></i></p> 
+
+<a name="03486.png"></a>
+<p> <img src="03486.png"> </p>
+<p><i>Amplifier characteristics, adapted from GE Transistor Manual, Figure 1.21.<a href="#GET.bibitem">[GET]</a></i></p>
 
 
 <ul>
@@ -3909,17 +3908,17 @@ We've seen already how maintaining a constant base current through an active tra
 Remember that the base-emitter junction of a BJT is nothing more than a PN junction, just like a diode, and that the &ldquo;diode equation&rdquo; specifies how much current will go through a PN junction given forward voltage drop and junction temperature:
 </p>
 
-<p> <img src="13047.png"> </p> 
+<p> <img src="13047.png"> </p>
 
 <p>
 If both junction voltage and temperature are held constant, then the PN junction current will be constant.  Following this rationale, if we were to hold the base-emitter voltage of a transistor constant, then its emitter current will be constant, given a constant temperature.  (Figure <a href="#03279.png">  below</a>)
 </p>
 
- 
-<a name="03279.png"></a> 
-<p> <img src="03279.png"> </p> 
-<p><i>Constant V<sub>BE</sub> gives constant I<sub>B</sub>, constant I<sub>E</sub>, and constant I<sub>C</sub>.</i></p> 
- 
+
+<a name="03279.png"></a>
+<p> <img src="03279.png"> </p>
+<p><i>Constant V<sub>BE</sub> gives constant I<sub>B</sub>, constant I<sub>E</sub>, and constant I<sub>C</sub>.</i></p>
+
 
 <p>
 This constant emitter current, multiplied by a constant &#945; ratio, gives a constant collector current through R<sub>load</sub>, if enough battery voltage is available to keep the transistor in its active mode for any change in R<sub>load</sub>'s resistance.
@@ -3929,11 +3928,11 @@ This constant emitter current, multiplied by a constant &#945; ratio, gives a co
 To maintain a constant voltage across the transistor's base-emitter junction use a forward-biased diode to establish a constant voltage of approximately 0.7 volts, and connect it in parallel with the base-emitter junction as in Figure <a href="#03280.png">  below</a>.
 </p>
 
- 
-<a name="03280.png"></a> 
-<p> <img src="03280.png"> </p> 
-<p><i>Diode junction 0.7 V maintains constant base voltage, and constant base current.</i></p> 
- 
+
+<a name="03280.png"></a>
+<p> <img src="03280.png"> </p>
+<p><i>Diode junction 0.7 V maintains constant base voltage, and constant base current.</i></p>
+
 
 <p>
 The voltage dropped across the diode probably won't be 0.7 volts exactly.  The exact amount of forward voltage dropped across it depends on the current through the diode, and the diode's temperature, all in accordance with the diode equation.  If diode current is increased (say, by reducing the resistance of R<sub>bias</sub>), its voltage drop will increase slightly, increasing the voltage drop across the transistor's base-emitter junction, which will increase the emitter current by the same proportion, assuming the diode's PN junction and the transistor's base-emitter junction are well-matched to each other.  In other words, transistor emitter current will closely equal diode current at any given time.  If you change the diode current by changing the resistance value of R<sub>bias</sub>, then the transistor's emitter current will follow suit, because the emitter current is described by the same equation as the diode's, and both PN junctions experience the same voltage drop.
@@ -3982,17 +3981,17 @@ The current mirror circuit shown with two NPN transistors in Figure <a href="#03
 </p>
 
 <p>
-While resistors can be manufactured in ICs, it is easier to fabricate transistors.  IC designers avoid some resistors by replacing load resistors with current sources. A circuit like an operational amplifier built from discrete components will have a few transistors and many resistors. An integrated circuit version will have many transistors and a few resistors. In  Figure <a href="#03129.png">  below</a> One voltage reference, Q1, drives multiple current sources: Q2, Q3, and Q4.  If Q2 and Q3 are equal area transistors the load currents I<sub>load</sub> will be equal. If we need a 2&#183;I<sub>load</sub>, parallel Q2 and Q3. Better yet fabricate one transistor, say Q3 with twice the area of Q2. Current I3 will then be twice I2. In other words, load current scales with transistor area. 
+While resistors can be manufactured in ICs, it is easier to fabricate transistors.  IC designers avoid some resistors by replacing load resistors with current sources. A circuit like an operational amplifier built from discrete components will have a few transistors and many resistors. An integrated circuit version will have many transistors and a few resistors. In  Figure <a href="#03129.png">  below</a> One voltage reference, Q1, drives multiple current sources: Q2, Q3, and Q4.  If Q2 and Q3 are equal area transistors the load currents I<sub>load</sub> will be equal. If we need a 2&#183;I<sub>load</sub>, parallel Q2 and Q3. Better yet fabricate one transistor, say Q3 with twice the area of Q2. Current I3 will then be twice I2. In other words, load current scales with transistor area.
 </p>
 
- 
-<a name="03129.png"></a> 
-<p> <img src="03129.png"> </p> 
-<p><i>Multiple current mirrors may be slaved from a single (Q1 - R<sub>bias</sub>) voltage source.</i></p> 
+
+<a name="03129.png"></a>
+<p> <img src="03129.png"> </p>
+<p><i>Multiple current mirrors may be slaved from a single (Q1 - R<sub>bias</sub>) voltage source.</i></p>
 
 
 <p>
-Note that it is customary to draw the base voltage line right through the transistor symbols for multiple current mirrors! Or in the case of Q4 in Figure <a href="#03129.png">  above</a>, two current sources are associated with a single transistor symbol. The load resistors are drawn almost invisible to emphasize the fact that these do not exist in most cases.  The load is often  another (multiple) transistor circuit, say a pair of emitters of a differential amplifier, for example  Q3 and Q4 in "A simple operational amplifier"<a href="SEMI_8.html#03322.png">, Ch 8 </a>. Often, the collector load of a transistor is not a resistor but a current mirror. 
+Note that it is customary to draw the base voltage line right through the transistor symbols for multiple current mirrors! Or in the case of Q4 in Figure <a href="#03129.png">  above</a>, two current sources are associated with a single transistor symbol. The load resistors are drawn almost invisible to emphasize the fact that these do not exist in most cases.  The load is often  another (multiple) transistor circuit, say a pair of emitters of a differential amplifier, for example  Q3 and Q4 in "A simple operational amplifier"<a href="SEMI_8.html#03322.png">, Ch 8 </a>. Often, the collector load of a transistor is not a resistor but a current mirror.
 <!--split for double pageref-->
 For example the collector load of Q4 collector <a href="SEMI_8.html#03322.png">, Ch 8 </a> is a current mirror (Q2).
 </p>
@@ -4032,7 +4031,7 @@ Like all electrical and electronic components, transistors are limited in the am
 </p>
 
 <p>
-V<sub>EB</sub> , the maximum reverse voltage from emitter to base is approximately 7 V  for some small signal transistors. Some circuit designers use discrete BJTs as 7 V zener diodes with a series current limiting resistor. Transistor inputs to analog integrated circuits also have a V<sub>EB</sub> rating, which if exceeded will cause damage, no zenering of the inputs is allowed.   
+V<sub>EB</sub> , the maximum reverse voltage from emitter to base is approximately 7 V  for some small signal transistors. Some circuit designers use discrete BJTs as 7 V zener diodes with a series current limiting resistor. Transistor inputs to analog integrated circuits also have a V<sub>EB</sub> rating, which if exceeded will cause damage, no zenering of the inputs is allowed.
 </p>
 
 <p>
@@ -4045,7 +4044,7 @@ The rating for maximum collector-emitter voltage V<sub>CE</sub> can be thought o
 
 
 <p>
-<i>Saturation voltages</i>: Ideally, a saturated transistor acts as a closed switch contact between collector and emitter, dropping zero voltage at full collector current.  In reality this is <i>never</i> true.  Manufacturers will specify the maximum voltage drop of a transistor at saturation, both between the collector and emitter, and also between base and emitter (forward voltage drop of that PN junction).  Collector-emitter voltage drop at saturation is generally expected to be 0.3 volts or less, but this figure is of course dependent on the specific type of transistor. Low voltage transistors, low V<sub>CE</sub> , show lower saturation voltages. The saturation voltage is also lower for higher base drive current. 
+<i>Saturation voltages</i>: Ideally, a saturated transistor acts as a closed switch contact between collector and emitter, dropping zero voltage at full collector current.  In reality this is <i>never</i> true.  Manufacturers will specify the maximum voltage drop of a transistor at saturation, both between the collector and emitter, and also between base and emitter (forward voltage drop of that PN junction).  Collector-emitter voltage drop at saturation is generally expected to be 0.3 volts or less, but this figure is of course dependent on the specific type of transistor. Low voltage transistors, low V<sub>CE</sub> , show lower saturation voltages. The saturation voltage is also lower for higher base drive current.
 </p>
 
 <p>
@@ -4066,10 +4065,10 @@ Bipolar transistors come in a wide variety of physical packages.  Package type i
 </p>
 
 
- 
-<a name="03485.png"></a> 
-<p> <img src="03485.png"> </p> 
-<p><i>Transistor packages, dimensions in mm.</i></p> 
+
+<a name="03485.png"></a>
+<p> <img src="03485.png"> </p>
+<p><i>Transistor packages, dimensions in mm.</i></p>
 
 
 <p>
@@ -4111,10 +4110,10 @@ An ideal transistor would show 0% distortion in amplifying a signal. Its gain wo
 The class A common-emitter amplifier (similar to Figure <a href="#03110.png">  previous</a>)is driven almost to clipping  in Figure <a href="#23039.png">  below</a> . Note that the positive peak is flatter than the negative peaks. This distortion is unacceptable in many applications like high-fidelity audio.
 </p>
 
- 
-<a name="23039.png"></a> 
-<p> <img src="23039.png"> </p> 
-<p><i>Distortion in large signal common-emitter amplifier.</i></p> 
+
+<a name="23039.png"></a>
+<p> <img src="23039.png"> </p>
+<p><i>Distortion in large signal common-emitter amplifier.</i></p>
 
 
 <p>
@@ -4129,7 +4128,7 @@ Small signal amplifiers are relatively linear because they use a small linear se
 <td>
 
 <pre>
-common-emitter amplifier 
+common-emitter amplifier
 Vbias 4 0 0.74
 Vsig  5 4 sin (0 125m 2000 0 0)
 rbias 6 5 2k
@@ -4154,13 +4153,13 @@ v1 3 0 dc 10
 spice -b ce.cir
 Fourier analysis v(2):
 THD: 10.4688 %
-  
+
 Har  Freq    Norm Mag
 ---  ----    ---------
-0    0       0         
-1    2000    1         
-2    4000    0.0979929 
-3    6000    0.0365461 
+0    0       0
+1    2000    1
+2    4000    0.0979929
+3    6000    0.0365461
 4    8000    0.00438709
 5   10000    0.00115878
 6   12000    0.00089388
@@ -4178,12 +4177,12 @@ Har  Freq    Norm Mag
 
 
 <p>
-The SPICE listing in Table <a href="#bjt7.tbl">  above</a> illustrates how to quantify the amount of distortion. The ".fourier 2000 v(2)" command tells SPICE to perm a fourier analysis at 2000 Hz on the output v(2). At the command line  "spice -b circuitname.cir" produces the Fourier analysis output in Table <a href="#bjt7.tbl">  above</a>. It shows THD (total harmonic distortion) of over 10%, and the contribution of the individual harmonics.  
+The SPICE listing in Table <a href="#bjt7.tbl">  above</a> illustrates how to quantify the amount of distortion. The ".fourier 2000 v(2)" command tells SPICE to perm a fourier analysis at 2000 Hz on the output v(2). At the command line  "spice -b circuitname.cir" produces the Fourier analysis output in Table <a href="#bjt7.tbl">  above</a>. It shows THD (total harmonic distortion) of over 10%, and the contribution of the individual harmonics.
 </p>
 
 
 <p>
-A partial solution to this distortion is to decrease the collector current or operate the amplifier over a smaller portion of the load line. The ultimate solution is to apply negative feedback. See <a href="#FBtheory">Feedback</a>. 
+A partial solution to this distortion is to decrease the collector current or operate the amplifier over a smaller portion of the load line. The ultimate solution is to apply negative feedback. See <a href="#FBtheory">Feedback</a>.
 </p>
 
 
@@ -4208,10 +4207,10 @@ Leakage current I<sub>CO</sub> and &#946; increase with temperature. The DC &#94
 Increasing temperature in  Figure <a href="#03484.png">  below</a> (a)  will decrease V<sub>BE</sub> from the nominal 0.7V for silicon transistors. Decreasing  V<sub>BE</sub> increases collector current in a common-emitter amplifier, further shifting the bias point. The cure for shifting V<sub>BE</sub> is a pair of transistors configured as a differential amplifier. If both transistors in  Figure <a href="#03484.png">  below</a> (b) are at the same temperature, the V<sub>BE</sub> will track with changing temperature and cancel.
 </p>
 
- 
-<a name="03484.png"></a> 
-<p> <img src="03484.png"> </p> 
-<p><i>(a) single ended CE amplifier vs (b) differential amplifier with V<sub>BE</sub> cancellation.</i></p> 
+
+<a name="03484.png"></a>
+<p> <img src="03484.png"> </p>
+<p><i>(a) single ended CE amplifier vs (b) differential amplifier with V<sub>BE</sub> cancellation.</i></p>
 
 
 <p>
@@ -4239,11 +4238,11 @@ The problem with increasing temperature causing increasing collector current is 
 <h3><u><a name="xtocid359023">Junction capacitance</a></u></h3>
 
 <p>
-Capacitance exists between the terminals of a transistor. The collector-base capacitance C<sub>CB</sub> and emitter-base capacitance C<sub>EB</sub> decrease the gain of a common emitter circuit at higher frequencies. 
+Capacitance exists between the terminals of a transistor. The collector-base capacitance C<sub>CB</sub> and emitter-base capacitance C<sub>EB</sub> decrease the gain of a common emitter circuit at higher frequencies.
 
 <p>
 In a common emitter amplifier, the capacitive feedback from collector to base effectively multiplies C<sub>CB</sub> by &#946;. The amount of negative gain-reducing feedback is related to both current gain, and amount of collector-base capacitance. This is known as the <i>Miller effect</i>, <a href="#MILLER">Miller effect</a>.
-</p> 
+</p>
 </p>
 
 
@@ -4269,18 +4268,18 @@ Noise in a transistor amplifier  is defined in terms of <i>excess noise</i> gene
 The noise figure F for RF (radio frequency) transistors is usually listed on transistor data sheets in decibels, F<sub>dB</sub>. A good VHF (very high frequency, 30 MHz to 300 Mhz) noise figure is &#60; 1 dB. The noise figure above VHF increases considerable, 20 dB per decade as shown in Figure <a href="#03482.png">  below</a>.
 </p>
 
- 
-<a name="03482.png"></a> 
-<p> <img src="03482.png"> </p> 
-<p><i>Small signal transistor noise figure vs Frequency.  After Thiele, Figure 11.147 <a href="#AGT.bibitem">[AGT]</a></i></p> 
- 
+
+<a name="03482.png"></a>
+<p> <img src="03482.png"> </p>
+<p><i>Small signal transistor noise figure vs Frequency.  After Thiele, Figure 11.147 <a href="#AGT.bibitem">[AGT]</a></i></p>
+
 
 <p>
-Figure <a href="#03482.png">  above</a> also shows that noise at low frequencies increases at 10 dB per decade with decreasing frequency. This noise is known as <i>1/f noise</i>. 
+Figure <a href="#03482.png">  above</a> also shows that noise at low frequencies increases at 10 dB per decade with decreasing frequency. This noise is known as <i>1/f noise</i>.
 </p>
 
 <p>
-Noise figure varies with the transistor type (part number). Small signal RF transistors used  at the antenna  input of a radio receiver are specifically designed for low noise figure. Noise figure varies with bias current and impedance matching. The best noise figure for a  transistor is  achieved at lower bias current, and possibly with an impedance mismatch. 
+Noise figure varies with the transistor type (part number). Small signal RF transistors used  at the antenna  input of a radio receiver are specifically designed for low noise figure. Noise figure varies with bias current and impedance matching. The best noise figure for a  transistor is  achieved at lower bias current, and possibly with an impedance mismatch.
 </p>
 
 
@@ -4291,13 +4290,13 @@ Noise figure varies with the transistor type (part number). Small signal RF tran
 <h3><u><a name="xtocid359025">Thermal mismatch (problem with paralleling transistors)</a></u></h3>
 
 <p>
-If two identical power transistors were paralleled for higher current, one would expect them to share current equally. Because of differences in characteristerics, transistors do not share current equally. 
+If two identical power transistors were paralleled for higher current, one would expect them to share current equally. Because of differences in characteristerics, transistors do not share current equally.
 </p>
 
- 
-<a name="03481.png"></a> 
-<p> <img src="03481.png"> </p> 
-<p><i>Transistors paralleled for increased power require emitter ballast resistors</i></p> 
+
+<a name="03481.png"></a>
+<p> <img src="03481.png"> </p>
+<p><i>Transistors paralleled for increased power require emitter ballast resistors</i></p>
 
 
 <p>
@@ -4311,17 +4310,17 @@ It is not practical to select identical transistors. The &#946; for small signal
 <h3><u><a name="xtocid359026">High frequency effects</a></u></h3>
 
 <p>
-The performance of a transistor amplifier is relatively constant, up to a point, as shown by the small signal common-emitter current gain with increasing frequency in Figure <a href="#03483.png">  below</a>. Beyond that  point the  performance of a transistor degrades as frequency increases. 
+The performance of a transistor amplifier is relatively constant, up to a point, as shown by the small signal common-emitter current gain with increasing frequency in Figure <a href="#03483.png">  below</a>. Beyond that  point the  performance of a transistor degrades as frequency increases.
 </p>
 
 <p>
-<b>Beta cutoff frequency</b>, f<sub>T</sub> is the frequency at which common-emitter small signal  current gain (h<sub>fe</sub>) falls to unity.  (Figure <a href="#03483.png">  below</a>) A practical amplifier must have a gain &#62;1. Thus, a transistor cannot be used in a practical amplifier at   f<sub>T</sub>.  A more usable limit for a transistor is 0.1&#183;f<sub>T</sub>. 
+<b>Beta cutoff frequency</b>, f<sub>T</sub> is the frequency at which common-emitter small signal  current gain (h<sub>fe</sub>) falls to unity.  (Figure <a href="#03483.png">  below</a>) A practical amplifier must have a gain &#62;1. Thus, a transistor cannot be used in a practical amplifier at   f<sub>T</sub>.  A more usable limit for a transistor is 0.1&#183;f<sub>T</sub>.
 </p>
 
- 
-<a name="03483.png"></a> 
-<p> <img src="03483.png"> </p> 
-<p><i>Common-emitter small signal current gain (h<sub>fe</sub>) vs frequency.</i></p> 
+
+<a name="03483.png"></a>
+<p> <img src="03483.png"> </p>
+<p><i>Common-emitter small signal current gain (h<sub>fe</sub>) vs frequency.</i></p>
 
 
 <p>
@@ -4369,8 +4368,8 @@ The solution to the junction capacitance problem is to select a high frequency t
 
 
 
- 
-<h2><a name="xtocid359027">Bibliography</a></h2><br> 
+
+<h2><a name="xtocid359027">Bibliography</a></h2><br>
 <ol>
 
 <li><a name="AGT.bibitem">[AGT]  A. G. Thiele in Loyd P. Hunter, &ldquo;Handbook of Semiconductor Electronics,&rdquo; Low Frequency Amplifiers, ISBN -07-031305-9, 1970</a> </li>

@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,18 +19,17 @@
 <a href="EXP_7.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume VI</h1>
 <h1>Chapter 6</h1>
 
 
 
 
-<h1>ANALOG INTEGRATED CIRCUITS</h1> 
+<h1>ANALOG INTEGRATED CIRCUITS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid39660"><u>Introduction</u></a></li>
@@ -127,7 +126,7 @@ This experiment only requires a single operational amplifier.  The model 1458 an
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05205.png"> </p> 
+<p> <img src="05205.png"> </p>
 
 <br> </br>
 
@@ -135,7 +134,7 @@ This experiment only requires a single operational amplifier.  The model 1458 an
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05206.png"> </p> 
+<p> <img src="05206.png"> </p>
 
 <br> </br>
 
@@ -155,13 +154,13 @@ This behavior is much easier understood by experimenting with a comparator circu
 For greater insight into this circuit's operation, you might want to connect a pair of voltmeters to the op-amp input terminals (both voltmeters referenced to ground) so that both input voltages may be numerically compared with each other, these meter indications compared to the LED status:
 </p>
 
-<p> <img src="05207.png"> </p> 
+<p> <img src="05207.png"> </p>
 
 <p>
 Comparator circuits are widely used to compare physical measurements, provided those physical variables can be translated into voltage signals.  For instance, if a small generator were attached to an anemometer wheel to produce a voltage proportional to wind speed, that wind speed signal could be compared with a "set-point" voltage and compared by an op-amp to drive a high wind speed alarm:
 </p>
 
-<p> <img src="05208.png"> </p> 
+<p> <img src="05208.png"> </p>
 
 
 
@@ -217,7 +216,7 @@ Comparator circuits are widely used to compare physical measurements, provided t
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05209.png"> </p> 
+<p> <img src="05209.png"> </p>
 
 <br> </br>
 
@@ -225,7 +224,7 @@ Comparator circuits are widely used to compare physical measurements, provided t
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05210.png"> </p> 
+<p> <img src="05210.png"> </p>
 
 <br> </br>
 
@@ -282,7 +281,7 @@ Voltage follower circuits have another important use for circuit builders: they 
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05211.png"> </p> 
+<p> <img src="05211.png"> </p>
 
 <br> </br>
 
@@ -308,7 +307,7 @@ An ideal operational amplifier may be simulated in SPICE using a <i>dependent vo
 </p>
 
 <p>
-Because SPICE views the input impedance of a dependent source as infinite, some finite amount of resistance must be included to avoid an analysis error.  This is the purpose of R<sub>bogus</sub>: to provide DC path to ground for the V<sub>input</sub> voltage source.  Such "bogus" resistances should be arbitrarily large.  In this simulation I chose 1 M&#937; for an R<sub>bogus</sub> value.  
+Because SPICE views the input impedance of a dependent source as infinite, some finite amount of resistance must be included to avoid an analysis error.  This is the purpose of R<sub>bogus</sub>: to provide DC path to ground for the V<sub>input</sub> voltage source.  Such "bogus" resistances should be arbitrarily large.  In this simulation I chose 1 M&#937; for an R<sub>bogus</sub> value.
 </p>
 
 <p>
@@ -368,7 +367,7 @@ A load resistor is included in the circuit for much the same reason: to provide 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05219.png"> </p> 
+<p> <img src="05219.png"> </p>
 
 <br> </br>
 
@@ -376,7 +375,7 @@ A load resistor is included in the circuit for much the same reason: to provide 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05220.png"> </p> 
+<p> <img src="05220.png"> </p>
 
 <br> </br>
 
@@ -420,7 +419,7 @@ Try adjusting R<sub>2</sub> for maximum and minimum voltage gain.  What is the <
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05221.png"> </p> 
+<p> <img src="05221.png"> </p>
 
 <br> </br>
 
@@ -518,7 +517,7 @@ You don't need 1 M&#937; resistors, <i>exactly</i>.  Any very high resistance re
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05273.png"> </p> 
+<p> <img src="05273.png"> </p>
 
 <br> </br>
 
@@ -526,7 +525,7 @@ You don't need 1 M&#937; resistors, <i>exactly</i>.  Any very high resistance re
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05276.png"> </p> 
+<p> <img src="05276.png"> </p>
 
 <br> </br>
 
@@ -542,18 +541,18 @@ An ideal voltmeter has infinite input impedance, meaning that it draws zero curr
 If you were to build a simple 0-15 volt range voltmeter by connecting the 1 mA meter movement in series with the 15 k&#937; precision resistor, and try to use this voltmeter to measure the voltages at TP1, TP2, or TP3 (with respect to ground), you'd encounter <i>severe</i> measurement errors induced by meter "impact:"
 </p>
 
-<p> <img src="05274.png"> </p> 
+<p> <img src="05274.png"> </p>
 
 <p>
 Try using the meter movement and 15 k&#937; resistor as shown to measure these three voltages.  Does the meter read falsely high or falsely low?  Why do you think this is?
 </p>
 
 <p>
-If we were to increase the meter's input impedance, we would diminish its current draw or "load" on the circuit under test and consequently improve its measurement accuracy.  An op-amp with high-impedance inputs (using a JFET transistor input stage rather than a BJT input stage) works well for this application.  
+If we were to increase the meter's input impedance, we would diminish its current draw or "load" on the circuit under test and consequently improve its measurement accuracy.  An op-amp with high-impedance inputs (using a JFET transistor input stage rather than a BJT input stage) works well for this application.
 </p>
 
 <p>
-Note that the meter movement is part of the op-amp's feedback loop from output to inverting input.  This circuit drives the meter movement with a current proportional to the voltage impressed at the noninverting (+) input, the requisite current supplied directly from the batteries through the op-amp's power supply pins, not from the circuit under test through the test probe.  The meter's range is set by the resistor connecting the inverting (-) input to ground. 
+Note that the meter movement is part of the op-amp's feedback loop from output to inverting input.  This circuit drives the meter movement with a current proportional to the voltage impressed at the noninverting (+) input, the requisite current supplied directly from the batteries through the op-amp's power supply pins, not from the circuit under test through the test probe.  The meter's range is set by the resistor connecting the inverting (-) input to ground.
 </p>
 
 <p>
@@ -568,7 +567,7 @@ You may witness the extreme sensitivity of this voltmeter by touching the test p
 After you've proven this circuit to work, modify it by changing the power supply from dual to split.  This entails removing the center-tap ground connection between the 2nd and 3rd batteries, and grounding the far negative battery terminal instead:
 </p>
 
-<p> <img src="05275.png"> </p> 
+<p> <img src="05275.png"> </p>
 
 <p>
 This alteration in the power supply increases the voltages at TP1, TP2, and TP3 to 6, 12, and 18 volts, respectively.  With a 15 k&#937; range resistor and a 1 mA meter movement, measuring 18 volts will gently "peg" the meter, but you should be able to measure the 6 and 12 volt test points just fine.
@@ -646,7 +645,7 @@ Just about any operational amplifier model will work fine for this integrator ex
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05212.png"> </p> 
+<p> <img src="05212.png"> </p>
 
 <br> </br>
 
@@ -654,7 +653,7 @@ Just about any operational amplifier model will work fine for this integrator ex
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05213.png"> </p> 
+<p> <img src="05213.png"> </p>
 
 <br> </br>
 
@@ -695,7 +694,7 @@ Integrator circuits are one of the fundamental "building-block" functions of an 
 Move the potentiometer until the op-amp's output voltage is as close to zero as you can get it, and moving as slowly as you can make it.  Disconnect the integrator input from the potentiometer wiper terminal and connect it instead to ground, like this:
 </p>
 
-<p> <img src="05214.png"> </p> 
+<p> <img src="05214.png"> </p>
 
 <p>
 
@@ -703,7 +702,7 @@ Move the potentiometer until the op-amp's output voltage is as close to zero as 
 
 <br> </br>
 
-<p> <img src="05215.png"> </p> 
+<p> <img src="05215.png"> </p>
 
 <p>
 Applying exactly zero voltage to the input of an integrator circuit should, ideally, cause the output voltage rate-of-change to be zero.  When you make this change to the circuit, you should notice the output voltage remaining at a constant level or changing very slowly.
@@ -713,13 +712,13 @@ Applying exactly zero voltage to the input of an integrator circuit should, idea
 With the integrator input still shorted to ground, short past the 1 M&#937; resistor connecting the op-amp's noninverting (+) input to ground.  There should be no need for this resistor in an ideal op-amp circuit, so by shorting past it we will see what function it provides in this very <i>real</i> op-amp circuit:
 </p>
 
-<p> <img src="05216.png"> </p> 
+<p> <img src="05216.png"> </p>
 
 <p>
 
 </p>
 
-<p> <img src="05217.png"> </p> 
+<p> <img src="05217.png"> </p>
 
 <a name="Bias current, op-amp"></a>
 
@@ -746,7 +745,7 @@ Remove the jumper wire shorting past the compensating resistor and notice how th
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05218.png"> </p> 
+<p> <img src="05218.png"> </p>
 
 <br> </br>
 
@@ -831,7 +830,7 @@ A oscilloscope would be useful in analyzing the waveforms produced by this circu
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05259.png"> </p> 
+<p> <img src="05259.png"> </p>
 
 <br> </br>
 
@@ -839,7 +838,7 @@ A oscilloscope would be useful in analyzing the waveforms produced by this circu
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05260.png"> </p> 
+<p> <img src="05260.png"> </p>
 
 <br> </br>
 
@@ -947,7 +946,7 @@ The voltage rating on the 470 &#181;F capacitor is not critical, so long as it g
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05261.png"> </p> 
+<p> <img src="05261.png"> </p>
 
 <br> </br>
 
@@ -955,7 +954,7 @@ The voltage rating on the 470 &#181;F capacitor is not critical, so long as it g
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05262.png"> </p> 
+<p> <img src="05262.png"> </p>
 
 <br> </br>
 
@@ -982,7 +981,7 @@ Remove the jumper wire from TP3, and re-connect it to TP2.  This allows the capa
 By connecting TP1 to TP2, the capacitor receives a nearly constant charging current.  Constant capacitor charging current yields a voltage curve that is linear, as described by the equation i = C(de/dt).  If the capacitor's current is constant, so will be its rate-of-change of voltage over time.  The result is a "ramp" waveform rather than a "sawtooth" waveform:
 </p>
 
-<p> <img src="05263.png"> </p> 
+<p> <img src="05263.png"> </p>
 
 <p>
 The capacitor's charging current may be directly measured by substituting an ammeter in place of the jumper wire.  The ammeter will need to be set to measure a current in the range of hundreds of microamps (tenths of a milliamp).  Connected between TP1 and TP3, you should see a current that starts at a relatively high value at the beginning of the charging cycle, and tapers off toward the end.  Connected between TP1 and TP2, however, the current will be much more stable.
@@ -1068,7 +1067,7 @@ With the ammeter connected between TP1 and TP3 (RC mode), measure both DC microa
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05264.png"> </p> 
+<p> <img src="05264.png"> </p>
 
 <br> </br>
 
@@ -1076,7 +1075,7 @@ With the ammeter connected between TP1 and TP3 (RC mode), measure both DC microa
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05265.png"> </p> 
+<p> <img src="05265.png"> </p>
 
 <br> </br>
 
@@ -1090,7 +1089,7 @@ With the ammeter connected between TP1 and TP3 (RC mode), measure both DC microa
 This circuit uses a 555 timer to generate a sawtooth voltage waveform across a capacitor, then compares that signal against a steady voltage provided by a potentiometer, using an op-amp as a comparator.  The comparison of these two voltage signals produces a square-wave output from the op-amp, varying in duty cycle according to the potentiometer's position.  This variable duty cycle signal then drives the base of a power transistor, switching current on and off through the load.  The 555's oscillation frequency is much higher than the lamp filament's ability to thermally cycle (heat and cool), so any variation in duty cycle, or <i>pulse width</i>, has the effect of controlling the total power dissipated by the load over time.
 </p>
 
-<p> <img src="05266.png"> </p> 
+<p> <img src="05266.png"> </p>
 
 <a name="PWM power control"></a>
 <a name="Pulse-width modulation"></a>
@@ -1191,7 +1190,7 @@ The closer matched the two transistors are, the better.  If possible, try to obt
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05320.png"> </p> 
+<p> <img src="05320.png"> </p>
 
 <br> </br>
 
@@ -1199,7 +1198,7 @@ The closer matched the two transistors are, the better.  If possible, try to obt
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05321.png"> </p> 
+<p> <img src="05321.png"> </p>
 
 <br> </br>
 
@@ -1211,7 +1210,7 @@ The closer matched the two transistors are, the better.  If possible, try to obt
 This project is an audio amplifier suitable for amplifying the output signal from a small radio, tape player, CD player, or any other source of audio signals.  For stereo operation, two identical amplifiers must be built, one for the left channel and other for the right channel.  To obtain an input signal for this amplifier to amplify, just connect it to the output of a radio or other audio device like this:
 </p>
 
-<p> <img src="05311.png"> </p> 
+<p> <img src="05311.png"> </p>
 
 <p>
 This amplifier circuit also works well in amplifying "line-level" audio signals from high-quality, modular stereo components.  It provides a surprising amount of sound power when played through a large speaker, and may be run without heat sinks on the transistors (though you should experiment with it a bit before deciding to forego heat sinks, as the power dissipation varies according to the type of speaker used).
@@ -1229,25 +1228,25 @@ Most audio "power" amplifiers use a class B configuration, where one transistor 
 Shown here is a sine-wave shape, equivalent to a constant audio tone of constant volume:
 </p>
 
-<p> <img src="05322.png"> </p> 
+<p> <img src="05322.png"> </p>
 
 <p>
 In a push-pull amplifier circuit, the two transistors take turns amplifying the alternate half-cycles of the waveform like this:
 </p>
 
-<p> <img src="05323.png"> </p> 
+<p> <img src="05323.png"> </p>
 
 <p>
 If the "hand-off" between the two transistors is not precisely synchronized, though, the amplifier's output waveform may look something like this instead of a pure sine wave:
 </p>
 
-<p> <img src="05324.png"> </p> 
+<p> <img src="05324.png"> </p>
 
 <p>
 Here, distortion results from the fact that there is a delay between the time one transistor turns off and the other transistor turns on.  This type of distortion, where the waveform "flattens" at the crossover point between positive and negative half-cycles, is called <i>crossover distortion</i>.  One common method of mitigating crossover distortion is to bias the transistors so that their turn-on/turn-off points actually overlap, so that <i>both</i> transistors are in a state of conduction for a brief moment during the crossover period:
 </p>
 
-<p> <img src="05325.png"> </p> 
+<p> <img src="05325.png"> </p>
 
 <p>
 This form of amplification is technically known as class <i>AB</i> rather than class B, because each transistor is "on" for more than 50% of the time during a complete waveform cycle.  The disadvantage to doing this, though, is increased power consumption of the amplifier circuit, because during the moments of time where both transistors are conducting, there is current conducted through the transistors that is <i>not</i> going through the load, but is merely being "shorted" from one power supply rail to the other (from -V to +V).  Not only is this a waste of energy, but it dissipates more heat energy in the transistors.  When transistors increase in temperature, their characteristics change (V<sub>be</sub> forward voltage drop, &#946;, junction resistances, etc.), making proper biasing difficult.
@@ -1258,20 +1257,20 @@ In this experiment, the transistors operate in pure class B mode.  That is, they
 </p>
 
 <p>
-The first (leftmost) op-amp shown in the schematic diagram is nothing more than a buffer.  A buffer helps to reduce the loading of the input capacitor/resistor network, which has been placed in the circuit to filter out any DC bias voltage out of the input signal, preventing any DC voltage from becoming amplified by the circuit and sent to the speaker where it might cause damage.  Without the buffer op-amp, the capacitor/resistor filtering circuit reduces the low-frequency ("bass") response of the amplifier, and accentuates the high-frequency ("treble").  
+The first (leftmost) op-amp shown in the schematic diagram is nothing more than a buffer.  A buffer helps to reduce the loading of the input capacitor/resistor network, which has been placed in the circuit to filter out any DC bias voltage out of the input signal, preventing any DC voltage from becoming amplified by the circuit and sent to the speaker where it might cause damage.  Without the buffer op-amp, the capacitor/resistor filtering circuit reduces the low-frequency ("bass") response of the amplifier, and accentuates the high-frequency ("treble").
 </p>
 
 <p>
 The second op-amp functions as an inverting amplifier whose gain is controlled by the 10 k&#937; potentiometer.  This does nothing more than provide a volume control for the amplifier.  Usually, inverting op-amp circuits have their feedback resistor(s) connected directly from the op-amp output terminal to the inverting input terminal like this:
 </p>
 
-<p> <img src="05326.png"> </p> 
+<p> <img src="05326.png"> </p>
 
 <p>
 If we were to use the resulting output signal to drive the base terminals of the push-pull transistor pair, though, we would experience significant crossover distortion, because there would be a "dead" zone in the transistors' operation as the base voltage went from + 0.7 volts to - 0.7 volts:
 </p>
 
-<p> <img src="05327.png"> </p> 
+<p> <img src="05327.png"> </p>
 
 <p>
 If you have already constructed the amplifier circuit in its final form, you may simplify it to this form and listen to the difference in sound quality.  If you have not yet begun construction of the circuit, the schematic diagram shown above would be a good starting point.  It will amplify an audio signal, but it will sound horrible!
@@ -1281,7 +1280,7 @@ If you have already constructed the amplifier circuit in its final form, you may
 The reason for the crossover distortion is that when the op-amp output signal is between + 0.7 volts and - 0.7 volts, neither transistor will be conducting, and the output voltage to the speaker will be 0 volts for the entire 1.4 volts span of base voltage swing.  Thus, there is a "zone" in the input signal range where no change in speaker output voltage will occur.  Here is where intricate biasing techniques are usually introduced to the circuit to reduce this 1.4 volt "gap" in transistor input signal response.  Usually, something like this is done:
 </p>
 
-<p> <img src="05328.png"> </p> 
+<p> <img src="05328.png"> </p>
 
 <p>
 The two series-connected diodes will drop approximately 1.4 volts, equivalent to the combined V<sub>be</sub> forward voltage drops of the two transistors, resulting in a scenario where each transistor is just on the verge of turning on when the input signal is zero volts, eliminating the 1.4 volt "dead" signal zone that existed before.
@@ -1295,19 +1294,19 @@ Unfortunately, though, this solution is not perfect: as the transistors heat up 
 A common solution to this problem is the insertion of temperature-compensation "feedback" resistors in the emitter legs of the push-pull transistor circuit:
 </p>
 
-<p> <img src="05329.png"> </p> 
+<p> <img src="05329.png"> </p>
 
 <p>
 This solution doesn't prevent simultaneous turn-on of the two transistors, but merely reduces the severity of the problem and prevents thermal runaway.  It also has the unfortunate effect of inserting resistance in the load current path, limiting the output current of the amplifier.  The solution I opted for in this experiment is one that capitalizes on the principle of op-amp negative feedback to overcome the inherent limitations of the push-pull transistor output circuit.  I use one diode to provide a 0.7 volt bias voltage for the push-pull pair.  This is not enough to eliminate the "dead" signal zone, but it reduces it by at least 50%:
 </p>
 
-<p> <img src="05330.png"> </p> 
+<p> <img src="05330.png"> </p>
 
 <p>
 Since the voltage drop of a single diode will always be less than the combined voltage drops of the two transistors' base-emitter junctions, the transistors can never turn on simultaneously, thereby preventing class AB operation.  Next, to help get rid of the remaining crossover distortion, the feedback signal of the op-amp is taken from the output terminal of the amplifier (the transistors' emitter terminals) like this:
 </p>
 
-<p> <img src="05331.png"> </p> 
+<p> <img src="05331.png"> </p>
 
 <p>
 The op-amp's function is to output whatever voltage signal it has to in order to keep its two input terminals at the same voltage (0 volts differential).  By connecting the feedback wire to the emitter terminals of the push-pull transistors, the op-amp has the ability to sense any "dead" zone where neither transistor is conducting, and output an appropriate voltage signal to the bases of the transistors to quickly drive them into conduction again to "keep up" with the input signal waveform.  This requires an op-amp with a high <i>slew rate</i> (the ability to produce a fast-rising or fast-falling output voltage), which is why the TL082 op-amp was specified for this circuit.  Slower op-amps such as the LM741 or LM1458 may not be able to keep up with the high dv/dt (voltage rate-of-change over time, also known as <i>de/dt</i>) necessary for low-distortion operation.
@@ -1317,7 +1316,7 @@ The op-amp's function is to output whatever voltage signal it has to in order to
 Only a couple of capacitors are added to this circuit to bring it into its final form: a 47 &#181;F capacitor connected in parallel with the diode helps to keep the 0.7 volt bias voltage constant despite large voltage swings in the op-amp's output, while a 0.22 &#181;F capacitor connected between the base and emitter of the NPN transistor helps reduce crossover distortion at low volume settings:
 </p>
 
-<p> <img src="05320.png"> </p> 
+<p> <img src="05320.png"> </p>
 
 
 

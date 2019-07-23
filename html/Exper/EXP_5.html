@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -19,18 +19,17 @@
 <a href="EXP_6.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume VI</h1>
 <h1>Chapter 5</h1>
 
 
 
 
-<h1>DISCRETE SEMICONDUCTOR CIRCUITS</h1> 
+<h1>DISCRETE SEMICONDUCTOR CIRCUITS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid39580"><u>Introduction</u></a></li>
@@ -138,7 +137,7 @@ I recommend household light switches for their low cost and durability.
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05127.png"> </p> 
+<p> <img src="05127.png"> </p>
 
 <br> </br>
 
@@ -146,7 +145,7 @@ I recommend household light switches for their low cost and durability.
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05128.png"> </p> 
+<p> <img src="05128.png"> </p>
 
 <br> </br>
 
@@ -240,7 +239,7 @@ A 0.1 &#181;F capacitor is specified for "coupling" the audio detector to the ci
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05129.png"> </p> 
+<p> <img src="05129.png"> </p>
 
 <br> </br>
 
@@ -248,7 +247,7 @@ A 0.1 &#181;F capacitor is specified for "coupling" the audio detector to the ci
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05130.png"> </p> 
+<p> <img src="05130.png"> </p>
 
 <br> </br>
 
@@ -267,7 +266,7 @@ Connect the motor to the low-voltage AC power supply through the rectifying diod
 Take a jumper wire and short past the diode momentarily, noting the effect on the motor's operation:
 </p>
 
-<p> <img src="05131.png"> </p> 
+<p> <img src="05131.png"> </p>
 
 <p>
 As you can see, permanent-magnet "DC" motors do not function well on alternating current.  Remove the temporary jumper wire and reverse the diode's orientation in the circuit.  Note the effect on the motor.
@@ -277,13 +276,13 @@ As you can see, permanent-magnet "DC" motors do not function well on alternating
 Measure DC voltage across the motor like this:
 </p>
 
-<p> <img src="05132.png"> </p> 
+<p> <img src="05132.png"> </p>
 
 <p>
 Then, measure AC voltage across the motor as well:
 </p>
 
-<p> <img src="05133.png"> </p> 
+<p> <img src="05133.png"> </p>
 
 <a name="Ripple voltage"></a>
 <a name="Voltage, ripple"></a>
@@ -292,7 +291,7 @@ Then, measure AC voltage across the motor as well:
 Most digital multimeters do a good job of discriminating AC from DC voltage, and these two measurements show the DC average and AC "ripple" voltages, respectively of the power "seen" by the motor.  <i>Ripple voltage</i> is the varying portion of the voltage, interpreted as an AC quantity by measurement equipment although the voltage waveform never actually reverses polarity.  Ripple may be envisioned as an AC signal superimposed on a steady DC "bias" or "offset" signal.  Compare these measurements of DC and AC with voltage measurements taken across the motor while powered by a battery:
 </p>
 
-<p> <img src="05134.png"> </p> 
+<p> <img src="05134.png"> </p>
 
 <p>
 Batteries give very "pure" DC power, and as a result there should be very little AC voltage measured across the motor in this circuit.  Whatever AC voltage <i>is</i> measured across the motor is due to the motor's pulsating current draw as the brushes make and break contact with the rotating commutator bars.  This pulsating current causes pulsating voltages to be dropped across any stray resistances in the circuit, resulting in pulsating voltage "dips" at the motor terminals.
@@ -302,7 +301,7 @@ Batteries give very "pure" DC power, and as a result there should be very little
 A qualitative assessment of ripple voltage may be obtained by using the sensitive audio detector described in the AC experiments chapter (the same device described as a "sensitive voltage detector" in the DC experiments chapter).  Turn the detector's sensitivity down for low volume, and connect it across the motor terminals through a small (0.1 &#181;F) capacitor, like this:
 </p>
 
-<p> <img src="05135.png"> </p> 
+<p> <img src="05135.png"> </p>
 
 <a name="AC coupling, oscilloscope"></a>
 <a name="Oscilloscope coupling"></a>
@@ -311,7 +310,7 @@ A qualitative assessment of ripple voltage may be obtained by using the sensitiv
 The capacitor acts as a high-pass filter, blocking DC voltage from reaching the detector and allowing easier "listening" of the remaining AC voltage.  This is the exact same technique used in oscilloscope circuitry for "AC coupling," where DC signals are blocked from viewing by a series-connected capacitor.  With a battery powering the motor, the ripple should sound like a high-pitched "buzz" or "whine."  Try replacing the battery with the AC power supply and rectifying diode, "listening" with the detector to the low-pitched "buzz" of the half-wave rectified power:
 </p>
 
-<p> <img src="05136.png"> </p> 
+<p> <img src="05136.png"> </p>
 
 <br> </br>
 
@@ -324,7 +323,7 @@ The capacitor acts as a high-pass filter, blocking DC voltage from reaching the 
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05137.png"> </p> 
+<p> <img src="05137.png"> </p>
 
 <br> </br>
 
@@ -339,7 +338,7 @@ rload 2 0 10k
 d1 1 2 mod1
 .model mod1 d
 .tran .5m 25m
-.plot tran v(1,0) v(2,0) 
+.plot tran v(1,0) v(2,0)
 .end
 </pre>
 
@@ -418,7 +417,7 @@ The diodes need not be exact model 1N4001 units.  Any of the "1N400X" series of 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05138.png"> </p> 
+<p> <img src="05138.png"> </p>
 
 <br> </br>
 
@@ -426,7 +425,7 @@ The diodes need not be exact model 1N4001 units.  Any of the "1N400X" series of 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05139.png"> </p> 
+<p> <img src="05139.png"> </p>
 
 <br> </br>
 
@@ -449,7 +448,7 @@ Use a voltmeter to measure both the DC and AC voltage delivered to the motor.  Y
 An experimental advantage of this circuit is the ease of which it may be "de-converted" to a half-wave rectifier: simply disconnect the short jumper wire connecting the two diodes' cathode ends together on the terminal strip.  Better yet, for quick comparison between half and full-wave rectification, you may add a switch in the circuit to open and close this connection at will:
 </p>
 
-<p> <img src="05141.png"> </p> 
+<p> <img src="05141.png"> </p>
 
 <p>
 
@@ -457,13 +456,13 @@ An experimental advantage of this circuit is the ease of which it may be "de-con
 
 <br> </br>
 
-<p> <img src="05140.png"> </p> 
+<p> <img src="05140.png"> </p>
 
 <p>
 With the ability to quickly switch between half- and full-wave rectification, you may easily perform qualitative comparisons between the two different operating modes.  Use the audio signal detector to "listen" to the ripple voltage present between the motor terminals for half-wave and full-wave  rectification modes, noting both the intensity and the quality of the tone.  Remember to use a coupling capacitor in series with the detector so that it only receives the AC "ripple" voltage and not DC voltage:
 </p>
 
-<p> <img src="05142.png"> </p> 
+<p> <img src="05142.png"> </p>
 
 <br> </br>
 
@@ -476,7 +475,7 @@ With the ability to quickly switch between half- and full-wave rectification, yo
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05143.png"> </p> 
+<p> <img src="05143.png"> </p>
 
 <br> </br>
 
@@ -493,7 +492,7 @@ d1 1 2 mod1
 d2 3 2 mod1
 .model mod1 d
 .tran .5m 25m
-.plot tran v(1,0) v(2,0) 
+.plot tran v(1,0) v(2,0)
 .end
 </pre>
 
@@ -551,7 +550,7 @@ d2 3 2 mod1
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05185.png"> </p> 
+<p> <img src="05185.png"> </p>
 
 <br> </br>
 
@@ -559,7 +558,7 @@ d2 3 2 mod1
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05186.png"> </p> 
+<p> <img src="05186.png"> </p>
 
 <br> </br>
 
@@ -588,7 +587,7 @@ In addition to requiring more diodes than the center-tap circuit, the full-wave 
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05187.png"> </p> 
+<p> <img src="05187.png"> </p>
 
 <br> </br>
 
@@ -606,7 +605,7 @@ d3 3 0 mod1
 d4 0 2 mod1
 .model mod1 d
 .tran .5m 25m
-.plot tran v(1,0) v(2,3) 
+.plot tran v(1,0) v(2,3)
 .end
 </pre>
 
@@ -681,7 +680,7 @@ High-wattage 12-volt lamps may be purchased from recreational vehicle (RV) and b
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05188.png"> </p> 
+<p> <img src="05188.png"> </p>
 
 <br> </br>
 
@@ -689,7 +688,7 @@ High-wattage 12-volt lamps may be purchased from recreational vehicle (RV) and b
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05189.png"> </p> 
+<p> <img src="05189.png"> </p>
 
 <br> </br>
 
@@ -706,7 +705,7 @@ The bridge rectifier unit should be rated for a current at least as high as the 
 </p>
 
 <p>
-Rectifier units of this size are often equipped with "quick-disconnect" terminals.  Complementary "quick-disconnect" lugs are sold that crimp onto the bare ends of wire.  This is the preferred method of terminal connection.  You may solder wires directly to the lugs of the rectifier, but I recommend against direct soldering to any semiconductor component for two reasons: possible heat damage during soldering, and difficulty of replacing the component in the event of failure.  
+Rectifier units of this size are often equipped with "quick-disconnect" terminals.  Complementary "quick-disconnect" lugs are sold that crimp onto the bare ends of wire.  This is the preferred method of terminal connection.  You may solder wires directly to the lugs of the rectifier, but I recommend against direct soldering to any semiconductor component for two reasons: possible heat damage during soldering, and difficulty of replacing the component in the event of failure.
 </p>
 
 <p>
@@ -731,7 +730,7 @@ A capacitor is included in the circuit to act as a <i>filter</i> to reduce rippl
 After the rectifier/filter circuit is built, connect it to the low-voltage AC power supply like this:
 </p>
 
-<p> <img src="05190.png"> </p> 
+<p> <img src="05190.png"> </p>
 
 <p>
 Measure the AC voltage output by the low-voltage power supply.  Your meter should indicate approximately 6 volts if the circuit is connected as shown.  This voltage measurement is the RMS voltage of the AC power supply.
@@ -741,7 +740,7 @@ Measure the AC voltage output by the low-voltage power supply.  Your meter shoul
 Now, switch your multimeter to the DC voltage function and measure the DC voltage output by the rectifier/filter circuit.  It should read substantially higher than the RMS voltage of the AC input measured before.  The filtering action of the capacitor provides a DC output voltage equal to the <i>peak</i> AC voltage, hence the greater voltage indication:
 </p>
 
-<p> <img src="05192.png"> </p> 
+<p> <img src="05192.png"> </p>
 
 <p>
 Measure the AC ripple voltage magnitude with a digital voltmeter set to AC volts (or AC millivolts).  You should notice a much smaller ripple voltage in this circuit than what was measured in any of the unfiltered rectifier circuits previously built.  Feel free to use your audio detector to "listen" to the AC ripple voltage output by the rectifier/filter unit.  As usual, connect a small "coupling" capacitor in series with the detector so that it does not respond to the DC voltage, but only the AC ripple.  Very little sound should be heard.
@@ -751,19 +750,19 @@ Measure the AC ripple voltage magnitude with a digital voltmeter set to AC volts
 After taking unloaded AC ripple voltage measurements, connect the 25 watt light bulb to the output of the rectifier/filter circuit like this:
 </p>
 
-<p> <img src="05191.png"> </p> 
+<p> <img src="05191.png"> </p>
 
 <p>
 Re-measure the ripple voltage present between the rectifier/filter unit's "DC out" terminals.  With a heavy load, the filter capacitor becomes discharged between rectified voltage peaks, resulting in greater ripple than before:
 </p>
 
-<p> <img src="05193.png"> </p> 
+<p> <img src="05193.png"> </p>
 
 <p>
 If less ripple is desired under heavy-load conditions, a larger capacitor may be used, or a more complex filter circuit may be built using two capacitors and an inductor:
 </p>
 
-<p> <img src="05194.png"> </p> 
+<p> <img src="05194.png"> </p>
 
 <a name="Choke, filter"></a>
 <a name="Filter choke"></a>
@@ -772,7 +771,7 @@ If less ripple is desired under heavy-load conditions, a larger capacitor may be
 If you choose to build such a filter circuit, be sure to use an iron-core inductor for maximum inductance, and one with thick enough wire to safely handle the full rated current of power supply.  Inductors used for the purpose of filtering are sometimes referred to as <i>chokes</i>, because they "choke" AC ripple voltage from getting to the load.  If a suitable choke cannot be obtained, the secondary winding of a step-down power transformer like the type used to step 120 volts AC down to 12 or 6 volts AC in the low-voltage power supply may be used.  Leave the primary (120 volt) winding open:
 </p>
 
-<p> <img src="05195.png"> </p> 
+<p> <img src="05195.png"> </p>
 
 <br> </br>
 
@@ -785,7 +784,7 @@ If you choose to build such a filter circuit, be sure to use an iron-core induct
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05196.png"> </p> 
+<p> <img src="05196.png"> </p>
 
 <br> </br>
 
@@ -804,7 +803,7 @@ d3 3 0 mod1
 d4 0 2 mod1
 .model mod1 d
 .tran .5m 25m
-.plot tran v(1,0) v(2,3) 
+.plot tran v(1,0) v(2,3)
 .end
 </pre>
 
@@ -870,7 +869,7 @@ Any low-voltage zener diode is appropriate for this experiment.  The 1N4742 mode
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05235.png"> </p> 
+<p> <img src="05235.png"> </p>
 
 <br> </br>
 
@@ -878,7 +877,7 @@ Any low-voltage zener diode is appropriate for this experiment.  The 1N4742 mode
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05236.png"> </p> 
+<p> <img src="05236.png"> </p>
 
 <br> </br>
 
@@ -894,7 +893,7 @@ Build this simple circuit, being sure to connect the diode in "reverse-bias" fas
 Modify the circuit by connecting two 6-volt batteries in series, for 12 volts total power source voltage.  Re-measure the diode's voltage drop, as well as the resistor's voltage drop, with a voltmeter:
 </p>
 
-<p> <img src="05237.png"> </p> 
+<p> <img src="05237.png"> </p>
 
 <p>
 Connect three, then four 6-volt batteries together in series, forming an 18 volt and 24 volt power source, respectively.  Measure and record the diode's and resistor's voltage drops for each new power supply voltage.  What do you notice about the diode's voltage drop for these four different source voltages?  Do you see how the diode voltage never exceeds a level of 12 volts?  What do you notice about the resistor's voltage drop for these four different source voltage levels?
@@ -915,7 +914,7 @@ Zener diodes are frequently used as voltage <i>regulating</i> devices, because t
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05238.png"> </p> 
+<p> <img src="05238.png"> </p>
 
 <br> </br>
 
@@ -999,7 +998,7 @@ Resistor values are not critical for this experiment.  Neither is the particular
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05222.png"> </p> 
+<p> <img src="05222.png"> </p>
 
 <br> </br>
 
@@ -1007,7 +1006,7 @@ Resistor values are not critical for this experiment.  Neither is the particular
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05223.png"> </p> 
+<p> <img src="05223.png"> </p>
 
 <br> </br>
 
@@ -1027,7 +1026,7 @@ If you touch the end of the loose wire to any point in the circuit more positive
 Try using an ammeter to connect the loose wire to the positive side of the power source, like this:
 </p>
 
-<p> <img src="05224.png"> </p> 
+<p> <img src="05224.png"> </p>
 
 <p>
 You may have to select the most sensitive current range on the meter to measure this small flow.  After measuring this <i>controlling</i> current, try measuring the LED's current (the <i>controlled</i> current) and compare magnitudes.  Don't be surprised if you find a ratio in excess of 200 (the controlled current 200 times as great as the controlling current)!
@@ -1041,7 +1040,7 @@ As you can see, the transistor is acting as a kind of electrically-controlled sw
 To further illustrate just how miniscule the controlling current is, remove the loose wire from the circuit and try "bridging" the unconnected end of the 100 k&#937; resistor to the power source's positive pole with two fingers of one hand.  You may need to wet the ends of those fingers to maximize conductivity:
 </p>
 
-<p> <img src="05225.png"> </p> 
+<p> <img src="05225.png"> </p>
 
 <p>
 Try varying the contact pressure of your fingers with these two points in the circuit to vary the amount of resistance in the controlling current's path.  Can you vary the brightness of the LED by doing so?  What does this indicate about the transistor's ability to act as more than just a switch; i.e. as a <i>variable</i>
@@ -1058,7 +1057,7 @@ Try varying the contact pressure of your fingers with these two points in the ci
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05226.png"> </p> 
+<p> <img src="05226.png"> </p>
 
 <br> </br>
 
@@ -1154,7 +1153,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05227.png"> </p> 
+<p> <img src="05227.png"> </p>
 
 <br> </br>
 
@@ -1162,7 +1161,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05228.png"> </p> 
+<p> <img src="05228.png"> </p>
 
 <br> </br>
 
@@ -1226,14 +1225,14 @@ In case you're wondering why there is no 560 &#937; "dropping" resistor to limit
 </ul>
 
 <p>
-If you don't have an audio detector already constructed, you can use a nice set of audio headphones (closed-cup style, that completely covers your ears) and a 120V/6V step-down transformer to build a sensitive audio detector without volume control or overvoltage protection, just for this experiment.  
+If you don't have an audio detector already constructed, you can use a nice set of audio headphones (closed-cup style, that completely covers your ears) and a 120V/6V step-down transformer to build a sensitive audio detector without volume control or overvoltage protection, just for this experiment.
 </p>
 
 <p>
 Connect these portions of the headphone stereo plug to the transformer's secondary (6 volt) winding:
 </p>
 
-<p> <img src="05011.png"> </p> 
+<p> <img src="05011.png"> </p>
 
 <p>
 Try both the series and the parallel connection schemes for the loudest sound.
@@ -1270,7 +1269,7 @@ If you haven't made an audio detector as outlined in both the DC and AC experime
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05271.png"> </p> 
+<p> <img src="05271.png"> </p>
 
 <br> </br>
 
@@ -1278,7 +1277,7 @@ If you haven't made an audio detector as outlined in both the DC and AC experime
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05272.png"> </p> 
+<p> <img src="05272.png"> </p>
 
 <br> </br>
 
@@ -1366,7 +1365,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05200.png"> </p> 
+<p> <img src="05200.png"> </p>
 
 <br> </br>
 
@@ -1374,7 +1373,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05201.png"> </p> 
+<p> <img src="05201.png"> </p>
 
 <br> </br>
 
@@ -1396,13 +1395,13 @@ The <i>voltage follower</i> is the safest and easiest transistor amplifier circu
 Note that the negative (-) side of the power supply is shown in the schematic diagram to be connected to <i>ground</i>, as indicated by the symbol in the lower-left corner of the diagram.  This does not necessarily represent a connection to the actual earth.  What it means is that this point in the circuit -- and all points electrically common to it -- constitute the default reference point for all voltage measurements in the circuit.  Since voltage is by necessity a quantity relative between two points, a "common" point of reference designated in a circuit gives us the ability to speak meaningfully of voltage at particular, single points in that circuit.
 </p>
 
-<p> <img src="05202.png"> </p> 
+<p> <img src="05202.png"> </p>
 
 <p>
 For example, if I were to speak of voltage <i>at</i> the base of the transistor (V<sub>B</sub>), I would mean the voltage measured between the transistor's base terminal and the negative side of the power supply (ground), with the red probe touching the base terminal and the black probe touching ground.  Normally, it is nonsense to speak of voltage <i>at</i> a single point, but having an implicit reference point for voltage measurements makes such statements meaningful:
 </p>
 
-<p> <img src="05203.png"> </p> 
+<p> <img src="05203.png"> </p>
 
 <p>
 Build this circuit, and measure output voltage versus input voltage for several different potentiometer settings.  Input voltage is the voltage at the potentiometer's wiper (voltage between the wiper and circuit ground), while output voltage is the load resistor voltage (voltage across the load resistor, or emitter voltage: between emitter and circuit ground).  You should see a close correlation between these two voltages: one is just a little bit greater than the other (about 0.6 volts or so?), but a change in the input voltage gives almost equal change in the output voltage.  Because the relationship between input <i>change</i> and output <i>change</i> is almost 1:1, we say that the AC voltage gain of this amplifier is nearly 1.
@@ -1437,7 +1436,7 @@ Another way of thinking of this circuit's function is in terms of <i>impedance</
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05204.png"> </p> 
+<p> <img src="05204.png"> </p>
 
 <br> </br>
 
@@ -1524,7 +1523,7 @@ When this simulation is run through the SPICE program, it shows an input voltage
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05239.png"> </p> 
+<p> <img src="05239.png"> </p>
 
 <br> </br>
 
@@ -1532,7 +1531,7 @@ When this simulation is run through the SPICE program, it shows an input voltage
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05240.png"> </p> 
+<p> <img src="05240.png"> </p>
 
 <br> </br>
 
@@ -1570,7 +1569,7 @@ When the transistor's temperature changes, its base-emitter diode characteristic
 Perhaps the simplest way to add negative feedback to a common-emitter amplifier is to add some resistance between the emitter terminal and ground, so that the input voltage becomes divided between the base-emitter PN junction and the voltage drop across the new resistance:
 </p>
 
-<p> <img src="05241.png"> </p> 
+<p> <img src="05241.png"> </p>
 
 <p>
 
@@ -1578,7 +1577,7 @@ Perhaps the simplest way to add negative feedback to a common-emitter amplifier 
 
 <br> </br>
 
-<p> <img src="05242.png"> </p> 
+<p> <img src="05242.png"> </p>
 
 <p>
 Repeat the same voltage measurement and recording exercise with the 1.5 k&#937; resistor installed, calculating the new (reduced) voltage gain.  Try altering the transistor's temperature again and noting the output voltage for a steady input voltage.  Does it change more or less than without the 1.5 k&#937; resistor?
@@ -1588,7 +1587,7 @@ Repeat the same voltage measurement and recording exercise with the 1.5 k&#937; 
 Another method of introducing negative feedback to this amplifier circuit is to "couple" the output to the input through a high-value resistor. Connecting a 1 M&#937; resistor between the transistor's collector and base terminals works well:
 </p>
 
-<p> <img src="05243.png"> </p> 
+<p> <img src="05243.png"> </p>
 
 <p>
 
@@ -1596,7 +1595,7 @@ Another method of introducing negative feedback to this amplifier circuit is to 
 
 <br> </br>
 
-<p> <img src="05244.png"> </p> 
+<p> <img src="05244.png"> </p>
 
 <p>
 Although this different method of feedback accomplishes the same goal of increased stability by diminishing gain, the two feedback circuits will not behave identically.  Note the range of possible output voltages with each feedback scheme (the low and high voltage values obtained with a full sweep of the input voltage potentiometer), and how this differs between the two circuits.
@@ -1613,7 +1612,7 @@ Although this different method of feedback accomplishes the same goal of increas
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05245.png"> </p> 
+<p> <img src="05245.png"> </p>
 
 <br> </br>
 
@@ -1637,7 +1636,7 @@ q1 2 4 0 mod1
 <br> </br>
 
 <p>
-This SPICE simulation sets up a circuit with a variable DC voltage source (<tt>vin</tt>) as the input signal, and measures the corresponding output voltage between nodes 2 and 0.  The input voltage is varied, or "swept," from 0 to 2 volts in 0.05 volt increments.  Results are shown on a plot, with the input voltage appearing as a straight line and the output voltage as a "step" figure where the voltage begins and ends level, with a steep change in the middle where the transistor is in its active mode of operation. 
+This SPICE simulation sets up a circuit with a variable DC voltage source (<tt>vin</tt>) as the input signal, and measures the corresponding output voltage between nodes 2 and 0.  The input voltage is varied, or "swept," from 0 to 2 volts in 0.05 volt increments.  Results are shown on a plot, with the input voltage appearing as a straight line and the output voltage as a "step" figure where the voltage begins and ends level, with a steep change in the middle where the transistor is in its active mode of operation.
 </p>
 
 
@@ -1696,7 +1695,7 @@ This SPICE simulation sets up a circuit with a variable DC voltage source (<tt>v
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05246.png"> </p> 
+<p> <img src="05246.png"> </p>
 
 <br> </br>
 
@@ -1704,7 +1703,7 @@ This SPICE simulation sets up a circuit with a variable DC voltage source (<tt>v
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05247.png"> </p> 
+<p> <img src="05247.png"> </p>
 
 <br> </br>
 
@@ -1740,7 +1739,7 @@ An advantage of using negative feedback to "tame" a high-gain amplifier circuit 
 </p>
 
 <p>
-This amplifier circuit is a bit simplified from what you will normally encounter in practical multi-stage circuits.  Rarely is a pure common-emitter configuration (i.e. with no emitter-to-ground resistor) used, and if the amplifier's service is for AC signals, the inter-stage coupling is often capacitive with voltage divider networks connected to each transistor base for proper biasing of each stage.  Radio-frequency amplifier circuits are often transformer-coupled, with capacitors connected in parallel with the transformer windings for resonant tuning. 
+This amplifier circuit is a bit simplified from what you will normally encounter in practical multi-stage circuits.  Rarely is a pure common-emitter configuration (i.e. with no emitter-to-ground resistor) used, and if the amplifier's service is for AC signals, the inter-stage coupling is often capacitive with voltage divider networks connected to each transistor base for proper biasing of each stage.  Radio-frequency amplifier circuits are often transformer-coupled, with capacitors connected in parallel with the transformer windings for resonant tuning.
 </p>
 
 <br> </br>
@@ -1754,7 +1753,7 @@ This amplifier circuit is a bit simplified from what you will normally encounter
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05248.png"> </p> 
+<p> <img src="05248.png"> </p>
 
 <br> </br>
 
@@ -1857,7 +1856,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05197.png"> </p> 
+<p> <img src="05197.png"> </p>
 
 <br> </br>
 
@@ -1865,7 +1864,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05198.png"> </p> 
+<p> <img src="05198.png"> </p>
 
 <br> </br>
 
@@ -1889,7 +1888,7 @@ The potentiometer sets the amount of current through transistor Q<sub>1</sub>.  
 <a name="&#946; ratio"></a>
 
 <p>
-Since voltage across the two transistors' base-emitter junctions is the same -- the two junction pairs being connected in parallel with each other -- so should the current be through their base terminals, assuming identical junction characteristics and identical junction temperatures.  Matched transistors should have the same &#946; ratios, as well, so equal base currents means equal collector currents.  The practical result of all this is Q<sub>2</sub>'s collector current mimicking whatever current magnitude has been established through the collector of Q<sub>1</sub> by the potentiometer.  In other words, current through Q<sub>2</sub> <i>mirrors</i> the current through Q<sub>1</sub>.  
+Since voltage across the two transistors' base-emitter junctions is the same -- the two junction pairs being connected in parallel with each other -- so should the current be through their base terminals, assuming identical junction characteristics and identical junction temperatures.  Matched transistors should have the same &#946; ratios, as well, so equal base currents means equal collector currents.  The practical result of all this is Q<sub>2</sub>'s collector current mimicking whatever current magnitude has been established through the collector of Q<sub>1</sub> by the potentiometer.  In other words, current through Q<sub>2</sub> <i>mirrors</i> the current through Q<sub>1</sub>.
 </p>
 
 <a name="Current regulator"></a>
@@ -1955,7 +1954,7 @@ What just happened to make Q<sub>2</sub> overheat and lose current control?  By 
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05199.png"> </p> 
+<p> <img src="05199.png"> </p>
 
 <br> </br>
 
@@ -1980,7 +1979,7 @@ q2 4 2 0 mod1
 <br> </br>
 
 <p>
-V<sub>ammeter</sub> is nothing more than a zero-volt DC battery strategically placed to intercept load current.  This is nothing more than a trick to measure current in a SPICE simulation, as no dedicated "ammeter" component exists in the SPICE language.  
+V<sub>ammeter</sub> is nothing more than a zero-volt DC battery strategically placed to intercept load current.  This is nothing more than a trick to measure current in a SPICE simulation, as no dedicated "ammeter" component exists in the SPICE language.
 </p>
 
 <p>
@@ -2022,7 +2021,7 @@ You will have to experiment with different resistance values of R<sub>load</sub>
 </ul>
 
 <p>
-For this experiment you will need an N-channel JFET, not a P-channel!  
+For this experiment you will need an N-channel JFET, not a P-channel!
 </p>
 
 <p>
@@ -2060,7 +2059,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05267.png"> </p> 
+<p> <img src="05267.png"> </p>
 
 <br> </br>
 
@@ -2068,7 +2067,7 @@ Beware that not all transistors share the same terminal designations, or <i>pino
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05268.png"> </p> 
+<p> <img src="05268.png"> </p>
 
 <br> </br>
 
@@ -2111,7 +2110,7 @@ An important caveat with the BJT current mirror circuit is that both transistors
 An interesting application of this current-regulator circuit is the so-called <i>constant-current diode</i>.  Described in the "Diodes and Rectifiers" chapter of volume III, this diode isn't really a PN junction device at all.  Instead, it is a JFET with a fixed resistance connected between the gate and source terminals:
 </p>
 
-<p> <img src="05269.png"> </p> 
+<p> <img src="05269.png"> </p>
 
 <p>
 A normal PN-junction diode is included in series with the JFET to protect the transistor against damage from reverse-bias voltage, but otherwise the current-regulating facility of this device is entirely provided by the field-effect transistor.
@@ -2128,7 +2127,7 @@ A normal PN-junction diode is included in series with the JFET to protect the tr
 <u>Schematic with SPICE node numbers:</u>
 </p>
 
-<p> <img src="05270.png"> </p> 
+<p> <img src="05270.png"> </p>
 
 <br> </br>
 
@@ -2138,7 +2137,7 @@ A normal PN-junction diode is included in series with the JFET to protect the tr
 
 <pre>
 JFET current regulator
-vsource 1 0 
+vsource 1 0
 rload 1 2 4.5k
 j1 2 0 3 mod1
 rlimit 3 0 1k
@@ -2151,7 +2150,7 @@ rlimit 3 0 1k
 <br> </br>
 
 <p>
-SPICE does not allow for "sweeping" resistance values, so to demonstrate the current regulation of this circuit over a wide range of conditions, I've elected to sweep the source voltage from 6 to 12 volts in 0.1 volt steps.  If you wish, you can set <tt>rload</tt> to different resistance values and verify that the circuit current remains constant.  With an <tt>rlimit</tt> value of 1 k&#937;, the regulated current will be 291.8 &#181;A.  This current figure will most likely <i>not</i> be the same as your actual circuit current, due to differences in JFET parameters.  
+SPICE does not allow for "sweeping" resistance values, so to demonstrate the current regulation of this circuit over a wide range of conditions, I've elected to sweep the source voltage from 6 to 12 volts in 0.1 volt steps.  If you wish, you can set <tt>rload</tt> to different resistance values and verify that the circuit current remains constant.  With an <tt>rlimit</tt> value of 1 k&#937;, the regulated current will be 291.8 &#181;A.  This current figure will most likely <i>not</i> be the same as your actual circuit current, due to differences in JFET parameters.
 </p>
 
 <p>
@@ -2224,7 +2223,7 @@ Resistor values are not especially critical in this experiment, but have been ch
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05233.png"> </p> 
+<p> <img src="05233.png"> </p>
 
 <br> </br>
 
@@ -2232,7 +2231,7 @@ Resistor values are not especially critical in this experiment, but have been ch
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05234.png"> </p> 
+<p> <img src="05234.png"> </p>
 
 <br> </br>
 
@@ -2331,7 +2330,7 @@ Do not worry about building up excessive heat while adjusting potentiometers in 
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05249.png"> </p> 
+<p> <img src="05249.png"> </p>
 
 <br> </br>
 
@@ -2339,7 +2338,7 @@ Do not worry about building up excessive heat while adjusting potentiometers in 
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05250.png"> </p> 
+<p> <img src="05250.png"> </p>
 
 <br> </br>
 
@@ -2371,13 +2370,13 @@ Measure the output voltage (voltage at the collector of Q<sub>4</sub> with respe
 Once the circuit's differential response has been proven (the output voltage sharply transitioning from one extreme level to another when one input is adjusted above and below the other input's voltage level), you are ready to use this circuit as a real op-amp.  A simple op-amp circuit called a <i>voltage follower</i> is a good configuration to try first.  To make a voltage follower circuit, directly connect the output of the amplifier to its inverting input.  This means connecting the collector and base terminals of Q<sub>4</sub> together, and discarding the "inverting" potentiometer:
 </p>
 
-<p> <img src="05251.png"> </p> 
+<p> <img src="05251.png"> </p>
 
 <p>
 
 </p>
 
-<p> <img src="05252.png"> </p> 
+<p> <img src="05252.png"> </p>
 
 <p>
 Note the triangular symbol of the op-amp shown in the lower schematic diagram.  The inverting and noninverting inputs are designated with (-) and (+) symbols, respectively, with the output terminal at the right apex.  The feedback wire connecting output to inverting input is shown in red in the above diagrams.
@@ -2391,13 +2390,13 @@ As a voltage follower, the output voltage should "follow" the input voltage very
 A more complex op-amp circuit is called the <i>noninverting amplifier</i>, and it uses a pair of resistors in the feedback loop to "feed back" a fraction of the output voltage to the inverting input, causing the amplifier to output a voltage equal to some multiple of the voltage at the noninverting input.  If we use two equal-value resistors, the feedback voltage will be 1/2 the output voltage, causing the output voltage to become twice the voltage impressed at the noninverting input.  Thus, we have a voltage amplifier with a precise gain of 2:
 </p>
 
-<p> <img src="05253.png"> </p> 
+<p> <img src="05253.png"> </p>
 
 <p>
 
 </p>
 
-<p> <img src="05254.png"> </p> 
+<p> <img src="05254.png"> </p>
 
 <p>
 As you test this noninverting amplifier circuit, you may notice slight discrepancies between the output and input voltages.  According to the feedback resistor values, the voltage gain should be exactly 2.  However, you may notice deviations in the order of several hundredths of a volt between what the output voltage is and what it should be.  These deviations are due to imperfections of the differential amplifier circuit, and may be greatly diminished if we add more amplification stages to increase the differential voltage gain.  However, one way we can maximize the precision of the existing circuit is to change the resistance of R<sub>prg</sub>.  This resistor sets the lower current mirror's control point, and in so doing influences many performance parameters of the op-amp.  Try substituting difference resistance values, ranging from 10 k&#937; to 1 M&#937;.  Do not use a resistance less than 10 k&#937;, or else the current mirror transistors may begin to overheat and thermally "run away."
@@ -2472,7 +2471,7 @@ Some operational amplifiers available in prepackaged units provide a way for the
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05255.png"> </p> 
+<p> <img src="05255.png"> </p>
 
 <br> </br>
 
@@ -2480,7 +2479,7 @@ Some operational amplifiers available in prepackaged units provide a way for the
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05256.png"> </p> 
+<p> <img src="05256.png"> </p>
 
 <br> </br>
 
@@ -2499,7 +2498,7 @@ The proper name for this circuit is "<i>astable multivibrator</i>".  It is a sim
 With a 12 volt supply, 100 k&#937; resistors, and 0.1 &#181;F capacitors, the oscillation frequency will be in the low audio range.  You may listen to this signal with the audio detector connected with one test probe to ground and the other to one of the transistor's collector terminals.  I recommend placing a 1 M&#937; resistor in series with the audio detector to minimize both circuit loading effects and headphone loudness:
 </p>
 
-<p> <img src="05257.png"> </p> 
+<p> <img src="05257.png"> </p>
 
 <p>
 The multivibrator itself is just two transistors, two resistors, and two cross-connecting capacitors.  The third transistor shown in the schematic and illustration is there for driving the LED, to be used as a visual indicator of oscillator action.  Use the probe wire connected to the base of this common-emitter amplifier to detect voltage at different parts of the circuit with respect to ground.  Given the low oscillating frequency of this multivibrator circuit, you should be able to see the LED blink rapidly with the probe wire connected to the collector terminal of either multivibrator transistor.
@@ -2514,7 +2513,7 @@ Feel free to substitute lower-value resistors in place of the two 100 k&#937; un
 </p>
 
 <p>
-One shortcoming of many oscillator circuits is its dependence on a minimum amount of power supply voltage.  Too little voltage and the circuit ceases to oscillate.  This circuit is no exception.  You might want to experiment with lower supply voltages and determine the minimum voltage necessary for oscillation, as well as experience the effect supply voltage change has on oscillation frequency.  
+One shortcoming of many oscillator circuits is its dependence on a minimum amount of power supply voltage.  Too little voltage and the circuit ceases to oscillate.  This circuit is no exception.  You might want to experiment with lower supply voltages and determine the minimum voltage necessary for oscillation, as well as experience the effect supply voltage change has on oscillation frequency.
 </p>
 
 <p>
@@ -2564,7 +2563,7 @@ Where can you obtain a 12AX7 tube, you ask?  These tubes are very popular for us
 It is important to select an electrolytic capacitor with sufficient working voltage (WVDC) to withstand the output of this amplifier's power supply circuit (about 170 volts).  I strongly recommend choosing a capacitor with a voltage rating well in excess of the expected operating voltage, so as to handle unexpected voltage surges or any other event that may tax the capacitor.  I purchased the Radio Shack electrolytic capacitor assortment (catalog # 272-802), and it happened to contain two 47 &#181;F, 250 WVDC capacitors.  If you are not as fortunate, you may build this circuit using five capacitors, each rated at 50 WVDC, to substitute for one 250 WVDC unit:
 </p>
 
-<p> <img src="05310.png"> </p> 
+<p> <img src="05310.png"> </p>
 
 <p>
 Bear in mind that the total capacitance for this five-capacitor network will be 1/5, or 20%, of each capacitor's value.  Also, to ensure even charging of capacitors in the network, be sure all capacitor values (in &#181;F) and all resistor values are identical.
@@ -2574,7 +2573,7 @@ Bear in mind that the total capacitance for this five-capacitor network will be 
 An <i>automotive ignition coil</i> is a special-purpose high-voltage transformer used in car engines to produce tens of thousands of volts to "fire" the spark plugs.  In this experiment, it is used (very unconventionally, I might add!) as an impedance-matching transformer between the vacuum tube and an 8 &#937; audio speaker.  The specific choice of "coil" is not critical, so long as it is in good operating condition.  Here is a photograph of the coil I used for this experiment:
 </p>
 
-<p> <img src="55020.jpg"> </p> 
+<p> <img src="55020.jpg"> </p>
 
 <p>
 The audio speaker need not be extravagant.  I've used small "bookshelf" speakers, automotive (6"x9") speakers, as well as a large (100 watt) 3-way stereo speaker for this experiment, and they all work fine.  <b>Do not use a set of headphones</b> under any circumstances, as the ignition coil does not provide electrical isolation between the 170 volts DC of the "plate" power supply and the speaker, thus elevating the speaker connections to that voltage with respect to ground.  Since obviously placing wires on your head with high voltage to ground would be <i>very hazardous</i>, please do not use headphones!
@@ -2621,7 +2620,7 @@ You will need some source of audio-frequency AC as an input signal to this ampli
 <b>SCHEMATIC DIAGRAM</b>
 </p>
 
-<p> <img src="05307.png"> </p> 
+<p> <img src="05307.png"> </p>
 
 <p>
 
@@ -2629,7 +2628,7 @@ You will need some source of audio-frequency AC as an input signal to this ampli
 
 <br> </br>
 
-<p> <img src="05308.png"> </p> 
+<p> <img src="05308.png"> </p>
 
 <br> </br>
 
@@ -2637,7 +2636,7 @@ You will need some source of audio-frequency AC as an input signal to this ampli
 <b>ILLUSTRATION</b>
 </p>
 
-<p> <img src="05313.png"> </p> 
+<p> <img src="05313.png"> </p>
 
 <br> </br>
 
@@ -2668,7 +2667,7 @@ The power supply actually has two different power outputs: the "B+" DC output fo
 </p>
 
 <p>
-Note the toggle switch connected between the 12-volt windings of the two transformers, labeled "Plate supply switch."  This switch controls power to the step-up transformer, thereby controlling plate voltage to the amplifier circuit.  Why not just use the main power switch connected to the 120 volt plug?  Why have a second switch to shut off the DC high voltage, when shutting off one main switch would accomplish the same thing?  The answer lies in proper vacuum tube operation: like incandescent light bulbs, vacuum tubes "wear" when their filaments are powered up and down repeatedly, so having this additional switch in the circuit allows you to shut off the DC high voltage (for safety when modifying or adjusting the circuit) without having to shut off the filament.  Also, it is a good habit to wait for the tube to reach full operating temperature <i>before</i> applying plate voltage, and this second switch allows you to delay the application of plate voltage until the tube has had time to reach operating temperature. 
+Note the toggle switch connected between the 12-volt windings of the two transformers, labeled "Plate supply switch."  This switch controls power to the step-up transformer, thereby controlling plate voltage to the amplifier circuit.  Why not just use the main power switch connected to the 120 volt plug?  Why have a second switch to shut off the DC high voltage, when shutting off one main switch would accomplish the same thing?  The answer lies in proper vacuum tube operation: like incandescent light bulbs, vacuum tubes "wear" when their filaments are powered up and down repeatedly, so having this additional switch in the circuit allows you to shut off the DC high voltage (for safety when modifying or adjusting the circuit) without having to shut off the filament.  Also, it is a good habit to wait for the tube to reach full operating temperature <i>before</i> applying plate voltage, and this second switch allows you to delay the application of plate voltage until the tube has had time to reach operating temperature.
 </p>
 
 <p>
@@ -2695,20 +2694,20 @@ Be sure you have the power supply safely constructed and working reliably before
 </p>
 
 <p>
-One of the problems with building vacuum tube circuits in the 21st century is that <i>sockets</i> for these components can be difficult to find.  Given the limited lifetime of most "receiver" tubes (a few years), most "tubed" electronic devices used sockets for mounting the tubes, so that they could be easily removed and replaced.  Though tubes may still be obtained (from music supply stores) with relative ease, the sockets they plug into are considerably scarcer -- your local Radio Shack will not have them in stock!  How, then, do we build circuits with tubes, if we might not be able to obtain sockets for them to plug in to? 
+One of the problems with building vacuum tube circuits in the 21st century is that <i>sockets</i> for these components can be difficult to find.  Given the limited lifetime of most "receiver" tubes (a few years), most "tubed" electronic devices used sockets for mounting the tubes, so that they could be easily removed and replaced.  Though tubes may still be obtained (from music supply stores) with relative ease, the sockets they plug into are considerably scarcer -- your local Radio Shack will not have them in stock!  How, then, do we build circuits with tubes, if we might not be able to obtain sockets for them to plug in to?
 </p>
 
 <p>
 For small tubes, this problem may be circumvented by directly soldering short lengths of 22-gauge solid copper wire to the pins of the tube, thus enabling you to "plug" the tube into a solderless breadboard.  Here is a photograph of my tube amplifier, showing the 12AX7 in an inverted position (pin-side-up).  Please disregard the 10-segment LED bargraph to the left and the 8-position DIP switch assembly to the right in the photograph, as these are leftover components from a digital circuit experiment assembled previously on my breadboard.
 </p>
 
-<p> <img src="55019.jpg"> </p> 
+<p> <img src="55019.jpg"> </p>
 
 <p>
 One benefit of mounting the tube in this position is ease of pin identification, since most "pin connection diagrams" for tubes are shown from a bottom view:
 </p>
 
-<p> <img src="05309.png"> </p> 
+<p> <img src="05309.png"> </p>
 
 <p>
 You will notice on the amplifier schematic that both triode elements inside the 12AX7's glass envelope are being used, in parallel: plate connected to plate, grid connected to grid, and cathode connected to cathode.  This is done to maximize power output from the tube, but it is not necessary for demonstrating basic operation.  You may use just one of the triodes, for simplicity, if you wish.
@@ -2722,14 +2721,14 @@ The 0.1 &#181;F capacitor shown on the schematic "couples" the audio signal sour
 When I tested my amplifier circuit, I used the output of a radio receiver, and later the output of a compact disk (CD) player, as the audio signal source.  Using a "mono"-to-"phono" connector extension cord plugged into the headphone jack of the receiver/CD player, and alligator clip jumper wires connecting the "mono" tip of the cord to the input terminals of the tube amplifier, I was able to easily send the amplifier audio signals of varying amplitude to test its performance over a wide range of conditions:
 </p>
 
-<p> <img src="05311.png"> </p> 
+<p> <img src="05311.png"> </p>
 
 <p>
-A transformer is essential at the output of the amplifier circuit for "matching" the impedances of vacuum tube and speaker.  Since the vacuum tube is a high-voltage, low-current device, and most speakers are low-voltage, high-current devices, the mismatch between them would result in very audio low power output if they were directly connected.  To successfully match the high-voltage, low-current source to the low-voltage, high current load, we must use a step-down transformer.  
+A transformer is essential at the output of the amplifier circuit for "matching" the impedances of vacuum tube and speaker.  Since the vacuum tube is a high-voltage, low-current device, and most speakers are low-voltage, high-current devices, the mismatch between them would result in very audio low power output if they were directly connected.  To successfully match the high-voltage, low-current source to the low-voltage, high current load, we must use a step-down transformer.
 </p>
 
 <p>
-Since the vacuum tube circuit's Thevenin resistance ranges in the tens of thousands of ohms, and the speaker only has about 8 ohms impedance, we will need a transformer with an impedance ratio of about 10,000:1.  Since the impedance ratio of a transformer is the <i>square</i> of its turns ratio (or voltage ratio), we're looking for a transformer with a turns ratio of about 100:1.  A typical automotive ignition coil has approximately this turns ratio, and it is also rated for extremely high voltage on the high-voltage winding, making it well suited for this application.  
+Since the vacuum tube circuit's Thevenin resistance ranges in the tens of thousands of ohms, and the speaker only has about 8 ohms impedance, we will need a transformer with an impedance ratio of about 10,000:1.  Since the impedance ratio of a transformer is the <i>square</i> of its turns ratio (or voltage ratio), we're looking for a transformer with a turns ratio of about 100:1.  A typical automotive ignition coil has approximately this turns ratio, and it is also rated for extremely high voltage on the high-voltage winding, making it well suited for this application.
 </p>
 
 <p>
@@ -2748,7 +2747,7 @@ Turn the volume control of your radio/CD player/musical keyboard signal source t
 Troubleshooting this circuit is best done with the sensitive audio detector described in the DC and AC chapters of this Experiments volume.  Connect a 0.1 &#181;F capacitor in series with each test lead to block DC from the detector, then connect one of the test leads to ground, while using the other test lead to check for audio signal at various points in the circuit.  Use capacitors with a high voltage rating, like the one used on the input of the amplifier circuit:
 </p>
 
-<p> <img src="05312.png"> </p> 
+<p> <img src="05312.png"> </p>
 
 <p>
 Using two coupling capacitors instead of just one adds an additional degree of safety, in helping to isolate the unit from any (high) DC voltage.  Even without the extra capacitor, though, the detector's internal transformer should provide sufficient electrical isolation for your safety in using it to test for signals in a high-voltage circuit like this, especially if you built your detector using a 120 volt power transformer (rather than an "audio output" transformer) as suggested.  Use it to test for a good signal at the input, then at the grid pin(s) of the tube, then at the plate of the tube, etc. until the problem is found.  Being capacitively coupled, the detector is also able to test for excessive power supply "hum:" touch the free test lead to the supply's B+ terminal and listen for a loud 60 Hz humming noise.  The noise should be very soft, not loud.  If it is loud, the power supply is not filtered adequately enough, and may need additional filter capacitance.
@@ -2770,7 +2769,7 @@ You may be pleasantly surprised at the quality and depth of tone from this littl
 Here is a photo of a very similar amplifier circuit, built by the husband-and-wife team of Terry and Cheryl Goetz, illustrating what can be done when care and craftsmanship are applied to a project like this.
 </p>
 
-<p> <img src="55022.jpg"> </p> 
+<p> <img src="55022.jpg"> </p>
 
 
 
@@ -2802,8 +2801,8 @@ Here is a photo of a very similar amplifier circuit, built by the husband-and-wi
 
 
 
- 
-<h2><a name="xtocid395819">Bibliography</a></h2><br> 
+
+<h2><a name="xtocid395819">Bibliography</a></h2><br>
 <ol>
 
 <li><a name="MIM.bibitem">[MIM]Forrest M. Mims III, &ldquo;Sun Photometer with Light-Emitting Diodes as Spectrally Selective Detectors&rdquo;, Applied Optics, 31, 33, 6965-6967, 1992.</a></li>
@@ -2811,7 +2810,7 @@ Here is a photo of a very similar amplifier circuit, built by the husband-and-wi
 <li><a name="MIM2.bibitem">[MIM2]Forrest M. Mims III,&ldquo;Light Emitting Diodes&rdquo; Howard W. Sams &amp; Co., 1973, pp. 118-119.</a></li>
 
 <li><a name="MIM3.bibitem">[MIM3]Forrest M. Mims III, Private communications, February 29, 2008.</a></li>
-  
+
 </ol>
 
 

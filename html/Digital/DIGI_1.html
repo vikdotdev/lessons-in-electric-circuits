@@ -1,13 +1,13 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
 <title>Lessons In Electric Circuits -- Volume IV (Digital) - Chapter 1</title>
 
 <meta name="description" content="Numeration Systems">
-<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, analog, digital, binary, decimal, slide rule, abacus, roman numerals, decimal, binary, octal, hexadecimal"> 
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, analog, digital, binary, decimal, slide rule, abacus, roman numerals, decimal, binary, octal, hexadecimal">
 
 </head>
 
@@ -20,17 +20,16 @@
 <a href="DIGI_2.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume IV</h1>
 <h1>Chapter 1</h1>
 
 
 
 
-<h1>NUMERATION SYSTEMS</h1> 
+<h1>NUMERATION SYSTEMS</h1>
 <!--minitoc-->
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid36860"><u>Numbers and symbols</u></a></li>
@@ -90,7 +89,7 @@ square root of any prime
 <pre>
 REAL NUMBERS:
 (All one-dimensional numerical values, negative and positive,
- including zero, whole, integer, and irrational numbers) 
+ including zero, whole, integer, and irrational numbers)
 </pre>
 
 <br> </br>
@@ -111,10 +110,10 @@ If we are to use numbers to understand processes in the physical world, make sci
 </p>
 
 <p>
-You're probably already familiar with an analog representation of money, and didn't realize it for what it was.  Have you ever seen a fund-raising poster made with a picture of a thermometer on it, where the height of the red column indicated the amount of money collected for the cause?  The more money collected, the taller the column of red ink on the poster.  
+You're probably already familiar with an analog representation of money, and didn't realize it for what it was.  Have you ever seen a fund-raising poster made with a picture of a thermometer on it, where the height of the red column indicated the amount of money collected for the cause?  The more money collected, the taller the column of red ink on the poster.
 </p>
 
-<p> <img src="04096.png"> </p> 
+<p> <img src="04096.png"> </p>
 
 <p>
 This is an example of an analog representation of a number.  There is no real limit to how finely divided the height of that column can be made to symbolize the amount of money in the account.  Changing the height of that column is something that can be done without changing the essential nature of what it is.  Length is a physical quantity that can be divided as small as you would like, with no practical limit.  The slide rule is a mechanical device that uses the very same physical quantity -- length -- to represent numbers, and to help perform arithmetical operations with two or more numbers at a time.  It, too, is an analog device.
@@ -136,7 +135,7 @@ $35,955.38
 Unlike the "thermometer" poster with its red column, those symbolic characters above cannot be finely divided: that particular combination of ciphers stand for one quantity and one quantity only.  If more money is added to the account (+ $40.12), different symbols must be used to represent the new balance ($35,995.50), or at least the same symbols arranged in different patterns.  This is an example of digital representation.  The counterpart to the slide rule (analog) is also a digital device: the abacus, with beads that are moved back and forth on rods to symbolize numerical quantities:
 </p>
 
-<p> <img src="04097.png"> </p> 
+<p> <img src="04097.png"> </p>
 
 <p>
 
@@ -144,7 +143,7 @@ Unlike the "thermometer" poster with its red column, those symbolic characters a
 
 <br> </br>
 
-<p> <img src="04098.png"> </p> 
+<p> <img src="04098.png"> </p>
 
 <p>
 Let's contrast these two methods of numerical representation:
@@ -198,12 +197,12 @@ Furthermore, analog symbols require some kind of standard by which they can be c
 Perhaps this is why people have generally settled upon digital symbols for representing numbers, especially whole numbers and integers, which find the most application in everyday life.  Using the fingers on our hands, we have a ready means of symbolizing integers from 0 to 10.  We can make hash marks on paper, wood, or stone to represent the same quantities quite easily:
 </p>
 
-<p> <img src="04281.png"> </p> 
+<p> <img src="04281.png"> </p>
 
 <p>
 For large numbers, though, the "hash mark" numeration system is too inefficient.
 </p>
- 
+
 
 
 
@@ -332,7 +331,7 @@ Now, why would anyone use binary numeration?  The decimal system, with its ten c
 <p>
 Before we go on to learning exactly how all this is done in digital circuitry, we need to become more familiar with binary and other associated systems of numeration.
 </p>
- 
+
 
 
 
@@ -352,8 +351,8 @@ Let's count from zero to twenty using four different kinds of numeration systems
 <pre>
 System:    Hash Marks               Roman     Decimal     Binary
 -------    ----------               -----     -------     ------
-Zero       n/a                       n/a         0          0 
-One        |                          I          1          1 
+Zero       n/a                       n/a         0          0
+One        |                          I          1          1
 Two        ||                         II         2          10
 Three      |||                        III        3          11
 Four       ||||                       IV         4          100
@@ -401,11 +400,11 @@ To convert a number in binary numeration to its equivalent in decimal form, all 
 
 <pre>
 Convert 11001101<sub>2</sub>  to decimal form:
-bits =         1  1  0  0  1  1  0  1             
+bits =         1  1  0  0  1  1  0  1
 .              -  -  -  -  -  -  -  -
-weight =       1  6  3  1  8  4  2  1 
+weight =       1  6  3  1  8  4  2  1
 (in decimal    2  4  2  6
-notation)      8    
+notation)      8
 </pre>
 
 <br> </br>
@@ -441,9 +440,9 @@ If we encounter a binary number with a dot (.), called a "binary point" instead 
 <pre>
 Convert 101.011<sub>2</sub>  to decimal form:
 .
-bits =         1  0  1  .  0  1  1               
-.              -  -  -  -  -  -  -  
-weight =       4  2  1     1  1  1   
+bits =         1  0  1  .  0  1  1
+.              -  -  -  -  -  -  -
+weight =       4  2  1     1  1  1
 (in decimal                /  /  /
 notation)                  2  4  8
 </pre>
@@ -455,7 +454,7 @@ notation)                  2  4  8
 </pre>
 
 <br> </br>
- 
+
 
 
 
@@ -491,7 +490,7 @@ Let's count again from zero to twenty using decimal, binary, octal, and hexadeci
 Number       Decimal      Binary        Octal      Hexadecimal
 ------       -------      -------       -----      -----------
 Zero            0           0             0             0
-One             1           1             1             1 
+One             1           1             1             1
 Two             2           10            2             2
 Three           3           11            3             3
 Four            4           100           4             4
@@ -499,7 +498,7 @@ Five            5           101           5             5
 Six             6           110           6             6
 Seven           7           111           7             7
 Eight           8           1000          10            8
-Nine            9           1001          11            9            
+Nine            9           1001          11            9
 Ten             10          1010          12            A
 Eleven          11          1011          13            B
 Twelve          12          1100          14            C
@@ -531,7 +530,7 @@ Convert 10110111.1<sub>2</sub>  to octal:
 Convert each group of bits     ###   ###   ### . ###
 to its octal equivalent:        2     6     7     4
 .
-Answer:     10110111.1<sub>2</sub>  =  267.4<sub>8</sub>      
+Answer:     10110111.1<sub>2</sub>  =  267.4<sub>8</sub>
 </pre>
 
 <br> </br>
@@ -552,7 +551,7 @@ Convert 10110111.1<sub>2</sub>  to hexadecimal:
 Convert each group of bits     ----   ---- . ----
 to its hexadecimal equivalent:   B      7      8
 .
-Answer:     10110111.1<sub>2</sub>  =  B7.8<sub>16</sub>      
+Answer:     10110111.1<sub>2</sub>  =  B7.8<sub>16</sub>
 </pre>
 
 <br> </br>
@@ -566,9 +565,9 @@ Likewise, the conversion from either octal or hexadecimal to binary is done by t
 </p>
 
 <p>
-Incidentally, hexadecimal notation is more popular, because binary bit groupings in digital equipment are commonly multiples of eight (8, 16, 32, 64, and 128 bit), which are also multiples of 4.  Octal, being based on binary bit groups of 3, doesn't work out evenly with those common bit group sizings.  
+Incidentally, hexadecimal notation is more popular, because binary bit groupings in digital equipment are commonly multiples of eight (8, 16, 32, 64, and 128 bit), which are also multiples of 4.  Octal, being based on binary bit groups of 3, doesn't work out evenly with those common bit group sizings.
 </p>
- 
+
 
 
 
@@ -591,7 +590,7 @@ Because octal is a base-eight numeration system, each place-weight value differs
 
 <pre>
 octal
-digits =       2  4  5  .  3  7            
+digits =       2  4  5  .  3  7
 .              -  -  -  -  -  -
 weight =       6  8  1     1  1
 (in decimal    4           /  /
@@ -622,7 +621,7 @@ The technique for converting hexadecimal notation to decimal is the same, except
 
 <pre>
 hexadecimal
-digits =       3  0  F  .  A  9            
+digits =       3  0  F  .  A  9
 .              -  -  -  -  -  -
 weight =       2  1  1     1  1
 (in decimal    5  6        /  /
@@ -634,7 +633,7 @@ notation)      6           1  2
 <br> </br>
 
 <pre>
-(3 x 256<sub>10</sub>)  +  (0 x 16<sub>10</sub>)  +  (15 x 1<sub>10</sub>)  +  (10 x 0.0625<sub>10</sub>)  +  
+(3 x 256<sub>10</sub>)  +  (0 x 16<sub>10</sub>)  +  (15 x 1<sub>10</sub>)  +  (10 x 0.0625<sub>10</sub>)  +
 (9 x 0.00390625<sub>10</sub>)  = 783.66015625<sub>10</sub>
 </pre>
 
@@ -668,7 +667,7 @@ The method which will probably make the most sense is the "trial-and-fit" method
 .              -  -  -  -  -  -  -  -
 weight =       1  6  3  1  8  4  2  1
 (in decimal    2  4  2  6
-notation)      8   
+notation)      8
 </pre>
 
 <br> </br>
@@ -682,9 +681,9 @@ Well, we know that we won't have a "1" bit in the 128's place, because that woul
 <pre>
 .              1
 .              -  -  -  -  -  -  -    Decimal value so far = 64<sub>10</sub>
-weight =       6  3  1  8  4  2  1                              
+weight =       6  3  1  8  4  2  1
 (in decimal    4  2  6
-notation)       
+notation)
 
 </pre>
 
@@ -699,9 +698,9 @@ If we were to make the next place to the right a "1" as well, our total value wo
 <pre>
 .              1  0  1
 .              -  -  -  -  -  -  -    Decimal value so far = 80<sub>10</sub>
-weight =       6  3  1  8  4  2  1   
+weight =       6  3  1  8  4  2  1
 (in decimal    4  2  6
-notation)       
+notation)
 </pre>
 
 <br> </br>
@@ -715,9 +714,9 @@ By continuing in this progression, setting each lesser-weight bit as we need to 
 <pre>
 .              1  0  1  0  1  1  1
 .              -  -  -  -  -  -  -    Decimal value so far = 87<sub>10</sub>
-weight =       6  3  1  8  4  2  1  
+weight =       6  3  1  8  4  2  1
 (in decimal    4  2  6
-notation)       
+notation)
 </pre>
 
 <br> </br>
@@ -730,10 +729,10 @@ This trial-and-fit strategy will work with octal and hexadecimal conversions, to
 
 <pre>
 .
-.              -  -  -  
-weight =       6  8  1  
-(in decimal    4  
-notation)       
+.              -  -  -
+weight =       6  8  1
+(in decimal    4
+notation)
 </pre>
 
 <br> </br>
@@ -747,9 +746,9 @@ If we put a cipher of "1" in the 64's place, we would have a total value of 64<s
 <pre>
 .              1
 .              -  -  -    Decimal value so far = 64<sub>10</sub>
-weight =       6  8  1 
-(in decimal    4  
-notation)       
+weight =       6  8  1
+(in decimal    4
+notation)
 </pre>
 
 <br> </br>
@@ -763,7 +762,7 @@ Now, we need to experiment with cipher values in the 8's place to try and get a 
 <pre>
 "1" = 64<sub>10</sub> + 8<sub>10</sub>  = 72<sub>10</sub>
 "2" = 64<sub>10</sub> + 16<sub>10</sub> = 80<sub>10</sub>
-"3" = 64<sub>10</sub> + 24<sub>10</sub> = 88<sub>10</sub> 
+"3" = 64<sub>10</sub> + 24<sub>10</sub> = 88<sub>10</sub>
 </pre>
 
 <br> </br>
@@ -776,10 +775,10 @@ A cipher value of "3" in the 8's place would put us over the desired total of 87
 
 <pre>
 .              1  2
-.              -  -  -    Decimal value so far = 80<sub>10</sub>   
-weight =       6  8  1 
-(in decimal    4  
-notation)       
+.              -  -  -    Decimal value so far = 80<sub>10</sub>
+weight =       6  8  1
+(in decimal    4
+notation)
 </pre>
 
 <br> </br>
@@ -792,10 +791,10 @@ Now, all we need to make a total of 87 is a cipher of "7" in the 1's place:
 
 <pre>
 .              1  2  7
-.              -  -  -    Decimal value so far = 87<sub>10</sub>   
-weight =       6  8  1  
-(in decimal    4  
-notation)       
+.              -  -  -    Decimal value so far = 87<sub>10</sub>
+weight =       6  8  1
+(in decimal    4
+notation)
 </pre>
 
 <br> </br>
@@ -810,7 +809,7 @@ Of course, if you were paying attention during the last section on octal/binary 
 .          Implied zeros
 .               ||
 .               001 010 111   Binary
-.               &mdash; --- &mdash; 
+.               &mdash; --- &mdash;
 .                1   2   7    Octal
 .
 Answer: 1010111<sub>2</sub> = 127<sub>8</sub>
@@ -834,7 +833,7 @@ This other method uses repeated cycles of division (using decimal notation) to b
 .   2                of the quotient times the divisor (0.5 x 2)
 .
 .   43               Take the whole-number portion of 43.5 (43)
-.  &mdash; = 21.5        and divide it by 2 to get 21.5, or 21 with 
+.  &mdash; = 21.5        and divide it by 2 to get 21.5, or 21 with
 .   2                a remainder of 1
 .
 .   21               And so on . . . remainder = 1 (0.5 x 2)
@@ -867,12 +866,12 @@ The binary bits are assembled from the remainders of the successive division ste
 <br> </br>
 
 <pre>
-.   87               Divide 87 by 8, to get a quotient of 10.875 
+.   87               Divide 87 by 8, to get a quotient of 10.875
 .  &mdash; = 10.875      Division "remainder" = 7, or the < 1 portion
 .   8                of the quotient times the divisor (.875 x 8)
 .
 .   10
-.  &mdash; = 1.25        Remainder = 2 
+.  &mdash; = 1.25        Remainder = 2
 .   8
 .
 .   1
@@ -899,7 +898,7 @@ We can use a similar technique for converting numeration systems dealing with qu
 .  0.25 x 2 = 0.5         Integer portion of product = 0
 .
 .  0.5 x 2 = 1.0          Integer portion of product = 1
-.                         Stop when product is a pure integer 
+.                         Stop when product is a pure integer
 .                         (ends with .0)
 .
 .  RESULT:   0.8125<sub>10</sub>   = 0.1101<sub>2</sub>
@@ -915,10 +914,10 @@ As with the repeat-division process for integers, each step gives us the next di
 
 <pre>
 REPEATED DIVISION FOR THE INTEGER PORTION:
-.   
+.
 .     54
 .    &mdash; = 27.0          Remainder = 0
-.     2 
+.     2
 .
 .     27
 .    &mdash; = 13.5          Remainder = 1  (0.5 x 2)
@@ -929,11 +928,11 @@ REPEATED DIVISION FOR THE INTEGER PORTION:
 .     2
 .
 .     6
-.    &mdash; = 3.0           Remainder = 0 
+.    &mdash; = 3.0           Remainder = 0
 .     2
 .
 .     3
-.    &mdash; = 1.5           Remainder = 1 (0.5 x 2) 
+.    &mdash; = 1.5           Remainder = 1 (0.5 x 2)
 .     2
 .
 .     1
@@ -947,7 +946,7 @@ PARTIAL ANSWER:  54<sub>10</sub>   = 110110<sub>2</sub>
 
 <pre>
 REPEATED MULTIPLICATION FOR THE < 1 PORTION:
-.  
+.
 .  0.40625 x 2 = 0.8125  Integer portion of product = 0
 .
 .  0.8125 x 2 = 1.625    Integer portion of product = 1

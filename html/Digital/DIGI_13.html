@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -21,19 +21,18 @@ i
 <a href="DIGI_14.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
-<h1>Lessons In Electric Circuits -- Volume IV</h1>
 <h1>Chapter 13</h1>
 
 
 
 
-<h1>DIGITAL-ANALOG CONVERSION</h1> 
+<h1>DIGITAL-ANALOG CONVERSION</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid37820"><u>Introduction</u></a></li>
@@ -57,29 +56,29 @@ Connecting digital circuitry to sensor devices is simple if the sensor devices a
 An ADC inputs an analog electrical signal such as voltage or current and outputs a binary number.  In block diagram form, it can be represented as such:
 </p>
 
-<p> <img src="04249.png"> </p> 
+<p> <img src="04249.png"> </p>
 
 <p>
 A DAC, on the other hand, inputs a binary number and outputs an analog voltage or current signal.  In block diagram form, it looks like this:
 </p>
 
-<p> <img src="04250.png"> </p> 
+<p> <img src="04250.png"> </p>
 
 <p>
 Together, they are often used in digital systems to provide complete interface with analog sensors and output devices for control systems such as those used in automotive engine controls:
 </p>
 
-<p> <img src="04251.png"> </p> 
+<p> <img src="04251.png"> </p>
 
 <p>
 It is much easier to convert a digital signal into an analog signal than it is to do the reverse.  Therefore, we will begin with DAC circuitry and then move to ADC circuitry.
 </p>
 
 
- 
 
 
- 
+
+
 
 <h2><u><a name="xtocid37821">The R/2</a><sup>n</sup>R DAC</u></h2>
 
@@ -87,19 +86,19 @@ It is much easier to convert a digital signal into an analog signal than it is t
 This DAC circuit, otherwise known as the <i>binary-weighted-input</i> DAC, is a variation on the inverting summer op-amp circuit.  If you recall, the classic inverting summer circuit is an operational amplifier using negative feedback for controlled gain, with several voltage inputs and one voltage output.  The output voltage is the inverted (opposite polarity) sum of all input voltages:
 </p>
 
-<p> <img src="04269.png"> </p> 
+<p> <img src="04269.png"> </p>
 
 <p>
 For a simple inverting summer circuit, all resistors must be of equal value.  If any of the input resistors were different, the input voltages would have different degrees of effect on the output, and the output voltage would not be a true sum.  Let's consider, however, intentionally setting the input resistors at different values.  Suppose we were to set the input resistor values at multiple powers of two: R, 2R, and 4R, instead of all the same value R:
 </p>
 
-<p> <img src="04270.png"> </p> 
+<p> <img src="04270.png"> </p>
 
 <p>
 Starting from V<sub>1</sub> and going through V<sub>3</sub>, this would give each input voltage exactly half the effect on the output as the voltage before it.  In other words, input voltage V<sub>1</sub> has a 1:1 effect on the output voltage (gain of 1), while input voltage V<sub>2</sub> has half that much effect on the output (a gain of 1/2), and V<sub>3</sub> half of that (a gain of 1/4).  These ratios are were not arbitrarily chosen: they are the same ratios corresponding to place weights in the binary numeration system.  If we drive the inputs of this circuit with digital gates so that each input is either 0 volts or full supply voltage, the output voltage will be an analog representation of the binary value of these three bits.
 </p>
 
-<p> <img src="04271.png"> </p> 
+<p> <img src="04271.png"> </p>
 
 <p>
 If we chart the output voltages for all eight combinations of binary bits (000 through 111) input to this circuit, we will get the following progression of voltages:
@@ -135,20 +134,20 @@ If we chart the output voltages for all eight combinations of binary bits (000 t
 Note that with each step in the binary count sequence, there results a 1.25 volt change in the output.  This circuit is very easy to simulate using SPICE.  In the following simulation, I set up the DAC circuit with a binary input of 110 (note the first node numbers for resistors R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub>: a node number of "1" connects it to the positive side of a 5 volt battery, and a node number of "0" connects it to ground).  The output voltage appears on node 6 in the simulation:
 </p>
 
-<p> <img src="04272.png"> </p> 
+<p> <img src="04272.png"> </p>
 
 <br> </br>
 
 <pre>
-binary-weighted dac     
- v1 1 0 dc 5     
- rbogus 1 0 99k  
- r1 1 5 1k       
- r2 1 5 2k       
- r3 0 5 4k       
- rfeedbk 5 6 1k  
- e1 6 0 5 0 999k 
- .end    
+binary-weighted dac
+ v1 1 0 dc 5
+ rbogus 1 0 99k
+ r1 1 5 1k
+ r2 1 5 2k
+ r3 0 5 4k
+ rfeedbk 5 6 1k
+ e1 6 0 5 0 999k
+ .end
 
 node  voltage      node  voltage      node  voltage
 (1)   5.0000       (5)   0.0000       (6)  -7.5000
@@ -191,7 +190,7 @@ We can adjust resistors values in this circuit to obtain output voltages directl
 If we wish to expand the resolution of this DAC (add more bits to the input), all we need to do is add more input resistors, holding to the same power-of-two sequence of values:
 </p>
 
-<p> <img src="04273.png"> </p> 
+<p> <img src="04273.png"> </p>
 
 <p>
 It should be noted that all logic gates must output exactly the same voltages when in the "high" state.  If one gate is outputting +5.02 volts for a "high" while another is outputting only +4.86 volts, the analog output of the DAC will be adversely affected.  Likewise, all "low" voltage levels should be identical between gates, ideally 0.00 volts exactly.  It is recommended that CMOS output gates are used, and that input/feedback resistor values are chosen so as to minimize the amount of current each gate has to source or sink.
@@ -202,7 +201,7 @@ It should be noted that all logic gates must output exactly the same voltages wh
 
 
 
- 
+
 
 
 <h2><u><a name="xtocid37822">The R/2R DAC</a></u></h2>
@@ -215,7 +214,7 @@ An alternative to the binary-weighted-input DAC is the so-called R/2R DAC, which
 Of course, we could take our last DAC circuit and modify it to use a single input resistance value, by connecting multiple resistors together in series:
 </p>
 
-<p> <img src="04274.png"> </p> 
+<p> <img src="04274.png"> </p>
 
 <p>
 Unfortunately, this approach merely substitutes one type of complexity for another: volume of components over diversity of component values.  There is, however, a more efficient design methodology.
@@ -225,7 +224,7 @@ Unfortunately, this approach merely substitutes one type of complexity for anoth
 By constructing a different kind of resistor network on the input of our summing circuit, we can achieve the same kind of binary weighting with only two kinds of resistor values, and with only a modest increase in resistor count.  This "ladder" network looks like this:
 </p>
 
-<p> <img src="04275.png"> </p> 
+<p> <img src="04275.png"> </p>
 
 <p>
 Mathematically analyzing this ladder network is a bit more complex than for the previous circuit, where each input resistor provided an easily-calculated gain for that bit.  For those who are interested in pursuing the intricacies of this circuit further, you may opt to use Thevenin's theorem for each binary input (remember to consider the effects of the <i>virtual ground</i>), and/or use a simulation program like SPICE to determine circuit response.  Either way, you should obtain the following table of figures:
@@ -266,7 +265,7 @@ As was the case with the binary-weighted DAC design, we can modify the value of 
 
 
 
- 
+
 
 
 <h2><u><a name="xtocid37823">Flash ADC</a></u></h2>
@@ -278,7 +277,7 @@ As was the case with the binary-weighted DAC design, we can modify the value of 
 Also called the <i>parallel</i> A/D converter, this circuit is the simplest to understand.  It is formed of a series of comparators, each one comparing the input signal to a unique reference voltage.  The comparator outputs connect to the inputs of a priority encoder circuit, which then produces a binary output.  The following illustration shows a 3-bit flash ADC circuit:
 </p>
 
-<p> <img src="04256.png"> </p> 
+<p> <img src="04256.png"> </p>
 
 <p>
 V<sub>ref</sub> is a stable reference voltage provided by a precision voltage regulator as part of the converter circuit, not shown in the schematic.  As the analog input voltage exceeds the reference voltage at each comparator, the comparator outputs will sequentially saturate to a high state.  The priority encoder generates a binary number based on the highest-order active input, ignoring all other active inputs.
@@ -288,22 +287,22 @@ V<sub>ref</sub> is a stable reference voltage provided by a precision voltage re
 When operated, the flash ADC produces an output that looks something like this:
 </p>
 
-<p> <img src="04266.png"> </p> 
+<p> <img src="04266.png"> </p>
 
 <p>
 For this particular application, a regular priority encoder with all its inherent complexity isn't necessary.  Due to the nature of the sequential comparator output states (each comparator saturating "high" in sequence from lowest to highest), the same "highest-order-input selection" effect may be realized through a set of Exclusive-OR gates, allowing the use of a simpler, non-priority encoder:
 </p>
 
-<p> <img src="04257.png"> </p> 
+<p> <img src="04257.png"> </p>
 
 <p>
 And, of course, the encoder circuit itself can be made from a matrix of diodes, demonstrating just how simply this converter design may be constructed:
 </p>
 
-<p> <img src="04258.png"> </p> 
+<p> <img src="04258.png"> </p>
 
 <p>
-Not only is the flash converter the simplest in terms of operational theory, but it is the most efficient of the ADC technologies in terms of speed, being limited only in comparator and gate propagation delays.  Unfortunately, it is the most component-intensive for any given number of output bits.  This three-bit flash ADC requires seven comparators.  A four-bit version would require 15 comparators.  With each additional output bit, the number of required comparators doubles.  Considering that eight bits is generally considered the minimum necessary for any practical ADC (255 comparators needed!), the flash methodology quickly shows its weakness. 
+Not only is the flash converter the simplest in terms of operational theory, but it is the most efficient of the ADC technologies in terms of speed, being limited only in comparator and gate propagation delays.  Unfortunately, it is the most component-intensive for any given number of output bits.  This three-bit flash ADC requires seven comparators.  A four-bit version would require 15 comparators.  With each additional output bit, the number of required comparators doubles.  Considering that eight bits is generally considered the minimum necessary for any practical ADC (255 comparators needed!), the flash methodology quickly shows its weakness.
 </p>
 
 <p>
@@ -314,8 +313,8 @@ An additional advantage of the flash converter, often overlooked, is the ability
 
 
 
- 
- 
+
+
 
 
 <h2><u><a name="xtocid37824">Digital ramp ADC</a></u></h2>
@@ -331,7 +330,7 @@ Also known as the <i>stairstep-ramp</i>, or simply <i>counter</i> A/D converter,
 The basic idea is to connect the output of a free-running binary counter to the input of a DAC, then compare the analog output of the DAC with the analog input signal to be digitized and use the comparator's output to tell the counter when to stop counting and reset.  The following schematic shows the basic idea:
 </p>
 
-<p> <img src="04259.png"> </p> 
+<p> <img src="04259.png"> </p>
 
 <p>
 As the counter counts up with each clock pulse, the DAC outputs a slightly higher (more positive) voltage.  This voltage is compared against the input voltage by the comparator.  If the input voltage is greater than the DAC output, the comparator's output will be high and the counter will continue counting normally.  Eventually, though, the DAC output will exceed the input voltage, causing the comparator's output to go low.  This will cause two things to happen: first, the high-to-low transition of the comparator's output will cause the shift register to "load" whatever binary count is being output by the counter, thus updating the ADC circuit's output; secondly, the counter will receive a low signal on the active-low LOAD input, causing it to reset to 00000000 on the next clock pulse.
@@ -341,13 +340,13 @@ As the counter counts up with each clock pulse, the DAC outputs a slightly highe
 The effect of this circuit is to produce a DAC output that ramps up to whatever level the analog input signal is at, output the binary number corresponding to that level, and start over again.  Plotted over time, it looks like this:
 </p>
 
-<p> <img src="04260.png"> </p> 
+<p> <img src="04260.png"> </p>
 
 <p>
 Note how the time between updates (new digital output values) changes depending on how high the input voltage is.  For low signal levels, the updates are rather close-spaced.  For higher signal levels, they are spaced further apart in time:
 </p>
 
-<p> <img src="04261.png"> </p> 
+<p> <img src="04261.png"> </p>
 
 <p>
 For many ADC applications, this variation in update frequency (sample time) would not be acceptable.  This, and the fact that the circuit's need to count all the way from 0 at the beginning of each count cycle makes for relatively slow sampling of the analog signal, places the digital-ramp ADC at a disadvantage to other counter strategies.
@@ -356,8 +355,8 @@ For many ADC applications, this variation in update frequency (sample time) woul
 
 
 
- 
- 
+
+
 
 
 <h2><u><a name="xtocid37825">Successive approximation ADC</a></u></h2>
@@ -375,13 +374,13 @@ One method of addressing the digital ramp ADC's shortcomings is the so-called <i
 Without showing the inner workings of the successive-approximation register (SAR), the circuit looks like this:
 </p>
 
-<p> <img src="04262.png"> </p> 
+<p> <img src="04262.png"> </p>
 
 <p>
 It should be noted that the SAR is generally capable of outputting the binary number in <i>serial</i> (one bit at a time) format, thus eliminating the need for a shift register.  Plotted over time, the operation of a successive-approximation ADC looks like this:
 </p>
 
-<p> <img src="04263.png"> </p> 
+<p> <img src="04263.png"> </p>
 
 <p>
 Note how the updates for this ADC occur at regular intervals, unlike the digital ramp ADC circuit.
@@ -402,7 +401,7 @@ Note how the updates for this ADC occur at regular intervals, unlike the digital
 A third variation on the counter-DAC-based converter theme is, in my estimation, the most elegant.  Instead of a regular "up" counter driving the DAC, this circuit uses an up/down counter.  The counter is continuously clocked, and the up/down control line is driven by the output of the comparator.  So, when the analog input signal exceeds the DAC output, the counter goes into the "count up" mode.  When the DAC output exceeds the analog input, the counter switches into the "count down" mode.  Either way, the DAC output always counts in the proper direction to <i>track</i> the input signal.
 </p>
 
-<p> <img src="04264.png"> </p> 
+<p> <img src="04264.png"> </p>
 
 <p>
 Notice how no shift register is needed to buffer the binary count at the end of a cycle.  Since the counter's output continuously tracks the input (rather than counting to meet the input and then resetting back to zero), the binary output is legitimately updated with every clock pulse.
@@ -412,7 +411,7 @@ Notice how no shift register is needed to buffer the binary count at the end of 
 An advantage of this converter circuit is speed, since the counter never has to reset.  Note the behavior of this circuit:
 </p>
 
-<p> <img src="04265.png"> </p> 
+<p> <img src="04265.png"> </p>
 
 <p>
 Note the much faster update time than any of the other "counting" ADC circuits.  Also note how at the very beginning of the plot where the counter had to "catch up" with the analog signal, the rate of change for the output was identical to that of the first counting ADC.  Also, with no shift register in this circuit, the binary output would actually ramp up rather than jump from zero to an accurate count as it did with the counter and successive approximation ADC circuits.
@@ -421,18 +420,18 @@ Note the much faster update time than any of the other "counting" ADC circuits. 
 <a name="Bit bobble"></a>
 
 <p>
-Perhaps the greatest drawback to this ADC design is the fact that the binary output is never stable: it always switches between counts with every clock pulse, even with a perfectly stable analog input signal.  This phenomenon is informally known as <i>bit bobble</i>, and it can be problematic in some digital systems.  
+Perhaps the greatest drawback to this ADC design is the fact that the binary output is never stable: it always switches between counts with every clock pulse, even with a perfectly stable analog input signal.  This phenomenon is informally known as <i>bit bobble</i>, and it can be problematic in some digital systems.
 </p>
 
 <p>
-This tendency can be overcome, though, through the creative use of a shift register.  For example, the counter's output may be latched through a parallel-in/parallel-out shift register only when the output changes by two or more steps.  Building a circuit to detect two or more successive counts in the same direction takes a little ingenuity, but is worth the effort. 
+This tendency can be overcome, though, through the creative use of a shift register.  For example, the counter's output may be latched through a parallel-in/parallel-out shift register only when the output changes by two or more steps.  Building a circuit to detect two or more successive counts in the same direction takes a little ingenuity, but is worth the effort.
 </p>
 
 
 
 
 
- 
+
 
 <h2><u><a name="xtocid37827">Slope (integrating) ADC</a></u></h2>
 
@@ -448,7 +447,7 @@ So far, we've only been able to escape the sheer volume of components in the fla
 The is the basic idea behind the so-called <i>single-slope</i>, or <i>integrating</i> ADC.  Instead of using a DAC with a ramped output, we use an op-amp circuit called an <i>integrator</i> to generate a sawtooth waveform which is then compared against the analog input by a comparator.  The time it takes for the sawtooth waveform to exceed the input signal voltage level is measured by means of a digital counter clocked with a precise-frequency square wave (usually from a crystal oscillator).  The basic schematic diagram is shown here:
 </p>
 
-<p> <img src="04267.png"> </p> 
+<p> <img src="04267.png"> </p>
 
 <p>
 The IGFET capacitor-discharging transistor scheme shown here is a bit oversimplified.  In reality, a latching circuit timed with the clock signal would most likely have to be connected to the IGFET gate to ensure full discharge of the capacitor when the comparator's output goes high.  The basic idea, however, is evident in this diagram.  When the comparator output is low (input voltage greater than integrator output), the integrator is allowed to charge the capacitor in a linear fashion.  Meanwhile, the counter is counting up at a rate fixed by the precision clock frequency.  The time it takes for the capacitor to charge up to the same voltage level as the input depends on the input signal level and the combination of -V<sub>ref</sub>, R, and C.  When the capacitor reaches that voltage level, the comparator output goes high, loading the counter's output into the shift register for a final output.  The IGFET is triggered "on" by the comparator's high output, discharging the capacitor back to zero volts.  When the integrator output voltage falls to zero, the comparator output switches back to a low state, clearing the counter and enabling the integrator to ramp up voltage again.
@@ -458,7 +457,7 @@ The IGFET capacitor-discharging transistor scheme shown here is a bit oversimpli
 This ADC circuit behaves very much like the digital ramp ADC, except that the comparator reference voltage is a smooth sawtooth waveform rather than a "stairstep:"
 </p>
 
-<p> <img src="04268.png"> </p> 
+<p> <img src="04268.png"> </p>
 
 <p>
 The single-slope ADC suffers all the disadvantages of the digital ramp ADC, with the added drawback of <i>calibration drift</i>.  The accurate correspondence of this ADC's output with its input is dependent on the voltage slope of the integrator being matched to the counting rate of the counter (the clock frequency).  With the digital ramp ADC, the clock frequency had no effect on conversion accuracy, only on update time.  In this circuit, since the rate of integration and the rate of count are independent of each other, variation between the two is inevitable as it ages, and will result in a loss of accuracy.  The only good thing to say about this circuit is that it avoids the use of a DAC, which reduces circuit complexity.
@@ -494,14 +493,14 @@ Another important advantage of this method is that the input signal becomes aver
 <a name="ADC, delta-sigma"></a>
 
 <p>
-One of the more advanced ADC technologies is the so-called delta-sigma, or &#916;&#931; (using the proper Greek letter notation).  In mathematics and physics, the capital Greek letter delta (&#916;) represents <i>difference</i> or <i>change</i>, while the capital letter sigma (&#931;) represents <i>summation</i>: the adding of multiple terms together.  Sometimes this converter is referred to by the same Greek letters in reverse order: sigma-delta, or &#931;&#916;.  
+One of the more advanced ADC technologies is the so-called delta-sigma, or &#916;&#931; (using the proper Greek letter notation).  In mathematics and physics, the capital Greek letter delta (&#916;) represents <i>difference</i> or <i>change</i>, while the capital letter sigma (&#931;) represents <i>summation</i>: the adding of multiple terms together.  Sometimes this converter is referred to by the same Greek letters in reverse order: sigma-delta, or &#931;&#916;.
 </p>
 
 <p>
 In a &#916;&#931; converter, the analog input voltage signal is connected to the input of an integrator, producing a voltage rate-of-change, or slope, at the output corresponding to input magnitude.  This ramping voltage is then compared against ground potential (0 volts) by a comparator.  The comparator acts as a sort of 1-bit ADC, producing 1 bit of output ("high" or "low") depending on whether the integrator output is positive or negative.  The comparator's output is then latched through a D-type flip-flop clocked at a high frequency, and <i>fed back</i> to another input channel on the integrator, to drive the integrator in the direction of a 0 volt output.  The basic circuit looks like this:
 </p>
 
-<p> <img src="04276.png"> </p> 
+<p> <img src="04276.png"> </p>
 
 <p>
 The leftmost op-amp is the (summing) integrator.  The next op-amp the integrator feeds into is the comparator, or 1-bit ADC.  Next comes the D-type flip-flop, which latches the comparator's output at every clock pulse, sending either a "high" or "low" signal to the next comparator at the top of the circuit.  This final comparator is necessary to convert the single-polarity 0V / 5V logic level output voltage of the flip-flop into a +V / -V voltage signal to be fed back to the integrator.
@@ -515,25 +514,25 @@ If the integrator output is positive, the first comparator will output a "high" 
 Functionally, this results in a serial stream of bits output by the flip-flop.  If the analog input is zero volts, the integrator will have no tendency to ramp either positive or negative, except in response to the feedback voltage.  In this scenario, the flip-flop output will continually oscillate between "high" and "low," as the feedback system "hunts" back and forth, trying to maintain the integrator output at zero volts:
 </p>
 
-<p> <img src="04277.png"> </p> 
+<p> <img src="04277.png"> </p>
 
 <p>
 If, however, we apply a negative analog input voltage, the integrator will have a tendency to ramp its output in a positive direction.  Feedback can only add to the integrator's ramping by a fixed voltage over a fixed time, and so the bit stream output by the flip-flop will not be quite the same:
 </p>
 
-<p> <img src="04278.png"> </p> 
+<p> <img src="04278.png"> </p>
 
 <p>
 By applying a larger (negative) analog input signal to the integrator, we force its output to ramp more steeply in the positive direction.  Thus, the feedback system has to output more 1's than before to bring the integrator output back to zero volts:
 </p>
 
-<p> <img src="04279.png"> </p> 
+<p> <img src="04279.png"> </p>
 
 <p>
 As the analog input signal increases in magnitude, so does the occurrence of 1's in the digital output of the flip-flop:
 </p>
 
-<p> <img src="04280.png"> </p> 
+<p> <img src="04280.png"> </p>
 
 <p>
 A parallel binary number output is obtained from this circuit by averaging the serial stream of bits together.  For example, a counter circuit could be designed to collect the total number of 1's output by the flip-flop in a given number of clock pulses.  This count would then be indicative of the analog input voltage.
@@ -550,7 +549,7 @@ Variations on this theme exist, employing multiple integrator stages and/or comp
 
 
 
- 
+
 
 
 <h2><u><a name="xtocid37829">Practical considerations of ADC circuits</a></u></h2>
@@ -569,7 +568,7 @@ For example, an ADC with a 10-bit output can represent up to 1024 (2<sup>10</sup
 Resolution is very important in data acquisition systems (circuits designed to interpret and record physical measurements in electronic form).  Suppose we were measuring the height of water in a 40-foot tall storage tank using an instrument with a 10-bit ADC.  0 feet of water in the tank corresponds to 0% of measurement, while 40 feet of water in the tank corresponds to 100% of measurement.  Because the ADC is fixed at 10 bits of binary data output, it will interpret any given tank level as one out of 1024 possible states.  To determine how much physical water level will be represented in each <i>step</i> of the ADC, we need to divide the 40 feet of measurement span by the number of steps in the 0-to-1024 range of possibilities, which is 1023 (one less than 1024).  Doing this, we obtain a figure of 0.039101 feet per step.  This equates to 0.46921 inches per step, a little less than half an inch of water level represented for every binary count of the ADC.
 </p>
 
-<p> <img src="04307.png"> </p> 
+<p> <img src="04307.png"> </p>
 
 <p>
 This step value of 0.039101 feet (0.46921 inches) represents the smallest amount of tank level change detectable by the instrument.  Admittedly, this is a small amount, less than 0.1% of the overall measurement span of 40 feet.  However, for some applications it may not be fine enough.  Suppose we needed this instrument to be able to indicate tank level changes down to one-tenth of an inch.  In order to achieve this degree of resolution and still maintain a measurement span of 40 feet, we would need an instrument with more than ten ADC bits.
@@ -590,13 +589,13 @@ Another important consideration of ADC circuitry is its <i>sample frequency</i>,
 Consider the following illustration of ADC conversion rate versus signal type, typical of a successive-approximation ADC with regular sample intervals:
 </p>
 
-<p> <img src="04252.png"> </p> 
+<p> <img src="04252.png"> </p>
 
 <p>
 Here, for this slow-changing signal, the sample rate is more than adequate to capture its general trend.  But consider <i>this</i> example with the same sample time:
 </p>
 
-<p> <img src="04253.png"> </p> 
+<p> <img src="04253.png"> </p>
 
 <p>
 When the sample period is too long (too slow), substantial details of the analog signal will be missed.  Notice how, especially in the latter portions of the analog signal, the digital output utterly fails to reproduce the true shape.  Even in the first section of the analog waveform, the digital reproduction deviates substantially from the true shape of the wave.
@@ -615,13 +614,13 @@ It is imperative that an ADC's sample time is fast enough to capture essential c
 If an ADC is subjected to an analog input signal whose frequency exceeds the Nyquist frequency for that ADC, the converter will output a digitized signal of falsely low frequency.  This phenomenon is known as <i>aliasing</i>.  Observe the following illustration to see how aliasing occurs:
 </p>
 
-<p> <img src="04254.png"> </p> 
+<p> <img src="04254.png"> </p>
 
 <p>
 Note how the period of the output waveform is much longer (slower) than that of the input waveform, and how the two waveform shapes aren't even similar:
 </p>
 
-<p> <img src="04255.png"> </p> 
+<p> <img src="04255.png"> </p>
 
 <p>
 It should be understood that the Nyquist frequency is an <i>absolute</i> maximum frequency limit for an ADC, and does not represent the highest <i>practical</i> frequency measurable.  To be safe, one shouldn't expect an ADC to successfully resolve any frequency greater than one-fifth to one-tenth of its sample frequency.
