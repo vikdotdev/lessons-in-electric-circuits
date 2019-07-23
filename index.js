@@ -19,7 +19,7 @@ function getHtmlFiles(bookPath) {
 }
 
 
-function makeEpub(bookName) {
+function makeEpub(bookName, title) {
   const htmlFiles = getHtmlFiles(`html/${bookName}`);
 
   const tempFileContents = htmlFiles
@@ -39,11 +39,45 @@ function makeEpub(bookName) {
   const tempFiles = getHtmlFiles(`temp/${bookName}`);
 
   shell.mkdir('epub');
-  shell.exec(`pandoc --metadata title="${bookName}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, (code, stdout, stderr) => {
+  shell.exec(`pandoc  --metadata title="${title}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, (code, stdout, stderr) => {
     console.log(`Exit code: ${code}`)
     console.log(`Out: ${stdout}`);
     console.log(`Err: ${stderr}`);
   });
 }
 
-makeEpub('DC');
+(function main() {
+  const folders = [{
+      name: 'DC',
+      title: 'Lessons In Electrical Circuits - Volume I'
+    },
+    {
+      name: 'AC',
+      title: 'Lessons In Electrical Circuits - Volume II'
+    },
+    {
+      name: 'Semi',
+      title: 'Lessons In Electrical Circuits - Volume III'
+    },
+    {
+      name: 'Digital',
+      title: 'Lessons In Electrical Circuits - Volume IV'
+    },
+    {
+      name: 'Ref',
+      title: 'Lessons In Electrical Circuits - Volume V'
+    },
+    {
+
+      name: 'Exper',
+      title: 'Lessons In Electrical Circuits - Volume VI'
+    }
+  ];
+
+  folders.forEach(folder => {
+    const { name, title } = folder;
+    makeEpub(name, title);
+  });
+})();
+
+
