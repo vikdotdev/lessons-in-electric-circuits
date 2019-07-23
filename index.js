@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
-let globalBookName = '';
+let globalBookName = ''; // a giant hack - fix it
 
 function stripHead(file) {
   return file.replace(/<title>.+<\/title>/gi, '');
@@ -19,7 +19,6 @@ function getHtmlFiles(bookPath) {
     .sort((a, b) => `${a}`.localeCompare(`${b}`, 'en', { numeric: true }));
 }
 
-
 function makeEpub(bookName, title) {
   globalBookName = bookName;
   const htmlFiles = getHtmlFiles(`html/${bookName}`);
@@ -34,22 +33,24 @@ function makeEpub(bookName, title) {
     const tmp = filePath.split('/');
     tmp[0] = 'temp';
     const newPath = tmp.join('/');
-    console.log('newpath', newPath)
     fs.writeFileSync(newPath, tempFileContents[i]);
   });
 
   const tempFiles = getHtmlFiles(`temp/${bookName}`);
 
-  shell.mkdir('epub');
-  shell.exec(`pandoc  --metadata title="${title}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, (code, stdout, stderr) => {
-    console.log(`Exit code: ${code}`)
-    console.log(`Out: ${stdout}`);
-    console.log(`Err: ${stderr}`);
+  shell.mkdir('-p', 'epub');
+  shell.exec(`pandoc  --metadata title="${title}" ${path.resolve(tempFiles.join(' '))} -o epub/${bookName}.epub`, code => {
+    if (code == 0) {
+      console.log(`${title} successfully compiled.`)
+    } else {
+      console.log(`Exit code: ${code}`)
+    }
   });
 }
 
 (function main() {
-  const folders = [{
+  const folders = [
+    {
       name: 'DC',
       title: 'Lessons In Electrical Circuits - Volume I'
     },
@@ -70,7 +71,6 @@ function makeEpub(bookName, title) {
       title: 'Lessons In Electrical Circuits - Volume V'
     },
     {
-
       name: 'Exper',
       title: 'Lessons In Electrical Circuits - Volume VI'
     }
