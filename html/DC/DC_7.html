@@ -1,12 +1,12 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
- 
+
 <head>
 
 <title>Lessons In Electric Circuits -- Volume I (DC) - Chapter 7</title>
   <meta name="description" content="Series-Parallel Combination Circuits">
-  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, series circuit, parallel circuit, volt, amp, ohm, voltage, current, resistance, qualitative analysis, troubleshooting, equivalent resistance"> 
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, series circuit, parallel circuit, volt, amp, ohm, voltage, current, resistance, qualitative analysis, troubleshooting, equivalent resistance">
 
 </head>
 
@@ -14,9 +14,6 @@
 
 <body bgColor=white>
 
-<a href="DC_6.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_8.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
 <h1>Lessons In Electric Circuits -- Volume I</h1>
@@ -25,13 +22,13 @@
 
 
 
-<h1>SERIES-PARALLEL COMBINATION CIRCUITS</h1> 
+<h1>SERIES-PARALLEL COMBINATION CIRCUITS</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid33420"><u>What is a series-parallel circuit?</u></a></li>
@@ -95,7 +92,7 @@ However, if circuit components are series-connected in some parts and parallel i
 <p> <img src="10126.png"> </p>
 
 <p>
-This circuit is neither simple series nor simple parallel.  Rather, it contains elements of both.  The current exits the bottom of the battery, splits up to travel through R<sub>3</sub> and R<sub>4</sub>, rejoins, then splits up again to travel through R<sub>1</sub> and R<sub>2</sub>, then rejoins again to return to the top of the battery.  There exists more than one path for current to travel (not series), yet there are more than two sets of electrically common points in the circuit (not parallel). 
+This circuit is neither simple series nor simple parallel.  Rather, it contains elements of both.  The current exits the bottom of the battery, splits up to travel through R<sub>3</sub> and R<sub>4</sub>, rejoins, then splits up again to travel through R<sub>1</sub> and R<sub>2</sub>, then rejoins again to return to the top of the battery.  There exists more than one path for current to travel (not series), yet there are more than two sets of electrically common points in the circuit (not parallel).
 </p>
 
 <p>
@@ -208,7 +205,7 @@ Now we start to work backwards in our progression of circuit re-drawings to the 
 <p> <img src="00127.png"> </p>
 
 <p>
-Since R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> are in series with each other, the current through those two sets of equivalent resistances must be the same.  Furthermore, the current through them must be the same as the total current, so we can fill in our table with the appropriate current values, simply copying the current figure from the Total column to the R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> columns: 
+Since R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> are in series with each other, the current through those two sets of equivalent resistances must be the same.  Furthermore, the current through them must be the same as the total current, so we can fill in our table with the appropriate current values, simply copying the current figure from the Total column to the R<sub>1</sub>//R<sub>2</sub> and R<sub>3</sub>//R<sub>4</sub> columns:
 </p>
 
 <p> <img src="10130.png"> </p>
@@ -266,32 +263,32 @@ A computer simulation can also be used to verify the accuracy of these figures. 
 <br> </br>
 
 <pre>
-series-parallel circuit  
-v1 1 0  
-vi1 1 2 dc 0    
-vi2 1 3 dc 0    
-r1 2 4 100      
-r2 3 4 250      
-vi3 4 5 dc 0    
-vi4 4 6 dc 0    
-r3 5 0 350      
-r4 6 0 200      
-.dc v1 24 24 1  
-.print dc v(2,4) v(3,4) v(5,0) v(6,0)   
-.print dc i(vi1) i(vi2) i(vi3) i(vi4)   
-.end    
+series-parallel circuit
+v1 1 0
+vi1 1 2 dc 0
+vi2 1 3 dc 0
+r1 2 4 100
+r2 3 4 250
+vi3 4 5 dc 0
+vi4 4 6 dc 0
+r3 5 0 350
+r4 6 0 200
+.dc v1 24 24 1
+.print dc v(2,4) v(3,4) v(5,0) v(6,0)
+.print dc i(vi1) i(vi2) i(vi3) i(vi4)
+.end
 </pre>
 
 <br> </br>
 
 <p>
-I've annotated SPICE's output figures to make them more readable, denoting which voltage and current figures belong to which resistors.  
+I've annotated SPICE's output figures to make them more readable, denoting which voltage and current figures belong to which resistors.
 </p>
 
 <br> </br>
 
 <pre>
-v1            v(2,4)      v(3,4)      v(5)        v(6)        
+v1            v(2,4)      v(3,4)      v(5)        v(6)
 2.400E+01     8.627E+00   8.627E+00   1.537E+01   1.537E+01
 Battery       R1 voltage  R2 voltage  R3 voltage  R4 voltage
 voltage
@@ -300,10 +297,10 @@ voltage
 <br> </br>
 
 <pre>
-v1            i(vi1)      i(vi2)      i(vi3)      i(vi4)      
+v1            i(vi1)      i(vi2)      i(vi3)      i(vi4)
 2.400E+01     8.627E-02   3.451E-02   4.392E-02   7.686E-02
 Battery       R1 current  R2 current  R3 current  R4 current
-voltage 
+voltage
 </pre>
 
 <br> </br>
@@ -348,7 +345,7 @@ With electric circuits and circuit diagrams, the length and routing of wire conn
 </p>
 
 <p>
-The strategy I have found easiest to apply is to start by tracing the current from one terminal of the battery around to the other terminal, following the loop of components closest to the battery and ignoring all other wires and components for the time being.  While tracing the path of the loop, mark each resistor with the appropriate polarity for voltage drop. 
+The strategy I have found easiest to apply is to start by tracing the current from one terminal of the battery around to the other terminal, following the loop of components closest to the battery and ignoring all other wires and components for the time being.  While tracing the path of the loop, mark each resistor with the appropriate polarity for voltage drop.
 </p>
 
 <p>
@@ -372,7 +369,7 @@ Any components encountered along this short loop are drawn vertically in order:
 <p> <img src="00134.png"> </p>
 
 <p>
-Now, proceed to trace any loops of components connected around components that were just traced.  In this case, there's a loop around R<sub>1</sub> formed by R<sub>2</sub>, and another loop around R<sub>3</sub> formed by R<sub>4</sub>: 
+Now, proceed to trace any loops of components connected around components that were just traced.  In this case, there's a loop around R<sub>1</sub> formed by R<sub>2</sub>, and another loop around R<sub>3</sub> formed by R<sub>4</sub>:
 </p>
 
 <p> <img src="00135.png"> </p>
@@ -442,7 +439,7 @@ Adding R<sub>2</sub> to the vertical drawing, and we're finished!  The result is
 <p> <img src="00145.png"> </p>
 
 <p>
-This simplified layout greatly eases the task of determining where to start and how to proceed in reducing the circuit down to a single equivalent (total) resistance.  Notice how the circuit has been re-drawn, all we have to do is start from the right-hand side and work our way left, reducing simple-series and simple-parallel resistor combinations one group at a time until we're done.  
+This simplified layout greatly eases the task of determining where to start and how to proceed in reducing the circuit down to a single equivalent (total) resistance.  Notice how the circuit has been re-drawn, all we have to do is start from the right-hand side and work our way left, reducing simple-series and simple-parallel resistor combinations one group at a time until we're done.
 </p>
 
 <p>
@@ -513,7 +510,7 @@ This is the first "convoluted" circuit we straightened out for analysis in the l
 <p> <img src="00136.png"> </p>
 
 <p>
-R<sub>3</sub> and R<sub>4</sub> are in parallel with each other; so are R<sub>1</sub> and R<sub>2</sub>.  The parallel equivalents of R<sub>3</sub>//R<sub>4</sub> and R<sub>1</sub>//R<sub>2</sub> are in series with each other.  Expressed in symbolic form, the total resistance for this circuit is as follows: 
+R<sub>3</sub> and R<sub>4</sub> are in parallel with each other; so are R<sub>1</sub> and R<sub>2</sub>.  The parallel equivalents of R<sub>3</sub>//R<sub>4</sub> and R<sub>1</sub>//R<sub>2</sub> are in series with each other.  Expressed in symbolic form, the total resistance for this circuit is as follows:
 </p>
 
 <br> </br>
@@ -547,7 +544,7 @@ First, we need to determine what happens to the resistances of parallel subsecti
 <p> <img src="10137.png"> </p>
 
 <p>
-Now, we need to figure out what happens to the total resistance.  This part is easy: when we're dealing with only one component change in the circuit, the change in total resistance will be in the same direction as the change of the failed component.  This is not to say that the <i>magnitude</i> of change between individual component and total circuit will be the same, merely the <i>direction</i> of change.  In other words, if any single resistor decreases in value, then the total circuit resistance must also decrease, and vice versa.  In this case, since R<sub>2</sub> is the only failed component, and its resistance has decreased, the total resistance <i>must</i> decrease: 
+Now, we need to figure out what happens to the total resistance.  This part is easy: when we're dealing with only one component change in the circuit, the change in total resistance will be in the same direction as the change of the failed component.  This is not to say that the <i>magnitude</i> of change between individual component and total circuit will be the same, merely the <i>direction</i> of change.  In other words, if any single resistor decreases in value, then the total circuit resistance must also decrease, and vice versa.  In this case, since R<sub>2</sub> is the only failed component, and its resistance has decreased, the total resistance <i>must</i> decrease:
 </p>
 
 <p> <img src="10138.png"> </p>
@@ -792,7 +789,7 @@ Next, begin connecting components together wire by wire as shown in the schemati
 <p> <img src="00473.png"> </p>
 
 <p>
-Although there are minor variations possible with this terminal strip circuit, the choice of connections shown in this example sequence is both electrically accurate (electrically identical to the schematic diagram) and carries the additional benefit of not burdening any one screw terminal on the strip with more than two wire ends, a good practice in any terminal strip circuit.  
+Although there are minor variations possible with this terminal strip circuit, the choice of connections shown in this example sequence is both electrically accurate (electrically identical to the schematic diagram) and carries the additional benefit of not burdening any one screw terminal on the strip with more than two wire ends, a good practice in any terminal strip circuit.
 </p>
 
 <p>
@@ -803,13 +800,13 @@ An example of a "variant" wire connection might be the very last wire added (ste
 Another variation would be to reverse the terminal connections for resistor R<sub>7</sub>.  As shown in the last diagram, the voltage polarity across R<sub>7</sub> is negative on the left and positive on the right (- , +), whereas all the other resistor polarities are positive on the left and negative on the right (+ , -):
 </p>
 
-<p> <img src="00492.png"> </p> 
+<p> <img src="00492.png"> </p>
 
 <p>
 While this poses no electrical problem, it might cause confusion for anyone measuring resistor voltage drops with a voltmeter, especially an analog voltmeter which will "peg" downscale when subjected to a voltage of the wrong polarity.  For the sake of consistency, it might be wise to arrange all wire connections so that all resistor voltage drop polarities are the same, like this:
 </p>
 
-<p> <img src="00493.png"> </p> 
+<p> <img src="00493.png"> </p>
 
 <p>
 Though electrons do not care about such consistency in component layout, people do.  This illustrates an important aspect of any engineering endeavor: the human factor.  Whenever a design may be modified for easier comprehension and/or easier maintenance -- with no sacrifice of functional performance -- it should be done so.
@@ -862,9 +859,6 @@ Contributors to this chapter are listed in chronological order of their contribu
 <i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DC_A3.html">Design Science License</a>.
 </p>
 
-<a href="DC_6.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_8.html"><img src=next.jpg alt="Next"></a>
 
 </body>
 </html>

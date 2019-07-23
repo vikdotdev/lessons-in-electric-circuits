@@ -1,0 +1,2145 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 9</title>
+  <meta name="description" content="Transformers">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, faraday, michael faraday, magnetism, electromagnetism, induction, inductance, electromagnetic induction, mutual inductance, magnetization current, magnetomotive force, mmf, magnetic flux, flux density, field strength, step-up, step up, step-down, step down, stepup, stepdown, isolation, ratio, efficiency, phase, phasing, boost, buck, autotransformer, tesla coil, saturable reactor, impedance, impedance match, impedance matching, impedance matching transformer, regulation, voltage regulation, leakage inductance, ferroresonance, ferroresonant, ferroresonant transformer, lamination, laminated core, eddy current, current transformer, potential transformer, CT, PT, peaking transformer, saturation, magnetic saturation, integral, derivative, inrush, inrush current"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_8.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_10.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 9</h1>
+
+
+
+<!-- Added Scott-T subsection 09/18/2005 (DC)-->
+<!-- Added to Air core transformers subsection 09/18/2005 (DC)-->
+<!-- Added Spice-Nutmeg plots 04/30/2005 (DC)-->
+<!-- images used 02131.png -02163.png-->
+<!--02278.png, 02295.png-->
+<!--02305.png-2316.png, 02334.png 02336.png, 02340-02346.png-->
+<!--02411.png-->
+<!--12100.png-12108.png, 12138.png -12140.png-->
+<!--22039.png -22040.png-->
+
+<h1>TRANSFORMERS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid35020"><u>Mutual inductance and basic operation</u></a></li>
+<li><a href="#xtocid35021"><u>Step-up and step-down transformers</u></a></li>
+<li><a href="#xtocid35022"><u>Electrical isolation</u></a></li>
+<li><a href="#xtocid35023"><u>Phasing</u></a></li>
+<li><a href="#xtocid35024"><u>Winding configurations</u></a></li>
+<li><a href="#xtocid35025"><u>Voltage regulation</u></a></li>
+<li><a href="#xtocid35026"><u>Special transformers and applications</u></a></li>
+<ul>
+<li><a href="#xtocid35027"><u>Impedance matching</u></a></li>
+<li><a href="#xtocid35028"><u>Potential transformers </u></a></li>
+<li><a href="#xtocid35029"><u>Current transformers</u></a></li>
+<li><a href="#xtocid350210"><u>Air core transformers</u></a></li>
+<li><a href="#xtocid350211"><u>Tesla Coil </u></a></li>
+<li><a href="#xtocid350212"><u>Saturable reactors </u></a></li>
+<li><a href="#xtocid350213"><u>Scott-T transformer</u></a></li>
+<li><a href="#xtocid350214"><u>Linear Variable Differential Transformer</u></a></li>
+</ul>
+<li><a href="#xtocid350215"><u>Practical considerations</u></a></li>
+<ul>
+<li><a href="#xtocid350216"><u>Power capacity</u></a></li>
+<li><a href="#xtocid350217"><u>Energy losses</u></a></li>
+<li><a href="#xtocid350218"><u>Stray capacitance and inductance</u></a></li>
+<li><a href="#xtocid350219"><u>Core saturation</u></a></li>
+<li><a href="#xtocid350220"><u>Inrush current</u></a></li>
+<li><a href="#xtocid350221"><u>Heat and Noise</u></a></li>
+</ul>
+<li><a href="#xtocid350222"><u>Contributors</u></a></li>
+<li><a href="#xtocid350223">Bibliography</a></li></ul>
+
+<h2><u><a name="xtocid35020">Mutual inductance and basic operation</a></u></h2>
+
+<p>
+Suppose we were to wrap a coil of insulated wire around a loop of ferromagnetic material and energize this coil with an AC voltage source: (Figure <a href="#02305.png">  below</a> (a))
+</p>
+
+ 
+<a name="02305.png"></a> 
+<p> <img src="02305.png"> </p> 
+<p><i>Insulated winding on ferromagnetic loop has inductive reactance, limiting AC current.</i></p> 
+ 
+
+<p>
+As an inductor, we would expect this iron-core coil to oppose the applied voltage with its inductive reactance, limiting current through the coil as predicted by the equations X<sub>L</sub> = 2&#960;fL and I=E/X (or I=E/Z).  For the purposes of this example, though, we need to take a more detailed look at the interactions of voltage, current, and magnetic flux in the device.
+</p>
+
+<p>
+Kirchhoff's voltage law describes how the algebraic sum of all voltages in a loop must equal zero. In this example, we could apply this fundamental law of electricity to describe the respective voltages of the source and of the inductor coil. Here, as in any one-source, one-load circuit, the voltage dropped across the load must equal the voltage supplied by the source, assuming zero voltage dropped along the resistance of any connecting wires. In other words, the load (inductor coil) must produce an opposing voltage equal in magnitude to the source, in order that it may balance against the source voltage and produce an algebraic loop voltage sum of zero. From where does this opposing voltage arise? If the load were a resistor (Figure <a href="#02305.png">  above</a> (b)), the voltage drop originates from electrical energy loss, the &ldquo;friction&rdquo; of electrons flowing through the resistance. With a perfect inductor (no resistance in the coil wire), the opposing voltage comes from another mechanism: the <i>reaction</i> to a changing magnetic flux in the iron core. When AC current changes, flux &#934; changes. Changing flux induces a counter EMF.
+</p>
+
+<p>
+Michael Faraday discovered the mathematical relationship between magnetic flux (&#934;) and induced voltage with this equation:
+</p>
+
+<p> <img src="12138.png"> </p> 
+
+<p>
+The instantaneous voltage (voltage dropped at any instant in time) across a wire coil is equal to the number of turns of that coil around the core (N) multiplied by the instantaneous rate-of-change in magnetic flux (d&#934;/dt) linking with the coil.  Graphed, (Figure <a href="#02306.png">  below</a>) this shows itself as a set of sine waves (assuming a sinusoidal voltage source), the flux wave 90<sup>o</sup> lagging behind the voltage wave:
+</p>
+
+ 
+<a name="02306.png"></a> 
+<p> <img src="02306.png"> </p> 
+<p><i>Magnetic flux lags applied voltage by 90<sup>o</sup> because flux is proportional to a rate of change, d&#934;/dt.</i></p> 
+ 
+
+<a name="MMF"></a>
+<a name="Magnetomotive force"></a>
+<a name="Reluctance"></a>
+
+<p>
+Magnetic flux through a ferromagnetic material is analogous to current through a conductor: it must be motivated by some force in order to occur.  In electric circuits, this motivating force is voltage (a.k.a. electromotive force, or EMF).  In magnetic &ldquo;circuits,&rdquo; this motivating force is <i>magnetomotive force</i>, or <i>mmf</i>.  Magnetomotive force (mmf) and magnetic flux (&#934;) are related to each other by a property of magnetic materials known as <i>reluctance</i> (the latter quantity symbolized by a strange-looking letter &ldquo;R&rdquo;):
+</p>
+
+<p> <img src="12139.png"> </p> 
+
+<a name="Amp-turn, unit"></a>
+<a name="Unit, amp-turn"></a>
+
+<p>
+In our example, the mmf required to produce this changing magnetic flux (&#934;) must be supplied by a changing current through the coil.  Magnetomotive force generated by an electromagnet coil is equal to the amount of current through that coil (in amps) multiplied by the number of turns of that coil around the core (the SI unit for mmf is the <i>amp-turn</i>).  Because the mathematical relationship between magnetic flux and mmf is directly proportional, and because the mathematical relationship between mmf and current is also directly proportional (no rates-of-change present in either equation), the current through the coil will be in-phase with the flux wave as in  (Figure <a href="#02307.png">  below</a>)
+</p>
+
+ 
+<a name="02307.png"></a> 
+<p> <img src="02307.png"> </p> 
+<p><i>Magnetic flux, like current,  lags applied voltage by 90<sup>o</sup>.</i></p> 
+ 
+
+<a name="Self-inductance"></a>
+<a name="Magnetizing current"></a>
+
+<p>
+This is why alternating current through an inductor lags the applied voltage waveform by 90<sup>o</sup>: because that is what is required to produce a changing magnetic flux whose rate-of-change produces an opposing voltage in-phase with the applied voltage.  Due to its function in providing magnetizing force (mmf) for the core, this current is sometimes referred to as the <i>magnetizing current</i>.
+</p>
+
+<a name="Distortion, inductor current"></a>
+
+<p>
+It should be mentioned that the current through an iron-core inductor is not perfectly sinusoidal (sine-wave shaped), due to the nonlinear B/H magnetization curve of iron.  In fact, if the inductor is cheaply built, using as little iron as possible, the magnetic flux density might reach high levels (approaching saturation), resulting in a magnetizing current waveform that looks something like Figure <a href="#02336.png">  below</a>
+</p>
+
+ 
+<a name="02336.png"></a> 
+<p> <img src="02336.png"> </p> 
+<p><i>As flux density approaches saturation, the magnetizing current waveform becomes distorted.</i></p> 
+ 
+
+<p>
+When a ferromagnetic material approaches magnetic flux saturation, disproportionately greater levels of magnetic field force (mmf) are required to deliver equal increases in magnetic field flux (&#934;).  Because mmf is proportional to current through the magnetizing coil (mmf = NI, where &ldquo;N&rdquo; is the number of turns of wire in the coil and &ldquo;I&rdquo; is the current through it), the large increases of mmf required to supply the needed increases in flux results in large increases in coil current.  Thus, coil current increases dramatically at the peaks in order to maintain a flux waveform that isn't distorted, accounting for the bell-shaped half-cycles of the current waveform in the above plot.  
+</p>
+
+<a name="Exciting current"></a>
+
+<p>
+The situation is further complicated by energy losses within the iron core.  The effects of hysteresis and eddy currents conspire to further distort and complicate the current waveform, making it even less sinusoidal and altering its phase to be lagging slightly less than 90<sup>o</sup> behind the applied voltage waveform.  This coil current resulting from the sum total of all magnetic effects in the core (d&#934;/dt magnetization plus hysteresis losses, eddy current losses, etc.) is called the <i>exciting current</i>.  The distortion of an iron-core inductor's exciting current may be minimized if it is designed for and operated at very low flux densities.  Generally speaking, this requires a core with large cross-sectional area, which tends to make the inductor bulky and expensive.  For the sake of simplicity, though, we'll assume that our example core is far from saturation and free from all losses, resulting in a perfectly sinusoidal exciting current.
+</p>
+
+<p>
+As we've seen already in the inductors chapter, having a current waveform 90<sup>o</sup> out of phase with the voltage waveform creates a condition where power is alternately absorbed and returned to the circuit by the inductor.  If the inductor is perfect (no wire resistance, no magnetic core losses, etc.), it will dissipate zero power.
+</p>
+
+<a name="Primary coil"></a>
+<a name="Coil, primary"></a>
+<a name="Secondary coil"></a>
+<a name="Coil, secondary"></a>
+
+<p>
+Let us now consider the same inductor device, except this time with a second coil (Figure <a href="#02308.png">  below</a>) wrapped around the same iron core.  The first coil will be labeled the <i>primary</i> coil, while the second will be labeled the <i>secondary</i>:
+</p>
+
+ 
+<a name="02308.png"></a> 
+<p> <img src="02308.png"> </p> 
+<p><i>Ferromagnetic core with primary coil (AC driven) and secondary coil.</i></p> 
+ 
+
+<p>
+If this secondary coil experiences the same magnetic flux change as the primary (which it should, assuming perfect containment of the magnetic flux through the common core), and has the same number of turns around the core, a voltage of equal magnitude and phase to the applied voltage will be induced along its length.  In the following graph, (Figure <a href="#02309.png">  below</a>) the induced voltage waveform is drawn slightly smaller than the source voltage waveform simply to distinguish one from the other:
+</p>
+
+ 
+<a name="02309.png"></a> 
+<p> <img src="02309.png"> </p> 
+<p><i>Open circuited secondary sees the same flux &#934; as the primary. Therefore induced secondary voltage e<sub>s</sub> is the same magnitude and phase  as the primary voltage e<sub>p.</sub></i></p> 
+ 
+
+<a name="Mutual inductance"></a>
+<a name="M, symbol for mutual inductance"></a>
+
+<p>
+This effect is called <i>mutual inductance</i>: the induction of a voltage in one coil in response to a change in current in the other coil.  Like normal (self-) inductance, it is measured in the unit of Henrys, but unlike normal inductance it is symbolized by the capital letter &ldquo;M&rdquo; rather than the letter &ldquo;L&rdquo;:
+</p>
+
+<p> <img src="12140.png"> </p> 
+
+<p>
+No current will exist in the secondary coil, since it is open-circuited.  However, if we connect a load resistor to it, an alternating current will go through the coil, in-phase with the induced voltage (because the voltage across a resistor and the current through it are <i>always</i> in-phase with each other). (Figure <a href="#02310.png">  below</a>)
+</p>
+
+ 
+<a name="02310.png"></a> 
+<p> <img src="02310.png"> </p> 
+<p><i>Resistive load on secondary has voltage and current in-phase.</i></p> 
+ 
+
+<p>
+At first, one might expect this secondary coil current to cause additional magnetic flux in the core.  In fact, it does not.  If more flux were induced in the core, it would cause more voltage to be induced voltage in the primary coil (remember that e = d&#934;/dt).  This cannot happen, because the primary coil's induced voltage must remain at the same magnitude and phase in order to balance with the applied voltage, in accordance with Kirchhoff's voltage law.  Consequently, the magnetic flux in the core cannot be affected by secondary coil current.  However, what <i>does</i> change is the amount of mmf in the magnetic circuit.
+</p>
+
+<p>
+Magnetomotive force is produced any time electrons move through a wire.  Usually, this mmf is accompanied by magnetic flux, in accordance with the mmf=&#934;R &ldquo;magnetic Ohm's Law&rdquo; equation.  In this case, though, additional flux is not permitted, so the only way the secondary coil's mmf may exist is if a counteracting mmf is generated by the primary coil, of equal magnitude and opposite phase.  Indeed, this is what happens, an alternating current forming in the primary coil -- 180<sup>o</sup> out of phase with the secondary coil's current -- to generate this counteracting mmf and prevent additional core flux.  Polarity marks and current direction arrows have been added to the illustration to clarify phase relations:  (Figure <a href="#02311.png">  below</a>)
+</p>
+
+ 
+<a name="02311.png"></a> 
+<p> <img src="02311.png"> </p> 
+<p><i>Flux remains constant with application of a load. However, a counteracting mmf is produced by the loaded secondary.</i></p> 
+ 
+
+<p>
+If you find this process a bit confusing, do not worry.  Transformer dynamics is a complex subject.  What is important to understand is this: when an AC voltage is applied to the primary coil, it creates a magnetic flux in the core, which induces AC voltage in the secondary coil in-phase with the source voltage.  Any current drawn through the secondary coil to power a load induces a corresponding current in the primary coil, drawing current from the source.
+</p>
+
+<a name="Exciting current"></a>
+
+<p>
+Notice how the primary coil is behaving as a load with respect to the AC voltage source, and how the secondary coil is behaving as a source with respect to the resistor.  Rather than energy merely being alternately absorbed and returned the primary coil circuit, energy is now being <i>coupled</i> to the secondary coil where it is delivered to a dissipative (energy-consuming) load.  As far as the source &ldquo;knows,&rdquo; its directly powering the resistor.  Of course, there is also an additional primary coil current lagging the applied voltage by 90<sup>o</sup>, just enough to magnetize the core to create the necessary voltage for balancing against the source (the <i>exciting current</i>).
+</p>
+
+<a name="Transformer"></a>
+
+<p>
+We call this type of device a <i>transformer</i>, because it transforms electrical energy into magnetic energy, then back into electrical energy again.  Because its operation depends on electromagnetic induction between two stationary coils and a magnetic flux of changing magnitude and &ldquo;polarity,&rdquo; transformers are necessarily AC devices.  Its schematic symbol looks like two inductors (coils) sharing the same magnetic core:  (Figure <a href="#02131.png">  below</a>)
+</p>
+
+ 
+<a name="02131.png"></a> 
+<p> <img src="02131.png"> </p> 
+<p><i>Schematic symbol for transformer consists of two inductor symbols, separated by lines indicating a ferromagnetic core.</i></p> 
+ 
+
+<p>
+The two inductor coils are easily distinguished in the above symbol.  The pair of vertical lines represent an iron core common to both inductors.  While many transformers have ferromagnetic core materials, there are some that do not, their constituent inductors being magnetically linked together through the air.  
+</p>
+
+<p>
+The following photograph shows a power transformer of the type used in gas-discharge lighting.  Here, the two inductor coils can be clearly seen, wound around an iron core.  While most transformer designs enclose the coils and core in a metal frame for protection, this particular transformer is open for viewing and so serves its illustrative purpose well: (Figure <a href="#52002.jpg">  below</a>)
+</p>
+
+ 
+<a name="52002.jpg"></a> 
+<p> <img src="52002.jpg"> </p> 
+<p><i>Example of a gas-discharge lighting transformer.</i></p> 
+ 
+
+<p>
+Both coils of wire can be seen here with copper-colored varnish insulation.  The top coil is larger than the bottom coil, having a greater number of &ldquo;turns&rdquo; around the core.  In transformers, the inductor coils are often referred to as <i>windings</i>, in reference to the manufacturing process where wire is <i>wound</i> around the core material.  As modeled in our initial example, the powered inductor of a transformer is called the <i>primary</i> winding, while the unpowered coil is called the <i>secondary</i> winding.  
+</p>
+
+<p>
+In the next photograph, Figure <a href="#52012.jpg">  below</a>, a transformer is shown cut in half, exposing the cross-section of the iron core as well as both windings.  Like the transformer shown previously, this unit also utilizes primary and secondary windings of differing turn counts.  The wire gauge can also be seen to differ between primary and secondary windings.  The reason for this disparity in wire gauge will be made clear in the next section of this chapter.  Additionally, the iron core can be seen in this photograph to be made of many thin sheets (laminations) rather than a solid piece.  The reason for this will also be explained in a later section of this chapter.
+</p>
+
+ 
+<a name="52012.jpg"></a> 
+<p> <img src="52012.jpg"> </p> 
+<p><i>Transformer cross-section cut  shows core and windings.</i></p> 
+ 
+
+<a name="Winding, primary"></a>
+<a name="Winding, secondary"></a>
+
+<p>
+It is easy to demonstrate simple transformer action using SPICE, setting up the primary and secondary windings of the simulated transformer as a pair of &ldquo;mutual&rdquo; inductors. (Figure <a href="#02132.png">  below</a>)  The coefficient of magnetic field coupling is given at the end of the &ldquo;<tt>k</tt>&rdquo; line in the SPICE circuit description, this example being set very nearly at perfection (1.000).  This coefficient describes how closely &ldquo;linked&rdquo; the two inductors are, magnetically.  The better these two inductors are magnetically coupled, the more efficient the energy transfer between them should be. 
+</p>
+
+ 
+<a name="02132.png"></a> 
+<p> <img src="02132.png"> </p> 
+<p><i>Spice circuit for coupled inductors.</i></p> 
+ 
+
+
+<pre>
+transformer
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12 
+rbogus2 5 0 9e12  
+l1 2 0 100      
+l2 3 5 100     
+** This line tells SPICE that the two inductors  
+** l1 and l2 are magnetically &ldquo;linked&rdquo; together
+k l1 l2 0.999          
+vi1 3 4 ac 0      
+rload 4 5 1k    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+<p>
+Note: the R<sub>bogus</sub> resistors are required to satisfy certain quirks of SPICE.  The first breaks the otherwise continuous loop between the voltage source and L<sub>1</sub> which would not be permitted by SPICE.  The second provides a path to ground (node 0) from the secondary circuit, necessary because SPICE cannot function with any ungrounded circuits.
+</p>
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   9.975E-03   Primary winding
+&nbsp;
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.962E+00   9.962E-03   Secondary winding
+</pre>
+
+
+<p>
+Note that with equal inductances for both windings (100 Henrys each), the AC voltages and currents are nearly equal for the two.  The difference between primary and secondary currents is the magnetizing current spoken of earlier: the 90<sup>o</sup> lagging current necessary to magnetize the core.  As is seen here, it is usually very small compared to primary current induced by the load, and so the primary and secondary currents are almost equal.  What you are seeing here is quite typical of transformer efficiency.  Anything less than 95% efficiency is considered poor for modern power transformer designs, and this transfer of power occurs with no moving parts or other components subject to wear. 
+</p>
+
+<p>
+If we decrease the load resistance so as to draw more current with the same amount of voltage, we see that the current through the primary winding increases in response.  Even though the AC power source is not directly connected to the load resistance (rather, it is electromagnetically &ldquo;coupled&rdquo;), the amount of current drawn from the source will be almost the same as the amount of current that would be drawn if the load were directly connected to the source.  Take a close look at the next two SPICE simulations, showing what happens with different values of load resistors:
+</p>
+
+
+<pre>
+transformer   
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 100      
+l2 3 5 100      
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+** Note load resistance value of 200 ohms
+rload 4 5 200        
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   4.679E-02
+&nbsp;
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.348E+00   4.674E-02
+</pre>
+
+
+<p>
+Notice how the primary current closely follows the secondary current.  In our first simulation, both currents were approximately 10 mA, but now they are both around 47 mA.  In this second simulation, the two currents are closer to equality, because the magnetizing current remains the same as before while the load current has increased.  Note also how the secondary voltage has decreased some with the heavier (greater current) load.  Let's try another simulation with an even lower value of load resistance (15 &#937;):
+</p>
+
+
+<pre>
+transformer   
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 100      
+l2 3 5 100      
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 15    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   1.301E-01
+&nbsp;
+freq          v(3,5)      i(vi1)      
+6.000E+01     1.950E+00   1.300E-01
+</pre>
+
+
+
+<a name="Inductance, leakage"></a>
+<a name="Leakage inductance"></a>
+
+<p>
+Our load current is now 0.13 amps, or 130 mA, which is substantially higher than the last time.  The primary current is very close to being the same, but notice how the secondary voltage has fallen well below the primary voltage (1.95 volts versus 10 volts at the primary).  The reason for this is an imperfection in our transformer design: because the primary and secondary inductances aren't <i>perfectly</i> linked (a <tt>k</tt> factor of 0.999 instead of 1.000) there is &ldquo;stray&rdquo; or &ldquo;<i>leakage</i>&rdquo; inductance.  In other words, some of the magnetic field isn't linking with the secondary coil, and thus cannot couple energy to it: (Figure <a href="#02312.png">  below</a>)
+</p>
+
+ 
+<a name="02312.png"></a> 
+<p> <img src="02312.png"> </p> 
+<p><i>Leakage inductance is due to magnetic flux not cutting both windings.</i></p> 
+ 
+
+<p>
+Consequently, this &ldquo;leakage&rdquo; flux merely stores and returns energy to the source circuit via self-inductance, effectively acting as a series impedance in both primary and secondary circuits.  Voltage gets dropped across this series impedance, resulting in a reduced load voltage: voltage across the load &ldquo;sags&rdquo; as load current increases. (Figure <a href="#02313.png">  below</a>)
+</p>
+
+ 
+<a name="02313.png"></a> 
+<p> <img src="02313.png"> </p> 
+<p><i>Equivalent circuit models leakage inductance as series inductors independent of the &ldquo;ideal transformer&rdquo;.</i></p> 
+ 
+
+<p>
+If we change the transformer design to have better magnetic coupling between the primary and secondary coils, the figures for voltage between primary and secondary windings will be much closer to equality again:
+</p>
+
+
+<pre>
+transformer  
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 100 
+l2 3 5 100
+** Coupling factor = 0.99999 instead of 0.999
+k l1 l2 0.99999   
+vi1 3 4 ac 0    
+rload 4 5 15    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   6.658E-01
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.987E+00   6.658E-01
+</pre>
+
+
+
+<a name="Inductance, leakage"></a>
+<a name="Leakage inductance"></a>
+
+<p>
+Here we see that our secondary voltage is back to being equal with the primary, and the secondary current is equal to the primary current as well.  Unfortunately, building a real transformer with coupling this complete is very difficult.  A compromise solution is to design both primary and secondary coils with less inductance, the strategy being that less inductance overall leads to less &ldquo;leakage&rdquo; inductance to cause trouble, for any given degree of magnetic coupling inefficiency.  This results in a load voltage that is closer to ideal with the same (high current heavy) load and the same coupling factor:
+</p>
+
+
+<pre>
+transformer
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+** inductance = 1 henry instead of 100 henrys   
+l1 2 0 1
+l2 3 5 1
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 15    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   6.664E-01
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.977E+00   6.652E-01
+</pre>
+
+
+
+<p>
+Simply by using primary and secondary coils of less inductance, the load voltage for this heavy load (high current) has been brought back up to nearly ideal levels (9.977 volts).  At this point, one might ask, &ldquo;If less inductance is all that's needed to achieve near-ideal performance under heavy load, then why worry about coupling efficiency at all?  If its impossible to build a transformer with perfect coupling, but easy to design coils with low inductance, then why not just build all transformers with low-inductance coils and have excellent efficiency even with poor magnetic coupling?&rdquo;
+</p>
+
+<p>
+The answer to this question is found in another simulation: the same low-inductance transformer, but this time with a lighter load (less current) of 1 k&#937; instead of 15 &#937;:
+</p>
+
+
+<pre>
+transformer 
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 1
+l2 3 5 1
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 1k    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   2.835E-02
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.990E+00   9.990E-03
+</pre>
+
+
+<p>
+With lower winding inductances, the primary and secondary voltages are closer to being equal, but the primary and secondary currents are not.  In this particular case, the primary current is 28.35 mA while the secondary current is only 9.990 mA: almost three times as much current in the primary as the secondary.  Why is this?  With less inductance in the primary winding, there is less inductive reactance, and consequently a much larger magnetizing current.  A substantial amount of the current through the primary winding merely works to magnetize the core rather than <i>transfer</i> useful energy to the secondary winding and load.
+</p>
+
+<p>
+An ideal transformer with identical primary and secondary windings would manifest equal voltage and current in both sets of windings for any load condition.  In a perfect world, transformers would transfer electrical power from primary to secondary as smoothly as though the load were directly connected to the primary power source, with no transformer there at all.  However, you can see this ideal goal can only be met if there is <i>perfect</i> coupling of magnetic flux between primary and secondary windings.  Being that this is impossible to achieve, transformers must be designed to operate within certain expected ranges of voltages and loads in order to perform as close to ideal as possible.  For now, the most important thing to keep in mind is a transformer's basic operating principle: the transfer of power from the primary to the secondary circuit via electromagnetic coupling.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Mutual inductance</i> is where the magnetic flux of two or more inductors are &ldquo;linked&rdquo; so that voltage is induced in one coil proportional to the rate-of-change of current in another.</li>
+<li>A <i>transformer</i> is a device made of two or more inductors, one of which is powered by AC, inducing an AC voltage across the second inductor.  If the second inductor is connected to a load, power will be electromagnetically coupled from the first inductor's power source to that load.</li>
+<li>The powered inductor in a transformer is called the <i>primary winding</i>.  The unpowered inductor in a transformer is called the <i>secondary winding</i>.</li>
+<li>Magnetic flux in the core (&#934;) lags 90<sup>o</sup> behind the source voltage waveform.  The current drawn by the primary coil from the source to produce this flux is called the <i>magnetizing current</i>, and it also lags the supply voltage by 90<sup>o</sup>.</li>
+<li>Total primary current in an unloaded transformer is called the <i>exciting current</i>, and is comprised of magnetizing current plus any additional current necessary to overcome core losses.  It is never perfectly sinusoidal in a real transformer, but may be made more so if the transformer is designed and operated so that magnetic flux density is kept to a minimum.</li>
+<li>Core flux induces a voltage in any coil wrapped around the core.  The induces voltage(s) are ideally in- phase with the primary winding source voltage and share the same waveshape.</li>
+<li>Any current drawn through the secondary winding by a load will be &ldquo;reflected&rdquo; to the primary winding and drawn from the voltage source, as if the source were directly powering a similar load.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35021">Step-up and step-down transformers</a></u></h2>
+
+<p>
+So far, we've observed simulations of transformers where the primary and secondary windings were of identical inductance, giving approximately equal voltage and current levels in both circuits.  Equality of voltage and current between the primary and secondary sides of a transformer, however, is not the norm for all transformers.  If the inductances of the two windings are not equal, something interesting happens:
+</p>
+
+<pre>
+transformer   
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 10000    
+l2 3 5 100      
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 1k    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   9.975E-05    Primary winding
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.962E-01   9.962E-04    Secondary winding
+</pre>
+
+
+<a name="Ratio, transformer"></a>
+<a name="Transformer ratio"></a>
+
+<p>
+Notice how the secondary voltage is approximately ten times less than the primary voltage (0.9962 volts compared to 10 volts), while the secondary current is approximately ten times greater (0.9962 mA compared to 0.09975 mA).  What we have here is a device that steps voltage <i>down</i> by a factor of ten and current <i>up</i> by a factor of ten: (Figure <a href="#02133.png">  below</a>)
+</p>
+
+ 
+<a name="02133.png"></a> 
+<p> <img src="02133.png"> </p> 
+<p><i>Turns ratio of 10:1 yields 10:1 primary:secondary voltage ratio and 1:10 primary:secondary current ratio.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+<a name="Transformer, step-up"></a>
+<a name="Transformer, step-down"></a>
+
+<p>
+This is a very useful device, indeed.  With it, we can easily multiply or divide voltage and current in AC circuits.  Indeed, the transformer has made long-distance transmission of electric power a practical reality, as AC voltage can be &ldquo;stepped up&rdquo; and current &ldquo;stepped down&rdquo; for reduced wire resistance power losses along power lines connecting generating stations with loads.  At either end (both the generator and at the loads), voltage levels are reduced by transformers for safer operation and less expensive equipment.  A transformer that increases voltage from primary to secondary (more secondary winding turns than primary winding turns) is called a <i>step-up</i> transformer.  Conversely, a transformer designed to do just the opposite is called a <i>step-down</i> transformer. 
+</p>
+
+<p>
+Let's re-examine a photograph shown in the previous section: (Figure <a href="#52012b.jpg">  below</a>)
+</p>
+
+
+
+ 
+<a name="52012b.jpg"></a> 
+<p> <img src="52012.jpg"> </p> 
+<p><i>Transformer cross-section showing primary and secondary windings is a few inches tall (approximately 10 cm).</i></p> 
+
+
+<p>
+This is a step-down transformer, as evidenced by the high turn count of the primary winding and the low turn count of the secondary.  As a step-down unit, this transformer converts high-voltage, low-current power into low-voltage, high-current power.  The larger-gauge wire used in the secondary winding is necessary due to the increase in current.  The primary winding, which doesn't have to conduct as much current, may be made of smaller-gauge wire.
+</p>
+
+<p>
+In case you were wondering, it <i>is</i> possible to operate either of these transformer types backwards (powering the secondary winding with an AC source and letting the primary winding power a load) to perform the opposite function: a step-up can function as a step-down and visa-versa.  However, as we saw in the first section of this chapter, efficient operation of a transformer requires that the individual winding inductances be engineered for specific operating ranges of voltage and current, so if a transformer is to be used &ldquo;backwards&rdquo; like this it must be employed within the original design parameters of voltage and current for each winding, lest it prove to be inefficient (or lest it be <i>damaged</i> by excessive voltage or current!).
+</p>
+
+<p>
+Transformers are often constructed in such a way that it is not obvious which wires lead to the primary winding and which lead to the secondary.  One convention used in the electric power industry to help alleviate confusion is the use of &ldquo;H&rdquo; designations for the higher-voltage winding (the primary winding in a step-down unit; the secondary winding in a step-up) and &ldquo;X&rdquo; designations for the lower-voltage winding.  Therefore, a simple power transformer will have wires labeled &ldquo;H<sub>1</sub>&rdquo;, &ldquo;H<sub>2</sub>&rdquo;, &ldquo;X<sub>1</sub>&rdquo;, and &ldquo;X<sub>2</sub>&rdquo;.  There is usually significance to the numbering of the wires (H<sub>1</sub> versus H<sub>2</sub>, etc.), which we'll explore a little later in this chapter.
+</p>
+
+<a name="Conservation of Energy, Law of"></a>
+
+<p>
+The fact that voltage and current get &ldquo;stepped&rdquo; in opposite directions (one up, the other down) makes perfect sense when you recall that power is equal to voltage times current, and realize that transformers cannot <i>produce</i> power, only convert it.  Any device that could output more power than it took in would violate the <i>Law of Energy Conservation</i> in physics, namely that energy cannot be created or destroyed, only converted.  As with the first transformer example we looked at, power transfer efficiency is very good from the primary to the secondary sides of the device.  
+</p>
+
+<a name="Motor/generator set"></a>
+
+<p>
+The practical significance of this is made more apparent when an alternative is considered: before the advent of efficient transformers, voltage/current level conversion could only be achieved through the use of motor/generator sets.  A drawing of a motor/generator set reveals the basic principle involved: (Figure <a href="#02295.png">  below</a>)
+</p>
+
+ 
+<a name="02295.png"></a> 
+<p> <img src="02295.png"> </p> 
+<p><i>Motor generator illustrates the basic principle of the transformer.</i></p> 
+ 
+
+<p>
+In such a machine, a motor is mechanically coupled to a generator, the generator designed to produce the desired levels of voltage and current at the rotating speed of the motor.  While both motors and generators are fairly efficient devices, the use of both in this fashion compounds their inefficiencies so that the overall efficiency is in the range of 90% or less.  Furthermore, because motor/generator sets obviously require moving parts, mechanical wear and balance are factors influencing both service life and performance.  Transformers, on the other hand, are able to convert levels of AC voltage and current at very high efficiencies with no moving parts, making possible the widespread distribution and use of electric power we take for granted.
+</p>
+
+<p>
+In all fairness it should be noted that motor/generator sets have not necessarily been obsoleted by transformers for <i>all</i> applications.  While transformers are clearly superior over motor/generator sets for AC voltage and current level conversion, they cannot convert one frequency of AC power to another, or (by themselves) convert DC to AC or visa-versa.  Motor/generator sets can do all these things with relative simplicity, albeit with the limitations of efficiency and mechanical factors already described.  Motor/generator sets also have the unique property of kinetic energy storage: that is, if the motor's power supply is momentarily interrupted for any reason, its angular momentum (the inertia of that rotating mass) will maintain rotation of the generator for a short duration, thus isolating any loads powered by the generator from &ldquo;glitches&rdquo; in the main power system.
+</p>
+
+<p>
+Looking closely at the numbers in the SPICE analysis, we should see a correspondence between the transformer's ratio and the two inductances.  Notice how the primary inductor (l1) has 100 times more inductance than the secondary inductor (10000 H versus 100 H), and that the measured voltage step-down ratio was 10 to 1.  The winding with more inductance will have higher voltage and less current than the other.  Since the two inductors are wound around the same core material in the transformer (for the most efficient magnetic coupling between the two), the parameters affecting inductance for the two coils are equal except for the number of turns in each coil.  If we take another look at our inductance formula, we see that inductance is proportional to the <i>square</i> of the number of coil turns:
+</p>
+
+<br> </br><!--for following equation image-->
+
+<p> <img src="12100.png"> </p> 
+
+<p>
+So, it should be apparent that our two inductors in the last SPICE transformer example circuit -- with inductance ratios of 100:1 -- should have coil turn ratios of 10:1, because 10 squared equals 100.  This works out to be the same ratio we found between primary and secondary voltages and currents (10:1), so we can say as a rule that the voltage and current transformation ratio is equal to the ratio of winding turns between primary and secondary.
+</p>
+
+ 
+<a name="02134.png"></a> 
+<p> <img src="02134.png"> </p> 
+<p><i>Step-down transformer: (many turns :few turns).</i></p> 
+ 
+
+<p>
+The step-up/step-down effect of coil turn ratios in a transformer (Figure <a href="#02134.png">  above</a>)
+<!--split for multiple refs in one paragraph-->
+is analogous to gear tooth ratios in mechanical gear systems, transforming values of speed and torque in much the same way: (Figure <a href="#02135.png">  below</a>)
+</p>
+
+ 
+<a name="02135.png"></a> 
+<p> <img src="02135.png"> </p> 
+<p><i>Torque reducing gear train steps torque down, while stepping speed up.</i></p> 
+ 
+
+<p>
+Step-up and step-down transformers for power distribution purposes can be gigantic in proportion to the power transformers previously shown, some units standing as tall as a home.  The following photograph shows a substation transformer standing about twelve feet tall: (Figure <a href="#52007.jpg">  below</a>)
+</p>
+
+ 
+<a name="52007.jpg"></a> 
+<p> <img src="52007.jpg"> </p> 
+<p><i>Substation transformer.</i></p> 
+ 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Transformers &ldquo;step up&rdquo; or &ldquo;step down&rdquo; voltage according to the ratios of primary to secondary wire turns.</li>
+<li>
+<p> <img src="12102.png"> </p> 
+</li>
+<li>A transformer designed to increase voltage from primary to secondary is called a <i>step-up</i> transformer.  A transformer designed to reduce voltage from primary to secondary is called a <i>step-down</i> transformer.</li>
+<li>The transformation ratio of a transformer will be equal to the square root of its primary to secondary inductance (L) ratio.</li>
+<li>
+<p> <img src="12103.png"> </p> 
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35022">Electrical isolation</a></u></h2>
+
+<a name="Transformer isolation"></a>
+<a name="Isolation, transformer"></a>
+
+<p>
+Aside from the ability to easily convert between different levels of voltage and current in AC and DC circuits, transformers also provide an extremely useful feature called <i>isolation</i>, which is the ability to couple one circuit to another without the use of direct wire connections.  We can demonstrate an application of this effect with another SPICE simulation: this time showing &ldquo;ground&rdquo; connections for the two circuits, imposing a high DC voltage between one circuit and ground through the use of an additional voltage source:(Figure <a href="#02136.png">  below</a>)
+</p>
+
+ 
+<a name="02136.png"></a> 
+<p> <img src="02136.png"> </p> 
+<p><i>Transformer isolates 10 V<sub>ac</sub> at  V<sub>1</sub> from 250 V<sub>DC</sub> at V<sub>2</sub>.</i></p> 
+ 
+
+
+<pre>
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+v2 5 0 dc 250   
+l1 2 0 10000    
+l2 3 5 100      
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 1k    
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+<pre>
+DC voltages referenced to ground (node 0):
+(1)    0.0000    (2)    0.0000    (3)  250.0000    
+(4)  250.0000    (5)  250.0000
+
+AC voltages:
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   9.975E-05    Primary winding
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.962E-01   9.962E-04    Secondary winding
+</pre>
+
+<br> </br>
+
+<a name="Voltage, common-mode"></a>
+<a name="Common-mode voltage"></a>
+
+<p>
+SPICE shows the 250 volts DC being impressed upon the secondary circuit elements with respect to ground,  (Figure <a href="#02136.png">  above</a>) but as you can see there is no effect on the primary circuit (zero DC voltage) at nodes 1 and 2, and the transformation of AC power from primary to secondary circuits remains the same as before.  The impressed voltage in this example is often called a <i>common-mode</i> voltage because it is seen at more than one point in the circuit with reference to the common point of ground.  The transformer isolates the common-mode voltage so that it is not impressed upon the primary circuit at all, but rather isolated to the secondary side.  For the record, it does not matter that the common-mode voltage is DC, either.  It could be AC, even at a different frequency, and the transformer would isolate it from the primary circuit all the same.
+</p>
+
+<a name="Isolation transformer"></a>
+
+<p>
+There are applications where electrical isolation is needed between two AC circuit without any transformation of voltage or current levels.  In these instances, transformers called <i>isolation transformers</i> having 1:1 transformation ratios are used.  A benchtop isolation transformer is shown in Figure <a href="#52006.jpg">  below</a>.
+</p>
+
+ 
+<a name="52006.jpg"></a> 
+<p> <img src="52006.jpg"> </p> 
+<p><i>Isolation transformer isolates power out from the power line.</i></p> 
+ 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>By being able to transfer power from one circuit to another without the use of interconnecting conductors between the two circuits, transformers provide the useful feature of <i>electrical isolation</i>.</li>
+<li>Transformers designed to provide electrical isolation without stepping voltage and current either up or down are called <i>isolation transformers</i>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35023">Phasing</a></u></h2>
+
+<a name="Phase, transformer"></a>
+
+<p>
+Since transformers are essentially AC devices, we need to be aware of the phase relationships between the primary and secondary circuits.  Using our SPICE example from before, we can plot the waveshapes (Figure <a href="#22039.png">  below</a>) for the primary and secondary circuits and see the phase relations for ourselves:
+</p>
+
+<br> </br>
+<pre>
+spice transient analysis file for use with nutmeg:
+
+transformer
+v1 1 0 sin(0 15 60 0 0)
+rbogus1 1 2 1e-12
+v2 5 0 dc 250
+l1 2 0 10000
+l2 3 5 100
+k l1 l2 0.999
+vi1 3 4 ac 0
+rload 4 5 1k
+.tran 0.5m 17m
+.end
+ 
+nutmeg commands:
+setplot tran1
+plot v(2) v(3,5)
+</pre>
+
+
+<!--legend:-->
+<!--*: v(2)     Primary voltage -->  
+<!--+: v(3,5)   Secondary voltage-->
+<!--time       v(2)-->    
+<!--( *)----------     -10         -5          0          5         10-->
+<!--(+)-----------     -10         -5          0          5         10-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .          .          x          .          .-->
+<!--1.000E-03  3.675E+00 .          .          .    + *   .          .-->
+<!--2.000E-03  6.803E+00 .          .          .          . + *      .-->
+<!--3.000E-03  9.008E+00 .          .          .          .      +*  .-->
+<!--4.000E-03  9.955E+00 .          .          .          .          x-->
+<!--5.000E-03  9.450E+00 .          .          .          .        *+.-->
+<!--6.000E-03  7.672E+00 .          .          .          .    * +   .-->
+<!--7.000E-03  4.804E+00 .          .          .         *.+         .-->
+<!--8.000E-03  1.245E+00 .          .          .  *  +    .          .-->
+<!--9.000E-03 -2.474E+00 .          .     * +  .          .          .-->
+<!--1.000E-02 -5.864E+00 .         *+          .          .          .-->
+<!--1.100E-02 -8.390E+00 .    *+    .          .          .          .-->
+<!--1.200E-02 -9.779E+00 .x         .          .          .          .-->
+<!--1.300E-02 -9.798E+00 +*         .          .          .          .-->
+<!--1.400E-02 -8.390E+00 .   +*     .          .          .          .-->
+<!--1.500E-02 -5.854E+00 .       + *.          .          .          .-->
+<!--1.600E-02 -2.479E+00 .          .    + *   .          .          .-->
+<!--1.700E-02  1.246E+00 .          .          .+ *       .          .-->
+<!--1.800E-02  4.795E+00 .          .          .       + *.          .-->
+<!--1.900E-02  7.686E+00 .          .          .          .   + *    .-->
+<!--2.000E-02  9.451E+00 .          .          .          .        x .-->
+<!--2.100E-02  9.937E+00 .          .          .          .          x-->
+<!--2.200E-02  9.025E+00 .          .          .          .       *+ .-->
+<!--2.300E-02  6.802E+00 .          .          .          .  *+      .-->
+<!--2.400E-02  3.667E+00 .          .          .      * + .          .-->
+<!--2.500E-02 -1.487E-03 .          .          * +        .          .-->
+<!--2.600E-02 -3.658E+00 .          .   * +    .          .          .-->
+<!--2.700E-02 -6.814E+00 .      * + .          .          .          .-->
+<!--2.800E-02 -9.026E+00 .  *+      .          .          .          .-->
+<!--2.900E-02 -9.917E+00 *+         .          .          .          .-->
+<!--3.000E-02 -9.511E+00 .x         .          .          .          .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+
+<!--legend:-->
+<!--*: i(v1)   Primary current-->
+<!--+: i(vi1)  Secondary current-->  
+<!--time      i(v1)-->   
+<!--( *)--------- -2.000E-04   -1.000E-04      0   1.000E-04  2.000E-04-->
+<!--(+)---------- -1.000E-03   -5.000E-04      0   5.000E-04  1.000E-03-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .          .          x          .          .-->
+<!--1.000E-03 -2.973E-05 .          .     +   *.          .          .-->
+<!--2.000E-03 -6.279E-05 .        + .    *     .          .          .-->
+<!--3.000E-03 -8.772E-05 .   +      . *        .          .          .-->
+<!--4.000E-03 -1.008E-04 +          *          .          .          .-->
+<!--5.000E-03 -9.954E-05 .+         *          .          .          .-->
+<!--6.000E-03 -8.522E-05 .    +     . *        .          .          .-->
+<!--7.000E-03 -5.919E-05 .         +.     *    .          .          .-->
+<!--8.000E-03 -2.500E-05 .          .       + *.          .          .-->
+<!--9.000E-03  1.212E-05 .          .          . *  +     .          .-->
+<!--1.000E-02  4.736E-05 .          .          .     *    .+         .-->
+<!--1.100E-02  7.521E-05 .          .          .       *  .     +    .-->
+<!--1.200E-02  9.250E-05 .          .          .         *.         +.-->
+<!--1.300E-02  9.648E-05 .          .          .         *.          +-->
+<!--1.400E-02  8.602E-05 .          .          .        * .      +   .-->
+<!--1.500E-02  6.362E-05 .          .          .     *    . +        .-->
+<!--1.600E-02  3.177E-05 .          .          .  *  +    .          .-->
+<!--1.700E-02 -4.998E-06 .          .          x          .          .-->
+<!--1.800E-02 -4.136E-05 .          .  +    *  .          .          .-->
+<!--1.900E-02 -7.246E-05 .     +    .   *      .          .          .-->
+<!--2.000E-02 -9.331E-05 . +        .*         .          .          .-->
+<!--2.100E-02 -1.019E-04 +          *          .          .          .-->
+<!--2.200E-02 -9.651E-05 . +        *          .          .          .-->
+<!--2.300E-02 -7.749E-05 .     +    .  *       .          .          .-->
+<!--2.400E-02 -4.842E-05 .          . +    *   .          .          .-->
+<!--2.500E-02 -1.275E-05 .          .         x.          .          .-->
+<!--2.600E-02  2.428E-05 .          .          .  *  +    .          .-->
+<!--2.700E-02  5.761E-05 .          .          .     *    .+         .-->
+<!--2.800E-02  8.261E-05 .          .          .        * .       +  .-->
+<!--2.900E-02  9.514E-05 .          .          .         *.         +.-->
+<!--3.000E-02  9.487E-05 .          .          .         *.         +.-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+<br> </br>
+
+ 
+<a name="22039.png"></a> 
+<p> <img src="22039.png"> </p> 
+<p><i>Secondary voltage V(3,5) is in-phase with primary voltage V(2), and stepped down by factor of ten.</i></p> 
+ 
+<br> </br>
+
+<p>
+In going from primary, V(2), to secondary, V(3,5), the voltage was stepped down by a factor of ten, (Figure <a href="#22039.png">  above</a>)
+<!--split for multiple refs in one paragraph-->
+, and  the current was stepped up by a factor of 10. (Figure <a href="#22040.png">  below</a>) 
+<!--split for multiple refs in one paragraph-->
+Both current (Figure <a href="#22040.png">  below</a>)
+<!--split for multiple refs in one paragraph-->
+and voltage (Figure <a href="#22039.png">  above</a>) waveforms are in-phase in going from primary to secondary.
+</p>
+
+<pre>
+nutmeg commands:
+setplot tran1
+plot I(L1#branch) I(L2#branch)
+</pre>
+ 
+<a name="22040.png"></a> 
+<p> <img src="22040.png"> </p> 
+<p><i>Primary and secondary currents are in-phase. Secondary current is stepped up by a factor of ten.</i></p> 
+
+
+
+
+<p>
+It would appear that both voltage and current for the two transformer windings are in-phase with each other, at least for our resistive load.  This is simple enough, but it would be nice to know <i>which way</i> we should connect a transformer in order to ensure the proper phase relationships be kept.  After all, a transformer is nothing more than a set of magnetically-linked inductors, and inductors don't usually come with polarity markings of any kind.  If we were to look at an unmarked transformer, we would have no way of knowing which way to hook it up to a circuit to get in-phase (or 180<sup>o</sup> out-of-phase) voltage and current: (Figure <a href="#02137.png">  below</a>)
+</p>
+
+ 
+<a name="02137.png"></a> 
+<p> <img src="02137.png"> </p> 
+<p><i>As a practical matter, the polarity of a transformer can be ambiguous.</i></p> 
+ 
+
+<a name="Dot convention, transformer"></a>
+
+<p>
+Since this is a practical concern, transformer manufacturers have come up with a sort of polarity marking standard to denote phase relationships.  It is called the <i>dot convention</i>, and is nothing more than a dot placed next to each corresponding leg of a transformer winding: (Figure <a href="#02138.png">  below</a>)
+</p>
+
+ 
+<a name="02138.png"></a> 
+<p> <img src="02138.png"> </p> 
+<p><i>A pair of dots indicates like polarity. </i></p> 
+ 
+
+<p>
+Typically, the transformer will come with some kind of schematic diagram labeling the wire leads for primary and secondary windings.  On the diagram will be a pair of dots similar to what is seen above.  Sometimes dots will be omitted, but when &ldquo;H&rdquo; and &ldquo;X&rdquo; labels are used to label transformer winding wires, the subscript numbers are supposed to represent winding polarity.  The &ldquo;1&rdquo; wires (H<sub>1</sub> and X<sub>1</sub>) represent where the polarity-marking dots would normally be placed.
+</p>
+
+<p>
+The similar placement of these dots next to the top ends of the primary and secondary windings tells us that whatever instantaneous voltage polarity seen across the primary winding will be the same as that across the secondary winding.  In other words, the phase shift from primary to secondary will be zero degrees.
+</p>
+
+<p>
+On the other hand, if the dots on each winding of the transformer do <i>not</i> match up, the phase shift will be 180<sup>o</sup> between primary and secondary, like this: (Figure <a href="#02139.png">  below</a>)
+</p>
+
+ 
+<a name="02139.png"></a> 
+<p> <img src="02139.png"> </p> 
+<p><i>Out of phase: primary red to dot, secondary black to dot.</i></p> 
+ 
+
+<p>
+Of course, the dot convention only tells you which end of each winding is which, relative to the other winding(s).  If you want to reverse the phase relationship yourself, all you have to do is swap the winding connections like this: (Figure <a href="#02140.png">  below</a>)
+</p>
+
+ 
+<a name="02140.png"></a> 
+<p> <img src="02140.png"> </p> 
+<p><i>In phase: primary red to dot, secondary red to dot.</i></p> 
+ 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The phase relationships for voltage and current between primary and secondary circuits of a transformer are direct: ideally, zero phase shift.</li>
+<li>The <i>dot convention</i> is a type of polarity marking for transformer windings showing which end of the winding is which, relative to the other windings.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35024">Winding configurations</a></u></h2>
+
+<p>
+Transformers are very versatile devices.  The basic concept of energy transfer between mutual inductors is useful enough between a single primary and single secondary coil, but transformers don't have to be made with just two sets of windings.  Consider this transformer circuit: (Figure <a href="#02141.png">  below</a>)
+</p>
+
+ 
+<a name="02141.png"></a> 
+<p> <img src="02141.png"> </p> 
+<p><i>Transformer with multiple secondaries, provides multiple output voltages.</i></p> 
+ 
+
+<a name="Vacuum tube"></a>
+<a name="Tube, vacuum"></a>
+
+<p>
+Here, three inductor coils share a common magnetic core, magnetically &ldquo;coupling&rdquo; or &ldquo;linking&rdquo; them together.  The relationship of winding turn ratios and voltage ratios seen with a single pair of mutual inductors still holds true here for multiple pairs of coils.  It is entirely possible to assemble a transformer such as the one above (one primary winding, two secondary windings) in which one secondary winding is a step-down and the other is a step-up.  In fact, this design of transformer was quite common in vacuum tube power supply circuits, which were required to supply low voltage for the tubes' filaments (typically 6 or 12 volts) and high voltage for the tubes' plates (several hundred volts) from a nominal primary voltage of 110 volts AC.  Not only are voltages and currents of completely different magnitudes possible with such a transformer, but all circuits are electrically isolated from one another.
+</p>
+ 
+<a name="52010.jpg"></a> 
+<p> <img src="52010.jpg"> </p> 
+<p><i>Photograph of multiple-winding transformer with six windings, a primary and five secondaries.</i></p> 
+ 
+
+<p>
+The transformer in Figure <a href="#52010.jpg">  above</a> is intended to provide both high and low voltages necessary in an electronic system using vacuum tubes.  Low voltage is required to power the filaments of vacuum tubes, while high voltage is required to create the potential difference between the plate and cathode elements of each tube.  One transformer with multiple windings suffices elegantly to provide all the necessary voltage levels from a single 115 V source.  The wires for this transformer (15 of them!) are not shown in the photograph, being hidden from view.
+</p>
+
+<p>
+If electrical isolation between secondary circuits is not of great importance, a similar effect can be obtained by &ldquo;tapping&rdquo; a single secondary winding at multiple points along its length, like  Figure <a href="#02142.png">  below</a>.
+</p>
+
+ 
+<a name="02142.png"></a> 
+<p> <img src="02142.png"> </p> 
+<p><i>A single tapped secondary provides multiple voltages.</i></p> 
+ 
+
+<p>
+A tap is nothing more than a wire connection made at some point on a winding between the very ends.  Not surprisingly, the winding turn/voltage magnitude relationship of a normal transformer holds true for all tapped segments of windings.  This fact can be exploited to produce a transformer capable of multiple ratios: (Figure <a href="#02143.png">  below</a>)
+</p>
+
+ 
+<a name="02143.png"></a> 
+<p> <img src="02143.png"> </p> 
+<p><i>A tapped secondary using a switch to select one of many possible voltages.</i></p> 
+ 
+
+<a name="Variable transformer"></a>
+<a name="Transformer, variable"></a>
+
+<p>
+Carrying the concept of winding taps further, we end up with a &ldquo;variable transformer,&rdquo; where a sliding contact is moved along the length of an exposed secondary winding, able to connect with it at any point along its length.  The effect is equivalent to having a winding tap at every turn of the winding, and a switch with poles at every tap position: (Figure <a href="#02144.png">  below</a>)
+</p>
+
+ 
+<a name="02144.png"></a> 
+<p> <img src="02144.png"> </p> 
+<p><i>A sliding contact on the secondary continuously varies the secondary voltage.</i></p> 
+ 
+
+<p>
+One consumer application of the variable transformer is in speed controls for model train sets, especially the train sets of the 1950's and 1960's.  These transformers were essentially step-down units, the highest voltage obtainable from the secondary winding being substantially less than the primary voltage of 110 to 120 volts AC.  The variable-sweep contact provided a simple means of voltage control with little wasted power, much more efficient than control using a variable resistor!
+</p>
+
+<a name="Switch, tap"></a>
+<a name="Tap switch"></a>
+
+<p>
+Moving-slide contacts are too impractical to be used in large industrial power transformer designs, but multi-pole switches and winding taps are common for voltage adjustment.  Adjustments need to be made periodically in power systems to accommodate changes in loads over months or years in time, and these switching circuits provide a convenient means.  Typically, such &ldquo;tap switches&rdquo; are not engineered to handle full-load current, but must be actuated only when the transformer has been de-energized (no power).
+</p>
+
+<a name="Autotransformer"></a>
+
+<p>
+Seeing as how we can tap any transformer winding to obtain the equivalent of several windings (albeit with loss of electrical isolation between them), it makes sense that it should be possible to forego electrical isolation altogether and build a transformer from a single winding.  Indeed this is possible, and the resulting device is called an <i>autotransformer</i>:  (Figure <a href="#02145.png">  below</a>)
+</p>
+
+ 
+<a name="02145.png"></a> 
+<p> <img src="02145.png"> </p> 
+<p><i>This autotransformer steps voltage up with a single tapped winding, saving copper, sacrificing isolation.</i></p> 
+ 
+
+<p>
+The autotransformer depicted above performs a voltage step-up function.  A step-down autotransformer would look something like Figure <a href="#02146.png">  below</a>.
+</p>
+
+ 
+<a name="02146.png"></a> 
+<p> <img src="02146.png"> </p> 
+<p><i>This auto transformer steps voltage down with a single copper-saving tapped winding.</i></p> 
+ 
+
+<a name="Boosting, transformer connection"></a>
+<a name="Bucking, transformer connection"></a>
+
+<p>
+Autotransformers find popular use in applications requiring a slight boost or reduction in voltage to a load.  The alternative with a normal (isolated) transformer would be to either have just the right primary/secondary winding ratio made for the job or use a step-down configuration with the secondary winding connected in series-aiding (&ldquo;boosting&rdquo;) or series-opposing (&ldquo;bucking&rdquo;) fashion.  Primary, secondary, and load voltages are given to illustrate how this would work.
+</p>
+
+<p>
+First, the &ldquo;boosting&rdquo; configuration.  In Figure <a href="#02147.png">  below</a>  the secondary coil's polarity is oriented so that its voltage directly adds to the primary voltage.
+</p>
+
+ 
+<a name="02147.png"></a> 
+<p> <img src="02147.png"> </p> 
+<p><i>Ordinary transformer wired as an autotransformer to boost the line voltage.</i></p> 
+ 
+
+<p>
+Next, the &ldquo;bucking&rdquo; configuration.  In Figure <a href="#02148.png">  below</a> the secondary coil's polarity is oriented so that its voltage directly subtracts from the primary voltage:
+</p>
+
+ 
+<a name="02148.png"></a> 
+<p> <img src="02148.png"> </p> 
+<p><i>Ordinary transformer wired as an autotransformer to buck the line voltage down.</i></p> 
+ 
+
+<p>
+The prime advantage of an autotransformer is that the same boosting or bucking function is obtained with only a single winding, making it cheaper and lighter to manufacture than a regular (isolating) transformer having both primary and secondary windings.
+</p>
+
+<a name="Variac"></a>
+
+<p>
+Like regular transformers, autotransformer windings can be tapped to provide variations in ratio.  Additionally, they can be made continuously variable with a sliding contact to tap the winding at any point along its length.  The latter configuration is popular enough to have earned itself its own name: the <i>Variac</i>. (Figure <a href="#02149.png">  below</a>)
+</p>
+
+ 
+<a name="02149.png"></a> 
+<p> <img src="02149.png"> </p> 
+<p><i>A variac is an autotransformer with a sliding tap.</i></p> 
+ 
+
+<p>
+Small variacs for benchtop use are popular pieces of equipment for the electronics experimenter, being able to step household AC voltage down (or sometimes up as well) with a wide, fine range of control by a simple twist of a knob.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Transformers can be equipped with more than just a single primary and single secondary winding pair.  This allows for multiple step-up and/or step-down ratios in the same device.</li>
+<li>Transformer windings can also be &ldquo;tapped:&rdquo; that is, intersected at many points to segment a single winding into sections.</li>
+<li>Variable transformers can be made by providing a movable arm that sweeps across the length of a winding, making contact with the winding at any point along its length.  The winding, of course, has to be bare (no insulation) in the area where the arm sweeps.</li>
+<li>An autotransformer is a single, tapped inductor coil used to step up or step down voltage like a transformer, except without providing electrical isolation.</li>
+<li>A <i>Variac</i> is a variable autotransformer.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35025">Voltage regulation</a></u></h2>
+
+<a name="Voltage regulation"></a>
+
+<p>
+As we saw in a few SPICE analyses earlier in this chapter, the output voltage of a transformer varies some with varying load resistances, even with a constant voltage input.  The degree of variance is affected by the primary and secondary winding inductances, among other factors, not the least of which includes winding resistance and the degree of mutual inductance (magnetic coupling) between the primary and secondary windings.  For power transformer applications, where the transformer is seen by the load (ideally) as a constant source of voltage, it is good to have the secondary voltage vary as little as possible for wide variances in load current.
+</p>
+
+<p>
+The measure of how well a power transformer maintains constant secondary voltage over a range of load currents is called the transformer's <i>voltage regulation</i>.  It can be calculated from the following formula:
+</p>
+
+<p> <img src="12104.png"> </p> 
+
+<p>
+&ldquo;Full-load&rdquo; means the point at which the transformer is operating at maximum permissible secondary current.  This operating point will be determined primarily by the winding wire size (ampacity) and the method of transformer cooling.  Taking our first SPICE transformer simulation as an example, let's compare the output voltage with a 1 k&#937; load versus a 200 &#937; load (assuming that the 200 &#937; load will be our &ldquo;full load&rdquo; condition).  Recall if you will that our constant primary voltage was 10.00 volts AC:
+</p>
+
+
+
+<pre>
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.962E+00   9.962E-03    Output with 1k ohm load
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.348E+00   4.674E-02    Output with 200 ohm load
+</pre>
+
+
+
+<p>
+Notice how the output voltage decreases as the load gets heavier (more current).  Now let's take that same transformer circuit and place a load resistance of extremely high magnitude across the secondary winding to simulate a &ldquo;no-load&rdquo; condition: (See "transformer" spice list")
+</p>
+
+ 
+<pre>
+transformer    
+v1 1 0 ac 10 sin
+rbogus1 1 2 1e-12       
+rbogus2 5 0 9e12
+l1 2 0 100      
+l2 3 5 100      
+k l1 l2 0.999   
+vi1 3 4 ac 0    
+rload 4 5 9e12  
+.ac lin 1 60 60 
+.print ac v(2,0) i(v1)  
+.print ac v(3,5) i(vi1) 
+.end    
+</pre>
+
+
+<pre>
+freq          v(2)        i(v1)       
+6.000E+01     1.000E+01   2.653E-04
+
+freq          v(3,5)      i(vi1)      
+6.000E+01     9.990E+00   1.110E-12   Output with (almost) no load
+</pre>
+
+
+<p>
+So, we see that our output (secondary) voltage spans a range of 9.990 volts at (virtually) no load and 9.348 volts at the point we decided to call &ldquo;full load.&rdquo;  Calculating voltage regulation with these figures, we get:
+</p>
+
+<p> <img src="12105.png"> </p> 
+
+<p>
+Incidentally, this would be considered rather poor (or &ldquo;loose&rdquo;) regulation for a power transformer.  Powering a simple resistive load like this, a good power transformer should exhibit a regulation percentage of less than 3%.  Inductive loads tend to create a condition of worse voltage regulation, so this analysis with purely resistive loads was a &ldquo;best-case&rdquo; condition.
+</p>
+
+<p>
+There are some applications, however, where poor regulation is actually desired.  One such case is in discharge lighting, where a step-up transformer is required to initially generate a high voltage (necessary to &ldquo;ignite&rdquo; the lamps), then the voltage is expected to drop off once the lamp begins to draw current.  This is because discharge lamps' voltage requirements tend to be much lower after a current has been established through the arc path.  In this case, a step-up transformer with poor voltage regulation suffices nicely for the task of conditioning power to the lamp.
+</p>
+
+<p>
+Another application is in current control for AC arc welders, which are nothing more than step-down transformers supplying low-voltage, high-current power for the welding process.  A high voltage is desired to assist in &ldquo;striking&rdquo; the arc (getting it started), but like the discharge lamp, an arc doesn't require as much voltage to sustain itself once the air has been heated to the point of ionization.  Thus, a decrease of secondary voltage under high load current would be a good thing.  Some arc welder designs provide arc current adjustment by means of a movable iron core in the transformer, cranked in or out of the winding assembly by the operator.  Moving the iron slug away from the windings reduces the strength of magnetic coupling between the windings, which diminishes no-load secondary voltage <i>and</i> makes for poorer voltage regulation.
+</p>
+
+<a name="Ferroresonant transformer"></a>
+<a name="Transformer, ferroresonant"></a>
+
+<p>
+No exposition on transformer regulation could be called complete without mention of an unusual device called a <i>ferroresonant transformer</i>.  &ldquo;Ferroresonance&rdquo; is a phenomenon associated with the behavior of iron cores while operating near a point of magnetic saturation (where the core is so strongly magnetized that further increases in winding current results in little or no increase in magnetic flux).  
+</p>
+
+<a name="Tank circuit"></a>
+
+<p>
+While being somewhat difficult to describe without going deep into electromagnetic theory, the ferroresonant transformer is a power transformer engineered to operate in a condition of persistent core saturation.  That is, its iron core is &ldquo;stuffed full&rdquo; of magnetic lines of flux for a large portion of the AC cycle so that variations in supply voltage (primary winding current) have little effect on the core's magnetic flux density, which means the secondary winding outputs a nearly constant voltage despite significant variations in supply (primary winding) voltage.  Normally, core saturation in a transformer results in distortion of the sinewave shape, and the ferroresonant transformer is no exception.  To combat this side effect, ferroresonant transformers have an auxiliary secondary winding paralleled with one or more capacitors, forming a resonant circuit tuned to the power supply frequency.  This &ldquo;tank circuit&rdquo; serves as a filter to reject harmonics created by the core saturation, and provides the added benefit of storing energy in the form of AC oscillations, which is available for sustaining output winding voltage for brief periods of input voltage loss (milliseconds' worth of time, but certainly better than nothing).   (Figure <a href="#02278.png">  below</a>)
+</p>
+
+ 
+<a name="02278.png"></a> 
+<p> <img src="02278.png"> </p> 
+<p><i>Ferroresonant transformer provides voltage regulation of the output.</i></p> 
+ 
+
+<p>
+In addition to blocking harmonics created by the saturated core, this resonant circuit also &ldquo;filters out&rdquo; harmonic frequencies generated by nonlinear (switching) loads in the secondary winding circuit and any harmonics present in the source voltage, providing &ldquo;clean&rdquo; power to the load.
+</p>
+
+<p>
+Ferroresonant transformers offer several features useful in AC power conditioning: constant output voltage given substantial variations in input voltage, harmonic filtering between the power source and the load, and the ability to &ldquo;ride through&rdquo; brief losses in power by keeping a reserve of energy in its resonant tank circuit.  These transformers are also highly tolerant of excessive loading and transient (momentary) voltage surges.  They are so tolerant, in fact, that some may be briefly paralleled with unsynchronized AC power sources, allowing a load to be switched from one source of power to another in a &ldquo;make-before-break&rdquo; fashion with no interruption of power on the secondary side!
+</p>
+
+<p>
+Unfortunately, these devices have equally noteworthy disadvantages: they waste a lot of energy (due to hysteresis losses in the saturated core), generating <i>significant</i> heat in the process, and are intolerant of frequency variations, which means they don't work very well when powered by small engine-driven generators having poor speed regulation.  Voltages produced in the resonant winding/capacitor circuit tend to be very high, necessitating expensive capacitors and presenting the service technician with very dangerous working voltages.  Some applications, though, may prioritize the ferroresonant transformer's advantages over its disadvantages.  Semiconductor circuits exist to &ldquo;condition&rdquo; AC power as an alternative to ferroresonant devices, but none can compete with this transformer in terms of sheer simplicity.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Voltage regulation</i> is the measure of how well a power transformer can maintain constant secondary voltage given a constant primary voltage and wide variance in load current.  The lower the percentage (closer to zero), the more stable the secondary voltage and the better the regulation it will provide.</li>
+<li>A <i>ferroresonant</i> transformer is a special transformer designed to regulate voltage at a stable level despite wide variation in input voltage.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35026">Special transformers and applications</a></u></h2>
+
+
+
+<h3><u><a name="xtocid35027">Impedance matching</a></u></h3>
+
+
+
+<p>
+Because transformers can step voltage and current to different levels, and because power is transferred equivalently between primary and secondary windings, they can be used to &ldquo;convert&rdquo; the impedance of a load to a different level.  That last phrase deserves some explanation, so let's investigate what it means.
+</p>
+
+<p>
+The purpose of a load (usually) is to do something productive with the power it dissipates.  In the case of a resistive heating element, the practical purpose for the power dissipated is to heat something up.  Loads are engineered to safely dissipate a certain maximum amount of power, but two loads of equal power rating are not necessarily identical.  Consider these two 1000 watt resistive heating elements: (Figure <a href="#02151.png">  below</a>)
+</p>
+
+ 
+<a name="02151.png"></a> 
+<p> <img src="02151.png"> </p> 
+<p><i>Heating elements dissipate 1000 watts, at different voltage and current ratings.</i></p> 
+ 
+
+<p>
+Both heaters dissipate exactly 1000 watts of power, but they do so at different voltage and current levels (either 250 volts and 4 amps, or 125 volts and 8 amps).  Using Ohm's Law to determine the necessary resistance of these heating elements (R=E/I), we arrive at figures of 62.5 &#937; and 15.625 &#937;, respectively.  If these are AC loads, we might refer to their opposition to current in terms of impedance rather than plain resistance, although in this case that's all they're composed of (no reactance).  The 250 volt heater would be said to be a higher impedance load than the 125 volt heater.
+</p>
+
+<p>
+If we desired to operate the 250 volt heater element directly on a 125 volt power system, we would end up being disappointed.  With 62.5 &#937; of impedance (resistance), the current would only be 2 amps (I=E/R; 125/62.5), and the power dissipation would only be 250 watts (P=IE; 125 x 2), or one-quarter of its rated power.  The impedance of the heater and the voltage of our source would be mismatched, and we couldn't obtain the full rated power dissipation from the heater.
+</p>
+
+<p>
+All hope is not lost, though.  With a step-up transformer, we could operate the 250 volt heater element on the 125 volt power system like Figure <a href="#02150.png">  below</a>.
+</p>
+
+ 
+<a name="02150.png"></a> 
+<p> <img src="02150.png"> </p> 
+<p><i>Step-up transformer operates 1000 watt 250 V  heater from 125 V power source</i></p> 
+ 
+
+<a name="Impedance matching"></a>
+
+<p>
+The ratio of the transformer's windings provides the voltage step-up <i>and</i> current step-down we need for the otherwise mismatched load to operate properly on this system.  Take a close look at the primary circuit figures: 125 volts at 8 amps.  As far as the power supply &ldquo;knows,&rdquo; its powering a 15.625 &#937; (R=E/I) load at 125 volts, not a 62.5 &#937; load!  The voltage and current figures for the primary winding are indicative of 15.625 &#937; load impedance, not the actual 62.5 &#937; of the load itself.  In other words, not only has our step-up transformer transformed voltage and current, but it has transformed <i>impedance</i> as well.
+</p>
+
+<p>
+The transformation ratio of impedance is the square of the voltage/current transformation ratio, the same as the winding inductance ratio:
+</p>
+
+<p> <img src="12106.png"> </p> 
+
+<p>
+This concurs with our example of the 2:1 step-up transformer and the impedance ratio of 62.5 &#937; to 15.625 &#937; (a 4:1 ratio, which is 2:1 squared).  Impedance transformation is a highly useful ability of transformers, for it allows a load to dissipate its full rated power even if the power system is not at the proper voltage to directly do so.
+</p>
+
+<a name="Maximum Power Transfer Theorem"></a>
+<a name="Theorem, Maximum Power Transfer"></a>
+<a name="Thevenin's Theorem"></a>
+<a name="Theorem, Thevenin's"></a>
+<a name="Norton's Theorem"></a>
+<a name="Theorem, Norton's"></a>
+
+<p>
+Recall from our study of network analysis the <i>Maximum Power Transfer Theorem</i>, which states that the maximum amount of power will be dissipated by a load resistance when that load resistance is equal to the Thevenin/Norton resistance of the network supplying the power.  Substitute the word &ldquo;impedance&rdquo; for &ldquo;resistance&rdquo; in that definition and you have the AC version of that Theorem.  If we're trying to obtain theoretical maximum power dissipation from a load, we must be able to properly match the load impedance and source (Thevenin/Norton) impedance together.  This is generally more of a concern in specialized electric circuits such as radio transmitter/antenna and audio amplifier/speaker systems.  Let's take an audio amplifier system and see how it works:  (Figure <a href="#02153.png">  below</a>)
+</p>
+
+ 
+<a name="02153.png"></a> 
+<p> <img src="02153.png"> </p> 
+<p><i>Amplifier with impedance of 500 &#937; drives 8 &#937; at much less than maximum power.</i></p> 
+ 
+
+<p>
+With an internal impedance of 500 &#937;, the amplifier can only deliver full power to a load (speaker) also having 500 &#937; of impedance.  Such a load would drop higher voltage and draw less current than an 8 &#937; speaker dissipating the same amount of power.  If an 8 &#937; speaker were connected directly to the 500 &#937; amplifier as shown, the <i>impedance mismatch</i> would result in very poor (low peak power) performance.  Additionally, the amplifier would tend to dissipate more than its fair share of power in the form of heat trying to drive the low impedance speaker.
+</p>
+
+<p>
+To make this system work better, we can use a transformer to match these mismatched impedances.  Since we're going from a high impedance (high voltage, low current) supply to a low impedance (low voltage, high current) load, we'll need to use a step-down transformer: (Figure <a href="#02152.png">  below</a>)
+</p>
+
+ 
+<a name="02152.png"></a> 
+<p> <img src="02152.png"> </p> 
+<p><i>Impedance matching transformer matches 500 &#937; amplifier to 8 &#937; speaker for maximum efficiency.</i></p> 
+ 
+
+<a name="Impedance matching"></a>
+
+<p>
+To obtain an impedance transformation ratio of 500:8, we would need a winding ratio equal to the square root of 500:8 (the square root of 62.5:1, or 7.906:1).  With such a transformer in place, the speaker will load the amplifier to just the right degree, drawing power at the correct voltage and current levels to satisfy the Maximum Power Transfer Theorem and make for the most efficient power delivery to the load.  The use of a transformer in this capacity is called <i>impedance matching</i>. 
+</p>
+
+<p>
+Anyone who has ridden a multi-speed bicycle can intuitively understand the principle of impedance matching.  A human's legs will produce maximum power when spinning the bicycle crank at a particular speed (about 60 to 90 revolution per minute).  Above or below that rotational speed, human leg muscles are less efficient at generating power.  The purpose of the bicycle's &ldquo;gears&rdquo; is to impedance-match the rider's legs to the riding conditions so that they always spin the crank at the optimum speed.  
+</p>
+
+<p>
+If the rider attempts to start moving while the bicycle is shifted into its &ldquo;top&rdquo; gear, he or she will find it very difficult to get moving.  Is it because the rider is weak?  No, its because the high step-up ratio of the bicycle's chain and sprockets in that top gear presents a mismatch between the conditions (lots of inertia to overcome) and their legs (needing to spin at 60-90 RPM for maximum power output).  On the other hand, selecting a gear that is too low will enable the rider to get moving immediately, but limit the top speed they will be able to attain.  Again, is the lack of speed an indication of weakness in the bicyclist's legs?  No, its because the lower speed ratio of the selected gear creates another type of mismatch between the conditions (low load) and the rider's legs (losing power if spinning faster than 90 RPM).  It is much the same with electric power sources and loads: there must be an impedance match for maximum system efficiency.  In AC circuits, transformers perform the same matching function as the sprockets and chain (&ldquo;gears&rdquo;) on a bicycle to match otherwise mismatched sources and loads.
+</p>
+
+<p>
+Impedance matching transformers are not fundamentally different from any other type of transformer in construction or appearance.  A small impedance-matching transformer (about two centimeters in width) for audio-frequency applications is shown in the following photograph: (Figure <a href="#52003.jpg">  below</a>)
+</p>
+
+ 
+<a name="52003.jpg"></a> 
+<p> <img src="52003.jpg"> </p> 
+<p><i>Audio frequency impedance matching transformer.</i></p> 
+ 
+
+<p>
+Another impedance-matching transformer can be seen on this printed circuit board, in the upper right corner, to the immediate left of resistors R<sub>2</sub> and R<sub>1</sub>.  It is labeled &ldquo;T1&rdquo;: (Figure <a href="#52005.jpg">  below</a>)
+</p>
+
+ 
+<a name="52005.jpg"></a> 
+<p> <img src="52005.jpg"> </p> 
+<p><i>Printed circuit board mounted audio impedance matching transformer, top  right.</i></p> 
+ 
+
+
+
+
+<h3><u><a name="xtocid35028">Potential transformers </a></u></h3>
+
+
+<p>
+Transformers can also be used in electrical instrumentation systems.  Due to transformers' ability to step up or step down voltage and current, and the electrical isolation they provide, they can serve as a way of connecting electrical instrumentation to high-voltage, high current power systems.  Suppose we wanted to accurately measure the voltage of a 13.8 kV power system (a very common power distribution voltage in American industry): (Figure <a href="#02154.png">  below</a>)
+</p>
+
+ 
+<a name="02154.png"></a> 
+<p> <img src="02154.png"> </p> 
+<p><i>Direct measurement of high voltage by a voltmeter is a potential safety hazard.</i></p> 
+ 
+
+<p>
+Designing, installing, and maintaining a voltmeter capable of directly measuring 13,800 volts AC would be no easy task.  The safety hazard alone of bringing 13.8 kV conductors into an instrument panel would be severe, not to mention the design of the voltmeter itself.  However, by using a precision step-down transformer, we can reduce the 13.8 kV down to a safe level of voltage at a constant ratio, and isolate it from the instrument connections, adding an additional level of safety to the metering system: (Figure <a href="#02155.png">  below</a>)
+</p>
+
+ 
+<a name="02155.png"></a> 
+<p> <img src="02155.png"> </p> 
+<p><i>Instrumentation application:&ldquo;Potential transformer&rdquo; precisely scales dangerous high voltage to a safe value applicable to a  conventional voltmeter.</i></p> 
+ 
+
+<a name="Potential transformer"></a>
+<a name="PT"></a>
+
+<p>
+Now the voltmeter reads a precise fraction, or ratio, of the actual system voltage, its scale set to read as though it were measuring the voltage directly.  The transformer keeps the instrument voltage at a safe level and electrically isolates it from the power system, so there is no direct connection between the power lines and the instrument or instrument wiring.  When used in this capacity, the transformer is called a <i>Potential Transformer</i>, or simply <i>PT</i>.
+</p>
+
+<p>
+Potential transformers are designed to provide as accurate a voltage step-down ratio as possible.  To aid in precise voltage regulation, loading is kept to a minimum: the voltmeter is made to have high input impedance so as to draw as little current from the PT as possible.  As you can see, a fuse has been connected in series with the PTs primary winding, for safety and ease of disconnecting the PT from the circuit.  
+</p>
+
+<p>
+A standard secondary voltage for a PT is 120 volts AC, for full-rated power line voltage.  The standard voltmeter range to accompany a PT is 150 volts, full-scale.  PTs with custom winding ratios can be manufactured to suit any application.  This lends itself well to industry standardization of the actual voltmeter instruments themselves, since the PT will be sized to step the system voltage down to this standard instrument level. 
+</p>
+
+
+
+<h3><u><a name="xtocid35029">Current transformers</a></u></h3>
+
+<p>
+Following the same line of thinking, we can use a transformer to step down current through a power line so that we are able to safely and easily measure high system currents with inexpensive ammeters.  Of course, such a transformer would be connected in series with the power line, like (Figure <a href="#02156.png">  below</a>).
+</p>
+
+ 
+<a name="02156.png"></a> 
+<p> <img src="02156.png"> </p> 
+<p><i>Instrumentation application: &ldquo;Currrent transformer&rdquo; steps high current down to a value applicable to a conventional ammeter.</i></p> 
+ 
+
+<a name="Current transformer"></a>
+<a name="CT"></a>
+
+<p>
+Note that while the PT is a step-down device, the <i>Current Transformer</i> (or <i>CT</i>) is a step-up device (with respect to voltage), which is what is needed to step <i>down</i> the power line current.  Quite often, CTs are built as donut-shaped devices through which the power line conductor is run, the power line itself acting as a single-turn primary winding:  (Figure <a href="#52008.jpg">  below</a>)
+</p>
+
+ 
+<a name="52008.jpg"></a> 
+<p> <img src="52008.jpg"> </p> 
+<p><i>Current conductor to be measured is threaded through the opening. Scaled down current is available on wire leads.</i></p> 
+ 
+
+<p>
+Some CTs are made to hinge open, allowing insertion around a power conductor without disturbing the conductor at all.  The industry standard secondary current for a CT is a range of 0 to 5 amps AC.  Like PTs, CTs can be made with custom winding ratios to fit almost any application.  Because their &ldquo;full load&rdquo; secondary current is 5 amps, CT ratios are usually described in terms of full-load primary amps to 5 amps, like this:
+</p>
+
+<p> <img src="12107.png"> </p> 
+
+<p>
+The &ldquo;donut&rdquo; CT shown in the photograph has a ratio of 50:5.  That is, when the conductor through the center of the torus is carrying 50 amps of current (AC), there will be 5 amps of current induced in the CT's winding.
+</p>
+
+<p>
+Because CTs are designed to be powering ammeters, which are low-impedance loads, and they are wound as voltage step-up transformers, they should never, <i>ever</i> be operated with an open-circuited secondary winding.  Failure to heed this warning will result in the CT producing extremely high secondary voltages, dangerous to equipment and personnel alike.  To facilitate maintenance of ammeter instrumentation, short-circuiting switches are often installed in parallel with the CT's secondary winding, to be closed whenever the ammeter is removed for service: (Figure <a href="#02157.png">  below</a>)
+</p>
+
+ 
+<a name="02157.png"></a> 
+<p> <img src="02157.png"> </p> 
+<p><i>Short-circuit switch allows ammeter to be removed from an active current transformer circuit.</i></p> 
+ 
+
+<p>
+Though it may seem strange to <i>intentionally</i> short-circuit a power system component, it is perfectly proper and quite necessary when working with current transformers.
+</p>
+
+
+
+
+<h3><u><a name="xtocid350210">Air core transformers</a></u></h3>
+
+
+
+<p>
+Another kind of special transformer, seen often in radio-frequency circuits, is the <i>air core</i> transformer. (Figure <a href="#02334.png">  below</a>)  True to its name, an air core transformer has its windings wrapped around a nonmagnetic form, usually a hollow tube of some material.  The degree of coupling (mutual inductance) between windings in such a transformer is many times less than that of an equivalent iron-core transformer, but the undesirable characteristics of a ferromagnetic core (eddy current losses, hysteresis, saturation, etc.) are completely eliminated.  It is in high-frequency applications that these effects of iron cores are most problematic.</p>
+
+ 
+<a name="02334.png"></a> 
+<p> <img src="02334.png"> </p> 
+<p><i>Air core transformers may be wound on cylindrical (a) or toroidal (b) forms. Center tapped primary with secondary (a). Bifilar winding on toroidal form (b).</i></p> 
+ 
+
+<p>
+The inside tapped solenoid winding, (Figure (a) <a href="#02334.png">  above</a>),  without the over winding, could match unequal impedances when DC isolation is not required. When isolation is required the over winding is added over one end of the main winding. Air core transformers are used at radio frequencies when iron core losses are too high. Frequently air core transformers are paralleled with a capacitor to tune it to resonance. The over winding is connected between a radio antenna and ground for one such application. The secondary is tuned to resonance with a variable capacitor. The output may be taken from the tap point for amplification or detection. Small millimeter size air core transformers are used in radio receivers. The largest radio transmitters may use meter sized coils. Unshielded air core solenoid  transformers are mounted at right angles to each other to prevent stray coupling.
+</p>
+
+<p>
+Stray coupling is minimized when the transformer is wound on a toroid form. (Figure (b) <a href="#02334.png">  above</a>) Toroidal air core transformers also show a higher degree of coupling, particularly for <i>bifilar</i> windings. Bifilar windings are wound from a slightly twisted pair of wires. This implies a 1:1 turns ratio. Three or four wires may be grouped for 1:2 and other integral ratios. Windings do not have to be bifilar. This allows arbitrary turns ratios. However, the degree of coupling suffers. Toroidal air core transformers are rare except for VHF (Very High Frequency) work. Core materials other than air such as powdered iron or ferrite are preferred for lower radio frequencies.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid350211">Tesla Coil </a></u></h3>
+
+<a name="Tesla Coil"></a>
+<a name="Tesla, Nikola"></a>
+<a name="Coil, Tesla"></a>
+<a name="Skin effect"></a>
+
+<p>
+One notable example of an air-core transformer is the <i>Tesla Coil</i>, named after the Serbian electrical genius Nikola Tesla, who was also the inventor of the rotating magnetic field AC motor, polyphase AC power systems, and many elements of radio technology.  The Tesla Coil is a resonant, high-frequency step-up transformer used to produce extremely high voltages.  One of Tesla's dreams was to employ his coil technology to distribute electric power without the need for wires, simply broadcasting it in the form of radio waves which could be received and conducted to loads by means of antennas.  The basic schematic for a Tesla Coil is shown in Figure <a href="#02158.png">  below</a>.
+</p>
+
+ 
+<a name="02158.png"></a> 
+<p> <img src="02158.png"> </p> 
+<p><i>Tesla Coil: A few heavy primary turns, many secondary turns.</i></p> 
+ 
+
+<p>
+The capacitor, in conjunction with the transformer's primary winding, forms a tank circuit.  The secondary winding is wound in close proximity to the primary, usually around the same nonmagnetic form.  Several options exist for &ldquo;exciting&rdquo; the primary circuit, the simplest being a high-voltage, low-frequency AC source and spark gap: (Figure <a href="#02159.png">  below</a>)
+</p>
+
+ 
+<a name="02159.png"></a> 
+<p> <img src="02159.png"> </p> 
+<p><i>System level diagram of Tesla coil with spark gap drive.</i></p> 
+ 
+
+<p>
+The purpose of the high-voltage, low-frequency AC power source is to &ldquo;charge&rdquo; the primary tank circuit.  When the spark gap fires, its low impedance acts to complete the capacitor/primary coil tank circuit, allowing it to oscillate at its resonant frequency.  The &ldquo;RFC&rdquo; inductors are &ldquo;Radio Frequency Chokes,&rdquo; which act as high impedances to prevent the AC source from interfering with the oscillating tank circuit.
+</p>
+
+<p>
+The secondary side of the Tesla coil transformer is also a tank circuit, relying on the parasitic (stray) capacitance existing between the discharge terminal and earth ground to complement the secondary winding's inductance.  For optimum operation, this secondary tank circuit is tuned to the same resonant frequency as the primary circuit, with energy exchanged not only between capacitors and inductors during resonant oscillation, but also back-and-forth between primary and secondary windings.  The visual results are spectacular: (Figure <a href="#52001.jpg">  below</a>)
+</p>
+
+ 
+<a name="52001.jpg"></a> 
+<p> <img src="52001.jpg"> </p> 
+<p><i>High voltage high frequency discharge from Tesla coil.</i></p> 
+ 
+
+<p>
+Tesla Coils find application primarily as novelty devices, showing up in high school science fairs, basement workshops, and the occasional low budget science-fiction movie.
+</p>
+
+<p>
+It should be noted that Tesla coils can be extremely dangerous devices.  Burns caused by radio-frequency (&ldquo;RF&rdquo;) current, like all electrical burns, can be very deep, unlike skin burns caused by contact with hot objects or flames.  Although the high-frequency discharge of a Tesla coil has the curious property of being beyond the &ldquo;shock perception&rdquo; frequency of the human nervous system, this does not mean Tesla coils cannot hurt or even kill you!  I strongly advise seeking the assistance of an experienced Tesla coil experimenter if you would embark on building one yourself.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid350212">Saturable reactors </a></u></h3>
+
+<p>
+
+</p>
+
+
+
+<a name="Amplifier"></a>
+
+<p>
+So far, we've explored the transformer as a device for converting different levels of voltage, current, and even impedance from one circuit to another.  Now we'll take a look at it as a completely different kind of device: one that allows a small electrical signal to exert <i>control</i> over a much larger quantity of electrical power.  In this mode, a transformer acts as an <i>amplifier</i>.
+</p>
+
+<a name="Saturable reactor"></a>
+
+<p>
+The device I'm referring to is called a <i>saturable-core reactor</i>, or simply <i>saturable reactor</i>.  Actually, it is not really a transformer at all, but rather a special kind of inductor whose inductance can be varied by the application of a DC current through a second winding wound around the same iron core.  Like the ferroresonant transformer, the saturable reactor relies on the principle of magnetic saturation.  When a material such as iron is completely saturated (that is, all its magnetic domains are lined up with the applied magnetizing force), additional increases in current through the magnetizing winding will not result in further increases of magnetic flux.
+</p>
+
+<p>
+Now, inductance is the measure of how well an inductor opposes changes in current by developing a voltage in an opposing direction.  The ability of an inductor to generate this opposing voltage is directly connected with the change in magnetic flux inside the inductor resulting from the change in current, and the number of winding turns in the inductor.  If an inductor has a saturated core, no further magnetic flux will result from further increases in current, and so there will be no voltage induced in opposition to the change in current.  In other words, an inductor loses its inductance (ability to oppose changes in current) when its core becomes magnetically saturated.
+</p>
+
+<p>
+If an inductor's inductance changes, then its reactance (and impedance) to AC current changes as well.  In a circuit with a constant voltage source, this will result in a change in current: (Figure <a href="#02160.png">  below</a>)
+</p>
+
+ 
+<a name="02160.png"></a> 
+<p> <img src="02160.png"> </p> 
+<p><i>If L changes in inductance, Z<sub>L</sub> will correspondingly change, thus changing the circuit current.</i></p> 
+ 
+
+<p>
+A saturable reactor capitalizes on this effect by forcing the core into a state of saturation with a strong magnetic field generated by current through another winding.  The reactor's &ldquo;power&rdquo; winding is the one carrying the AC load current, and the &ldquo;control&rdquo; winding is one carrying a DC current strong enough to drive the core into saturation: (Figure <a href="#02161.png">  below</a>)
+</p>
+
+ 
+<a name="02161.png"></a> 
+<p> <img src="02161.png"> </p> 
+<p><i>DC, via the control winding, saturates the core. Thus, modulating the power winding inductance, impedance, and current.</i></p> 
+ 
+
+<p>
+The strange-looking transformer symbol shown in the above schematic represents a saturable-core reactor, the upper winding being the DC control winding and the lower being the &ldquo;power&rdquo; winding through which the controlled AC current goes.  Increased DC control current produces more magnetic flux in the reactor core, driving it closer to a condition of saturation, thus decreasing the power winding's inductance, decreasing its impedance, and increasing current to the load.  Thus, the DC control current is able to exert <i>control</i> over the AC current delivered to the load.
+</p>
+
+<p>
+The circuit shown would work, but it would not work very well.  The first problem is the natural transformer action of the saturable reactor: AC current through the power winding will induce a voltage in the control winding, which may cause trouble for the DC power source.  Also, saturable reactors tend to regulate AC power only in one direction: in one half of the AC cycle, the mmf's from both windings add; in the other half, they subtract.  Thus, the core will have more flux in it during one half of the AC cycle than the other, and will saturate first in that cycle half, passing load current more easily in one direction than the other.  Fortunately, both problems can be overcome with a little ingenuity: (Figure <a href="#02162.png">  below</a>)
+</p>
+
+ 
+<a name="02162.png"></a> 
+<p> <img src="02162.png"> </p> 
+<p><i>Out of phase DC control windings allow symmetrical of control AC.</i></p> 
+ 
+
+<p>
+Notice the placement of the phasing dots on the two reactors: the power windings are &ldquo;in phase&rdquo; while the control windings are &ldquo;out of phase.&rdquo;  If both reactors are identical, any voltage induced in the control windings by load current through the power windings will cancel out to zero at the battery terminals, thus eliminating the first problem mentioned.  Furthermore, since the DC control current through both reactors produces magnetic fluxes in different directions through the reactor cores, one reactor will saturate more in one cycle of the AC power while the other reactor will saturate more in the other, thus equalizing the control action through each half-cycle so that the AC power is &ldquo;throttled&rdquo; symmetrically.  This phasing of control windings can be accomplished with two separate reactors as shown, or in a single reactor design with intelligent layout of the windings and core.
+</p>
+
+<a name="Magnetic amplifier"></a>
+<a name="Amplifier, magnetic"></a>
+
+<p>
+Saturable reactor technology has even been miniaturized to the circuit-board level in compact packages more generally known as <i>magnetic amplifiers</i>.  I personally find this to be fascinating: the effect of amplification (one electrical signal controlling another), normally requiring the use of physically fragile vacuum tubes or electrically &ldquo;fragile&rdquo; semiconductor devices, can be realized in a device both physically and electrically rugged.  Magnetic amplifiers do have disadvantages over their more fragile counterparts, namely size, weight, nonlinearity, and bandwidth (frequency response), but their utter simplicity still commands a certain degree of appreciation, if not practical application.
+</p>
+
+<a name="Transductor"></a>
+
+<p>
+Saturable-core reactors are less commonly known as &ldquo;saturable-core inductors&rdquo; or <i>transductors</i>. 
+</p>
+
+
+
+
+<h3><u><a name="xtocid350213">Scott-T transformer</a></u></h3>
+<a name="Scott-T transformer"></a>
+<a name="transformer, Scott-T"></a>
+ 
+<a name="scott"></a>
+
+<p>
+Nikola Tesla's original polyphase power system was based on simple to build 2-phase components. However, as transmission distances increased, the more transmission line efficient 3-phase system became more prominent. Both 2-&#966; and 3-&#966; components coexisted for a number of years. The Scott-T transformer connection allowed 2-&#966; and 3-&#966; components like motors and alternators to be interconnected. Yamamoto and Yamaguchi:  
+</p>
+
+<blockquote>In 1896, General Electric built a 35.5 km (22 mi) three-phase transmission line operated at 11 kV to transmit power to Buffalo, New York, from the Niagara Falls Project. The two-phase generated power was changed to
+three-phase by the use of Scott-T transformations. <a href="#MYA.bibitem">[MYA]</a></blockquote>
+
+
+ 
+<a name="02414.png"></a> 
+<p> <img src="02414.png"> </p> 
+<p><i>Scott-T transformer converts 2-&#966; to 3-&#966;, or vice versa.</i></p> 
+
+
+<p>
+The Scott-T transformer set,  Figure <a href="#02414.png">  above</a>, consists of a center tapped transformer T1 and an 86.6% tapped transformer T2 on the 3-&#966; side of the circuit. The primaries of both transformers are connected to the 2-&#966; voltages. One end of the T2 86.6% secondary winding is a 3-&#966; output, the other end is connected to the T1 secondary center tap. Both ends of the T1 secondary are the other two 3-&#966; connections.
+</p>
+
+<p>
+Application of 2-&#966; Niagara generator power produced a 3-&#966; output for the more efficient 3-&#966; transmission line. More common these days is the application of 3-&#966; power to produce a 2-&#966; output for driving an old 2-&#966; motor.
+</p>
+
+<p>
+In Figure <a href="#02415.png">  below</a>, we use vectors in both polar and complex notation to prove that the Scott-T converts a pair of 2-&#966; voltages to 3-&#966;. First, one of the 3-&#966; voltages is identical to a 2-&#966; voltage due to the 1:1 transformer T1 ratio, V<sub>P12</sub>= V<sub>2P1</sub>. The T1 center tapped secondary produces opposite polarities of 0.5V<sub>2P1</sub> on the secondary ends. This &#8736;0<sup>o</sup> is vectorially  subtracted from T2 secondary voltage due to the KVL equations  V<sub>31</sub>, V<sub>23</sub>. The T2 secondary voltage is 0.866V<sub>2P2</sub> due to the 86.6% tap. Keep in mind that this 2nd phase of the 2-&#966; is &#8736;90<sup>o</sup>. This 0.866V<sub>2P2</sub> is added at V<sub>31</sub>, subtracted at V<sub>23</sub> in the KVL equations.
+</p>
+
+ 
+<a name="02415.png"></a> 
+<p> <img src="02415.png"> </p> 
+<p><i>Scott-T transformer 2-&#966; to 3-&#966; conversion equations.</i></p> 
+
+
+<p>
+We show &ldquo;DC&rdquo; polarities all over this AC only circuit, to keep track of the Kirchhoff voltage loop polarities. Subtracting &#8736;0<sup>o</sup> is equivalent to adding &#8736;180<sup>o</sup>.  The bottom line is when we add 86.6% of &#8736;90<sup>o</sup> to 50% of &#8736;180<sup>o</sup> we get &#8736;120<sup>o</sup>. Subtracting 86.6% of &#8736;90<sup>o</sup> from 50% of &#8736;180<sup>o</sup> yields &#8736;-120<sup>o</sup> or &#8736;240<sup>o</sup>. 
+</p>
+
+ 
+<a name="02416.png"></a> 
+<p> <img src="02416.png"> </p> 
+<p><i>Graphical explanation of equations in Figure <a href="#02415.png">  previous</a>.</i></p> 
+
+
+<p>
+In Figure <a href="#02416.png">  above</a> we graphically show the 2-&#966; vectors at (a). At (b) the vectors are scaled by transformers T1 and T2 to 0.5 and 0.866 respectively. At (c)    1&#8736;120<sup>o</sup> = -0.5&#8736;0<sup>o</sup> + 0.866&#8736;90<sup>o</sup>, and 1&#8736;240<sup>o</sup> = -0.5&#8736;0<sup>o</sup> - 0.866&#8736;90<sup>o</sup>. The three output phases are  1&#8736;120<sup>o</sup> and 1&#8736;240<sup>o</sup> from (c), along with input 1&#8736;0<sup>o</sup> (a).  
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid350214">Linear Variable Differential Transformer</a></u></h3>
+<a name="linear variable differential transformer"></a>
+<a name="LVDT"></a>
+
+<p>
+A <i>linear variable differential transformer</i> (LVDT) has an AC driven primary wound between two secondaries on a cylindrical air core form. (Figure <a href="#02417.png">  below</a>) A movable ferromagnetic slug converts displacement to a variable voltage by changing the coupling between the driven primary and secondary windings. The LVDT is a displacement or distance measuring transducer. Units are available for measuring displacement over a distance of a fraction of a millimeter to a half a meter. LVDT's are rugged and dirt resistant compared to linear optical encoders.
+</p>
+
+ 
+<a name="02417.png"></a> 
+<p> <img src="02417.png"> </p> 
+<p><i>LVDT: linear variable differential transformer.</i></p> 
+
+
+
+<p>
+The excitation voltage is in the range of 0.5 to 10 VAC at a frequency of 1 to 200 Khz. A ferrite core is suitable at these frequencies. It is extended outside the body by an non-magnetic rod.  As the core is moved toward the top winding, the voltage across this coil increases due to increased coupling, while the voltage on the bottom coil decreases. If the core is moved toward the bottom winding, the voltage on this coil increases as the voltage decreases across the top coil. Theoretically, a centered slug yields equal voltages across both coils. In practice leakage inductance prevents the null from dropping all the way to 0 V.
+</p>
+
+<p>
+With a centered slug, the series-opposing wired secondaries cancel yielding V<sub>13</sub> = 0. Moving the slug up increases V<sub>13</sub>.  Note that it is in-phase with with  V<sub>1</sub>, the top winding, and 180<sup>o</sup> out of phase with V<sub>3</sub>, bottom winding.  
+</p>
+
+<p>
+Moving the slug down from the center position increases V<sub>13</sub>.  However, it is 180<sup>o</sup> out of phase with with  V<sub>1</sub>, the top winding, and in-phase  with V<sub>3</sub>, bottom winding. Moving the slug from top to bottom shows a minimum at the center point, with a 180<sup>o</sup> phase reversal in passing the center.  
+</p>
+
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Transformers can be used to transform impedance as well as voltage and current.  When this is done to improve power transfer to a load, it is called <i>impedance matching</i>.</li>
+<li>A <i>Potential Transformer</i> (PT) is a special instrument transformer designed to provide a precise voltage step-down ratio for voltmeters measuring high power system voltages.</li>
+<li>A <i>Current Transformer</i> (CT) is another special instrument transformer designed to step down the current through a power line to a safe level for an ammeter to measure.</li>
+<li>An <i>air-core</i> transformer is one lacking a ferromagnetic core.</li>
+<li>A <i>Tesla Coil</i> is a resonant, air-core, step-up transformer designed to produce very high AC voltages at high frequency.</li>
+<li>A <i>saturable reactor</i> is a special type of inductor, the inductance of which can be controlled by the DC current through a second winding around the same core.  With enough DC current, the magnetic core can be saturated, decreasing the inductance of the power winding in a controlled fashion.</li>
+<li>A <i>Scott-T transformer</i> converts 3-&#966; power to 2-&#966; power and vice versa.</li>
+<li>A <i>linear variable differential transformer</i>, also known as an LVDT, is a distance measuring device. It has a movable ferromagnetic core to vary the coupling between the excited primary and a pair of secondaries.</li>
+</ul>
+
+
+
+
+
+<h2><u><a name="xtocid350215">Practical considerations</a></u></h2>
+
+
+<h3><u><a name="xtocid350216">Power capacity</a></u></h3>
+
+<p>
+As has already been observed, transformers must be well designed in order to achieve acceptable power coupling, tight voltage regulation, and low exciting current distortion.  Also, transformers must be designed to carry the expected values of primary and secondary winding current without any trouble.  This means the winding conductors must be made of the proper gauge wire to avoid any heating problems.  An ideal transformer would have perfect coupling (no leakage inductance), perfect voltage regulation, perfectly sinusoidal exciting current, no hysteresis or eddy current losses, and wire thick enough to handle any amount of current.  Unfortunately, the ideal transformer would have to be infinitely large and heavy to meet these design goals.  Thus, in the business of <i>practical</i> transformer design, compromises must be made.
+</p>
+
+<p>
+Additionally, winding conductor insulation is a concern where high voltages are encountered, as they often are in step-up and step-down power distribution transformers.  Not only do the windings have to be well insulated from the iron core, but each winding has to be sufficiently insulated from the other in order to maintain electrical isolation between windings.
+</p>
+
+<a name="Volt-amp"></a>
+<a name="Unit, volt-amp"></a>
+
+<p>
+Respecting these limitations, transformers are rated for certain levels of primary and secondary winding voltage and current, though the current rating is usually derived from a volt-amp (VA) rating assigned to the transformer.  For example, take a step-down transformer with a primary voltage rating of 120 volts, a secondary voltage rating of 48 volts, and a VA rating of 1 kVA (1000 VA).  The maximum winding currents can be determined as such:
+</p>
+
+<p> <img src="12108.png"> </p> 
+
+<p>
+Sometimes windings will bear current ratings in amps, but this is typically seen on small transformers.  Large transformers are almost always rated in terms of winding voltage and VA or kVA.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid350217">Energy losses</a></u></h3>
+
+<p>
+When transformers transfer power, they do so with a minimum of loss.  As it was stated earlier, modern power transformer designs typically exceed 95% efficiency.  It is good to know where some of this lost power goes, however, and what causes it to be lost. 
+</p>
+
+<p>
+There is, of course, power lost due to resistance of the wire windings.  Unless superconducting wires are used, there will always be power dissipated in the form of heat through the resistance of current-carrying conductors.  Because transformers require such long lengths of wire, this loss can be a significant factor.  Increasing the gauge of the winding wire is one way to minimize this loss, but only with substantial increases in cost, size, and weight.
+</p>
+
+<a name="Eddy current loss"></a>
+
+<p>
+Resistive losses aside, the bulk of transformer power loss is due to magnetic effects in the core.  Perhaps the most significant of these &ldquo;core losses&rdquo; is <i>eddy-current loss</i>, which is resistive power dissipation due to the passage of induced currents through the iron of the core.  Because iron is a conductor of electricity as well as being an excellent &ldquo;conductor&rdquo; of magnetic flux, there will be currents induced in the iron just as there are currents induced in the secondary windings from the alternating magnetic field.  These induced currents -- as described by the perpendicularity clause of Faraday's Law  -- tend to circulate through the cross-section of the core perpendicularly to the primary winding turns.  Their circular motion gives them their unusual name: like eddies in a stream of water that circulate rather than move in straight lines.
+</p>
+
+<p>
+Iron is a fair conductor of electricity, but not as good as the copper or aluminum from which wire windings are typically made.  Consequently, these &ldquo;eddy currents&rdquo; must overcome significant electrical resistance as they circulate through the core.  In overcoming the resistance offered by the iron, they dissipate power in the form of heat.  Hence, we have a source of inefficiency in the transformer that is difficult to eliminate. 
+</p>
+
+<p>
+This phenomenon is so pronounced that it is often exploited as a means of heating ferrous (iron-containing) materials.  The photograph of  (Figure <a href="#52016.jpg">  below</a>) shows an &ldquo;induction heating&rdquo; unit raising the temperature of a large pipe section.  Loops of wire covered by high-temperature insulation encircle the pipe's circumference, inducing eddy currents within the pipe wall by electromagnetic induction.  In order to maximize the eddy current effect, high-frequency alternating current is used rather than power line frequency (60 Hz).  The box units at the right of the picture produce the high-frequency AC and control the amount of current in the wires to stabilize the pipe temperature at a pre-determined &ldquo;set-point.&rdquo;
+</p>
+
+ 
+<a name="52016.jpg"></a> 
+<p> <img src="52016.jpg"> </p> 
+<p><i>Induction heating: Primary insulated winding induces current into lossy iron pipe (secondary).</i></p> 
+ 
+
+<a name="Laminated iron core"></a>
+<a name="Transformer core, laminated"></a>
+
+<p>
+The main strategy in mitigating these wasteful eddy currents in transformer cores is to form the iron core in sheets, each sheet covered with an insulating varnish so that the core is divided up into thin slices.  The result is very little width in the core for eddy currents to circulate in: (Figure <a href="#02163.png">  below</a>)
+</p>
+
+ 
+<a name="02163.png"></a> 
+<p> <img src="02163.png"> </p> 
+<p><i>Dividing the iron core into thin insulated laminations minimizes eddy current loss.</i></p> 
+ 
+
+<a name="Transformer core, powdered iron"></a>
+
+<a name="400 Hz AC power, aircraft"></a>
+
+<p>
+<i>Laminated</i> cores like the one shown here are standard in almost all low-frequency transformers.  Recall from the photograph of the transformer cut in half that the iron core was composed of many thin sheets rather than one solid piece.  Eddy current losses increase with frequency, so transformers designed to run on higher-frequency power (such as 400 Hz, used in many military and aircraft applications) must use thinner laminations to keep the losses down to a respectable minimum.  This has the undesirable effect of increasing the manufacturing cost of the transformer.
+</p>
+
+<a name="Powdered iron core"></a>
+
+<p>
+Another, similar technique for minimizing eddy current losses which works better for high-frequency applications is to make the core out of iron powder instead of thin iron sheets.  Like the lamination sheets, these granules of iron are individually coated in an electrically insulating material, which makes the core nonconductive except for within the width of each granule.  Powdered iron cores are often found in transformers handling radio-frequency currents.
+</p>
+
+<a name="Hysteresis"></a>
+
+<p>
+Another &ldquo;core loss&rdquo; is that of magnetic <i>hysteresis</i>.  All ferromagnetic materials tend to retain some degree of magnetization after exposure to an external magnetic field.  This tendency to stay magnetized is called &ldquo;hysteresis,&rdquo; and it takes a certain investment in energy to overcome this opposition to change every time the magnetic field produced by the primary winding changes polarity (twice per AC cycle).  This type of loss can be mitigated through good core material selection (choosing a core alloy with low hysteresis, as evidenced by a &ldquo;thin&rdquo; B/H hysteresis curve), and designing the core for minimum flux density (large cross-sectional area).
+</p>
+
+<p>
+Transformer energy losses tend to worsen with increasing frequency.  The skin effect within winding conductors reduces the available cross-sectional area for electron flow, thereby increasing effective resistance as the frequency goes up and creating more power lost through resistive dissipation.  Magnetic core losses are also exaggerated with higher frequencies, eddy currents and hysteresis effects becoming more severe.  For this reason, transformers of significant size are designed to operate efficiently in a limited range of frequencies.  In most power distribution systems where the line frequency is very stable, one would think excessive frequency would never pose a problem.  Unfortunately it does, in the form of harmonics created by nonlinear loads.
+</p>
+
+<p>
+As we've seen in earlier chapters, nonsinusoidal waveforms are equivalent to additive series of multiple sinusoidal waveforms at different amplitudes and frequencies.  In power systems, these other frequencies are whole-number multiples of the fundamental (line) frequency, meaning that they will always be higher, not lower, than the design frequency of the transformer.  In significant measure, they can cause severe transformer overheating.  Power transformers can be engineered to handle certain levels of power system harmonics, and this capability is sometimes denoted with a &ldquo;K factor&rdquo; rating.  
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid350218">Stray capacitance and inductance</a></u></h3>
+
+<a name="Resonance, transformer and inductor"></a>
+
+<p>
+Aside from power ratings and power losses, transformers often harbor other undesirable limitations which circuit designers must be made aware of.  Like their simpler counterparts -- inductors -- transformers exhibit capacitance due to the insulation dielectric between conductors: from winding to winding, turn to turn (in a single winding), and winding to core.  Usually this capacitance is of no concern in a power application, but small signal applications (especially those of high frequency) may not tolerate this quirk well.  Also, the effect of having capacitance along with the windings' designed inductance gives transformers the ability to <i>resonate</i> at a particular frequency, definitely a design concern in signal applications where the applied frequency may reach this point (usually the resonant frequency of a power transformer is well beyond the frequency of the AC power it was designed to operate on).
+</p>
+
+<p>
+Flux containment (making sure a transformer's magnetic flux doesn't escape so as to interfere with another device, and making sure other devices' magnetic flux is shielded from the transformer core) is another concern shared both by inductors and transformers.  
+</p>
+
+<a name="Inductance, leakage"></a>
+<a name="Leakage inductance"></a>
+
+<p>
+Closely related to the issue of flux containment is leakage inductance.  We've already seen the detrimental effects of leakage inductance on voltage regulation with SPICE simulations early in this chapter.  Because leakage inductance is equivalent to an inductance connected in series with the transformer's winding, it manifests itself as a series impedance with the load.  Thus, the more current drawn by the load, the less voltage available at the secondary winding terminals.  Usually, good voltage regulation is desired in transformer design, but there are exceptional applications.  As was stated before, discharge lighting circuits require a step-up transformer with &ldquo;loose&rdquo; (poor) voltage regulation to ensure reduced voltage after the establishment of an arc through the lamp.  One way to meet this design criterion is to engineer the transformer with flux leakage paths for magnetic flux to bypass the secondary winding(s).  The resulting leakage flux will produce leakage inductance, which will in turn produce the poor regulation needed for discharge lighting.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid350219">Core saturation</a></u></h3>
+
+<p>
+Transformers are also constrained in their performance by the magnetic flux limitations of the core.  For ferromagnetic core transformers, we must be mindful of the saturation limits of the core.  Remember that ferromagnetic materials cannot support infinite magnetic flux densities: they tend to &ldquo;saturate&rdquo; at a certain level (dictated by the material and core dimensions), meaning that further increases in magnetic field force (mmf) do not result in proportional increases in magnetic field flux (&#934;).
+</p>
+
+<p>
+When a transformer's primary winding is overloaded from excessive applied voltage, the core flux may reach saturation levels during peak moments of the AC sinewave cycle.  If this happens, the voltage induced in the secondary winding will no longer match the wave-shape as the voltage powering the primary coil.  In other words, the overloaded transformer will <i>distort</i> the waveshape from primary to secondary windings, creating harmonics in the secondary winding's output.  As we discussed before, harmonic content in AC power systems typically causes problems.
+</p>
+
+<a name="Transformer, peaking"></a>
+<a name="Peaking transformer"></a>
+
+<p>
+Special transformers known as <i>peaking transformers</i> exploit this principle to produce brief voltage pulses near the peaks of the source voltage waveform.  The core is designed to saturate quickly and sharply, at voltage levels well below peak.  This results in a severely cropped sine-wave flux waveform, and secondary voltage pulses only when the flux is changing (below saturation levels): (Figure <a href="#02314.png">  below</a>)
+</p>
+
+ 
+<a name="02314.png"></a> 
+<p> <img src="02314.png"> </p> 
+<p><i>Voltage and flux waveforms for a peaking transformer.</i></p> 
+ 
+
+<p>
+Another cause of abnormal transformer core saturation is operation at frequencies lower than normal.  For example, if a power transformer designed to operate at 60 Hz is forced to operate at 50 Hz instead, the flux must reach greater peak levels than before in order to produce the same opposing voltage needed to balance against the source voltage.  This is true even if the source voltage is the same as before. (Figure <a href="#02340.png">  below</a>)
+</p>
+
+ 
+<a name="02340.png"></a> 
+<p> <img src="02340.png"> </p> 
+<p><i>Magnetic flux is higher in a transformer core driven by 50 Hz as compared to 60 Hz for the same voltage. </i></p> 
+ 
+
+<p>
+Since instantaneous winding voltage is proportional to the instantaneous magnetic flux's <i>rate of change</i> in a transformer, a voltage waveform reaching the same peak value, but taking a longer amount of time to complete each half-cycle, demands that the flux maintain the same rate of change as before, but for longer periods of time.  Thus, if the flux has to climb at the same rate as before, but for longer periods of time, it will climb to a greater peak value. (Figure <a href="#02341.png">  below</a>)
+</p>
+
+<a name="Derivative, calculus"></a>
+<a name="Integral, calculus"></a>
+
+<p>
+Mathematically, this is another example of calculus in action.  Because the voltage is proportional to the flux's rate-of-change, we say that the voltage waveform is the <i>derivative</i> of the flux waveform, &ldquo;derivative&rdquo; being that calculus operation defining one mathematical function (waveform) in terms of the rate-of-change of another.  If we take the opposite perspective, though, and relate the original waveform to its derivative, we may call the original waveform the <i>integral</i> of the derivative waveform.  In this case, the voltage waveform is the derivative of the flux waveform, and the flux waveform is the integral of the voltage waveform.
+</p>
+
+<p>
+The integral of any mathematical function is proportional to the area accumulated underneath the curve of that function.  Since each half-cycle of the 50 Hz waveform accumulates more area between it and the zero line of the graph than the 60 Hz waveform will -- and we know that the magnetic flux is the integral of the voltage -- the flux will attain higher values in Figure <a href="#02341.png">  below</a>.
+</p>
+
+ 
+<a name="02341.png"></a> 
+<p> <img src="02341.png"> </p> 
+<p><i>Flux changing at the same rate rises to a higher level at 50 Hz than at 60 Hz.</i></p> 
+ 
+
+<p>
+Yet another cause of transformer saturation is the presence of DC current in the primary winding.  Any amount of DC voltage dropped across the primary winding of a transformer will cause additional magnetic flux in the core.  This additional flux &ldquo;bias&rdquo; or &ldquo;offset&rdquo; will push the alternating flux waveform closer to saturation in one half-cycle than the other. (Figure <a href="#02342.png">  below</a>)
+</p>
+
+ 
+<a name="02342.png"></a> 
+<p> <img src="02342.png"> </p> 
+<p><i>DC in primary, shifts the waveform peaks toward the upper saturation limit.</i></p> 
+ 
+
+<p>
+For most transformers, core saturation is a very undesirable effect, and it is avoided through good design: engineering the windings and core so that magnetic flux densities remain well below the saturation levels.  This ensures that the relationship between mmf and &#934; is more linear throughout the flux cycle, which is good because it makes for less distortion in the magnetization current waveform.  Also, engineering the core for low flux densities provides a safe margin between the normal flux peaks and the core saturation limits to accommodate occasional, abnormal conditions such as frequency variation and DC offset.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid350220">Inrush current</a></u></h3>
+
+<a name="Inrush current, transformer"></a>
+<a name="Transformer inrush current"></a>
+
+<p>
+When a transformer is initially connected to a source of AC voltage, there may be a substantial surge of current through the primary winding called <i>inrush current</i>.   (Figure <a href="#02346.png">  below</a>) This is analogous to the inrush current exhibited by an electric motor that is started up by sudden connection to a power source, although transformer inrush is caused by a different phenomenon.
+</p>
+
+<p>
+We know that the rate of change of instantaneous flux in a transformer core is proportional to the instantaneous voltage drop across the primary winding.  Or, as stated before, the voltage waveform is the derivative of the flux waveform, and the flux waveform is the integral of the voltage waveform.  In a continuously-operating transformer, these two waveforms are phase-shifted by 90<sup>o</sup>. (Figure <a href="#02307b.png">  below</a>)  Since flux (&#934;) is proportional to the magnetomotive force (mmf) in the core, and the mmf is proportional to winding current, the current waveform will be in-phase with the flux waveform, and both will be lagging the voltage waveform by 90<sup>o</sup>:
+</p>
+
+<!--note the re-used iamge below. It requires label tags. Above it is called out by the label between the tags, not the automatic image number.-->
+
+ 
+<a name="02307b.png"></a> 
+<p> <img src="02307.png"> </p>  
+<p><i>Continuous steady-state operation: Magnetic flux, like current,  lags applied voltage by 90<sup>o</sup>.</i></p> 
+
+
+<p>
+Let us suppose that the primary winding of a transformer is suddenly connected to an AC voltage source at the exact moment in time when the instantaneous voltage is at its positive peak value.  In order for the transformer to create an opposing voltage drop to balance against this applied source voltage, a magnetic flux of rapidly increasing value must be generated.  The result is that winding current increases rapidly, but actually no more rapidly than under normal conditions: (Figure <a href="#02343.png">  below</a>)
+</p>
+
+ 
+<a name="02343.png"></a> 
+<p> <img src="02343.png"> </p> 
+<p><i>Connecting transformer to line at AC volt peak: Flux increases rapidly from zero, same as steady-state operation.</i></p> 
+ 
+
+<p>
+Both core flux and coil current start from zero and build up to the same peak values experienced during continuous operation.  Thus, there is no &ldquo;surge&rdquo; or &ldquo;inrush&rdquo; or current in this scenario. (Figure <a href="#02343.png">  above</a>)
+
+</p>
+
+<p>
+Alternatively, let us consider what happens if the transformer's connection to the AC voltage source occurs at the exact moment in time when the instantaneous voltage is at zero.  During continuous operation (when the transformer has been powered for quite some time), this is the point in time where both flux and winding current are at their negative peaks, experiencing zero rate-of-change (d&#934;/dt = 0 and di/dt = 0).  As the voltage builds to its positive peak, the flux and current waveforms build to their maximum positive rates-of-change, and on upward to their positive peaks as the voltage descends to a level of zero:
+</p>
+
+ 
+<a name="02344.png"></a> 
+<p> <img src="02344.png"> </p> 
+<p><i>Starting at e=0 V is not the same as running continuously in  Figure <a href="#02307.png">  above.</a> These expected waveforms are incorrect&ndash; &#934; and i should start at zero.</i></p> 
+ 
+
+<p>
+A significant difference exists, however, between continuous-mode operation and the sudden starting condition assumed in this scenario: during continuous operation, the flux and current levels were at their negative peaks when voltage was at its zero point; in a transformer that has been sitting idle, however, both magnetic flux and winding current should start at <i>zero</i>.  When the magnetic flux increases in response to a rising voltage, it will increase from zero upward, not from a previously negative (magnetized) condition as we would normally have in a transformer that's been powered for awhile.  Thus, in a transformer that's just &ldquo;starting,&rdquo; the flux will reach approximately twice its normal peak magnitude as it &ldquo;integrates&rdquo; the area under the voltage waveform's first half-cycle: (Figure <a href="#02345.png">  below</a>)
+</p>
+
+ 
+<a name="02345.png"></a> 
+<p> <img src="02345.png"> </p> 
+<p><i>Starting at e=0 V, &#934; starts at initial condition &#934;=0, increasing to twice the normal value, assuming it doesn't saturate the core.</i></p> 
+ 
+
+<p>
+In an ideal transformer, the magnetizing current would rise to approximately twice its normal peak value as well, generating the necessary mmf to create this higher-than-normal flux.  However, most transformers aren't designed with enough of a margin between normal flux peaks and the saturation limits to avoid saturating in a condition like this, and so the core will almost certainly saturate during this first half-cycle of voltage.  During saturation, disproportionate amounts of mmf are needed to generate magnetic flux.  This means that winding current, which creates the mmf to cause flux in the core, will disproportionately rise to a value <i>easily exceeding</i> twice its normal peak: (Figure <a href="#02346.png">  below</a>)
+</p>
+
+ 
+<a name="02346.png"></a> 
+<p> <img src="02346.png"> </p> 
+<p><i>Starting at e=0 V, Current also increases to twice the normal value for an unsaturated core, or considerably higher in the (designed for) case of saturation.</i></p> 
+ 
+
+<p>
+This is the mechanism causing inrush current in a transformer's primary winding when connected to an AC voltage source.  As you can see, the magnitude of the inrush current strongly depends on the exact time that electrical connection to the source is made.  If the transformer happens to have some residual magnetism in its core at the moment of connection to the source, the inrush could be even more severe.  Because of this, transformer overcurrent protection devices are usually of the &ldquo;slow-acting&rdquo; variety, so as to tolerate current surges such as this without opening the circuit.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid350221">Heat and Noise</a></u></h3>
+
+<a name="Magnetostriction"></a>
+<a name="Noise, transformer"></a>
+
+<p>
+In addition to unwanted electrical effects, transformers may also exhibit undesirable physical effects, the most notable being the production of heat and noise.  Noise is primarily a nuisance effect, but heat is a potentially serious problem because winding insulation will be damaged if allowed to overheat.  Heating may be minimized by good design, ensuring that the core does not approach saturation levels, that eddy currents are minimized, and that the windings are not overloaded or operated too close to maximum ampacity.  
+</p>
+
+<p>
+Large power transformers have their core and windings submerged in an oil bath to transfer heat and muffle noise, and also to displace moisture which would otherwise compromise the integrity of the winding insulation.  Heat-dissipating &ldquo;radiator&rdquo; tubes on the outside of the transformer case provide a convective oil flow path to transfer heat from the transformer's core to ambient air: (Figure <a href="#02411.png">  below</a>)
+</p>
+
+ 
+<a name="02411.png"></a> 
+<p> <img src="02411.png"> </p> 
+<p><i>Large power transformers are submerged in heat dissipating insulating oil.</i></p> 
+ 
+
+<p>
+Oil-less, or &ldquo;dry,&rdquo; transformers are often rated in terms of maximum operating temperature &ldquo;rise&rdquo; (temperature increase beyond ambient) according to a letter-class system: A, B, F, or H.  These letter codes are arranged in order of lowest heat tolerance to highest: 
+</p>
+
+<a name="Class, transformer heat rating"></a>
+
+<ul>
+<li><b>Class A:</b> No more than 55<sup>o</sup> Celsius winding temperature rise, at 40<sup>o</sup> Celsius (maximum) ambient air temperature.</li>
+<li><b>Class B:</b> No more than 80<sup>o</sup> Celsius winding temperature rise, at 40<sup>o</sup> Celsius (maximum)ambient air temperature.</li>
+<li><b>Class F:</b> No more than 115<sup>o</sup> Celsius winding temperature rise, at 40<sup>o</sup> Celsius (maximum)ambient air temperature.</li>
+<li><b>Class H:</b> No more than 150<sup>o</sup> Celsius winding temperature rise, at 40<sup>o</sup> Celsius (maximum)ambient air temperature.</li>
+</ul>
+
+<p>
+Audible noise is an effect primarily originating from the phenomenon of <i>magnetostriction</i>: the slight change of length exhibited by a ferromagnetic object when magnetized.  The familiar &ldquo;hum&rdquo; heard around large power transformers is the sound of the iron core expanding and contracting at 120 Hz (twice the system frequency, which is 60 Hz in the United States) -- one cycle of core contraction and expansion for every peak of the magnetic flux waveform -- plus noise created by mechanical forces between primary and secondary windings.  Again, maintaining low magnetic flux levels in the core is the key to minimizing this effect, which explains why ferroresonant transformers -- which must operate in saturation for a large portion of the current waveform -- operate both hot and noisy.
+</p>
+
+<p>
+Another noise-producing phenomenon in power transformers is the physical reaction force between primary and secondary windings when heavily loaded.  If the secondary winding is open-circuited, there will be no current through it, and consequently no magneto-motive force (mmf) produced by it.  However, when the secondary is &ldquo;loaded&rdquo; (current supplied to a load), the winding generates an mmf, which becomes counteracted by a &ldquo;reflected&rdquo; mmf in the primary winding to prevent core flux levels from changing.  These opposing mmf's generated between primary and secondary windings as a result of secondary (load) current produce a repulsive, physical force between the windings which will tend to make them vibrate.  Transformer designers have to consider these physical forces in the construction of the winding coils, to ensure there is adequate mechanical support to handle the stresses.  Under heavy load (high current) conditions, though, these stresses may be great enough to cause audible noise to emanate from the transformer.
+</p>
+
+
+
+
+
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Power transformers are limited in the amount of power they can transfer from primary to secondary winding(s).  Large units are typically rated in VA (volt-amps) or kVA (kilo volt-amps).</li>
+<li>Resistance in transformer windings contributes to inefficiency, as current will dissipate heat, wasting energy.</li>
+<li>Magnetic effects in a transformer's iron core also contribute to inefficiency.  Among the effects are <i>eddy currents</i> (circulating induction currents in the iron core) and <i>hysteresis</i> (power lost due to overcoming the tendency of iron to magnetize in a particular direction).</li>
+<li>Increased frequency results in increased power losses within a power transformer.  The presence of harmonics in a power system is a source of frequencies significantly higher than normal, which may cause overheating in large transformers.</li>
+<li>Both transformers and inductors harbor certain unavoidable amounts of capacitance due to wire insulation (dielectric) separating winding turns from the iron core and from each other.  This capacitance can be significant enough to give the transformer a natural <i>resonant frequency</i>, which can be problematic in signal applications.</li>
+<li><i>Leakage inductance</i> is caused by magnetic flux not being 100% coupled between windings in a transformer.  Any flux not involved with <i>transferring</i> energy from one winding to another will store and release energy, which is how (self-) inductance works.  Leakage inductance tends to worsen a transformer's voltage regulation (secondary voltage &ldquo;sags&rdquo; more for a given amount of load current).</li>
+<li>Magnetic <i>saturation</i> of a transformer core may be caused by excessive primary voltage, operation at too low of a frequency, and/or by the presence of a DC current in any of the windings.  Saturation may be minimized or avoided by conservative design, which provides an adequate margin of safety between peak magnetic flux density values and the saturation limits of the core.</li>
+<li>Transformers often experience significant <i>inrush currents</i> when initially connected to an AC voltage source.  Inrush current is most severe when connection to the AC source is made at the moment instantaneous source voltage is zero.</li>
+<li>Noise is a common phenomenon exhibited by transformers -- especially power transformers -- and is primarily caused by <i>magnetostriction</i> of the core.  Physical forces causing winding vibration may also generate noise under conditions of heavy (high current) secondary winding load.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid350222">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Bart Anderson</b> (January 2004): Corrected conceptual errors regarding Tesla coil operation and safety.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+ 
+<h2><a name="xtocid350223">Bibliography</a></h2><br> 
+<ol>
+<li><a name="MYA.bibitem">[MYA]Mitsuyoshi Yamamoto, Mitsugi Yamaguchi, &ldquo;Electric Power In Japan, Rapid Electrification a Century Ago&rdquo;,  EDN, (4/11/2002). <a href="http://www.ieee.org/organizations/pes/public/2005/mar/peshistory.html">http://www.ieee.org/organizations/pes/public/2005/mar/peshistory.html</a></a></li>
+</ol>
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_8.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_10.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

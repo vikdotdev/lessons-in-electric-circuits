@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -14,9 +14,6 @@
 
 <body bgColor=white>
 
-<a href="DC_15.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_A1.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
 <h1>Lessons In Electric Circuits -- Volume I</h1>
@@ -25,13 +22,13 @@
 
 
 
-<h1>RC AND L/R TIME CONSTANTS</h1> 
+<h1>RC AND L/R TIME CONSTANTS</h1>
 <!--minitoc-->
 
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid34140"><u>Electrical transients</u></a></li>
@@ -116,12 +113,12 @@ Using the SPICE circuit analysis program, we can chart this asymptotic buildup o
 
 <pre>
 capacitor charging
-v1 1 0 dc 15    
-r1 1 2 10k      
+v1 1 0 dc 15
+r1 1 2 10k
 c1 2 0 100u ic=0
-.tran .5 10 uic 
+.tran .5 10 uic
 .plot tran v(2,0) v(1,2)
-.end    
+.end
 </pre>
 
 <br> </br>
@@ -129,34 +126,34 @@ c1 2 0 100u ic=0
 <pre>
 legend:
 
-*: v(2)   Capacitor voltage 
+*: v(2)   Capacitor voltage
 +: v(1,2) Capacitor current
 
-time             v(2)    
+time             v(2)
 
 (*+)-----------  0.000E+00     5.000E+00     1.000E+01     1.500E+01
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-0.000E+00  5.976E-05 *             .             .             +     
-5.000E-01  5.881E+00 .             . *         + .             .   
-1.000E+00  9.474E+00 .             .+           *.             .  
-1.500E+00  1.166E+01 .        +    .             .    *        . 
+0.000E+00  5.976E-05 *             .             .             +
+5.000E-01  5.881E+00 .             . *         + .             .
+1.000E+00  9.474E+00 .             .+           *.             .
+1.500E+00  1.166E+01 .        +    .             .    *        .
 2.000E+00  1.297E+01 .     +       .             .       *     .
 2.500E+00  1.377E+01 .  +          .             .          *  .
-3.000E+00  1.426E+01 . +           .             .           * .  
-3.500E+00  1.455E+01 .+            .             .            *. 
-4.000E+00  1.473E+01 .+            .             .            *.  
-4.500E+00  1.484E+01 +             .             .             *  
-5.000E+00  1.490E+01 +             .             .             * 
-5.500E+00  1.494E+01 +             .             .             *   
-6.000E+00  1.496E+01 +             .             .             *  
-6.500E+00  1.498E+01 +             .             .             *  
-7.000E+00  1.499E+01 +             .             .             * 
-7.500E+00  1.499E+01 +             .             .             *  
-8.000E+00  1.500E+01 +             .             .             * 
-8.500E+00  1.500E+01 +             .             .             *   
-9.000E+00  1.500E+01 +             .             .             *  
-9.500E+00  1.500E+01 +             .             .             *   
-1.000E+01  1.500E+01 +             .             .             *  
+3.000E+00  1.426E+01 . +           .             .           * .
+3.500E+00  1.455E+01 .+            .             .            *.
+4.000E+00  1.473E+01 .+            .             .            *.
+4.500E+00  1.484E+01 +             .             .             *
+5.000E+00  1.490E+01 +             .             .             *
+5.500E+00  1.494E+01 +             .             .             *
+6.000E+00  1.496E+01 +             .             .             *
+6.500E+00  1.498E+01 +             .             .             *
+7.000E+00  1.499E+01 +             .             .             *
+7.500E+00  1.499E+01 +             .             .             *
+8.000E+00  1.500E+01 +             .             .             *
+8.500E+00  1.500E+01 +             .             .             *
+9.000E+00  1.500E+01 +             .             .             *
+9.500E+00  1.500E+01 +             .             .             *
+1.000E+01  1.500E+01 +             .             .             *
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </pre>
 
@@ -237,13 +234,13 @@ Again, we can use the SPICE circuit analysis program to chart this asymptotic de
 <br> </br>
 
 <pre>
-inductor charging 
-v1 1 0 dc 15    
+inductor charging
+v1 1 0 dc 15
 r1 1 2 1
-l1 2 0 1 ic=0   
-.tran .5 10 uic 
+l1 2 0 1 ic=0
+.tran .5 10 uic
 .plot tran v(2,0) v(1,2)
-.end    
+.end
 </pre>
 
 <br> </br>
@@ -254,31 +251,31 @@ legend:
 *: v(2)   Inductor voltage
 +: v(1,2) Inductor current
 
-time             v(2)    
+time             v(2)
 
-(*+)------------ 0.000E+00     5.000E+00     1.000E+01     1.500E+01  
+(*+)------------ 0.000E+00     5.000E+00     1.000E+01     1.500E+01
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-0.000E+00  1.500E+01 +             .             .             *    
-5.000E-01  9.119E+00 .             . +         * .             .   
-1.000E+00  5.526E+00 .             .*           +.             . 
-1.500E+00  3.343E+00 .        *    .             .    +        .  
-2.000E+00  2.026E+00 .     *       .             .       +     .  
-2.500E+00  1.226E+00 .  *          .             .          +  . 
-3.000E+00  7.429E-01 . *           .             .           + . 
-3.500E+00  4.495E-01 .*            .             .            +.  
-4.000E+00  2.724E-01 .*            .             .            +. 
-4.500E+00  1.648E-01 *             .             .             +   
-5.000E+00  9.987E-02 *             .             .             +  
-5.500E+00  6.042E-02 *             .             .             + 
-6.000E+00  3.662E-02 *             .             .             +  
-6.500E+00  2.215E-02 *             .             .             +  
-7.000E+00  1.343E-02 *             .             .             +  
-7.500E+00  8.123E-03 *             .             .             + 
-8.000E+00  4.922E-03 *             .             .             +  
-8.500E+00  2.978E-03 *             .             .             +  
-9.000E+00  1.805E-03 *             .             .             +  
-9.500E+00  1.092E-03 *             .             .             +  
-1.000E+01  6.591E-04 *             .             .             +  
+0.000E+00  1.500E+01 +             .             .             *
+5.000E-01  9.119E+00 .             . +         * .             .
+1.000E+00  5.526E+00 .             .*           +.             .
+1.500E+00  3.343E+00 .        *    .             .    +        .
+2.000E+00  2.026E+00 .     *       .             .       +     .
+2.500E+00  1.226E+00 .  *          .             .          +  .
+3.000E+00  7.429E-01 . *           .             .           + .
+3.500E+00  4.495E-01 .*            .             .            +.
+4.000E+00  2.724E-01 .*            .             .            +.
+4.500E+00  1.648E-01 *             .             .             +
+5.000E+00  9.987E-02 *             .             .             +
+5.500E+00  6.042E-02 *             .             .             +
+6.000E+00  3.662E-02 *             .             .             +
+6.500E+00  2.215E-02 *             .             .             +
+7.000E+00  1.343E-02 *             .             .             +
+7.500E+00  8.123E-03 *             .             .             +
+8.000E+00  4.922E-03 *             .             .             +
+8.500E+00  2.978E-03 *             .             .             +
+9.000E+00  1.805E-03 *             .             .             +
+9.500E+00  1.092E-03 *             .             .             +
+1.000E+01  6.591E-04 *             .             .             +
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </pre>
 
@@ -362,7 +359,7 @@ We can make a more universal formula out of this one for the determination of vo
 <p> <img src="10245.png"> </p>
 
 <p>
-Let's analyze the voltage rise on the series resistor-capacitor circuit shown at the beginning of the chapter.  
+Let's analyze the voltage rise on the series resistor-capacitor circuit shown at the beginning of the chapter.
 </p>
 
 <p> <img src="00330.png"> </p>
@@ -676,31 +673,31 @@ We could go a step further and demonstrate the equivalence of the Thevenin RC ci
 
 <pre>
 Comparison RC analysis
-* first, the netlist for the original circuit:  
-v1 1 0 dc 20    
-r1 1 2 2k       
-r2 2 3 500      
-r3 3 0 3k       
+* first, the netlist for the original circuit:
+v1 1 0 dc 20
+r1 1 2 2k
+r2 2 3 500
+r3 3 0 3k
 c1 2 3 100u ic=0
 * then, the netlist for the thevenin equivalent:
-v2 4 0 dc 1.818182      
-r4 4 5 454.545  
+v2 4 0 dc 1.818182
+r4 4 5 454.545
 c2 5 0 100u ic=0
-* now, we analyze for a transient, sampling every .005 seconds  
-* over a time period of .37 seconds total, printing a list of   
-* values for voltage across the capacitor in the original       
-* circuit (between modes 2 and 3) and across the capacitor in 
-* the thevenin equivalent circuit (between nodes 5 and 0)      
-.tran .005 0.37 uic     
-.print tran v(2,3) v(5,0)       
-.end    
+* now, we analyze for a transient, sampling every .005 seconds
+* over a time period of .37 seconds total, printing a list of
+* values for voltage across the capacitor in the original
+* circuit (between modes 2 and 3) and across the capacitor in
+* the thevenin equivalent circuit (between nodes 5 and 0)
+.tran .005 0.37 uic
+.print tran v(2,3) v(5,0)
+.end
 </pre>
 
 <br> </br>
 
 <pre>
-time          v(2,3)      v(5) 
-       
+time          v(2,3)      v(5)
+
 0.000E+00     4.803E-06   4.803E-06
 5.000E-03     1.890E-01   1.890E-01
 1.000E-02     3.580E-01   3.580E-01
@@ -816,7 +813,7 @@ However, we want to solve for time, not the amount of change.  To do this, we al
 <a name="Logarithm, natural"></a>
 
 <p>
-The <i>ln</i> designation just to the right of the time constant term is the <i>natural logarithm</i> function: the exact reverse of taking the power of <i>e</i>.  In fact, the two functions (powers of e and natural logarithms) can be related as such:  
+The <i>ln</i> designation just to the right of the time constant term is the <i>natural logarithm</i> function: the exact reverse of taking the power of <i>e</i>.  In fact, the two functions (powers of e and natural logarithms) can be related as such:
 </p>
 
 <br> </br>
@@ -887,9 +884,6 @@ Contributors to this chapter are listed in chronological order of their contribu
 <i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DC_A3.html">Design Science License</a>.
 </p>
 
-<a href="DC_15.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_A1.html"><img src=next.jpg alt="Next"></a>
 
 </body>
 </html>

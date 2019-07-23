@@ -1,0 +1,837 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 3</title>
+  <meta name="description" content="Reactance and Impedance -- Inductive">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, inductor, inductance, reactance, impedance, resistance, frequency, pi, instantaneous voltage, instantaneous current, instantaneous power, calculus, derivative, complex number, polar notation, rectangular notation, skin effect, eddy current, litz, litz wire, litzendraht, litzendraht wire, q, quality factor"
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_2.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_4.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 3</h1>
+
+
+
+
+<h1>REACTANCE AND IMPEDANCE -- INDUCTIVE</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid34540"><u>AC resistor circuits</u></a></li>
+<li><a href="#xtocid34541"><u>AC inductor circuits</u></a></li>
+<li><a href="#xtocid34542"><u>Series resistor-inductor circuits</u></a></li>
+<li><a href="#xtocid34543"><u>Parallel resistor-inductor circuits</u></a></li>
+<li><a href="#xtocid34544"><u>Inductor quirks</u></a></li>
+<li><a href="#xtocid34545"><u>More on the &ldquo;skin effect&rdquo;</u></a></li>
+<li><a href="#xtocid34546"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid34540">AC resistor circuits</a></u></h2>
+
+ 
+<a name="02053.png"></a> 
+<p> <img src="02053.png"> </p> 
+<p><i>Pure resistive AC circuit: resistor voltage and current are in phase.</i></p> 
+ 
+
+<p>
+If we were to plot the current and voltage for a very simple AC circuit consisting of a source and a resistor (Figure <a href="#02053.png">  above</a>),
+<!--split for double ref-->
+it would look something like this: (Figure <a href="#02054.png">  below</a>)
+</p>
+
+ 
+ 
+<a name="02054.png"></a> 
+<p> <img src="02054.png"> </p>  
+<p><i>Voltage and current &ldquo;in phase&rdquo; for resistive circuit.</i></p> 
+
+
+<a name="Value, instantaneous"></a>
+<a name="Instantaneous value"></a>
+<a name="e, symbol for instantaneous voltage"></a>
+<a name="i, symbol for instantaneous current"></a>
+
+<p>
+Because the resistor simply and directly resists the flow of electrons at all periods of time, the waveform for the voltage drop across the resistor is exactly in phase with the waveform for the current through it.  We can look at any point in time along the horizontal axis of the plot and compare those values of current and voltage with each other (any &ldquo;snapshot&rdquo; look at the values of a wave are referred to as <i>instantaneous values</i>, meaning the values at that <i>instant</i> in time).  When the instantaneous value for current is zero, the instantaneous voltage across the resistor is also zero.  Likewise, at the moment in time where the current through the resistor is at its positive peak, the voltage across the resistor is also at its positive peak, and so on.  At any given point in time along the waves, Ohm's Law holds true for the instantaneous values of voltage and current.
+</p>
+
+<p>
+We can also calculate the power dissipated by this resistor, and plot those values on the same graph: (Figure <a href="#02055.png">  below</a>)
+</p>
+
+ 
+<a name="02055.png"></a> 
+<p> <img src="02055.png"> </p> 
+<p><i>Instantaneous AC power in a pure resistive circuit is always positive.</i></p> 
+ 
+
+<a name="p, symbol for instantaneous power"></a>
+
+<p>
+Note that the power is never a negative value.  When the current is positive (above the line), the voltage is also positive, resulting in a power (p=ie) of a positive value.  Conversely, when the current is negative (below the line), the voltage is also negative, which results in a positive value for power (a negative number multiplied by a negative number equals a positive number).  This consistent &ldquo;polarity&rdquo; of power tells us that the resistor is always dissipating power, taking it from the source and releasing it in the form of heat energy.  Whether the current is positive or negative, a resistor still dissipates energy.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34541">AC inductor circuits</a></u></h2>
+
+<a name="Inductor"></a>
+<a name="Inductive reactance"></a>
+<a name="Reactance, inductive"></a>
+<a name="Lenz's Law"></a>
+
+<p>
+Inductors do not behave the same as resistors.  Whereas resistors simply oppose the flow of electrons through them (by dropping a voltage directly proportional to the current), inductors oppose <i>changes</i> in current through them, by dropping a voltage directly proportional to the <i>rate of change</i> of current.  In accordance with <i>Lenz's Law</i>, this induced voltage is always of such a polarity as to try to maintain current at its present value.  That is, if current is increasing in magnitude, the induced voltage will &ldquo;push against&rdquo; the electron flow; if current is decreasing, the polarity will reverse and &ldquo;push with&rdquo; the electron flow to oppose the decrease.  This opposition to current change is called <i>reactance</i>, rather than resistance.
+</p>
+
+<p>
+Expressed mathematically, the relationship between the voltage dropped across the inductor and rate of current change through the inductor is as such:
+</p>
+
+<p> <img src="12016.png"> </p> 
+
+<a name="Inductance"></a>
+<a name="Henry"></a>
+<a name="Unit, henry"></a>
+<a name="Calculus"></a>
+<a name="L, symbol for inductance"></a>
+<a name="e, symbol for instantaneous voltage"></a>
+<a name="v, symbol for instantaneous voltage"></a>
+<a name="i, symbol for instantaneous voltage"></a>
+
+<p>
+The expression <i>di/dt</i> is one from calculus, meaning the rate of change of instantaneous current (i) over time, in amps per second.  The inductance (L) is in Henrys, and the instantaneous voltage (e), of course, is in volts.  Sometimes you will find the rate of instantaneous voltage expressed as &ldquo;v&rdquo; instead of &ldquo;e&rdquo; (v = L di/dt), but it means the exact same thing.  To show what happens with alternating current, let's analyze a simple inductor circuit: (Figure <a href="#02056.png">  below</a>) 
+</p>
+
+ 
+<a name="02056.png"></a> 
+<p> <img src="02056.png"> </p> 
+<p><i>Pure inductive circuit: Inductor current lags inductor voltage by 90<sup>o</sup>.</i></p> 
+ 
+
+<p>
+If we were to plot the current and voltage for this very simple circuit, it would look something like this: (Figure <a href="#02057.png">  below</a>)
+</p>
+
+ 
+<a name="02057.png"></a> 
+<p> <img src="02057.png"> </p> 
+<p><i>Pure inductive circuit, waveforms.</i></p> 
+ 
+
+<a name="Lagging phase shift"></a>
+<a name="Leading phase shift"></a>
+
+<p>
+Remember, the voltage dropped across an inductor is a reaction against the <i>change</i> in current through it.  Therefore, the instantaneous voltage is zero whenever the instantaneous current is at a peak (zero change, or level slope, on the current sine wave), and the instantaneous voltage is at a peak wherever the instantaneous current is at maximum change (the points of steepest slope on the current wave, where it crosses the zero line).  This results in a voltage wave that is 90<sup>o</sup> out of phase with the current wave.  Looking at the graph, the voltage wave seems to have a &ldquo;head start&rdquo; on the current wave; the voltage &ldquo;leads&rdquo; the current, and the current &ldquo;lags&rdquo; behind the voltage. (Figure <a href="#02058.png">  below</a>)
+</p>
+
+ 
+<a name="02058.png"></a> 
+<p> <img src="02058.png"> </p> 
+<p><i>Current lags voltage by 90<sup>o</sup>  in a pure inductive circuit.</i></p> 
+ 
+
+<p>
+Things get even more interesting when we plot the power for this circuit: (Figure <a href="#02059.png">  below</a>)
+</p>
+
+ 
+<a name="02059.png"></a> 
+<p> <img src="02059.png"> </p> 
+<p><i>In a pure inductive circuit, instantaneous power may be positive or negative</i></p> 
+ 
+
+<a name="Power, negative"></a>
+
+<p>
+Because instantaneous power is the product of the instantaneous voltage and the instantaneous current (p=ie), the power equals zero whenever the instantaneous current <i>or</i> voltage is zero.  Whenever the instantaneous current and voltage are both positive (above the line), the power is positive.  As with the resistor example, the power is also positive when the instantaneous current and voltage are both negative (below the line).  However, because the current and voltage waves are 90<sup>o</sup> out of phase, there are times when one is positive while the other is negative, resulting in equally frequent occurrences of <i>negative instantaneous power</i>.
+</p>
+
+<p>
+But what does <i>negative</i> power mean?  It means that the inductor is releasing power back to the circuit, while a positive power means that it is absorbing power from the circuit.  Since the positive and negative power cycles are equal in magnitude and duration over time, the inductor releases just as much power back to the circuit as it absorbs over the span of a complete cycle.  What this means in a practical sense is that the reactance of an inductor dissipates a net energy of zero, quite unlike the resistance of a resistor, which dissipates energy in the form of heat.  Mind you, this is for perfect inductors only, which have no wire resistance.
+</p>
+
+<a name="Inductive reactance"></a>
+<a name="Reactance, inductive"></a>
+<a name="X, symbol for reactance"></a>
+
+<p>
+An inductor's opposition to change in current translates to an opposition to alternating current in general, which is by definition always changing in instantaneous magnitude and direction.  This opposition to alternating current is similar to resistance, but different in that it always results in a phase shift between current and voltage, and it dissipates zero power.  Because of the differences, it has a different name: <i>reactance</i>.  Reactance to AC is expressed in ohms, just like resistance is, except that its mathematical symbol is X instead of R.  To be specific, reactance associated with an inductor is usually symbolized by the capital letter X with a letter L as a subscript, like this: X<sub>L</sub>.
+</p>
+
+<p>
+Since inductors drop voltage in proportion to the rate of current change, they will drop more voltage for faster-changing currents, and less voltage for slower-changing currents.  What this means is that reactance in ohms for any inductor is directly proportional to the frequency of the alternating current.  The exact formula for determining reactance is as follows:
+</p>
+
+<p> <img src="12017.png"> </p> 
+
+<a name="f, symbol for frequency"></a>
+
+<p>
+If we expose a 10 mH inductor to frequencies of 60, 120, and 2500 Hz, it will manifest the reactances in Table Figure <a href="#xlreact.tbl">  below</a>.
+</p>
+
+
+ 
+<a name="xlreact.tbl"><p><i>Reactance of a 10 mH inductor:</i></p></a>
+
+<table border="1" style="background-color: #E0FFFF; " >
+
+
+
+<tr>
+<th>Frequency (Hertz)</th><th>Reactance (Ohms)</th>
+</tr>
+
+
+<tr>
+<td>60</td><td>3.7699</td>
+</tr>
+
+<tr>
+<td>120</td><td>7.5398</td>
+</tr>
+
+<tr>
+<td>2500</td><td>157.0796</td>
+</tr>
+
+
+
+</table>
+
+
+
+
+
+
+<a name="Radian, angular measurement"></a>
+<a name="Degree vs. radian"></a>
+<a name="Angular velocity"></a>
+<a name="&#969;, symbol for angular velocity"></a>
+
+<p>
+In the reactance equation, the term &ldquo;2&#960;f&rdquo; (everything on the right-hand side except the L) has a special meaning unto itself.  It is the number of radians per second that the alternating current is &ldquo;rotating&rdquo; at, if you imagine one cycle of AC to represent a full circle's rotation.  A <i>radian</i> is a unit of angular measurement: there are 2&#960; radians in one full circle, just as there are 360<sup>o</sup> in a full circle.  If the alternator producing the AC is a double-pole unit, it will produce one cycle for every full turn of shaft rotation, which is every 2&#960; radians, or 360<sup>o</sup>.  If this constant of 2&#960; is multiplied by frequency in Hertz (cycles per second), the result will be a figure in radians per second, known as the <i>angular velocity</i> of the AC system.
+</p>
+
+<p>
+Angular velocity may be represented by the expression 2&#960;f, or it may be represented by its own symbol, the lower-case Greek letter Omega, which appears similar to our Roman lower-case &ldquo;w&rdquo;: &#969;.  Thus, the reactance formula X<sub>L</sub> = 2&#960;fL could also be written as X<sub>L</sub> = &#969;L.
+</p>
+
+<p>
+It must be understood that this &ldquo;angular velocity&rdquo; is an expression of how rapidly the AC waveforms are cycling, a full cycle being equal to 2&#960; radians.  It is not necessarily representative of the actual shaft speed of the alternator producing the AC.  If the alternator has more than two poles, the angular velocity will be a multiple of the shaft speed.  For this reason, &#969; is sometimes expressed in units of <i>electrical</i> radians per second rather than (plain) radians per second, so as to distinguish it from mechanical motion.
+</p>
+
+<p>
+Any way we express the angular velocity of the system, it is apparent that it is directly proportional to reactance in an inductor.  As the frequency (or alternator shaft speed) is increased in an AC system, an inductor will offer greater opposition to the passage of current, and vice versa.  Alternating current in a simple inductive circuit is equal to the voltage (in volts) divided by the inductive reactance (in ohms), just as either alternating or direct current in a simple resistive circuit is equal to the voltage (in volts) divided by the resistance (in ohms).  An example circuit is shown here: (Figure <a href="#02060.png">  below</a>)
+</p>
+
+ 
+<a name="02060.png"></a> 
+<p> <img src="02060.png"> </p> 
+<p><i>Inductive reactance</i></p> 
+ 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="12018.png"> </p> 
+
+<p>
+However, we need to keep in mind that voltage and current are not in phase here.  As was shown earlier, the voltage has a phase shift of +90<sup>o</sup> with respect to the current.  (Figure <a href="#02061.png">  below</a>) If we represent these phase angles of voltage and current mathematically in the form of complex numbers, we find that an inductor's opposition to current has a phase angle, too:
+</p>
+
+<p> <img src="12019.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+ 
+<a name="02061.png"></a> 
+<p> <img src="02061.png"> </p> 
+<p><i>Current lags voltage by 90<sup>o</sup> in an inductor.</i></p> 
+ 
+
+<p>
+Mathematically, we say that the phase angle of an inductor's opposition to current is 90<sup>o</sup>, meaning that an inductor's opposition to current is a positive imaginary quantity.  This phase angle of reactive opposition to current becomes critically important in circuit analysis, especially for complex AC circuits where reactance and resistance interact.  It will prove beneficial to represent <i>any</i> component's opposition to current in terms of complex numbers rather than scalar quantities of resistance and reactance.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Inductive reactance</i> is the opposition that an inductor offers to alternating current due to its phase-shifted storage and release of energy in its magnetic field.  Reactance is symbolized by the capital letter &ldquo;X&rdquo; and is measured in ohms just like resistance (R).</li>
+<li>Inductive reactance can be calculated using this formula: X<sub>L</sub> = 2&#960;fL</li>
+<li>The <i>angular velocity</i> of an AC circuit is another way of expressing its frequency, in units of electrical radians per second instead of cycles per second.  It is symbolized by the lower-case Greek letter &ldquo;omega,&rdquo; or &#969;.</li>
+<li>Inductive reactance <i>increases</i> with increasing frequency.  In other words, the higher the frequency, the more it opposes the AC flow of electrons.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34542">Series resistor-inductor circuits</a></u></h2>
+
+<p>
+In the previous section, we explored what would happen in simple resistor-only and inductor-only AC circuits.  Now we will mix the two components together in series form and investigate the effects.
+</p>
+
+<p>
+Take this circuit as an example to work with:  (Figure <a href="#02062.png">  below</a>)
+</p>
+
+ 
+<a name="02062.png"></a> 
+<p> <img src="02062.png"> </p> 
+<p><i>Series resistor inductor circuit: Current lags applied voltage by 0<sup>o</sup> to 90<sup>o</sup>.</i></p> 
+ 
+
+<a name="Impedance"></a>
+<a name="Z, symbol for impedance"></a>
+
+<p>
+The resistor will offer 5 &#937; of resistance to AC current regardless of frequency, while the inductor will offer 3.7699 &#937; of reactance to AC current at 60 Hz.  Because the resistor's resistance is a real number (5 &#937; &#8736; 0<sup>o</sup>, or 5 + j0 &#937;), and the inductor's reactance is an imaginary number (3.7699 &#937; &#8736; 90<sup>o</sup>, or 0 + j3.7699 &#937;), the combined effect of the two components will be an opposition to current equal to the complex sum of the two numbers.  This combined opposition will be a vector combination of resistance and reactance.  In order to express this opposition succinctly, we need a more comprehensive term for opposition to current than either resistance or reactance alone.  This term is called <i>impedance</i>, its symbol is Z, and it is also expressed in the unit of ohms, just like resistance and reactance.  In the above example, the total circuit impedance is:
+</p>
+
+<a name="R, symbol for resistance"></a>
+<a name="X, symbol for reactance"></a>
+
+<p> <img src="12020.png"> </p> 
+
+<a name="Ohm's Law "></a>
+
+<p>
+Impedance is related to voltage and current just as you might expect, in a manner similar to resistance in Ohm's Law:
+</p>
+
+<a name="E, symbol for voltage"></a>
+<a name="I, symbol for current"></a>
+<a name="Z, symbol for impedance"></a>
+
+<p> <img src="12021.png"> </p> 
+
+<p>
+In fact, this is a far more comprehensive form of Ohm's Law than what was taught in DC electronics (E=IR), just as impedance is a far more comprehensive expression of opposition to the flow of electrons than resistance is.  <i>Any</i> resistance and any reactance, separately or in combination (series/parallel), can be and should be represented as a single impedance in an AC circuit.
+</p>
+
+<p>
+To calculate current in the above circuit, we first need to give a phase angle reference for the voltage source, which is generally assumed to be zero.  (The phase angles of resistive and inductive impedance are <i>always</i> 0<sup>o</sup> and +90<sup>o</sup>, respectively, regardless of the given phase angles for voltage or current).
+</p>
+
+<p> <img src="12022.png"> </p> 
+
+<p>
+As with the purely inductive circuit, the current wave lags behind the voltage wave (of the source), although this time the lag is not as great: only 37.016<sup>o</sup> as opposed to a full 90<sup>o</sup> as was the case in the purely inductive circuit.  (Figure <a href="#02063.png">  below</a>)
+</p>
+
+ 
+<a name="02063.png"></a> 
+<p> <img src="02063.png"> </p> 
+<p><i>Current lags voltage in a series L-R circuit.</i></p> 
+ 
+
+<p>
+For the resistor and the inductor, the phase relationships between voltage and current haven't changed.  Voltage across the resistor is in phase (0<sup>o</sup> shift) with the current through it; and the voltage across the inductor is +90<sup>o</sup> out of phase with the current going through it.  We can verify this mathematically:
+</p>
+
+<p> <img src="12023.png"> </p> 
+
+<p>
+The voltage across the resistor has the exact same phase angle as the current through it, telling us that E and I are in phase (for the resistor only). 
+</p>
+
+<p> <img src="12024.png"> </p> 
+
+<p>
+The voltage across the inductor has a phase angle of 52.984<sup>o</sup>, while the current through the inductor has a phase angle of -37.016<sup>o</sup>, a difference of exactly 90<sup>o</sup> between the two.  This tells us that E and I are still 90<sup>o</sup> out of phase (for the inductor only).
+</p>
+
+<p>
+We can also mathematically prove that these complex values add together to make the total voltage, just as Kirchhoff's Voltage Law would predict:
+</p>
+
+<p> <img src="12025.png"> </p> 
+
+<p>
+Let's check the validity of our calculations with SPICE:  (Figure <a href="#02064.png">  below</a>)
+</p>
+
+ 
+<a name="02064.png"></a> 
+<p> <img src="02064.png"> </p> 
+<p><i>Spice circuit: R-L.</i></p> 
+ 
+
+
+<pre>
+ac r-l circuit   
+v1 1 0 ac 10 sin
+r1 1 2 5
+l1 2 0 10m      
+.ac lin 1 60 60 
+.print ac v(1,2) v(2,0) i(v1)
+.print ac vp(1,2) vp(2,0) ip(v1)  
+.end    
+</pre>
+
+
+<br> </br>
+
+
+<pre>
+freq          v(1,2)      v(2)        i(v1)           
+6.000E+01     7.985E+00   6.020E+00   1.597E+00
+
+freq          vp(1,2)     vp(2)       ip(v1)          
+6.000E+01    -3.702E+01   5.298E+01   1.430E+02
+</pre>
+
+
+<br> </br>
+
+<p> <img src="12027.png"> </p> 
+
+<p>
+Note that just as with DC circuits, SPICE outputs current figures as though they were negative (180<sup>o</sup> out of phase) with the supply voltage.  Instead of a phase angle of -37.016<sup>o</sup>, we get a current phase angle of 143<sup>o</sup> (-37<sup>o</sup> + 180<sup>o</sup>).  This is merely an idiosyncrasy of SPICE and does not represent anything significant in the circuit simulation itself.  Note how both the resistor and inductor voltage phase readings match our calculations (-37.02<sup>o</sup> and 52.98<sup>o</sup>, respectively), just as we expected them to.
+</p>
+
+<p>
+With all these figures to keep track of for even such a simple circuit as this, it would be beneficial for us to use the &ldquo;table&rdquo; method.  Applying a table to this simple series resistor-inductor circuit would proceed as such.  First, draw up a table for E/I/Z figures and insert all component values in these terms (in other words, don't insert actual resistance or inductance values in Ohms and Henrys, respectively, into the table; rather, convert them into complex figures of impedance and write those in):
+</p>
+
+<p> <img src="12028.png"> </p> 
+
+<p>
+Although it isn't necessary, I find it helpful to write <i>both</i> the rectangular and polar forms of each quantity in the table.  If you are using a calculator that has the ability to perform complex arithmetic without the need for conversion between rectangular and polar forms, then this extra documentation is completely unnecessary.  However, if you are forced to perform complex arithmetic &ldquo;longhand&rdquo; (addition and subtraction in rectangular form, and multiplication and division in polar form), writing each quantity in both forms will be useful indeed.
+</p>
+
+<p>
+Now that our &ldquo;given&rdquo; figures are inserted into their respective locations in the table, we can proceed just as with DC: determine the total impedance from the individual impedances.  Since this is a series circuit, we know that opposition to electron flow (resistance <i>or</i> impedance) adds to form the total opposition:
+</p>
+
+<p> <img src="12029.png"> </p> 
+
+<p>
+Now that we know total voltage and total impedance, we can apply Ohm's Law (I=E/Z) to determine total current:
+</p>
+
+<p> <img src="12030.png"> </p> 
+
+<p>
+Just as with DC, the total current in a series AC circuit is shared equally by all components.  This is still true because in a series circuit there is only a single path for electrons to flow, therefore the rate of their flow must uniform throughout.  Consequently, we can transfer the figures for current into the columns for the resistor and inductor alike:
+</p>
+
+<p> <img src="12031.png"> </p> 
+
+<p>
+Now all that's left to figure is the voltage drop across the resistor and inductor, respectively.  This is done through the use of Ohm's Law (E=IZ), applied vertically in each column of the table:
+</p>
+
+<p> <img src="12032.png"> </p> 
+
+<p>
+And with that, our table is complete.  The exact same rules we applied in the analysis of DC circuits apply to AC circuits as well, with the caveat that all quantities must be represented and calculated in complex rather than scalar form.  So long as phase shift is properly represented in our calculations, there is no fundamental difference in how we approach basic AC circuit analysis versus DC.
+</p>
+
+<p>
+Now is a good time to review the relationship between these calculated figures and readings given by actual instrument measurements of voltage and current.  The figures here that directly relate to real-life measurements are those in <i>polar notation</i>, not rectangular!  In other words, if you were to connect a voltmeter across the resistor in this circuit, it would indicate <b>7.9847</b> volts, not 6.3756 (real rectangular) or 4.8071 (imaginary rectangular) volts.  To describe this in graphical terms, measurement instruments simply tell you how long the vector is for that particular quantity (voltage or current).
+</p>
+
+<p>
+Rectangular notation, while convenient for arithmetical addition and subtraction, is a more abstract form of notation than polar in relation to real-world measurements.  As I stated before, I will indicate both polar and rectangular forms of each quantity in my AC circuit tables simply for convenience of mathematical calculation.  This is not absolutely necessary, but may be helpful for those following along without the benefit of an advanced calculator.  If we were to restrict ourselves to the use of only one form of notation, the best choice would be polar, because it is the only one that can be directly correlated to real measurements.
+</p>
+
+
+<p>
+Impedance (Z) of a series R-L circuit may be calculated, given the resistance (R) and the inductive reactance (X<sub>L</sub>). Since E=IR, E=IX<sub>L</sub>, and E=IZ, resistance, reactance, and impedance are proportional to voltage, respectively. Thus, the voltage phasor diagram can be replaced by a similar impedance diagram.  (Figure <a href="#02515.png">  below</a>)
+</p>
+
+ 
+<a name="02515.png"></a> 
+<p> <img src="02515.png"> </p> 
+<p><i>Series: R-L circuit Impedance phasor diagram.</i></p> 
+ 
+
+<br> </br>
+<p>
+<b>Example:</b>
+</p>
+
+<p>
+Given: A 40 &#937; resistor in series with a 79.58 millihenry inductor.   Find the impedance at 60 hertz.
+</p>
+
+<pre>
+&nbsp;
+&nbsp;          X<sub>L</sub> = 2&#960;fL
+&nbsp;          X<sub>L</sub> = 2&#960;&#183;60&#183;79.58&#215;10<sup>-3</sup> 
+&nbsp;          X<sub>L</sub> = 30 &#937;
+&nbsp;           Z = R + jX<sub>L</sub> 
+&nbsp;           Z = 40 + j30
+&nbsp;          |Z| = sqrt(40<sup>2</sup> + 30<sup>2</sup>) = 50 &#937;
+&nbsp;          &#8736;Z = arctangent(30/40) = 36.87<sup>o</sup>
+&nbsp;           Z = 40 + j30 = 50&#8736;36.87<sup>o</sup>
+</pre>
+</p>
+
+<br> </br>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Impedance</i> is the total measure of opposition to electric current and is the complex (vector) sum of (&ldquo;real&rdquo;) resistance and (&ldquo;imaginary&rdquo;) reactance.  It is symbolized by the letter &ldquo;Z&rdquo; and measured in ohms, just like resistance (R) and reactance (X).</li>
+<li>Impedances (Z) are managed just like resistances (R) in series circuit analysis: series impedances add to form the total impedance.  Just be sure to perform all calculations in complex (not scalar) form!  Z<sub>Total</sub> = Z<sub>1</sub> + Z<sub>2</sub> + . . . Z<sub>n</sub></li>
+<li>A purely resistive impedance will always have a phase angle of exactly 0<sup>o</sup> (Z<sub>R</sub> = R &#937; &#8736; 0<sup>o</sup>).</li>
+<li>A purely inductive impedance will always have a phase angle of exactly +90<sup>o</sup> (Z<sub>L</sub> = X<sub>L</sub> &#937; &#8736; 90<sup>o</sup>).</li>
+<li>Ohm's Law for AC circuits: E = IZ ; I = E/Z ; Z = E/I</li>
+<li>When resistors and inductors are mixed together in circuits, the total impedance will have a phase angle somewhere between 0<sup>o</sup> and +90<sup>o</sup>.  The circuit current will have a phase angle somewhere between 0<sup>o</sup> and -90<sup>o</sup>.</li>
+<li>Series AC circuits exhibit the same fundamental properties as series DC circuits: current is uniform throughout the circuit, voltage drops add to form the total voltage, and impedances add to form the total impedance.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34543">Parallel resistor-inductor circuits</a></u></h2>
+
+<p>
+Let's take the same components for our series example circuit and connect them in parallel:  (Figure <a href="#02262.png">  below</a>)
+</p>
+
+ 
+<a name="02262.png"></a> 
+<p> <img src="02262.png"> </p> 
+<p><i>Parallel R-L circuit.</i></p> 
+ 
+
+<p>
+Because the power source has the same frequency as the series example circuit, and the resistor and inductor both have the same values of resistance and inductance, respectively, they must also have the same values of impedance.  So, we can begin our analysis table with the same &ldquo;given&rdquo; values:
+</p>
+
+<p> <img src="12028.png"> </p> 
+
+<p>
+The only difference in our analysis technique this time is that we will apply the rules of parallel circuits instead of the rules for series circuits.  The approach is fundamentally the same as for DC.  We know that voltage is shared uniformly by all components in a parallel circuit, so we can transfer the figure of total voltage (10 volts &#8736; 0<sup>o</sup>) to all components columns:
+</p>
+
+<p> <img src="12033.png"> </p> 
+
+<p>
+Now we can apply Ohm's Law (I=E/Z) vertically to two columns of the table, calculating current through the resistor and current through the inductor:
+</p>
+
+<p> <img src="12034.png"> </p> 
+
+<p>
+Just as with DC circuits, branch currents in a parallel AC circuit add to form the total current (Kirchhoff's Current Law still holds true for AC as it did for DC):
+</p>
+
+<p> <img src="12035.png"> </p> 
+
+<p>
+Finally, total impedance can be calculated by using Ohm's Law (Z=E/I) vertically in the &ldquo;Total&rdquo; column.  Incidentally, parallel impedance can also be calculated by using a reciprocal formula identical to that used in calculating parallel resistances.  
+</p>
+
+<p> <img src="12036.png"> </p> 
+
+<p>
+The only problem with using this formula is that it typically involves a lot of calculator keystrokes to carry out.  And if you're determined to run through a formula like this &ldquo;longhand,&rdquo; be prepared for a very large amount of work!  But, just as with DC circuits, we often have multiple options in calculating the quantities in our analysis tables, and this example is no different.  No matter which way you calculate total impedance (Ohm's Law or the reciprocal formula), you will arrive at the same figure:
+</p>
+
+<p> <img src="12037.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Impedances (Z) are managed just like resistances (R) in parallel circuit analysis: parallel impedances diminish to form the total impedance, using the reciprocal formula.  Just be sure to perform all calculations in complex (not scalar) form!  Z<sub>Total</sub> = 1/(1/Z<sub>1</sub> + 1/Z<sub>2</sub> + . . . 1/Z<sub>n</sub>)</li>
+<li>Ohm's Law for AC circuits: E = IZ ; I = E/Z ; Z = E/I</li>
+<li>When resistors and inductors are mixed together in parallel circuits (just as in series circuits), the total impedance will have a phase angle somewhere between 0<sup>o</sup> and +90<sup>o</sup>.  The circuit current will have a phase angle somewhere between 0<sup>o</sup> and -90<sup>o</sup>.</li>
+<li>Parallel AC circuits exhibit the same fundamental properties as parallel DC circuits: voltage is uniform throughout the circuit, branch currents add to form the total current, and impedances diminish (through the reciprocal formula) to form the total impedance.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34544">Inductor quirks</a></u></h2>
+
+<p>
+In an ideal case, an inductor acts as a purely reactive device.  That is, its opposition to AC current is strictly based on inductive reaction to changes in current, and not electron friction as is the case with resistive components.  However, inductors are not quite so pure in their reactive behavior.  To begin with, they're made of wire, and we know that all wire possesses some measurable amount of resistance (unless its superconducting wire).  This built-in resistance acts as though it were connected in series with the perfect inductance of the coil, like this:  (Figure <a href="#02065.png">  below</a>)
+</p>
+
+ 
+<a name="02065.png"></a> 
+<p> <img src="02065.png"> </p> 
+<p><i>Inductor Equivalent circuit of a real inductor.</i></p> 
+ 
+
+<p>
+Consequently, the impedance of any real inductor will always be a complex combination of resistance and inductive reactance.
+</p>
+
+<a name="Skin effect"></a>
+
+<p>
+Compounding this problem is something called the <i>skin effect</i>, which is AC's tendency to flow through the outer areas of a conductor's cross-section rather than through the middle.  When electrons flow in a single direction (DC), they use the entire cross-sectional area of the conductor to move.  Electrons switching directions of flow, on the other hand, tend to avoid travel through the very middle of a conductor, limiting the effective cross-sectional area available.  The skin effect becomes more pronounced as frequency increases.
+</p>
+
+<p>
+Also, the alternating magnetic field of an inductor energized with AC may radiate off into space as part of an electromagnetic wave, especially if the AC is of high frequency.  This radiated energy does not return to the inductor, and so it manifests itself as resistance (power dissipation) in the circuit.
+</p>
+
+<a name="Eddy current"></a>
+
+<p>
+Added to the resistive losses of wire and radiation, there are other effects at work in iron-core inductors which manifest themselves as additional resistance between the leads.  When an inductor is energized with AC, the alternating magnetic fields produced tend to induce circulating currents within the iron core known as <i>eddy currents</i>.  These electric currents in the iron core have to overcome the electrical resistance offered by the iron, which is not as good a conductor as copper.  Eddy current losses are primarily counteracted by dividing the iron core up into many thin sheets (laminations), each one separated from the other by a thin layer of electrically insulating varnish.  With the cross-section of the core divided up into many electrically isolated sections, current cannot circulate within that cross-sectional area and there will be no (or very little) resistive losses from that effect.
+</p>
+
+<a name="Inductive heating"></a>
+<a name="Heating, inductive"></a>
+
+<p>
+As you might have expected, eddy current losses in metallic inductor cores manifest themselves in the form of heat.  The effect is more pronounced at higher frequencies, and can be so extreme that it is sometimes exploited in manufacturing processes to heat metal objects!  In fact, this process of &ldquo;inductive heating&rdquo; is often used in high-purity metal foundry operations, where metallic elements and alloys must be heated in a vacuum environment to avoid contamination by air, and thus where standard combustion heating technology would be useless.  It is a &ldquo;non-contact&rdquo; technology, the heated substance not having to touch the coil(s) producing the magnetic field.
+</p>
+
+<a name="Wire, Litz "></a>
+<a name="Litz wire"></a>
+
+<p>
+In high-frequency service, eddy currents can even develop within the cross-section of the wire itself, contributing to additional resistive effects.  To counteract this tendency, special wire made of very fine, individually insulated strands called <i>Litz wire</i> (short for <i>Litzendraht</i>) can be used.  The insulation separating strands from each other prevent eddy currents from circulating through the whole wire's cross-sectional area.
+</p>
+
+<a name="Ferrite"></a>
+
+<p>
+Additionally, any magnetic hysteresis that needs to be overcome with every reversal of the inductor's magnetic field constitutes an expenditure of energy that manifests itself as resistance in the circuit.  Some core materials (such as ferrite) are particularly notorious for their hysteretic effect.  Counteracting this effect is best done by means of proper core material selection and limits on the peak magnetic field intensity generated with each cycle.
+</p>
+
+<a name="Effective resistance"></a>
+<a name="Resistance, effective"></a>
+
+<p>
+Altogether, the stray resistive properties of a real inductor (wire resistance, radiation losses, eddy currents, and hysteresis losses) are expressed under the single term of &ldquo;effective resistance:&rdquo;  (Figure <a href="#02066.png">  below</a>)
+</p>
+
+ 
+<a name="02066.png"></a> 
+<p> <img src="02066.png"> </p> 
+<p><i>Equivalent circuit of a real inductor with skin-effect, radiation, eddy current, and hysteresis losses.</i></p> 
+ 
+
+<p>
+It is worthy to note that the skin effect and radiation losses apply just as well to straight lengths of wire in an AC circuit as they do a coiled wire.  Usually their combined effect is too small to notice, but at radio frequencies they can be quite large.  A radio transmitter antenna, for example, is designed with the express purpose of dissipating the greatest amount of energy in the form of electromagnetic radiation.
+</p>
+
+<a name="Q, symbol for quality factor"></a>
+<a name="Quality factor"></a>
+
+<p>
+Effective resistance in an inductor can be a serious consideration for the AC circuit designer.  To help quantify the relative amount of effective resistance in an inductor, another value exists called the <i>Q factor</i>, or &ldquo;quality factor&rdquo; which is calculated as follows:
+</p>
+
+<p> <img src="12038.png"> </p> 
+
+<p>
+The symbol &ldquo;Q&rdquo; has nothing to do with electric charge (coulombs), which tends to be confusing.  For some reason, the Powers That Be decided to use the same letter of the alphabet to denote a totally different quantity.
+</p>
+
+<p>
+The higher the value for &ldquo;Q,&rdquo; the &ldquo;purer&rdquo; the inductor is.  Because its so easy to add additional resistance if needed, a high-Q inductor is better than a low-Q inductor for design purposes.  An ideal inductor would have a Q of infinity, with zero effective resistance.  
+</p>
+
+<p>
+Because inductive reactance (X) varies with frequency, so will Q.  However, since the resistive effects of inductors (wire skin effect, radiation losses, eddy current, and hysteresis) also vary with frequency, Q does not vary proportionally with reactance.  In order for a Q value to have precise meaning, it must be specified at a particular test frequency.
+</p>
+
+<p>
+Stray resistance isn't the only inductor quirk we need to be aware of.  Due to the fact that the multiple turns of wire comprising inductors are separated from each other by an insulating gap (air, varnish, or some other kind of electrical insulation), we have the potential for capacitance to develop between turns.  AC capacitance will be explored in the next chapter, but it suffices to say at this point that it behaves very differently from AC inductance, and therefore further &ldquo;taints&rdquo; the reactive purity of real inductors.  
+</p>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34545">More on the &ldquo;skin effect&rdquo;</a></u></h2>
+
+<a name="Skin effect"></a>
+
+<p>
+As previously mentioned, the skin effect is where alternating current tends to avoid travel through the center of a solid conductor, limiting itself to conduction near the surface.  This effectively limits the cross-sectional conductor area available to carry alternating electron flow, increasing the resistance of that conductor above what it would normally be for direct current:  (Figure <a href="#02067.png">  below</a>)
+</p>
+
+ 
+<a name="02067.png"></a> 
+<p> <img src="02067.png"> </p> 
+<p><i>Skin effect: skin depth decreases with increasing frequency.</i></p> 
+ 
+
+<a name="Resistance, DC"></a>
+<a name="Resistance, AC"></a>
+
+<p>
+The electrical resistance of the conductor with all its cross-sectional area in use is known as the &ldquo;DC resistance,&rdquo; the &ldquo;AC resistance&rdquo; of the same conductor  referring to a higher figure resulting from the skin effect.  As you can see, at high frequencies the AC current avoids travel through most of the conductor's cross-sectional area.  For the purpose of conducting current, the wire might as well be hollow!
+</p>
+
+<a name="Radio"></a>
+<a name="Antenna"></a>
+<a name="RF: Radio Frequency"></a>
+
+<p>
+In some radio applications (antennas, most notably) this effect is exploited.  Since radio-frequency (&ldquo;RF&rdquo;) AC currents wouldn't travel through the middle of a conductor anyway, why not just use hollow metal rods instead of solid metal wires and save both weight and cost?  (Figure <a href="#52013.jpg">  below</a>)  Most antenna structures and RF power conductors are made of hollow metal tubes for this reason.
+</p>
+
+<p>
+In the following photograph you can see some large inductors used in a 50 kW radio transmitting circuit.  The inductors are hollow copper tubes coated with silver, for excellent conductivity at the &ldquo;skin&rdquo; of the tube:
+</p>
+
+ 
+<a name="52013.jpg"></a> 
+<p> <img src="52013.jpg"> </p> 
+<p><i>High power inductors formed from hollow tubes.</i></p> 
+ 
+
+<p>
+The degree to which frequency affects the effective resistance of a solid wire conductor is impacted by the gauge of that wire.  As a rule, large-gauge wires exhibit a more pronounced skin effect (change in resistance from DC) than small-gauge wires at any given frequency.  The equation for approximating skin effect at high frequencies (greater than 1 MHz) is as follows:
+</p>
+
+<p> <img src="12039.png"> </p> 
+
+<p>
+Table <a href="#kfactor.tbl">  below</a> gives approximate values of &ldquo;k&rdquo; factor for various round wire sizes.
+</p>
+
+
+ 
+<a name="kfactor.tbl"><p><i>&ldquo;k&rdquo; factor for various AWG wire sizes.</i></p></a>
+<table border="1" style="background-color: #E0FFFF; " >
+
+
+<tr>
+<th>gage size</th><th>k factor</th><th>gage size</th><th>k factor</th>
+
+</tr>
+
+<tr>
+<td>4/0</td><td>124.5</td><td>8</td><td>34.8</td>
+</tr>
+
+<tr>
+<td>2/0</td><td>99.0</td><td>10</td><td>27.6</td>
+</tr>
+
+<tr>
+<td>1/0</td><td>88.0</td><td>14</td><td>17.6</td>
+</tr>
+
+<tr>
+<td>2</td><td>69.8</td><td>18</td><td>10.9</td>
+</tr>
+
+<tr>
+<td>4</td><td>55.5</td><td>22</td><td>6.86</td>
+</tr>
+
+<tr>
+<td>6</td><td>47.9</td><td>-</td><td>-</td>
+</tr>
+
+
+</table>
+
+
+
+
+
+<br> </br> 
+
+<p>
+For example, a length of number 10-gauge wire with a DC end-to-end resistance of 25 &#937; would have an AC (effective) resistance of 2.182 k&#937; at a frequency of 10 MHz:
+</p>
+
+<p> <img src="12040.png"> </p> 
+
+<p>
+Please remember that this figure is <i>not</i> impedance, and it does <i>not</i> consider any reactive effects, inductive or capacitive.  This is simply an estimated figure of pure resistance for the conductor (that opposition to the AC flow of electrons which <i>does</i> dissipate power in the form of heat), corrected for the skin effect.  Reactance, and the combined effects of reactance and resistance (impedance), are entirely different matters. 
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34546">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jim Palmer</b> (June 2001): Identified and offered correction for typographical error in complex number calculation.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_2.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_4.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

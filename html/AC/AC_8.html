@@ -1,0 +1,1320 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 8</title>
+  <meta name="description" content="Filters">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, resonance, capacitor, inductor, reactance, resistance, impedance, lowpass, low-pass, low pass, highpass, high-pass, high pass, bandpass, band-pass, band pass, bandstop, band-stop, band stop, cutoff, cutoff frequency, coupling, signal coupling, decoupling capacitor"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_9.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 8</h1>
+
+
+
+
+<h1>FILTERS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid34940"><u>What is a filter?</u></a></li>
+<li><a href="#xtocid34941"><u>Low-pass filters</u></a></li>
+<li><a href="#xtocid34942"><u>High-pass filters</u></a></li>
+<li><a href="#xtocid34943"><u>Band-pass filters</u></a></li>
+<li><a href="#xtocid34944"><u>Band-stop filters</u></a></li>
+<li><a href="#xtocid34945"><u>Resonant filters</u></a></li>
+<li><a href="#xtocid34946"><u>Summary</u></a></li>
+<li><a href="#xtocid34947"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid34940">What is a filter?</a></u></h2>
+
+
+<a name="Filter"></a>
+<a name="Equalizer"></a>
+<a name="Crossover network"></a>
+<a name="Network, &ldquo;crossover&rdquo;"></a>
+
+<p>
+It is sometimes desirable to have circuits capable of selectively filtering one frequency or range of frequencies out of a mix of different frequencies in a circuit.  A circuit designed to perform this frequency selection is called a <i>filter circuit</i>, or simply a <i>filter</i>.  A common need for filter circuits is in high-performance stereo systems, where certain ranges of audio frequencies need to be amplified or suppressed for best sound quality and power efficiency.  You may be familiar with <i>equalizers</i>, which allow the amplitudes of several frequency ranges to be adjusted to suit the listener's taste and acoustic properties of the listening area.  You may also be familiar with <i>crossover networks</i>, which block certain ranges of frequencies from reaching speakers.  A tweeter (high-frequency speaker) is inefficient at reproducing low-frequency signals such as drum beats, so a crossover circuit is connected between the tweeter and the stereo's output terminals to block low-frequency signals, only passing high-frequency signals to the speaker's connection terminals.  This gives better audio system efficiency and thus better performance.  Both equalizers and crossover networks are examples of filters, designed to accomplish filtering of certain frequencies.
+</p>
+
+<p>
+Another practical application of filter circuits is in the &ldquo;conditioning&rdquo; of non-sinusoidal voltage waveforms in power circuits.  Some electronic devices are sensitive to the presence of harmonics in the power supply voltage, and so require power conditioning for proper operation.  If a distorted sine-wave voltage behaves like a series of harmonic waveforms added to the fundamental frequency, then it should be possible to construct a filter circuit that only allows the fundamental waveform frequency to pass through, blocking all (higher-frequency) harmonics.
+</p>
+
+<a name="Bode plot"></a>
+
+<p>
+We will be studying the design of several elementary filter circuits in this lesson.  To reduce the load of math on the reader, I will make extensive use of SPICE as an analysis tool, displaying Bode plots (amplitude versus frequency) for the various kinds of filters.  Bear in mind, though, that these circuits can be analyzed over several points of frequency by repeated series-parallel analysis, much like the previous example with two sources (60 and 90 Hz), if the student is willing to invest a lot of time working and re-working circuit calculations for each frequency.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>filter</i> is an AC circuit that separates some frequencies from others within mixed-frequency signals.</li>
+<li>Audio <i>equalizers</i> and <i>crossover networks</i> are two well-known applications of filter circuits.</li>
+<li>A <i>Bode plot</i> is a graph plotting waveform amplitude or phase on one axis and frequency on the other.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34941">Low-pass filters</a></u></h2>
+
+<a name="Low-pass filter"></a>
+<a name="Filter, low-pass"></a>
+
+<p>
+By definition, a low-pass filter is a circuit offering easy passage to low-frequency signals and difficult passage to high-frequency signals.  There are two basic kinds of circuits capable of accomplishing this objective, and many variations of each one: The inductive low-pass filter in Figure <a href="#02116.png">  below</a>
+<!--Split for two refs in one paragraph-->
+and the capacitive low-pass filter in  Figure <a href="#02117.png">  below</a>
+</p>
+
+ 
+<a name="02116.png"></a> 
+<p> <img src="02116.png"> </p> 
+<p><i>Inductive low-pass filter</i></p> 
+ 
+
+<p>
+The inductor's impedance increases with increasing frequency.  This high impedance in series tends to block high-frequency signals from getting to the load.  This can be demonstrated with a SPICE analysis: (Figure <a href="#22026.png">  below</a>)
+</p>
+
+
+<pre>
+inductive lowpass filter               
+v1 1 0 ac 1 sin 
+l1 1 2 3
+rload 2 0 1k    
+.ac lin 20 1 200
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+<!--freq       v(2)    0.2512      0.3981        0.631          1-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --> 
+<!--1.000E+00  9.998E-01 .            .            .            * -->
+<!--1.147E+01  9.774E-01 .            .            .           *.-->
+<!--2.195E+01  9.240E-01 .            .            .          * .-->
+<!--3.242E+01  8.533E-01 .            .            .       *    .-->
+<!--4.289E+01  7.776E-01 .            .            .     *      .--> 
+<!--5.337E+01  7.050E-01 .            .            .  *         .--> 
+<!--6.384E+01  6.391E-01 .            .            *            .--> 
+<!--7.432E+01  5.810E-01 .            .         *  .            .--> 
+<!--8.479E+01  5.304E-01 .            .        *   .            .--> 
+<!--9.526E+01  4.865E-01 .            .     *      .            .-->  
+<!--1.057E+02  4.485E-01 .            .   *        .            .-->   
+<!--1.162E+02  4.153E-01 .            .*           .            .-->   
+<!--1.267E+02  3.863E-01 .           *.            .            .-->   
+<!--1.372E+02  3.607E-01 .         *  .            .            .-->  
+<!--1.476E+02  3.382E-01 .        *   .            .            .-->   
+<!--1.581E+02  3.181E-01 .      *     .            .            .-->   
+<!--1.686E+02  3.002E-01 .    *       .            .            .-->  
+<!--1.791E+02  2.841E-01 .   *        .            .            .--> 
+<!--1.895E+02  2.696E-01 . *          .            .            .-->  
+<!--2.000E+02  2.564E-01 .*           .            .            .--> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ---> 
+
+ 
+<a name="22026.png"></a> 
+<p> <img src="22026.png"> </p> 
+<p><i>The response of an inductive low-pass filter falls off with increasing frequency.</i></p> 
+ 
+ 
+<a name="02117.png"></a> 
+<p> <img src="02117.png"> </p> 
+<p><i>Capacitive low-pass filter.</i></p> 
+ 
+
+<p>
+The capacitor's impedance decreases with increasing frequency.  This low impedance in parallel with the load resistance tends to short out high-frequency signals, dropping most of the voltage across series resistor R<sub>1</sub>.  (Figure <a href="#22027.png">  below</a>)
+</p>
+
+
+
+<pre>
+capacitive lowpass filter                                  
+v1 1 0 ac 1 sin 
+r1 1 2 500      
+c1 2 0 7u       
+rload 2 0 1k    
+.ac lin 20 30 150       
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+<!-- freq       v(2)            0.3162     0.3981     0.5012  <!--0.631--> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->  
+<!--3.000E+01  6.102E-01 .        .         .         .        *.--> 
+<!--3.632E+01  5.885E-01 .        .         .         .      *  .--> 
+<!--4.263E+01  5.653E-01 .        .         .         .   *     .--> 
+<!--4.895E+01  5.416E-01 .        .         .         .  *      .--> 
+<!--5.526E+01  5.180E-01 .        .         .         .*        .--> 
+<!--6.158E+01  4.948E-01 .        .         .        *.         .--> 
+<!--6.789E+01  4.725E-01 .        .         .     *   .         .--> 
+<!--7.421E+01  4.511E-01 .        .         .   *     .         .--> 
+<!--8.053E+01  4.309E-01 .        .         . *       .         .--> 
+<!--8.684E+01  4.118E-01 .        .         .*        .         .--> 
+<!--9.316E+01  3.938E-01 .        .        *.         .         .--> 
+<!--9.947E+01  3.770E-01 .        .      *  .         .         .--> 
+<!--1.058E+02  3.613E-01 .        .    *    .         .         .--> 
+<!--1.121E+02  3.465E-01 .        .  *      .         .         .--> 
+<!--1.184E+02  3.327E-01 .        .*        .         .         .--> 
+<!--1.247E+02  3.199E-01 .        *         .         .         .--> 
+<!--1.311E+02  3.078E-01 .      * .         .         .         .--> 
+<!--1.374E+02  2.965E-01 .    *   .         .         .         .--> 
+<!--1.437E+02  2.859E-01 .  *     .         .         .         .--> 
+<!--1.500E+02  2.760E-01 .*       .         .         .         .--> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --> 
+                  
+
+ 
+<a name="22027.png"></a> 
+<p> <img src="22027.png"> </p> 
+<p><i>The response of a capacitive low-pass filter falls off with increasing frequency.</i></p> 
+ 
+
+<p>
+The inductive low-pass filter is the pinnacle of simplicity, with only one component comprising the filter.  The capacitive version of this filter is not that much more complex, with only a resistor and capacitor needed for operation.  However, despite their increased complexity, capacitive filter designs are generally preferred over inductive because capacitors tend to be &ldquo;purer&rdquo; reactive components than inductors and therefore are more predictable in their behavior.  By &ldquo;pure&rdquo; I mean that capacitors exhibit little resistive effects than inductors, making them almost 100% reactive.  Inductors, on the other hand, typically exhibit significant dissipative (resistor-like) effects, both in the long lengths of wire used to make them, and in the magnetic losses of the core material.  Capacitors also tend to participate less in &ldquo;coupling&rdquo; effects with other components (generate and/or receive interference from other components via mutual electric or magnetic fields) than inductors, and are less expensive.
+</p>
+
+<p>
+However, the inductive low-pass filter is often preferred in AC-DC power supplies to filter out the AC &ldquo;ripple&rdquo; waveform created when AC is converted (rectified) into DC, passing only the pure DC component.  The primary reason for this is the requirement of low filter resistance for the output of such a power supply.  A capacitive low-pass filter requires an extra resistance in series with the source, whereas the inductive low-pass filter does not.  In the design of a high-current circuit like a DC power supply where additional series resistance is undesirable, the inductive low-pass filter is the better design choice.  On the other hand, if low weight and compact size are higher priorities than low internal supply resistance in a power supply design, the capacitive low-pass filter might make more sense.
+</p>
+
+<a name="Cutoff frequency"></a>
+<a name="Frequency, cutoff"></a>
+
+<p>
+All low-pass filters are rated at a certain <i>cutoff frequency</i>.  That is, the frequency above which the output voltage falls below 70.7% of the input voltage.  This cutoff percentage of 70.7 is not really arbitrary, all though it may seem so at first glance.  In a simple capacitive/resistive low-pass filter, it is the frequency at which capacitive reactance in ohms equals resistance in ohms.  In a simple capacitive low-pass filter (one resistor, one capacitor), the cutoff frequency is given as:
+</p>
+
+<p> <img src="12097.png"> </p> 
+
+<p>
+Inserting the values of R and C from the last SPICE simulation into this formula, we arrive at a cutoff frequency of 45.473 Hz.  However, when we look at the plot generated by the SPICE simulation, we see the load voltage well below 70.7% of the source voltage (1 volt) even at a frequency as low as 30 Hz, below the calculated cutoff point.  What's wrong?  The problem here is that the load resistance of 1 k&#937; affects the frequency response of the filter, skewing it down from what the formula told us it would be.  Without that load resistance in place, SPICE produces a Bode plot whose numbers make more sense: (Figure <a href="#22028.png">  below</a>)
+</p>
+
+
+<pre>
+capacitive lowpass filter   
+v1 1 0 ac 1 sin 
+r1 1 2 500      
+c1 2 0 7u
+* note: no load resistor!       
+.ac lin 20 40 50
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(2)    0.6607      0.6918       0.7244      0.7586-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--4.000E+01  7.508E-01 .           .             .          *  .--> 
+<!--4.053E+01  7.465E-01 .           .             .        *    .-->
+<!--4.105E+01  7.423E-01 .           .             .      *      .--> 
+<!--4.158E+01  7.380E-01 .           .             .     *       .-->
+<!--4.211E+01  7.338E-01 .           .             .   *         .-->
+<!--4.263E+01  7.295E-01 .           .             . *           .-->
+<!--4.316E+01  7.253E-01 .           .             *             .--> 
+<!--4.368E+01  7.211E-01 .           .            *.             .-->
+<!--4.421E+01  7.170E-01 .           .          *  .             .-->
+<!--4.474E+01  7.129E-01 .           .        *    .             .-->
+<!--4.526E+01  7.087E-01 .           .      *      .             .-->
+<!--4.579E+01  7.046E-01 .           .     *       .             .-->
+<!--4.632E+01  7.006E-01 .           .   *         .             .-->
+<!--4.684E+01  6.965E-01 .           . *           .             .-->
+<!--4.737E+01  6.925E-01 .           *             .             .-->
+<!--4.789E+01  6.885E-01 .          *.             .             .-->
+<!--4.842E+01  6.846E-01 .        *  .             .             .-->
+<!--4.895E+01  6.806E-01 .      *    .             .             .-->
+<!--4.947E+01  6.767E-01 .    *      .             .             .-->
+<!--5.000E+01  6.728E-01 .   *       .             .             .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+ 
+<a name="22028.png"></a> 
+<p> <img src="22028.png"> </p> 
+<p><i>For the capacitive low-pass filter with R = 500 &#937; and C = 7 &#181;F, the Output should be 70.7% at 45.473 Hz.</i></p> 
+ 
+
+
+<pre>
+&nbsp;          f<sub>cutoff</sub> = 1/(2&#960;RC) = 1/(2&#960;(500 &#937;)(7 &#181;F)) = 45.473 Hz
+</pre>
+
+
+
+<p>
+When dealing with filter circuits, it is always important to note that the response of the filter depends on the filter's component values <i>and</i> the impedance of the load.  If a cutoff frequency equation fails to give consideration to load impedance, it assumes no load and will fail to give accurate results for a real-life filter conducting power to a load.
+</p>
+
+<p>
+One frequent application of the capacitive low-pass filter principle is in the design of circuits having components or sections sensitive to electrical &ldquo;noise.&rdquo;  As mentioned at the beginning of the last chapter, sometimes AC signals can &ldquo;couple&rdquo; from one circuit to another via capacitance (C<sub>stray</sub>) and/or mutual inductance (M<sub>stray</sub>) between the two sets of conductors.  A prime example of this is unwanted AC signals (&ldquo;noise&rdquo;) becoming impressed on DC power lines supplying sensitive circuits: (Figure <a href="#02300.png">  below</a>)
+</p>
+
+ 
+<a name="02300.png"></a> 
+<p> <img src="02300.png"> </p> 
+<p><i>Noise is coupled by stray capacitance and mutual inductance into &ldquo;clean&rdquo; DC power.</i></p> 
+ 
+
+<p>
+The oscilloscope-meter on the left shows the &ldquo;clean&rdquo; power from the DC voltage source.  After coupling with the AC noise source via stray mutual inductance and stray capacitance, though, the voltage as measured at the load terminals is now a mix of AC and DC, the AC being unwanted.  Normally, one would expect E<sub>load</sub> to be precisely identical to E<sub>source</sub>, because the uninterrupted conductors connecting them should make the two sets of points electrically common.  However, power conductor impedance allows the two voltages to differ, which means the noise magnitude can vary at different points in the DC system.
+</p>
+
+<a name="Capacitor, decoupling"></a>
+<a name="Decoupling capacitor"></a>
+
+<p>
+If we wish to prevent such &ldquo;noise&rdquo; from reaching the DC load, all we need to do is connect a low-pass filter near the load to block any coupled signals.  In its simplest form, this is nothing more than a capacitor connected directly across the power terminals of the load, the capacitor behaving as a very low impedance to any AC noise, and shorting it out.  Such a capacitor is called a <i>decoupling capacitor</i>: (Figure <a href="#02301.png">  below</a>)
+</p>
+
+ 
+<a name="02301.png"></a> 
+<p> <img src="02301.png"> </p> 
+<p><i>Decoupling capacitor, applied to load, filters noise from DC power supply.</i></p> 
+ 
+
+<a name="Printed circuit board"></a>
+<a name="PCB"></a>
+
+<p>
+A cursory glance at a crowded printed-circuit board (PCB) will typically reveal decoupling capacitors scattered throughout, usually located as close as possible to the sensitive DC loads.  Capacitor size is usually 0.1 &#181;F or more, a minimum amount of capacitance needed to produce a low enough impedance to short out any noise.  Greater capacitance will do a better job at filtering noise, but size and economics limit decoupling capacitors to meager values.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A low-pass filter allows for easy passage of low-frequency signals from source to load, and difficult passage of high-frequency signals.</li>
+<li>Inductive low-pass filters insert an inductor in series with the load; capacitive low-pass filters insert a resistor in series and a capacitor in parallel with the load.  The former filter design tries to &ldquo;block&rdquo; the unwanted frequency signal while the latter tries to short it out.</li>
+<li>The <i>cutoff frequency</i> for a low-pass filter is that frequency at which the output (load) voltage equals 70.7% of the input (source) voltage.  Above the cutoff frequency, the output voltage is lower than 70.7% of the input, and vice versa.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34942">High-pass filters</a></u></h2>
+
+<a name="High-pass filter"></a>
+<a name="Filter, high-pass"></a>
+
+<p>
+A high-pass filter's task is just the opposite of a low-pass filter: to offer easy passage of a high-frequency signal and difficult passage to a low-frequency signal.  As one might expect, the inductive (Figure <a href="#02119.png">  below</a>)
+<!--Split for two refs in one paragraph-->
+and capacitive (Figure <a href="#02118.png">  below</a>) versions of the high-pass filter are just the opposite of their respective low-pass filter designs:
+</p>
+
+ 
+<a name="02118.png"></a> 
+<p> <img src="02118.png"> </p> 
+<p><i>Capacitive high-pass filter.</i></p> 
+ 
+
+<p>
+The capacitor's impedance (Figure <a href="#02118.png">  above</a>)
+<!--split for double ref-->
+increases with decreasing frequency. (Figure <a href="#22029.png">  below</a>)  This high impedance in series tends to block low-frequency signals from getting to load.
+</p>
+
+
+<pre>
+capacitive highpass filter    
+v1 1 0 ac 1 sin 
+c1 1 2 0.5u     
+rload 2 0 1k    
+.ac lin 20 1 200
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(2)  1.000E-03     1.000E-02     1.000E-01  1.000E+00 --> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--1.000E+00  3.142E-03 .      *      .             .             .--> 
+<!--1.147E+01  3.602E-02 .             .       *     .             .-->
+<!--2.195E+01  6.879E-02 .             .           * .             .-->   
+<!--3.242E+01  1.013E-01 .             .             *             .-->  
+<!--4.289E+01  1.336E-01 .             .             . *           .-->
+<!--5.337E+01  1.654E-01 .             .             .  *          .-->      
+<!--6.384E+01  1.966E-01 .             .             .   *         .-->     
+<!--7.432E+01  2.274E-01 .             .             .    *        .-->    
+<!--8.479E+01  2.574E-01 .             .             .     *       .-->   
+<!--9.526E+01  2.867E-01 .             .             .     *       .-->  
+<!--1.057E+02  3.152E-01 .             .             .      *      .--> 
+<!--1.162E+02  3.429E-01 .             .             .      *      .-->      
+<!--1.267E+02  3.698E-01 .             .             .       *     .-->    
+<!--1.372E+02  3.957E-01 .             .             .       *     .-->   
+<!--1.476E+02  4.207E-01 .             .             .        *    .-->  
+<!--1.581E+02  4.448E-01 .             .             .        *    .--> 
+<!--1.686E+02  4.680E-01 .             .             .        *    .-->       
+<!--1.791E+02  4.903E-01 .             .             .         *   .-->     
+<!--1.895E+02  5.116E-01 .             .             .         *   .-->   
+<!--2.000E+02  5.320E-01 .             .             .         *   .-->   
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+
+
+ 
+<a name="22029.png"></a> 
+<p> <img src="22029.png"> </p> 
+<p><i>The response of the capacitive high-pass filter increases with frequency.</i></p> 
+ 
+ 
+<a name="02119.png"></a> 
+<p> <img src="02119.png"> </p> 
+<p><i>Inductive high-pass filter.</i></p> 
+ 
+
+
+
+<p>
+The inductor's impedance  (Figure <a href="#02119.png">  above</a>)
+<!--split for double ref-->
+decreases with decreasing frequency. (Figure <a href="#22030.png">  below</a>)  This low impedance in parallel tends to short out low-frequency signals from getting to the load resistor.  As a consequence, most of the voltage gets dropped across series resistor R<sub>1</sub>.
+</p>
+
+
+<pre>
+inductive highpass filter  
+v1 1 0 ac 1 sin 
+r1 1 2 200      
+l1 2 0 100m     
+rload 2 0 1k    
+.ac lin 20 1 200
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(2)   1.000E-03  1.000E-02   1.000E-01    1.000E+00-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--1.000E+00  3.142E-03 .  *      .             .             .--> 
+<!--1.147E+01  3.601E-02 .         .       *     .             .-->
+<!--2.195E+01  6.871E-02 .         .           * .             .-->
+<!--3.242E+01  1.011E-01 .         .             *             .-->
+<!--4.289E+01  1.330E-01 .         .             . *           .-->
+<!--5.337E+01  1.644E-01 .         .             .  *          .-->
+<!--6.384E+01  1.950E-01 .         .             .   *         .-->
+<!--7.432E+01  2.248E-01 .         .             .    *        .-->
+<!--8.479E+01  2.537E-01 .         .             .     *       .-->
+<!--9.526E+01  2.817E-01 .         .             .     *       .-->
+<!--1.057E+02  3.086E-01 .         .             .      *      .-->
+<!--1.162E+02  3.344E-01 .         .             .      *      .-->
+<!--1.267E+02  3.591E-01 .         .             .       *     .-->
+<!--1.372E+02  3.828E-01 .         .             .       *     .-->
+<!--1.476E+02  4.053E-01 .         .             .        *    .-->
+<!--1.581E+02  4.267E-01 .         .             .        *    .-->
+<!--1.686E+02  4.470E-01 .         .             .        *    .-->
+<!--1.791E+02  4.662E-01 .         .             .        *    .-->
+<!--1.895E+02  4.845E-01 .         .             .         *   .-->
+<!--2.000E+02  5.017E-01 .         .             .         *   .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+ 
+<a name="22030.png"></a> 
+<p> <img src="22030.png"> </p> 
+<p><i>The response of the inductive high-pass filter increases with frequency.</i></p> 
+ 
+
+<p>
+This time, the capacitive design is the simplest, requiring only one component above and beyond the load.  And, again, the reactive purity of capacitors over inductors tends to favor their use in filter design, especially with high-pass filters where high frequencies commonly cause inductors to behave strangely due to the skin effect and electromagnetic core losses.
+</p>
+
+<a name="Cutoff frequency"></a>
+<a name="Frequency, cutoff"></a>
+
+<p>
+As with low-pass filters, high-pass filters have a rated <i>cutoff frequency</i>, above which the output voltage increases above 70.7% of the input voltage.  Just as in the case of the capacitive low-pass filter circuit, the capacitive high-pass filter's cutoff frequency can be found with the same formula:
+</p>
+
+<p> <img src="12097.png"> </p> 
+
+<p>
+In the example circuit, there is no resistance other than the load resistor, so that is the value for R in the formula.
+</p>
+
+<p>
+Using a stereo system as a practical example, a capacitor connected in series with the tweeter (treble) speaker will serve as a high-pass filter, imposing a high impedance to low-frequency bass signals, thereby preventing that power from being wasted on a speaker inefficient for reproducing such sounds.  In like fashion, an inductor connected in series with the woofer (bass) speaker will serve as a low-pass filter for the low frequencies that particular speaker is designed to reproduce.  In this simple example circuit, the midrange speaker is subjected to the full spectrum of frequencies from the stereo's output.  More elaborate filter networks are sometimes used, but this should give you the general idea.  Also bear in mind that I'm only showing you one channel (either left or right) on this stereo system.  A real stereo would have six speakers: 2 woofers, 2 midranges, and 2 tweeters.
+</p>
+
+ 
+<a name="02120.png"></a> 
+<p> <img src="02120.png"> </p> 
+<p><i>High-pass filter routes high frequencies to tweeter, while low-pass filter routes lows to woofer.</i></p> 
+ 
+
+<p>
+For better performance yet, we might like to have some kind of filter circuit capable of passing frequencies that are between low (bass) and high (treble) to the midrange speaker so that none of the low- or high-frequency signal power is wasted on a speaker incapable of efficiently reproducing those sounds.  What we would be looking for is called a <i>band-pass</i> filter, which is the topic of the next section.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A high-pass filter allows for easy passage of high-frequency signals from source to load, and difficult passage of low-frequency signals.</li>
+<li>Capacitive high-pass filters insert a capacitor in series with the load; inductive high-pass filters insert a resistor in series and an inductor in parallel with the load.  The former filter design tries to &ldquo;block&rdquo; the unwanted frequency signal while the latter tries to short it out.</li>
+<li>The <i>cutoff frequency</i> for a high-pass filter is that frequency at which the output (load) voltage equals 70.7% of the input (source) voltage.  Above the cutoff frequency, the output voltage is greater than 70.7% of the input, and vice versa.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34943">Band-pass filters</a></u></h2>
+
+<a name="Band-pass filter"></a>
+<a name="Filter, band-pass"></a>
+
+<p>
+There are applications where a particular band, or spread, or frequencies need to be filtered from a wider range of mixed signals.  Filter circuits can be designed to accomplish this task by combining the properties of low-pass and high-pass into a single filter.  The result is called a <i>band-pass</i> filter.  Creating a bandpass filter from a low-pass and high-pass filter can be illustrated using block diagrams: (Figure <a href="#02121.png">  below</a>)
+</p>
+
+ 
+<a name="02260.png"></a> 
+<p> <img src="02260.png"> </p> 
+<p><i>System level block diagram of a band-pass filter.</i></p> 
+ 
+
+<p>
+What emerges from the series combination of these two filter circuits is a circuit that will only allow passage of those frequencies that are neither too high nor too low.  Using real components, here is what a typical schematic might look like Figure <a href="#02121.png">  below</a>.
+<!--split for double ref-->
+The response of the band-pass filter is shown in  (Figure <a href="#22031.png">  below</a>)
+</p>
+
+ 
+<a name="02121.png"></a> 
+<p> <img src="02121.png"> </p> 
+<p><i>Capacitive band-pass filter.</i></p> 
+ 
+
+
+<pre>
+capacitive bandpass filter       
+v1 1 0 ac 1 sin 
+r1 1 2 200      
+c1 2 0 2.5u     
+c2 2 3 1u       
+rload 3 0 1k    
+.ac lin 20 100 500      
+.plot ac v(3)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(3)   4.467E-01    5.012E-01    5.623E-01    6.310E-01-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--1.000E+02  4.703E-01 .     *       .             .             . -->
+<!--1.211E+02  5.155E-01 .             .  *          .             .--> 
+<!--1.421E+02  5.469E-01 .             .          *  .             .-->
+<!--1.632E+02  5.676E-01 .             .             .*            .-->      
+<!--1.842E+02  5.801E-01 .             .             .   *         .-->    
+<!--2.053E+02  5.865E-01 .             .             .    *        .-->   
+<!--2.263E+02  5.882E-01 .             .             .    *        .-->  
+<!--2.474E+02  5.864E-01 .             .             .    *        .-->
+<!--2.684E+02  5.820E-01 .             .             .   *         .-->
+<!--2.895E+02  5.755E-01 .             .             .  *          .-->      
+<!--3.105E+02  5.676E-01 .             .             .*            .-->     
+<!--3.316E+02  5.585E-01 .             .            *.             .-->   
+<!--3.526E+02  5.487E-01 .             .          *  .             .--> 
+<!--3.737E+02  5.384E-01 .             .        *    .             .-->
+<!--3.947E+02  5.277E-01 .             .     *       .             .-->       
+<!--4.158E+02  5.169E-01 .             .   *         .             .-->      
+<!--4.368E+02  5.060E-01 .             .*            .             .-->     
+<!--4.579E+02  4.951E-01 .            *.             .             .-->   
+<!--4.789E+02  4.843E-01 .         *   .             .             .-->  
+<!--5.000E+02  4.736E-01 .      *      .             .             .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+ 
+<a name="22031.png"></a> 
+<p> <img src="22031.png"> </p> 
+<p><i>The response of a capacitive bandpass filter peaks within a narrow frequency range.</i></p> 
+ 
+
+<p>
+Band-pass filters can also be constructed using inductors, but as mentioned before, the reactive &ldquo;purity&rdquo; of capacitors gives them a design advantage.  If we were to design a bandpass filter using inductors, it might look something like Figure <a href="#02122.png">  below</a>.
+</p>
+
+ 
+<a name="02122.png"></a> 
+<p> <img src="02122.png"> </p> 
+<p><i>Inductive band-pass filter.</i></p> 
+ 
+
+<p>
+The fact that the high-pass section comes &ldquo;first&rdquo; in this design instead of the low-pass section makes no difference in its overall operation.  It will still filter out all frequencies too high or too low.
+</p>
+
+<a name="Attenuation"></a>
+
+<p>
+While the general idea of combining low-pass and high-pass filters together to make a bandpass filter is sound, it is not without certain limitations.  Because this type of band-pass filter works by relying on either section to <i>block</i> unwanted frequencies, it can be difficult to design such a filter to allow unhindered passage within the desired frequency range.  Both the low-pass and high-pass sections will always be blocking signals to some extent, and their combined effort makes for an attenuated (reduced amplitude) signal at best, even at the peak of the &ldquo;pass-band&rdquo; frequency range.  Notice the curve peak on the previous SPICE analysis: the load voltage of this filter never rises above 0.59 volts, although the source voltage is a full volt.  This signal attenuation becomes more pronounced if the filter is designed to be more selective (steeper curve, narrower band of passable frequencies).
+</p>
+
+<p>
+There are other methods to achieve band-pass operation without sacrificing signal strength within the pass-band.  We will discuss those methods a little later in this chapter.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>band-pass</i> filter works to screen out frequencies that are too low or too high, giving easy passage only to frequencies within a certain range.</li>
+<li>Band-pass filters can be made by stacking a low-pass filter on the end of a high-pass filter, or vice versa.</li>
+<li>&ldquo;Attenuate&rdquo; means to reduce or diminish in amplitude.  When you turn down the volume control on your stereo, you are &ldquo;attenuating&rdquo; the signal being sent to the speakers.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34944">Band-stop filters</a></u></h2>
+
+<a name="Band-stop filter"></a>
+<a name="Band-reject filter"></a>
+<a name="Band-elimination filter"></a>
+<a name="Notch filter"></a>
+<a name="Filter, band-stop"></a>
+<a name="Filter, band-reject"></a>
+<a name="Filter, band-elimination"></a>
+<a name="Filter, notch"></a>
+
+<p>
+Also called <i>band-elimination</i>, <i>band-reject</i>, or <i>notch</i> filters, this kind of filter passes all frequencies above and below a particular range set by the component values.  Not surprisingly, it can be made out of a low-pass and a high-pass filter, just like the band-pass design, except that this time we connect the two filter sections in parallel with each other instead of in series. (Figure <a href="#02261.png">  below</a>)
+</p>
+
+ 
+<a name="02261.png"></a> 
+<p> <img src="02261.png"> </p> 
+<p><i>System level block diagram of a band-stop filter.</i></p> 
+ 
+
+<p>
+Constructed using two capacitive filter sections, it looks something like  (Figure <a href="#02123.png">  below</a>).
+</p>
+
+ 
+<a name="02123.png"></a> 
+<p> <img src="02123.png"> </p> 
+<p><i>&ldquo;Twin-T&rdquo; band-stop filter.</i></p> 
+ 
+
+<p>
+The low-pass filter section is comprised of R<sub>1</sub>, R<sub>2</sub>, and C<sub>1</sub> in a &ldquo;T&rdquo; configuration.  The high-pass filter section is comprised of C<sub>2</sub>, C<sub>3</sub>, and R<sub>3</sub> in a &ldquo;T&rdquo; configuration as well.  Together, this arrangement is commonly known as a &ldquo;Twin-T&rdquo; filter, giving sharp response when the component values are chosen in the following ratios:
+</p>
+
+<p> <img src="12098.png"> </p> 
+
+<p>
+Given these component ratios, the frequency of maximum rejection (the &ldquo;notch frequency&rdquo;) can be calculated as follows:
+</p>
+
+<p> <img src="12099.png"> </p> 
+
+<p>
+The impressive band-stopping ability of this filter is illustrated by the following SPICE analysis:  (Figure <a href="#22032.png">  below</a>)
+</p>
+
+
+<pre>
+twin-t bandstop filter
+v1 1 0 ac 1 sin 
+r1 1 2 200      
+c1 2 0 2u       
+r2 2 3 200      
+c2 1 4 1u       
+r3 4 0 100      
+c3 4 3 1u       
+rload 3 0 1k    
+.ac lin 20 200 1.5k     
+.plot ac v(3)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(3)  1.000E-02  3.162E-02  1.000E-01    3.162E-01-->  
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--2.000E+02  5.400E-01 .         .           .             .      *.-->
+<!--2.684E+02  4.512E-01 .         .           .             .   *   .-->
+<!--3.368E+02  3.686E-01 .         .           .             . *     .-->
+<!--4.053E+02  2.946E-01 .         .           .            *.       .-->
+<!--4.737E+02  2.290E-01 .         .           .         *   .       .-->
+<!--5.421E+02  1.707E-01 .         .           .      *      .       .-->
+<!--6.105E+02  1.185E-01 .         .           . *           .       .-->
+<!--6.789E+02  7.134E-02 .         .       *   .             .       .-->
+<!--7.474E+02  2.832E-02 .        *.           .             .       .-->
+<!--8.158E+02  1.126E-02 .*        .           .             .       .-->
+<!--8.842E+02  4.796E-02 .         .    *      .             .       .-->
+<!--9.526E+02  8.222E-02 .         .         * .             .       .-->
+<!--1.021E+03  1.144E-01 .         .           . *           .       .-->
+<!--1.089E+03  1.447E-01 .         .           .   *         .       .-->
+<!--1.158E+03  1.734E-01 .         .           .      *      .       .-->
+<!--1.226E+03  2.007E-01 .         .           .       *     .       .-->
+<!--1.295E+03  2.267E-01 .         .           .         *   .       .-->
+<!--1.363E+03  2.515E-01 .         .           .          *  .       .-->
+<!--1.432E+03  2.752E-01 .         .           .           * .       .-->
+<!--1.500E+03  2.980E-01 .         .           .            *.       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+<br> </br>
+ 
+<a name="22032.png"></a> 
+<p> <img src="22032.png"> </p> 
+<p><i>Response of &ldquo;twin-T&rdquo; band-stop filter.</i></p> 
+ 
+<br> </br>
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>band-stop</i> filter works to screen out frequencies that are within a certain range, giving easy passage only to frequencies outside of that range.  Also known as <i>band-elimination</i>, <i>band-reject</i>, or <i>notch</i> filters.</li>
+<li>Band-stop filters can be made by placing a low-pass filter in parallel with a high-pass filter.  Commonly, both the low-pass and high-pass filter sections are of the &ldquo;T&rdquo; configuration, giving the name &ldquo;Twin-T&rdquo; to the band-stop combination.</li>
+<li>The frequency of maximum attenuation is called the <i>notch</i> frequency.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34945">Resonant filters</a></u></h2>
+
+<a name="Resonant filter"></a>
+<a name="Filter, resonant"></a>
+
+<p>
+So far, the filter designs we've concentrated on have employed <i>either</i> capacitors <i>or</i> inductors, but never both at the same time.  We should know by now that combinations of L and C will tend to resonate, and this property can be exploited in designing band-pass and band-stop filter circuits.
+</p>
+
+<p>
+Series LC circuits give minimum impedance at resonance, while parallel LC (&ldquo;tank&rdquo;) circuits give maximum impedance at their resonant frequency.  Knowing this, we have two basic strategies for designing either band-pass or band-stop filters.
+</p>
+
+<p>
+For band-pass filters, the two basic resonant strategies are this: series LC to pass a signal (Figure <a href="#02124.png">  below</a>),
+<!--split for double ref-->
+
+or parallel LC (Figure <a href="#02125.png">  below</a>) to short a signal.  The two schemes will be contrasted and simulated here:
+</p>
+
+ 
+<a name="02124.png"></a> 
+<p> <img src="02124.png"> </p> 
+<p><i>Series resonant LC band-pass filter.</i></p> 
+ 
+
+<p>
+Series LC components pass signal at resonance, and block signals of any other frequencies from getting to the load. (Figure <a href="#22033.png">  below</a>)
+</p>
+
+
+<pre>
+series resonant bandpass filter
+v1 1 0 ac 1 sin 
+l1 1 2 1
+c1 2 3 1u       
+rload 3 0 1k    
+.ac lin 20 50 250       
+.plot ac v(3)   
+.end    
+</pre>
+
+
+
+<!--freq       v(3)   2.512E-01   3.981E-01    6.310E-01    1.000E+00-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--5.000E+01  3.291E-01 .     *     .             .             .-->
+<!--6.053E+01  4.063E-01 .           .*            .             .-->
+<!--7.105E+01  4.870E-01 .           .     *       .             .-->
+<!--8.158E+01  5.708E-01 .           .          *  .             .-->
+<!--9.211E+01  6.564E-01 .           .             .*            .-->
+<!--1.026E+02  7.411E-01 .           .             .    *        .-->
+<!--1.132E+02  8.210E-01 .           .             .       *     .-->
+<!--1.237E+02  8.910E-01 .           .             .         *   .-->
+<!--1.342E+02  9.460E-01 .           .             .           * .-->
+<!--1.447E+02  9.824E-01 .           .             .            *.-->
+<!--1.553E+02  9.988E-01 .           .             .             *-->
+<!--1.658E+02  9.967E-01 .           .             .             *-->
+<!--1.763E+02  9.796E-01 .           .             .            *.-->
+<!--1.868E+02  9.518E-01 .           .             .           * .-->
+<!--1.974E+02  9.174E-01 .           .             .          *  .-->
+<!--2.079E+02  8.797E-01 .           .             .         *   .-->
+<!--2.184E+02  8.408E-01 .           .             .        *    .-->
+<!--2.289E+02  8.026E-01 .           .             .      *      .-->
+<!--2.395E+02  7.657E-01 .           .             .     *       .-->
+<!--2.500E+02  7.307E-01 .           .             .   *         .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+ 
+<a name="22033.png"></a> 
+<p> <img src="22033.png"> </p> 
+<p><i>Series resonant band-pass filter: voltage peaks at resonant frequency of 159.15 Hz.</i></p> 
+ 
+
+<a name="Selectivity"></a>
+<a name="Filter &ldquo;selectivity&rdquo;"></a>
+
+<p>
+A couple of points to note: see how there is virtually no signal attenuation within the &ldquo;pass band&rdquo; (the range of frequencies near the load voltage peak), unlike the band-pass filters made from capacitors or inductors alone.  Also, since this filter works on the principle of series LC resonance, the resonant frequency of which is unaffected by circuit resistance, the value of the load resistor will not skew the peak frequency.  However, different values for the load resistor <i>will</i> change the &ldquo;steepness&rdquo; of the Bode plot (the &ldquo;selectivity&rdquo; of the filter).
+</p>
+
+<p>
+The other basic style of resonant band-pass filters employs a tank circuit (parallel LC combination) to short out signals too high or too low in frequency from getting to the load: (Figure <a href="#02125.png">  below</a>)
+</p>
+
+ 
+<a name="02125.png"></a> 
+<p> <img src="02125.png"> </p> 
+<p><i>Parallel resonant band-pass filter.</i></p> 
+ 
+
+<p>
+The tank circuit will have a lot of impedance at resonance, allowing the signal to get to the load with minimal attenuation.  Under or over resonant frequency, however, the tank circuit will have a low impedance, shorting out the signal and dropping most of it across series resistor R<sub>1</sub>. (Figure <a href="#22034.png">  below</a>)
+</p>
+
+
+<pre>
+parallel resonant bandpass filter            
+v1 1 0 ac 1 sin 
+r1 1 2 500      
+l1 2 0 100m     
+c1 2 0 10u      
+rload 2 0 1k    
+.ac lin 20 50 250       
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+
+<!--freq       v(2)   3.162E-02   1.000E-01    3.162E-01     1.000E+00-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--5.000E+01  6.933E-02 .       *   .             .             .-->
+<!--6.053E+01  8.814E-02 .         * .             .             .-->
+<!--7.105E+01  1.100E-01 .           .*            .             .-->
+<!--8.158E+01  1.361E-01 .           .   *         .             .-->
+<!--9.211E+01  1.684E-01 .           .     *       .             .-->
+<!--1.026E+02  2.096E-01 .           .        *    .             .-->
+<!--1.132E+02  2.640E-01 .           .           * .             .-->
+<!--1.237E+02  3.382E-01 .           .             .*            .-->
+<!--1.342E+02  4.392E-01 .           .             .   *         .-->
+<!--1.447E+02  5.630E-01 .           .             .      *      .-->
+<!--1.553E+02  6.578E-01 .           .             .        *    .-->
+<!--1.658E+02  6.432E-01 .           .             .        *    .-->
+<!--1.763E+02  5.503E-01 .           .             .      *      .-->
+<!--1.868E+02  4.543E-01 .           .             .   *         .-->
+<!--1.974E+02  3.792E-01 .           .             . *           .-->
+<!--2.079E+02  3.234E-01 .           .             *             .-->
+<!--2.184E+02  2.816E-01 .           .            *.             .-->
+<!--2.289E+02  2.495E-01 .           .          *  .             .-->
+<!--2.395E+02  2.242E-01 .           .         *   .             .-->
+<!--2.500E+02  2.038E-01 .           .        *    .             .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+ 
+<a name="22034.png"></a> 
+<p> <img src="22034.png"> </p> 
+<p><i>Parallel resonant filter: voltage peaks a resonant frequency of 159.15 Hz.</i></p> 
+ 
+
+<p>
+Just like the low-pass and high-pass filter designs relying on a series resistance and a parallel &ldquo;shorting&rdquo; component to attenuate unwanted frequencies, this resonant circuit can never provide full input (source) voltage to the load.  That series resistance will always be dropping some amount of voltage so long as there is a load resistance connected to the output of the filter.
+</p>
+
+<a name="Tuner circuit, radio"></a>
+
+<p>
+It should be noted that this form of band-pass filter circuit is very popular in analog radio tuning circuitry, for selecting a particular radio frequency from the multitudes of frequencies available from the antenna.  In most analog radio tuner circuits, the rotating dial for station selection moves a variable capacitor in a tank circuit.
+</p>
+
+ 
+<a name="52004.jpg"></a> 
+<p> <img src="52004.jpg"> </p> 
+<p><i>Variable capacitor tunes radio receiver tank circuit to select one out of many broadcast stations.</i></p> 
+ 
+
+<p>
+The variable capacitor and air-core inductor shown in Figure <a href="#52004.jpg">  above</a>  photograph of a simple radio comprise the main elements in the tank circuit filter used to discriminate one radio station's signal from another.
+</p>
+
+<p>
+Just as we can use series and parallel LC resonant circuits to pass only those frequencies within a certain range, we can also use them to block frequencies within a certain range, creating a band-stop filter.  Again, we have two major strategies to follow in doing this, to use either series or parallel resonance.  First, we'll look at the series variety: (Figure <a href="#02126.png">  below</a>)
+</p>
+
+ 
+<a name="02126.png"></a> 
+<p> <img src="02126.png"> </p> 
+<p><i>Series resonant band-stop filter.</i></p> 
+ 
+
+<p>
+When the series LC combination reaches resonance, its very low impedance shorts out the signal, dropping it across resistor R<sub>1</sub> and preventing its passage on to the load. (Figure <a href="#22035.png">  below</a>)
+</p>
+
+
+
+<pre>
+series resonant bandstop filter    
+v1 1 0 ac 1 sin 
+r1 1 2 500      
+l1 2 3 100m     
+c1 3 0 10u      
+rload 2 0 1k    
+.ac lin 20 70 230       
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+
+
+<!--freq       v(2)   1.000E-03  1.000E-02   1.000E-01     1.000E+00-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - ---> 
+<!--7.000E+01  3.213E-01 .         .             .      *      .-->
+<!--7.842E+01  2.791E-01 .         .             .     *       .-->
+<!--8.684E+01  2.401E-01 .         .             .    *        .-->
+<!--9.526E+01  2.041E-01 .         .             .   *         .-->
+<!--1.037E+02  1.708E-01 .         .             .  *          .-->
+<!--1.121E+02  1.399E-01 .         .             . *           .-->
+<!--1.205E+02  1.111E-01 .         .             .*            .-->
+<!--1.289E+02  8.413E-02 .         .            *.             .-->
+<!--1.374E+02  5.887E-02 .         .          *  .             .-->
+<!--1.458E+02  3.508E-02 .         .       *     .             .-->
+<!--1.542E+02  1.262E-02 .         .*            .             .-->
+<!--1.626E+02  8.644E-03 .        *.             .             .-->
+<!--1.711E+02  2.884E-02 .         .     *       .             .-->
+<!--1.795E+02  4.805E-02 .         .         *   .             .-->
+<!--1.879E+02  6.638E-02 .         .           * .             .-->
+<!--1.963E+02  8.388E-02 .         .            *.             .-->
+<!--2.047E+02  1.006E-01 .         .             *             .-->
+<!--2.132E+02  1.167E-01 .         .             .*            .-->
+<!--2.216E+02  1.321E-01 .         .             . *           .-->
+<!--2.300E+02  1.469E-01 .         .             . *           .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+ 
+<a name="22035.png"></a> 
+<p> <img src="22035.png"> </p> 
+<p><i>Series resonant band-stop filter: Notch frequency = LC resonant frequency (159.15 Hz).</i></p> 
+ 
+
+<p>
+Next, we will examine the parallel resonant band-stop filter: (Figure <a href="#02127.png">  below</a>)
+</p>
+
+ 
+<a name="02127.png"></a> 
+<p> <img src="02127.png"> </p> 
+<p><i>Parallel resonant band-stop filter.</i></p> 
+ 
+
+<p>
+The parallel LC components present a high impedance at resonant frequency, thereby blocking the signal from the load at that frequency.  Conversely, it passes signals to the load at any other frequencies. (Figure <a href="#22036.png">  below</a>)
+</p>
+
+
+
+<pre>
+parallel resonant bandstop filter  
+v1 1 0 ac 1 sin 
+l1 1 2 100m     
+c1 1 2 10u      
+rload 2 0 1k    
+.ac lin 20 100 200      
+.plot ac v(2)   
+.end    
+</pre>
+
+
+
+<!--freq       v(2)  3.162E-02  1.000E-01    3.162E-01    1.000E+00 --> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ---> 
+<!--1.000E+02  9.947E-01 .         .             .             *     .--> 
+<!--1.053E+02  9.932E-01 .         .             .             *     .--> 
+<!--1.105E+02  9.911E-01 .         .             .             *     .--> 
+<!--1.158E+02  9.883E-01 .         .             .             *     .--> 
+<!--1.211E+02  9.841E-01 .         .             .             *     .--> 
+<!--1.263E+02  9.778E-01 .         .             .             *     .--> 
+<!--1.316E+02  9.675E-01 .         .             .             *     .--> 
+<!--1.368E+02  9.497E-01 .         .             .            *.     .--> 
+<!--1.421E+02  9.152E-01 .         .             .            *.     .--> 
+<!--1.474E+02  8.388E-01 .         .             .           * .     .--> 
+<!--1.526E+02  6.420E-01 .         .             .        *    .     .--> 
+<!--1.579E+02  1.570E-01 .         .    *        .             .     .--> 
+<!--1.632E+02  4.450E-01 .         .             .   *         .     .--> 
+<!--1.684E+02  7.496E-01 .         .             .         *   .     .--> 
+<!--1.737E+02  8.682E-01 .         .             .           * .     .--> 
+<!--1.789E+02  9.201E-01 .         .             .            *.     .--> 
+<!--1.842E+02  9.465E-01 .         .             .            *.     .--> 
+<!--1.895E+02  9.616E-01 .         .             .             *     .--> 
+<!--1.947E+02  9.710E-01 .         .             .             *     .--> 
+<!--2.000E+02  9.773E-01 .         .             .             *     .--> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ---> 
+
+
+ 
+<a name="22036.png"></a> 
+<p> <img src="22036.png"> </p> 
+<p><i>Parallel resonant band-stop filter: Notch frequency = LC resonant frequency (159.15 Hz).</i></p> 
+ 
+
+<p>
+Once again, notice how the absence of a series resistor makes for minimum attenuation for all the desired (passed) signals.  The amplitude at the notch frequency, on the other hand, is very low.  In other words, this is a very &ldquo;selective&rdquo; filter.
+</p>
+
+<p>
+In all these resonant filter designs, the selectivity depends greatly upon the &ldquo;purity&rdquo; of the inductance and capacitance used.  If there is any stray resistance (especially likely in the inductor), this will diminish the filter's ability to finely discriminate frequencies, as well as introduce antiresonant effects that will skew the peak/notch frequency.
+</p>
+
+<p>
+A word of caution to those designing low-pass and high-pass filters is in order at this point.  After assessing the standard RC and LR low-pass and high-pass filter designs, it might occur to a student that a better, more effective design of low-pass or high-pass filter might be realized by combining capacitive and inductive elements together like Figure <a href="#02128.png">  below</a>.
+</p>
+
+ 
+<a name="02128.png"></a> 
+<p> <img src="02128.png"> </p> 
+<p><i>Capacitive Inductive low-pass filter.</i></p> 
+ 
+
+<p>
+The inductors should block any high frequencies, while the capacitor should short out any high frequencies as well, both working together to allow only low frequency signals to reach the load.
+</p>
+
+<p>
+At first, this seems to be a good strategy, and eliminates the need for a series resistance.  However, the more insightful student will recognize that any combination of capacitors and inductors together in a circuit is likely to cause resonant effects to happen at a certain frequency.  Resonance, as we have seen before, can cause strange things to happen.  Let's plot a SPICE analysis and see what happens over a wide frequency range: (Figure <a href="#22037.png">  below</a>)
+</p>
+
+
+<pre>
+lc lowpass filter  
+v1 1 0 ac 1 sin 
+l1 1 2 100m     
+c1 2 0 1u       
+l2 2 3 100m     
+rload 3 0 1k    
+.ac lin 20 100 1k       
+.plot ac v(3)   
+.end    
+</pre>
+
+
+
+<!--freq       v(3)  1.000E-01  3.162E-01    1.000E+00    3.162E+00-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--1.000E+02  1.033E+00 .         .             *             .-->  
+<!--1.474E+02  1.074E+00 .         .             .*            .-->  
+<!--1.947E+02  1.136E+00 .         .             . *           .-->  
+<!--2.421E+02  1.228E+00 .         .             . *           .-->  
+<!--2.895E+02  1.361E+00 .         .             .   *         . -->
+<!--3.368E+02  1.557E+00 .         .             .    *        .-->  
+<!--3.842E+02  1.853E+00 .         .             .       *     .-->  
+<!--4.316E+02  2.308E+00 .         .             .         *   .-->  
+<!--4.789E+02  2.919E+00 .         .             .            *.-->  
+<!--5.263E+02  3.185E+00 .         .             .             * --> 
+<!--5.737E+02  2.553E+00 .         .             .          *  .-->  
+<!--6.211E+02  1.802E+00 .         .             .      *      .-->  
+<!--6.684E+02  1.298E+00 .         .             .  *          .-->  
+<!--7.158E+02  9.778E-01 .         .             *             .-->  
+<!--7.632E+02  7.650E-01 .         .          *  .             .-->  
+<!--8.105E+02  6.165E-01 .         .       *     .             .-->  
+<!--8.579E+02  5.084E-01 .         .     *       .             .-->  
+<!--9.053E+02  4.268E-01 .         .   *         .             .-->  
+<!--9.526E+02  3.635E-01 .         . *           .             .-->  
+<!--1.000E+03  3.133E-01 .         *             .             .--> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+<br> </br>
+ 
+<a name="22037.png"></a> 
+<p> <img src="22037.png"> </p> 
+<p><i>Unexpected response of L-C low-pass filter.</i></p> 
+ 
+
+<p>
+What was supposed to be a low-pass filter turns out to be a band-pass filter with a peak somewhere around 526 Hz!  The capacitance and inductance in this filter circuit are attaining resonance at that point, creating a large voltage drop around C<sub>1</sub>, which is seen at the load, regardless of L<sub>2</sub>'s attenuating influence.  The output voltage to the load at this point actually exceeds the input (source) voltage!  A little more reflection reveals that if L<sub>1</sub> and C<sub>2</sub> are at resonance, they will impose a very heavy (very low impedance) load on the AC source, which might not be good either.  We'll run the same analysis again, only this time plotting C<sub>1</sub>'s voltage, vm(2) in Figure <a href="#22038.png">  below</a>, and the source current, I(v1),  along with load voltage, vm(3):
+</p>
+
+
+<!--legend:-->
+<!--*: v(3)-->    
+<!--+: v(2)-->    
+<!--=: i(v1)-->   
+<!--freq       v(3) -->   
+<!--( *)---------  1.000E-01     3.162E-01     1.000E+00     3.162E+00-->
+<!--(+)----------  3.162E-01     1.000E+00     3.162E+00     1.000E+01-->
+<!--(=)----------  1.000E-03     3.162E-03     1.000E-02     3.162E-02-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--1.000E+02  1.033E+00 . =           +             *             .-->
+<!--1.474E+02  1.074E+00 .   =         .+            .*            .-->
+<!--1.947E+02  1.136E+00 .     =       . +           . *           .-->
+<!--2.421E+02  1.228E+00 .        =    .  +          . *           .-->
+<!--2.895E+02  1.361E+00 .           = .   +         .   *         .-->
+<!--3.368E+02  1.557E+00 .             .=    +       .    *        .-->
+<!--3.842E+02  1.853E+00 .             .   =   +     .       *     .-->
+<!--4.316E+02  2.308E+00 .             .       =  +  .         *   .-->
+<!--4.789E+02  2.919E+00 .             .           = +            *.-->
+<!--5.263E+02  3.185E+00 .             .             .x            *-->
+<!--5.737E+02  2.553E+00 .             .           +=.          *  .-->
+<!--6.211E+02  1.802E+00 .             .       + =   .      *      .-->
+<!--6.684E+02  1.298E+00 .             .   +  =      .  *          .-->
+<!--7.158E+02  9.778E-01 .             .+  =         *             .-->
+<!--7.632E+02  7.650E-01 .           + . =        *  .             .-->
+<!--8.105E+02  6.165E-01 .         +   =       *     .             .-->
+<!--8.579E+02  5.084E-01 .      +     =.     *       .             .-->
+<!--9.053E+02  4.268E-01 .    +      = .   *         .             .-->
+<!--9.526E+02  3.635E-01 .   +     =   . *           .             .-->
+<!--1.000E+03  3.133E-01 . +      =    *             .             .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+ 
+<a name="22038.png"></a> 
+<p> <img src="22038.png"> </p> 
+<p><i>Current inceases at the unwanted resonance of the L-C low-pass filter.</i></p> 
+ 
+
+<p>
+Sure enough, we see the voltage across C<sub>1</sub> and the source current spiking to a high point at the same frequency where the load voltage is maximum.  If we were expecting this filter to provide a simple low-pass function, we might be disappointed by the results.  
+</p>
+
+<p>
+The problem is that an L-C filter has an input impedance and an output impedance which must be matched. The voltage source impedance must match the input impedance of the filter, and the filter output impedance must be matched by &ldquo;rload&rdquo; for a flat response. The input and output impedance is given by the square root of (L/C).
+</p>
+
+
+<pre>
+&nbsp;          Z = (L/C)<sup>1/2</sup>
+</pre>
+
+
+<p>
+Taking the component values from  (Figure <a href="#02128.png">  below</a>), we can find the impedance of the filter, and the required , R<sub>g</sub> and R<sub>load</sub> to match it.
+</p>
+
+
+<pre>
+&nbsp;               For L= 100 mH,&nbsp;&nbsp;&nbsp;C= 1&#181;F
+&nbsp;          Z = (L/C)<sup>1/2</sup>=((100 mH)/(1 &#181;F))<sup>1/2</sup> = 316 &#937;
+</pre>
+
+
+<p>
+In Figure <a href="#02517.png">  below</a> we have added R<sub>g</sub> = 316 &#937; to the generator, and changed the load R<sub>load</sub> from 1000 &#937; to 316 &#937;.  Note that if we needed to drive a 1000 &#937; load, the L/C ratio could have been adjusted to match that  resistance.
+</p>
+
+ 
+<a name="02517.png"></a> 
+<p> <img src="02517.png"> </p> 
+<p><i>Circuit of source and  load matched L-C low-pass filter.</i></p> 
+ 
+
+
+<pre>
+LC matched lowpass filter  
+V1 1 0 ac 1 SIN
+Rg 1 4 316
+L1 4 2 100m
+C1 2 0 1.0u
+L2 2 3 100m
+Rload 3 0 316
+.ac lin 20 100 1k       
+.plot ac v(3)   
+.end    
+</pre>
+
+
+
+
+<p>
+Figure <a href="#22056.png">  below</a> shows the &ldquo;flat&rdquo; response of the L-C low pass filter when the source and load impedance match the filter input and output impedances. 
+</p>
+
+ 
+<a name="22056.png"></a> 
+<p> <img src="22056.png"> </p> 
+<p><i>The response of impedance matched  L-C low-pass filter is nearly flat up to the cut-off frequency.</i></p> 
+ 
+
+<a name="swinging choke"></a>
+<a name="choke, swinging"></a>
+<p>
+The point to make in comparing the response of the unmatched filter  (Figure <a href="#22037.png">  above</a>)
+<!--split for double ref-->
+ to the matched filter (Figure <a href="#22056.png">  above</a>) is that variable load on the filter produces a considerable change in voltage. This property is directly applicable to L-C filtered power supplies&ndash; the <i>regulation</i> is poor. The power supply voltage changes with a change in load. This is undesirable. 
+</p>
+
+<p>
+This poor load regulation can be  mitigated by a <i>swinging choke</i>. This is a <i>choke</i>, inductor,  designed to <i>saturate</i> when a large DC current passes through it. By saturate, we mean that the DC current creates a &ldquo;too&rdquo; high level of flux in the magnetic core, so that the AC component of current cannot vary the flux. Since induction is proportional to d&#934;/dt, the inductance is decreased by the heavy DC current.  The decrease in inductance decreases reactance X<sub>L</sub>. Decreasing reactance, reduces the voltage drop across the inductor; thus, increasing the voltage at the filter output. This improves the voltage regulation with respect to variable loads.
+</p>
+
+
+<p>
+Despite the unintended resonance, low-pass filters made up of capacitors and inductors are frequently used as final stages in AC/DC power supplies to filter the unwanted AC &ldquo;ripple&rdquo; voltage out of the DC converted from AC.  Why is this, if this particular filter design possesses a potentially troublesome resonant point?
+</p>
+
+<p>
+The answer lies in the selection of filter component sizes and the frequencies encountered from an AC/DC converter (rectifier).  What we're trying to do in an AC/DC power supply filter is separate DC voltage from a small amount of relatively high-frequency AC voltage.  The filter inductors and capacitors are generally quite large (several Henrys for the inductors and thousands of &#181;F for the capacitors is typical), making the filter's resonant frequency very, very low.  DC of course, has a &ldquo;frequency&rdquo; of zero, so there's no way it can make an LC circuit resonate.  The ripple voltage, on the other hand, is a non-sinusoidal AC voltage consisting of a fundamental frequency at least twice the frequency of the converted AC voltage, with harmonics many times that in addition.  For plug-in-the-wall power supplies running on 60 Hz AC power (60 Hz United States; 50 Hz in Europe), the lowest frequency the filter will ever see is 120 Hz (100 Hz in Europe), which is well above its resonant point.  Therefore, the potentially troublesome resonant point in a such a filter is completely avoided.
+</p>
+
+<p>
+The following SPICE analysis calculates the voltage output (AC and DC) for such a filter, with series DC and AC (120 Hz) voltage sources providing a rough approximation of the mixed-frequency output of an AC/DC converter.
+</p>
+<br> </br>
+ 
+<a name="02129.png"></a> 
+<p> <img src="02129.png"> </p> 
+<p><i>AC/DC power suppply filter provides &ldquo;ripple free&rdquo; DC power.</i></p> 
+ 
+
+
+<pre>
+ac/dc power supply filter  
+v1 1 0 ac 1 sin 
+v2 2 1 dc       
+l1 2 3 3
+c1 3 0 9500u    
+l2 3 4 2
+rload 4 0 1k    
+.dc v2 12 12 1  
+.ac lin 1 120 120       
+.print dc v(4)  
+.print ac v(4)  
+.end    
+</pre>
+
+
+
+<pre>
+v2            v(4)            
+1.200E+01     1.200E+01   DC voltage at load = 12 volts
+&nbsp;
+freq          v(4)            
+1.200E+02     3.412E-05   AC voltage at load = 34.12 microvolts
+</pre>
+
+
+
+<p>
+With a full 12 volts DC at the load and only 34.12 &#181;V of AC left from the 1 volt AC source imposed across the load, this circuit design proves itself to be a very effective power supply filter.
+</p>
+
+<p>
+The lesson learned here about resonant effects also applies to the design of high-pass filters using both capacitors and inductors.  So long as the desired and undesired frequencies are well to either side of the resonant point, the filter will work OK.  But if any signal of significant magnitude close to the resonant frequency is applied to the input of the filter, strange things will happen!
+</p>
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Resonant combinations of capacitance and inductance can be employed to create very effective band-pass and band-stop filters without the need for added resistance in a circuit that would diminish the passage of desired frequencies.</li>
+<li>
+<p> <img src="12091.png"> </p> 
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34946">Summary</a></u></h2>
+
+<p>
+As lengthy as this chapter has been up to this point, it only begins to scratch the surface of filter design.  A quick perusal of any advanced filter design textbook is sufficient to prove my point.  The mathematics involved with component selection and frequency response prediction is daunting to say the least -- well beyond the scope of the beginning electronics student.  It has been my intent here to present the basic principles of filter design with as little math as possible, leaning on the power of the SPICE circuit analysis program to explore filter performance.  The benefit of such computer simulation software cannot be understated, for the beginning student or for the working engineer.
+</p>
+
+<p>
+Circuit simulation software empowers the student to explore circuit designs far beyond the reach of their math skills.  With the ability to generate Bode plots and precise figures, an intuitive understanding of circuit concepts can be attained, which is something often lost when a student is burdened with the task of solving lengthy equations by hand.  If you are not familiar with the use of SPICE or other circuit simulation programs, take the time to become so!  It will be of great benefit to your study.  To see SPICE analyses presented in this book is an aid to understanding circuits, but to actually set up and analyze your own circuit simulations is a much more engaging and worthwhile endeavor as a student.
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid34947">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_9.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

@@ -1,0 +1,670 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 4</title>
+  <meta name="description" content="Reactance and Impedance -- Capacitive">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, capacitor, capacitance, reactance, impedance, resistance, frequency, pi, instantaneous voltage, instantaneous current, instantaneous power, calculus, derivative, complex number, polar notation, rectangular notation, dielectric, dielectric heating, dielectric loss, capacitor loss, lossy capacitor"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_3.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_5.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 4</h1>
+
+
+
+
+
+<h1>REACTANCE AND IMPEDANCE -- CAPACITIVE</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid203520"><u>AC resistor circuits</u></a></li>
+<li><a href="#xtocid203521"><u>AC capacitor circuits</u></a></li>
+<li><a href="#xtocid203522"><u>Series resistor-capacitor circuits</u></a></li>
+<li><a href="#xtocid203523"><u>Parallel resistor-capacitor circuits</u></a></li>
+<li><a href="#xtocid203524"><u>Capacitor quirks</u></a></li>
+<li><a href="#xtocid203525"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid203520">AC resistor circuits</a></u></h2>
+
+ 
+<a name="02053a.png"></a> 
+<p> <img src="02053.png"> </p>  
+<p><i>Pure resistive AC circuit: voltage and current are in phase.</i></p> 
+
+
+<p>
+If we were to plot the current and voltage for a very simple AC circuit consisting of a source and a resistor,  (Figure <a href="#02053a.png">  above</a>)
+<!--split for double ref-->
+it would look something like this:  (Figure <a href="#02054a.png">  below</a>)
+</p>
+
+ 
+<a name="02054a.png"></a> 
+<p> <img src="02054.png"> </p>  
+<p><i>Voltage and current &ldquo;in phase&rdquo; for resistive circuit.</i></p> 
+
+
+<a name="Value, instantaneous"></a>
+<a name="Instantaneous value"></a>
+<a name="e, symbol for instantaneous voltage"></a>
+<a name="i, symbol for instantaneous current"></a>
+
+<p>
+Because the resistor allows an amount of current directly proportional to the voltage across it at all periods of time, the waveform for the current is exactly in phase with the waveform for the voltage.  We can look at any point in time along the horizontal axis of the plot and compare those values of current and voltage with each other (any &ldquo;snapshot&rdquo; look at the values of a wave are referred to as <i>instantaneous values</i>, meaning the values at that <i>instant</i> in time).  When the instantaneous value for voltage is zero, the instantaneous current through the resistor is also zero.  Likewise, at the moment in time where the voltage across the resistor is at its positive peak, the current through the resistor is also at its positive peak, and so on.  At any given point in time along the waves, Ohm's Law holds true for the instantaneous values of voltage and current.
+</p>
+
+<p>
+We can also calculate the power dissipated by this resistor, and plot those values on the same graph:  (Figure <a href="#02055a.png">  below</a>)
+</p>
+
+ 
+<a name="02055a.png"></a> 
+<p> <img src="02055.png"> </p>  
+<p><i>Instantaneous AC power in a resistive circuit is always positive.</i></p> 
+
+
+<a name="p, symbol for instantaneous power"></a>
+
+<p>
+Note that the power is never a negative value.  When the current is positive (above the line), the voltage is also positive, resulting in a power (p=ie) of a positive value.  Conversely, when the current is negative (below the line), the voltage is also negative, which results in a positive value for power (a negative number multiplied by a negative number equals a positive number).  This consistent &ldquo;polarity&rdquo; of power tells us that the resistor is always dissipating power, taking it from the source and releasing it in the form of heat energy.  Whether the current is positive or negative, a resistor still dissipates energy.
+</p>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid203521">AC capacitor circuits</a></u></h2>
+
+<a name="Capacitor"></a>
+<a name="Capacitive reactance"></a>
+<a name="Reactance, capacitive"></a>
+
+<p>
+Capacitors do not behave the same as resistors.  Whereas resistors allow a flow of electrons through them directly proportional to the voltage drop, capacitors oppose <i>changes</i> in voltage by drawing or supplying current as they charge or discharge to the new voltage level.  The flow of electrons &ldquo;through&rdquo; a capacitor is directly proportional to the <i>rate of change</i> of voltage across the capacitor.  This opposition to voltage change is another form of <i>reactance</i>, but one that is precisely opposite to the kind exhibited by inductors.
+</p>
+
+<p>
+Expressed mathematically, the relationship between the current &ldquo;through&rdquo; the capacitor and rate of voltage change across the capacitor is as such:
+</p>
+
+<p> <img src="12041.png"> </p> 
+
+<a name="Capacitance"></a>
+<a name="Farad"></a>
+<a name="Unit, farad"></a>
+<a name="Calculus"></a>
+<a name="C, symbol for capacitance"></a>
+<a name="e, symbol for instantaneous voltage"></a>
+<a name="v, symbol for instantaneous voltage"></a>
+<a name="i, symbol for instantaneous current"></a>
+
+<p>
+The expression <i>de/dt</i> is one from calculus, meaning the rate of change of instantaneous voltage (e) over time, in volts per second.  The capacitance (C) is in Farads, and the instantaneous current (i), of course, is in amps.  Sometimes you will find the rate of instantaneous voltage change over time expressed as dv/dt instead of de/dt: using the lower-case letter &ldquo;v&rdquo; instead or &ldquo;e&rdquo; to represent voltage, but it means the exact same thing.  To show what happens with alternating current, let's analyze a simple capacitor circuit: (Figure <a href="#02068.png">  below</a>)
+</p>
+
+ 
+<a name="02068.png"></a> 
+<p> <img src="02068.png"> </p> 
+<p><i>Pure capacitive circuit: capacitor voltage lags capacitor current by 90<sup>o</sup></i></p> 
+ 
+
+<p>
+If we were to plot the current and voltage for this very simple circuit, it would look something like this: (Figure <a href="#02069.png">  below</a>)
+</p>
+
+ 
+<a name="02069.png"></a> 
+<p> <img src="02069.png"> </p> 
+<p><i>Pure capacitive circuit waveforms.</i></p> 
+ 
+
+<a name="Lagging phase shift"></a>
+<a name="Leading phase shift"></a>
+
+<p>
+Remember, the current through a capacitor is a reaction against the <i>change</i> in voltage across it.  Therefore, the instantaneous current is zero whenever the instantaneous voltage is at a peak (zero change, or level slope, on the voltage sine wave), and the instantaneous current is at a peak wherever the instantaneous voltage is at maximum change (the points of steepest slope on the voltage wave, where it crosses the zero line).  This results in a voltage wave that is -90<sup>o</sup> out of phase with the current wave.  Looking at the graph, the current wave seems to have a &ldquo;head start&rdquo; on the voltage wave; the current &ldquo;leads&rdquo; the voltage, and the voltage &ldquo;lags&rdquo; behind the current. (Figure <a href="#02070.png">  below</a>)
+</p>
+
+ 
+<a name="02070.png"></a> 
+<p> <img src="02070.png"> </p> 
+<p><i>Voltage lags current by 90<sup>o</sup> in a pure capacitive circuit.</i></p> 
+ 
+
+<p>
+As you might have guessed, the same unusual power wave that we saw with the simple inductor circuit is present in the simple capacitor circuit, too: (Figure <a href="#02071.png">  below</a>)
+</p>
+
+ 
+<a name="02071.png"></a> 
+<p> <img src="02071.png"> </p> 
+<p><i>In a pure capacitive circuit, the instantaneous power may be positive or negative.</i></p> 
+ 
+
+<p>
+As with the simple inductor circuit, the 90 degree phase shift between voltage and current results in a power wave that alternates equally between positive and negative.  This means that a capacitor does not dissipate power as it reacts against changes in voltage; it merely absorbs and releases power, alternately.
+</p>
+
+<a name="Capacitive reactance"></a>
+<a name="Reactance, capacitive"></a>
+<a name="X, symbol for reactance"></a>
+
+<p>
+A capacitor's opposition to change in voltage translates to an opposition to alternating voltage in general, which is by definition always changing in instantaneous magnitude and direction.  For any given magnitude of AC voltage at a given frequency, a capacitor of given size will &ldquo;conduct&rdquo; a certain magnitude of AC current.  Just as the current through a resistor is a function of the voltage across the resistor and the resistance offered by the resistor, the AC current through a capacitor is a function of the AC voltage across it, and the <i>reactance</i> offered by the capacitor.  As with inductors, the reactance of a capacitor is expressed in ohms and symbolized by the letter X (or X<sub>C</sub> to be more specific).
+</p>
+
+<p>
+Since capacitors &ldquo;conduct&rdquo; current in proportion to the rate of voltage change, they will pass more current for faster-changing voltages (as they charge and discharge to the same voltage peaks in less time), and less current for slower-changing voltages.  What this means is that reactance in ohms for any capacitor is <i>inversely</i> proportional to the frequency of the alternating current. (Table <a href="#xcreact.tbl">  below</a>)
+</p>
+
+<a name="f, symbol for frequency"></a>
+
+<p> <img src="12042.png"> </p> 
+
+
+
+ 
+<a name="xcreact.tbl"><p><i>Reactance of a 100 uF capacitor:</i></p></a>
+
+<table border="1" style="background-color: #E0FFFF; " >
+
+
+
+<tr>
+<th>Frequency (Hertz)</th><th>Reactance (Ohms)</th>
+</tr>
+
+
+<tr>
+<td>60</td><td>26.5258</td>
+</tr>
+
+
+<tr>
+<td>120</td><td>13.2629</td>
+</tr>
+
+
+<tr>
+<td>2500</td><td>0.6366 </td>
+</tr>
+
+
+
+</table>
+
+
+
+
+
+<p>
+Please note that the relationship of capacitive reactance to frequency is exactly opposite from that of inductive reactance.  Capacitive reactance (in ohms) decreases with increasing AC frequency.  Conversely, inductive reactance (in ohms) increases with increasing AC frequency.  Inductors oppose faster changing currents by producing greater voltage drops; capacitors oppose faster changing voltage drops by allowing greater currents.
+</p>
+
+<a name="Angular velocity"></a>
+<a name="&#969;, symbol for angular velocity"></a>
+<a name="Radian, angular measurement"></a>
+
+<p>
+As with inductors, the reactance equation's 2&#960;f term may be replaced by the lower-case Greek letter Omega (&#969;), which is referred to as the <i>angular velocity</i> of the AC circuit.  Thus, the equation X<sub>C</sub> = 1/(2&#960;fC) could also be written as X<sub>C</sub> = 1/(&#969;C), with &#969; cast in units of <i>radians per second</i>.
+</p>
+
+<p>
+Alternating current in a simple capacitive circuit is equal to the voltage (in volts) divided by the capacitive reactance (in ohms), just as either alternating or direct current in a simple resistive circuit is equal to the voltage (in volts) divided by the resistance (in ohms).  The following circuit illustrates this mathematical relationship by example: (Figure <a href="#02072.png">  below</a>)
+</p>
+
+ 
+<a name="02072.png"></a> 
+<p> <img src="02072.png"> </p> 
+<p><i>Capacitive reactance.</i></p> 
+ 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="12043.png"> </p> 
+
+<p>
+However, we need to keep in mind that voltage and current are not in phase here.  As was shown earlier, the current has a phase shift of +90<sup>o</sup> with respect to the voltage.  If we represent these phase angles of voltage and current mathematically, we can calculate the phase angle of the capacitor's reactive opposition to current.
+</p>
+
+<p> <img src="12044.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+ 
+<a name="02073.png"></a> 
+<p> <img src="02073.png"> </p> 
+<p><i>Voltage lags current by 90<sup>o</sup> in a capacitor.</i></p> 
+ 
+
+<p>
+Mathematically, we say that the phase angle of a capacitor's opposition to current is -90<sup>o</sup>, meaning that a capacitor's opposition to current is a negative imaginary quantity. (Figure <a href="#02073.png">  above</a>)  This phase angle of reactive opposition to current becomes critically important in circuit analysis, especially for complex AC circuits where reactance and resistance interact.  It will prove beneficial to represent <i>any</i> component's opposition to current in terms of complex numbers, and not just scalar quantities of resistance and reactance. 
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Capacitive reactance</i> is the opposition that a capacitor offers to alternating current due to its phase-shifted storage and release of energy in its electric field.  Reactance is symbolized by the capital letter &ldquo;X&rdquo; and is measured in ohms just like resistance (R).</li>
+<li>Capacitive reactance can be calculated using this formula: X<sub>C</sub> = 1/(2&#960;fC)</li>
+<li>Capacitive reactance <i>decreases</i> with increasing frequency.  In other words, the higher the frequency, the less it opposes (the more it &ldquo;conducts&rdquo;) the AC flow of electrons.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid203522">Series resistor-capacitor circuits</a></u></h2>
+
+<p>
+In the last section, we learned what would happen in simple resistor-only and capacitor-only AC circuits.  Now we will combine the two components together in series form and investigate the effects. (Figure <a href="#02074.png">  below</a>)
+</p>
+
+ 
+<a name="02074.png"></a> 
+<p> <img src="02074.png"> </p> 
+<p><i>Series capacitor circuit: voltage lags current by 0<sup>o</sup> to 90<sup>o</sup>.</i></p> 
+ 
+
+<a name="Impedance"></a>
+<a name="Z, symbol for impedance"></a>
+
+<p>
+The resistor will offer 5 &#937; of resistance to AC current regardless of frequency, while the capacitor will offer 26.5258 &#937; of reactance to AC current at 60 Hz.  Because the resistor's resistance is a real number (5 &#937; &#8736; 0<sup>o</sup>, or 5 + j0 &#937;), and the capacitor's reactance is an imaginary number (26.5258 &#937; &#8736; -90<sup>o</sup>, or 0 - j26.5258 &#937;), the combined effect of the two components will be an opposition to current equal to the complex sum of the two numbers.  The term for this complex opposition to current is <i>impedance</i>, its symbol is Z, and it is also expressed in the unit of ohms, just like resistance and reactance.  In the above example, the total circuit impedance is:
+</p>
+
+<a name="R, symbol for resistance"></a>
+<a name="X, symbol for reactance"></a>
+
+<p> <img src="12045.png"> </p> 
+
+<a name="Ohm's Law"></a>
+
+<p>
+Impedance is related to voltage and current just as you might expect, in a manner similar to resistance in Ohm's Law:
+</p>
+
+<a name="E, symbol for voltage"></a>
+<a name="I, symbol for current"></a>
+<a name="Z, symbol for impedance"></a>
+
+<p> <img src="12021.png"> </p> 
+
+<p>
+In fact, this is a far more comprehensive form of Ohm's Law than what was taught in DC electronics (E=IR), just as impedance is a far more comprehensive expression of opposition to the flow of electrons than simple resistance is.  Any resistance and any reactance, separately or in combination (series/parallel), can be and should be represented as a single impedance.
+</p>
+
+<p>
+To calculate current in the above circuit, we first need to give a phase angle reference for the voltage source, which is generally assumed to be zero.  (The phase angles of resistive and capacitive impedance are <i>always</i> 0<sup>o</sup> and -90<sup>o</sup>, respectively, regardless of the given phase angles for voltage or current).
+</p>
+
+<p> <img src="12046.png"> </p> 
+
+<p>
+As with the purely capacitive circuit, the current wave is leading the voltage wave (of the source), although this time the difference is 79.325<sup>o</sup> instead of a full 90<sup>o</sup>. (Figure <a href="#02075.png">  below</a>)
+</p>
+
+ 
+<a name="02075.png"></a> 
+<p> <img src="02075.png"> </p> 
+<p><i>Voltage lags current (current leads voltage)in a series R-C circuit.</i></p> 
+ 
+
+<p>
+As we learned in the AC inductance chapter, the &ldquo;table&rdquo; method of organizing circuit quantities is a very useful tool for AC analysis just as it is for DC analysis.  Let's place out known figures for this series circuit into a table and continue the analysis using this tool:
+</p>
+
+<p> <img src="12047.png"> </p> 
+
+<p>
+Current in a series circuit is shared equally by all components, so the figures placed in the &ldquo;Total&rdquo; column for current can be distributed to all other columns as well:
+</p>
+
+<p> <img src="12048.png"> </p> 
+
+<p>
+Continuing with our analysis, we can apply Ohm's Law (E=IR) vertically to determine voltage across the resistor and capacitor:
+</p>
+
+<p> <img src="12049.png"> </p> 
+
+<p>
+Notice how the voltage across the resistor has the exact same phase angle as the current through it, telling us that E and I are in phase (for the resistor only).  The voltage across the capacitor has a phase angle of -10.675<sup>o</sup>, exactly 90<sup>o</sup> <i>less</i> than the phase angle of the circuit current.  This tells us that the capacitor's voltage and current are still 90<sup>o</sup> out of phase with each other.
+</p>
+
+<p>
+Let's check our calculations with SPICE: (Figure <a href="#02076.png">  below</a>)
+</p>
+
+ 
+<a name="02076.png"></a> 
+<p> <img src="02076.png"> </p> 
+<p><i>Spice circuit: R-C.</i></p> 
+ 
+
+<br> </br>
+
+
+<pre>
+ac r-c circuit   
+v1 1 0 ac 10 sin
+r1 1 2 5
+c1 2 0 100u     
+.ac lin 1 60 60 
+.print ac v(1,2) v(2,0) i(v1)   
+.print ac vp(1,2) vp(2,0) ip(v1)
+.end    
+</pre>
+
+
+<br> </br>
+
+
+
+<pre>
+freq          v(1,2)      v(2)        i(v1)           
+6.000E+01     1.852E+00   9.827E+00   3.705E-01
+
+freq          vp(1,2)     vp(2)       ip(v1)          
+6.000E+01     7.933E+01  -1.067E+01  -1.007E+02
+</pre>
+
+
+<br> </br>
+
+<p> <img src="12050.png"> </p> 
+
+<p>
+Once again, SPICE confusingly prints the current phase angle at a value equal to the real phase angle plus 180<sup>o</sup> (or minus 180<sup>o</sup>).  However, its a simple matter to correct this figure and check to see if our work is correct.  In this case, the -100.7<sup>o</sup> output by SPICE for current phase angle equates to a positive 79.3<sup>o</sup>, which does correspond to our previously calculated figure of 79.325<sup>o</sup>. 
+</p>
+
+<p>
+Again, it must be emphasized that the calculated figures corresponding to real-life voltage and current measurements are those in <i>polar</i> form, not rectangular form!  For example, if we were to actually build this series resistor-capacitor circuit and measure voltage across the resistor, our voltmeter would indicate <b>1.8523</b> volts, not 343.11 millivolts (real rectangular) or 1.8203 volts (imaginary rectangular).  Real instruments connected to real circuits provide indications corresponding to the vector length (magnitude) of the calculated figures.  While the rectangular form of complex number notation is useful for performing addition and subtraction, it is a more abstract form of notation than polar, which alone has direct correspondence to true measurements.
+</p>
+
+
+
+<p>
+Impedance (Z) of a series R-C circuit may be calculated, given the resistance (R) and the capacitive reactance (X<sub>C</sub>). Since E=IR, E=IX<sub>C</sub>, and E=IZ, resistance, reactance, and impedance are proportional to voltage, respectively. Thus, the voltage phasor diagram can be replaced by a similar impedance diagram.  (Figure <a href="#02516.png">  below</a>)
+</p>
+
+ 
+<a name="02516.png"></a> 
+<p> <img src="02516.png"> </p> 
+<p><i>Series: R-C circuit Impedance phasor diagram.</i></p> 
+ 
+
+<br> </br>
+<p>
+<b>Example:</b>
+</p>
+
+<p>
+Given: A 40 &#937; resistor in series with a 88.42 microfarad capacitor.   Find the impedance at 60 hertz.
+</p>
+
+<pre>
+&nbsp;
+&nbsp;          X<sub>C</sub> = 1/(2&#960;fC)
+&nbsp;          X<sub>C</sub> = 1/(2&#960;&#183;60&#183;88.42&#215;10<sup>-6</sup>) 
+&nbsp;          X<sub>C</sub> = 30 &#937;
+&nbsp;           Z = R - jX<sub>C</sub> 
+&nbsp;           Z = 40 - j30
+&nbsp;          |Z| = sqrt(40<sup>2</sup> +  (-30)<sup>2</sup>) = 50 &#937;
+&nbsp;          &#8736;Z = arctangent(-30/40) = -36.87<sup>o</sup>
+&nbsp;           Z = 40 - j30 = 50&#8736;-36.87<sup>o</sup>
+</pre>
+</p>
+
+<br> </br>
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Impedance</i> is the total measure of opposition to electric current and is the complex (vector) sum of (&ldquo;real&rdquo;) resistance and (&ldquo;imaginary&rdquo;) reactance.</li>
+<li>Impedances (Z) are managed just like resistances (R) in series circuit analysis: series impedances add to form the total impedance.  Just be sure to perform all calculations in complex (not scalar) form!  Z<sub>Total</sub> = Z<sub>1</sub> + Z<sub>2</sub> + . . . Z<sub>n</sub></li>
+<li>Please note that impedances always add in series, regardless of what type of components comprise the impedances.  That is, resistive impedance, inductive impedance, and capacitive impedance are to be treated the same way mathematically.</li>
+<li>A purely resistive impedance will always have a phase angle of exactly 0<sup>o</sup> (Z<sub>R</sub> = R &#937; &#8736; 0<sup>o</sup>).</li>
+<li>A purely capacitive impedance will always have a phase angle of exactly -90<sup>o</sup> (Z<sub>C</sub> = X<sub>C</sub> &#937; &#8736; -90<sup>o</sup>).</li>
+<li>Ohm's Law for AC circuits: E = IZ ; I = E/Z ; Z = E/I</li>
+<li>When resistors and capacitors are mixed together in circuits, the total impedance will have a phase angle somewhere between 0<sup>o</sup> and -90<sup>o</sup>.</li>
+<li>Series AC circuits exhibit the same fundamental properties as series DC circuits: current is uniform throughout the circuit, voltage drops add to form the total voltage, and impedances add to form the total impedance.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid203523">Parallel resistor-capacitor circuits</a></u></h2>
+
+<p>
+Using the same value components in our series example circuit, we will connect them in parallel and see what happens: (Figure <a href="#02263.png">  below</a>)
+</p>
+
+ 
+<a name="02263.png"></a> 
+<p> <img src="02263.png"> </p> 
+<p><i>Parallel R-C circuit.</i></p> 
+ 
+
+<p>
+Because the power source has the same frequency as the series example circuit, and the resistor and capacitor both have the same values of resistance and capacitance, respectively, they must also have the same values of impedance.  So, we can begin our analysis table with the same &ldquo;given&rdquo; values:
+</p>
+
+<p> <img src="12051.png"> </p> 
+
+<p>
+This being a parallel circuit now, we know that voltage is shared equally by all components, so we can place the figure for total voltage (10 volts &#8736; 0<sup>o</sup>) in all the columns:
+</p>
+
+<p> <img src="12052.png"> </p> 
+
+<p>
+Now we can apply Ohm's Law (I=E/Z) vertically to two columns in the table, calculating current through the resistor and current through the capacitor:
+</p>
+
+<p> <img src="12053.png"> </p> 
+
+<p>
+Just as with DC circuits, branch currents in a parallel AC circuit add up to form the total current (Kirchhoff's Current Law again):
+</p>
+
+<p> <img src="12054.png"> </p> 
+
+<p>
+Finally, total impedance can be calculated by using Ohm's Law (Z=E/I) vertically in the &ldquo;Total&rdquo; column.  As we saw in the AC inductance chapter, parallel impedance can also be calculated by using a reciprocal formula identical to that used in calculating parallel resistances.  It is noteworthy to mention that this parallel impedance rule holds true regardless of the kind of impedances placed in parallel.  In other words, it doesn't matter if we're calculating a circuit composed of parallel resistors, parallel inductors, parallel capacitors, or some combination thereof: in the form of impedances (Z), all the terms are common and can be applied uniformly to the same formula.  Once again, the parallel impedance formula looks like this:
+</p>
+
+<p> <img src="12036.png"> </p> 
+<br> </br>
+<p>
+The only drawback to using this equation is the significant amount of work required to work it out, especially without the assistance of a calculator capable of manipulating complex quantities.  Regardless of how we calculate total impedance for our parallel circuit (either Ohm's Law or the reciprocal formula), we will arrive at the same figure:
+</p>
+
+<p> <img src="12055.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Impedances (Z) are managed just like resistances (R) in parallel circuit analysis: parallel impedances diminish to form the total impedance, using the reciprocal formula.  Just be sure to perform all calculations in complex (not scalar) form!  Z<sub>Total</sub> = 1/(1/Z<sub>1</sub> + 1/Z<sub>2</sub> + . . . 1/Z<sub>n</sub>)</li>
+<li>Ohm's Law for AC circuits:  E = IZ ; I = E/Z ; Z = E/I</li>
+<li>When resistors and capacitors are mixed together in parallel circuits (just as in series circuits), the total impedance will have a phase angle somewhere between 0<sup>o</sup> and -90<sup>o</sup>.  The circuit current will have a phase angle somewhere between 0<sup>o</sup> and +90<sup>o</sup>.</li>
+<li>Parallel AC circuits exhibit the same fundamental properties as parallel DC circuits: voltage is uniform throughout the circuit, branch currents add to form the total current, and impedances diminish (through the reciprocal formula) to form the total impedance.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid203524">Capacitor quirks</a></u></h2>
+
+<p>
+As with inductors, the ideal capacitor is a purely reactive device, containing absolutely zero resistive (power dissipative) effects.  In the real world, of course, nothing is so perfect.  However, capacitors have the virtue of generally being <i>purer</i> reactive components than inductors.  It is a lot easier to design and construct a capacitor with low internal series resistance than it is to do the same with an inductor.  The practical result of this is that real capacitors typically have impedance phase angles more closely approaching 90<sup>o</sup> (actually, -90<sup>o</sup>) than inductors.  Consequently, they will tend to dissipate less power than an equivalent inductor.  
+</p>
+
+<p>
+Capacitors also tend to be smaller and lighter weight than their equivalent inductor counterparts, and since their electric fields are almost totally contained between their plates (unlike inductors, whose magnetic fields naturally tend to extend beyond the dimensions of the core), they are less prone to transmitting or receiving electromagnetic &ldquo;noise&rdquo; to/from other components.  For these reasons, circuit designers tend to favor capacitors over inductors wherever a design permits either alternative.
+</p>
+
+<a name="Dielectric &ldquo;loss&rdquo;"></a>
+
+<p>
+Capacitors with significant resistive effects are said to be <i>lossy</i>, in reference to their tendency to dissipate (&ldquo;lose&rdquo;) power like a resistor.  The source of capacitor loss is usually the dielectric material rather than any wire resistance, as wire length in a capacitor is very minimal.
+</p>
+
+<a name="Dielectric heating"></a>
+<a name="Heating, dielectric"></a>
+
+<p>
+Dielectric materials tend to react to changing electric fields by producing heat.  This heating effect represents a loss in power, and is equivalent to resistance in the circuit.  The effect is more pronounced at higher frequencies and in fact can be so extreme that it is sometimes exploited in manufacturing processes to heat insulating materials like plastic!  The plastic object to be heated is placed between two metal plates, connected to a source of high-frequency AC voltage.  Temperature is controlled by varying the voltage or frequency of the source, and the plates never have to contact the object being heated.
+</p>
+
+<p>
+This effect is undesirable for capacitors where we expect the component to behave as a purely <i>reactive</i> circuit element.  One of the ways to mitigate the effect of dielectric &ldquo;loss&rdquo; is to choose a dielectric material less susceptible to the effect.  Not all dielectric materials are equally &ldquo;lossy.&rdquo;  A relative scale of dielectric loss from least to greatest is given in Table <a href="#dielectricloss.tbl">  below</a>.
+</p>
+
+
+ 
+<a name="dielectricloss.tbl"><p><i>Dielectric loss</i></p></a>
+<table border="1" style="background-color: #E0FFFF; " >
+
+
+<tr>
+<th>Material</th><th>Loss</th>
+</tr>
+
+
+<tr>
+<td>Vacuum</td><td>Low</td>
+</tr>
+<tr>
+<td>Air</td><td>-</td>
+</tr>
+<tr>
+<td>Polystyrene</td><td>-</td>
+</tr>
+<tr>
+<td>Mica</td><td>-</td>
+</tr>
+<tr>
+<td>Glass</td><td>-</td>
+</tr>
+<tr>
+<td>Low-K ceramic</td><td>-</td>
+</tr>
+<tr>
+<td>Plastic film (Mylar)</td><td>-</td>
+</tr>
+<tr>
+<td>Paper</td><td>-</td>
+</tr>
+<tr>
+<td>High-K ceramic</td><td>-</td>
+</tr>
+<tr>
+<td>Aluminum oxide</td><td>-</td>
+</tr>
+<tr>
+<td>Tantalum pentoxide</td><td>high</td>
+</tr>
+
+
+
+</table>
+
+
+
+<p>
+Dielectric resistivity manifests itself both as a series and a parallel resistance with the pure capacitance: (Figure <a href="#02077.png">  below</a>)
+</p>
+
+ 
+<a name="02077.png"></a> 
+<p> <img src="02077.png"> </p> 
+<p><i>Real capacitor has both series and parallel resistance. </i></p> 
+ 
+
+<p>
+Fortunately, these stray resistances are usually of modest impact (low series resistance and high parallel resistance), much less significant than the stray resistances present in an average inductor.
+</p>
+
+<a name="Electrolytic capacitor"></a>
+
+<p>
+Electrolytic capacitors, known for their relatively high capacitance and low working voltage, are also known for their notorious lossiness, due to both the characteristics of the microscopically thin dielectric film and the electrolyte paste.  Unless specially made for AC service, electrolytic capacitors should never be used with AC unless it is mixed (biased) with a constant DC voltage preventing the capacitor from ever being subjected to reverse voltage.  Even then, their resistive characteristics may be too severe a shortcoming for the application anyway.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid203525">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_3.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_5.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

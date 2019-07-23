@@ -1,0 +1,1482 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 14</title>
+<meta name="description" content="Transmission Lines">
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, characteristic impedance, natural impedance, surge impedance, transmission line, waveguide, terminating impedance, incident wave, reflected wave, standing wave, swr, velocity factor, coaxial, coaxial cable, impedance matching, reflectometer, resonance, tem mode, te mode, tm mode, inductive output tube, resonator, cavity resonator">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_13.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_A1.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 14</h1>
+
+
+
+
+<h1>TRANSMISSION LINES</h1> 
+<!--minitoc-->
+
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid35420"><u>A 50-ohm cable?</u></a></li>
+<li><a href="#xtocid35421"><u>Circuits and the speed of light</u></a></li>
+<li><a href="#xtocid35422"><u>Characteristic impedance</u></a></li>
+<li><a href="#xtocid35423"><u>Finite-length transmission lines</u></a></li>
+<li><a href="#xtocid35424"><u>&ldquo;Long&rdquo; and &ldquo;short&rdquo; transmission lines</u></a></li>
+<li><a href="#xtocid35425"><u>Standing waves and resonance</u></a></li>
+<li><a href="#xtocid35426"><u>Impedance transformation</u></a></li>
+<li><a href="#xtocid35427"><u>Waveguides</u></a></li></ul>
+
+<h2><u><a name="xtocid35420">A 50-ohm cable?</a></u></h2>
+
+<a name="Cable, coaxial"></a>
+<a name="Coaxial cable"></a>
+
+<p>
+Early in my explorations of electricity, I came across a length of <i>coaxial cable</i> with the label &ldquo;50 ohms&rdquo; printed along its outer sheath. (Figure <a href="#02351.png">  below</a>)  Now, coaxial cable is a two-conductor cable made of a single conductor surrounded by a braided wire jacket, with a plastic insulating material separating the two.  As such, the outer (braided) conductor completely surrounds the inner (single wire) conductor, the two conductors insulated from each other for the entire length of the cable.  This type of cabling is often used to conduct weak (low-amplitude) voltage signals, due to its excellent ability to shield such signals from external interference.
+</p>
+
+ 
+<a name="02351.png"></a> 
+<p> <img src="02351.png"> </p> 
+<p><i>Coaxial cable contruction.</i></p> 
+ 
+
+<p>
+I was mystified by the &ldquo;50 ohms&rdquo; label on this coaxial cable.  How could two conductors, insulated from each other by a relatively thick layer of plastic, have 50 ohms of resistance between them?  Measuring resistance between the outer and inner conductors with my ohmmeter, I found it to be infinite (open-circuit), just as I would have expected from two insulated conductors.  Measuring each of the two conductors' resistances from one end of the cable to the other indicated nearly zero ohms of resistance: again, exactly what I would have expected from continuous, unbroken lengths of wire.  Nowhere was I able to measure 50 &#937; of resistance on this cable, regardless of which points I connected my ohmmeter between.
+</p>
+
+<a name="Transmission line"></a>
+
+<p>
+What I didn't understand at the time was the cable's response to short-duration voltage &ldquo;pulses&rdquo; and high-frequency AC signals.  Continuous direct current (DC) -- such as that used by my ohmmeter to check the cable's resistance -- shows the two conductors to be completely insulated from each other, with nearly infinite resistance between the two.  However, due to the effects of capacitance and inductance distributed along the length of the cable, the cable's response to rapidly-changing voltages is such that it acts as a <i>finite</i> impedance, drawing current proportional to an applied voltage.  What we would normally dismiss as being just a pair of wires becomes an important circuit element in the presence of transient and high-frequency AC signals, with characteristic properties all its own.  When expressing such properties, we refer to the wire pair as a <i>transmission line</i>.
+</p>
+
+<a name="RF: Radio Frequency"></a>
+
+<p>
+This chapter explores transmission line behavior.  Many transmission line effects do not appear in significant measure in AC circuits of powerline frequency (50 or 60 Hz), or in continuous DC circuits, and so we haven't had to concern ourselves with them in our study of electric circuits thus far.  However, in circuits involving high frequencies and/or extremely long cable lengths, the effects are very significant.  Practical applications of transmission line effects abound in radio-frequency (&ldquo;RF&rdquo;) communication circuitry, including computer networks, and in low-frequency circuits subject to voltage transients (&ldquo;surges&rdquo;) such as lightning strikes on power lines.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35421">Circuits and the speed of light</a></u></h2>
+
+<p>
+Suppose we had a simple one-battery, one-lamp circuit controlled by a switch.  When the switch is closed, the lamp immediately lights.  When the switch is opened, the lamp immediately darkens: (Figure <a href="#02352.png">  below</a>)
+</p>
+
+ 
+<a name="02352.png"></a> 
+<p> <img src="02352.png"> </p> 
+<p><i>Lamp appears to immediately respond to switch.</i></p> 
+ 
+
+<p>
+Actually, an incandescent lamp takes a short time for its filament to warm up and emit light after receiving an electric current of sufficient magnitude to power it, so the effect is not instant.  However, what I'd like to focus on is the immediacy of the electric current itself, not the response time of the lamp filament.  For all practical purposes, the effect of switch action is instant at the lamp's location.  Although electrons move through wires very slowly, the overall effect of electrons pushing against each other happens at the speed of light (approximately 186,000 miles per <i>second</i>!).
+</p>
+
+<p>
+What would happen, though, if the wires carrying power to the lamp were 186,000 miles long?  Since we know the effects of electricity do have a finite speed (albeit very fast), a set of very long wires should introduce a time delay into the circuit, delaying the switch's action on the lamp: (Figure <a href="#02353.png">  below</a>)
+</p>
+
+ 
+<a name="02353.png"></a> 
+<p> <img src="02353.png"> </p> 
+<p><i>At the speed of light, lamp responds after 1 second.</i></p> 
+ 
+
+<p>
+Assuming no warm-up time for the lamp filament, and no resistance along the 372,000 mile length of both wires, the lamp would light up approximately one second after the switch closure.  Although the construction and operation of superconducting wires 372,000 miles in length would pose enormous practical problems, it is theoretically possible, and so this &ldquo;thought experiment&rdquo; is valid.  When the switch is opened again, the lamp will continue to receive power for one second of time after the switch opens, then it will de-energize.
+</p>
+
+<p>
+One way of envisioning this is to imagine the electrons within a conductor as rail cars in a train: linked together with a small amount of &ldquo;slack&rdquo; or &ldquo;play&rdquo; in the couplings.  When one rail car (electron) begins to move, it pushes on the one ahead of it and pulls on the one behind it, but not before the slack is relieved from the couplings.  Thus, motion is transferred from car to car (from electron to electron) at a maximum velocity limited by the coupling slack, resulting in a much faster transfer of motion from the left end of the train (circuit) to the right end than the actual speed of the cars (electrons): (Figure <a href="#02354.png">  below</a>)
+</p>
+
+ 
+<a name="02354.png"></a> 
+<p> <img src="02354.png"> </p> 
+<p><i>Motion is transmitted sucessively from one car to next.</i></p> 
+ 
+
+<p>
+Another analogy, perhaps more fitting for the subject of transmission lines, is that of waves in water.  Suppose a flat, wall-shaped object is suddenly moved horizontally along the surface of water, so as to produce a wave ahead of it.  The wave will travel as water molecules bump into each other, transferring wave motion along the water's surface far faster than the water molecules themselves are actually traveling: (Figure <a href="#02355.png">  below</a>)
+</p>
+
+ 
+<a name="02355.png"></a> 
+<p> <img src="02355.png"> </p> 
+<p><i>Wave motion in water.</i></p> 
+ 
+
+<p>
+Likewise, electron motion &ldquo;coupling&rdquo; travels approximately at the speed of light, although the electrons themselves don't move that quickly.  In a very long circuit, this &ldquo;coupling&rdquo; speed would become noticeable to a human observer in the form of a short time delay between switch action and lamp action.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>In an electric circuit, the effects of electron motion travel approximately at the speed of light, although electrons within the conductors do not travel anywhere near that velocity.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35422">Characteristic impedance</a></u></h2>
+
+<p>
+Suppose, though, that we had a set of parallel wires of <i>infinite</i> length, with no lamp at the end.  What would happen when we close the switch?  Being that there is no longer a load at the end of the wires, this circuit is open.  Would there be no current at all? (Figure <a href="#02356.png">  below</a>)
+</p>
+
+ 
+<a name="02356.png"></a> 
+<p> <img src="02356.png"> </p> 
+<p><i>Driving an infinite transmission line.</i></p> 
+ 
+
+<p>
+Despite being able to avoid wire resistance through the use of superconductors in this &ldquo;thought experiment,&rdquo; we cannot eliminate capacitance along the wires' lengths.  <i>Any</i> pair of conductors separated by an insulating medium creates capacitance between those conductors: (Figure <a href="#02359.png">  below</a>)
+</p>
+
+ 
+<a name="02359.png"></a> 
+<p> <img src="02359.png"> </p> 
+<p><i>Equivalent circuit showing stray capacitance between conductors.</i></p> 
+ 
+
+<p>
+Voltage applied between two conductors creates an electric field between those conductors.  Energy is stored in this electric field, and this storage of energy results in an opposition to change in voltage.  The reaction of a capacitance against changes in voltage is described by the equation i = C(de/dt), which tells us that current will be drawn proportional to the voltage's rate of change over time.  Thus, when the switch is closed, the capacitance between conductors will react against the sudden voltage increase by charging up and drawing current from the source.  According to the equation, an instant rise in applied voltage (as produced by perfect switch closure) gives rise to an infinite charging current.
+</p>
+
+<p>
+However, the current drawn by a pair of parallel wires will not be infinite, because there exists series impedance along the wires due to inductance. (Figure <a href="#02357.png">  below</a>)  Remember that current through <i>any</i> conductor develops a magnetic field of proportional magnitude. 
+<!--split for 2-ref tags-->
+Energy is stored in this magnetic field, (Figure <a href="#02358.png">  below</a>) and this storage of energy results in an opposition to change in current.  Each wire develops a magnetic field as it carries charging current for the capacitance between the wires, and in so doing drops voltage according to the inductance equation e = L(di/dt).  This voltage drop limits the voltage rate-of-change across the distributed capacitance, preventing the current from ever reaching an infinite magnitude:
+</p>
+
+ 
+<a name="02357.png"></a> 
+<p> <img src="02357.png"> </p> 
+<p><i>Equivalent circuit showing stray capacitance and inductance.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02358.png"></a> 
+<p> <img src="02358.png"> </p> 
+<p><i>Voltage charges capacitance, current charges  inductance.</i></p> 
+ 
+
+<p>
+Because the electrons in the two wires transfer motion to and from each other at nearly the speed of light, the &ldquo;wave front&rdquo; of voltage and current change will propagate down the length of the wires at that same velocity, resulting in the distributed capacitance and inductance progressively charging to full voltage and current, respectively, like this: (Figures <a href="#02360.png">  below</a>, 
+ <a href="#02361.png">  below</a>, 
+ <a href="#02362.png">  below</a>, 
+ <a href="#02363.png">  below</a>)
+
+<!--formerly the above ref's needed to be on seperate lines for sml2latx.sed-->
+
+</p>
+
+ 
+<a name="02360.png"></a> 
+<p> <img src="02360.png"> </p> 
+<p><i>Uncharged transmission line.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02361.png"></a> 
+<p> <img src="02361.png"> </p> 
+<p><i>Begin wave propagation.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02362.png"></a> 
+<p> <img src="02362.png"> </p> 
+<p><i>Continue wave propagation.</i></p> 
+ 
+
+<br> </br>
+
+ 
+<a name="02363.png"></a> 
+<p> <img src="02363.png"> </p> 
+<p><i>Propagate at speed of light.</i></p> 
+ 
+
+<p>
+The end result of these interactions is a constant current of limited magnitude through the battery source.  Since the wires are infinitely long, their distributed capacitance will never fully charge to the source voltage, and their distributed inductance will never allow unlimited charging current.  In other words, this pair of wires will draw current from the source so long as the switch is closed, behaving as a constant load.  No longer are the wires merely conductors of electrical current and carriers of voltage, but now constitute a circuit component in themselves, with unique characteristics.  No longer are the two wires merely <i>a pair of conductors</i>, but rather a <i>transmission line</i>.
+</p>
+
+<a name="Characteristic impedance"></a>
+<a name="Impedance, characteristic"></a>
+
+<p>
+As a constant load, the transmission line's response to applied voltage is resistive rather than reactive, despite being comprised purely of inductance and capacitance (assuming superconducting wires with zero resistance).  We can say this because there is no difference from the battery's perspective between a resistor eternally dissipating energy and an infinite transmission line eternally absorbing energy.  The impedance (resistance) of this line in ohms is called the <i>characteristic impedance</i>, and it is fixed by the geometry of the two conductors.  For a parallel-wire line with air insulation, the characteristic impedance may be calculated as such:
+</p>
+
+<p> <img src="12144.png"> </p> 
+
+<p>
+If the transmission line is coaxial in construction, the characteristic impedance follows a different equation:
+</p>
+
+<p> <img src="12145.png"> </p> 
+
+<a name="Velocity factor, transmission line"></a>
+
+<p>
+In both equations, identical units of measurement must be used in both terms of the fraction.  If the insulating material is other than air (or a vacuum), both the characteristic impedance and the propagation velocity will be affected.  The ratio of a transmission line's true propagation velocity and the speed of light in a vacuum is called the <i>velocity factor</i> of that line.
+</p>
+
+<a name="Relative permittivity"></a>
+<a name="Permittivity, relative"></a>
+<a name="Dielectric constant"></a>
+
+<p>
+Velocity factor is purely a factor of the insulating material's relative permittivity (otherwise known as its <i>dielectric constant</i>), defined as the ratio of a material's electric field permittivity to that of a pure vacuum.  The velocity factor of any cable type -- coaxial or otherwise -- may be calculated quite simply by the following formula:
+</p>
+
+<p> <img src="12148.png"> </p> 
+
+<a name="Natural impedance"></a>
+
+<p>
+Characteristic impedance is also known as <i>natural impedance</i>, and it refers to the equivalent resistance of a transmission line if it were infinitely long, owing to distributed capacitance and inductance as the voltage and current &ldquo;waves&rdquo; propagate along its length at a propagation velocity equal to some large fraction of light speed.
+</p>
+
+<p>
+It can be seen in either of the first two equations that a transmission line's characteristic impedance (Z<sub>0</sub>) increases as the conductor spacing increases.  If the conductors are moved away from each other, the distributed capacitance will decrease (greater spacing between capacitor &ldquo;plates&rdquo;), and the distributed inductance will increase (less cancellation of the two opposing magnetic fields).  Less parallel capacitance and more series inductance results in a smaller current drawn by the line for any given amount of applied voltage, which by definition is a greater impedance.  Conversely, bringing the two conductors closer together increases the parallel capacitance and decreases the series inductance.  Both changes result in a larger current drawn for a given applied voltage, equating to a lesser impedance.
+</p>
+
+<p>
+Barring any dissipative effects such as dielectric &ldquo;leakage&rdquo; and conductor resistance, the characteristic impedance of a transmission line is equal to the square root of the ratio of the line's inductance per unit length divided by the line's capacitance per unit length:
+</p>
+
+<p> <img src="12146.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>transmission line</i> is a pair of parallel conductors exhibiting certain characteristics due to distributed capacitance and inductance along its length.</li>
+<li>When a voltage is suddenly applied to one end of a transmission line, both a voltage &ldquo;wave&rdquo; and a current &ldquo;wave&rdquo; propagate along the line at nearly light speed.</li>
+<li>If a DC voltage is applied to one end of an infinitely long transmission line, the line will draw current from the DC source as though it were a constant resistance.</li>
+<li>The <i>characteristic impedance</i> (Z<sub>0</sub>) of a transmission line is the resistance it would exhibit if it were infinite in length.  This is entirely different from leakage resistance of the dielectric separating the two conductors, and the metallic resistance of the wires themselves.  Characteristic impedance is purely a function of the capacitance and inductance distributed along the line's length, and would exist even if the dielectric were perfect (infinite parallel resistance) and the wires superconducting (zero series resistance).</li>
+<li><i>Velocity factor</i> is a fractional value relating a transmission line's propagation speed to the speed of light in a vacuum.  Values range between 0.66 and 0.80 for typical two-wire lines and coaxial cables.  For any cable type, it is equal to the reciprocal (1/x) of the square root of the relative permittivity of the cable's insulation.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35423">Finite-length transmission lines</a></u></h2>
+
+<p>
+A transmission line of infinite length is an interesting abstraction, but physically impossible.  All transmission lines have some finite length, and as such do not behave precisely the same as an infinite line.  If that piece of 50 &#937; &ldquo;RG-58/U&rdquo; cable I measured with an ohmmeter years ago had been infinitely long, I actually would have been able to measure 50 &#937; worth of resistance between the inner and outer conductors.  But it was not infinite in length, and so it measured as &ldquo;open&rdquo; (infinite resistance).
+</p>
+
+<a name="Surge impedance"></a>
+
+<p>
+Nonetheless, the characteristic impedance rating of a transmission line is important even when dealing with limited lengths.  An older term for characteristic impedance, which I like for its descriptive value, is <i>surge impedance</i>.  If a transient voltage (a &ldquo;surge&rdquo;) is applied to the end of a transmission line, the line will draw a current proportional to the surge voltage magnitude divided by the line's surge impedance (I=E/Z).  This simple, Ohm's Law relationship between current and voltage will hold true for a limited period of time, but not indefinitely.  
+</p>
+
+<p>
+If the end of a transmission line is open-circuited -- that is, left unconnected -- the current &ldquo;wave&rdquo; propagating down the line's length will have to stop at the end, since electrons cannot flow where there is no continuing path.  This abrupt cessation of current at the line's end causes a &ldquo;pile-up&rdquo; to occur along the length of the transmission line, as the electrons successively find no place to go.  Imagine a train traveling down the track with slack between the rail car couplings: if the lead car suddenly crashes into an immovable barricade, it will come to a stop, causing the one behind it to come to a stop as soon as the first coupling slack is taken up, which causes the next rail car to stop as soon as the next coupling's slack is taken up, and so on until the last rail car stops.  The train does not come to a halt together, but rather in sequence from first car to last: (Figure <a href="#02364.png">  below</a>)
+</p>
+
+ 
+<a name="02364.png"></a> 
+<p> <img src="02364.png"> </p> 
+<p><i>Reflected wave.</i></p> 
+ 
+
+<a name="Incident wave"></a>
+<a name="Reflected wave"></a>
+
+<p>
+A signal propagating from the source-end of a transmission line to the load-end is called an <i>incident wave</i>.  The propagation of a signal from load-end to source-end (such as what happened in this example with current encountering the end of an open-circuited transmission line) is called a <i>reflected wave</i>.
+</p>
+
+<p>
+When this electron &ldquo;pile-up&rdquo; propagates back to the battery, current at the battery ceases, and the line acts as a simple open circuit.  All this happens very quickly for transmission lines of reasonable length, and so an ohmmeter measurement of the line never reveals the brief time period where the line actually behaves as a resistor.  For a mile-long cable with a velocity factor of 0.66 (signal propagation velocity is 66% of light speed, or 122,760 miles per second), it takes only 1/122,760 of a second (8.146 microseconds) for a signal to travel from one end to the other.  For the current signal to reach the line's end and &ldquo;reflect&rdquo; back to the source, the round-trip time is twice this figure, or 16.292 &#181;s.
+</p>
+
+<a name="Time-domain reflectometer"></a>
+<a name="Reflectometer, time-domain"></a>
+
+<p>
+High-speed measurement instruments are able to detect this transit time from source to line-end and back to source again, and may be used for the purpose of determining a cable's length.  This technique may also be used for determining the presence <i>and</i> location of a break in one or both of the cable's conductors, since a current will &ldquo;reflect&rdquo; off the wire break just as it will off the end of an open-circuited cable.  Instruments designed for such purposes are called <i>time-domain reflectometers</i> (TDRs).  The basic principle is identical to that of sonar range-finding: generating a sound pulse and measuring the time it takes for the echo to return.
+</p>
+
+<p>
+A similar phenomenon takes place if the end of a transmission line is short-circuited: when the voltage wave-front reaches the end of the line, it is reflected back to the source, because voltage cannot exist between two electrically common points.  When this reflected wave reaches the source, the source sees the entire transmission line as a short-circuit.  Again, this happens as quickly as the signal can propagate round-trip down and up the transmission line at whatever velocity allowed by the dielectric material between the line's conductors.
+</p>
+
+<p>
+A simple experiment illustrates the phenomenon of wave reflection in transmission lines.  Take a length of rope by one end and &ldquo;whip&rdquo; it with a rapid up-and-down motion of the wrist.  A wave may be seen traveling down the rope's length until it dissipates entirely due to friction: (Figure <a href="#02365.png">  below</a>)
+</p>
+
+ 
+<a name="02365.png"></a> 
+<p> <img src="02365.png"> </p> 
+<p><i>Lossy transmission line.</i></p> 
+ 
+
+<p>
+This is analogous to a long transmission line with internal loss: the signal steadily grows weaker as it propagates down the line's length, never reflecting back to the source.  However, if the far end of the rope is secured to a solid object at a point prior to the incident wave's total dissipation, a second wave will be reflected back to your hand: (Figure <a href="#02366.png">  below</a>)
+</p>
+
+ 
+<a name="02366.png"></a> 
+<p> <img src="02366.png"> </p> 
+<p><i>Reflected wave.</i></p> 
+ 
+
+<p>
+Usually, the purpose of a transmission line is to convey electrical energy from one point to another.  Even if the signals are intended for information only, and not to power some significant load device, the ideal situation would be for all of the original signal energy to travel from the source to the load, and then be completely absorbed or dissipated by the load for maximum signal-to-noise ratio.  Thus, &ldquo;loss&rdquo; along the length of a transmission line is undesirable, as are reflected waves, since reflected energy is energy not delivered to the end device.
+</p>
+
+<p>
+Reflections may be eliminated from the transmission line if the load's impedance exactly equals the characteristic (&ldquo;surge&rdquo;) impedance of the line.  For example, a 50 &#937; coaxial cable that is either open-circuited or short-circuited will reflect all of the incident energy back to the source.  However, if a 50 &#937; resistor is connected at the end of the cable, there will be no reflected energy, all signal energy being dissipated by the resistor.
+</p>
+
+<p>
+This makes perfect sense if we return to our hypothetical, infinite-length transmission line example.  A transmission line of 50 &#937; characteristic impedance and infinite length behaves exactly like a 50 &#937; resistance as measured from one end.  (Figure <a href="#02367.png">  below</a>)
+
+<!--split for 2-ref tags-->
+If we cut this line to some finite length, it will behave as a 50 &#937; resistor to a constant source of DC voltage for a brief time, but then behave like an open- or a short-circuit, depending on what condition we leave the cut end of the line: open (Figure <a href="#02368.png">  below</a>) 
+
+<!--split for 2-ref tags-->
+or shorted. (Figure <a href="#02369.png">  below</a>) 
+
+However, if we <i>terminate</i> the line with a 50 &#937; resistor, the line will once again behave as a 50 &#937; resistor, indefinitely: the same as if it were of infinite length again: (Figure <a href="#02370.png">  below</a>)
+</p>
+
+ 
+<a name="02367.png"></a> 
+<p> <img src="02367.png"> </p> 
+<p><i>Infinite transmission line looks like resistor.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02368.png"></a> 
+<p> <img src="02368.png"> </p> 
+<p><i>One mile transmission.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02369.png"></a> 
+<p> <img src="02369.png"> </p> 
+<p><i>Shorted transmission line.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02370.png"></a> 
+<p> <img src="02370.png"> </p> 
+<p><i>Line terminated in characteristic impedance.</i></p> 
+ 
+
+<p>
+In essence, a terminating resistor matching the natural impedance of the transmission line makes the line &ldquo;appear&rdquo; infinitely long from the perspective of the source, because a resistor has the ability to eternally dissipate energy in the same way a transmission line of infinite length is able to eternally absorb energy.
+</p>
+
+<p>
+Reflected waves will also manifest if the terminating resistance isn't precisely equal to the characteristic impedance of the transmission line, not just if the line is left unconnected (open) or jumpered (shorted).  Though the energy reflection will not be total with a terminating impedance of slight mismatch, it will be partial.  This happens whether or not the terminating resistance is <i>greater</i> or <i>less</i> than the line's characteristic impedance.
+</p>
+
+<p>
+Re-reflections of a reflected wave may also occur at the <i>source end</i> of a transmission line, if the source's internal impedance (Thevenin equivalent impedance) is not exactly equal to the line's characteristic impedance.  A reflected wave returning back to the source will be dissipated entirely if the source impedance matches the line's, but will be reflected back toward the line end like another incident wave, at least partially, if the source impedance does not match the line.  This type of reflection may be particularly troublesome, as it makes it appear that the source has transmitted another pulse.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Characteristic impedance is also known as <i>surge impedance</i>, due to the temporarily resistive behavior of any length transmission line.</li>
+<li>A finite-length transmission line will appear to a DC voltage source as a constant resistance for some short time, then as whatever impedance the line is terminated with.  Therefore, an open-ended cable simply reads &ldquo;open&rdquo; when measured with an ohmmeter, and &ldquo;shorted&rdquo; when its end is short-circuited.</li>
+<li>A transient (&ldquo;surge&rdquo;) signal applied to one end of an open-ended or short-circuited transmission line will &ldquo;reflect&rdquo; off the far end of the line as a secondary wave.  A signal traveling on a transmission line from source to load is called an <i>incident wave</i>; a signal &ldquo;bounced&rdquo; off the end of a transmission line, traveling from load to source, is called a <i>reflected wave</i>.</li>
+<li>Reflected waves will also appear in transmission lines terminated by resistors not precisely matching the characteristic impedance.</li>
+<li>A finite-length transmission line may be made to appear infinite in length if terminated by a resistor of equal value to the line's characteristic impedance.  This eliminates all signal reflections.</li>
+<li>A reflected wave may become re-reflected off the source-end of a transmission line if the source's internal impedance does not match the line's characteristic impedance.  This re-reflected wave will appear, of course, like another pulse signal transmitted from the source.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35424">&ldquo;Long&rdquo; and &ldquo;short&rdquo; transmission lines</a></u></h2>
+
+<p>
+In DC and low-frequency AC circuits, the characteristic impedance of parallel wires is usually ignored.  This includes the use of coaxial cables in instrument circuits, often employed to protect weak voltage signals from being corrupted by induced &ldquo;noise&rdquo; caused by stray electric and magnetic fields.  This is due to the relatively short timespans in which reflections take place in the line, as compared to the period of the waveforms or pulses of the significant signals in the circuit.  As we saw in the last section, if a transmission line is connected to a DC voltage source, it will behave as a resistor equal in value to the line's characteristic impedance only for as long as it takes the incident pulse to reach the end of the line and return as a reflected pulse, back to the source.  After that time (a brief 16.292 &#181;s for the mile-long coaxial cable of the last example), the source &ldquo;sees&rdquo; only the terminating impedance, whatever that may be.
+</p>
+
+<p>
+If the circuit in question handles low-frequency AC power, such short time delays introduced by a transmission line between when the AC source outputs a voltage peak and when the source &ldquo;sees&rdquo; that peak loaded by the terminating impedance (round-trip time for the incident wave to reach the line's end and reflect back to the source) are of little consequence.  Even though we know that signal magnitudes along the line's length are not equal at any given time due to signal propagation at (nearly) the speed of light, the actual phase difference between start-of-line and end-of-line signals is negligible, because line-length propagations occur within a very small fraction of the AC waveform's period.  For all practical purposes, we can say that voltage along all respective points on a low-frequency, two-conductor line are equal and in-phase with each other at any given point in time.
+</p>
+
+<p>
+In these cases, we can say that the transmission lines in question are <i>electrically short</i>, because their propagation effects are much quicker than the periods of the conducted signals.  By contrast, an <i>electrically long</i> line is one where the propagation time is a large fraction or even a multiple of the signal period.  A &ldquo;long&rdquo; line is generally considered to be one where the source's signal waveform completes at least a quarter-cycle (90<sup>o</sup> of &ldquo;rotation&rdquo;) before the incident signal reaches line's end.  Up until this chapter in the <i>Lessons In Electric Circuits</i> book series, all connecting lines were assumed to be electrically short.
+</p>
+
+<a name="Wavelength"></a>
+
+<p>
+To put this into perspective, we need to express the distance traveled by a voltage or current signal along a transmission line in relation to its source frequency.  An AC waveform with a frequency of 60 Hz completes one cycle in 16.66 ms.  At light speed (186,000 mile/s), this equates to a distance of 3100 miles that a voltage or current signal will propagate in that time.  If the velocity factor of the transmission line is less than 1, the propagation velocity will be less than 186,000 miles per second, and the distance less by the same factor.  But even if we used the coaxial cable's velocity factor from the last example (0.66), the distance is still a very long 2046 miles!  Whatever distance we calculate for a given frequency is called the <i>wavelength</i> of the signal.
+</p>
+
+<p>
+A simple formula for calculating wavelength is as follows:
+</p>
+
+<p> <img src="12147.png"> </p> 
+
+<a name="&#955;, symbol for wavelength"></a>
+
+<p>
+The lower-case Greek letter &ldquo;lambda&rdquo; (&#955;) represents wavelength, in whatever unit of length used in the velocity figure (if miles per second, then wavelength in miles; if meters per second, then wavelength in meters).  Velocity of propagation is usually the speed of light when calculating signal wavelength in open air or in a vacuum, but will be less if the transmission line has a velocity factor less than 1.
+</p>
+
+<p>
+If a &ldquo;long&rdquo; line is considered to be one at least 1/4 wavelength in length, you can see why all connecting lines in the circuits discussed thusfar have been assumed &ldquo;short.&rdquo;  For a 60 Hz AC power system, power lines would have to exceed 775 miles in length before the effects of propagation time became significant.  Cables connecting an audio amplifier to speakers would have to be over 4.65 miles in length before line reflections would significantly impact a 10 kHz audio signal!
+</p>
+
+<p>
+When dealing with radio-frequency systems, though, transmission line length is far from trivial.  Consider a 100 MHz radio signal: its wavelength is a mere 9.8202 feet, even at the full propagation velocity of light (186,000 mile/s).  A transmission line carrying this signal would not have to be more than about 2-1/2 feet in length to be considered &ldquo;long!&rdquo;  With a cable velocity factor of 0.66, this critical length shrinks to 1.62 feet.
+</p>
+
+<p>
+When an electrical source is connected to a load via a &ldquo;short&rdquo; transmission line, the load's impedance dominates the circuit.  This is to say, when the line is short, its own characteristic impedance is of little consequence to the circuit's behavior.  We see this when testing a coaxial cable with an ohmmeter: the cable reads &ldquo;open&rdquo; from center conductor to outer conductor if the cable end is left unterminated.  Though the line acts as a resistor for a very brief period of time after the meter is connected (about 50 &#937; for an RG-58/U cable), it immediately thereafter behaves as a simple &ldquo;open circuit:&rdquo; the impedance of the line's open end.  Since the combined response time of an ohmmeter and the human being using it <i>greatly exceeds</i> the round-trip propagation time up and down the cable, it is &ldquo;electrically short&rdquo; for this application, and we only register the terminating (load) impedance.  It is the extreme speed of the propagated signal that makes us unable to detect the cable's 50 &#937; transient impedance with an ohmmeter.  
+</p>
+
+<p>
+If we use a coaxial cable to conduct a DC voltage or current to a load, and no component in the circuit is capable of measuring or responding quickly enough to &ldquo;notice&rdquo; a reflected wave, the cable is considered &ldquo;electrically short&rdquo; and its impedance is irrelevant to circuit function.  Note how the electrical &ldquo;shortness&rdquo; of a cable is relative to the application: in a DC circuit where voltage and current values change slowly, nearly any physical length of cable would be considered &ldquo;short&rdquo; from the standpoint of characteristic impedance and reflected waves.  Taking the same length of cable, though, and using it to conduct a high-frequency AC signal could result in a vastly different assessment of that cable's &ldquo;shortness!&rdquo;
+</p>
+
+<p>
+When a source is connected to a load via a &ldquo;long&rdquo; transmission line, the line's own characteristic impedance dominates over load impedance in determining circuit behavior.  In other words, an electrically &ldquo;long&rdquo; line acts as the principal component in the circuit, its own characteristics overshadowing the load's.  With a source connected to one end of the cable and a load to the other, current drawn from the source is a function primarily of the line and not the load.  This is increasingly true the longer the transmission line is.  Consider our hypothetical 50 &#937; cable of infinite length, surely the ultimate example of a &ldquo;long&rdquo; transmission line: no matter what kind of load we connect to one end of this line, the source (connected to the other end) will only see 50 &#937; of impedance, because the line's infinite length prevents the signal from <i>ever reaching</i> the end where the load is connected.  In this scenario, line impedance exclusively defines circuit behavior, rendering the load completely irrelevant.
+</p>
+
+<p>
+The most effective way to minimize the impact of transmission line length on circuit behavior is to match the line's characteristic impedance to the load impedance.  If the load impedance is equal to the line impedance, then <i>any</i> signal source connected to the other end of the line will &ldquo;see&rdquo; the exact same impedance, and will have the exact same amount of current drawn from it, regardless of line length.  In this condition of perfect impedance matching, line length only affects the amount of time delay from signal departure at the source to signal arrival at the load.  However, perfect matching of line and load impedances is not always practical or possible.
+</p>
+
+<p>
+The next section discusses the effects of &ldquo;long&rdquo; transmission lines, especially when line length happens to match specific fractions or multiples of signal wavelength.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Coaxial cabling is sometimes used in DC and low-frequency AC circuits as well as in high-frequency circuits, for the excellent immunity to induced &ldquo;noise&rdquo; that it provides for signals.</li>
+<li>When the period of a transmitted voltage or current signal greatly exceeds the propagation time for a transmission line, the line is considered <i>electrically short</i>.  Conversely, when the propagation time is a large fraction or multiple of the signal's period, the line is considered <i>electrically long</i>.</li>
+<li>A signal's <i>wavelength</i> is the physical distance it will propagate in the timespan of one period.  Wavelength is calculated by the formula &#955;=v/f, where &ldquo;&#955;&rdquo; is the wavelength, &ldquo;v&rdquo; is the propagation velocity, and &ldquo;f&rdquo; is the signal frequency. </li>
+<li>A rule-of-thumb for transmission line &ldquo;shortness&rdquo; is that the line must be at least 1/4 wavelength before it is considered &ldquo;long.&rdquo;</li>
+<li>In a circuit with a &ldquo;short&rdquo; line, the terminating (load) impedance dominates circuit behavior.  The source effectively sees nothing but the load's impedance, barring any resistive losses in the transmission line.</li>
+<li>In a circuit with a &ldquo;long&rdquo; line, the line's own characteristic impedance dominates circuit behavior.  The ultimate example of this is a transmission line of infinite length: since the signal will <i>never</i> reach the load impedance, the source only &ldquo;sees&rdquo; the cable's characteristic impedance.</li>
+<li>When a transmission line is terminated by a load precisely matching its impedance, there are no reflected waves and thus no problems with line length.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35425">Standing waves and resonance</a></u></h2>
+
+<a name="Standing waves"></a>
+
+<p>
+Whenever there is a mismatch of impedance between transmission line and load, reflections will occur.  If the incident signal is a continuous AC waveform, these reflections will mix with more of the oncoming incident waveform to produce stationary waveforms called <i>standing waves</i>.
+</p>
+
+<p>
+The following illustration shows how a triangle-shaped incident waveform turns into a mirror-image reflection upon reaching the line's unterminated end.  The transmission line in this illustrative sequence is shown as a single, thick line rather than a pair of wires, for simplicity's sake.  The incident wave is shown traveling from left to right, while the reflected wave travels from right to left: (Figure <a href="#02372.png">  below</a>)
+</p>
+
+ 
+<a name="02372.png"></a> 
+<p> <img src="02372.png"> </p> 
+<p><i>Incident wave reflects off end of unterminated transmission line.</i></p> 
+ 
+
+<p>
+If we add the two waveforms together, we find that a third, stationary waveform is created along the line's length: (Figure <a href="#02371.png">  below</a>)
+</p>
+
+ 
+<a name="02371.png"></a> 
+<p> <img src="02371.png"> </p> 
+<p><i>The sum of the incident and reflected waves is a stationary wave.</i></p> 
+ 
+
+<p>
+This third, &ldquo;standing&rdquo; wave, in fact, represents the only voltage along the line, being the representative sum of incident and reflected voltage waves.  It oscillates in instantaneous magnitude, but does not propagate down the cable's length like the incident or reflected waveforms causing it.  Note the dots along the line length marking the &ldquo;zero&rdquo; points of the standing wave (where the incident and reflected waves cancel each other), and how those points never change position: (Figure <a href="#02376.png">  below</a>)
+</p>
+
+ 
+<a name="02376.png"></a> 
+<p> <img src="02376.png"> </p> 
+<p><i>The standing wave does not propgate along the transmission line.</i></p> 
+ 
+
+<p>
+Standing waves are quite abundant in the physical world.  Consider a string or rope, shaken at one end, and tied down at the other (only one half-cycle of hand motion shown, moving downward): (Figure <a href="#02373.png">  below</a>)
+</p>
+
+ 
+<a name="02373.png"></a> 
+<p> <img src="02373.png"> </p> 
+<p><i>Standing waves on a rope.</i></p> 
+ 
+
+<a name="Node, vs. antinode"></a>
+<a name="Antinode"></a>
+
+<p>
+Both the nodes (points of little or no vibration) and the antinodes (points of maximum vibration) remain fixed along the length of the string or rope.  The effect is most pronounced when the free end is shaken at just the right frequency.  Plucked strings exhibit the same &ldquo;standing wave&rdquo; behavior, with &ldquo;nodes&rdquo; of maximum and minimum vibration along their length.  The major difference between a plucked string and a shaken string is that the plucked string supplies its own &ldquo;correct&rdquo; frequency of vibration to maximize the standing-wave effect: (Figure <a href="#02374.png">  below</a>)
+</p>
+
+ 
+<a name="02374.png"></a> 
+<p> <img src="02374.png"> </p> 
+<p><i>Standing waves on a plucked string.</i></p> 
+ 
+
+<p>
+Wind blowing across an open-ended tube also produces standing waves; this time, the waves are vibrations of air molecules (sound) within the tube rather than vibrations of a solid object.  Whether the standing wave terminates in a node (minimum amplitude) or an antinode (maximum amplitude) depends on whether the other end of the tube is open or closed: (Figure <a href="#02375.png">  below</a>)
+</p>
+
+ 
+<a name="02375.png"></a> 
+<p> <img src="02375.png"> </p> 
+<p><i>Standing sound waves in open ended tubes.</i></p> 
+ 
+
+<p>
+A closed tube end must be a wave node, while an open tube end must be an antinode.  By analogy, the anchored end of a vibrating string must be a node, while the free end (if there is any) must be an antinode.
+</p>
+
+<a name="Resonance"></a>
+
+<p>
+Note how there is more than one wavelength suitable for producing standing waves of vibrating air within a tube that precisely match the tube's end points.  This is true for all standing-wave systems: standing waves will resonate with the system for any frequency (wavelength) correlating to the node/antinode points of the system.  Another way of saying this is that there are multiple resonant frequencies for any system supporting standing waves.
+</p>
+
+<a name="Harmonic"></a>
+<a name="Fundamental frequency"></a>
+<a name="Frequency, fundamental"></a>
+<a name="Overtone"></a>
+
+<p>
+All higher frequencies are integer-multiples of the lowest (fundamental) frequency for the system.  The sequential progression of harmonics from one resonant frequency to the next defines the <i>overtone</i> frequencies for the system: (Figure <a href="#02377.png">  below</a>)
+
+</p>
+
+ 
+<a name="02377.png"></a> 
+<p> <img src="02377.png"> </p> 
+<p><i>Harmonics (overtones) in open ended pipes</i></p> 
+ 
+
+<p>
+The actual frequencies (measured in Hertz) for any of these harmonics or overtones depends on the physical length of the tube and the waves' propagation velocity, which is the speed of sound in air.
+</p>
+
+<p>
+Because transmission lines support standing waves, and force these waves to possess nodes and antinodes according to the type of termination impedance at the load end, they also exhibit resonance at frequencies determined by physical length and propagation velocity.  Transmission line resonance, though, is a bit more complex than resonance of strings or of air in tubes, because we must consider both voltage waves and current waves. 
+</p>
+
+<p>
+This complexity is made easier to understand by way of computer simulation.  To begin, let's examine a perfectly matched source, transmission line, and load.  All components have an impedance of 75 &#937;: (Figure <a href="#02378.png">  below</a>)
+</p>
+
+ 
+<a name="02378.png"></a> 
+<p> <img src="02378.png"> </p> 
+<p><i>Perfectly matched transmission line.</i></p> 
+ 
+
+<p>
+Using SPICE to simulate the circuit, we'll specify the transmission line (<tt>t1</tt>) with a 75 &#937; characteristic impedance (<tt>z0=75</tt>) and a propagation delay of 1 microsecond (<tt>td=1u</tt>).  This is a convenient method for expressing the physical length of a transmission line: the amount of time it takes a wave to propagate down its entire length.  If this were a real 75 &#937; cable -- perhaps a type &ldquo;RG-59B/U&rdquo; coaxial cable, the type commonly used for cable television distribution -- with a velocity factor of 0.66, it would be about 648 feet long.  Since 1 &#181;s is the period of a 1 MHz signal, I'll choose to sweep the frequency of the AC source from (nearly) zero to that figure, to see how the system reacts when exposed to signals ranging from DC to 1 wavelength.
+</p>
+
+<p>
+Here is the SPICE netlist for the circuit shown above:
+</p>
+
+<br> </br>
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=75 td=1u
+rload 3 0 75 
+.ac lin 101 1m 1meg
+* Using &ldquo;Nutmeg&rdquo; program to plot analysis
+.end
+</pre>
+
+
+<br> </br>
+
+<p>
+Running this simulation and plotting the source impedance drop (as an indication of current), the source voltage, the line's source-end voltage, and the load voltage, we see that the source voltage -- shown as <tt>vm(1)</tt> (voltage magnitude between node 1 and the implied ground point of node 0) on the graphic plot -- registers a steady 1 volt, while every other voltage registers a steady 0.5 volts: (Figure <a href="#22001.png">  below</a>) 
+</p>
+
+ 
+<a name="22001.png"></a> 
+<p> <img src="22001.png"> </p> 
+<p><i>No resonances on a matched transmission line.</i></p> 
+ 
+
+<p>
+In a system where all impedances are perfectly matched, there can be no standing waves, and therefore no resonant &ldquo;peaks&rdquo; or &ldquo;valleys&rdquo; in the Bode plot.
+</p>
+
+<p>
+Now, let's change the load impedance to 999 M&#937;, to simulate an open-ended transmission line.  (Figure <a href="#02379.png">  below</a>)
+<!--split for double ref-->
+We should definitely see some reflections on the line now as the frequency is swept from 1 mHz to 1 MHz: (Figure <a href="#22002.png">  below</a>)
+</p>
+
+ 
+<a name="02379.png"></a> 
+<p> <img src="02379.png"> </p> 
+<p><i>Open ended transmission line.</i></p> 
+ 
+
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=75 td=1u
+rload 3 0 999meg 
+.ac lin 101 1m 1meg
+* Using &ldquo;Nutmeg&rdquo; program to plot analysis
+.end
+</pre>
+
+
+ 
+<a name="22002.png"></a> 
+<p> <img src="22002.png"> </p> 
+<p><i>Resonances on open transmission line.</i></p> 
+ 
+
+<p>
+Here, both the supply voltage <tt>vm(1)</tt> and the line's load-end voltage <tt>vm(3)</tt> remain steady at 1 volt.  The other voltages dip and peak at different frequencies along the sweep range of 1 mHz to 1 MHz.  There are five points of interest along the horizontal axis of the analysis: 0 Hz, 250 kHz, 500 kHz, 750 kHz, and 1 MHz.  We will investigate each one with regard to voltage and current at different points of the circuit.
+</p>
+
+<p>
+At 0 Hz (actually 1 mHz), the signal is practically DC, and the circuit behaves much as it would given a 1-volt DC battery source.  There is no circuit current, as indicated by zero voltage drop across the source impedance (Z<sub>source</sub>: <tt>vm(1,2)</tt>), and full source voltage present at the source-end of the transmission line (voltage measured between node 2 and node 0: <tt>vm(2)</tt>). (Figure <a href="#02381.png">  below</a>)
+</p>
+
+ 
+<a name="02381.png"></a> 
+<p> <img src="02381.png"> </p> 
+<p><i>At f=0: input: V=1, I=0; end: V=1, I=0.</i></p> 
+ 
+
+<p>
+At 250 kHz, we see zero voltage and maximum current at the source-end of the transmission line, yet still full voltage at the load-end: (Figure <a href="#02382.png">  below</a>)
+
+</p>
+
+ 
+<a name="02382.png"></a> 
+<p> <img src="02382.png"> </p> 
+<p><i>At f=250 KHz: input: V=0, I=13.33 mA; end: V=1 I=0.</i></p> 
+ 
+
+<p>
+You might be wondering, how can this be?  How can we get full source voltage at the line's open end while there is zero voltage at its entrance?  The answer is found in the paradox of the standing wave.  With a source frequency of 250 kHz, the line's length is precisely right for 1/4 wavelength to fit from end to end.  With the line's load end open-circuited, there can be no current, but there will be voltage.  Therefore, the load-end of an open-circuited transmission line is a current node (zero point) and a voltage antinode (maximum amplitude): (Figure <a href="#02383.png">  below</a>)
+</p>
+
+ 
+<a name="02383.png"></a> 
+<p> <img src="02383.png"> </p> 
+<p><i>Open end of transmission line shows current node, voltage antinode at open end.</i></p> 
+ 
+
+<p>
+At 500 kHz, exactly one-half of a standing wave rests on the transmission line, and here we see another point in the analysis where the source current drops off to nothing and the source-end voltage of the transmission line rises again to full voltage: (Figure <a href="#02384.png">  below</a>) 
+</p>
+
+ 
+<a name="02384.png"></a> 
+<p> <img src="02384.png"> </p> 
+<p><i> Full standing wave on half wave open transmission line.</i></p> 
+ 
+
+<p>
+At 750 kHz, the plot looks a lot like it was at 250 kHz: zero source-end voltage (<tt>vm(2)</tt>) and maximum current (<tt>vm(1,2)</tt>).  This is due to 3/4 of a wave poised along the transmission line, resulting in the source &ldquo;seeing&rdquo; a short-circuit where it connects to the transmission line, even though the other end of the line is open-circuited: (Figure <a href="#02385.png">  below</a>)
+</p>
+
+ 
+<a name="02385.png"></a> 
+<p> <img src="02385.png"> </p> 
+<p><i>1 1/2 standing waves on 3/4 wave open transmission line.</i></p> 
+ 
+
+<p>
+When the supply frequency sweeps up to 1 MHz, a full standing wave exists on the transmission line.  At this point, the source-end of the line experiences the same voltage and current amplitudes as the load-end: full voltage and zero current.  In essence, the source &ldquo;sees&rdquo; an open circuit at the point where it connects to the transmission line. (Figure <a href="#02386.png">  below</a>)
+</p>
+
+ 
+<a name="02386.png"></a> 
+<p> <img src="02386.png"> </p> 
+<p><i>Double standing waves on full wave open transmission line.</i></p> 
+ 
+
+<p>
+In a similar fashion, a short-circuited transmission line generates standing waves, although the node and antinode assignments for voltage and current are reversed: at the shorted end of the line, there will be zero voltage (node) and maximum current (antinode).  What follows is the SPICE simulation (circuit Figure <a href="#02380.png">  below</a>
+<!--split for double ref-->
+and illustrations of what happens (Figure <a href="#22003.png">  2nd-below</a> at resonances) 
+at all the interesting frequencies: 0 Hz (Figure <a href="#02388.png">  below</a>) ,
+<!--formerly, split for double ref-->
+250 kHz (Figure <a href="#02389.png">  below</a>),
+<!--split for double ref below-->
+500 kHz (Figure <a href="#02390.png">  below</a>),
+<!--split for double ref -->
+750 kHz (Figure <a href="#02391.png">  below</a>),
+<!--split for double ref -->
+and 1 MHz (Figure <a href="#02392.png">  below</a>).
+<!--formerly, split for double ref-->
+The short-circuit jumper is simulated by a 1 &#181;&#937; load impedance: (Figure <a href="#02380.png">  below</a>)
+</p>
+
+ 
+<a name="02380.png"></a> 
+<p> <img src="02380.png"> </p> 
+<p><i>Shorted transmission line.</i></p> 
+ 
+
+<br> </br>
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=75 td=1u
+rload 3 0 1u 
+.ac lin 101 1m 1meg
+* Using &ldquo;Nutmeg&rdquo; program to plot analysis
+.end
+</pre>
+
+
+<br> </br>
+
+ 
+<a name="22003.png"></a> 
+<p> <img src="22003.png"> </p> 
+<p><i>Resonances on shorted transmission line</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02388.png"></a> 
+<p> <img src="02388.png"> </p> 
+<p><i>At f=0 Hz: input: V=0, I=13.33 mA; end: V=0, I=13.33 mA.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02389.png"></a> 
+<p> <img src="02389.png"> </p> 
+<p><i>Half wave  standing wave pattern on 1/4 wave shorted transmission line.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02390.png"></a> 
+<p> <img src="02390.png"> </p> 
+<p><i>Full wave standing wave pattern  on half wave shorted transmission line.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02391.png"></a> 
+<p> <img src="02391.png"> </p> 
+<p><i>1 1/2 standing wavepattern  on 3/4 wave shorted transmission line.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02392.png"></a> 
+<p> <img src="02392.png"> </p> 
+<p><i>Double standing waves on full wave shorted transmission line.</i></p> 
+ 
+
+<p>
+In both these circuit examples, an open-circuited line and a short-circuited line, the energy reflection is total: 100% of the incident wave reaching the line's end gets reflected back toward the source.  If, however, the transmission line is terminated in some impedance other than an open or a short, the reflections will be less intense, as will be the difference between minimum and maximum values of voltage and current along the line.
+</p>
+
+<p>
+Suppose we were to terminate our example line with a 100 &#937; resistor instead of a 75 &#937; resistor. (Figure <a href="#02387.png">  below</a>) 
+<!--split for double ref-->
+Examine the results of the corresponding SPICE analysis to see the effects of impedance mismatch at different source frequencies: (Figure <a href="#22004.png">  below</a>)
+
+</p>
+
+ 
+<a name="02387.png"></a> 
+<p> <img src="02387.png"> </p> 
+<p><i>Transmission line terminated in a mismatch</i></p> 
+ 
+
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=75 td=1u
+rload 3 0 100
+.ac lin 101 1m 1meg
+* Using &ldquo;Nutmeg&rdquo; program to plot analysis
+.end
+</pre>
+
+
+
+ 
+<a name="22004.png"></a> 
+<p> <img src="22004.png"> </p> 
+<p><i>Weak resonances on a mismatched transmission line</i></p> 
+ 
+
+<p>
+If we run another SPICE analysis, this time printing numerical results rather than plotting them, we can discover exactly what is happening at all the interesting frequencies: 
+(DC, Figure <a href="#02394.png">  below</a>; 
+250 kHz,  Figure <a href="#02394.png">  below</a>;
+500 kHz,  Figure <a href="#02395.png">  below</a>;
+750 kHz,  Figure <a href="#02396.png">  below</a>;
+and 1 MHz,  Figure <a href="#02397.png">  below</a>).
+</p>
+
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=75 td=1u
+rload 3 0 100
+.ac lin 5 1m 1meg
+.print ac v(1,2) v(1) v(2) v(3)
+.end
+</pre>
+
+
+
+
+<pre>
+freq          v(1,2)      v(1)        v(2)        v(3)        
+1.000E-03     4.286E-01   1.000E+00   5.714E-01   5.714E-01
+2.500E+05     5.714E-01   1.000E+00   4.286E-01   5.714E-01
+5.000E+05     4.286E-01   1.000E+00   5.714E-01   5.714E-01
+7.500E+05     5.714E-01   1.000E+00   4.286E-01   5.714E-01
+1.000E+06     4.286E-01   1.000E+00   5.714E-01   5.714E-01
+</pre>
+
+
+
+<p>
+At all frequencies, the source voltage, <tt>v(1)</tt>, remains steady at 1 volt, as it should.  The load voltage, <tt>v(3)</tt>, also remains steady, but at a lesser voltage: 0.5714 volts.  However, both the line input voltage (<tt>v(2)</tt>) and the voltage dropped across the source's 75 &#937; impedance (<tt>v(1,2)</tt>, indicating current drawn from the source) vary with frequency.
+</p>
+
+ 
+<a name="02394.png"></a> 
+<p> <img src="02394.png"> </p> 
+<p><i>At f=0 Hz: input: V=0.57.14, I=5.715 mA; end: V=0.5714, I=5.715 mA.</i></p> 
+ 
+
+
+<p>
+
+</p>
+
+
+ 
+<a name="02395.png"></a> 
+<p> <img src="02395.png"> </p> 
+<p><i>At f=250 KHz: input: V=0.4286, I=7.619 mA; end: V=0.5714, I=7.619 mA.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02396.png"></a> 
+<p> <img src="02396.png"> </p> 
+<p><i>At f=500 KHz: input: V=0.5714, I=5.715 mA; end: V=5.714, I=5.715 mA.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02397.png"></a> 
+<p> <img src="02397.png"> </p> 
+<p><i>At f=750 KHz: input: V=0.4286, I=7.619 mA; end: V=0.5714, I=7.619 mA.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02398.png"></a> 
+<p> <img src="02398.png"> </p> 
+<p><i>At f=1 MHz: input: V=0.5714, I=5.715 mA; end: V=0.5714, I=0.5715 mA.</i></p> 
+ 
+
+<p>
+At odd harmonics of the fundamental frequency (250 kHz, Figure <a href="#02395.png">  3rd-above</a>
+<!--split for double ref-->
+and 750 kHz, Figure <a href="#02397.png">  above</a>)
+<!--split for double ref-->
+we see differing levels of voltage at each end of the transmission line, because at those frequencies the standing waves terminate at one end in a node and at the other end in an antinode.  Unlike the open-circuited and short-circuited transmission line examples, the maximum and minimum voltage levels along this transmission line do not reach the same extreme values of 0% and 100% source voltage, but we still have points of &ldquo;minimum&rdquo; and &ldquo;maximum&rdquo; voltage. (Figure <a href="#22004.png">  6th-above</a>)  The same holds true for current: if the line's terminating impedance is mismatched to the line's characteristic impedance, we will have points of minimum and maximum current at certain fixed locations on the line, corresponding to the standing current wave's nodes and antinodes, respectively.
+</p>
+
+<a name="Standing wave ratio"></a>
+<a name="SWR"></a>
+
+<p>
+One way of expressing the severity of standing waves is as a ratio of maximum amplitude (antinode) to minimum amplitude (node), for voltage or for current.  When a line is terminated by an open or a short, this <i>standing wave ratio</i>, or <i>SWR</i> is valued at infinity, since the minimum amplitude will be zero, and any finite value divided by zero results in an infinite (actually, &ldquo;undefined&rdquo;) quotient.  In this example, with a 75 &#937; line terminated by a 100 &#937; impedance, the SWR will be finite: 1.333, calculated by taking the maximum line voltage at either 250 kHz or 750 kHz (0.5714 volts) and dividing by the minimum line voltage (0.4286 volts).
+</p>
+
+<p>
+Standing wave ratio may also be calculated by taking the line's terminating impedance and the line's characteristic impedance, and dividing the larger of the two values by the smaller.  In this example, the terminating impedance of 100 &#937; divided by the characteristic impedance of 75 &#937; yields a quotient of exactly 1.333, matching the previous calculation very closely.
+</p>
+
+<p> <img src="12149.png"> </p> 
+
+<p>
+A perfectly terminated transmission line will have an SWR of 1, since voltage at any location along the line's length will be the same, and likewise for current.  Again, this is usually considered ideal, not only because reflected waves constitute energy not delivered to the load, but because the high values of voltage and current created by the antinodes of standing waves may over-stress the transmission line's insulation (high voltage) and conductors (high current), respectively.  
+</p>
+
+<p>
+Also, a transmission line with a high SWR tends to act as an antenna, radiating electromagnetic energy away from the line, rather than channeling all of it to the load.  This is usually undesirable, as the radiated energy may &ldquo;couple&rdquo; with nearby conductors, producing signal interference.  An interesting footnote to this point is that antenna structures -- which typically resemble open- or short-circuited transmission lines -- are often designed to operate at <i>high</i> standing wave ratios, for the very reason of maximizing signal radiation and reception.
+</p>
+
+<p>
+The following photograph (Figure <a href="#52014.jpg">  below</a>) shows a set of transmission lines at a junction point in a radio transmitter system.  The large, copper tubes with ceramic insulator caps at the ends are rigid coaxial transmission lines of 50 &#937; characteristic impedance.  These lines carry RF power from the radio transmitter circuit to a small, wooden shelter at the base of an antenna structure, and from that shelter on to other shelters with other antenna structures:
+</p>
+
+ 
+<a name="52014.jpg"></a> 
+<p> <img src="52014.jpg"> </p> 
+<p><i>Flexible coaxial cables connected to rigid lines.</i></p> 
+ 
+
+<a name="Skin effect"></a>
+
+<p>
+Flexible coaxial cable connected to the rigid lines (also of 50 &#937; characteristic impedance) conduct the RF power to capacitive and inductive &ldquo;phasing&rdquo; networks inside the shelter.  The white, plastic tube joining two of the rigid lines together carries &ldquo;filling&rdquo; gas from one sealed line to the other.  The lines are gas-filled to avoid collecting moisture inside them, which would be a definite problem for a coaxial line.  Note the flat, copper &ldquo;straps&rdquo; used as jumper wires to connect the conductors of the flexible coaxial cables to the conductors of the rigid lines.  Why flat straps of copper and not round wires?  Because of the skin effect, which renders most of the cross-sectional area of a round conductor useless at radio frequencies.
+</p>
+
+<p>
+Like many transmission lines, these are operated at low SWR conditions.  As we will see in the next section, though, the phenomenon of standing waves in transmission lines is not always undesirable, as it may be exploited to perform a useful function: impedance transformation.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Standing waves</i> are waves of voltage and current which do not propagate (i.e. they are stationary), but are the result of interference between incident and reflected waves along a transmission line.</li>
+<li>A <i>node</i> is a point on a standing wave of <i>minimum</i> amplitude.</li>
+<li>An <i>antinode</i> is a point on a standing wave of <i>maximum</i> amplitude.</li>
+<li>Standing waves can only exist in a transmission line when the terminating impedance does not match the line's characteristic impedance.  In a perfectly terminated line, there are no reflected waves, and therefore no standing waves at all.</li>
+<li>At certain frequencies, the nodes and antinodes of standing waves will correlate with the ends of a transmission line, resulting in <i>resonance</i>.</li>
+<li>The lowest-frequency resonant point on a transmission line is where the line is one quarter-wavelength long.  Resonant points exist at every harmonic (integer-multiple) frequency of the fundamental (quarter-wavelength).</li>
+<li><i>Standing wave ratio</i>, or <i>SWR</i>, is the ratio of maximum standing wave amplitude to minimum standing wave amplitude.  It may also be calculated by dividing termination impedance by characteristic impedance, or vice versa, which ever yields the greatest quotient.  A line with no standing waves (perfectly matched: Z<sub>load</sub> to Z<sub>0</sub>) has an SWR equal to 1.</li>
+<li>Transmission lines may be damaged by the high maximum amplitudes of standing waves.  Voltage antinodes may break down insulation between conductors, and current antinodes may overheat conductors.</li>
+</ul>
+
+
+
+
+
+
+<h2><u><a name="xtocid35426">Impedance transformation</a></u></h2>
+
+<p>
+Standing waves at the resonant frequency points of an open- or short-circuited transmission line produce unusual effects.  When the signal frequency is such that exactly 1/2 wave or some multiple thereof matches the line's length, the source &ldquo;sees&rdquo; the load impedance as it is.  The following pair of illustrations shows an open-circuited line operating at 1/2 (Figure <a href="#02384a.png">  below</a>)
+<!--split for double ref-->
+and 1 wavelength (Figure <a href="#02386a.png">  below</a>)  frequencies: 
+</p>
+
+ 
+<a name="02384a.png"></a> 
+<p> <img src="02384.png"> </p>  
+<p><i>Source sees open, same as end of half wavelength line.  </i></p> 
+
+
+<p>
+</p>
+
+
+ 
+<a name="02386a.png"></a> 
+<p> <img src="02386.png"> </p>  
+<p><i>Source sees open, same as end of full wavelength (2x half wavelength line).</i></p> 
+
+
+<p>
+In either case, the line has voltage antinodes at both ends, and current nodes at both ends.  That is to say, there is maximum voltage and minimum current at either end of the line, which corresponds to the condition of an open circuit.  The fact that this condition exists at <i>both</i> ends of the line tells us that the line faithfully reproduces its terminating impedance at the source end, so that the source &ldquo;sees&rdquo; an open circuit where it connects to the transmission line, just as if it were directly open-circuited.
+</p>
+
+<p>
+The same is true if the transmission line is terminated by a short: at signal frequencies corresponding to 1/2 wavelength (Figure <a href="#02390a.png">  below</a>)
+<!--split for double ref-->
+or some multiple (Figure <a href="#02392a.png">  below</a>) thereof, the source
+&ldquo;sees&rdquo; a short circuit, with minimum voltage and maximum current present at the connection points between source and transmission line:
+</p>
+
+<p>
+ 
+<a name="02390a.png"></a> 
+<p> <img src="02390.png"> </p> 
+<p><i>Source sees short, same as end of half wave length line.</i></p> 
+
+</p>
+
+<p>
+ 
+<a name="02392a.png"></a> 
+<p> <img src="02392.png"> </p> 
+<p><i>Source sees short, same as end of full wavelength line (2x half wavelength).</i></p> 
+
+</p>
+
+However, if the signal frequency is such that the line resonates at <i>1/4</i> wavelength or some multiple thereof, the source will &ldquo;see&rdquo; the exact opposite of the termination impedance.  That is, if the line is open-circuited, the source will &ldquo;see&rdquo; a short-circuit at the point where it connects to the line; and if the line is short-circuited, the source will &ldquo;see&rdquo; an open circuit: (Figure <a href="#02383a.png">  below</a>)
+</p>
+
+
+<p>
+<b>Line open-circuited; source &ldquo;sees&rdquo; a short circuit:</b> at quarter wavelength line (Figure <a href="#02383a.png">  below</a>), 
+<!--split for double ref-->
+at three-quarter wavelength line (Figure <a href="#02385a.png">  below</a>)
+</p>
+
+ 
+<a name="02383a.png"></a> 
+<p> <img src="02383.png"> </p>  
+<p><i>Source sees short, reflected from open at end of quarter wavelength line.</i></p> 
+
+
+<p>
+</p>
+
+ 
+<a name="02385a.png"></a> 
+<p> <img src="02385.png"> </p>  
+<p><i>Source sees short, reflected from open at end of  three-quarter wavelength line.</i></p> 
+
+
+
+<p>
+<b>Line short-circuited; source &ldquo;sees&rdquo; an open circuit:</b>  at quarter wavelength line (Figure <a href="#02389a.png">  below</a>), 
+<!--split for double ref-->
+at three-quarter wavelength line (Figure <a href="#02391a.png">  below</a>)
+</p>
+
+ 
+<a name="02389a.png"></a> 
+<p> <img src="02389.png"> </p>  
+<p><i>Source sees open, reflected from short at end of quarter wavelength line.</i></p> 
+
+
+<p>
+</p>
+
+ 
+<a name="02391a.png"></a> 
+<p> <img src="02391.png"> </p>  
+<p><i>Source sees open, reflected from short at end of three-quarter wavelength line.</i></p> 
+
+
+<p>
+At these frequencies, the transmission line is actually functioning as an <i>impedance transformer</i>, transforming an infinite impedance into zero impedance, or vice versa.  Of course, this only occurs at resonant points resulting in a standing wave of 1/4 cycle (the line's fundamental, resonant frequency) or some odd multiple (3/4, 5/4, 7/4, 9/4 . . .), but if the signal frequency is known and unchanging, this phenomenon may be used to match otherwise unmatched impedances to each other.
+</p>
+
+<p>
+Take for instance the example circuit from the last section where a 75 &#937; source connects to a 75 &#937; transmission line, terminating in a 100 &#937;  load impedance.  From the numerical figures obtained via SPICE, let's determine what impedance the source &ldquo;sees&rdquo; at its end of the transmission line at the line's resonant frequencies: quarter wavelength (Figure <a href="#02399.png">  below</a>), 
+<!--split for double ref-->
+halfwave length (Figure <a href="#02400.png">  below</a>), 
+three-quarter wavelength (Figure <a href="#02401.png">  below</a>)
+<!--split for double ref-->
+full wavelength (Figure <a href="#02402.png">  below</a>)
+
+</p>
+
+ 
+<a name="02399.png"></a> 
+<p> <img src="02399.png"> </p> 
+<p><i>Source sees 100 &#937; reflected from 100 &#937; load at end of quarter wavelength line.</i></p> 
+ 
+
+<p>
+</p>
+
+ 
+<a name="02400.png"></a> 
+<p> <img src="02400.png"> </p> 
+<p><i>Source sees 100 &#937; reflected from 100 &#937; load at end of half wavelength line.</i></p> 
+ 
+
+<p>
+</p>
+
+ 
+<a name="02401.png"></a> 
+<p> <img src="02401.png"> </p> 
+<p><i>Source sees 56.25 &#937; reflected from 100 &#937; load at end of three-quarter wavelength line (same as quarter wavelength).</i></p> 
+ 
+
+<p>
+</p>
+
+<br> </br>
+
+ 
+<a name="02402.png"></a> 
+<p> <img src="02402.png"> </p> 
+<p><i>Source sees 56.25 &#937; reflected from 100 &#937; load at end of full-wavelength line (same as half-wavelength).</i></p> 
+ 
+
+<p>
+A simple equation relates line impedance (Z<sub>0</sub>), load impedance (Z<sub>load</sub>), and input impedance (Z<sub>input</sub>) for an unmatched transmission line operating at an odd harmonic of its fundamental frequency:
+</p>
+
+<p> <img src="12150.png"> </p> 
+
+<p>
+One practical application of this principle would be to match a 300 &#937; load to a 75 &#937; signal source at a frequency of 50 MHz.  All we need to do is calculate the proper transmission line impedance (Z<sub>0</sub>), and length so that exactly 1/4 of a wave will &ldquo;stand&rdquo; on the line at a frequency of 50 MHz.
+</p>
+
+<p>
+First, calculating the line impedance: taking the 75 &#937; we desire the source to &ldquo;see&rdquo; at the source-end of the transmission line, and multiplying by the 300 &#937; load resistance, we obtain a figure of 22,500.  Taking the square root of 22,500 yields 150 &#937; for a characteristic line impedance.
+</p>
+
+<p>
+Now, to calculate the necessary line length: assuming that our cable has a velocity factor of 0.85, and using a speed-of-light figure of 186,000 miles per second, the velocity of propagation will be 158,100 miles per second.  Taking this velocity and dividing by the signal frequency gives us a wavelength of 0.003162 miles, or 16.695 feet.  Since we only need one-quarter of this length for the cable to support a quarter-wave, the requisite cable length is 4.1738 feet.
+</p>
+
+<p>
+Here is a schematic diagram for the circuit, showing node numbers for the SPICE analysis we're about to run: (Figure <a href="#02403.png">  below</a>)
+</p>
+
+ 
+<a name="02403.png"></a> 
+<p> <img src="02403.png"> </p> 
+<p><i>Quarter wave section of 150 &#937; transmission line matches 75 &#937; source to 300 &#937; load.</i></p> 
+ 
+
+<p>
+We can specify the cable length in SPICE in terms of time delay from beginning to end.  Since the frequency is 50 MHz, the signal period will be the reciprocal of that, or 20 nano-seconds (20 ns).  One-quarter of that time (5 ns) will be the time delay of a transmission line one-quarter wavelength long:
+</p>
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 75
+t1 2 0 3 0 z0=150 td=5n
+rload 3 0 300
+.ac lin 1 50meg 50meg
+.print ac v(1,2) v(1) v(2) v(3)
+.end
+</pre>
+
+
+
+
+<pre>
+freq          v(1,2)      v(1)        v(2)        v(3)        
+5.000E+07     5.000E-01   1.000E+00   5.000E-01   1.000E+00
+</pre>
+
+
+<p>
+At a frequency of 50 MHz, our 1-volt signal source drops half of its voltage across the series 75 &#937; impedance (<tt>v(1,2)</tt>) and the other half of its voltage across the input terminals of the transmission line (<tt>v(2)</tt>).  This means the source &ldquo;thinks&rdquo; it is powering a 75 &#937; load.  The actual load impedance, however, receives a full 1 volt, as indicated by the 1.000 figure at <tt>v(3)</tt>.  With 0.5 volt dropped across 75 &#937;, the source is dissipating 3.333 mW of power: the same as dissipated by 1 volt across the 300 &#937; load, indicating a perfect match of impedance, according to the Maximum Power Transfer Theorem.  The 1/4-wavelength, 150 &#937;, transmission line segment has successfully matched the 300 &#937; load to the 75 &#937; source.
+</p>
+
+<p>
+Bear in mind, of course, that this only works for 50 MHz and its odd-numbered harmonics.  For any other signal frequency to receive the same benefit of matched impedances, the 150 &#937; line would have to lengthened or shortened accordingly so that it was exactly 1/4 wavelength long.
+</p>
+
+<p>
+Strangely enough, the exact same line can also match a 75 &#937; load to a 300 &#937; source, demonstrating how this phenomenon of impedance transformation is fundamentally different in principle from that of a conventional, two-winding transformer:
+</p>
+
+
+
+<pre>
+Transmission line
+v1 1 0 ac 1 sin
+rsource 1 2 300
+t1 2 0 3 0 z0=150 td=5n
+rload 3 0 75
+.ac lin 1 50meg 50meg
+.print ac v(1,2) v(1) v(2) v(3)
+.end
+</pre>
+
+
+
+<pre>
+freq          v(1,2)      v(1)        v(2)        v(3)        
+5.000E+07     5.000E-01   1.000E+00   5.000E-01   2.500E-01
+</pre>
+
+<br> </br>
+
+<p>
+Here, we see the 1-volt source voltage equally split between the 300 &#937; source impedance (<tt>v(1,2)</tt>) and the line's input (<tt>v(2)</tt>), indicating that the load &ldquo;appears&rdquo; as a 300 &#937; impedance from the source's perspective where it connects to the transmission line.  This 0.5 volt drop across the source's 300 &#937; internal impedance yields a power figure of 833.33 &#181;W, the same as the 0.25 volts across the 75 &#937; load, as indicated by voltage figure <tt>v(3)</tt>.  Once again, the impedance values of source and load have been matched by the transmission line segment.
+</p>
+
+<p>
+This technique of impedance matching is often used to match the differing impedance values of transmission line and antenna in radio transmitter systems, because the transmitter's frequency is generally well-known and unchanging.  The use of an impedance &ldquo;transformer&rdquo; 1/4 wavelength in length provides impedance matching using the shortest conductor length possible. (Figure <a href="#02404.png">  below</a>)
+</p>
+
+ 
+<a name="02404.png"></a> 
+<p> <img src="02404.png"> </p> 
+<p><i>Quarter wave 150 &#937; transmission line section matches 75 &#937; line to 300 &#937; antenna.</i></p> 
+ 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A transmission line with standing waves may be used to match different impedance values if operated at the correct frequency(ies).</li>
+<li>When operated at a frequency corresponding to a standing wave of 1/4-wavelength along the transmission line, the line's characteristic impedance necessary for impedance transformation must be equal to the square root of the product of the source's impedance and the load's impedance.</li>
+</ul>
+
+
+
+
+
+
+<h2><u><a name="xtocid35427">Waveguides</a></u></h2>
+
+<a name="Waveguide"></a>
+
+<p>
+A <i>waveguide</i> is a special form of transmission line consisting of a hollow, metal tube.  The tube wall provides distributed inductance, while the empty space between the tube walls provide distributed capacitance: Figure <a href="#02405.png">  below</a>
+</p>
+
+ 
+<a name="02405.png"></a> 
+<p> <img src="02405.png"> </p> 
+<p><i>Wave guides conduct microwave energy at lower loss than coaxial cables.</i></p> 
+ 
+
+<p>
+Waveguides are practical only for signals of extremely high frequency, where the wavelength approaches the cross-sectional dimensions of the waveguide.  Below such frequencies, waveguides are useless as electrical transmission lines.
+</p>
+
+<p>
+When functioning as transmission lines, though, waveguides are considerably simpler than two-conductor cables -- especially coaxial cables -- in their manufacture and maintenance.  With only a single conductor (the waveguide's &ldquo;shell&rdquo;), there are no concerns with proper conductor-to-conductor spacing, or of the consistency of the dielectric material, since the only dielectric in a waveguide is air.  Moisture is not as severe a problem in waveguides as it is within coaxial cables, either, and so waveguides are often spared the necessity of gas &ldquo;filling.&rdquo;
+</p>
+
+<p>
+Waveguides may be thought of as conduits for electromagnetic energy, the waveguide itself acting as nothing more than a &ldquo;director&rdquo; of the energy rather than as a signal conductor in the normal sense of the word.  In a sense, all transmission lines function as conduits of electromagnetic energy when transporting pulses or high-frequency waves, directing the waves as the banks of a river direct a tidal wave.  However, because waveguides are single-conductor elements, the propagation of electrical energy down a waveguide is of a very different nature than the propagation of electrical energy down a two-conductor transmission line.
+</p>
+
+<a name="Principal mode"></a>
+<a name="TEM mode"></a>
+
+<p>
+All electromagnetic waves consist of electric and magnetic fields propagating in the same direction of travel, but perpendicular to each other.  Along the length of a normal transmission line, both electric and magnetic fields are perpendicular (transverse) to the direction of wave travel.  This is known as the <i>principal mode</i>, or <i>TEM</i> (<b>T</b>ransverse <b>E</b>lectric and <b>M</b>agnetic) mode.  This mode of wave propagation can exist only where there are two conductors, and it is the dominant mode of wave propagation where the cross-sectional dimensions of the transmission line are small compared to the wavelength of the signal. (Figure <a href="#02406.png">  below</a>)
+</p>
+
+ 
+<a name="02406.png"></a> 
+<p> <img src="02406.png"> </p> 
+<p><i>Twin lead transmission line propagation: TEM mode.</i></p> 
+ 
+
+<a name="Microwaves"></a>
+<a name="Skin effect"></a>
+
+<p>
+At <i>microwave</i> signal frequencies (between 100 MHz and 300 GHz), two-conductor transmission lines of any substantial length operating in standard TEM mode become impractical.  Lines small enough in cross-sectional dimension to maintain TEM mode signal propagation for microwave signals tend to have low voltage ratings, and suffer from large, parasitic power losses due to conductor &ldquo;skin&rdquo; and dielectric effects.  Fortunately, though, at these short wavelengths there exist other modes of propagation that are not as &ldquo;lossy,&rdquo; if a conductive tube is used rather than two parallel conductors.  It is at these high frequencies that waveguides become practical.
+</p>
+
+<a name="TE mode"></a>
+<a name="TM mode"></a>
+
+<p>
+When an electromagnetic wave propagates down a hollow tube, only one of the fields -- either electric or magnetic -- will actually be transverse to the wave's direction of travel.  The other field will &ldquo;loop&rdquo; longitudinally to the direction of travel, but still be perpendicular to the other field.  Whichever field remains transverse to the direction of travel determines whether the wave propagates in <i>TE</i> mode (<b>T</b>ransverse <b>E</b>lectric) or <i>TM</i> (<b>T</b>ransverse <b>M</b>agnetic) mode. (Figure <a href="#02407.png">  below</a>)
+</p>
+
+ 
+<a name="02407.png"></a> 
+<p> <img src="02407.png"> </p> 
+<p><i>Waveguide (TE) transverse electric and (TM) transverse magnetic modes.</i></p> 
+ 
+
+<p>
+Many variations of each mode exist for a given waveguide, and a full discussion of this is subject well beyond the scope of this book.
+</p>
+
+<a name="Klystron tube"></a>
+
+<p>
+Signals are typically introduced to and extracted from waveguides by means of small antenna-like coupling devices inserted into the waveguide.  Sometimes these coupling elements take the form of a dipole, which is nothing more than two open-ended stub wires of appropriate length.  Other times, the coupler is a single stub (a half-dipole, similar in principle to a &ldquo;whip&rdquo; antenna, 1/4&#955; in physical length), or a short loop of wire terminated on the inside surface of the waveguide: (Figure <a href="#02409.png">  below</a>)
+</p>
+
+ 
+<a name="02409.png"></a> 
+<p> <img src="02409.png"> </p> 
+<p><i>Stub and loop coupling to waveguide.</i></p> 
+ 
+
+<p>
+In some cases, such as a class of vacuum tube devices called <i>inductive output tubes</i> (the so-called <i>klystron</i> tube falls into this category), a &ldquo;cavity&rdquo; formed of conductive material may intercept electromagnetic energy from a modulated beam of electrons, having no contact with the beam itself: (Figure <a href="#02408.png">  below</a> below) 
+</p>
+
+ 
+<a name="02408.png"></a> 
+<p> <img src="02408.png"> </p> 
+<p><i>Klystron inductive output tube.</i></p> 
+ 
+
+<p>
+Just as transmission lines are able to function as resonant elements in a circuit, especially when terminated by a short-circuit or an open-circuit, a dead-ended waveguide may also resonate at particular frequencies.  When used as such, the device is called a <i>cavity resonator</i>.  Inductive output tubes use toroid-shaped cavity resonators to maximize the power transfer efficiency between the electron beam and the output cable.  
+</p>
+
+<p>
+A cavity's resonant frequency may be altered by changing its physical dimensions.  To this end, cavities with movable plates, screws, and other mechanical elements for tuning are manufactured to provide coarse resonant frequency adjustment.
+</p>
+
+<p>
+If a resonant cavity is made open on one end, it functions as a unidirectional antenna.  The following photograph shows a home-made waveguide formed from a tin can, used as an antenna for a 2.4 GHz signal in an &ldquo;802.11b&rdquo; computer communication network.  The coupling element is a quarter-wave stub: nothing more than a piece of solid copper wire about 1-1/4 inches in length extending from the center of a coaxial cable connector penetrating the side of the can: (Figure <a href="#52015.jpg">  below</a>)
+</p>
+
+ 
+<a name="52015.jpg"></a> 
+<p> <img src="52015.jpg"> </p> 
+<p><i>Can-tenna illustrates stub coupling to waveguide.</i></p> 
+ 
+
+<p>
+A few more tin-can antennae may be seen in the background, one of them a &ldquo;Pringles&rdquo; potato chip can.  Although this can is of cardboard (paper) construction, its metallic inner lining provides the necessary conductivity to function as a waveguide.  Some of the cans in the background still have their plastic lids in place.  The plastic, being nonconductive, does not interfere with the RF signal, but functions as a physical barrier to prevent rain, snow, dust, and other physical contaminants from entering the waveguide.  &ldquo;Real&rdquo; waveguide antennae use similar barriers to physically enclose the tube, yet allow electromagnetic energy to pass unimpeded.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Waveguides</i> are metal tubes functioning as &ldquo;conduits&rdquo; for carrying electromagnetic waves.  They are practical only for signals of extremely high frequency, where the signal wavelength approaches the cross-sectional dimensions of the waveguide.</li>
+<li>Wave propagation through a waveguide may be classified into two broad categories: <i>TE</i> (Transverse Electric), or <i>TM</i> (Transverse Magnetic), depending on which field (electric or magnetic) is perpendicular (transverse) to the direction of wave travel.  Wave travel along a standard, two-conductor transmission line is of the <i>TEM</i> (Transverse Electric and Magnetic) mode, where both fields are oriented perpendicular to the direction of travel.  TEM mode is only possible with two conductors and cannot exist in a waveguide.</li>
+<li>A dead-ended waveguide serving as a resonant element in a microwave circuit is called a <i>cavity resonator</i>.</li>
+<li>A cavity resonator with an open end functions as a unidirectional antenna, sending or receiving RF energy to/from the direction of the open end.</li>
+</ul>
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_13.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_A1.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

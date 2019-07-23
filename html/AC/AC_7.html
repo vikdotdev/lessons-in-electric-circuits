@@ -1,0 +1,1399 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 7</title>
+  <meta name="description" content="Mixed-Frequency AC Signals">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, coupling, twisted pair, shield, mutual inductance, noise, sinusoidal, nonsinusoidal, non-sinusoidal, coupling, signal coupling, chord, distortion, harmonic, harmonics, fundamental, frequency, pitch, timbre, color, overtone, square wave, sinewave, sine wave, triangle wave, squarewave, fourier, fourier analysis, fourier transform, fast fourier transform, fft, spectrum, spectrum analyzer, domain, time domain, time-domain, frequency domain, frequency-domain, artifact, measurement artifact, superposition, superposition theorem"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_6.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_8.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 7</h1>
+
+
+
+<!--Modified 04/23/2005 (DC) -- added nutmeg spice plots commented out existing plots.-->
+<!--02/12/2006 (DC) Oscilloscope and spectrum analyzer eps's 02279.eps to 02292.eps appear to not conform to the &ldquo;screen shots&rdquo; convention of 22xxx.png series numbers. Experimentally moved one image to 22050.png  the resulting 22050.eps was smaller file than the original 02279.eps.  However, it a little too big for the latex-pdf book due to 50% scale factor instead of 42% scalefactor in Makefile eps target.The reason these images are soo big is that Tony's original smaller images were unreadable in the latex-pdf, though ok in html. I made these images larger some months ago to make them readable in latex-pdf. I am reluctant to make them smaller again. I opt to leave them as-is.-->
+
+<h1>MIXED-FREQUENCY AC SIGNALS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid34860"><u>Introduction</u></a></li>
+<li><a href="#xtocid34861"><u>Square wave signals</u></a></li>
+<li><a href="#xtocid34862"><u>Other waveshapes</u></a></li>
+<li><a href="#xtocid34863"><u>More on spectrum analysis</u></a></li>
+<li><a href="#xtocid34864"><u>Circuit effects</u></a></li>
+<li><a href="#xtocid34865"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid34860">Introduction</a></u></h2>
+
+<a name="Sinusoidal"></a>
+<a name="Nonsinusoidal"></a>
+<a name="Waveform, sinusoidal"></a>
+<a name="Waveform, nonsinusoidal"></a>
+
+<p>
+In our study of AC circuits thus far, we've explored circuits powered by a single-frequency sine voltage waveform.  In many applications of electronics, though, single-frequency signals are the exception rather than the rule.  Quite often we may encounter circuits where multiple frequencies of voltage coexist simultaneously.  Also, circuit waveforms may be something other than sine-wave shaped, in which case we call them <i>non-sinusoidal waveforms</i>.  
+</p>
+
+<p>
+Additionally, we may encounter situations where DC is mixed with AC: where a waveform is superimposed on a steady (DC) signal.  The result of such a mix is a signal varying in intensity, but never changing polarity, or changing polarity asymmetrically (spending more time positive than negative, for example).  Since DC does not alternate as AC does, its &ldquo;frequency&rdquo; is said to be zero, and any signal containing DC along with a signal of varying intensity (AC) may be rightly called a mixed-frequency signal as well.  In any of these cases where there is a mix of frequencies in the same circuit, analysis is more complex than what we've seen up to this point.
+</p>
+
+<a name="Coupling, signal"></a>
+<a name="Inductive coupling"></a>
+<a name="Capacitive coupling"></a>
+
+<p>
+Sometimes mixed-frequency voltage and current signals are created accidentally.  This may be the result of unintended connections between circuits -- called <i>coupling</i> -- made possible by stray capacitance and/or inductance between the conductors of those circuits.  A classic example of coupling phenomenon is seen frequently in industry where DC signal wiring is placed in close proximity to AC power wiring.  The nearby presence of high AC voltages and currents may cause &ldquo;foreign&rdquo; voltages to be impressed upon the length of the signal wiring.  Stray capacitance formed by the electrical insulation separating power conductors from signal conductors may cause voltage (with respect to earth ground) from the power conductors to be impressed upon the signal conductors, while stray inductance formed by parallel runs of wire in conduit may cause current from the power conductors to electromagnetically induce voltage along the signal conductors.  The result is a mix of DC and AC at the signal load.  The following schematic shows how an AC &ldquo;noise&rdquo; source may &ldquo;couple&rdquo; to a DC circuit through mutual inductance (M<sub>stray</sub>) and capacitance (C<sub>stray</sub>) along the length of the conductors.  (Figure <a href="#02302.png">  below</a>)
+</p>
+
+ 
+<a name="02302.png"></a> 
+<p> <img src="02302.png"> </p> 
+<p><i>Stray inductance and capacitance couple stray AC into desired DC signal.</i></p> 
+ 
+
+<a name="Twisted pair cable"></a>
+<a name="Shielded cable"></a>
+<a name="Cable, twisted pair"></a>
+<a name="Cable, shielded"></a>
+
+<p>
+When stray AC voltages from a &ldquo;noise&rdquo; source mix with DC signals conducted along signal wiring, the results are usually undesirable.  For this reason, power wiring and low-level signal wiring should <i>always</i> be routed through separated, dedicated metal conduit, and signals should be conducted via 2-conductor &ldquo;twisted pair&rdquo; cable rather than through a single wire and ground connection: (Figure <a href="#02303.png">  below</a>)
+</p>
+
+ 
+<a name="02303.png"></a> 
+<p> <img src="02303.png"> </p> 
+<p><i>Shielded twisted pair minimized noise.</i></p> 
+ 
+
+<a name="Shield grounding"></a>
+
+<p>
+The grounded cable shield -- a wire braid or metal foil wrapped around the two insulated conductors -- isolates both conductors from electrostatic (capacitive) coupling by blocking any external electric fields, while the parallal proximity of the two conductors effectively cancels any electromagnetic (mutually inductive) coupling because any induced noise voltage will be approximately equal in magnitude and opposite in phase along both conductors, canceling each other at the receiving end for a net (differential) noise voltage of almost zero.  Polarity marks placed near each inductive portion of signal conductor length shows how the induced voltages are phased in such a way as to cancel one another.
+</p>
+
+<p>
+Coupling may also occur between two sets of conductors carrying AC signals, in which case both signals may become &ldquo;mixed&rdquo; with each other: (Figure <a href="#02304.png">  below</a>)
+</p>
+
+ 
+<a name="02304.png"></a> 
+<p> <img src="02304.png"> </p> 
+<p><i>Coupling of AC signals between parallel conductors.</i></p> 
+ 
+
+<p>
+Coupling is but one example of how signals of different frequencies may become mixed.  Whether it be AC mixed with DC, or two AC signals mixing with each other, signal coupling via stray inductance and capacitance is usually accidental and undesired.  In other cases, mixed-frequency signals are the result of intentional design or they may be an intrinsic quality of a signal.  It is generally quite easy to create mixed-frequency signal sources.  Perhaps the easiest way is to simply connect voltage sources in series: (Figure <a href="#02109.png">  below</a>)
+</p>
+
+ 
+<a name="02109.png"></a> 
+<p> <img src="02109.png"> </p> 
+<p><i>Series connection of voltage sources mixes signals.</i></p> 
+ 
+
+<p>
+Some computer communications networks operate on the principle of superimposing high-frequency voltage signals along 60 Hz power-line conductors, so as to convey computer data along existing lengths of power cabling.  This technique has been used for years in electric power distribution networks to communicate load data along high-voltage power lines.  Certainly these are examples of mixed-frequency AC voltages, under conditions that are deliberately established.
+</p>
+
+<p>
+In some cases, mixed-frequency signals may be produced by a single voltage source.  Such is the case with microphones, which convert audio-frequency air pressure waves into corresponding voltage waveforms.  The particular mix of frequencies in the voltage signal output by the microphone is dependent on the sound being reproduced.  If the sound waves consist of a single, pure note or tone, the voltage waveform will likewise be a sine wave at a single frequency.  If the sound wave is a chord or other harmony of several notes, the resulting voltage waveform produced by the microphone will consist of those frequencies mixed together.  Very few natural sounds consist of single, pure sine wave vibrations but rather are a mix of different frequency vibrations at different amplitudes.
+</p>
+
+<a name="Harmonic"></a>
+<a name="Fundamental frequency"></a>
+<a name="Frequency, fundamental"></a>
+<a name="Chord, music"></a>
+
+<p>
+Musical <i>chords</i> are produced by blending one frequency with other frequencies of particular fractional multiples of the first.  However, investigating a little further, we find that even a single piano note (produced by a plucked string) consists of one predominant frequency mixed with several other frequencies, each frequency a whole-number multiple of the first (called <i>harmonics</i>, while the first frequency is called the <i>fundamental</i>).  An illustration of these terms is shown    in Table <a href="#harmonic.tbl">  below</a> with a fundamental frequency of 1000 Hz (an arbitrary figure chosen for this example).
+</p>
+
+ 
+<a name="harmonic.tbl"><p><i>For a &ldquo;base&rdquo; frequency of 1000 Hz:</i></p></a>
+<table border="1" style="background-color: #E0FFFF; " >
+
+
+<tr>
+<th>Frequency (Hz)</th><th>Term</th>
+</tr>
+
+
+<tr>
+<td>1000</td><td>1st harmonic, or fundamental</td>
+</tr>
+
+
+<tr>
+<td>2000</td><td>2nd harmonic</td>
+</tr>
+
+
+<tr>
+<td>3000</td><td>3rd harmonic</td>
+</tr>
+
+
+<tr>
+<td>4000</td><td>4th harmonic</td>
+</tr>
+
+
+<tr>
+<td>5000</td><td>5th harmonic</td>
+</tr>
+
+
+<tr>
+<td>6000</td><td>6th harmonic</td>
+</tr>
+
+
+<tr>
+<td>7000</td><td>7th harmonic</td>
+</tr>
+
+
+</table>
+
+
+
+
+<a name="Overtone"></a>
+
+<p>
+Sometimes the term &ldquo;overtone&rdquo; is used to describe the a harmonic frequency produced by a musical instrument.  The &ldquo;first&rdquo; overtone is the first harmonic frequency <i>greater than</i> the fundamental.  If we had an instrument producing the entire range of harmonic frequencies shown in the table above, the first overtone would be 2000 Hz (the 2nd harmonic), while the second overtone would be 3000 Hz (the 3rd harmonic), etc.  However, this application of the term &ldquo;overtone&rdquo; is specific to particular instruments.  
+</p>
+
+<p>
+It so happens that certain instruments are incapable of producing certain types of harmonic frequencies.  For example, an instrument made from a tube that is open on one end and closed on the other (such as a bottle, which produces sound when air is blown across the opening) is incapable of producing even-numbered harmonics.  Such an instrument set up to produce a fundamental frequency of 1000 Hz would also produce frequencies of 3000 Hz, 5000 Hz, 7000 Hz, etc, but would <i>not</i> produce 2000 Hz, 4000 Hz, 6000 Hz, or any other even-multiple frequencies of the fundamental.  As such, we would say that the first overtone (the first frequency greater than the fundamental) in such an instrument would be 3000 Hz (the 3rd harmonic), while the second overtone would be 5000 Hz (the 5th harmonic), and so on.
+</p>
+
+<p>
+A pure sine wave (single frequency), being entirely devoid of any harmonics, sounds very &ldquo;flat&rdquo; and &ldquo;featureless&rdquo; to the human ear.  Most musical instruments are incapable of producing sounds this simple.  What gives each instrument its distinctive tone is the same phenomenon that gives each person a distinctive voice: the unique blending of harmonic waveforms with each fundamental note, described by the physics of motion for each unique object producing the sound.
+</p>
+
+<a name="Timbre"></a>
+<a name="Color (musical)"></a>
+
+<p>
+Brass instruments do not possess the same &ldquo;harmonic content&rdquo; as woodwind instruments, and neither produce the same harmonic content as stringed instruments.  A distinctive blend of frequencies is what gives a musical instrument its characteristic tone.  As anyone who has played guitar can tell you, steel strings have a different sound than nylon strings.  Also, the tone produced by a guitar string changes depending on where along its length it is plucked.  These differences in tone, as well, are a result of different harmonic content produced by differences in the mechanical vibrations of an instrument's parts.  All these instruments produce harmonic frequencies (whole-number multiples of the fundamental frequency) when a single note is played, but the relative amplitudes of those harmonic frequencies are different for different instruments.  In musical terms, the measure of a tone's harmonic content is called <i>timbre</i> or <i>color</i>.
+</p>
+
+<p>
+Musical tones become even more complex when the resonating element of an instrument is a two-dimensional surface rather than a one-dimensional string.  Instruments based on the vibration of a string (guitar, piano, banjo, lute, dulcimer, etc.) or of a column of air in a tube (trumpet, flute, clarinet, tuba, pipe organ, etc.) tend to produce sounds composed of a single frequency (the &ldquo;fundamental&rdquo;) and a mix of harmonics.  Instruments based on the vibration of a flat plate (steel drums, and some types of bells), however, produce a much broader range of frequencies, not limited to whole-number multiples of the fundamental.  The result is a distinctive tone that some people find acoustically offensive.
+</p>
+
+<p>
+As you can see, music provides a rich field of study for mixed frequencies and their effects.  Later sections of this chapter will refer to musical instruments as sources of waveforms for analysis in more detail.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>sinusoidal</i> waveform is one shaped exactly like a sine wave.</li>
+<li>A <i>non-sinusoidal</i> waveform can be anything from a distorted sine-wave shape to something completely different like a square wave.</li>
+<li>Mixed-frequency waveforms can be accidently created, purposely created, or simply exist out of necessity.  Most musical tones, for instance, are not composed of a single frequency sine-wave, but are rich blends of different frequencies.</li>
+<li>When multiple sine waveforms are mixed together (as is often the case in music), the lowest frequency sine-wave is called the <i>fundamental</i>, and the other sine-waves whose frequencies are whole-number multiples of the fundamental wave are called <i>harmonics</i>.</li>
+<li>An <i>overtone</i> is a harmonic produced by a particular device.  The &ldquo;first&rdquo; overtone is the first frequency greater than the fundamental, while the &ldquo;second&rdquo; overtone is the next greater frequency produced.  Successive overtones may or may not correspond to incremental harmonics, depending on the device producing the mixed frequencies.  Some devices and systems do not permit the establishment of certain harmonics, and so their overtones would only include some (not all) harmonic frequencies.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34861">Square wave signals</a></u></h2>
+
+<a name="Square wave"></a>
+<a name="Wave, square"></a>
+
+<p>
+It has been found that <i>any</i> repeating, non-sinusoidal waveform can be equated to a combination of DC voltage, sine waves, and/or cosine waves (sine waves with a 90 degree phase shift) at various amplitudes and frequencies.  This is true no matter how strange or convoluted the waveform in question may be.  So long as it repeats itself regularly over time, it is reducible to this series of sinusoidal waves.  In particular, it has been found that square waves are mathematically equivalent to the sum of a sine wave at that same frequency, plus an infinite series of odd-multiple frequency sine waves at diminishing amplitude:
+</p>
+
+<p> <img src="12093.png"> </p> 
+
+<p>
+This truth about waveforms at first may seem too strange to believe.  However, if a square wave is actually an infinite series of sine wave harmonics added together, it stands to reason that we should be able to prove this by adding together several sine wave harmonics to produce a close approximation of a square wave.  This reasoning is not only sound, but easily demonstrated with SPICE.
+</p>
+
+<p>
+The circuit we'll be simulating is nothing more than several sine wave AC voltage sources of the proper amplitudes and frequencies connected together in series.  We'll use SPICE to plot the voltage waveforms across successive additions of voltage sources, like this: (Figure <a href="#02110.png">  below</a>)
+</p>
+
+ 
+<a name="02110.png"></a> 
+<p> <img src="02110.png"> </p> 
+<p><i>A square wave is approximated by the sum of harmonics.</i></p> 
+ 
+
+<p>
+In this particular SPICE simulation, I've summed the 1st, 3rd, 5th, 7th, and 9th harmonic voltage sources in series for a total of five AC voltage sources.  The fundamental frequency is 50 Hz and each harmonic is, of course, an integer multiple of that frequency.  The amplitude (voltage) figures are not random numbers; rather, they have been arrived at through the equations shown in the frequency series (the fraction 4/&#960; multiplied by 1, 1/3, 1/5, 1/7, etc. for each of the increasing odd harmonics). 
+</p>
+
+
+<pre>
+building a squarewave 
+v1 1 0 sin (0 1.27324 50 0 0)       1st harmonic (50 Hz)
+v3 2 1 sin (0 424.413m 150 0 0)     3rd harmonic
+v5 3 2 sin (0 254.648m 250 0 0)     5th harmonic
+v7 4 3 sin (0 181.891m 350 0 0)     7th harmonic
+v9 5 4 sin (0 141.471m 450 0 0)     9th harmonic
+r1 5 0 10k      
+.tran 1m 20m    
+.plot tran v(1,0)    Plot 1st harmonic    
+.plot tran v(2,0)    Plot 1st + 3rd harmonics
+.plot tran v(3,0)    Plot 1st + 3rd + 5th harmonics
+.plot tran v(4,0)    Plot 1st + 3rd + 5th + 7th harmonics
+.plot tran v(5,0)    Plot 1st + . . . + 9th harmonics
+.end 
+</pre>
+
+
+<p>
+I'll narrate the analysis step by step from here, explaining what it is we're looking at.  In this first plot, we see the fundamental-frequency sine-wave of 50 Hz by itself.  It is nothing but a pure sine shape, with no additional harmonic content.  This is the kind of waveform produced by an ideal AC power source:  (Figure <a href="#22013.png">  below</a>)
+</p>
+
+
+<!--time       v(1)          -1.000E+00    0.000E+00    1.000E+00 --> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       .             *             .       .-->
+<!--1.000E-03  3.915E-01 .       .             .    *        .       .-->
+<!--2.000E-03  7.414E-01 .       .             .         *   .       .-->
+<!--3.000E-03  1.020E+00 .       .             .             *       .-->
+<!--4.000E-03  1.199E+00 .       .             .             .  *    .-->
+<!--5.000E-03  1.261E+00 .       .             .             .   *   .-->
+<!--6.000E-03  1.199E+00 .       .             .             .  *    .-->
+<!--7.000E-03  1.020E+00 .       .             .             *       .-->
+<!--8.000E-03  7.405E-01 .       .             .         *   .       .-->
+<!--9.000E-03  3.890E-01 .       .             .    *        .       .-->
+<!--1.000E-02 -5.819E-04 .       .             *             .       .-->
+<!--1.100E-02 -3.901E-01 .       .        *    .             .       .-->
+<!--1.200E-02 -7.414E-01 .       .   *         .             .       .-->
+<!--1.300E-02 -1.020E+00 .       *             .             .       .-->
+<!--1.400E-02 -1.199E+00 .    *  .             .             .       .-->
+<!--1.500E-02 -1.261E+00 .   *   .             .             .       .-->
+<!--1.600E-02 -1.199E+00 .    *  .             .             .       .-->
+<!--1.700E-02 -1.020E+00 .       *             .             .       .-->
+<!--1.800E-02 -7.405E-01 .       .   *         .             .       .-->
+<!--1.900E-02 -3.890E-01 .       .        *    .             .       .-->
+<!--2.000E-02  5.819E-04 .       .             *             .       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+
+
+ 
+<a name="22013.png"></a> 
+<p> <img src="22013.png"> </p> 
+<p><i>Pure 50 Hz sinewave.</i></p> 
+ 
+
+<p>
+Next, we see what happens when this clean and simple waveform is combined with the third harmonic (three times 50 Hz, or 150 Hz).  Suddenly, it doesn't look like a clean sine wave any more: (Figure <a href="#22014.png">  below</a>)
+</p>
+
+
+
+<!--time       v(2)          -1.000E+00    0.000E+00    1.000E+00-->  
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       .             *             .       .-->
+<!--1.000E-03  7.199E-01 .       .             .         *   .       .-->
+<!--2.000E-03  1.108E+00 .       .             .             . *     .-->
+<!--3.000E-03  1.135E+00 .       .             .             . *     .-->
+<!--4.000E-03  9.672E-01 .       .             .             *       .-->
+<!--5.000E-03  8.731E-01 .       .             .           * .       .-->
+<!--6.000E-03  9.751E-01 .       .             .             *       .-->
+<!--7.000E-03  1.144E+00 .       .             .             . *     .-->
+<!--8.000E-03  1.111E+00 .       .             .             . *     .-->
+<!--9.000E-03  6.995E-01 .       .             .         *   .       .-->
+<!--1.000E-02 -5.697E-03 .       .             *             .       .-->
+<!--1.100E-02 -7.066E-01 .       .   *         .             .       .-->
+<!--1.200E-02 -1.108E+00 .     * .             .             .       .-->
+<!--1.300E-02 -1.135E+00 .     * .             .             .       .-->
+<!--1.400E-02 -9.672E-01 .       *             .             .       .-->
+<!--1.500E-02 -8.731E-01 .       . *           .             .       .-->
+<!--1.600E-02 -9.751E-01 .       *             .             .       .-->
+<!--1.700E-02 -1.144E+00 .     * .             .             .       .-->
+<!--1.800E-02 -1.111E+00 .     * .             .             .       .-->
+<!--1.900E-02 -6.995E-01 .       .   *         .             .       .-->
+<!--2.000E-02  5.697E-03 .       .             *             .       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+ 
+<a name="22014.png"></a> 
+<p> <img src="22014.png"> </p> 
+<p><i>Sum of 1st (50 Hz) and 3rd (150 Hz) harmonics approximates a 50 Hz square wave.</i></p> 
+ 
+
+<p>
+The rise and fall times between positive and negative cycles are much steeper now, and the crests of the wave are closer to becoming flat like a squarewave.  Watch what happens as we add the next odd harmonic frequency: (Figure <a href="#22015.png">  below</a>)
+</p>
+
+
+
+     <!--time      v(3)-->    
+
+<!--time       v(3)          -1.000E+00    0.000E+00     1.000E+00 -->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       .             *             .       .-->
+<!--1.000E-03  9.436E-01 .       .             .            *.       .-->
+<!--2.000E-03  1.095E+00 .       .             .             .*      .-->
+<!--3.000E-03  9.388E-01 .       .             .            *.       .-->
+<!--4.000E-03  9.807E-01 .       .             .             *       .-->
+<!--5.000E-03  1.069E+00 .       .             .             .*      .-->
+<!--6.000E-03  9.616E-01 .       .             .            *.       .-->
+<!--7.000E-03  9.479E-01 .       .             .            *.       .-->
+<!--8.000E-03  1.124E+00 .       .             .             . *     .-->
+<!--9.000E-03  8.957E-01 .       .             .            *.       .-->
+<!--1.000E-02 -1.925E-02 .       .             *             .       .-->
+<!--1.100E-02 -9.029E-01 .       .*            .             .       .-->
+<!--1.200E-02 -1.095E+00 .      *.             .             .       .-->
+<!--1.300E-02 -9.388E-01 .       .*            .             .       .-->
+<!--1.400E-02 -9.807E-01 .       *             .             .       .-->
+<!--1.500E-02 -1.069E+00 .      *.             .             .       .-->
+<!--1.600E-02 -9.616E-01 .       .*            .             .       .-->
+<!--1.700E-02 -9.479E-01 .       .*            .             .       .-->
+<!--1.800E-02 -1.124E+00 .     * .             .             .       .-->
+<!--1.900E-02 -8.957E-01 .       .*            .             .       .-->
+<!--2.000E-02  1.925E-02 .       .             *             .       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+ 
+<a name="22015.png"></a> 
+<p> <img src="22015.png"> </p> 
+<p><i>Sum of 1st, 3rd and 5th harmonics approximates square wave.</i></p> 
+ 
+
+<p>
+The most noticeable change here is how the crests of the wave have flattened even more.  There are more several dips and crests at each end of the wave, but those dips and crests are smaller in amplitude than they were before.  Watch again as we add the next odd harmonic waveform to the mix: (Figure <a href="#22016.png">  below</a>)
+</p>
+
+
+
+<!--time       v(4)            -1.000E+00    0.000E+00    1.000E+00-->  
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       .             *             .       .-->
+<!--1.000E-03  1.055E+00 .       .             .             .*      .-->
+<!--2.000E-03  9.861E-01 .       .             .             *       .-->
+<!--3.000E-03  9.952E-01 .       .             .             *       .-->
+<!--4.000E-03  1.023E+00 .       .             .             *       .-->
+<!--5.000E-03  9.631E-01 .       .             .            *.       .-->
+<!--6.000E-03  1.044E+00 .       .             .             .*      .-->
+<!--7.000E-03  9.572E-01 .       .             .            *.       .-->
+<!--8.000E-03  1.031E+00 .       .             .             *       .-->
+<!--9.000E-03  9.962E-01 .       .             .             *       .-->
+<!--1.000E-02 -4.396E-02 .       .            *.             .       .-->
+<!--1.100E-02 -9.743E-01 .       *             .             .       .-->
+<!--1.200E-02 -9.861E-01 .       *             .             .       .-->
+<!--1.300E-02 -9.952E-01 .       *             .             .       .-->
+<!--1.400E-02 -1.023E+00 .       *             .             .       .-->
+<!--1.500E-02 -9.631E-01 .       .*            .             .       .-->
+<!--1.600E-02 -1.044E+00 .      *.             .             .       .-->
+<!--1.700E-02 -9.572E-01 .       .*            .             .       .-->
+<!--1.800E-02 -1.031E+00 .       *             .             .       .-->
+<!--1.900E-02 -9.962E-01 .       *             .             .       .-->
+<!--2.000E-02  4.396E-02 .       .             .*            .       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+ 
+<a name="22016.png"></a> 
+<p> <img src="22016.png"> </p> 
+<p><i>Sum of 1st, 3rd, 5th, and 7th harmonics approximates square wave.</i></p> 
+ 
+
+<p>
+Here we can see the wave becoming flatter at each peak.  Finally, adding the 9th harmonic, the fifth sine wave voltage source in our circuit, we obtain this result: (Figure <a href="#22017.png">  below</a>)
+</p>
+
+
+
+<!--time       v(5)          -1.000E+00    0.000E+00    1.000E+00-->  
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       .             *             .       .-->
+<!--1.000E-03  1.079E+00 .       .             .             .*      .-->
+<!--2.000E-03  9.845E-01 .       .             .             *       .-->
+<!--3.000E-03  1.017E+00 .       .             .             *       .-->
+<!--4.000E-03  9.835E-01 .       .             .             *       .-->
+<!--5.000E-03  1.017E+00 .       .             .             *       .-->
+<!--6.000E-03  9.814E-01 .       .             .             *       .-->
+<!--7.000E-03  1.023E+00 .       .             .             *       .-->
+<!--8.000E-03  9.691E-01 .       .             .             *       .-->
+<!--9.000E-03  1.048E+00 .       .             .             .*      .-->
+<!--1.000E-02 -8.103E-02 .       .            *.             .       .-->
+<!--1.100E-02 -9.557E-01 .       .*            .             .       .-->
+<!--1.200E-02 -9.845E-01 .       *             .             .       .-->
+<!--1.300E-02 -1.017E+00 .       *             .             .       .-->
+<!--1.400E-02 -9.835E-01 .       *             .             .       .-->
+<!--1.500E-02 -1.017E+00 .       *             .             .       .-->
+<!--1.600E-02 -9.814E-01 .       *             .             .       .-->
+<!--1.700E-02 -1.023E+00 .       *             .             .       .-->
+<!--1.800E-02 -9.691E-01 .       *             .             .       .-->
+<!--1.900E-02 -1.048E+00 .      *.             .             .       .-->
+<!--2.000E-02  8.103E-02 .       .             .*            .       .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+ 
+<a name="22017.png"></a> 
+<p> <img src="22017.png"> </p> 
+<p><i>Sum of 1st, 3rd, 5th, 7th and 9th harmonics approximates square wave.</i></p> 
+ 
+
+<p>
+The end result of adding the first five odd harmonic waveforms together (all at the proper amplitudes, of course) is a close approximation of a square wave.  The point in doing this is to illustrate how we can build a square wave up from multiple sine waves at different frequencies, to prove that a pure square wave is actually equivalent to a <i>series</i> of sine waves.  When a square wave AC voltage is applied to a circuit with reactive components (capacitors and inductors), those components react as if they were being exposed to several sine wave voltages of different frequencies, which in fact they are.
+</p>
+
+<a name="Fourier analysis"></a>
+<a name="Analysis, Fourier"></a>
+
+<p>
+The fact that repeating, non-sinusoidal waves are equivalent to a definite series of additive DC voltage, sine waves, and/or cosine waves is a consequence of how waves work: a fundamental property of all wave-related phenomena, electrical or otherwise.  The mathematical process of reducing a non-sinusoidal wave into these constituent frequencies is called <i>Fourier analysis</i>, the details of which are well beyond the scope of this text.  However, computer algorithms have been created to perform this analysis at high speeds on real waveforms, and its application in AC power quality and signal analysis is widespread.
+</p>
+
+<a name="Fourier Transform"></a>
+<a name="Transform, Fourier"></a>
+
+<p>
+SPICE has the ability to sample a waveform and reduce it into its constituent sine wave harmonics by way of a <i>Fourier Transform</i> algorithm, outputting the frequency analysis as a table of numbers.  Let's try this on a square wave, which we already know is composed of odd-harmonic sine waves:
+</p>
+
+
+<pre>
+squarewave analysis netlist
+v1 1 0 pulse (-1 1 0 .1m .1m 10m 20m)   
+r1 1 0 10k      
+.tran 1m 40m    
+.plot tran v(1,0)       
+.four 50 v(1,0) 
+.end    
+</pre>
+
+
+<p>
+The <i>pulse</i> option in the netlist line describing voltage source <tt>v1</tt> instructs SPICE to simulate a square-shaped &ldquo;pulse&rdquo; waveform, in this case one that is symmetrical (equal time for each half-cycle) and has a peak amplitude of 1 volt.  First we'll plot the square wave to be analyzed: (Figure <a href="#22018.png">  below</a>)
+</p>
+
+<!--time       v(1)     -1         -0.5          0          0.5     1-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00 -1.000E+00 *         .           .           .         .-->
+<!--1.000E-03  1.000E+00 .         .           .           .         *-->
+<!--2.000E-03  1.000E+00 .         .           .           .         *-->
+<!--3.000E-03  1.000E+00 .         .           .           .         *-->
+<!--4.000E-03  1.000E+00 .         .           .           .         *-->
+<!--5.000E-03  1.000E+00 .         .           .           .         *-->
+<!--6.000E-03  1.000E+00 .         .           .           .         *-->
+<!--7.000E-03  1.000E+00 .         .           .           .         *-->
+<!--8.000E-03  1.000E+00 .         .           .           .         *-->
+<!--9.000E-03  1.000E+00 .         .           .           .         *-->
+<!--1.000E-02  1.000E+00 .         .           .           .         *-->
+<!--1.100E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.200E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.300E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.400E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.500E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.600E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.700E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.800E-02 -1.000E+00 *         .           .           .         .-->
+<!--1.900E-02 -1.000E+00 *         .           .           .         .-->
+<!--2.000E-02 -1.000E+00 *         .           .           .         .-->
+<!--2.100E-02  1.000E+00 .         .           .           .         *-->
+<!--2.200E-02  1.000E+00 .         .           .           .         *-->
+<!--2.300E-02  1.000E+00 .         .           .           .         *-->
+<!--2.400E-02  1.000E+00 .         .           .           .         *-->
+<!--2.500E-02  1.000E+00 .         .           .           .         *-->
+<!--2.600E-02  1.000E+00 .         .           .           .         *-->
+<!--2.700E-02  1.000E+00 .         .           .           .         *-->
+<!--2.800E-02  1.000E+00 .         .           .           .         *-->
+<!--2.900E-02  1.000E+00 .         .           .           .         *-->
+<!--3.000E-02  1.000E+00 .         .           .           .         *-->
+<!--3.100E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.200E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.300E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.400E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.500E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.600E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.700E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.800E-02 -1.000E+00 *         .           .           .         .-->
+<!--3.900E-02 -1.000E+00 *         .           .           .         .-->
+<!--4.000E-02 -1.000E+00 *         .           .           .         .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+ 
+<a name="22018.png"></a> 
+<p> <img src="22018.png"> </p> 
+<p><i>Squarewave for SPICE Fourier analysis</i></p> 
+ 
+
+<p>
+Next, we'll print the Fourier analysis generated by SPICE for this square wave:
+</p>
+
+
+<pre>
+fourier components of transient response v(1)    
+dc component =  -2.439E-02
+harmonic  frequency   fourier     normalized   phase   normalized
+no          (hz)     component    component    (deg)   phase (deg)
+1         5.000E+01   1.274E+00     1.000000    -2.195       0.000
+2         1.000E+02   4.892E-02     0.038415   -94.390     -92.195
+3         1.500E+02   4.253E-01     0.333987    -6.585      -4.390
+4         2.000E+02   4.936E-02     0.038757   -98.780     -96.585
+5         2.500E+02   2.562E-01     0.201179   -10.976      -8.780
+6         3.000E+02   5.010E-02     0.039337  -103.171    -100.976
+7         3.500E+02   1.841E-01     0.144549   -15.366     -13.171
+8         4.000E+02   5.116E-02     0.040175  -107.561    -105.366
+9         4.500E+02   1.443E-01     0.113316   -19.756     -17.561
+total harmonic distortion =     43.805747  percent
+</pre>
+
+
+ 
+<a name="22019.png"></a> 
+<p> <img src="22019.png"> </p> 
+<p><i>Plot of Fourier analysis esults.</i></p> 
+ <!--fourier-->
+
+<!--Above plot produced with gnuplot...comands follow-->
+<!--Extract the fourier 9 lines, 6 columns of data. Insert a line of five zeros at the top of the data file and save it as fourier.dat. It now has ten lines-->
+<!-- gnuplot-->
+<!--set size 0.6,0.6-->
+<!--set xlabel &ldquo;harmonic number&rdquo;-->
+<!--set ylabel &ldquo;Relative Amplitude&rdquo;-->
+<!--plot &ldquo;fourier.dat&rdquo; using 0:3 with impulses-->
+<!--set terminal postscript eps color dashed &ldquo;Helvetica&rdquo; 18-->
+<!--set output &ldquo;fourier.eps&rdquo;-->
+<!--plot &ldquo;fourier.dat&rdquo; using 0:3 with impulses linewidth 30-->
+<!--from a command prompt on another screen -->
+<!--display fourier.eps-->
+
+<p>
+Here, (Figure <a href="#22019.png">  above</a>) SPICE has broken the waveform down into a spectrum of sinusoidal frequencies up to the ninth harmonic, plus a small DC voltage labelled <tt>DC component</tt>.  I had to inform SPICE of the fundamental frequency (for a square wave with a 20 millisecond period, this frequency is 50 Hz), so it knew how to classify the harmonics.  Note how small the figures are for all the even harmonics (2nd, 4th, 6th, 8th), and how the amplitudes of the odd harmonics diminish (1st is largest, 9th is smallest). 
+</p>
+
+<a name="Fast Fourier Transform"></a>
+<a name="FFT"></a>
+
+<p>
+This same technique of &ldquo;Fourier Transformation&rdquo; is often used in computerized power instrumentation, sampling the AC waveform(s) and determining the harmonic content thereof.  A common computer algorithm (sequence of program steps to perform a task) for this is the <i>Fast Fourier Transform</i> or <i>FFT</i> function.  You need not be concerned with exactly how these computer routines work, but be aware of their existence and application.
+</p>
+
+<a name="Graphic equalizer"></a>
+<a name="Equalizer, graphic"></a>
+
+<p>
+This same mathematical technique used in SPICE to analyze the harmonic content of waves can be applied to the technical analysis of music: breaking up any particular sound into its constituent sine-wave frequencies.  In fact, you may have already seen a device designed to do just that without realizing what it was!  A <i>graphic equalizer</i> is a piece of high-fidelity stereo equipment that controls (and sometimes displays) the nature of music's harmonic content.  Equipped with several knobs or slide levers, the equalizer is able to selectively attenuate (reduce) the amplitude of certain frequencies present in music, to &ldquo;customize&rdquo; the sound for the listener's benefit.  Typically, there will be a &ldquo;bar graph&rdquo; display next to each control lever, displaying the amplitude of each particular frequency. (Figure <a href="#02264.png">  below</a>)
+</p>
+
+ 
+<a name="02264.png"></a> 
+<p> <img src="02264.png"> </p> 
+<p><i>Hi-Fi audio  graphic equalizer.</i></p> 
+ 
+
+<a name="Spectrum analyzer"></a>
+<a name="Analyzer, spectrum"></a>
+
+<p>
+A device built strictly to display -- not control -- the amplitudes of each frequency range for a mixed-frequency signal is typically called a <i>spectrum analyzer</i>.  The design of spectrum analyzers may be as simple as a set of &ldquo;filter&rdquo; circuits (see the next chapter for details) designed to separate the different frequencies from each other, or as complex as a special-purpose digital computer running an FFT algorithm to mathematically split the signal into its harmonic components.  Spectrum analyzers are often designed to analyze extremely high-frequency signals, such as those produced by radio transmitters and computer network hardware.  In that form, they often have an appearance like that of an oscilloscope: (Figure <a href="#02265.png">  below</a>)
+</p>
+
+ 
+<a name="02265.png"></a> 
+<p> <img src="02265.png"> </p> 
+<p><i>Spectrum analyzer shows amplitude as a function of frequency.</i></p> 
+ 
+
+<a name="Domain, time"></a>
+<a name="Domain, frequency"></a>
+<a name="Analysis, frequency domain"></a>
+<a name="Analysis, time domain"></a>
+<a name="Bode plot"></a>
+
+<p>
+Like an oscilloscope, the spectrum analyzer uses a CRT (or a computer display mimicking a CRT) to display a plot of the signal.  Unlike an oscilloscope, this plot is amplitude over <i>frequency</i> rather than amplitude over <i>time</i>.  In essence, a frequency analyzer gives the operator a Bode plot of the signal: something an engineer might call a <i>frequency-domain</i> rather than a <i>time-domain</i> analysis.  
+</p>
+
+<p>
+The term &ldquo;domain&rdquo; is mathematical: a sophisticated word to describe the horizontal axis of a graph.  Thus, an oscilloscope's plot of amplitude (vertical) over time (horizontal) is a &ldquo;time-domain&rdquo; analysis, whereas a spectrum analyzer's plot of amplitude (vertical) over frequency (horizontal) is a &ldquo;frequency-domain&rdquo; analysis.  When we use SPICE to plot signal amplitude (either voltage or current amplitude) over a range of frequencies, we are performing <i>frequency-domain</i> analysis.
+</p>
+
+<p>
+Please take note of how the Fourier analysis from the last SPICE simulation isn't &ldquo;perfect.&rdquo;  Ideally, the amplitudes of all the even harmonics should be absolutely zero, and so should the DC component.  Again, this is not so much a quirk of SPICE as it is a property of waveforms in general.  A waveform of infinite duration (infinite number of cycles) can be analyzed with absolute precision, but the less cycles available to the computer for analysis, the less precise the analysis.  It is only when we have an equation describing a waveform in its entirety that Fourier analysis can reduce it to a definite series of sinusoidal waveforms.  The fewer times that a wave cycles, the less certain its frequency is.  Taking this concept to its logical extreme, a short pulse -- a waveform that doesn't even complete a cycle -- actually <i>has no frequency</i>, but rather acts as an infinite range of frequencies.  This principle is common to <i>all</i> wave-based phenomena, not just AC voltages and currents.
+</p>
+
+<p>
+Suffice it to say that the number of cycles and the certainty of a waveform's frequency component(s) are directly related.  We could improve the precision of our analysis here by letting the wave oscillate on and on for many cycles, and the result would be a spectrum analysis more consistent with the ideal.  In the following analysis, I've omitted the waveform plot for brevity's sake -- its just a really long square wave:
+</p>
+
+
+<pre>
+squarewave 
+v1 1 0 pulse (-1 1 0 .1m .1m 10m 20m)   
+r1 1 0 10k      
+.option limpts=1001     
+.tran 1m 1      
+.plot tran v(1,0)       
+.four 50 v(1,0) 
+.end    
+</pre>
+
+
+
+<pre>
+fourier components of transient response v(1)    
+dc component =   9.999E-03
+harmonic  frequency    fourier    normalized   phase   normalized
+no           (hz)     component   component    (deg)   phase (deg)
+1         5.000E+01   1.273E+00     1.000000    -1.800       0.000
+2         1.000E+02   1.999E-02     0.015704    86.382      88.182
+3         1.500E+02   4.238E-01     0.332897    -5.400      -3.600
+4         2.000E+02   1.997E-02     0.015688    82.764      84.564
+5         2.500E+02   2.536E-01     0.199215    -9.000      -7.200
+6         3.000E+02   1.994E-02     0.015663    79.146      80.946
+7         3.500E+02   1.804E-01     0.141737   -12.600     -10.800
+8         4.000E+02   1.989E-02     0.015627    75.529      77.329
+9         4.500E+02   1.396E-01     0.109662   -16.199     -14.399
+</pre>
+
+
+
+ 
+<a name="22020.png"></a> 
+<p> <img src="22020.png"> </p> 
+<p><i>Improved fourier analysis.</i></p> 
+ <!--fourier-->
+
+<p>
+Notice how this analysis (Figure <a href="#22020.png">  above</a>) shows less of a DC component voltage and lower amplitudes for each of the even harmonic frequency sine waves, all because we let the computer sample more cycles of the wave.  Again, the imprecision of the first analysis is not so much a flaw in SPICE as it is a fundamental property of waves and of signal analysis.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Square waves are equivalent to a sine wave at the same (fundamental) frequency added to an infinite series of odd-multiple sine-wave harmonics at decreasing amplitudes.</li>
+<li>Computer algorithms exist which are able to sample waveshapes and determine their constituent sinusoidal components.  The <i>Fourier Transform</i> algorithm (particularly the <i>Fast Fourier Transform</i>, or <i>FFT</i>) is commonly used in computer circuit simulation programs such as SPICE and in electronic metering equipment for determining power quality.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34862">Other waveshapes</a></u></h2>
+
+<p>
+As strange as it may seem, <i>any</i> repeating, non-sinusoidal waveform is actually equivalent to a series of sinusoidal waveforms of different amplitudes and frequencies added together.  Square waves are a very common and well-understood case, but not the only one.
+</p>
+
+<a name="Diode"></a>
+<a name="Transistor"></a>
+<a name="SCR"></a>
+<a name="Silicon-controlled rectifier"></a>
+<a name="Rectifier, silicon-controlled"></a>
+
+<p>
+Electronic power control devices such as transistors and silicon-controlled rectifiers (<i>SCRs</i>) often produce voltage and current waveforms that are essentially chopped-up versions of the otherwise &ldquo;clean&rdquo; (pure) sine-wave AC from the power supply.  These devices have the ability to suddenly <i>change</i> their resistance with the application of a control signal voltage or current, thus &ldquo;turning on&rdquo; or &ldquo;turning off&rdquo; almost instantaneously, producing current waveforms bearing little resemblance to the source voltage waveform powering the circuit.  These current waveforms then produce changes in the voltage waveform to other circuit components, due to voltage drops created by the non-sinusoidal current through circuit impedances.  
+</p>
+
+<a name="Nonlinear components"></a>
+
+<p>
+Circuit components that distort the normal sine-wave shape of AC voltage or current are called <i>nonlinear</i>.  Nonlinear components such as SCRs find popular use in power electronics due to their ability to regulate large amounts of electrical power without dissipating much heat.  While this is an advantage from the perspective of energy efficiency, the waveshape distortions they introduce can cause problems.
+</p>
+
+<p>
+These non-sinusoidal waveforms, regardless of their actual shape, are equivalent to a series of sinusoidal waveforms of higher (harmonic) frequencies.  If not taken into consideration by the circuit designer, these harmonic waveforms created by electronic switching components may cause erratic circuit behavior.  It is becoming increasingly common in the electric power industry to observe overheating of transformers and motors due to distortions in the sine-wave shape of the AC power line voltage stemming from &ldquo;switching&rdquo; loads such as computers and high-efficiency lights.  This is no theoretical exercise: it is very real and potentially very troublesome.
+</p>
+
+<p>
+In this section, I will investigate a few of the more common waveshapes and show their harmonic components by way of Fourier analysis using SPICE.
+</p>
+
+<a name="Diode"></a>
+<a name="Half-wave rectification"></a>
+<a name="Rectification, half-wave"></a>
+
+<p>
+One very common way harmonics are generated in an AC power system is when AC is converted, or &ldquo;rectified&rdquo; into DC.  This is generally done with components called <i>diodes</i>, which only allow the passage of current in one direction.  The simplest type of AC/DC rectification is <i>half-wave</i>, where a single diode blocks half of the AC current (over time) from passing through the load. (Figure <a href="#02111.png">  below</a>) Oddly enough, the conventional diode schematic symbol is drawn such that electrons flow <i>against</i> the direction of the symbol's arrowhead:
+</p>
+
+ 
+<a name="02111.png"></a> 
+<p> <img src="02111.png"> </p> 
+<p><i>Half-wave rectifier.</i></p> 
+ 
+
+
+<pre>
+halfwave rectifier               
+v1 1 0 sin(0 15 60 0 0) 
+rload 2 0 10k   
+d1 1 2 mod1     
+.model mod1 d   
+.tran .5m 17m   
+.plot tran v(1,0) v(2,0)
+.four 60 v(1,0) v(2,0)  
+.end    
+halfwave rectifier               
+</pre>
+
+
+
+<!--legend:-->
+<!--*: v(1) -->   
+<!--+: v(2)-->    
+<!--time      v(1)-->    
+<!--( *)---------      -20     -10           0          10          20-->
+<!--(+)----------       -5       0           5          10          15-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .       +           *           .           .-->
+<!--5.000E-04  2.806E+00 .       .   +       .   *       .           .-->
+<!--1.000E-03  5.483E+00 .       .           +       *   .           .-->
+<!--1.500E-03  7.929E+00 .       .           .     +    *.           .-->
+<!--2.000E-03  1.013E+01 .       .           .           +*          .-->
+<!--2.500E-03  1.198E+01 .       .           .           .  *+       .-->
+<!--3.000E-03  1.338E+01 .       .           .           .    *  +   .-->
+<!--3.500E-03  1.435E+01 .       .           .           .     *   + .-->
+<!--4.000E-03  1.476E+01 .       .           .           .      *   +.-->
+<!--4.500E-03  1.470E+01 .       .           .           .      *   +.-->
+<!--5.000E-03  1.406E+01 .       .           .           .     *   + .-->
+<!--5.500E-03  1.299E+01 .       .           .           .   *  +    .-->
+<!--6.000E-03  1.139E+01 .       .           .           . x         .-->
+<!--6.500E-03  9.455E+00 .       .           .        + *.           .-->
+<!--7.000E-03  7.113E+00 .       .           .   +    *  .           .-->
+<!--7.500E-03  4.591E+00 .       .        +  .     *     .           .-->
+<!--8.000E-03  1.841E+00 .       . +         .  *        .           .-->
+<!--8.500E-03 -9.177E-01 .       +          *.           .           .-->
+<!--9.000E-03 -3.689E+00 .       +      *    .           .           .-->
+<!--9.500E-03 -6.298E+00 .       +  *        .           .           .-->
+<!--1.000E-02 -8.701E+00 .       +*          .           .           .-->
+<!--1.050E-02 -1.079E+01 .      *+           .           .           .-->
+<!--1.100E-02 -1.249E+01 .    *  +           .           .           .-->
+<!--1.150E-02 -1.377E+01 .  *    +           .           .           .-->
+<!--1.200E-02 -1.453E+01 . *     +           .           .           .-->
+<!--1.250E-02 -1.482E+01 .*      +           .           .           .-->
+<!--1.300E-02 -1.452E+01 . *     +           .           .           .-->
+<!--1.350E-02 -1.378E+01 .  *    +           .           .           .-->
+<!--1.400E-02 -1.248E+01 .    *  +           .           .           .-->
+<!--1.450E-02 -1.081E+01 .      *+           .           .           .-->
+<!--1.500E-02 -8.681E+00 .       +*          .           .           .-->
+<!--1.550E-02 -6.321E+00 .       +  *        .           .           .-->
+<!--1.600E-02 -3.666E+00 .       +      *    .           .           .-->
+<!--1.650E-02 -9.432E-01 .       .   +      *.           .           .-->
+<!--1.700E-02  1.865E+00 .       .      +    .  *        .           .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+ 
+<a name="22021.png"></a> 
+<p> <img src="22021.png"> </p> 
+<p><i>Half-wave rectifier waveforms. V(1)+0.4 shifts the sinewave input V(1) up for clarity. This is not part of the simulation.</i></p> 
+ <!--fourier-->
+
+<p>
+First, we'll see how SPICE analyzes the source waveform, a pure sine wave voltage: (Figure <a href="#22022.png">  below</a>)
+</p>
+
+
+<pre>
+fourier components of transient response v(1)    
+dc component =   8.016E-04
+harmonic   frequency  fourier    normalized   phase   normalized
+no         (hz)      component   component    (deg)   phase (deg)
+1        6.000E+01   1.482E+01     1.000000    -0.005       0.000
+2        1.200E+02   2.492E-03     0.000168  -104.347    -104.342
+3        1.800E+02   6.465E-04     0.000044   -86.663     -86.658
+4        2.400E+02   1.132E-03     0.000076   -61.324     -61.319
+5        3.000E+02   1.185E-03     0.000080   -70.091     -70.086
+6        3.600E+02   1.092E-03     0.000074   -63.607     -63.602
+7        4.200E+02   1.220E-03     0.000082   -56.288     -56.283
+8        4.800E+02   1.354E-03     0.000091   -54.669     -54.664
+9        5.400E+02   1.467E-03     0.000099   -52.660     -52.655
+</pre>
+
+
+ 
+<a name="22022.png"></a> 
+<p> <img src="22022.png"> </p> 
+<p><i>Fourier analysis of the sine wave input.</i></p> 
+ 
+
+
+<p>
+Notice the extremely small harmonic and DC components of this sinusoidal waveform in the table above, though, too small to show on the harmonic plot above.  Ideally, there would be nothing but the fundamental frequency showing (being a perfect sine wave), but our Fourier analysis figures aren't perfect because SPICE doesn't have the luxury of sampling a waveform of infinite duration.  Next, we'll compare this with the Fourier analysis of the half-wave &ldquo;rectified&rdquo; voltage across the load resistor: (Figure <a href="#22023.png">  below</a>)
+</p>
+
+
+<pre>
+fourier components of transient response v(2)    
+dc component =   4.456E+00
+harmonic  frequency   fourier    normalized   phase    normalized
+no         (hz)      component   component    (deg)    phase (deg)
+1        6.000E+01   7.000E+00     1.000000    -0.195       0.000
+2        1.200E+02   3.016E+00     0.430849   -89.765     -89.570
+3        1.800E+02   1.206E-01     0.017223  -168.005    -167.810
+4        2.400E+02   5.149E-01     0.073556   -87.295     -87.100
+5        3.000E+02   6.382E-02     0.009117  -152.790    -152.595
+6        3.600E+02   1.727E-01     0.024676   -79.362     -79.167
+7        4.200E+02   4.492E-02     0.006417  -132.420    -132.224
+8        4.800E+02   7.493E-02     0.010703   -61.479     -61.284
+9        5.400E+02   4.051E-02     0.005787  -115.085    -114.889
+</pre>
+
+
+ 
+<a name="22023.png"></a> 
+<p> <img src="22023.png"> </p> 
+<p><i>Fourier analysis half-wave output.</i></p> 
+ 
+
+<p>
+Notice the relatively large even-multiple harmonics in this analysis.  By cutting out half of our AC wave, we've introduced the equivalent of several higher-frequency sinusoidal (actually, cosine) waveforms into our circuit from the original, pure sine-wave.  Also take note of the large DC component: 4.456 volts.  Because our AC voltage waveform has been &ldquo;rectified&rdquo; (only allowed to push in one direction across the load rather than back-and-forth), it behaves a lot more like DC.
+</p>
+
+<a name="Full-wave rectification"></a>
+<a name="Rectification, full-wave"></a>
+
+<p>
+Another method of AC/DC conversion is called <i>full-wave</i>  (Figure <a href="#02112.png">  below</a>), which as you may have guessed utilizes the full cycle of AC power from the source, reversing the polarity of half the AC cycle to get electrons to flow through the load the same direction all the time.
+<!--split for multiple refs in paragraph-->
+I won't bore you with details of exactly how this is done, but we can examine the waveform (Figure <a href="#22024.png">  below</a>)
+<!--split for multiple refs in paragraph-->
+and its harmonic analysis through SPICE:  (Figure <a href="#22025.png">  below</a>)
+</p>
+
+ 
+<a name="02112.png"></a> 
+<p> <img src="02112.png"> </p> 
+<p><i>Full-wave rectifier circuit.</i></p> 
+ 
+
+
+<pre>
+fullwave bridge rectifier   
+v1 1 0 sin(0 15 60 0 0) 
+rload 2 3 10k   
+d1 1 2 mod1     
+d2 0 2 mod1     
+d3 3 1 mod1     
+d4 3 0 mod1     
+.model mod1 d   
+.tran .5m 17m   
+.plot tran v(1,0) v(2,3)
+.four 60 v(2,3)  
+.end    
+</pre>
+
+
+<!--legend:-->
+<!--*: v(1)-->    
+<!--+: v(2,3)-->  
+<!--time       v(1)-->    
+<!--( *)---------      -20         -10     0.000E+00     1.000E+01 --> 
+<!--(+)----------  0.000E+00     5.000E+00     1.000E+01     1.500E+01 --> 
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 +          .            *            .      .-->
+<!--5.000E-04  2.806E+00 .   +      .            .   *        .      .-->
+<!--1.000E-03  5.483E+00 .         +.            .      *     .      .-->
+<!--1.500E-03  7.929E+00 .          .    +       .         *  .      .-->
+<!--2.000E-03  1.013E+01 .          .         +  .            *      . -->
+<!--2.500E-03  1.198E+01 .          .            . +          . *    .-->
+<!--3.000E-03  1.338E+01 .          .            .     +      .   *  .-->
+<!--3.500E-03  1.435E+01 .          .            .       +    .     *.-->
+<!--4.000E-03  1.476E+01 .          .            .        +   .      *-->
+<!--4.500E-03  1.470E+01 .          .            .        +   .     *.-->
+<!--5.000E-03  1.406E+01 .          .            .       +    .    * .-->
+<!--5.500E-03  1.299E+01 .          .            .    +       .  *   .-->
+<!--6.000E-03  1.139E+01 .          .            +            .*     .-->
+<!--6.500E-03  9.455E+00 .          .       +    .           *.      .-->
+<!--7.000E-03  7.113E+00 .          . +          .        *   .      .-->
+<!--7.500E-03  4.591E+00 .      +   .            .     *      .      .-->
+<!--8.000E-03  1.841E+00 .   +      .            .  *         .      .-->
+<!--8.500E-03 -9.177E-01 . +        .           *.            .      .-->
+<!--9.000E-03 -3.689E+00 .    +     .       *    .            .      .-->
+<!--9.500E-03 -6.298E+00 .          +    *       .            .      .-->
+<!--1.000E-02 -8.701E+00 .          . *    +     .            .      .-->
+<!--1.050E-02 -1.079E+01 .         *.           +.            .      .-->
+<!--1.100E-02 -1.249E+01 .       *  .            .  +         .      .-->
+<!--1.150E-02 -1.377E+01 .     *    .            .      +     .      .-->
+<!--1.200E-02 -1.453E+01 .    *     .            .        +   .      .-->
+<!--1.250E-02 -1.482E+01 .   *      .            .         +  .      .-->
+<!--1.300E-02 -1.452E+01 .    *     .            .        +   .      .-->
+<!--1.350E-02 -1.378E+01 .     *    .            .      +     .      .-->
+<!--1.400E-02 -1.248E+01 .       *  .            .  +         .      .-->
+<!--1.450E-02 -1.081E+01 .         *.           +.            .      .-->
+<!--1.500E-02 -8.681E+00 .          . *    +     .            .      .-->
+<!--1.550E-02 -6.321E+00 .          +    *       .            .      .-->
+<!--1.600E-02 -3.666E+00 .     +    .       *    .            .      .-->
+<!--1.650E-02 -9.432E-01 .   +      .           *.            .      .-->
+<!--1.700E-02  1.865E+00 .    +     .            .  *         .      .-->
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+
+ 
+<a name="22024.png"></a> 
+<p> <img src="22024.png"> </p> 
+<p><i>Waveforms for full-wave rectifier</i></p> 
+ <!--fullwave-->
+
+
+
+<pre>
+fourier components of transient response v(2,3)  
+dc component =   8.273E+00
+harmonic   frequency  fourier    normalized   phase   normalized
+no         (hz)      component   component    (deg)   phase (deg)
+1        6.000E+01   7.000E-02     1.000000   -93.519       0.000
+2        1.200E+02   5.997E+00    85.669415   -90.230       3.289
+3        1.800E+02   7.241E-02     1.034465   -93.787      -0.267
+4        2.400E+02   1.013E+00    14.465161   -92.492       1.027
+5        3.000E+02   7.364E-02     1.052023   -95.026      -1.507
+6        3.600E+02   3.337E-01     4.767350  -100.271      -6.752
+7        4.200E+02   7.496E-02     1.070827   -94.023      -0.504
+8        4.800E+02   1.404E-01     2.006043  -118.839     -25.319
+9        5.400E+02   7.457E-02     1.065240   -90.907       2.612
+</pre>
+
+
+
+ 
+<a name="22025.png"></a> 
+<p> <img src="22025.png"> </p> 
+<p><i>Fourier analysis of full-wave rectifier output.</i></p> 
+ 
+
+<p>
+What a difference!  According to SPICE's Fourier transform, we have a 2nd harmonic component to this waveform that's over 85 times the amplitude of the original AC source frequency!  The DC component of this wave shows up as being 8.273 volts (almost twice what is was for the half-wave rectifier circuit) while the second harmonic is almost 6 volts in amplitude.  Notice all the other harmonics further on down the table.  The odd harmonics are actually stronger at some of the higher frequencies than they are at the lower frequencies, which is interesting.
+</p>
+
+<p>
+As you can see, what may begin as a neat, simple AC sine-wave may end up as a complex mess of harmonics after passing through just a few electronic components.  While the complex mathematics behind all this Fourier transformation is not necessary for the beginning student of electric circuits to understand, it is of the utmost importance to realize the principles at work and to grasp the practical effects that harmonic signals may have on circuits.  The practical effects of harmonic frequencies in circuits will be explored in the last section of this chapter, but before we do that we'll take a closer look at waveforms and their respective harmonics.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Any</i> waveform at all, so long as it is repetitive, can be reduced to a series of sinusoidal waveforms added together.  Different waveshapes consist of different blends of sine-wave harmonics.</li>
+<li>Rectification of AC to DC is a very common source of harmonics within industrial power systems.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34863">More on spectrum analysis</a></u></h2>
+
+<p>
+Computerized Fourier analysis, particularly in the form of the <i>FFT</i> algorithm, is a powerful tool for furthering our understanding of waveforms and their related spectral components.  This same mathematical routine programmed into the SPICE simulator as the <tt>.fourier</tt> option is also programmed into a variety of electronic test instruments to perform real-time Fourier analysis on measured signals.  This section is devoted to the use of such tools and the analysis of several different waveforms.
+</p>
+
+<p>
+First we have a simple sine wave at a frequency of 523.25 Hz.  This particular frequency value is a &ldquo;C&rdquo; pitch on a piano keyboard, one octave above &ldquo;middle C&rdquo;.  Actually, the signal measured for this demonstration was created by an electronic keyboard set to produce the tone of a panflute, the closest instrument &ldquo;voice&rdquo; I could find resembling a perfect sine wave.  The plot below was taken from an oscilloscope display, showing signal amplitude (voltage) over time: (Figure <a href="#02279.png">  below</a>)
+</p>
+
+ 
+<a name="02279.png"></a> 
+<p> <img src="02279.png"> </p> 
+<p><i>Oscilloscope display: voltage vs time.</i></p> 
+ 
+
+<p>
+Viewed with an oscilloscope, a sine wave looks like a wavy curve traced horizontally on the screen.  The horizontal axis of this oscilloscope display is marked with the word &ldquo;Time&rdquo; and an arrow pointing in the direction of time's progression.  The curve itself, of course, represents the cyclic increase and decrease of voltage over time.
+</p>
+
+<a name="Artifact, measurement"></a>
+
+<p>
+Close observation reveals imperfections in the sine-wave shape.  This, unfortunately, is a result of the specific equipment used to analyze the waveform.  Characteristics like these due to quirks of the test equipment are technically known as <i>artifacts</i>: phenomena existing solely because of a peculiarity in the equipment used to perform the experiment.
+</p>
+
+<p>
+If we view this same AC voltage on a spectrum analyzer, the result is quite different: (Figure <a href="#02280.png">  below</a>)
+</p>
+
+ 
+<a name="02280.png"></a> 
+<p> <img src="02280.png"> </p> 
+<p><i>Spectrum analyzer display: voltage vs frequency.</i></p> 
+ 
+
+<p>
+As you can see, the horizontal axis of the display is marked with the word &ldquo;Frequency,&rdquo; denoting the domain of this measurement.  The single peak on the curve represents the predominance of a single frequency within the range of frequencies covered by the width of the display.  If the scale of this analyzer instrument were marked with numbers, you would see that this peak occurs at 523.25 Hz.  The height of the peak represents the signal amplitude (voltage).
+</p>
+
+<p>
+If we mix three different sine-wave tones together on the electronic keyboard (C-E-G, a C-major chord) and measure the result, both the oscilloscope display and the spectrum analyzer display reflect this increased complexity: (Figure <a href="#02281.png">  below</a>)
+</p>
+
+ 
+<a name="02281.png"></a> 
+<p> <img src="02281.png"> </p> 
+<p><i>Oscilloscape display: three tones.</i></p> 
+ 
+
+<p>
+The oscilloscope display (time-domain) shows a waveform with many more peaks and valleys than before, a direct result of the mixing of these three frequencies.  As you will notice, some of these peaks are higher than the peaks of the original single-pitch waveform, while others are lower.  This is a result of the three different waveforms alternately reinforcing and canceling each other as their respective phase shifts change in time.  
+</p>
+
+
+ 
+<a name="02282.png"></a> 
+<p> <img src="02282.png"> </p> 
+<p><i>Spectrum analyzer display: three tones.</i></p> 
+ 
+
+<p>
+The spectrum display (frequency-domain) is much easier to interpret: each pitch is represented by its own peak on the curve. (Figure <a href="#02282.png">  above</a>)  The difference in height between these three peaks is another artifact of the test equipment: a consequence of limitations within the equipment used to generate and analyze these waveforms, and not a necessary characteristic of the musical chord itself.
+</p>
+
+<p>
+As was stated before, the device used to generate these waveforms is an electronic keyboard: a musical instrument designed to mimic the tones of many different instruments.  The panflute &ldquo;voice&rdquo; was chosen for the first demonstrations because it most closely resembled a pure sine wave (a single frequency on the spectrum analyzer display).  Other musical instrument &ldquo;voices&rdquo; are not as simple as this one, though.  In fact, the unique tone produced by <i>any</i> instrument is a function of its waveshape (or spectrum of frequencies).  For example, let's view the signal for a trumpet tone: (Figure <a href="#02283.png">  below</a>)
+</p>
+
+ 
+<a name="02283.png"></a> 
+<p> <img src="02283.png"> </p> 
+<p><i>Oscilloscope display: waveshape of a trumpet tone.</i></p> 
+ 
+
+<p>
+The fundamental frequency of this tone is the same as in the first panflute example: 523.25 Hz, one octave above &ldquo;middle C.&rdquo;  The waveform itself is far from a pure and simple sine-wave form.  Knowing that any repeating, non-sinusoidal waveform is equivalent to a series of sinusoidal waveforms at different amplitudes and frequencies, we should expect to see multiple peaks on the spectrum analyzer display: (Figure <a href="#02284.png">  below</a>)
+</p>
+
+ 
+<a name="02284.png"></a> 
+<p> <img src="02284.png"> </p> 
+<p><i>Spectrum of a trumpet tone.</i></p> 
+ 
+
+<p>
+Indeed we do!  The fundamental frequency component of 523.25 Hz is represented by the left-most peak, with each successive harmonic represented as its own peak along the width of the analyzer screen.  The second harmonic is twice the frequency of the fundamental (1046.5 Hz), the third harmonic three times the fundamental (1569.75 Hz), and so on.  This display only shows the first six harmonics, but there are many more comprising this complex tone.
+</p>
+
+<p>
+Trying a different instrument voice (the accordion) on the keyboard, we obtain a similarly complex oscilloscope (time-domain) plot (Figure <a href="#02285.png">  below</a>) 
+<!--split for multiple refs in paragraph-->
+and spectrum analyzer (frequency-domain) display: (Figure <a href="#02286.png">  below</a>)
+</p>
+
+ 
+<a name="02285.png"></a> 
+<p> <img src="02285.png"> </p> 
+<p><i>Oscilloscope display: waveshape of accordion tone.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02286.png"></a> 
+<p> <img src="02286.png"> </p> 
+<p><i>Spectrum of accordion tone.</i></p> 
+ 
+
+<p>
+Note the differences in relative harmonic amplitudes (peak heights) on the spectrum displays for trumpet and accordion.  Both instrument tones contain harmonics all the way from 1st (fundamental) to 6th (and beyond!), but the proportions aren't the same.  Each instrument has a unique harmonic &ldquo;signature&rdquo; to its tone.  Bear in mind that all this complexity is in reference to <i>a single note</i> played with these two instrument &ldquo;voices.&rdquo;  Multiple notes played on an accordion, for example, would create a much more complex mixture of frequencies than what is seen here.
+</p>
+
+<p>
+The analytical power of the oscilloscope and spectrum analyzer permit us to derive general rules about waveforms and their harmonic spectra from real waveform examples.  We already know that any deviation from a pure sine-wave results in the equivalent of a mixture of multiple sine-wave waveforms at different amplitudes and frequencies.  However, close observation allows us to be more specific than this.  Note, for example, the time- (Figure <a href="#02287.png">  below</a>) and 
+<!--split for multiple refs in paragraph-->
+frequency-domain  (Figure <a href="#02288.png">  below</a>) plots for a waveform approximating a square wave:
+</p>
+
+ 
+<a name="02287.png"></a> 
+<p> <img src="02287.png"> </p> 
+<p><i>Oscilloscope time-domain display of a square wave</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02288.png"></a> 
+<p> <img src="02288.png"> </p> 
+<p><i>Spectrum (frequency-domain) of a square wave.</i></p> 
+ 
+
+<p>
+According to the spectrum analysis, this waveform contains <i>no</i> even harmonics, only odd.  Although this display doesn't show frequencies past the sixth harmonic, the pattern of odd-only harmonics in descending amplitude continues indefinitely.  This should come as no surprise, as we've already seen with SPICE that a square wave is comprised of an infinitude of odd harmonics.  The trumpet and accordion tones, however, contained <i>both</i> even and odd harmonics.  This difference in harmonic content is noteworthy.  Let's continue our investigation with an analysis of a triangle wave: (Figure <a href="#02289.png">  below</a>)
+</p>
+
+ 
+<a name="02289.png"></a> 
+<p> <img src="02289.png"> </p> 
+<p><i>Oscilloscope time-domain display of a triangle wave.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+ 
+<a name="02290.png"></a> 
+<p> <img src="02290.png"> </p> 
+<p><i>Spectrum of a triangle wave.</i></p> 
+ 
+
+<a name="Triangle wave "></a>
+<a name="Wave, triangle"></a>
+
+<p>
+In this waveform there are practically no even harmonics: (Figure <a href="#02290.png">  above</a>) the only significant frequency peaks on the spectrum analyzer display belong to odd-numbered multiples of the fundamental frequency.  Tiny peaks can be seen for the second, fourth, and sixth harmonics, but this is due to imperfections in this particular triangle waveshape (once again, artifacts of the test equipment used in this analysis).  A perfect triangle waveshape produces no even harmonics, just like a perfect square wave.  It should be obvious from inspection that the harmonic spectrum of the triangle wave is not identical to the spectrum of the square wave: the respective harmonic peaks are of different heights.  However, the two different waveforms are common in their lack of even harmonics. 
+</p>
+
+<a name="Sawtooth wave "></a>
+<a name="Wave, sawtooth"></a>
+
+<p>
+Let's examine another waveform, this one very similar to the triangle wave, except that its rise-time is not the same as its fall-time.  Known as a <i>sawtooth wave</i>, its oscilloscope plot reveals it to be aptly named: (Figure <a href="#02291.png">  below</a>)
+</p>
+
+ 
+<a name="02291.png"></a> 
+<p> <img src="02291.png"> </p> 
+<p><i>Time-domain display of a sawtooth wave.</i></p> 
+ 
+
+<p>
+When the spectrum analysis of this waveform is plotted, we see a result that is quite different from that of the regular triangle wave, for this analysis shows the strong presence of even-numbered harmonics (second and fourth): (Figure <a href="#02292.png">  below</a>)
+</p>
+
+ 
+<a name="02292.png"></a> 
+<p> <img src="02292.png"> </p> 
+<p><i>Frequency-domain display of a sawtooth wave.</i></p> 
+ 
+
+<a name="Harmonic, even vs. odd"></a>
+<a name="Harmonics and waveform symmetry"></a>
+<a name="Waveform symmetry and harmonics"></a>
+
+<p>
+The distinction between a waveform having even harmonics versus no even harmonics resides in the difference between a triangle waveshape and a sawtooth waveshape.  That difference is <i>symmetry</i> above and below the horizontal centerline of the wave.  A waveform that is symmetrical above and below its centerline (the shape on both sides mirror each other precisely) will contain <i>no</i> even-numbered harmonics.  (Figure <a href="#02293.png">  below</a>) 
+</p>
+
+ 
+<a name="02293.png"></a> 
+<p> <img src="02293.png"> </p> 
+<p><i>Waveforms symmetric about their x-axis center line contain only odd harmonics.</i></p> 
+ 
+
+<p>
+Square waves, triangle waves, and pure sine waves all exhibit this symmetry, and all are devoid of even harmonics.  Waveforms like the trumpet tone, the accordion tone, and the sawtooth wave are unsymmetrical around their centerlines and therefore <i>do</i> contain even harmonics. (Figure <a href="#02294.png">  below</a>)
+</p>
+
+ 
+<a name="02294.png"></a> 
+<p> <img src="02294.png"> </p> 
+<p><i>Asymmetric waveforms contain even harmonics.</i></p> 
+ 
+
+<p>
+This principle of centerline symmetry should not be confused with symmetry around the <i>zero</i> line.  In the examples shown, the horizontal centerline of the waveform happens to be zero volts on the time-domain graph, but this has nothing to do with harmonic content.  This rule of harmonic content (even harmonics only with unsymmetrical waveforms) applies whether or not the waveform is shifted above or below zero volts with a &ldquo;DC component.&rdquo;  For further clarification, I will show the same sets of waveforms, shifted with DC voltage, and note that their harmonic contents are unchanged. (Figure <a href="#02296.png">  below</a>)
+
+</p>
+
+ 
+<a name="02296.png"></a> 
+<p> <img src="02296.png"> </p> 
+<p><i>These waveforms are composed exclusively of odd harmonics.</i></p> 
+ 
+
+<p>
+Again, the amount of DC voltage present in a waveform has nothing to do with that waveform's harmonic frequency content. (Figure <a href="#02297.png">  below</a>)
+</p>
+
+
+ 
+<a name="02297.png"></a> 
+<p> <img src="02297.png"> </p> 
+<p><i>These waveforms contain even harmonics.</i></p> 
+ 
+
+<p>
+Why is this harmonic rule-of-thumb an important rule to know?  It can help us comprehend the relationship between harmonics in AC circuits and specific circuit components.  Since most sources of sine-wave distortion in AC power circuits tend to be symmetrical, even-numbered harmonics are rarely seen in those applications.  This is good to know if you're a power system designer and are planning ahead for harmonic reduction: you only have to concern yourself with mitigating the odd harmonic frequencies, even harmonics being practically nonexistent.  Also, if you happen to measure even harmonics in an AC circuit with a spectrum analyzer or frequency meter, you know that something in that circuit must be <i>unsymmetrically</i> distorting the sine-wave voltage or current, and that clue may be helpful in locating the source of a problem (look for components or conditions more likely to distort one half-cycle of the AC waveform more than the other).
+</p>
+
+<p>
+Now that we have this rule to guide our interpretation of nonsinusoidal waveforms, it makes more sense that a waveform like that produced by a rectifier circuit should contain such strong even harmonics, there being no symmetry at all above and below center.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Waveforms that are symmetrical above and below their horizontal centerlines contain no even-numbered harmonics.</li>
+<li>The amount of DC &ldquo;bias&rdquo; voltage present (a waveform's &ldquo;DC component&rdquo;) has no impact on that wave's harmonic frequency content.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34864">Circuit effects</a></u></h2>
+
+<p>
+The principle of non-sinusoidal, repeating waveforms being equivalent to a series of sine waves at different frequencies is a fundamental property of waves in general and it has great practical import in the study of AC circuits.  It means that any time we have a waveform that isn't perfectly sine-wave-shaped, the circuit in question will react as though its having an array of different frequency voltages imposed on it at once.
+</p>
+
+<a name="Superposition Theorem"></a>
+<a name="Theorem, Superposition"></a>
+
+<p>
+When an AC circuit is subjected to a source voltage consisting of a mixture of frequencies, the components in that circuit respond to each constituent frequency in a different way.  Any reactive component such as a capacitor or an inductor will simultaneously present a unique amount of impedance to each and every frequency present in a circuit.  Thankfully, the analysis of such circuits is made relatively easy by applying the <i>Superposition Theorem</i>, regarding the multiple-frequency source as a set of single-frequency voltage sources connected in series, and analyzing the circuit for one source at a time, summing the results at the end to determine the aggregate total:
+</p>
+
+ 
+<a name="02113.png"></a> 
+<p> <img src="02113.png"> </p> 
+<p><i>Circuit driven by a combination of frequencies: 60 Hz and 90 Hz.</i></p> 
+ 
+
+<p>
+Analyzing circuit for 60 Hz source alone:
+</p>
+
+ 
+<a name="02114.png"></a> 
+<p> <img src="02114.png"> </p> 
+<p><i>Circuit for solving 60 Hz.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+<p> <img src="12094.png"> </p> 
+
+<p>
+Analyzing the circuit for 90 Hz source alone:
+</p>
+
+ 
+<a name="02115.png"></a> 
+<p> <img src="02115.png"> </p> 
+<p><i>Circuit of solving 90 Hz.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+<p> <img src="12095.png"> </p> 
+
+<p>
+Superimposing the voltage drops across R and C, we get:
+</p>
+
+<p> <img src="12096.png"> </p> 
+
+<p>
+Because the two voltages across each component are at different frequencies, we cannot consolidate them into a single voltage figure as we could if we were adding together two voltages of different amplitude and/or phase angle at the same frequency.  Complex number notation give us the ability to represent waveform amplitude (polar magnitude) and phase angle (polar angle), but not frequency.  
+</p>
+
+<p>
+What we can tell from this application of the superposition theorem is that there will be a greater 60 Hz voltage dropped across the capacitor than a 90 Hz voltage.  Just the opposite is true for the resistor's voltage drop.  This is worthy to note, especially in light of the fact that the two source voltages are equal.  It is this kind of unequal circuit response to signals of differing frequency that will be our specific focus in the next chapter.  
+</p>
+
+<p>
+We can also apply the superposition theorem to the analysis of a circuit powered by a non-sinusoidal voltage, such as a square wave.  If we know the Fourier series (multiple sine/cosine wave equivalent) of that wave, we can regard it as originating from a series-connected string of multiple sinusoidal voltage sources at the appropriate amplitudes, frequencies, and phase shifts.  Needless to say, this can be a laborious task for some waveforms (an accurate square-wave Fourier Series is considered to be expressed out to the ninth harmonic, or five sine waves in all!), but it is possible.  I mention this not to scare you, but to inform you of the potential complexity lurking behind seemingly simple waveforms.  A real-life circuit will respond just the same to being powered by a square wave as being powered by an <i>infinite</i> series of sine waves of odd-multiple frequencies and diminishing amplitudes.  This has been known to translate into unexpected circuit resonances, transformer and inductor core overheating due to eddy currents, electromagnetic noise over broad ranges of the frequency spectrum, and the like.  Technicians and engineers need to be made aware of the potential effects of non-sinusoidal waveforms in reactive circuits.
+</p>
+
+<p>
+Harmonics are known to manifest their effects in the form of electromagnetic radiation as well.  Studies have been performed on the potential hazards of using portable computers aboard passenger aircraft, citing the fact that computers' high frequency square-wave &ldquo;clock&rdquo; voltage signals are capable of generating radio waves that could interfere with the operation of the aircraft's electronic navigation equipment.  It's bad enough that typical microprocessor clock signal frequencies are within the range of aircraft radio frequency bands, but worse yet is the fact that the harmonic multiples of those fundamental frequencies span an even larger range, due to the fact that clock signal voltages are square-wave in shape and not sine-wave.
+</p>
+
+<p>
+Electromagnetic &ldquo;emissions&rdquo; of this nature can be a problem in industrial applications, too, with harmonics abounding in very large quantities due to (nonlinear) electronic control of motor and electric furnace power.  The fundamental power line frequency may only be 60 Hz, but those harmonic frequency multiples theoretically extend into infinitely high frequency ranges.  Low frequency power line voltage and current doesn't radiate into space very well as electromagnetic energy, but high frequencies do.  
+</p>
+
+<a name="Coupling, signal"></a>
+<a name="Inductive coupling"></a>
+<a name="Capacitive coupling"></a>
+
+<p>
+Also, capacitive and inductive &ldquo;coupling&rdquo; caused by close-proximity conductors is usually more severe at high frequencies.  Signal wiring nearby power wiring will tend to &ldquo;pick up&rdquo; harmonic interference from the power wiring to a far greater extent than pure sine-wave interference.  This problem can manifest itself in industry when old motor controls are replaced with new, solid-state electronic motor controls providing greater energy efficiency.  Suddenly there may be weird electrical noise being impressed upon signal wiring that never used to be there, because the old controls never generated harmonics, and those high-frequency harmonic voltages and currents tend to inductively and capacitively &ldquo;couple&rdquo; better to nearby conductors than any 60 Hz signals from the old controls used to.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Any regular (repeating), non-sinusoidal waveform is equivalent to a particular series of sine/cosine waves of different frequencies, phases, and amplitudes, plus a DC offset voltage if necessary.  The mathematical process for determining the sinusoidal waveform equivalent for any waveform is called <i>Fourier analysis</i>.</li>
+<li>Multiple-frequency voltage sources can be simulated for analysis by connecting several single-frequency voltage sources in series.  Analysis of voltages and currents is accomplished by using the superposition theorem.  NOTE: superimposed voltages and currents of different frequencies <i>cannot</i> be added together in complex number form, since complex numbers only account for amplitude and phase shift, not frequency!</li>
+<li>Harmonics can cause problems by impressing unwanted (&ldquo;noise&rdquo;) voltage signals upon nearby circuits.  These unwanted signals may come by way of capacitive coupling, inductive coupling, electromagnetic radiation, or a combination thereof.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34865">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_6.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_8.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

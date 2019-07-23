@@ -1,6 +1,6 @@
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
-<html> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 
 <head>
 
@@ -14,9 +14,6 @@
 
 <body bgColor=white>
 
-<a href="DC_9.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_11.html"><img src=next.jpg alt="Next"></a>
 <hr>
 
 <h1>Lessons In Electric Circuits -- Volume I</h1>
@@ -25,12 +22,12 @@
 
 
 
-<h1>DC NETWORK ANALYSIS</h1> 
+<h1>DC NETWORK ANALYSIS</h1>
 <!--minitoc-->
 
 
 
- 
+
 
 <ul>
 <li><a href="#xtocid33660"><u>What is network analysis?</u></a></li>
@@ -176,7 +173,7 @@ Kirchhoff's Current Law (KCL) tells us that the algebraic sum of currents enteri
 The next step is to label all voltage drop polarities across resistors according to the assumed directions of the currents.  Remember that the &ldquo;upstream&rdquo; end of a resistor will always be negative, and the &ldquo;downstream&rdquo; end of a resistor positive with respect to each other, since electrons are negatively charged:
 </p>
 
-<p> <img src="00212.png"> </p> 
+<p> <img src="00212.png"> </p>
 
 <p>
 The battery polarities, of course, remain as they were according to their symbology (short end negative, long end positive).  It is OK if the polarity of a resistor's voltage drop doesn't match with the polarity of the nearest battery, so long as the resistor voltage polarity is correctly based on the assumed direction of current through it.  In some cases we may discover that current will be forced <i>backwards</i> through a battery, causing this very effect.  The important thing to remember here is to base all your resistor polarities and subsequent calculations on the directions of current(s) initially assumed.  As stated earlier, if your assumption happens to be incorrect, it will be apparent once the equations have been solved (by means of a negative solution).  The magnitude of the solution, however, will still be correct.
@@ -321,21 +318,21 @@ Let us now analyze this network using SPICE to verify our voltage figures.<a hre
 <br> </br>
 
 <pre>
-network analysis example   
-v1 1 0  
-v2 3 0 dc 7    
-r1 1 2 4      
+network analysis example
+v1 1 0
+v2 3 0 dc 7
+r1 1 2 4
 r2 2 0 2
 r3 2 3 1
-.dc v1 28 28 1  
-.print dc v(1,2) v(2,0) v(2,3)  
-.end    
+.dc v1 28 28 1
+.print dc v(1,2) v(2,0) v(2,3)
+.end
 </pre>
 
 <br> </br>
 
 <pre>
-v1            v(1,2)      v(2)        v(2,3)          
+v1            v(1,2)      v(2)        v(2,3)
 2.800E+01     2.000E+01   8.000E+00   1.000E+00
 </pre>
 
@@ -510,7 +507,7 @@ Less equations to work with is a decided advantage, especially when performing s
 Another type of circuit that lends itself well to Mesh Current is the unbalanced Wheatstone Bridge.  Take this circuit, for example:
 </p>
 
-<p> <img src="00485.png"> </p> 
+<p> <img src="00485.png"> </p>
 
 <p>
 Since the ratios of R<sub>1</sub>/R<sub>4</sub> and R<sub>2</sub>/R<sub>5</sub> are unequal, we know that there will be voltage across resistor R<sub>3</sub>, and some amount of current through it.  As discussed at the beginning of this chapter, this type of circuit is irreducible by normal series-parallel analysis, and may only be analyzed by some other method.
@@ -524,13 +521,13 @@ We could apply the Branch Current method to this circuit, but it would require <
 The first step in the Mesh Current method is to draw just enough mesh currents to account for all components in the circuit.  Looking at our bridge circuit, it should be obvious where to place two of these currents:
 </p>
 
-<p> <img src="00486.png"> </p> 
+<p> <img src="00486.png"> </p>
 
 <p>
 The directions of these mesh currents, of course, is arbitrary.  However, two mesh currents is not enough in this circuit, because neither I<sub>1</sub> nor I<sub>2</sub> goes through the battery.  So, we must add a third mesh current, I<sub>3</sub>:
 </p>
 
-<p> <img src="00487.png"> </p> 
+<p> <img src="00487.png"> </p>
 
 <p>
 Here, I have chosen I<sub>3</sub> to loop from the bottom side of the battery, through R<sub>4</sub>, through R<sub>1</sub>, and back to the top side of the battery.  This is not the only path I could have chosen for I<sub>3</sub>, but it seems the simplest.
@@ -540,7 +537,7 @@ Here, I have chosen I<sub>3</sub> to loop from the bottom side of the battery, t
 Now, we must label the resistor voltage drop polarities, following each of the assumed currents' directions:
 </p>
 
-<p> <img src="00488.png"> </p> 
+<p> <img src="00488.png"> </p>
 
 <p>
 Notice something very important here: at resistor R<sub>4</sub>, the polarities for the respective mesh currents do not agree.  This is because those mesh currents (I<sub>2</sub> and I<sub>3</sub>) are going through R<sub>4</sub> in different directions.  This does not preclude the use of the Mesh Current method of analysis, but it does complicate it a bit. Though later, we will show how to avoid the R<sub>4</sub> current clash. (See Example below)
@@ -551,7 +548,7 @@ Notice something very important here: at resistor R<sub>4</sub>, the polarities 
 Generating a KVL equation for the top loop of the bridge, starting from the top node and tracing in a clockwise direction:
 </p>
 
-<p> <img src="10272.png"> </p> 
+<p> <img src="10272.png"> </p>
 
 <p>
 In this equation, we represent the common directions of currents by their <i>sums</i> through common resistors.  For example, resistor R<sub>3</sub>, with a value of 100 &#937;, has its voltage drop represented in the above KVL equation by the expression 100(I<sub>1</sub> + I<sub>2</sub>), since both currents I<sub>1</sub> and I<sub>2</sub> go through R<sub>3</sub> from right to left.  The same may be said for resistor R<sub>1</sub>, with its voltage drop expression shown as 150(I<sub>1</sub> + I<sub>3</sub>), since both I<sub>1</sub> and I<sub>3</sub> go from bottom to top through that resistor, and thus work <i>together</i> to generate its voltage drop.
@@ -561,7 +558,7 @@ In this equation, we represent the common directions of currents by their <i>sum
 Generating a KVL equation for the bottom loop of the bridge will not be so easy, since we have two currents going against each other through resistor R<sub>4</sub>.  Here is how I do it (starting at the right-hand node, and tracing counter-clockwise):
 </p>
 
-<p> <img src="10273.png"> </p> 
+<p> <img src="10273.png"> </p>
 
 <p>
 Note how the second term in the equation's original form has resistor R<sub>4</sub>'s value of 300 &#937; multiplied by the <i>difference</i> between I<sub>2</sub> and I<sub>3</sub> (I<sub>2</sub> - I<sub>3</sub>).  This is how we represent the combined effect of two mesh currents going in opposite directions through the same component.  Choosing the appropriate mathematical signs is very important here: 300(I<sub>2</sub> - I<sub>3</sub>) does not mean the same thing as 300(I<sub>3</sub> - I<sub>2</sub>).  I chose to write 300(I<sub>2</sub> - I<sub>3</sub>) because I was thinking first of I<sub>2</sub>'s effect (creating a positive voltage drop, measuring with an imaginary voltmeter across R<sub>4</sub>, red lead on the bottom and black lead on the top), and secondarily of I<sub>3</sub>'s effect (creating a negative voltage drop, red lead on the bottom and black lead on the top).  If I had thought in terms of I<sub>3</sub>'s effect first and I<sub>2</sub>'s effect secondarily, holding my imaginary voltmeter leads in the same positions (red on bottom and black on top), the expression would have been -300(I<sub>3</sub> - I<sub>2</sub>).  Note that this expression <i>is</i> mathematically equivalent to the first one: +300(I<sub>2</sub> - I<sub>3</sub>).
@@ -571,20 +568,20 @@ Note how the second term in the equation's original form has resistor R<sub>4</s
 Well, that takes care of two equations, but I still need a third equation to complete my simultaneous equation set of three variables, three equations.  This third equation must also include the battery's voltage, which up to this point does not appear in either two of the previous KVL equations.  To generate this equation, I will trace a loop again with my imaginary voltmeter starting from the battery's bottom (negative) terminal, stepping clockwise (again, the direction in which I step is arbitrary, and does not need to be the same as the direction of the mesh current in that loop):
 </p>
 
-<p> <img src="10274.png"> </p> 
+<p> <img src="10274.png"> </p>
 
 <p>
 Solving for I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> using whatever simultaneous equation method we prefer:
 </p>
 
-<p> <img src="10275.png"> </p> 
+<p> <img src="10275.png"> </p>
 
 <p>
 <b>Example:</b>
 </p>
 
 <p>
-Use Octave to find the solution  for I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> from the above simplified form of equations. <a href="#octav.bibitem">[octav]</a> 
+Use Octave to find the solution  for I<sub>1</sub>, I<sub>2</sub>, and I<sub>3</sub> from the above simplified form of equations. <a href="#octav.bibitem">[octav]</a>
 </p>
 
 
@@ -606,7 +603,7 @@ In Octave, an open source Matlab&#174; clone, enter the coefficients into the A 
 &nbsp;         0
 &nbsp;         0
 &nbsp;         -24
-&nbsp;              
+&nbsp;
 &nbsp;       octave:3> x = A\b
 &nbsp;       x =
 &nbsp;         -0.093793
@@ -621,39 +618,39 @@ In Octave, an open source Matlab&#174; clone, enter the coefficients into the A 
 The negative value arrived at for I<sub>1</sub> tells us that the assumed direction for that mesh current was incorrect.  Thus, the actual current values through each resistor is as such:
 </p>
 
-<p> <img src="00489.png"> </p> 
+<p> <img src="00489.png"> </p>
 
 <p>
 Calculating voltage drops across each resistor:
 </p>
 
-<p> <img src="00490.png"> </p> 
+<p> <img src="00490.png"> </p>
 
 <p>
 A SPICE simulation confirms the accuracy of our voltage calculations:<a href="#spi.bibitem">[spi]</a>
 </p>
 
-<p> <img src="00491.png"> </p> 
+<p> <img src="00491.png"> </p>
 
 <br> </br>
 
 <pre>
-unbalanced wheatstone bridge   
-v1 1 0  
-r1 1 2 150      
-r2 1 3 50       
-r3 2 3 100      
-r4 2 0 300      
-r5 3 0 250      
-.dc v1 24 24 1  
-.print dc v(1,2) v(1,3) v(3,2) v(2,0) v(3,0)    
-.end    
+unbalanced wheatstone bridge
+v1 1 0
+r1 1 2 150
+r2 1 3 50
+r3 2 3 100
+r4 2 0 300
+r5 3 0 250
+.dc v1 24 24 1
+.print dc v(1,2) v(1,3) v(3,2) v(2,0) v(3,0)
+.end
 </pre>
 
 <br> </br>
 
 <pre>
-v1            v(1,2)      v(1,3)      v(3,2)      v(2)        v(3)            
+v1            v(1,2)      v(1,3)      v(3,2)      v(2)        v(3)
 2.400E+01     6.345E+00   4.690E+00   1.655E+00   1.766E+01   1.931E+01
 </pre>
 
@@ -677,7 +674,7 @@ v1            v(1,2)      v(1,3)      v(3,2)      v(2)        v(3)
 
 <p> <img src="00494.png"> </p>
 <p>
-Note that the conflicting polarity on R<sub>4</sub> has been removed. Moreover, none of the other resistors have conflicting polarities. 
+Note that the conflicting polarity on R<sub>4</sub> has been removed. Moreover, none of the other resistors have conflicting polarities.
 
 </p>
 
@@ -692,13 +689,13 @@ Note that the conflicting polarity on R<sub>4</sub> has been removed. Moreover, 
 &nbsp;         300  100  250
 &nbsp;         100  650  350
 &nbsp;         -250  -350  -500
-      
+
 &nbsp;       octave:2> b = [0;0;-24]
 &nbsp;       b =
 &nbsp;         0
 &nbsp;         0
 &nbsp;       -24
-              
+
 &nbsp;       octave:3> x = A\b
 &nbsp;       x =
 &nbsp;         -0.093793
@@ -851,7 +848,7 @@ The currents I<sub>1</sub> = 5 A, and I<sub>2</sub> = 1 A are both positive. The
 
 
 <p>
-The node voltage method of analysis solves for unknown voltages at circuit nodes in terms of a system of KCL equations. This analysis looks strange because it involves replacing voltage sources with equivalent current sources. Also, resistor values in ohms  are replaced by equivalent conductances in siemens, G = 1/R. The siemens (S) is the unit of conductance, having replaced the mho unit. In any event S = &#937;<sup>-1</sup>. And S = mho (obsolete). 
+The node voltage method of analysis solves for unknown voltages at circuit nodes in terms of a system of KCL equations. This analysis looks strange because it involves replacing voltage sources with equivalent current sources. Also, resistor values in ohms  are replaced by equivalent conductances in siemens, G = 1/R. The siemens (S) is the unit of conductance, having replaced the mho unit. In any event S = &#937;<sup>-1</sup>. And S = mho (obsolete).
 </p>
 
 
@@ -893,7 +890,7 @@ The Parallel conductances (resistors) may be combined by addition of the conduct
 
 <pre>
 &nbsp;          G<sub>A</sub> = G<sub>1</sub> + G<sub>2</sub> = 0.5 S + 0.25 S = 0.75 S
-&nbsp;          G<sub>B</sub> = G<sub>4</sub> + G<sub>5</sub> = 0.2 S + 1 S = 1.2 S 
+&nbsp;          G<sub>B</sub> = G<sub>4</sub> + G<sub>5</sub> = 0.2 S + 1 S = 1.2 S
 </pre>
 
 
@@ -939,9 +936,9 @@ The coefficients of the last pair of equations above have been rearranged to sho
 
 
 <pre>
-&nbsp;          (0.5+0.25+0.4)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5 
+&nbsp;          (0.5+0.25+0.4)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5
 &nbsp;         -(0.4)E<sub>1</sub> +(0.4+0.2+1.0)E<sub>2</sub> = -4
-&nbsp;          (1.15)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5 
+&nbsp;          (1.15)E<sub>1</sub> -(0.4)E<sub>2</sub>=  5
 &nbsp;         -(0.4)E<sub>1</sub> +(1.6)E<sub>2  </sub> = -4
 &nbsp;          E<sub>1</sub> =  3.8095
 &nbsp;          E<sub>2</sub> = -1.5476
@@ -949,7 +946,7 @@ The coefficients of the last pair of equations above have been rearranged to sho
 
 
 <p>
-The solution of two equations can be performed with a calculator, or with octave (not shown).<a href="#octav.bibitem">[octav]</a> 
+The solution of two equations can be performed with a calculator, or with octave (not shown).<a href="#octav.bibitem">[octav]</a>
 <!--Split, cannot handle two cites in one line, split line with.-->
 The solution is verified with SPICE based on the original schematic diagram with voltage sources. <a href="#spi.bibitem">[spi]</a> Though, the circuit with the current sources could have been simulated.
 </p>
@@ -964,7 +961,7 @@ The solution is verified with SPICE based on the original schematic diagram with
 &nbsp;          r3 1 2 2.5
 &nbsp;          r4 2 0 5
 &nbsp;          r5 2 22 1
-&nbsp;          .DC V1 10 10 1 V2 -4 -4 1 
+&nbsp;          .DC V1 10 10 1 V2 -4 -4 1
 &nbsp;          .print DC V(1) V(2)
 &nbsp;          .end
 
@@ -1097,7 +1094,7 @@ Millman's Theorem is nothing more than a long equation, applied to any circuit d
 </p>
 
 <p> <img src="10188.png"> </p>
- 
+
 <p>
 Substituting actual voltage and resistance figures from our example circuit for the variable terms of this equation, we get the following expression:
 </p>
@@ -1589,7 +1586,7 @@ All the Norton resistances are in parallel with each other as well in the equiva
 <p> <img src="10201.png"> </p>
 
 <p>
-In this case, the resistance total will be equal to 571.43 milliohms (571.43 m&#937;).  We can re-draw our equivalent circuit now as one with a single Norton current source and Norton resistance: 
+In this case, the resistance total will be equal to 571.43 milliohms (571.43 m&#937;).  We can re-draw our equivalent circuit now as one with a single Norton current source and Norton resistance:
 </p>
 
 <p> <img src="00247.png"> </p>
@@ -1678,7 +1675,7 @@ Similar to AC power distribution, high fidelity audio amplifiers are designed fo
 </p>
 
 <p>
-Maximum power transfer does not coincide with the goal of lowest noise. For example, the low-level radio frequency amplifier between the antenna and a  radio receiver is often designed for lowest possible noise. This often requires a mismatch of the amplifier input impedance to the antenna as compared with that dictated by the maximum power transfer theorem. 
+Maximum power transfer does not coincide with the goal of lowest noise. For example, the low-level radio frequency amplifier between the antenna and a  radio receiver is often designed for lowest possible noise. This often requires a mismatch of the amplifier input impedance to the antenna as compared with that dictated by the maximum power transfer theorem.
 </p>
 
 
@@ -1735,7 +1732,7 @@ A prime application for &#916;-Y conversion is in the solution of unbalanced bri
 <p> <img src="00251.png"> </p>
 
 <p>
-Solution of this circuit with Branch Current or Mesh Current analysis is fairly involved, and neither the Millman nor Superposition Theorems are of any help, since there's only one source of power.  We could use Thevenin's or Norton's Theorem, treating R<sub>3</sub> as our load, but what fun would that be?  
+Solution of this circuit with Branch Current or Mesh Current analysis is fairly involved, and neither the Millman nor Superposition Theorems are of any help, since there's only one source of power.  We could use Thevenin's or Norton's Theorem, treating R<sub>3</sub> as our load, but what fun would that be?
 </p>
 
 <p>
@@ -1809,22 +1806,22 @@ A quick simulation with SPICE will serve to verify our work:<a href="#spi.bibite
 <br> </br>
 
 <pre>
-unbalanced bridge circuit   
-v1 1 0  
-r1 1 2 12       
-r2 1 3 18       
+unbalanced bridge circuit
+v1 1 0
+r1 1 2 12
+r2 1 3 18
 r3 2 3 6
-r4 2 0 18       
-r5 3 0 12       
-.dc v1 10 10 1  
-.print dc v(1,2) v(1,3) v(2,3) v(2,0) v(3,0)    
-.end    
+r4 2 0 18
+r5 3 0 12
+.dc v1 10 10 1
+.print dc v(1,2) v(1,3) v(2,3) v(2,0) v(3,0)
+.end
 </pre>
 
 <br> </br>
 
 <pre>
-v1            v(1,2)      v(1,3)      v(2,3)      v(2)        v(3)            
+v1            v(1,2)      v(1,3)      v(2,3)      v(2)        v(3)
 1.000E+01     4.706E+00   5.294E+00   5.882E-01   5.294E+00   4.706E+00
 </pre>
 
@@ -1875,8 +1872,8 @@ Contributors to this chapter are listed in chronological order of their contribu
 
 
 
- 
-<h2><a name="xtocid336616">Bibliography</a></h2><br> 
+
+<h2><a name="xtocid336616">Bibliography</a></h2><br>
 <ol>
 
 <li><a name="aef.bibitem">[aef] A.E. Fitzergerald, David E. Higginbotham, Arvin Grabel, <i>Basic Electrical Engineering</i>, (McGraw-Hill, 1975).</a></li>
@@ -1911,9 +1908,6 @@ Contributors to this chapter are listed in chronological order of their contribu
 <i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DC_A3.html">Design Science License</a>.
 </p>
 
-<a href="DC_9.html"><img src=previous.jpg alt="Previous"></a>
-<a href="index.html"><img src=contents.jpg alt="Contents"></a>
-<a href="DC_11.html"><img src=next.jpg alt="Next"></a>
 
 </body>
 </html>

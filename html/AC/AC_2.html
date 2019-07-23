@@ -1,0 +1,934 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 2</title>
+  <meta name="description" content="Complex numbers">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, complex number, complex numbers, j operator, rectangular, polar, rectangular notation, polar notation, vector, phase, phase shift, dimension, polarity, modulus, imaginary number, real number, ohm's law, joule's law"
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_1.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_3.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 2</h1>
+
+
+
+
+<h1>COMPLEX NUMBERS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid34460"><u>Introduction</u></a></li>
+<li><a href="#xtocid34461"><u>Vectors and AC waveforms</u></a></li>
+<li><a href="#xtocid34462"><u>Simple vector addition</u></a></li>
+<li><a href="#xtocid34463"><u>Complex vector addition</u></a></li>
+<li><a href="#xtocid34464"><u>Polar and rectangular notation</u></a></li>
+<li><a href="#xtocid34465"><u>Complex number arithmetic</u></a></li>
+<li><a href="#xtocid34466"><u>More on AC "polarity"</u></a></li>
+<li><a href="#xtocid34467"><u>Some examples with AC circuits</u></a></li>
+<li><a href="#xtocid34468"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid34460">Introduction</a></u></h2>
+
+<p>
+If I needed to describe the distance between two cities, I could provide an answer consisting of a single number in miles, kilometers, or some other unit of linear measurement.  However, if I were to describe how to travel from one city to another, I would have to provide more information than just the distance between those two cities; I would also have to provide information about the <i>direction</i> to travel, as well.
+</p>
+
+<a name="Scalar number"></a> 
+<a name="Number, scalar"></a>
+
+<p>
+The kind of information that expresses a single dimension, such as linear distance, is called a <i>scalar</i> quantity in mathematics.  Scalar numbers are the kind of numbers you've used in most all of your mathematical applications so far.  The voltage produced by a battery, for example, is a scalar quantity.  So is the resistance of a piece of wire (ohms), or the current through it (amps).
+</p>
+
+<a name="Impedance"></a>
+
+<p>
+However, when we begin to analyze alternating current circuits, we find that quantities of voltage, current, and even resistance (called <i>impedance</i> in AC) are not the familiar one-dimensional quantities we're used to measuring in DC circuits.  Rather, these quantities, because they're dynamic (alternating in direction and amplitude), possess other dimensions that must be taken into account.  Frequency and phase shift are two of these dimensions that come into play.  Even with relatively simple AC circuits, where we're only dealing with a single frequency, we still have the dimension of phase shift to contend with in addition to the amplitude.
+</p>
+
+<a name="Complex number"></a>
+<a name="Number, complex"></a>
+ 
+<p>
+In order to successfully analyze AC circuits, we need to work with mathematical objects and techniques capable of representing these multi-dimensional quantities.  Here is where we need to abandon scalar numbers for something better suited: <i>complex numbers</i>.  Just like the example of giving directions from one city to another, AC quantities in a single-frequency circuit have both amplitude (analogy: distance) and phase shift (analogy: direction).  A complex number is a single mathematical quantity able to express these two dimensions of amplitude and phase shift at once.
+</p>
+
+<a name="Vector"></a>
+
+<p>
+Complex numbers are easier to grasp when they're represented graphically.  If I draw a line with a certain length (magnitude) and angle (direction), I have a graphic representation of a complex number which is commonly known in physics as a <i>vector</i>: (Figure <a href="#02025.png">  below</a>) 
+</p>
+
+ 
+<a name="02025.png"></a> 
+<p> <img src="02025.png"> </p> 
+<p><i>A vector has both magnitude and direction.</i></p> 
+ 
+
+<p>
+Like distances and directions on a map, there must be some common frame of reference for angle figures to have any meaning.  In this case, directly right is considered to be 0<sup>o</sup>, and angles are counted in a positive direction going counter-clockwise: (Figure <a href="#02026.png">  below</a>) 
+</p>
+
+ 
+<a name="02026.png"></a> 
+<p> <img src="02026.png"> </p> 
+<p><i>The vector compass</i></p> 
+ 
+
+<p>
+The idea of representing a number in graphical form is nothing new.  We all learned this in grade school with the &ldquo;number line:&rdquo; (Figure <a href="#02027.png">  below</a>)
+</p>
+
+ 
+<a name="02027.png"></a> 
+<p> <img src="02027.png"> </p> 
+<p><i>Number line.</i></p> 
+ 
+
+<p>
+We even learned how addition and subtraction works by seeing how lengths (magnitudes) stacked up to give a final answer: (Figure <a href="#02028.png">  below</a>)
+</p>
+
+ 
+<a name="02028.png"></a> 
+<p> <img src="02028.png"> </p> 
+<p><i>Addition on a &ldquo;number line&rdquo;.</i></p> 
+ 
+
+<p>
+Later, we learned that there were ways to designate the values <i>between</i> the whole numbers marked on the line.  These were fractional or decimal quantities: (Figure <a href="#02029.png">  below</a>)
+</p>
+
+ 
+<a name="02029.png"></a> 
+<p> <img src="02029.png"> </p> 
+<p><i>Locating a fraction on the &ldquo;number line&rdquo;</i></p> 
+ 
+
+<p>
+Later yet we learned that the number line could extend to the left of zero as well: (Figure <a href="#02030.png">  below</a>)
+</p>
+
+ 
+<a name="02030.png"></a> 
+<p> <img src="02030.png"> </p> 
+<p><i>&ldquo;Number line&rdquo; shows both positive and negative numbers.</i></p> 
+ 
+
+<p>
+These fields of numbers (whole, integer, rational, irrational, real, etc.) learned in grade school share a common trait: they're all <i>one-dimensional</i>.  The straightness of the number line illustrates this graphically.  You can move up or down the number line, but all &ldquo;motion&rdquo; along that line is restricted to a single axis (horizontal).  One-dimensional, scalar numbers are perfectly adequate for counting beads, representing weight, or measuring DC battery voltage, but they fall short of being able to represent something more complex like the distance <i>and</i> direction between two cities, or the amplitude <i>and</i> phase of an AC waveform.  To represent these kinds of quantities, we need multidimensional representations.  In other words, we need a number line that can point in different directions, and that's exactly what a vector is.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>scalar</i> number is the type of mathematical object that people are used to using in everyday life: a one-dimensional quantity like temperature, length, weight, etc.</li>
+<li>A <i>complex number</i> is a mathematical quantity representing two dimensions of magnitude and direction.</li>
+<li>A <i>vector</i> is a graphical representation of a complex number.  It looks like an arrow, with a starting point, a tip, a definite length, and a definite direction.  Sometimes the word <i>phasor</i> is used in electrical applications where the angle of the vector represents phase shift between waveforms.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34461">Vectors and AC waveforms</a></u></h2>
+
+<p>
+OK, so how exactly can we represent AC quantities of voltage or current in the form of a vector?  The length of the vector represents the magnitude (or amplitude) of the waveform, like this: (Figure <a href="#02031.png">  below</a>)
+</p>
+
+ 
+<a name="02031.png"></a> 
+<p> <img src="02031.png"> </p> 
+<p><i>Vector length represents AC voltage magnitude.</i></p> 
+ 
+
+<a name="Vector amplitude"></a>
+<a name="Amplitude, vector"></a>
+<a name="Vector phase shift"></a>
+<a name="Phase shift, vector"></a>
+
+<p>
+The greater the amplitude of the waveform, the greater the length of its corresponding vector.  The angle of the vector, however, represents the phase shift in degrees between the waveform in question and another waveform acting as a &ldquo;reference&rdquo; in time.  Usually, when the phase of a waveform in a circuit is expressed, it is referenced to the power supply voltage waveform (arbitrarily stated to be &ldquo;at&rdquo; 0<sup>o</sup>).  Remember that phase is always a <i>relative</i> measurement between two waveforms rather than an absolute property. (Figure <a href="#02032.png">  below</a>)
+<!--split for double ref-->
+ (Figure <a href="#02038.png">  below</a>)
+</p>
+
+ 
+<a name="02032.png"></a> 
+<p> <img src="02032.png"> </p> 
+<p><i>Vector angle is the phase with respect to another waveform.</i></p> 
+ 
+
+<p>
+
+</p>
+
+<br> </br>
+
+ 
+<a name="02038.png"></a> 
+<p> <img src="02038.png"> </p> 
+<p><i>Phase shift between waves and vector phase angle</i></p> 
+ 
+
+<p>
+The greater the phase shift in degrees between two waveforms, the greater the angle difference between the corresponding vectors.  Being a relative measurement, like voltage, phase shift (vector angle) only has meaning in reference to some standard waveform.  Generally this &ldquo;reference&rdquo; waveform is the main AC power supply voltage in the circuit.  If there is more than one AC voltage source, then one of those sources is arbitrarily chosen to be the phase reference for all other measurements in the circuit.  
+</p>
+
+<a name="Ground"></a>
+
+<p>
+This concept of a reference point is not unlike that of the &ldquo;ground&rdquo; point in a circuit for the benefit of voltage reference.  With a clearly defined point in the circuit declared to be &ldquo;ground,&rdquo; it becomes possible to talk about voltage &ldquo;on&rdquo; or &ldquo;at&rdquo; single points in a circuit, being understood that those voltages (always relative between <i>two</i> points) are referenced to &ldquo;ground.&rdquo;  Correspondingly, with a clearly defined point of reference for phase it becomes possible to speak of voltages and currents in an AC circuit having definite phase angles.  For example, if the current in an AC circuit is described as &ldquo;24.3 milliamps at -64 degrees,&rdquo; it means that the current waveform has an amplitude of 24.3 mA, and it lags 64<sup>o</sup> behind the reference waveform, usually assumed to be the main source voltage waveform.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>When used to describe an AC quantity, the length of a vector represents the amplitude of the wave while the angle of a vector represents the phase angle of the wave relative to some other (reference) waveform.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34462">Simple vector addition</a></u></h2>
+
+<p>
+Remember that vectors are mathematical objects just like numbers on a number line: they can be added, subtracted, multiplied, and divided.  Addition is perhaps the easiest vector operation to visualize, so we'll begin with that.  If vectors with common angles are added, their magnitudes (lengths) add up just like regular scalar quantities:  (Figure <a href="#02033.png">  below</a>)
+</p>
+
+ 
+<a name="02033.png"></a> 
+<p> <img src="02033.png"> </p> 
+<p><i>Vector magnitudes add like scalars for a common angle. </i></p> 
+ 
+
+<p>
+Similarly, if AC voltage sources with the same phase angle are connected together in series, their voltages add just as you might expect with DC batteries: (Figure <a href="#02034.png">  below</a>)
+</p>
+
+ 
+<a name="02034.png"></a> 
+<p> <img src="02034.png"> </p> 
+<p><i>&ldquo;In phase&rdquo; AC voltages add like DC battery voltages.</i></p> 
+ 
+
+<p>
+Please note the (+) and (-) polarity marks next to the leads of the two AC sources.  Even though we know AC doesn't have &ldquo;polarity&rdquo; in the same sense that DC does, these marks are essential to knowing how to reference the given phase angles of the voltages.  This will become more apparent in the next example.
+</p>
+
+<p>
+If vectors directly opposing each other (180<sup>o</sup> out of phase) are added together, their magnitudes (lengths) subtract just like positive and negative scalar quantities subtract when added: (Figure <a href="#02035.png">  below</a>)
+</p>
+
+ 
+<a name="02035.png"></a> 
+<p> <img src="02035.png"> </p> 
+<p><i>Directly opposing vector magnitudes subtract.</i></p> 
+ 
+
+<p>
+Similarly, if opposing AC voltage sources are connected in series, their voltages subtract as you might expect with DC batteries connected in an opposing fashion: (Figure <a href="#02036.png">  below</a>)
+</p>
+
+ 
+<a name="02036.png"></a> 
+<p> <img src="02036.png"> </p> 
+<p><i>Opposing AC voltages subtract like opposing battery voltages.</i></p> 
+ 
+
+<p>
+Determining whether or not these voltage sources are opposing each other requires an examination of their polarity markings <i>and</i> their phase angles.  Notice how the polarity markings in the above diagram seem to indicate additive voltages (from left to right, we see - and + on the 6 volt source, - and + on the 8 volt source).  Even though these polarity markings would normally indicate an <i>additive</i> effect in a DC circuit (the two voltages working together to produce a greater total voltage), in this AC circuit they're actually pushing in opposite directions because one of those voltages has a phase angle of 0<sup>o</sup> and the other a phase angle of 180<sup>o</sup>.  The result, of course, is a total voltage of 2 volts.
+</p>
+
+<p>
+We could have just as well shown the opposing voltages subtracting in series like this: (Figure <a href="#02267.png">  below</a>)
+</p>
+
+ 
+<a name="02267.png"></a> 
+<p> <img src="02267.png"> </p> 
+<p><i>Opposing voltages in spite of equal phase angles.</i></p> 
+ 
+
+<p>
+Note how the polarities appear to be opposed to each other now, due to the reversal of wire connections on the 8 volt source.  Since both sources are described as having equal phase angles (0<sup>o</sup>), they truly are opposed to one another, and the overall effect is the same as the former scenario with &ldquo;additive&rdquo; polarities and differing phase angles: a total voltage of only 2 volts. (Figure <a href="#02037.png">  below</a>)
+</p>
+
+ 
+<a name="02037.png"></a> 
+<p> <img src="02037.png"> </p> 
+<p><i>Just as there are two ways to express the phase of the sources, there are two ways to express the resultant their sum.</i></p> 
+ 
+
+<p>
+The resultant voltage can be expressed in two different ways: 2 volts at 180<sup>o</sup> with the (-) symbol on the left and the (+) symbol on the right, or 2 volts at 0<sup>o</sup> with the (+) symbol on the left and the (-) symbol on the right.  A reversal of wires from an AC voltage source is the same as phase-shifting that source by 180<sup>o</sup>. (Figure <a href="#02266.png">  below</a>)
+</p>
+
+ 
+<a name="02266.png"></a> 
+<p> <img src="02266.png"> </p> 
+<p><i>Example of equivalent voltage sources.</i></p> 
+ 
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34463">Complex vector addition</a></u></h2>
+
+<p>
+If vectors with uncommon angles are added, their magnitudes (lengths) add up quite differently than that of scalar magnitudes: (Figure <a href="#02039.png">  below</a>)
+</p>
+
+ 
+<a name="02039.png"></a> 
+<p> <img src="02039.png"> </p> 
+<p><i>Vector magnitudes do not directly add for unequal angles.</i></p> 
+ 
+
+<p>
+If two AC voltages -- 90<sup>o</sup> out of phase -- are added together by being connected in series, their voltage magnitudes do not directly add or subtract as with scalar voltages in DC.  Instead, these voltage quantities are complex quantities, and just like the above vectors, which add up in a trigonometric fashion, a 6 volt source at 0<sup>o</sup> added to an 8 volt source at 90<sup>o</sup> results in 10 volts at a phase angle of 53.13<sup>o</sup>: (Figure <a href="#02040.png">  below</a>)
+</p>
+
+ 
+<a name="02040.png"></a> 
+<p> <img src="02040.png"> </p> 
+<p><i>The 6V and 8V sources add to 10V with the help of trigonometry. </i></p> 
+ 
+
+<p>
+Compared to DC circuit analysis, this is very strange indeed.  Note that it is possible to obtain voltmeter indications of 6 and 8 volts, respectively, across the two AC voltage sources, yet only read 10 volts for a total voltage!
+</p>
+
+<p>
+There is no suitable DC analogy for what we're seeing here with two AC voltages slightly out of phase.  DC voltages can only directly aid or directly oppose, with nothing in between.  With AC, two voltages can be aiding or opposing one another <i>to any degree</i> between fully-aiding and fully-opposing, inclusive.  Without the use of vector (complex number) notation to describe AC quantities, it would be <i>very</i> difficult to perform mathematical calculations for AC circuit analysis. 
+</p>
+
+<p>
+In the next section, we'll learn how to represent vector quantities in symbolic rather than graphical form.  Vector and triangle diagrams suffice to illustrate the general concept, but more precise methods of symbolism must be used if any serious calculations are to be performed on these quantities.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>DC voltages can only either directly aid or directly oppose each other when connected in series.  AC voltages may aid or oppose <i>to any degree</i> depending on the phase shift between them.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34464">Polar and rectangular notation</a></u></h2>
+
+<a name="Polar notation"></a>
+<a name="Notation, polar"></a>
+<a name="Rectangular notation"></a>
+<a name="Notation, rectangular"></a>
+
+<p>
+In order to work with these complex numbers without drawing vectors, we first need some kind of standard mathematical notation.  There are two basic forms of complex number notation: <i>polar</i> and <i>rectangular</i>.
+</p>
+
+<a name="Vector length"></a>
+<a name="Vector magnitude"></a>
+<a name="Vector modulus"></a>
+<a name="Modulus. vector"></a>
+<a name="Vector, absolute value"></a>
+<a name="Absolute value, vector"></a>
+<a name="Vector angle"></a>
+<a name="Angle, vector"></a>
+
+<p>
+Polar form is where a complex number is denoted by the <i>length</i> (otherwise known as the <i>magnitude</i>, <i>absolute value</i>, or <i>modulus</i>) and the <i>angle</i> of its vector (usually denoted by an angle symbol that looks like this: &#8736;).  To use the map analogy, polar notation for the vector from New York City to San Diego would be something like &ldquo;2400 miles, southwest.&rdquo;  Here are two examples of vectors and their polar notations: (Figure <a href="#02041.png">  below</a>)
+</p>
+
+ 
+<a name="02041.png"></a> 
+<p> <img src="02041.png"> </p> 
+<p><i>Vectors with polar notations.</i></p> 
+ 
+
+<p>
+Standard orientation for vector angles in AC circuit calculations defines 0<sup>o</sup> as being to the right (horizontal), making 90<sup>o</sup> straight up, 180<sup>o</sup> to the left, and 270<sup>o</sup> straight down.  Please note that vectors angled &ldquo;down&rdquo; can have angles represented in polar form as positive numbers in excess of 180, or negative numbers less than 180.  For example, a vector angled &#8736; 270<sup>o</sup> (straight down) can also be said to have an angle of -90<sup>o</sup>. (Figure <a href="#02026a.png">  below</a>) The above vector on the right (7.81 &#8736; 230.19<sup>o</sup>) can also be denoted as 7.81 &#8736; -129.81<sup>o</sup>. 
+</p>
+
+ 
+<a name="02026a.png"></a> 
+<p> <img src="02026.png"> </p>  
+<p><i>The vector compass</i></p> 
+
+
+<p>
+Rectangular form, on the other hand, is where a complex number is denoted by its respective horizontal and vertical components.  In essence, the angled vector is taken to be the hypotenuse of a right triangle, described by the lengths of the adjacent and opposite sides.  Rather than describing a vector's length and direction by denoting magnitude and angle, it is described in terms of &ldquo;how far left/right&rdquo; and &ldquo;how far up/down.&rdquo;  
+</p>
+
+<a name="i, imaginary operator"></a>
+<a name="j, imaginary operator"></a>
+
+<p>
+These two dimensional figures (horizontal and vertical) are symbolized by two numerical figures.  In order to distinguish the horizontal and vertical dimensions from each other, the vertical is prefixed with a lower-case &ldquo;i&rdquo; (in pure mathematics) or &ldquo;j&rdquo; (in electronics).  These lower-case letters do not represent a physical variable (such as instantaneous current, also symbolized by a lower-case letter &ldquo;i&rdquo;), but rather are mathematical <i>operators</i> used to distinguish the vector's vertical component from its horizontal component.  As a complete complex number, the horizontal and vertical quantities are written as a sum: (Figure <a href="#02042.png">  below</a>)
+</p>
+
+ 
+<a name="02042.png"></a> 
+<p> <img src="02042.png"> </p> 
+<p><i>In &ldquo;rectangular&rdquo; form the vector's length and direction are denoted in terms of its horizontal and vertical span, the first number representing the the horizontal (&ldquo;real&rdquo;) and the second number (with the &ldquo;j&rdquo; prefix) representing the vertical (&ldquo;imaginary&rdquo;) dimensions.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<a name="Real number"></a>
+<a name="Imaginary number"></a>
+<a name="Number, real"></a>
+<a name="Number, imaginary"></a>
+
+<p>
+The horizontal component is referred to as the <i>real</i> component, since that dimension is compatible with normal, scalar (&ldquo;real&rdquo;) numbers.  The vertical component is referred to as the <i>imaginary</i> component, since that dimension lies in a different direction, totally alien to the scale of the real numbers.  (Figure <a href="#02043.png">  below</a>)
+</p>
+
+ 
+<a name="02043.png"></a> 
+<p> <img src="02043.png"> </p> 
+<p><i>Vector compass showing real and imaginary axes</i></p> 
+ 
+
+<p>
+The &ldquo;real&rdquo; axis of the graph corresponds to the familiar number line we saw earlier: the one with both positive and negative values on it.  The &ldquo;imaginary&rdquo; axis of the graph corresponds to another number line situated at 90<sup>o</sup> to the &ldquo;real&rdquo; one.  Vectors being two-dimensional things, we must have a two-dimensional &ldquo;map&rdquo; upon which to express them, thus the two number lines perpendicular to each other: (Figure <a href="#02044.png">  below</a>)
+</p>
+
+ 
+<a name="02044.png"></a> 
+<p> <img src="02044.png"> </p> 
+<p><i>Vector compass with real and imaginary (&ldquo;j&rdquo;) number lines.</i></p> 
+ 
+
+<p>
+Either method of notation is valid for complex numbers.  The primary reason for having two methods of notation is for ease of longhand calculation, rectangular form lending itself to addition and subtraction, and polar form lending itself to multiplication and division.
+</p>
+
+<p>
+Conversion between the two notational forms involves simple trigonometry.  To convert from polar to rectangular, find the real component by multiplying the polar magnitude by the cosine of the angle, and the imaginary component by multiplying the polar magnitude by the sine of the angle.  This may be understood more readily by drawing the quantities as sides of a right triangle, the hypotenuse of the triangle representing the vector itself (its length and angle with respect to the horizontal constituting the polar form), the horizontal and vertical sides representing the &ldquo;real&rdquo; and &ldquo;imaginary&rdquo; rectangular components, respectively: (Figure <a href="#02045.png">  below</a>)
+</p>
+
+ 
+<a name="02045.png"></a> 
+<p> <img src="02045.png"> </p> 
+<p><i>Magnitude vector in terms of real (4) and imaginary (j3) components.</i></p> 
+ 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="12005.png"> </p> 
+
+<a name="Pythagorean Theorem"></a>
+<a name="Theorem, Pythagorean"></a>
+
+<p>
+To convert from rectangular to polar, find the polar magnitude through the use of the Pythagorean Theorem (the polar magnitude is the hypotenuse of a right triangle, and the real and imaginary components are the adjacent and opposite sides, respectively), and the angle by taking the arctangent of the imaginary component divided by the real component:
+</p>
+
+<p> <img src="12006.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Polar</i> notation denotes a complex number in terms of its vector's length and angular direction from the starting point.  Example: fly 45 miles &#8736; 203<sup>o</sup> (West by Southwest).</li>
+<li><i>Rectangular</i> notation denotes a complex number in terms of its horizontal and vertical dimensions.  Example: drive 41 miles West, then turn and drive 18 miles South.</li>
+<li>In rectangular notation, the first quantity is the &ldquo;real&rdquo; component (horizontal dimension of vector) and the second quantity is the &ldquo;imaginary&rdquo; component (vertical dimension of vector).  The imaginary component is preceded by a lower-case &ldquo;j,&rdquo; sometimes called the <i>j operator</i>.</li>
+<li>Both polar and rectangular forms of notation for a complex number can be related graphically in the form of a right triangle, with the hypotenuse representing the vector itself (polar form: hypotenuse length = magnitude; angle with respect to horizontal side = angle), the horizontal side representing the rectangular &ldquo;real&rdquo; component, and the vertical side representing the rectangular &ldquo;imaginary&rdquo; component.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34465">Complex number arithmetic</a></u></h2>
+
+<a name="Complex number arithmetic"></a>
+<a name="Arithmetic, with complex numbers"></a>
+
+<p>
+Since complex numbers are legitimate mathematical entities, just like scalar numbers, they can be added, subtracted, multiplied, divided, squared, inverted, and such, just like any other kind of number.  Some scientific calculators are programmed to directly perform these operations on two or more complex numbers, but these operations can also be done &ldquo;by hand.&rdquo;  This section will show you how the basic operations are performed.  It is <i>highly</i> recommended that you equip yourself with a scientific calculator capable of performing arithmetic functions easily on complex numbers.  It will make your study of AC circuit much more pleasant than if you're forced to do all calculations the longer way.
+</p>
+
+<p>
+Addition and subtraction with complex numbers in rectangular form is easy.  For addition, simply add up the real components of the complex numbers to determine the real component of the sum, and add up the imaginary components of the complex numbers to determine the imaginary component of the sum:
+</p>
+
+<p> <img src="12007.png"> </p> 
+
+<p>
+When subtracting complex numbers in rectangular form, simply subtract the real component of the second complex number from the real component of the first to arrive at the real component of the difference, and subtract the imaginary component of the second complex number from the imaginary component of the first to arrive the imaginary component of the difference:
+</p>
+
+<p> <img src="12008.png"> </p> 
+
+<p>
+For longhand multiplication and division, polar is the favored notation to work with.  When multiplying complex numbers in polar form, simply <i>multiply</i> the polar magnitudes of the complex numbers to determine the polar magnitude of the product, and <i>add</i> the angles of the complex numbers to determine the angle of the product:
+</p>
+
+<p> <img src="12009.png"> </p> 
+
+<p>
+Division of polar-form complex numbers is also easy: simply divide the polar magnitude of the first complex number by the polar magnitude of the second complex number to arrive at the polar magnitude of the quotient, and subtract the angle of the second complex number from the angle of the first complex number to arrive at the angle of the quotient:
+</p>
+
+<p> <img src="12010.png"> </p> 
+
+<p>
+To obtain the reciprocal, or &ldquo;invert&rdquo; (1/x), a complex number, simply divide the number (in polar form) into a scalar value of 1, which is nothing more than a complex number with no imaginary component (angle = 0):
+</p>
+
+<p> <img src="12011.png"> </p> 
+
+<a name="Hyperbolic function, trigonometry"></a>
+
+<p>
+These are the basic operations you will need to know in order to manipulate complex numbers in the analysis of AC circuits.  Operations with complex numbers are by no means limited just to addition, subtraction, multiplication, division, and inversion, however.  Virtually any arithmetic operation that can be done with scalar numbers can be done with complex numbers, including powers, roots, solving simultaneous equations with complex coefficients, and even trigonometric functions (although this involves a whole new perspective in trigonometry called <i>hyperbolic functions</i> which is well beyond the scope of this discussion).  Be sure that you're familiar with the basic arithmetic operations of addition, subtraction, multiplication, division, and inversion, and you'll have little trouble with AC circuit analysis.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>To add complex numbers in rectangular form, add the real components and add the imaginary components.  Subtraction is similar.</li>
+<li>To multiply complex numbers in polar form, multiply the magnitudes and add the angles.  To divide, divide the magnitudes and subtract one angle from the other.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34466">More on AC "polarity"</a></u></h2>
+
+<a name="Voltage &ldquo;polarity,&rdquo; AC"></a> 
+<a name="Polarity, AC"></a>
+ 
+<p>
+Complex numbers are useful for AC circuit analysis because they provide a convenient method of symbolically denoting phase shift between AC quantities like voltage and current.  However, for most people the equivalence between abstract vectors and real circuit quantities is not an easy one to grasp.  Earlier in this chapter we saw how AC voltage sources are given voltage figures in complex form (magnitude <i>and</i> phase angle), as well as polarity markings.  Being that alternating current has no set &ldquo;polarity&rdquo; as direct current does, these polarity markings and their relationship to phase angle tends to be confusing.  This section is written in the attempt to clarify some of these issues.
+</p>
+
+<p>
+Voltage is an inherently <i>relative</i> quantity.  When we measure a voltage, we have a choice in how we connect a voltmeter or other voltage-measuring instrument to the source of voltage, as there are two points between which the voltage exists, and two test leads on the instrument with which to make connection.  In DC circuits, we denote the polarity of voltage sources and voltage drops explicitly, using &ldquo;+&rdquo; and &ldquo;-&rdquo; symbols, and use color-coded meter test leads (red and black).  If a digital voltmeter indicates a negative DC voltage, we know that its test leads are connected &ldquo;backward&rdquo; to the voltage (red lead connected to the &ldquo;-&rdquo; and black lead to the &ldquo;+&rdquo;).
+</p>
+
+<p>
+Batteries have their polarity designated by way of intrinsic symbology: the short-line side of a battery is always the negative (-) side and the long-line side always the positive (+): (Figure <a href="#02348.png">  below</a>)
+</p>
+
+ 
+<a name="02348.png"></a> 
+<p> <img src="02348.png"> </p> 
+<p><i>Conventional battery polarity.</i></p> 
+ 
+
+<p>
+Although it would be mathematically correct to represent a battery's voltage as a negative figure with reversed polarity markings, it would be decidedly unconventional: (Figure <a href="#02349.png">  below</a>)
+</p>
+
+ 
+<a name="02349.png"></a> 
+<p> <img src="02349.png"> </p> 
+<p><i>Decidedly unconventional polarity marking.</i></p> 
+ 
+
+<p>
+Interpreting such notation might be easier if the &ldquo;+&rdquo; and &ldquo;-&rdquo; polarity markings were viewed as reference points for voltmeter test leads, the &ldquo;+&rdquo; meaning &ldquo;red&rdquo; and the &ldquo;-&rdquo; meaning &ldquo;black.&rdquo;  A voltmeter connected to the above battery with red lead to the bottom terminal and black lead to the top terminal would indeed indicate a negative voltage (-6 volts).  Actually, this form of notation and interpretation is not as unusual as you might think: it is commonly encountered in problems of DC network analysis where &ldquo;+&rdquo; and &ldquo;-&rdquo; polarity marks are initially drawn according to educated guess, and later interpreted as correct or &ldquo;backward&rdquo; according to the mathematical sign of the figure calculated.
+</p>
+
+<p>
+In AC circuits, though, we don't deal with &ldquo;negative&rdquo; quantities of voltage.  Instead, we describe to what degree one voltage aids or opposes another by <i>phase</i>: the time-shift between two waveforms.  We never describe an AC voltage as being negative in sign, because the facility of polar notation allows for vectors pointing in an opposite direction.  If one AC voltage directly opposes another AC voltage, we simply say that one is 180<sup>o</sup> out of phase with the other.
+</p>
+
+<p>
+Still, voltage is relative between two points, and we have a choice in how we might connect a voltage-measuring instrument between those two points.  The mathematical sign of a DC voltmeter's reading has meaning only in the context of its test lead connections: which terminal the red lead is touching, and which terminal the black lead is touching.  Likewise, the phase angle of an AC voltage has meaning only in the context of knowing which of the two points is considered the &ldquo;reference&rdquo; point.  Because of this fact, &ldquo;+&rdquo; and &ldquo;-&rdquo; polarity marks are often placed by the terminals of an AC voltage in schematic diagrams to give the stated phase angle a frame of reference.
+</p>
+
+<p>
+Let's review these principles with some graphical aids.  First, the principle of relating test lead connections to the mathematical sign of a DC voltmeter indication: (Figure <a href="#02268.png">  below</a>)
+</p>
+
+ 
+<a name="02268.png"></a> 
+<p> <img src="02268.png"> </p> 
+<p><i>Test lead colors provide a frame of reference for interpreting the sign (+ or -) of the meter's indication.</i></p> 
+ 
+
+<p>
+The mathematical sign of a digital DC voltmeter's display has meaning only in the context of its test lead connections.  Consider the use of a DC voltmeter in determining whether or not two DC voltage sources are aiding or opposing each other, assuming that both sources are unlabeled as to their polarities.  Using the voltmeter to measure across the first source: (Figure <a href="#02269.png">  below</a>)
+</p>
+
+ 
+<a name="02269.png"></a> 
+<p> <img src="02269.png"> </p> 
+<p><i>(+) Reading indicates black is (-), red is (+).</i></p> 
+ 
+
+<p>
+This first measurement of +24 across the left-hand voltage source tells us that the black lead of the meter really is touching the negative side of voltage source #1, and the red lead of the meter really is touching the positive.  Thus, we know source #1 is a battery facing in this orientation: (Figure <a href="#02271.png">  below</a>)
+</p>
+
+ 
+<a name="02271.png"></a> 
+<p> <img src="02271.png"> </p> 
+<p><i>24V source is polarized (-) to (+).</i></p> 
+ 
+
+<p>
+Measuring the other unknown voltage source: (Figure <a href="#02270.png">  below</a>)
+</p>
+
+ 
+<a name="02270.png"></a> 
+<p> <img src="02270.png"> </p> 
+<p><i>(-) Reading indicates black is (+), red is (-).</i></p> 
+ 
+
+<p>
+This second voltmeter reading, however, is a <i>negative</i> (-) 17 volts, which tells us that the black test lead is actually touching the positive side of voltage source #2, while the red test lead is actually touching the negative.  Thus, we know that source #2 is a battery facing in the <i>opposite</i> direction: (Figure <a href="#02272.png">  below</a>)
+</p>
+
+ 
+<a name="02272.png"></a> 
+<p> <img src="02272.png"> </p> 
+<p><i>17V source is polarized (+) to (-)</i></p> 
+ 
+
+<p>
+It should be obvious to any experienced student of DC electricity that these two batteries are opposing one another.  By definition, opposing voltages <i>subtract</i> from one another, so we subtract 17 volts from 24 volts to obtain the total voltage across the two: 7 volts. 
+</p>
+
+<p>
+We could, however, draw the two sources as nondescript boxes, labeled with the exact voltage figures obtained by the voltmeter, the polarity marks indicating voltmeter test lead placement: (Figure <a href="#02350.png">  below</a>)
+</p>
+
+ 
+<a name="02350.png"></a> 
+<p> <img src="02350.png"> </p> 
+<p><i>Voltmeter readings as read from meters.</i></p> 
+ 
+
+<p>
+According to this diagram, the polarity marks (which indicate meter test lead placement) indicate the sources <i>aiding</i> each other.  By definition, aiding voltage sources <i>add</i> with one another to form the total voltage, so we add 24 volts to -17 volts to obtain 7 volts: still the correct answer.  If we let the polarity markings guide our decision to either add or subtract voltage figures -- whether those polarity markings represent the <i>true</i> polarity or just the meter test lead orientation -- and include the mathematical signs of those voltage figures in our calculations, the result will always be correct.  Again, the polarity markings serve as <i>frames of reference</i> to place the voltage figures' mathematical signs in proper context.
+</p>
+
+<p>
+The same is true for AC voltages, except that <i>phase angle</i> substitutes for mathematical <i>sign</i>.  In order to relate multiple AC voltages at different phase angles to each other, we need polarity markings to provide frames of reference for those voltages' phase angles. (Figure <a href="#02273.png">  below</a>)
+</p>
+
+<p>
+Take for example the following circuit:
+</p>
+
+ 
+<a name="02273.png"></a> 
+<p> <img src="02273.png"> </p> 
+<p><i>Phase angle substitutes for &#177; sign.</i></p> 
+ 
+
+<p>
+The polarity markings show these two voltage sources aiding each other, so to determine the total voltage across the resistor we must <i>add</i> the voltage figures of 10 V &#8736; 0<sup>o</sup> and 6 V &#8736; 45<sup>o</sup> together to obtain 14.861 V &#8736; 16.59<sup>o</sup>.  However, it would be perfectly acceptable to represent the 6 volt source as 6 V &#8736; 225<sup>o</sup>, with a reversed set of polarity markings, and still arrive at the same total voltage: (Figure <a href="#02274.png">  below</a>)
+</p>
+
+ 
+<a name="02274.png"></a> 
+<p> <img src="02274.png"> </p> 
+<p><i>Reversing the voltmeter leads on the 6V source changes the phase angle by 180<sup>o</sup>.</i></p> 
+ 
+
+<p>
+6 V &#8736; 45<sup>o</sup> with negative on the left and positive on the right is exactly the same as 6 V &#8736; 225<sup>o</sup> with positive on the left and negative on the right: the reversal of polarity markings perfectly complements the addition of 180<sup>o</sup> to the phase angle designation: (Figure <a href="#02275.png">  below</a>)
+</p>
+
+ 
+<a name="02275.png"></a> 
+<p> <img src="02275.png"> </p> 
+<p><i>Reversing polarity adds 180<sup>o</sup>to phase angle</i></p> 
+ 
+
+<p>
+Unlike DC voltage sources, whose symbols intrinsically define polarity by means of short and long lines, AC voltage symbols have no intrinsic polarity marking.  Therefore, any polarity marks must be included as additional symbols on the diagram, and there is no one &ldquo;correct&rdquo; way in which to place them.  They must, however, correlate with the given phase angle to represent the true phase relationship of that voltage with other voltages in the circuit.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Polarity markings are sometimes given to AC voltages in circuit schematics in order to provide a frame of reference for their phase angles.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34467">Some examples with AC circuits</a></u></h2>
+
+<a name="Ohm's Law"></a>
+<a name="Joule's Law"></a>
+
+<p>
+Let's connect three AC voltage sources in series and use complex numbers to determine additive voltages.  All the rules and laws learned in the study of DC circuits apply to AC circuits as well (Ohm's Law, Kirchhoff's Laws, network analysis methods), with the exception of power calculations (Joule's Law).  The only qualification is that all variables <i>must</i> be expressed in complex form, taking into account phase as well as magnitude, and all voltages and currents must be of the same frequency (in order that their phase relationships remain constant). (Figure <a href="#02046.png">  below</a>)
+</p>
+
+ 
+<a name="02046.png"></a> 
+<p> <img src="02046.png"> </p> 
+<p><i>KVL allows addition of complex voltages.</i></p> 
+ 
+
+<a name="Kirchhoff's Voltage Law"></a>
+<a name="KVL"></a>
+
+<p>
+The polarity marks for all three voltage sources are oriented in such a way that their stated voltages should add to make the total voltage across the load resistor.  Notice that although magnitude and phase angle is given for each AC voltage source, no frequency value is specified.  If this is the case, it is assumed that all frequencies are equal, thus meeting our qualifications for applying DC rules to an AC circuit (all figures given in complex form, all of the same frequency).  The setup of our equation to find total voltage appears as such:
+</p>
+
+<p> <img src="12012.png"> </p> 
+
+<p>
+Graphically, the vectors add up as shown in Figure <a href="#02047.png">  below</a>.
+</p>
+
+ 
+<a name="02047.png"></a> 
+<p> <img src="02047.png"> </p> 
+<p><i>Graphic addition of vector voltages.</i></p> 
+ 
+
+<p>
+The sum of these vectors will be a resultant vector originating at the starting point for the 22 volt vector (dot at upper-left of diagram) and terminating at the ending point for the 15 volt vector (arrow tip at the middle-right of the diagram): (Figure <a href="#02048.png">  below</a>)
+</p>
+
+ 
+<a name="02048.png"></a> 
+<p> <img src="02048.png"> </p> 
+<p><i>Resultant is equivalent to the vector sum of the three original voltages.</i></p> 
+ 
+
+<p>
+In order to determine what the resultant vector's magnitude and angle are without resorting to graphic images, we can convert each one of these polar-form complex numbers into rectangular form and add.  Remember, we're <i>adding</i> these figures together because the polarity marks for the three voltage sources are oriented in an additive manner:
+</p>
+
+<p> <img src="12013.png"> </p> 
+
+<a name="SPICE"></a>
+
+<p>
+In polar form, this equates to 36.8052 volts &#8736; -20.5018<sup>o</sup>.  What this means in real terms is that the voltage measured across these three voltage sources will be 36.8052 volts, lagging the 15 volt (0<sup>o</sup> phase reference) by 20.5018<sup>o</sup>.  A voltmeter connected across these points in a real circuit would only indicate the polar magnitude of the voltage (36.8052 volts), not the angle.  An oscilloscope could be used to display two voltage waveforms and thus provide a phase shift measurement, but not a voltmeter.  The same principle holds true for AC ammeters: they indicate the polar magnitude of the current, not the phase angle.
+</p>
+
+<p>
+This is extremely important in relating calculated figures of voltage and current to real circuits.  Although rectangular notation is convenient for addition and subtraction, and was indeed the final step in our sample problem here, it is not very applicable to practical measurements.  Rectangular figures must be converted to polar figures (specifically polar <i>magnitude</i>) before they can be related to actual circuit measurements.
+</p>
+
+<p>
+We can use SPICE to verify the accuracy of our results.  In this test circuit, the 10 k&#937; resistor value is quite arbitrary.  It's there so that SPICE does not declare an open-circuit error and abort analysis.  Also, the choice of frequencies for the simulation (60 Hz) is quite arbitrary, because resistors respond uniformly for all frequencies of AC voltage and current.  There are other components (notably capacitors and inductors) which do not respond uniformly to different frequencies, but that is another subject! (Figure <a href="#02049.png">  below</a>)
+</p>
+
+ 
+<a name="02049.png"></a> 
+<p> <img src="02049.png"> </p> 
+<p><i>Spice circuit schematic.</i></p> 
+ 
+
+
+
+<pre>
+ac voltage addition   
+v1 1 0 ac 15 0 sin      
+v2 2 1 ac 12 35 sin     
+v3 3 2 ac 22 -64 sin    
+r1 3 0 10k      
+.ac lin 1 60 60            I'm using a frequency of 60 Hz
+.print ac v(3,0) vp(3,0)   as a default value
+.end    
+</pre>
+
+
+
+
+<pre>
+freq          v(3)        vp(3)       
+6.000E+01     3.681E+01  -2.050E+01
+</pre>
+
+
+<p>
+Sure enough, we get a total voltage of 36.81 volts &#8736; -20.5<sup>o</sup> (with reference to the 15 volt source, whose phase angle was arbitrarily stated at zero degrees so as to be the &ldquo;reference&rdquo; waveform).  
+</p>
+
+<p>
+At first glance, this is counter-intuitive.  How is it possible to obtain a total voltage of just over 36 volts with 15 volt, 12 volt, and 22 volt supplies connected in series?  With DC, this would be impossible, as voltage figures will either directly add or subtract, depending on polarity.  But with AC, our &ldquo;polarity&rdquo; (phase shift) can vary anywhere in between full-aiding and full-opposing, and this allows for such paradoxical summing.
+</p>
+
+<p>
+What if we took the same circuit and reversed one of the supply's connections?  Its contribution to the total voltage would then be the opposite of what it was before: (Figure <a href="#02050.png">  below</a>)
+</p>
+
+ 
+<a name="02050.png"></a> 
+<p> <img src="02050.png"> </p> 
+<p><i>Polarity of E<sub>2</sub> (12V) is reversed.</i></p> 
+ 
+
+<p>
+Note how the 12 volt supply's phase angle is still referred to as 35<sup>o</sup>, even though the leads have been reversed.  Remember that the phase angle of any voltage drop is stated in reference to its noted polarity.  Even though the angle is still written as 35<sup>o</sup>, the vector will be drawn 180<sup>o</sup> opposite of what it was before: (Figure <a href="#02051.png">  below</a>)
+</p>
+
+ 
+<a name="02051.png"></a> 
+<p> <img src="02051.png"> </p> 
+<p><i>Direction of E<sub>2</sub> is reversed.</i></p> 
+ 
+
+<a name="Resultant vector"></a>
+<a name="Vector sum"></a>
+
+<p>
+The resultant (sum) vector should begin at the upper-left point (origin of the 22 volt vector) and terminate at the right arrow tip of the 15 volt vector: (Figure <a href="#02052.png">  below</a>)
+</p>
+
+ 
+<a name="02052.png"></a> 
+<p> <img src="02052.png"> </p> 
+<p><i>Resultant is vector sum of voltage sources. </i></p> 
+ 
+
+<a name="Voltage &ldquo;polarity,&rdquo; AC"></a>
+<a name="Polarity, AC"></a>
+
+<p>
+The connection reversal on the 12 volt supply can be represented in two different ways in polar form: by an addition of 180<sup>o</sup> to its vector angle (making it 12 volts &#8736; 215<sup>o</sup>), or a reversal of sign on the magnitude (making it -12 volts &#8736; 35<sup>o</sup>).  Either way, conversion to rectangular form yields the same result:
+</p>
+
+<p> <img src="12014.png"> </p> 
+
+<p>
+The resulting addition of voltages in rectangular form, then:
+</p>
+
+<p> <img src="12015.png"> </p> 
+
+<p>
+In polar form, this equates to 30.4964 V &#8736; -60.9368<sup>o</sup>.  Once again, we will use SPICE to verify the results of our calculations:
+</p>
+
+
+
+<pre>
+ac voltage addition 
+v1 1 0 ac 15 0 sin      
+v2 1 2 ac 12 35 sin    Note the reversal of node numbers 2 and 1     
+v3 3 2 ac 22 -64 sin   to simulate the swapping of connections
+r1 3 0 10k      
+.ac lin 1 60 60 
+.print ac v(3,0) vp(3,0)
+.end    
+</pre>
+
+
+
+
+<pre>
+freq          v(3)        vp(3)       
+6.000E+01     3.050E+01  -6.094E+01
+</pre>
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>All the laws and rules of DC circuits apply to AC circuits, with the exception of power calculations (Joule's Law), so long as all values are expressed and manipulated in complex form, and all voltages and currents are at the same frequency.</li>
+<li>When reversing the direction of a vector (equivalent to reversing the polarity of an AC voltage source in relation to other voltage sources), it can be expressed in either of two different ways: adding 180<sup>o</sup> to the angle, or reversing the sign of the magnitude.</li>
+<li>Meter measurements in an AC circuit correspond to the <i>polar magnitudes</i> of calculated values.  Rectangular expressions of complex quantities in an AC circuit have no direct, empirical equivalent, although they are convenient for performing addition and subtraction, as Kirchhoff's Voltage and Current Laws require.</li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid34468">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_1.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_3.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

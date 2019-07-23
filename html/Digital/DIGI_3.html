@@ -1,0 +1,1597 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume IV (Digital) - Chapter 3</title>
+
+<meta name="description" content="Logic Gates">
+<meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, transistor, digital signal, inverter, not gate, truth table, and gate, or gate, nand gate, nor gate, xor gate, exclusive or, exclusive-or, ttl, cmos, buffer gate, open collector, open-collector, current sourcing, current sinking">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="DIGI_2.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_4.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume IV</h1>
+<h1>Chapter 3</h1>
+
+
+
+
+<h1>LOGIC GATES</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid37020"><u>Digital signals and gates</u></a></li>
+<li><a href="#xtocid37021"><u>The NOT gate</u></a></li>
+<li><a href="#xtocid37022"><u>The "buffer" gate</u></a></li>
+<li><a href="#xtocid37023"><u>Multiple-input gates</u></a></li>
+<ul>
+<li><a href="#xtocid37024"><u>The AND gate</u></a></li>
+<li><a href="#xtocid37025"><u>The NAND gate</u></a></li>
+<li><a href="#xtocid37026"><u>The OR gate</u></a></li>
+<li><a href="#xtocid37027"><u>The NOR gate</u></a></li>
+<li><a href="#xtocid37028"><u>The Negative-AND gate</u></a></li>
+<li><a href="#xtocid37029"><u>The Negative-OR gate</u></a></li>
+<li><a href="#xtocid370210"><u>The Exclusive-OR gate</u></a></li>
+<li><a href="#xtocid370211"><u>The Exclusive-NOR gate</u></a></li>
+</ul>
+<li><a href="#xtocid370212"><u>TTL NAND and AND gates</u></a></li>
+<li><a href="#xtocid370213"><u>TTL NOR and OR gates</u></a></li>
+<li><a href="#xtocid370214"><u>CMOS gate circuitry</u></a></li>
+<li><a href="#xtocid370215"><u>Special-output gates</u></a></li>
+<li><a href="#xtocid370216"><u>Gate universality</u></a></li>
+<ul>
+<li><a href="#xtocid370217"><u>Constructing the NOT function</u></a></li>
+<li><a href="#xtocid370218"><u>Constructing the "buffer" function</u></a></li>
+<li><a href="#xtocid370219"><u>Constructing the AND function</u></a></li>
+<li><a href="#xtocid370220"><u>Constructing the NAND function</u></a></li>
+<li><a href="#xtocid370221"><u>Constructing the OR function</u></a></li>
+<li><a href="#xtocid370222"><u>Constructing the NOR function</u></a></li>
+</ul>
+<li><a href="#xtocid370223"><u>Logic signal voltage levels</u></a></li>
+<li><a href="#xtocid370224"><u>DIP gate packaging</u></a></li>
+<li><a href="#xtocid370225"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid37020">Digital signals and gates</a></u></h2>
+
+<p>
+While the binary numeration system is an interesting mathematical abstraction, we haven't yet seen its practical application to electronics.  This chapter is devoted to just that: practically applying the concept of binary bits to circuits.  What makes binary numeration so important to the application of digital electronics is the ease in which bits may be represented in physical terms.  Because a binary bit can only have one of two different values, either 0 or 1, any physical medium capable of switching between two saturated states may be used to represent a bit.  Consequently, any physical system capable of representing binary bits is able to represent numerical quantities, and potentially has the ability to manipulate those numbers.  This is the basic concept underlying digital computing.
+</p>
+
+<p>
+Electronic circuits are physical systems that lend themselves well to the representation of binary numbers.  Transistors, when operated at their bias limits, may be in one of two different states: either cutoff (no controlled current) or saturation (maximum controlled current).  If a transistor circuit is designed to maximize the probability of falling into either one of these states (and not operating in the linear, or <i>active</i>, mode), it can serve as a physical representation of a binary bit.  A voltage signal measured at the output of such a circuit may also serve as a representation of a single bit, a low voltage representing a binary "0" and a (relatively) high voltage representing a binary "1."  Note the following transistor circuit:
+</p>
+
+<p> <img src="04068.png"> </p> 
+
+<a name="High, logic level"></a>
+<a name="Low, logic level"></a>
+<a name="Logic level"></a>
+
+<p>
+In this circuit, the transistor is in a state of saturation by virtue of the applied input voltage (5 volts) through the two-position switch.  Because its saturated, the transistor drops very little voltage between collector and emitter, resulting in an output voltage of (practically) 0 volts.  If we were using this circuit to represent binary bits, we would say that the input signal is a binary "1" and that the output signal is a binary "0."  Any voltage close to full supply voltage (measured in reference to ground, of course) is considered a "1" and a lack of voltage is considered a "0."  Alternative terms for these voltage levels are <i>high</i> (same as a binary "1") and <i>low</i> (same as a binary "0").  A general term for the representation of a binary bit by a circuit voltage is <i>logic level</i>.
+</p>
+
+<p>
+Moving the switch to the other position, we apply a binary "0" to the input and receive a binary "1" at the output:
+</p>
+
+<p> <img src="04069.png"> </p> 
+
+<a name="Gate, digital"></a>
+
+<p>
+What we've created here with a single transistor is a circuit generally known as a <i>logic gate</i>, or simply <i>gate</i>.  A gate is a special type of amplifier circuit designed to accept and generate voltage signals corresponding to binary 1's and 0's.  As such, gates are not intended to be used for amplifying analog signals (voltage signals <i>between</i> 0 and full voltage).  Used together, multiple gates may be applied to the task of binary number storage (memory circuits) or manipulation (computing circuits), each gate's output representing one bit of a multi-bit binary number.  Just how this is done is a subject for a later chapter.  Right now it is important to focus on the operation of individual gates.
+</p>
+
+<a name="Inverter gate"></a>
+<a name="NOT gate"></a>
+
+<p>
+The gate shown here with the single transistor is known as an <i>inverter</i>, or NOT gate, because it outputs the exact opposite digital signal as what is input.  For convenience, gate circuits are generally represented by their own symbols rather than by their constituent transistors and resistors.  The following is the symbol for an inverter:
+</p>
+
+<p> <img src="04070.png"> </p> 
+
+<p>
+An alternative symbol for an inverter is shown here:
+</p>
+
+<p> <img src="04099.png"> </p> 
+
+<a name="Bubble, gate symbol"></a>
+
+<p>
+Notice the triangular shape of the gate symbol, much like that of an operational amplifier.  As was stated before, gate circuits actually are amplifiers.  The small circle, or "bubble" shown on either the input or output terminal is standard for representing the inversion function.  As you might suspect, if we were to remove the bubble from the gate symbol, leaving only a triangle, the resulting symbol would no longer indicate inversion, but merely direct amplification.  Such a symbol and such a gate actually do exist, and it is called a <i>buffer</i>, the subject of the next section.
+</p>
+
+<p>
+Like an operational amplifier symbol, input and output connections are shown as single wires, the implied reference point for each voltage signal being "ground."  In digital gate circuits, ground is almost always the negative connection of a single voltage source (power supply).  Dual, or "split," power supplies are seldom used in gate circuitry.  Because gate circuits are amplifiers, they require a source of power to operate.  Like operational amplifiers, the power supply connections for digital gates are often omitted from the symbol for simplicity's sake.  If we were to show <i>all</i> the necessary connections needed for operating this gate, the schematic would look something like this:
+</p>
+
+<p> <img src="04071.png"> </p> 
+
+<p>
+Power supply conductors are rarely shown in gate circuit schematics, even if the power supply connections at each gate are.  Minimizing lines in our schematic, we get this:
+</p>
+
+<p> <img src="04072.png"> </p> 
+
+<p>
+"V<sub>cc</sub>" stands for the constant voltage supplied to the collector of a bipolar junction transistor circuit, in reference to ground.  Those points in a gate circuit marked by the label "V<sub>cc</sub>" are all connected to the same point, and that point is the positive terminal of a DC voltage source, usually 5 volts.
+</p>
+
+<p>
+As we will see in other sections of this chapter, there are quite a few different types of logic gates, most of which have multiple input terminals for accepting more than one signal.  The output of any gate is dependent on the state of its input(s) and its logical function.
+</p>
+
+<a name="Truth table"></a>
+<a name="Table, truth"></a>
+
+<p>
+One common way to express the particular function of a gate circuit is called a <i>truth table</i>.  Truth tables show all combinations of input conditions in terms of logic level states (either "high" or "low," "1" or "0," for each input terminal of the gate), along with the corresponding output logic level, either "high" or "low."  For the inverter, or NOT, circuit just illustrated, the truth table is very simple indeed:
+</p>
+
+<p> <img src="14003.png"> </p> 
+
+<p>
+Truth tables for more complex gates are, of course, larger than the one shown for the NOT gate.  A gate's truth table must have as many rows as there are possibilities for unique input combinations.  For a single-input gate like the NOT gate, there are only two possibilities, 0 and 1.  For a two input gate, there are <i>four</i> possibilities (00, 01, 10, and 11), and thus four rows to the corresponding truth table.  For a three-input gate, there are <i>eight</i> possibilities (000, 001, 010, 011, 100, 101, 110, and 111), and thus a truth table with eight rows are needed.  The mathematically inclined will realize that the number of truth table rows needed for a gate is equal to 2 raised to the power of the number of input terminals.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>In digital circuits, binary bit values of 0 and 1 are represented by voltage signals measured in reference to a common circuit point called <i>ground</i>.  An absence of voltage represents a binary "0" and the presence of full DC supply voltage represents a binary "1."</li>
+<li>A <i>logic gate</i>, or simply <i>gate</i>, is a special form of amplifier circuit designed to input and output <i>logic level</i> voltages (voltages intended to represent binary bits).  Gate circuits are most commonly represented in a schematic by their own unique symbols rather than by their constituent transistors and resistors.</li>
+<li>Just as with operational amplifiers, the power supply connections to gates are often omitted in schematic diagrams for the sake of simplicity.</li>
+<li>A <i>truth table</i> is a standard way of representing the input/output relationships of a gate circuit, listing all the possible input logic level combinations with their respective output logic levels.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid37021">The NOT gate</a></u></h2>
+
+<p>
+The single-transistor inverter circuit illustrated earlier is actually too crude to be of practical use as a gate.  Real inverter circuits contain more than one transistor to maximize voltage gain (so as to ensure that the final output transistor is either in full cutoff or full saturation), and other components designed to reduce the chance of accidental damage.
+</p>
+
+<a name="Inverter gate"></a>
+<a name="NOT gate"></a>
+
+<p>
+Shown here is a schematic diagram for a real inverter circuit, complete with all necessary components for efficient and reliable operation:
+</p>
+
+<a name="NOT gate, totem pole TTL"></a>
+<a name="Inverter gate, totem pole TTL"></a>
+
+<p> <img src="04073.png"> </p> 
+
+<p>
+This circuit is composed exclusively of resistors, diodes and bipolar transistors.  Bear in mind that other circuit designs are capable of performing the NOT gate function, including designs substituting field-effect transistors for bipolar (discussed later in this chapter).
+</p>
+
+<p>
+Let's analyze this circuit for the condition where the input is "high," or in a binary "1" state.  We can simulate this by showing the input terminal connected to V<sub>cc</sub> through a switch:
+</p>
+
+<p> <img src="04074.png"> </p> 
+
+<p>
+In this case, diode D<sub>1</sub> will be reverse-biased, and therefore not conduct any current.  In fact, the only purpose for having D<sub>1</sub> in the circuit is to prevent transistor damage in the case of a <i>negative</i> voltage being impressed on the input (a voltage that is negative, rather than positive, with respect to ground).  With no voltage between the base and emitter of transistor Q<sub>1</sub>, we would expect no current through it, either.  However, as strange as it may seem, transistor Q<sub>1</sub> is not being used as is customary for a transistor.  In reality, Q<sub>1</sub> is being used in this circuit as nothing more than a back-to-back pair of diodes.  The following schematic shows the real function of Q<sub>1</sub>:
+</p>
+
+<p> <img src="04075.png"> </p> 
+
+<a name="Diode, steering"></a>
+<a name="Steering diode"></a>
+
+<p>
+The purpose of these diodes is to "steer" current to or away from the base of transistor Q<sub>2</sub>, depending on the logic level of the input.  Exactly how these two diodes are able to "steer" current isn't exactly obvious at first inspection, so a short example may be necessary for understanding.  Suppose we had the following diode/resistor circuit, representing the base-emitter junctions of transistors Q<sub>2</sub> and Q<sub>4</sub> as single diodes, stripping away all other portions of the circuit so that we can concentrate on the current "steered" through the two back-to-back diodes:
+</p>
+
+<p> <img src="04164.png"> </p> 
+
+<p>
+With the input switch in the "up" position (connected to V<sub>cc</sub>), it should be obvious that there will be no current through the left steering diode of Q<sub>1</sub>, because there isn't any voltage in the switch-diode-R<sub>1</sub>-switch loop to motivate electrons to flow.  However, there <i>will</i> be current through the right steering diode of Q<sub>1</sub>, as well as through Q<sub>2</sub>'s base-emitter diode junction and Q<sub>4</sub>'s base-emitter diode junction:
+</p>
+
+<p> <img src="04165.png"> </p> 
+
+<p>
+This tells us that in the real gate circuit, transistors Q<sub>2</sub> and Q<sub>4</sub> will have base current, which will turn them on to conduct collector current.  The total voltage dropped between the base of Q<sub>1</sub> (the node joining the two back-to-back steering diodes) and ground will be about 2.1 volts, equal to the combined voltage drops of three PN junctions: the right steering diode, Q<sub>2</sub>'s base-emitter diode, and Q<sub>4</sub>'s base-emitter diode.
+</p>
+
+<p>
+Now, let's move the input switch to the "down" position and see what happens:
+</p>
+
+<p> <img src="04166.png"> </p> 
+
+<p>
+If we were to measure current in this circuit, we would find that <i>all</i> of the current goes through the left steering diode of Q<sub>1</sub> and <i>none</i> of it through the right diode.  Why is this?  It still appears as though there is a complete path for current through Q<sub>4</sub>'s diode, Q<sub>2</sub>'s diode, the right diode of the pair, and R<sub>1</sub>, so why will there be no current through that path?
+</p>
+
+<a name="Forward voltage, PN junction"></a>
+<a name="Voltage, forward, PN junction"></a>
+<a name="Nonlinearity, PN junction"></a>
+
+<p>
+Remember that PN junction diodes are very nonlinear devices: they do not even begin to conduct current until the forward voltage applied across them reaches a certain minimum quantity, approximately 0.7 volts for silicon and 0.3 volts for germanium.  And then when they begin to conduct current, they will not drop substantially more than 0.7 volts.  When the switch in this circuit is in the "down" position, the left diode of the steering diode pair is fully conducting, and so it drops about 0.7 volts across it and no more.
+</p>
+
+<p> <img src="04167.png"> </p> 
+
+<p>
+Recall that with the switch in the "up" position (transistors Q<sub>2</sub> and Q<sub>4</sub> conducting), there was about 2.1 volts dropped between those same two points (Q<sub>1</sub>'s base and ground), which also happens to be the <i>minimum</i> voltage necessary to forward-bias three series-connected silicon PN junctions into a state of conduction.  The 0.7 volts provided by the left diode's forward voltage drop is simply insufficient to allow any electron flow through the series string of the right diode, Q<sub>2</sub>'s diode, and the R<sub>3</sub>//Q<sub>4</sub> diode parallel subcircuit, and so no electrons flow through that path.  With no current through the bases of either transistor Q<sub>2</sub> or Q<sub>4</sub>, neither one will be able to conduct collector current: transistors Q<sub>2</sub> and Q<sub>4</sub> will both be in a state of cutoff.
+</p>
+ 
+<p>
+Consequently, this circuit configuration allows 100 percent switching of Q<sub>2</sub> base current (and therefore control over the rest of the gate circuit, including voltage at the output) by diversion of current through the left steering diode.
+</p>
+
+<p>
+In the case of our example gate circuit, the input is held "high" by the switch (connected to V<sub>cc</sub>), making the left steering diode (zero voltage dropped across it).  However, the right steering diode is conducting current through the base of Q<sub>2</sub>, through resistor R<sub>1</sub>:
+</p>
+
+<p> <img src="04076.png"> </p> 
+
+<p>
+With base current provided, transistor Q<sub>2</sub> will be turned "on."  More specifically, it will be <i>saturated</i> by virtue of the more-than-adequate current allowed by R<sub>1</sub> through the base.  With Q<sub>2</sub> saturated, resistor R<sub>3</sub> will be dropping enough voltage to forward-bias the base-emitter junction of transistor Q<sub>4</sub>, thus saturating it as well:
+</p>
+
+<p> <img src="04077.png"> </p> 
+
+<p>
+With Q<sub>4</sub> saturated, the output terminal will be almost directly shorted to ground, leaving the output terminal at a voltage (in reference to ground) of almost 0 volts, or a binary "0" ("low") logic level.  Due to the presence of diode D<sub>2</sub>, there will not be enough voltage between the base of Q<sub>3</sub> and its emitter to turn it on, so it remains in cutoff.
+</p>
+
+<p>
+Let's see now what happens if we reverse the input's logic level to a binary "0" by actuating the input switch:
+</p>
+
+<p> <img src="04078.png"> </p> 
+
+<p>
+Now there will be current through the left steering diode of Q<sub>1</sub> and no current through the right steering diode.  This eliminates current through the base of Q<sub>2</sub>, thus turning it off.  With Q<sub>2</sub> off, there is no longer a path for Q<sub>4</sub> base current, so Q<sub>4</sub> goes into cutoff as well.  Q<sub>3</sub>, on the other hand, now has sufficient voltage dropped between its base and ground to forward-bias its base-emitter junction and saturate it, thus raising the output terminal voltage to a "high" state.  In actuality, the output voltage will be somewhere around 4 volts depending on the degree of saturation and any load current, but still high enough to be considered a "high" (1) logic level.
+</p>
+
+<p>
+With this, our simulation of the inverter circuit is complete: a "1" in gives a "0" out, and vice versa.
+</p>
+
+<a name="Floating input, defined"></a>
+
+<p>
+The astute observer will note that this inverter circuit's input will assume a "high" state of left floating (not connected to either V<sub>cc</sub> or ground).  With the input terminal left unconnected, there will be no current through the left steering diode of Q<sub>1</sub>, leaving all of R<sub>1</sub>'s current to go through Q<sub>2</sub>'s base, thus saturating Q<sub>2</sub> and driving the circuit output to a "low" state:
+</p>
+
+<p> <img src="04079.png"> </p> 
+
+<a name="TTL"></a>
+
+<p>
+The tendency for such a circuit to assume a high input state if left floating is one shared by all gate circuits based on this type of design, known as <b>T</b>ransistor-to-<b>T</b>ransistor <b>L</b>ogic, or <i>TTL</i>.  This characteristic may be taken advantage of in simplifying the design of a gate's <i>output</i> circuitry, knowing that the outputs of gates typically drive the inputs of other gates.  If the input of a TTL gate circuit assumes a high state when floating, then the output of any gate driving a TTL input need only provide a path to ground for a low state and be floating for a high state.  This concept may require further elaboration for full understanding, so I will explore it in detail here.
+</p>
+
+<a name="Current source"></a>
+<a name="Current sink"></a>
+<a name="Source, current"></a>
+<a name="Sink, current"></a>
+
+<p>
+A gate circuit as we have just analyzed has the ability to handle output current in two directions: in and out.  Technically, this is known as <i>sourcing</i> and <i>sinking</i> current, respectively.  When the gate output is high, there is continuity from the output terminal to V<sub>cc</sub> through the top output transistor (Q<sub>3</sub>), allowing electrons to flow from ground, through a load, into the gate's output terminal, through the emitter of Q<sub>3</sub>, and eventually up to the V<sub>cc</sub> power terminal (positive side of the DC power supply):
+</p>
+
+<p> <img src="04081.png"> </p> 
+
+<p>
+To simplify this concept, we may show the output of a gate circuit as being a double-throw switch, capable of connecting the output terminal either to V<sub>cc</sub> or ground, depending on its state.  For a gate outputting a "high" logic level, the combination of Q<sub>3</sub> saturated and Q<sub>4</sub> cutoff is analogous to a double-throw switch in the "V<sub>cc</sub>" position, providing a path for current through a grounded load:
+</p>
+
+<p> <img src="04080.png"> </p> 
+
+<p>
+Please note that this two-position switch shown inside the gate symbol is representative of transistors Q<sub>3</sub> and Q<sub>4</sub> alternately connecting the output terminal to V<sub>cc</sub> or ground, <i>not</i> of the switch previously shown sending an input signal to the gate!
+</p>
+
+<p>
+Conversely, when a gate circuit is outputting a "low" logic level to a load, it is analogous to the double-throw switch being set in the "ground" position.  Current will then be going the other way if the load resistance connects to V<sub>cc</sub>: from ground, through the emitter of Q<sub>4</sub>, out the output terminal, through the load resistance, and back to V<sub>cc</sub>.  In this condition, the gate is said to be <i>sinking</i> current:
+</p>
+
+<p> <img src="04082.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04083.png"> </p> 
+
+<a name="Totem pole output, TTL"></a>
+
+<p>
+The combination of Q<sub>3</sub> and Q<sub>4</sub> working as a "push-pull" transistor pair (otherwise known as a <i>totem pole output</i>) has the ability to either source current (draw in current to V<sub>cc</sub>) or sink current (output current from ground) to a load.  However, a standard TTL gate <i>input</i> never needs current to be sourced, only sunk.  That is, since a TTL gate input naturally assumes a high state if left floating, any gate output driving a TTL input need only sink current to provide a "0" or "low" input, and need not source current to provide a "1" or a "high"  logic level at the input of the receiving gate:
+</p>
+
+<p> <img src="04084.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04085.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04168.png"> </p> 
+
+<a name="Open-collector output, TTL"></a>
+<a name="NOT gate, open-collector TTL"></a>
+<a name="Inverter gate, open-collector TTL"></a>
+
+<p>
+This means we have the option of simplifying the output stage of a gate circuit so as to eliminate Q<sub>3</sub> altogether.  The result is known as an <i>open-collector output</i>:
+</p>
+
+<p> <img src="04086.png"> </p> 
+
+<p>
+To designate open-collector output circuitry within a standard gate symbol, a special marker is used.  Shown here is the symbol for an inverter gate with open-collector output:
+</p>
+
+<p> <img src="04319.png"> </p> 
+
+<p>
+Please keep in mind that the "high" default condition of a floating gate input is only true for TTL circuitry, and not necessarily for other types, especially for logic gates constructed of field-effect transistors.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>An inverter, or NOT, gate is one that outputs the opposite state as what is input.  That is, a "low" input (0) gives a "high" output (1), and vice versa.</li>
+<li>Gate circuits constructed of resistors, diodes and bipolar transistors as illustrated in this section are called <i>TTL</i>.  TTL is an acronym standing for <i>Transistor-to-Transistor Logic</i>.  There are other design methodologies used in gate circuits, some which use field-effect transistors rather than bipolar transistors.</li>
+<li>A gate is said to be <i>sourcing</i> current when it provides a path for current between the output terminal and the positive side of the DC power supply (V<sub>cc</sub>).  In other words, it is connecting the output terminal to the <i>power source</i> (+V).</li>
+<li>A gate is said to be <i>sinking</i> current when it provides a path for current between the output terminal and ground.  In other words, it is grounding (sinking) the output terminal.</li>
+<li>Gate circuits with <i>totem pole</i> output stages are able to both <i>source</i> and <i>sink</i> current.  Gate circuits with <i>open-collector</i> output stages are only able to sink current, and not source current.  Open-collector gates are practical when used to drive TTL gate inputs because TTL inputs don't require current sourcing.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid37022">The "buffer" gate</a></u></h2>
+
+<p>
+If we were to connect two inverter gates together so that the output of one fed into the input of another, the two inversion functions would "cancel" each other out so that there would be no inversion from input to final output:
+</p>
+
+<p> <img src="04087.png"> </p> 
+
+<p>
+While this may seem like a pointless thing to do, it does have practical application.  Remember that gate circuits are signal <i>amplifiers</i>, regardless of what logic function they may perform.  A weak signal source (one that is not capable of sourcing or sinking very much current to a load) may be boosted by means of two inverters like the pair shown in the previous illustration.  The logic level is unchanged, but the full current-sourcing or -sinking capabilities of the final inverter are available to drive a load resistance if needed.
+</p>
+
+<a name="Buffer gate"></a>
+
+<p>
+For this purpose, a special logic gate called a <i>buffer</i> is manufactured to perform the same function as two inverters.  Its symbol is simply a triangle, with no inverting "bubble" on the output terminal:
+</p>
+
+<p> <img src="04088.png"> </p> 
+
+<p>
+The internal schematic diagram for a typical open-collector buffer is not much different from that of a simple inverter: only one more common-emitter transistor stage is added to re-invert the output signal.
+</p>
+
+<a name="Buffer gate, open-collector TTL"></a>
+
+<p> <img src="04089.png"> </p> 
+
+<p>
+Let's analyze this circuit for two conditions: an input logic level of "1" and an input logic level of "0."  First, a "high" (1) input:
+</p>
+
+<p> <img src="04090.png"> </p> 
+
+<p>
+As before with the inverter circuit, the "high" input causes no conduction through the left steering diode of Q<sub>1</sub> (emitter-to-base PN junction).  All of R<sub>1</sub>'s current goes through the base of transistor Q<sub>2</sub>, saturating it:
+</p>
+
+<p> <img src="04091.png"> </p> 
+
+<p>
+Having Q<sub>2</sub> saturated causes Q<sub>3</sub> to be saturated as well, resulting in very little voltage dropped between the base and emitter of the final output transistor Q<sub>4</sub>.  Thus, Q<sub>4</sub> will be in cutoff mode, conducting no current.  The output terminal will be floating (neither connected to ground nor V<sub>cc</sub>), and this will be equivalent to a "high" state on the input of the next TTL gate that this one feeds in to.  Thus, a "high" input gives a "high" output.
+</p>
+
+<p>
+With a "low" input signal (input terminal grounded), the analysis looks something like this:
+</p>
+
+<p> <img src="04092.png"> </p> 
+
+<p>
+All of R<sub>1</sub>'s current is now diverted through the input switch, thus eliminating base current through Q<sub>2</sub>.  This forces transistor Q<sub>2</sub> into cutoff so that no base current goes through Q<sub>3</sub> either.  With Q<sub>3</sub> cutoff as well, Q<sub>4</sub> is will be saturated by the current through resistor R<sub>4</sub>, thus connecting the output terminal to ground, making it a "low" logic level.  Thus, a "low" input gives a "low" output.
+</p>
+
+<p>
+The schematic diagram for a buffer circuit with totem pole output transistors is a bit more complex, but the basic principles, and certainly the truth table, are the same as for the open-collector circuit:
+</p>
+
+<a name="Buffer gate, totem pole TTL"></a>
+
+<p> <img src="04093.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Two inverter, or NOT, gates connected in "series" so as to invert, then re-invert, a binary bit perform the function of a buffer.  Buffer gates merely serve the purpose of signal amplification: taking a "weak" signal source that isn't capable of sourcing or sinking much current, and boosting the current capacity of the signal so as to be able to drive a load.</li>
+<li>Buffer circuits are symbolized by a triangle symbol with no inverter "bubble."</li>
+<li>Buffers, like inverters, may be made in open-collector output or totem pole output forms.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid37023">Multiple-input gates</a></u></h2>
+
+<p>
+Inverters and buffers exhaust the possibilities for single-input gate circuits.  What more can be done with a single logic signal but to buffer it or invert it?  To explore more logic gate possibilities, we must add more input terminals to the circuit(s).
+</p>
+
+<p>
+Adding more input terminals to a logic gate increases the number of input state possibilities.  With a single-input gate such as the inverter or buffer, there can only be two possible input states: either the input is "high" (1) or it is "low" (0).  As was mentioned previously in this chapter, a two input gate has <i>four</i> possibilities (00, 01, 10, and 11).  A three-input gate has <i>eight</i> possibilities (000, 001, 010, 011, 100, 101, 110, and 111) for input states.  The number of possible input states is equal to two to the power of the number of inputs:
+</p>
+
+<p> <img src="14004.png"> </p> 
+
+<p>
+This increase in the number of possible input states obviously allows for more complex gate behavior.  Now, instead of merely inverting or amplifying (buffering) a single "high" or "low" logic level, the output of the gate will be determined by whatever <i>combination</i> of 1's and 0's is present at the input terminals.
+</p>
+
+<p>
+Since so many combinations are possible with just a few input terminals, there are many different types of multiple-input gates, unlike single-input gates which can only be inverters or buffers.  Each basic gate type will be presented in this section, showing its standard symbol, truth table, and practical operation.  The actual TTL circuitry of these different gates will be explored in subsequent sections.
+</p>
+
+
+
+
+<h3><u><a name="xtocid37024">The AND gate</a></u></h3>
+
+<a name="AND gate"></a>
+
+<p>
+One of the easiest multiple-input gates to understand is the AND gate, so-called because the output of this gate will be "high" (1) if and only if <i>all</i> inputs (first input <i>and</i> the second input <i>and</i> . . .) are "high" (1).  If any input(s) are "low" (0), the output is guaranteed to be in a "low" state as well.
+</p>
+
+<p> <img src="04100.png"> </p> 
+
+<p>
+In case you might have been wondering, AND gates are made with more than three inputs, but this is less common than the simple two-input variety.
+</p>
+
+<p>
+A two-input AND gate's truth table looks like this:
+</p>
+
+<p> <img src="04101.png"> </p> 
+
+<a name="LED"></a>
+<a name="Light Emitting Diode"></a>
+
+<p>
+What this truth table means in practical terms is shown in the following sequence of illustrations, with the 2-input AND gate subjected to all possibilities of input logic levels.  An LED (Light-Emitting Diode) provides visual indication of the output logic level:
+</p>
+
+<p> <img src="04102.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04103.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04104.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04105.png"> </p> 
+
+<p>
+It is only with all inputs raised to "high" logic levels that the AND gate's output goes "high," thus energizing the LED for only one out of the four input combination states.
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid37025">The NAND gate</a></u></h3>
+
+<a name="NAND gate"></a>
+
+<p>
+A variation on the idea of the AND gate is called the NAND gate.  The word "NAND" is a verbal contraction of the words NOT and AND.  Essentially, a NAND gate behaves the same as an AND gate with a NOT (inverter) gate connected to the output terminal.  To symbolize this output signal inversion, the NAND gate symbol has a bubble on the output line.  The truth table for a NAND gate is as one might expect, exactly opposite as that of an AND gate:
+</p>
+
+<p> <img src="04106.png"> </p> 
+
+<p>
+As with AND gates, NAND gates are made with more than two inputs.  In such cases, the same general principle applies: the output will be "low" (0) if and only if all inputs are "high" (1).  If any input is "low" (0), the output will go "high" (1).
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid37026">The OR gate</a></u></h3>
+
+<a name="OR gate"></a>
+
+<p>
+Our next gate to investigate is the OR gate, so-called because the output of this gate will be "high" (1) if <i>any</i> of the inputs (first input <i>or</i> the second input <i>or</i> . . .) are "high" (1).  The output of an OR gate goes "low" (0) if and only if all inputs are "low" (0).
+</p>
+
+<p> <img src="04107.png"> </p> 
+
+<p>
+A two-input OR gate's truth table looks like this:
+</p>
+
+<p> <img src="04108.png"> </p> 
+
+<p>
+The following sequence of illustrations demonstrates the OR gate's function, with the 2-inputs experiencing all possible logic levels.  An LED (Light-Emitting Diode) provides visual indication of the gate's output logic level:
+</p>
+
+<p> <img src="04109.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04110.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04111.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04112.png"> </p> 
+
+<p>
+A condition of any input being raised to a "high" logic level makes the OR gate's output go "high," thus energizing the LED for three out of the four input combination states.
+</p>
+
+
+
+
+
+
+
+
+<h3><u><a name="xtocid37027">The NOR gate</a></u></h3>
+
+<a name="NOR gate"></a>
+
+<p>
+As you might have suspected, the NOR gate is an OR gate with its output inverted, just like a NAND gate is an AND gate with an inverted output.
+</p>
+
+<p> <img src="04113.png"> </p> 
+
+<p>
+NOR gates, like all the other multiple-input gates seen thus far, can be manufactured with more than two inputs.  Still, the same logical principle applies: the output goes "low" (0) if any of the inputs are made "high" (1).  The output is "high" (1) only when all inputs are "low" (0).
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid37028">The Negative-AND gate</a></u></h3>
+
+<a name="Negative-AND gate"></a>
+
+<p>
+A Negative-AND gate functions the same as an AND gate with all its inputs inverted (connected through NOT gates).  In keeping with standard gate symbol convention, these inverted inputs are signified by bubbles.  Contrary to most peoples' first instinct, the logical behavior of a Negative-AND gate is <i>not</i> the same as a NAND gate.  Its truth table, actually, is identical to a NOR gate:
+</p>
+
+<p> <img src="04114.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid37029">The Negative-OR gate</a></u></h3>
+
+<a name="Negative-OR gate"></a>
+
+<p>
+Following the same pattern, a Negative-OR gate functions the same as an OR gate with all its inputs inverted.  In keeping with standard gate symbol convention, these inverted inputs are signified by bubbles.  The behavior and truth table of a Negative-OR gate is the same as for a NAND gate:
+</p>
+
+<p> <img src="04115.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370210">The Exclusive-OR gate</a></u></h3>
+
+<a name="Exclusive-OR gate"></a>
+
+<p>
+The last six gate types are all fairly direct variations on three basic functions: AND, OR, and NOT.  The Exclusive-OR gate, however, is something quite different.
+</p>
+
+<a name="XOR gate"></a>
+
+<p>
+Exclusive-OR gates output a "high" (1) logic level if the inputs are at <i>different</i> logic levels, either 0 and 1 or 1 and 0.  Conversely, they output a "low" (0) logic level if the inputs are at the <i>same</i> logic levels.  The Exclusive-OR (sometimes called XOR) gate has both a symbol and a truth table pattern that is unique:
+</p>
+
+<p> <img src="04116.png"> </p> 
+
+<p>
+There are equivalent circuits for an Exclusive-OR gate made up of AND, OR, and NOT gates, just as there were for NAND, NOR, and the negative-input gates.  A rather direct approach to simulating an Exclusive-OR gate is to start with a regular OR gate, then add additional gates to inhibit the output from going "high" (1) when both inputs are "high" (1):
+</p>
+
+<p> <img src="04117.png"> </p> 
+
+<p>
+In this circuit, the final AND gate acts as a buffer for the output of the OR gate whenever the NAND gate's output is high, which it is for the first three input state combinations (00, 01, and 10).  However, when both inputs are "high" (1), the NAND gate outputs a "low" (0) logic level, which forces the final AND gate to produce a "low" (0) output.
+</p>
+
+<p>
+Another equivalent circuit for the Exclusive-OR gate uses a strategy of two AND gates with inverters, set up to generate "high" (1) outputs for input conditions 01 and 10.  A final OR gate then allows either of the AND gates' "high" outputs to create a final "high" output:
+</p>
+
+<p> <img src="04118.png"> </p> 
+
+<p>
+Exclusive-OR gates are very useful for circuits where two or more binary numbers are to be compared bit-for-bit, and also for error detection (parity check) and code conversion (binary to Grey and vice versa).
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370211">The Exclusive-NOR gate</a></u></h3>
+
+<a name="Exclusive-NOR gate"></a>
+<a name="XNOR gate"></a>
+
+<p>
+Finally, our last gate for analysis is the Exclusive-NOR gate, otherwise known as the XNOR gate.  It is equivalent to an Exclusive-OR gate with an inverted output.  The truth table for this gate is exactly opposite as for the Exclusive-OR gate:
+</p>
+
+<p> <img src="04119.png"> </p> 
+
+<p>
+As indicated by the truth table, the purpose of an Exclusive-NOR gate is to output a "high" (1) logic level whenever both inputs are at the same logic levels (either 00 or 11).
+</p>
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>Rule for an AND gate: output is "high" only if first input <i>and</i> second input are both "high."</li>
+<li>Rule for an OR gate: output is "high" if input A <i>or</i> input B are "high."</li>
+<li>Rule for a NAND gate: output is <i>not</i> "high" if both the first input <i>and</i> the second input are "high."</li>
+<li>Rule for a NOR gate: output is <i>not</i> "high" if either the first input <i>or</i> the second input are "high."</li>
+<li>A Negative-AND gate behaves like a NOR gate.</li>
+<li>A Negative-OR gate behaves like a NAND gate.</li>
+<li>Rule for an Exclusive-OR gate: output is "high" if the input logic levels are <i>different</i>.</li>
+<li>Rule for an Exclusive-NOR gate: output is "high" if the input logic levels are the <i>same</i>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370212">TTL NAND and AND gates</a></u></h2>
+
+<p>
+Suppose we altered our basic open-collector inverter circuit, adding a second input terminal just like the first:
+</p>
+
+<p> <img src="04094.png"> </p> 
+
+<p>
+This schematic illustrates a real circuit, but it isn't called a "two-input inverter."  Through analysis we will discover what this circuit's logic function is and correspondingly what it should be designated as.
+</p>
+
+<a name="Diode, steering"></a>
+<a name="Steering diode"></a>
+
+<p>
+Just as in the case of the inverter and buffer, the "steering" diode cluster marked "Q<sub>1</sub>" is actually formed like a transistor, even though it isn't used in any amplifying capacity.  Unfortunately, a simple NPN transistor structure is inadequate to simulate the <i>three</i> PN junctions necessary in this diode network, so a different transistor (and symbol) is needed.  This transistor has one collector, one base, and <i>two</i> emitters, and in the circuit it looks like this:
+</p>
+
+<a name="NAND gate, TTL"></a>
+
+<p> <img src="04095.png"> </p> 
+
+<p>
+In the single-input (inverter) circuit, grounding the input resulted in an output that assumed the "high" (1) state.  In the case of the open-collector output configuration, this "high" state was simply "floating."  Allowing the input to float (or be connected to V<sub>cc</sub>) resulted in the output becoming grounded, which is the "low" or 0 state.  Thus, a 1 in resulted in a 0 out, and vice versa.
+</p>
+
+<p>
+Since this circuit bears so much resemblance to the simple inverter circuit, the only difference being a second input terminal connected in the same way to the base of transistor Q<sub>2</sub>, we can say that each of the inputs will have the same effect on the output.  Namely, if either of the inputs are grounded, transistor Q<sub>2</sub> will be forced into a condition of cutoff, thus turning Q<sub>3</sub> off and floating the output (output goes "high").  The following series of illustrations shows this for three input states (00, 01, and 10): 
+</p>
+
+<p> <img src="04120.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04121.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04122.png"> </p> 
+
+<p>
+In any case where there is a grounded ("low") input, the output is guaranteed to be floating ("high").  Conversely, the only time the output will ever go "low" is if transistor Q<sub>3</sub> turns on, which means transistor Q<sub>2</sub> must be turned on (saturated), which means neither input can be diverting R<sub>1</sub> current away from the base of Q<sub>2</sub>.  The only condition that will satisfy this requirement is when both inputs are "high" (1):
+</p>
+
+<p> <img src="04123.png"> </p> 
+
+<p>
+Collecting and tabulating these results into a truth table, we see that the pattern matches that of the NAND gate:
+</p>
+
+<p> <img src="04124.png"> </p> 
+
+<a name="AND gate, TTL"></a>
+
+<p>
+In the earlier section on NAND gates, this type of gate was created by taking an AND gate and increasing its complexity by adding an inverter (NOT gate) to the output.  However, when we examine this circuit, we see that the NAND function is actually the simplest, most natural mode of operation for this TTL design.  To create an AND function using TTL circuitry, we need to <i>increase</i> the complexity of this circuit by adding an inverter stage to the output, just like we had to add an additional transistor stage to the TTL inverter circuit to turn it into a buffer:
+</p>
+
+<p> <img src="04125.png"> </p> 
+
+<p>
+The truth table and equivalent gate circuit (an inverted-output NAND gate) are shown here:
+</p>
+
+<p> <img src="04126.png"> </p> 
+
+<p>
+Of course, both NAND and AND gate circuits may be designed with totem-pole output stages rather than open-collector.  I am opting to show the open-collector versions for the sake of simplicity.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A TTL NAND gate can be made by taking a TTL inverter circuit and adding another input.</li>
+<li>An AND gate may be created by adding an inverter stage to the output of the NAND gate circuit.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370213">TTL NOR and OR gates</a></u></h2>
+
+<p>
+Let's examine the following TTL circuit and analyze its operation:
+</p>
+
+<a name="NOR gate, TTL"></a>
+
+<p> <img src="04127.png"> </p> 
+
+<p>
+Transistors Q<sub>1</sub> and Q<sub>2</sub> are both arranged in the same manner that we've seen for transistor Q<sub>1</sub> in all the other TTL circuits.  Rather than functioning as amplifiers, Q<sub>1</sub> and Q<sub>2</sub> are both being used as two-diode "steering" networks.  We may replace Q<sub>1</sub> and Q<sub>2</sub> with diode sets to help illustrate:
+</p>
+
+<p> <img src="04128.png"> </p> 
+
+<p>
+If input A is left floating (or connected to V<sub>cc</sub>), current will go through the base of transistor Q<sub>3</sub>, saturating it.  If input A is grounded, that current is diverted away from Q<sub>3</sub>'s base through the left steering diode of "Q<sub>1</sub>," thus forcing Q<sub>3</sub> into cutoff.  The same can be said for input B and transistor Q<sub>4</sub>: the logic level of input B determines Q<sub>4</sub>'s conduction: either saturated or cutoff.
+</p>
+
+<p>
+Notice how transistors Q<sub>3</sub> and Q<sub>4</sub> are paralleled at their collector and emitter terminals.  In essence, these two transistors are acting as paralleled switches, allowing current through resistors R<sub>3</sub> and R<sub>4</sub> according to the logic levels of inputs A and B.  If <i>any</i> input is at a "high" (1) level, then at least one of the two transistors (Q<sub>3</sub> and/or Q<sub>4</sub>) will be saturated, allowing current through resistors R<sub>3</sub> and R<sub>4</sub>, and turning on the final output transistor Q<sub>5</sub> for a "low" (0) logic level output.  The only way the output of this circuit can ever assume a "high" (1) state is if <i>both</i> Q<sub>3</sub> and Q<sub>4</sub> are cutoff, which means <i>both</i> inputs would have to be grounded, or "low" (0).
+</p>
+
+<p>
+This circuit's truth table, then, is equivalent to that of the NOR gate:
+</p>
+
+<p> <img src="04129.png"> </p> 
+
+<a name="OR gate, TTL"></a>
+
+<p>
+In order to turn this NOR gate circuit into an OR gate, we would have to invert the output logic level with another transistor stage, just like we did with the NAND-to-AND gate example:
+</p>
+
+<p> <img src="04130.png"> </p> 
+
+<p>
+The truth table and equivalent gate circuit (an inverted-output NOR gate) are shown here:
+</p>
+
+<p> <img src="04131.png"> </p> 
+
+<p>
+Of course, totem-pole output stages are also possible in both NOR and OR TTL logic circuits.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>An OR gate may be created by adding an inverter stage to the output of the NOR gate circuit.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370214">CMOS gate circuitry</a></u></h2>
+
+<p>
+Up until this point, our analysis of transistor logic circuits has been limited to the <i>TTL</i> design paradigm, whereby bipolar transistors are used, and the general strategy of floating inputs being equivalent to "high" (connected to V<sub>cc</sub>) inputs -- and correspondingly, the allowance of "open-collector" output stages -- is maintained.  This, however, is not the only way we can build logic gates.
+</p>
+
+<a name="NOT gate, CMOS"></a>
+<a name="Inverter gate, CMOS"></a>
+
+<p>
+Field-effect transistors, particularly the insulated-gate variety, may be used in the design of gate circuits.  Being voltage-controlled rather than current-controlled devices, IGFETs tend to allow very simple circuit designs.  Take for instance, the following inverter circuit built using P- and N-channel IGFETs:
+</p>
+
+<p> <img src="04132.png"> </p> 
+
+<a name="V<sub>dd</sub>, versus V<sub>cc</sub>"></a>
+
+<p>
+Notice the "V<sub>dd</sub>" label on the positive power supply terminal.  This label follows the same convention as "V<sub>cc</sub>" in TTL circuits: it stands for the constant voltage applied to the drain of a field effect transistor, in reference to ground.
+</p>
+
+<p>
+Let's connect this gate circuit to a power source and input switch, and examine its operation.  Please note that these IGFET transistors are E-type (Enhancement-mode), and so are <i>normally-off</i> devices.  It takes an applied voltage between gate and drain (actually, between gate and substrate) of the correct polarity to bias them <i>on</i>.
+</p>
+
+<p> <img src="04133.png"> </p> 
+
+<p>
+The upper transistor is a P-channel IGFET.  When the channel (substrate) is made more positive than the gate (gate negative in reference to the substrate), the channel is enhanced and current is allowed between source and drain.  So, in the above illustration, the top transistor is turned on.
+</p>
+
+<p>
+The lower transistor, having zero voltage between gate and substrate (source), is in its normal mode: <i>off</i>.  Thus, the action of these two transistors are such that the output terminal of the gate circuit has a solid connection to V<sub>dd</sub> and a very high resistance connection to ground.  This makes the output "high" (1) for the "low" (0) state of the input.
+</p>
+
+<p>
+Next, we'll move the input switch to its other position and see what happens:
+</p>
+
+<p> <img src="04134.png"> </p> 
+
+<p>
+Now the lower transistor (N-channel) is saturated because it has sufficient voltage of the correct polarity applied between gate and substrate (channel) to turn it on (positive on gate, negative on the channel).  The upper transistor, having zero voltage applied between its gate and substrate, is in its normal mode: <i>off</i>.  Thus, the output of this gate circuit is now "low" (0).  Clearly, this circuit exhibits the behavior of an inverter, or NOT gate.
+</p>
+
+<a name="MOSFET"></a>
+<a name="CMOS"></a>
+<a name="Current source"></a>
+<a name="Current sink"></a>
+<a name="Source, current"></a>
+<a name="Sink, current"></a>
+
+<p>
+Using field-effect transistors instead of bipolar transistors has greatly simplified the design of the inverter gate.  Note that the output of this gate never floats as is the case with the simplest TTL circuit: it has a natural "totem-pole" configuration, capable of both sourcing and sinking load current.  Key to this gate circuit's elegant design is the <i>complementary</i> use of both P- and N-channel IGFETs.  Since IGFETs are more commonly known as MOSFETs (<b>M</b>etal-<b>O</b>xide-<b>S</b>emiconductor <b>F</b>ield <b>E</b>ffect <b>T</b>ransistor), and this circuit uses both P- and N-channel transistors together, the general classification given to gate circuits like this one is <i>CMOS</i>: <b>C</b>omplementary <b>M</b>etal <b>O</b>xide <b>S</b>emiconductor.
+</p>
+
+<a name="Electrostatic sensitivity, CMOS"></a>
+<a name="Floating inputs, CMOS vs. TTL"></a>
+
+<p>
+CMOS circuits aren't plagued by the inherent nonlinearities of the field-effect transistors, because as digital circuits their transistors always operate in either the <i>saturated</i> or <i>cutoff</i> modes and never in the <i>active</i> mode.  Their inputs are, however, sensitive to high voltages generated by electrostatic (static electricity) sources, and may even be activated into "high" (1) or "low" (0) states by spurious voltage sources if left floating.  For this reason, it is inadvisable to allow a CMOS logic gate input to float under any circumstances.  Please note that this is very different from the behavior of a TTL gate where a floating input was safely interpreted as a "high" (1) logic level.
+</p>
+
+<p>
+This may cause a problem if the input to a CMOS logic gate is driven by a single-throw switch, where one state has the input solidly connected to either V<sub>dd</sub> or ground and the other state has the input floating (not connected to anything):
+</p>
+
+<p> <img src="04135.png"> </p> 
+
+<p>
+Also, this problem arises if a CMOS gate input is being driven by an <i>open-collector</i> TTL gate.  Because such a TTL gate's output floats when it goes "high" (1), the CMOS gate input will be left in an uncertain state:
+</p>
+
+<p> <img src="04136.png"> </p> 
+
+<a name="Pullup resistor"></a>
+<a name="Resistor, pullup"></a>
+
+<p>
+Fortunately, there is an easy solution to this dilemma, one that is used frequently in CMOS logic circuitry.  Whenever a single-throw switch (or any other sort of gate output incapable of <i>both</i> sourcing and sinking current) is being used to drive a CMOS input, a resistor connected to either V<sub>dd</sub> or ground may be used to provide a stable logic level for the state in which the driving device's output is floating.  This resistor's value is not critical: 10 k&#937; is usually sufficient.  When used to provide a "high" (1) logic level in the event of a floating signal source, this resistor is known as a <i>pullup resistor</i>:
+</p>
+
+<p> <img src="04137.png"> </p> 
+
+<p>
+When such a resistor is used to provide a "low" (0) logic level in the event of a floating signal source, it is known as a <i>pulldown resistor</i>.  Again, the value for a pulldown resistor is not critical:
+</p>
+
+<p> <img src="04138.png"> </p> 
+
+<p>
+Because open-collector TTL outputs always sink, never source, current, pull<i>up</i> resistors are necessary when interfacing such an output to a CMOS gate input:
+</p>
+
+<p> <img src="04139.png"> </p> 
+
+<p>
+Although the CMOS gates used in the preceding examples were all inverters (single-input), the same principle of pullup and pulldown resistors applies to multiple-input CMOS gates.  Of course, a separate pullup or pulldown resistor will be required for each gate input:
+</p>
+
+<p> <img src="04140.png"> </p> 
+
+<p>
+This brings us to the next question: how do we design multiple-input CMOS gates such as AND, NAND, OR, and NOR?  Not surprisingly, the answer(s) to this question reveal a simplicity of design much like that of the CMOS inverter over its TTL equivalent.
+</p>
+
+<a name="NAND gate, CMOS"></a>
+
+<p>
+For example, here is the schematic diagram for a CMOS NAND gate:
+</p>
+
+<p> <img src="04141.png"> </p> 
+
+<p>
+Notice how transistors Q<sub>1</sub> and Q<sub>3</sub> resemble the series-connected complementary pair from the inverter circuit.   Both are controlled by the same input signal (input A), the upper transistor turning off and the lower transistor turning on when the input is "high" (1), and vice versa.  Notice also how transistors Q<sub>2</sub> and Q<sub>4</sub> are similarly controlled by the same input signal (input B), and how they will also exhibit the same on/off behavior for the same input logic levels.  The upper transistors of both pairs (Q<sub>1</sub> and Q<sub>2</sub>) have their source and drain terminals paralleled, while the lower transistors (Q<sub>3</sub> and Q<sub>4</sub>) are series-connected.  What this means is that the output will go "high" (1) if <i>either</i> top transistor saturates, and will go "low" (0) only if <i>both</i> lower transistors saturate.  The following sequence of illustrations shows the behavior of this NAND gate for all four possibilities of input logic levels (00, 01, 10, and 11):
+</p>
+
+<p> <img src="04142.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04143.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04144.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04145.png"> </p> 
+
+<a name="AND gate, CMOS"></a>
+
+<p>
+As with the TTL NAND gate, the CMOS NAND gate circuit may be used as the starting point for the creation of an AND gate.  All that needs to be added is another stage of transistors to invert the output signal:
+</p>
+
+<p> <img src="04146.png"> </p> 
+
+<a name="Transistor "sourcing""></a>
+<a name="Transistor "sinking""></a>
+<a name="NOR gate, CMOS"></a>
+
+<p>
+A CMOS NOR gate circuit uses four MOSFETs just like the NAND gate, except that its transistors are differently arranged.  Instead of two paralleled <i>sourcing</i> (upper) transistors connected to V<sub>dd</sub> and two series-connected <i>sinking</i> (lower) transistors connected to ground, the NOR gate uses two series-connected sourcing transistors and two parallel-connected sinking transistors like this:
+</p>
+
+<p> <img src="04147.png"> </p> 
+
+<p>
+As with the NAND gate, transistors Q<sub>1</sub> and Q<sub>3</sub> work as a complementary pair, as do transistors Q<sub>2</sub> and Q<sub>4</sub>.  Each pair is controlled by a single input signal.  If <i>either</i> input A <i>or</i> input B are "high" (1), at least one of the lower transistors (Q<sub>3</sub> or Q<sub>4</sub>) will be saturated, thus making the output "low" (0).  Only in the event of <i>both</i> inputs being "low" (0) will both lower transistors be in cutoff mode and both upper transistors be saturated, the conditions necessary for the output to go "high" (1).  This behavior, of course, defines the NOR logic function.
+</p>
+
+<a name="OR gate, CMOS"></a>
+
+<p>
+The OR function may be built up from the basic NOR gate with the addition of an inverter stage on the output:
+</p>
+
+<p> <img src="04148.png"> </p> 
+
+<p>
+Since it appears that any gate possible to construct using TTL technology can be duplicated in CMOS, why do these two "families" of logic design still coexist?  The answer is that both TTL and CMOS have their own unique advantages.
+</p>
+
+<p>
+First and foremost on the list of comparisons between TTL and CMOS is the issue of power consumption.  In this measure of performance, CMOS is the unchallenged victor.  Because the complementary P- and N-channel MOSFET pairs of a CMOS gate circuit are (ideally) never conducting at the same time, there is little or no current drawn by the circuit from the V<sub>dd</sub> power supply except for what current is necessary to source current to a load.  TTL, on the other hand, cannot function without some current drawn at all times, due to the biasing requirements of the bipolar transistors from which it is made.
+</p>
+
+<p>
+There is a caveat to this advantage, though.  While the power dissipation of a TTL gate remains rather constant regardless of its operating state(s), a CMOS gate dissipates more power as the frequency of its input signal(s) rises.  If a CMOS gate is operated in a static (unchanging) condition, it dissipates zero power (ideally).  However, CMOS gate circuits draw transient current during every output state switch from "low" to "high" and vice versa.  So, the more often a CMOS gate switches modes, the more often it will draw current from the V<sub>dd</sub> supply, hence greater power dissipation at greater frequencies.
+</p>
+
+<a name="Fanout"></a>
+
+<p>
+A CMOS gate also draws much less current from a driving gate output than a TTL gate because MOSFETs are voltage-controlled, not current-controlled, devices.  This means that one gate can drive many more CMOS inputs than TTL inputs.  The measure of how many gate inputs a single gate output can drive is called <i>fanout</i>.
+</p>
+
+<p>
+Another advantage that CMOS gate designs enjoy over TTL is a much wider allowable range of power supply voltages.  Whereas TTL gates are restricted to power supply (V<sub>cc</sub>) voltages between 4.75 and 5.25 volts, CMOS gates are typically able to operate on any voltage between 3 and 15 volts!  The reason behind this disparity in power supply voltages is the respective bias requirements of MOSFET versus bipolar junction transistors.  MOSFETs are controlled exclusively by gate voltage (with respect to substrate), whereas BJTs are <i>current-controlled</i> devices.  TTL gate circuit resistances are precisely calculated for proper bias currents assuming a 5 volt regulated power supply.  Any significant variations in that power supply voltage will result in the transistor bias currents being incorrect, which then results in unreliable (unpredictable) operation.  The only effect that variations in power supply voltage have on a CMOS gate is the voltage definition of a "high" (1) state.  For a CMOS gate operating at 15 volts of power supply voltage (V<sub>dd</sub>), an input signal must be close to 15 volts in order to be considered "high" (1).  The voltage threshold for a "low" (0) signal remains the same: near 0 volts.
+</p>
+
+<p>
+One decided disadvantage of CMOS is slow speed, as compared to TTL.  The input capacitances of a CMOS gate are much, much greater than that of a comparable TTL gate -- owing to the use of MOSFETs rather than BJTs -- and so a CMOS gate will be slower to respond to a signal transition (low-to-high or vice versa) than a TTL gate, all other factors being equal.  The RC time constant formed by circuit resistances and the input capacitance of the gate tend to impede the fast rise- and fall-times of a digital logic level, thereby degrading high-frequency performance.
+</p>
+
+<a name="B-series CMOS gates"></a>
+
+<p>
+A strategy for minimizing this inherent disadvantage of CMOS gate circuitry is to "buffer" the output signal with additional transistor stages, to increase the overall voltage gain of the device.  This provides a faster-transitioning output voltage (high-to-low or low-to-high) for an input voltage slowly changing from one logic state to another.  Consider this example, of an "unbuffered" NOR gate versus a "buffered," or <i>B-series</i>, NOR gate:
+</p>
+
+<p> <img src="04308.png"> </p> 
+
+<p>
+In essence, the B-series design enhancement adds two inverters to the output of a simple NOR circuit.  This serves no purpose as far as digital logic is concerned, since two cascaded inverters simply cancel:
+</p>
+
+<p> <img src="04309.png"> </p> 
+
+<p>
+However, adding these inverter stages to the circuit does serve the purpose of increasing overall voltage gain, making the output more sensitive to changes in input state, working to overcome the inherent slowness caused by CMOS gate input capacitance.
+</p>
+
+<!--High-speed CMOS (pin-for-pin compatible with TTL)-->
+
+<!--Noise immunity-->
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>CMOS logic gates are made of IGFET (MOSFET) transistors rather than bipolar junction transistors.</li>
+<li>CMOS gate inputs are sensitive to static electricity.  They may be damaged by high voltages, and they may assume any logic level if left floating.</li>
+<li><i>Pullup</i> and <i>pulldown</i> resistors are used to prevent a CMOS gate input from floating if being driven by a signal source capable only of sourcing or sinking current.</li>
+<li>CMOS gates dissipate far less power than equivalent TTL gates, but their power dissipation increases with signal frequency, whereas the power dissipation of a TTL gate is approximately constant over a wide range of operating conditions.</li>
+<li>CMOS gate inputs draw far less current than TTL inputs, because MOSFETs are voltage-controlled, not current-controlled, devices.</li>
+<li>CMOS gates are able to operate on a much wider range of power supply voltages than TTL: typically 3 to 15 volts versus 4.75 to 5.25 volts for TTL.</li>
+<li>CMOS gates tend to have a much lower maximum operating frequency than TTL gates due to input capacitances caused by the MOSFET gates.</li>
+<li><i>B-series</i> CMOS gates have "buffered" outputs to increase voltage gain from input to output, resulting in faster output response to input signal changes.  This helps overcome the inherent slowness of CMOS gates due to MOSFET input capacitance and the RC time constant thereby engendered.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370215">Special-output gates</a></u></h2>
+
+<a name="Complementary output gate"></a>
+<a name="Gate, complementary output"></a>
+
+<p>
+It is sometimes desirable to have a logic gate that provides both inverted and non-inverted outputs.  For example, a single-input gate that is both a buffer and an inverter, with a separate output terminal for each function.  Or, a two-input gate that provides both the AND and the NAND functions in a single circuit.  Such gates do exist and they are referred to as <i>complementary output</i> gates.
+</p>
+
+<p>
+The general symbology for such a gate is the basic gate figure with a bar and two output lines protruding from it.  An array of complementary gate symbols is shown in the following illustration:
+</p>
+
+<p> <img src="04149.png"> </p> 
+
+<p>
+Complementary gates are especially useful in "crowded" circuits where there may not be enough physical room to mount the additional integrated circuit chips necessary to provide both inverted and noninverted outputs using standard gates and additional inverters.  They are also useful in applications where a complementary output is necessary from a gate, but the addition of an inverter would introduce an unwanted time lag in the inverted output relative to the noninverted output.  The internal circuitry of complemented gates is such that both inverted and noninverted outputs change state at almost exactly the same time:
+</p>
+
+<p> <img src="04150.png"> </p> 
+
+<a name="Tristate output"></a>
+<a name="High-impedance output, tristate"></a>
+
+<p>
+Another type of special gate output is called <i>tristate</i>, because it has the ability to provide three different output modes: current sinking ("low" logic level), current sourcing ("high"), and floating ("high-Z," or <i>high-impedance</i>).  Tristate outputs are usually found as an optional feature on buffer gates.  Such gates require an extra input terminal to control the "high-Z" mode, and this input is usually called the <i>enable</i>.
+</p>
+
+<p> <img src="04151.png"> </p> 
+
+<p>
+With the enable input held "high" (1), the buffer acts like an ordinary buffer with a totem pole output stage: it is capable of both sourcing and sinking current.  However, the output terminal floats (goes into "high-Z" mode) if ever the enable input is grounded ("low"), regardless of the data signal's logic level.  In other words, making the enable input terminal "low" (0) effectively <i>disconnects</i> the gate from whatever its output is wired to so that it can no longer have any effect.
+</p>
+
+<p>
+Tristate buffers are marked in schematic diagrams by a triangle character within the gate symbol like this:
+</p>
+
+<p> <img src="04152.png"> </p> 
+
+<p>
+Tristate buffers are also made with inverted enable inputs.  Such a gate acts normal when the enable input is "low" (0) and goes into high-Z output mode when the enable input is "high" (1):
+</p>
+
+<p> <img src="04153.png"> </p> 
+
+<a name="Bilateral switch"></a>
+
+<p>
+One special type of gate known as the <i>bilateral switch</i> uses gate-controlled MOSFET transistors acting as on/off switches to switch electrical signals, analog or digital.  The "on" resistance of such a switch is in the range of several hundred ohms, the "off" resistance being in the range of several hundred <i>mega-</i>ohms.
+</p>
+
+<a name="SPST switch"></a>
+
+<p>
+Bilateral switches appear in schematics as SPST (Single-Pole, Single-Throw) switches inside of rectangular boxes, with a control terminal on one of the box's long sides:
+</p>
+
+<p> <img src="04310.png"> </p> 
+
+<p>
+A bilateral switch might be best envisioned as a solid-state (semiconductor) version of an electromechanical relay: a signal-actuated switch contact that may be used to conduct virtually any type of electric signal.  Of course, being solid-state, the bilateral switch has none of the undesirable characteristics of electromechanical relays, such as contact "bouncing," arcing, slow speed, or susceptibility to mechanical vibration.  Conversely, though, they are rather limited in their current-carrying ability.  Additionally, the signal conducted by the "contact" must not exceed the power supply "rail" voltages powering the bilateral switch circuit.
+</p>
+
+<p>
+Four bilateral switches are packaged inside the popular model "4066" integrated circuit:
+</p>
+
+<p> <img src="04311.png"> </p> 
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Complementary</i> gates provide both inverted and noninverted output signals, in such a way that neither one is delayed with respect to the other.</li>
+<li><i>Tristate</i> gates provide three different output states: high, low, and floating (High-Z).  Such gates are commanded into their high-impedance output modes by a separate input terminal called the <i>enable</i>.</li>
+<li><i>Bilateral switches</i> are MOSFET circuits providing on/off switching for a variety of electrical signal types (analog and digital), controlled by logic level voltage signals.  In essence, they are solid-state relays with very low current-handling ability.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370216">Gate universality</a></u></h2>
+
+<p>
+NAND and NOR gates possess a special property: they are universal.  That is, given enough gates, either type of gate is able to mimic the operation of <i>any</i> other gate type.  For example, it is possible to build a circuit exhibiting the OR function using three interconnected NAND gates.  The ability for a single gate type to be able to mimic any other gate type is one enjoyed only by the NAND and the NOR.  In fact, digital control systems have been designed around nothing but either NAND or NOR gates, all the necessary logic functions being derived from collections of interconnected NANDs or NORs.
+</p>
+
+<p>
+As proof of this property, this section will be divided into subsections showing how all the basic gate types may be formed using only NANDs or only NORs.
+</p>
+
+
+
+
+<h3><u><a name="xtocid370217">Constructing the NOT function</a></u></h3>
+
+<a name="NOT function, from a NOR gate"></a>
+<a name="NOT function, from a NAND gate"></a>
+
+<p> <img src="04154.png"> </p> 
+
+<p>
+As you can see, there are two ways to use a NAND gate as an inverter, and two ways to use a NOR gate as an inverter.  Either method works, although connecting TTL inputs together increases the amount of current loading to the driving gate.  For CMOS gates, common input terminals decreases the switching speed of the gate due to increased input capacitance.  
+</p>
+
+<p>
+Inverters are the fundamental tool for transforming one type of logic function into another, and so there will be many inverters shown in the illustrations to follow.  In those diagrams, I will only show one method of inversion, and that will be where the unused NAND gate input is connected to +V (either V<sub>cc</sub> or V<sub>dd</sub>, depending on whether the circuit is TTL or CMOS) and where the unused input for the NOR gate is connected to ground.  Bear in mind that the other inversion method (connecting both NAND or NOR inputs together) works just as well from a logical (1's and 0's) point of view, but is undesirable from the practical perspectives of increased current loading for TTL and increased input capacitance for CMOS.
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370218">Constructing the "buffer" function</a></u></h3>
+
+<p>
+Being that it is quite easy to employ NAND and NOR gates to perform the inverter (NOT) function, it stands to reason that two such stages of gates will result in a buffer function, where the output is the same logical state as the input.
+</p>
+
+<a name="Buffer function, from a NOR gate"></a>
+<a name="Buffer function, from a NAND gate"></a>
+
+<p> <img src="04155.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370219">Constructing the AND function</a></u></h3>
+
+<p>
+To make the AND function from NAND gates, all that is needed is an inverter (NOT) stage on the output of a NAND gate.  This extra inversion "cancels out" the first <i>N</i> in <i>NAND</i>, leaving the AND function.  It takes a little more work to wrestle the same functionality out of NOR gates, but it can be done by inverting ("NOT") all of the inputs to a NOR gate.
+</p>
+
+<a name="AND function, from NOR gates"></a>
+<a name="AND function, from NAND gates"></a>
+
+<p> <img src="04156.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370220">Constructing the NAND function</a></u></h3>
+
+<p>
+It would be pointless to show you how to "construct" the NAND function using a NAND gate, since there is nothing to do.  To make a NOR gate perform the NAND function, we must invert all inputs to the NOR gate as well as the NOR gate's output.  For a two-input gate, this requires three more NOR gates connected as inverters.
+</p>
+
+<a name="NAND function, from NOR gates"></a>
+
+<p> <img src="04157.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370221">Constructing the OR function</a></u></h3>
+
+<a name="DeMorgan's Theorem"></a>
+
+<p>
+Inverting the output of a NOR gate (with another NOR gate connected as an inverter) results in the OR function.  The NAND gate, on the other hand, requires inversion of all inputs to mimic the OR function, just as we needed to invert all inputs of a NOR gate to obtain the AND function.  Remember that inversion of all inputs to a gate results in changing that gate's essential function from AND to OR (or vice versa), plus an inverted output.  Thus, with all inputs inverted, a NAND behaves as an OR, a NOR behaves as an AND, an AND behaves as a NOR, and an OR behaves as a NAND.  In Boolean algebra, this transformation is referred to as <i>DeMorgan's Theorem</i>, covered in more detail in a later chapter of this book.
+</p>
+
+<a name="OR function, from NOR gates"></a>
+<a name="OR function, from NAND gates"></a>
+
+<p> <img src="04158.png"> </p> 
+
+
+
+
+
+
+
+<h3><u><a name="xtocid370222">Constructing the NOR function</a></u></h3>
+
+<p>
+
+Much the same as the procedure for making a NOR gate behave as a NAND, we must invert all inputs and the output to make a NAND gate function as a NOR.
+</p>
+
+<a name="NOR function, from NAND gates"></a>
+
+<p> <img src="04159.png"> </p> 
+
+
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>NAND and NOR gates are universal: that is, they have the ability to mimic any type of gate, if interconnected in sufficient numbers.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370223">Logic signal voltage levels</a></u></h2>
+
+<p>
+Logic gate circuits are designed to input and output only two types of signals: "high" (1) and "low" (0), as represented by a variable voltage: full power supply voltage for a "high" state and zero voltage for a "low" state.  In a perfect world, all logic circuit signals would exist at these extreme voltage limits, and never deviate from them (i.e., less than full voltage for a "high," or more than zero voltage for a "low").  However, in reality, logic signal voltage levels rarely attain these perfect limits due to stray voltage drops in the transistor circuitry, and so we must understand the signal level limitations of gate circuits as they try to interpret signal voltages lying somewhere <i>between</i> full supply voltage and zero.
+</p>
+
+<p>
+TTL gates operate on a nominal power supply voltage of 5 volts, +/- 0.25 volts.  Ideally, a TTL "high" signal would be 5.00 volts exactly, and a TTL "low" signal 0.00 volts exactly.  However, real TTL gate circuits cannot output such perfect voltage levels, and are designed to accept "high" and "low" signals deviating substantially from these ideal values.  "Acceptable" input signal voltages range from 0 volts to 0.8 volts for a "low" logic state, and 2 volts to 5 volts for a "high" logic state.  "Acceptable" output signal voltages (voltage levels guaranteed by the gate manufacturer over a specified range of load conditions) range from 0 volts to 0.5 volts for a "low" logic state, and 2.7 volts to 5 volts for a "high" logic state:
+</p>
+
+<p> <img src="04312.png"> </p> 
+
+<p>
+If a voltage signal ranging between 0.8 volts and 2 volts were to be sent into the input of a TTL gate, there would be no certain response from the gate.  Such a signal would be considered <i>uncertain</i>, and no logic gate manufacturer would guarantee how their gate circuit would interpret such a signal.  
+</p>
+
+<a name="Noise margin, logic gate"></a>
+
+<p>
+As you can see, the tolerable ranges for output signal levels are narrower than for input signal levels, to ensure that any TTL gate outputting a digital signal into the input of another TTL gate will transmit voltages acceptable to the receiving gate.  The difference between the tolerable output and input ranges is called the <i>noise margin</i> of the gate.  For TTL gates, the low-level noise margin is the difference between 0.8 volts and 0.5 volts (0.3 volts), while the high-level noise margin is the difference between 2.7 volts and 2 volts (0.7 volts).  Simply put, the noise margin is the peak amount of spurious or "noise" voltage that may be superimposed on a weak gate output voltage signal before the receiving gate might interpret it wrongly:
+</p>
+
+<p> <img src="04313.png"> </p> 
+
+<p>
+CMOS gate circuits have input and output signal specifications that are quite different from TTL.  For a CMOS gate operating at a power supply voltage of 5 volts, the acceptable input signal voltages range from 0 volts to 1.5 volts for a "low" logic state, and 3.5 volts to 5 volts for a "high" logic state.  "Acceptable" output signal voltages (voltage levels guaranteed by the gate manufacturer over a specified range of load conditions) range from 0 volts to 0.05 volts for a "low" logic state, and 4.95 volts to 5 volts for a "high" logic state:
+</p>
+
+<p> <img src="04314.png"> </p> 
+
+<p>
+It should be obvious from these figures that CMOS gate circuits have far greater noise margins than TTL: 1.45 volts for CMOS low-level and high-level margins, versus a maximum of 0.7 volts for TTL.  In other words, CMOS circuits can tolerate over twice the amount of superimposed "noise" voltage on their input lines before signal interpretation errors will result.
+</p>
+
+<p>
+CMOS noise margins widen even further with higher operating voltages.  Unlike TTL, which is restricted to a power supply voltage of 5 volts, CMOS may be powered by voltages as high as 15 volts (some CMOS circuits as high as 18 volts).  Shown here are the acceptable "high" and "low" states, for both input and output, of CMOS integrated circuits operating at 10 volts and 15 volts, respectively:
+</p>
+
+<p> <img src="04317.png"> </p> 
+
+<p>
+
+</p>
+
+<p> <img src="04318.png"> </p> 
+
+<p>
+The margins for acceptable "high" and "low" signals may be greater than what is shown in the previous illustrations.  What is shown represents "worst-case" input signal performance, based on manufacturer's specifications.  In practice, it may be found that a gate circuit will tolerate "high" signals of considerably less voltage and "low" signals of considerably greater voltage than those specified here.  
+</p>
+
+<p>
+Conversely, the extremely small output margins shown -- guaranteeing output states for "high" and "low" signals to within 0.05 volts of the power supply "rails" -- are optimistic.  Such "solid" output voltage levels will be true only for conditions of minimum loading.  If the gate is sourcing or sinking substantial current to a load, the output voltage will not be able to maintain these optimum levels, due to internal channel resistance of the gate's final output MOSFETs.
+</p>
+
+<p>
+Within the "uncertain" range for any gate input, there will be some point of demarcation dividing the gate's actual "low" input signal range from its actual "high" input signal range.  That is, somewhere between the lowest "high" signal voltage level and the highest "low" signal voltage level guaranteed by the gate manufacturer, there is a threshold voltage at which the gate will <i>actually</i> switch its interpretation of a signal from "low" or "high" or vice versa.  For most gate circuits, this unspecified voltage is a single point:
+</p>
+
+<p> <img src="04325.png"> </p> 
+
+<p>
+In the presence of AC "noise" voltage superimposed on the DC input signal, a single threshold point at which the gate alters its interpretation of logic level will result in an erratic output:
+</p>
+
+<p> <img src="04326.png"> </p> 
+
+<p>
+If this scenario looks familiar to you, its because you remember a similar problem with (analog) voltage comparator op-amp circuits.  With a single threshold point at which an input causes the output to switch between "high" and "low" states, the presence of significant noise will cause erratic changes in the output:
+</p>
+
+<p> <img src="04327.png"> </p> 
+
+<a name="Feedback, positive"></a>
+<a name="Positive feedback"></a>
+<a name="Schmitt trigger"></a>
+
+<p>
+The solution to this problem is a bit of <i>positive feedback</i> introduced into the amplifier circuit.  With an op-amp, this is done by connecting the output back around to the noninverting (+) input through a resistor.  In a gate circuit, this entails redesigning the internal gate circuitry, establishing the feedback inside the gate package rather than through external connections.  A gate so designed is called a <i>Schmitt trigger</i>.  Schmitt triggers interpret varying input voltages according to <i>two</i> threshold voltages: a <i>positive-going</i> threshold (V<sub>T+</sub>), and a <i>negative-going</i> threshold (V<sub>T-</sub>):
+</p>
+
+<p> <img src="04328.png"> </p> 
+
+<p>
+Schmitt trigger gates are distinguished in schematic diagrams by the small "hysteresis" symbol drawn within them, reminiscent of the B-H curve for a ferromagnetic material.  Hysteresis engendered by positive feedback within the gate circuitry adds an additional level of noise immunity to the gate's performance.  Schmitt trigger gates are frequently used in applications where noise is expected on the input signal line(s), and/or where an erratic output would be very detrimental to system performance.
+</p>
+
+<p>
+The differing voltage level requirements of TTL and CMOS technology present problems when the two types of gates are used in the same system.  Although operating CMOS gates on the same 5.00 volt power supply voltage required by the TTL gates is no problem, TTL output voltage levels will not be compatible with CMOS input voltage requirements.
+</p>
+
+<p>
+Take for instance a TTL NAND gate outputting a signal into the input of a CMOS inverter gate.  Both gates are powered by the same 5.00 volt supply (V<sub>cc</sub>).  If the TTL gate outputs a "low" signal (guaranteed to be between 0 volts and 0.5 volts), it will be properly interpreted by the CMOS gate's input as a "low" (expecting a voltage between 0 volts and 1.5 volts):
+</p>
+
+<p> <img src="04320.png"> </p> 
+
+<p>
+However, if the TTL gate outputs a "high" signal (guaranteed to be between 5 volts and 2.7 volts), it <i>might not</i> be properly interpreted by the CMOS gate's input as a "high" (expecting a voltage between 5 volts and <i>3.5</i> volts):
+</p>
+
+<p> <img src="04321.png"> </p> 
+
+<p>
+Given this mismatch, it is entirely possible for the TTL gate to output a valid "high" signal (valid, that is, according to the standards for TTL) that lies within the "uncertain" range for the CMOS input, and may be (falsely) interpreted as a "low" by the receiving gate.  An easy "fix" for this problem is to augment the TTL gate's "high" signal voltage level by means of a pullup resistor:
+</p>
+
+<p> <img src="04322.png"> </p> 
+
+<p>
+Something more than this, though, is required to interface a TTL output with a CMOS input, if the receiving CMOS gate is powered by a greater power supply voltage:
+</p>
+
+<p> <img src="04323.png"> </p> 
+
+<p>
+There will be no problem with the CMOS gate interpreting the TTL gate's "low" output, of course, but a "high" signal from the TTL gate is another matter entirely.  The guaranteed output voltage range of 2.7 volts to 5 volts from the TTL gate output is nowhere near the CMOS gate's acceptable range of 7 volts to 10 volts for a "high" signal.  If we use an <i>open-collector</i> TTL gate instead of a totem-pole output gate, though, a pullup resistor to the 10 volt V<sub>dd</sub> supply rail will raise the TTL gate's "high" output voltage to the full power supply voltage supplying the CMOS gate.  Since an open-collector gate can only sink current, not source current, the "high" state voltage level is entirely determined by the power supply to which the pullup resistor is attached, thus neatly solving the mismatch problem:
+</p>
+
+<p> <img src="04324.png"> </p> 
+
+<p>
+Due to the excellent output voltage characteristics of CMOS gates, there is typically no problem connecting a CMOS output to a TTL input.  The only significant issue is the current loading presented by the TTL inputs, since the CMOS output must sink current for each of the TTL inputs while in the "low" state.
+</p>
+
+<p>
+When the CMOS gate in question is powered by a voltage source in excess of 5 volts (V<sub>cc</sub>), though, a problem will result.  The "high" output state of the CMOS gate, being greater than 5 volts, will exceed the TTL gate's acceptable input limits for a "high" signal.  A solution to this problem is to create an "open-collector" inverter circuit using a discrete NPN transistor, and use it to interface the two gates together:
+</p>
+
+<p> <img src="04329.png"> </p> 
+
+<p>
+The "R<sub>pullup</sub>" resistor is optional, since TTL inputs automatically assume a "high" state when left floating, which is what will happen when the CMOS gate output is "low" and the transistor cuts off.  Of course, one very important consequence of implementing this solution is the logical inversion created by the transistor: when the CMOS gate outputs a "low" signal, the TTL gate sees a "high" input; and when the CMOS gate outputs a "high" signal, the transistor saturates and the TTL gate sees a "low" input.  So long as this inversion is accounted for in the logical scheme of the system, all will be well.
+</p>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370224">DIP gate packaging</a></u></h2>
+
+<a name="DIP gate packaging"></a>
+<a name="Dual Inline Package"></a>
+
+<p>
+Digital logic gate circuits are manufactured as integrated circuits: all the constituent transistors and resistors built on a single piece of semiconductor material.  The engineer, technician, or hobbyist using small numbers of gates will likely find what he or she needs enclosed in a DIP (<b>D</b>ual <b>I</b>nline <b>P</b>ackage) housing.  DIP-enclosed integrated circuits are available with even numbers of pins, located at 0.100 inch intervals from each other for standard circuit board layout compatibility.  Pin counts of 8, 14, 16, 18, and 24 are common for DIP "chips."
+</p>
+
+<p>
+Part numbers given to these DIP packages specify what type of gates are enclosed, and how many.  These part numbers are industry standards, meaning that a "74LS02" manufactured by Motorola will be identical in function to a "74LS02" manufactured by Fairchild or by any other manufacturer.  Letter codes prepended to the part number are unique to the manufacturer, and are not industry-standard codes.  For instance, a SN74LS02 is a quad 2-input TTL NOR gate manufactured by Motorola, while a DM74LS02 is the exact same circuit manufactured by Fairchild.
+</p>
+
+<p>
+Logic circuit part numbers beginning with "74" are commercial-grade TTL.  If the part number begins with the number "54", the chip is a military-grade unit: having a greater operating temperature range, and typically more robust in regard to allowable power supply and signal voltage levels.  The letters "LS" immediately following the 74/54 prefix indicate "Low-power Schottky" circuitry, using Schottky-barrier diodes and transistors throughout, to decrease power dissipation.  Non-Schottky gate circuits consume more power, but are able to operate at higher frequencies due to their faster switching times.
+</p>
+
+<p>
+A few of the more common TTL "DIP" circuit packages are shown here for reference:
+</p>
+
+<p> <img src="04160.png"> </p> 
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="04161.png"> </p> 
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid370225">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Jan-Willem Rensman</b> (May 2, 2002): Suggested the inclusion of Schmitt triggers and gate hysteresis to this chapter.
+</p>
+
+
+
+
+
+
+<!--Future additions:-->
+
+<!--Discuss HCMOS and its pin-for-pin compatibility with standard TTL.-->
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="DIGI_A3.html">Design Science License</a>.
+</p>
+
+<a href="DIGI_2.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="DIGI_4.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

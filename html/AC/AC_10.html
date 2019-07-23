@@ -1,0 +1,2144 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume II (AC) - Chapter 10</title>
+  <meta name="description" content="Polyphase AC Circuits">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, phase, hot, neutral, y, delta, phase rotation, phase sequence, rotation sequence, transformer, open delta, open-delta, phase voltage, line voltage, phase current, line current, harmonic sequence, triplen, triplen harmonic, positive sequence, negative sequence, zero sequence, neutral current, neutral harmonic, fourier, fourier analysis, fourier transform, fast fourier transform, fft"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="AC_9.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_11.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume II</h1>
+<h1>Chapter 10</h1>
+
+
+<!-- Added spice-Nutmeg plot and Fourier impulse plot (DC) 4-30-2005-->
+<!--How to make spice impulse plots with gnuplot from spice Fourier analysis data-->
+<!-- edit Fourier analysis data (filename.for) so that it contains only numerical data lines for the harmonics, remove headings. words before and after these lines. Then add a line of zero's data to the head of the harmonic data, a zero over each column of data. This is to shift the plot to the right --> 
+<!--gnuplot-->
+<!--set xlabel&ldquo;Harmonic number&rdquo;-->
+<!--set ylabel &ldquo;Relative amplitude &rdquo;-->
+<!--plot &ldquo;filename.for&rdquo;  using 0:3 with impulse linewidth 30-->
+<!--if plot looks ok, let's put it in eps-->
+<!--set size 0.6,0.6-->
+<!--set terminal postscript eps color &ldquo;Helvetius&rdquo; 18-->
+<!--set output &ldquo;filename.eps&rdquo;-->
+<!--plot &ldquo;filename.for&rdquo;  using 0:3 with impulse linewidth 30-->
+<!--output goes from filename.for to filename.eps-->
+<!--repeat last two steps for any other files, changing filename.{for,eps}-->
+
+
+
+<h1>POLYPHASE AC CIRCUITS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid35100"><u>Single-phase power systems</u></a></li>
+<li><a href="#xtocid35101"><u>Three-phase power systems</u></a></li>
+<li><a href="#xtocid35102"><u>Phase rotation</u></a></li>
+<li><a href="#xtocid35103"><u>Polyphase motor design</u></a></li>
+<li><a href="#xtocid35104"><u>Three-phase Y and Delta configurations</u></a></li>
+<li><a href="#xtocid35105"><u>Three-phase transformer circuits</u></a></li>
+<li><a href="#xtocid35106"><u>Harmonics in polyphase power systems</u></a></li>
+<li><a href="#xtocid35107"><u>Harmonic phase sequences</u></a></li>
+<li><a href="#xtocid35108"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid35100">Single-phase power systems</a></u></h2>
+
+ 
+<a name="02164.png"></a> 
+<p> <img src="02164.png"> </p> 
+<p><i>Single phase power system schematic diagram shows little about the wiring of a practical power circuit.</i></p> 
+ 
+
+<a name="Single-phase"></a>
+
+<p>
+Depicted above  (Figure <a href="#02164.png">  above</a>) is a very simple AC circuit.  If the load resistor's power dissipation were substantial, we might call this a &ldquo;power circuit&rdquo; or &ldquo;power system&rdquo; instead of regarding it as just a regular circuit.  The distinction between a &ldquo;power circuit&rdquo; and a &ldquo;regular circuit&rdquo; may seem arbitrary, but the practical concerns are definitely not.
+</p>
+
+<p>
+One such concern is the size and cost of wiring necessary to deliver power from the AC source to the load.  Normally, we do not give much thought to this type of concern if we're merely analyzing a circuit for the sake of learning about the laws of electricity.  However, in the real world it can be a major concern.  If we give the source in the above circuit a voltage value and also give power dissipation values to the two load resistors, we can determine the wiring needs for this particular circuit: (Figure <a href="#02165.png">  below</a>)
+</p>
+
+ 
+<a name="02165.png"></a> 
+<p> <img src="02165.png"> </p> 
+<p><i>As a practical matter, the wiring for the 20 kW loads at 120 Vac is rather substantial (167 A).</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<p> <img src="12109.png"> </p> 
+
+<p>
+83.33 amps for each load resistor in Figure <a href="#02165.png">  above</a> adds up to 166.66 amps total circuit current.  This is no small amount of current, and would necessitate copper wire conductors of at least 1/0 gage.  Such wire is well over 1/4 inch (6 mm) in diameter, weighing over 300 pounds per thousand feet.  Bear in mind that copper is not cheap either!  It would be in our best interest to find ways to minimize such costs if we were designing a power system with long conductor lengths.
+</p>
+
+<p>
+One way to do this would be to increase the voltage of the power source and use loads built to dissipate 10 kW each at this higher voltage.  The loads, of course, would have to have greater resistance values to dissipate the same power as before (10 kW each) at a greater voltage than before.  The advantage would be less current required, permitting the use of smaller, lighter, and cheaper wire: (Figure <a href="#02166.png">  below</a>)
+</p>
+
+ 
+<a name="02166.png"></a> 
+<p> <img src="02166.png"> </p> 
+<p><i>Same 10 kW loads at 240 Vac requires less substantial wiring than at 120 Vac (83 A).</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<p> <img src="12110.png"> </p> 
+
+<p>
+Now our <i>total</i> circuit current is 83.33 amps, half of what it was before.  We can now use number 4 gage wire, which weighs less than half of what 1/0 gage wire does per unit length.  This is a considerable reduction in system cost with no degradation in performance.  This is why power distribution system designers elect to transmit electric power using very high voltages (many thousands of volts): to capitalize on the savings realized by the use of smaller, lighter, cheaper wire.
+</p>
+
+<p>
+However, this solution is not without disadvantages.  Another practical concern with power circuits is the danger of electric shock from high voltages.  Again, this is not usually the sort of thing we concentrate on while learning about the laws of electricity, but it is a very valid concern in the real world, especially when large amounts of power are being dealt with.  The gain in efficiency realized by stepping up the circuit voltage presents us with increased danger of electric shock.  Power distribution companies tackle this problem by stringing their power lines along high poles or towers, and insulating the lines from the supporting structures with large, porcelain insulators.
+</p>
+
+<p>
+At the point of use (the electric power customer), there is still the issue of what voltage to use for powering loads.  High voltage gives greater system efficiency by means of reduced conductor current, but it might not always be practical to keep power wiring out of reach at the point of use the way it can be elevated out of reach in distribution systems.  This tradeoff between efficiency and danger is one that European power system designers have decided to risk, all their households and appliances operating at a nominal voltage of 240 volts instead of 120 volts as it is in North America.  That is why tourists from America visiting Europe must carry small step-down transformers for their portable appliances, to step the 240 VAC (volts AC) power down to a more suitable 120 VAC.
+</p>
+
+<p>
+Is there any way to realize the advantages of both increased efficiency and reduced safety hazard at the same time?  One solution would be to install step-down transformers at the end-point of power use, just as the American tourist must do while in Europe.  However, this would be expensive and inconvenient for anything but very small loads (where the transformers can be built cheaply) or very large loads (where the expense of thick copper wires would exceed the expense of a transformer).
+</p>
+
+<p>
+An alternative solution would be to use a higher voltage supply to provide power to two lower voltage loads in series.  This approach combines the efficiency of a high-voltage system with the safety of a low-voltage system: (Figure <a href="#02167.png">  below</a>)
+</p>
+
+ 
+<a name="02167.png"></a> 
+<p> <img src="02167.png"> </p> 
+<p><i>Series connected 120 Vac loads, driven by 240 Vac source at 83.3 A total current.</i></p> 
+ 
+
+<a name="Voltage &ldquo;polarity,&rdquo; AC"></a>
+<a name="Polarity, AC"></a>
+<a name="Polarity, AC"></a>
+
+<p>
+Notice the polarity markings (+ and -) for each voltage shown, as well as the unidirectional arrows for current.  For the most part, I've avoided labeling &ldquo;polarities&rdquo; in the AC circuits we've been analyzing, even though the notation is valid to provide a frame of reference for phase.  In later sections of this chapter, phase relationships will become very important, so I'm introducing this notation early on in the chapter for your familiarity.
+</p>
+
+<p>
+The current through each load is the same as it was in the simple 120 volt circuit, but the currents are not additive because the loads are in series rather than parallel.  The voltage across each load is only 120 volts, not 240, so the safety factor is better.  Mind you, we still have a full 240 volts across the power system wires, but <i>each load</i> is operating at a reduced voltage.  If anyone is going to get shocked, the odds are that it will be from coming into contact with the conductors of a particular load rather than from contact across the main wires of a power system.  
+</p>
+
+<p>
+There's only one disadvantage to this design: the consequences of one load failing open, or being turned off (assuming each load has a series on/off switch to interrupt current) are not good.  Being a series circuit, if either load were to open, current would stop in the other load as well.  For this reason, we need to modify the design a bit:  (Figure <a href="#02168.png">  below</a>)
+</p>
+
+<a name="Hot conductor"></a>
+<a name="Neutral conductor"></a>
+
+ 
+<a name="02168.png"></a> 
+<p> <img src="02168.png"> </p> 
+<p><i>Addition of neutral conductor allows loads to be individually driven. </i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<p> <img src="12111.png"> </p> 
+
+<a name="Split-phase"></a>
+
+<p>
+Instead of a single 240 volt power supply, we use two 120 volt supplies (in phase with each other!) in series to produce 240 volts, then run a third wire to the connection point between the loads to handle the eventuality of one load opening.  This is called a <i>split-phase</i> power system.  Three smaller wires are still cheaper than the two wires needed with the simple parallel design, so we're still ahead on efficiency.  The astute observer will note that the neutral wire only has to carry the <i>difference</i> of current between the two loads back to the source.  In the above case, with perfectly &ldquo;balanced&rdquo; loads consuming equal amounts of power, the neutral wire carries zero current.
+</p>
+
+<p>
+Notice how the neutral wire is connected to earth ground at the power supply end.  This is a common feature in power systems containing &ldquo;neutral&rdquo; wires, since grounding the neutral wire ensures the least possible voltage at any given time between any &ldquo;hot&rdquo; wire and earth ground.
+</p>
+
+<p>
+An essential component to a split-phase power system is the dual AC voltage source.  Fortunately, designing and building one is not difficult.  Since most AC systems receive their power from a step-down transformer anyway (stepping voltage down from high distribution levels to a user-level voltage like 120 or 240), that transformer can be built with a center-tapped secondary winding: (Figure <a href="#02169.png">  below</a>)
+</p>
+
+ 
+<a name="02169.png"></a> 
+<p> <img src="02169.png"> </p> 
+<p><i>American 120/240 Vac power is derived from a center tapped utility transformer.</i></p> 
+ 
+
+<p>
+If the AC power comes directly from a generator (alternator), the coils can be similarly center-tapped for the same effect.  The extra expense to include a center-tap connection in a transformer or alternator winding is minimal.
+</p>
+
+<a name="Boosting, AC voltage sources"></a>
+<a name="Bucking, AC voltage sources"></a>
+
+<p>
+Here is where the (+) and (-) polarity markings really become important.  This notation is often used to reference the phasings of <i>multiple</i> AC voltage sources, so it is clear whether they are aiding (&ldquo;boosting&rdquo;) each other or opposing (&ldquo;bucking&rdquo;) each other.  If not for these polarity markings, phase relations between multiple AC sources might be very confusing.  Note that the split-phase sources in the schematic (each one 120 volts &#8736; 0<sup>o</sup>), with polarity marks (+) to (-) just like series-aiding batteries can alternatively be represented as such: (Figure <a href="#02170.png">  below</a>)
+</p>
+
+ 
+<a name="02170.png"></a> 
+<p> <img src="02170.png"> </p> 
+<p><i>Split phase 120/240 Vac source is equivalent to two series aiding 120 Vac sources.</i></p> 
+ 
+
+<p>
+To mathematically calculate voltage between &ldquo;hot&rdquo; wires, we must <i>subtract</i> voltages, because their polarity marks show them to be opposed to each other: 
+</p>
+
+<p> <img src="12112.png"> </p> 
+
+<p>
+If we mark the two sources' common connection point (the neutral wire) with the same polarity mark (-), we must express their relative phase shifts as being 180<sup>o</sup> apart.  Otherwise, we'd be denoting two voltage sources in direct opposition with each other, which would give 0 volts between the two &ldquo;hot&rdquo; conductors.  Why am I taking the time to elaborate on polarity marks and phase angles?  It will make more sense in the next section!
+</p>
+
+<a name="Single-phase"></a>
+
+<p>
+Power systems in American households and light industry are most often of the split-phase variety, providing so-called 120/240 VAC power.  The term &ldquo;split-phase&rdquo; merely refers to the split-voltage supply in such a system.  In a more general sense, this kind of AC power supply is called <i>single phase</i> because both voltage waveforms are in phase, or in step, with each other.  
+</p>
+
+<p>
+The term &ldquo;single phase&rdquo; is a counterpoint to another kind of power system called &ldquo;polyphase&rdquo; which we are about to investigate in detail.  Apologies for the long introduction leading up to the title-topic of this chapter.  The advantages of polyphase power systems are more obvious if one first has a good understanding of single phase systems.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Single phase</i> power systems are defined by having an AC source with only one voltage waveform.</li>
+<li>A <i>split-phase</i> power system is one with multiple (in-phase) AC voltage sources connected in series, delivering power to loads at more than one voltage, with more than two wires.  They are used primarily to achieve balance between system efficiency (low conductor currents) and safety (low load voltages).</li>
+<li>Split-phase AC sources can be easily created by center-tapping the coil windings of transformers or alternators.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35101">Three-phase power systems</a></u></h2>
+
+<a name="Three-phase"></a>
+<a name="Polyphase"></a>
+<a name="Three-wire DC system"></a>
+
+<p>
+Split-phase power systems achieve their high conductor efficiency <i>and</i> low safety risk by splitting up the total voltage into lesser parts and powering multiple loads at those lesser voltages, while drawing currents at levels typical of a full-voltage system.  This technique, by the way, works just as well for DC power systems as it does for single-phase AC systems.  Such systems are usually referred to as <i>three-wire</i> systems rather than <i>split-phase</i> because &ldquo;phase&rdquo; is a concept restricted to AC.
+</p>
+
+<p>
+But we know from our experience with vectors and complex numbers that AC voltages don't always add up as we think they would if they are out of phase with each other.  This principle, applied to power systems, can be put to use to make power systems with even greater conductor efficiencies and lower shock hazard than with split-phase.
+</p>
+
+<p>
+Suppose that we had two sources of AC voltage connected in series just like the split-phase system we saw before, except that each voltage source was 120<sup>o</sup> out of phase with the other: (Figure <a href="#02171.png">  below</a>)
+</p>
+
+ 
+<a name="02171.png"></a> 
+<p> <img src="02171.png"> </p> 
+<p><i>Pair of 120 Vac sources phased 120<sup>o</sup>, similar to split-phase.</i></p> 
+ 
+
+<p>
+Since each voltage source is 120 volts, and each load resistor is connected directly in parallel with its respective source, the voltage across each load <i>must</i> be 120 volts as well.  Given load currents of 83.33 amps, each load must still be dissipating 10 kilowatts of power.  However, voltage between the two &ldquo;hot&rdquo; wires is not 240 volts (120 &#8736; 0<sup>o</sup> - 120 &#8736; 180<sup>o</sup>) because the phase difference between the two sources is not 180<sup>o</sup>.  Instead, the voltage is:
+</p>
+
+<p> <img src="12113.png"> </p> 
+
+<p>
+Nominally, we say that the voltage between &ldquo;hot&rdquo; conductors is 208 volts (rounding up), and thus the power system voltage is designated as 120/208.
+</p>
+
+<p>
+If we calculate the current through the &ldquo;neutral&rdquo; conductor, we find that it is <i>not</i> zero, even with balanced load resistances.  Kirchhoff's Current Law tells us that the currents entering and exiting the node between the two loads must be zero: (Figure <a href="#02172.png">  below</a>)
+</p>
+
+ 
+<a name="02172.png"></a> 
+<p> <img src="02172.png"> </p> 
+<p><i>Neutral wire carries a current in the case of a pair of 120<sup>o</sup> phased sources.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<p> <img src="12114.png"> </p>
+
+<p>
+So, we find that the &ldquo;neutral&rdquo; wire is carrying a full 83.33 amps, just like each &ldquo;hot&rdquo; wire.
+</p>
+
+<p>
+Note that we are still conveying 20 kW of total power to the two loads, with each load's &ldquo;hot&rdquo; wire carrying 83.33 amps as before.  With the same amount of current through each &ldquo;hot&rdquo; wire, we must use the same gage copper conductors, so we haven't reduced system cost over the split-phase 120/240 system.  However, we have realized a gain in safety, because the overall voltage between the two &ldquo;hot&rdquo; conductors is 32 volts lower than it was in the split-phase system (208 volts instead of 240 volts).
+</p>
+
+<p>
+The fact that the neutral wire is carrying 83.33 amps of current raises an interesting possibility: since its carrying current anyway, why not use that third wire as another &ldquo;hot&rdquo; conductor, powering another load resistor with a third 120 volt source having a phase angle of 240<sup>o</sup>?  That way, we could transmit <i>more</i> power (another 10 kW) without having to add any more conductors.  Let's see how this might look: (Figure <a href="#02173.png">  below</a>)
+</p>
+
+ 
+<a name="02173.png"></a> 
+<p> <img src="02173.png"> </p> 
+<p><i>With a third load phased  120<sup>o</sup> to the other two, the currents are the same as for two loads.</i></p> 
+ 
+
+<a name="Superposition Theorem"></a>
+<a name="Theorem, Superposition"></a>
+
+<p>
+A full mathematical analysis of all the voltages and currents in this circuit would necessitate the use of a network theorem, the easiest being the Superposition Theorem.  I'll spare you the long, drawn-out calculations because you should be able to intuitively understand that the three voltage sources at three different phase angles will deliver 120 volts each to a balanced triad of load resistors.  For proof of this, we can use SPICE to do the math for us: (Figure <a href="#02174.png">  below</a>, SPICE listing: 120/208 polyphase power system)
+</p>
+
+ 
+<a name="02174.png"></a> 
+<p> <img src="02174.png"> </p> 
+<p><i>SPICE circuit: Three 3-&#934; loads phased at 120<sup>o</sup>.</i></p> 
+ 
+
+
+
+
+<pre>
+120/208 polyphase power system  
+v1 1 0 ac 120 0 sin     
+v2 2 0 ac 120 120 sin   
+v3 3 0 ac 120 240 sin   
+r1 1 4 1.44     
+r2 2 4 1.44     
+r3 3 4 1.44     
+.ac lin 1 60 60 
+.print ac v(1,4) v(2,4) v(3,4)  
+.print ac v(1,2) v(2,3) v(3,1)
+.print ac i(v1) i(v2) i(v3)  
+.end    
+</pre>
+
+
+
+<pre>
+VOLTAGE ACROSS EACH LOAD
+freq        v(1,4)      v(2,4)      v(3,4)   
+6.000E+01   1.200E+02   1.200E+02   1.200E+02
+
+VOLTAGE BETWEEN &ldquo;HOT&rdquo; CONDUCTORS
+freq        v(1,2)      v(2,3)      v(3,1)  
+6.000E+01   2.078E+02   2.078E+02   2.078E+02 
+
+CURRENT THROUGH EACH VOLTAGE SOURCE
+freq        i(v1)       i(v2)       i(v3)     
+6.000E+01   8.333E+01   8.333E+01   8.333E+01
+</pre>
+
+
+
+<p>
+Sure enough, we get 120 volts across each load resistor, with (approximately) 208 volts between any two &ldquo;hot&rdquo; conductors and conductor currents equal to 83.33 amps.  (Figure <a href="#02175.png">  below</a>) At that current and voltage, each load will be dissipating 10 kW of power.  Notice that this circuit has no &ldquo;neutral&rdquo; conductor to ensure stable voltage to all loads if one should open.  What we have here is a situation similar to our split-phase power circuit with no &ldquo;neutral&rdquo; conductor: if one load should happen to fail open, the voltage drops across the remaining load(s) will change.  To ensure load voltage stability in the event of another load opening, we need a neutral wire to connect the source node and load node together: 
+</p>
+
+ 
+<a name="02175.png"></a> 
+<p> <img src="02175.png"> </p> 
+<p><i>SPICE circuit annotated with simulation results:  Three 3-&#934; loads phased at 120<sup>o</sup>.</i></p> 
+ 
+
+<p>
+So long as the loads remain balanced (equal resistance, equal currents), the neutral wire will not have to carry any current at all.  It is there just in case one or more load resistors should fail open (or be shut off through a disconnecting switch).
+</p>
+
+<a name="Polyphase"></a>
+<a name="Three-phase"></a>
+
+<p>
+This circuit we've been analyzing with three voltage sources is called a <i>polyphase</i> circuit.  The prefix &ldquo;poly&rdquo; simply means &ldquo;more than one,&rdquo; as in &ldquo;<i>poly</i>theism&rdquo; (belief in more than one deity), &ldquo;<i>poly</i>gon&rdquo; (a geometrical shape made of multiple line segments: for example, <i>pentagon</i> and <i>hexagon</i>), and &ldquo;<i>poly</i>atomic&rdquo; (a substance composed of multiple types of atoms).  Since the voltage sources are all at different phase angles (in this case, three different phase angles), this is a &ldquo;<i>poly</i>phase&rdquo; circuit.  More specifically, it is a <i>three-phase circuit</i>, the kind used predominantly in large power distribution systems.
+</p>
+
+<p>
+Let's survey the advantages of a three-phase power system over a single-phase system of equivalent load voltage and power capacity.  A single-phase system with three loads connected directly in parallel would have a very high total current (83.33 times 3, or 250 amps.  (Figure <a href="#02176.png">  below</a>)
+</p>
+
+ 
+<a name="02176.png"></a> 
+<p> <img src="02176.png"> </p> 
+<p><i>For comparison, three 10 Kw loads on a 120 Vac system draw 250 A.</i></p> 
+ 
+
+<p>
+This would necessitate 3/0 gage copper wire (<i>very</i> large!), at about 510 pounds per thousand feet, and with a considerable price tag attached.  If the distance from source to load was 1000 feet, we would need over a half-ton of copper wire to do the job.  On the other hand, we could build a split-phase system with two 15 kW, 120 volt loads.  (Figure <a href="#02177.png">  below</a>)
+</p>
+
+ 
+<a name="02177.png"></a> 
+<p> <img src="02177.png"> </p> 
+<p><i>Split phase system draws half the current of 125 A at 240 Vac compared to 120 Vac system.</i></p> 
+ 
+
+<p>
+Our current is half of what it was with the simple parallel circuit, which is a great improvement.  We could get away with using number 2 gage copper wire at a total mass of about 600 pounds, figuring about 200 pounds per thousand feet with three runs of 1000 feet each between source and loads.  However, we also have to consider the increased safety hazard of having 240 volts present in the system, even though each load only receives 120 volts.  Overall, there is greater potential for dangerous electric shock to occur.
+</p>
+
+<p>
+When we contrast these two examples against our three-phase system (Figure <a href="#02175.png">  above</a>), the advantages are quite clear.  First, the conductor currents are quite a bit less (83.33 amps versus 125 or 250 amps), permitting the use of much thinner and lighter wire.  We can use number 4 gage wire at about 125 pounds per thousand feet, which will total 500 pounds (four runs of 1000 feet each) for our example circuit.  This represents a significant cost savings over the split-phase system, with the additional benefit that the maximum voltage in the system is lower (208 versus 240).
+</p>
+
+<p>
+One question remains to be answered: how in the world do we get three AC voltage sources whose phase angles are exactly 120<sup>o</sup> apart?  Obviously we can't center-tap a transformer or alternator winding like we did in the split-phase system, since that can only give us voltage waveforms that are either in phase or 180<sup>o</sup> out of phase.  Perhaps we could figure out some way to use capacitors and inductors to create phase shifts of 120<sup>o</sup>, but then those phase shifts would depend on the phase angles of our load impedances as well (substituting a capacitive or inductive load for a resistive load would change everything!).  
+</p>
+
+<a name="Alternator"></a>
+<a name="Generator"></a>
+
+<p>
+The best way to get the phase shifts we're looking for is to generate it at the source: construct the AC generator (alternator) providing the power in such a way that the rotating magnetic field passes by three sets of wire windings, each set spaced 120<sup>o</sup> apart around the circumference of the machine as in  Figure <a href="#02178.png">  below</a>.
+</p>
+
+ 
+<a name="02178.png"></a> 
+<p> <img src="02178.png"> </p> 
+<p><i>(a) Single-phase alternator, (b) Three-phase alternator.</i></p> 
+ 
+
+<a name="Pole, alternator"></a>
+
+<p>
+Together, the six &ldquo;pole&rdquo; windings of a three-phase alternator are connected to comprise three winding pairs, each pair producing AC voltage with a phase angle 120<sup>o</sup> shifted from either of the other two winding pairs.  The interconnections between pairs of windings (as shown for the single-phase alternator: the jumper wire between windings 1a and 1b) have been omitted from the three-phase alternator drawing for simplicity.
+</p>
+
+<a name="Y configuration"></a>
+<a name="Star configuration"></a>
+
+<p>
+In our example circuit, we showed the three voltage sources connected together in a &ldquo;Y&rdquo; configuration (sometimes called the &ldquo;star&rdquo; configuration), with one lead of each source tied to a common point (the node where we attached the &ldquo;neutral&rdquo; conductor).  The common way to depict this connection scheme is to draw the windings in the shape of a &ldquo;Y&rdquo; like  Figure <a href="#02179.png">  below</a>.
+</p>
+
+ 
+<a name="02179.png"></a> 
+<p> <img src="02179.png"> </p> 
+<p><i>Alternator "Y" configuration.</i></p> 
+ 
+
+<p>
+The &ldquo;Y&rdquo; configuration is not the only option open to us, but it is probably the easiest to understand at first.  More to come on this subject later in the chapter.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>A <i>single-phase</i> power system is one where there is only one AC voltage source (one source voltage waveform).</li>
+<li>A <i>split-phase</i> power system is one where there are two voltage sources, 180<sup>o</sup> phase-shifted from each other, powering a two series-connected loads.  The advantage of this is the ability to have lower conductor currents while maintaining low load voltages for safety reasons.</li>
+<li>A <i>polyphase</i> power system uses multiple voltage sources at different phase angles from each other (many &ldquo;phases&rdquo; of voltage waveforms at work).  A polyphase power system can deliver more power at less voltage with smaller-gage conductors than single- or split-phase systems.</li>
+<li>The phase-shifted voltage sources necessary for a polyphase power system are created in alternators with multiple sets of wire windings.  These winding sets are spaced around the circumference of the rotor's rotation at the desired angle(s).</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35102">Phase rotation</a></u></h2>
+
+<a name="Phase rotation"></a>
+
+<p>
+Let's take the three-phase alternator design laid out earlier (Figure <a href="#02180.png">  below</a>) and watch what happens as the magnet rotates.
+</p>
+
+ 
+<a name="02180.png"></a> 
+<p> <img src="02180.png"> </p> 
+<p><i>Three-phase alternator</i></p> 
+ 
+
+<p>
+The phase angle shift of 120<sup>o</sup> is a function of the actual rotational angle shift of the three pairs of windings (Figure <a href="#02181.png">  below</a>).  If the magnet is rotating clockwise, winding 3 will generate its peak instantaneous voltage exactly 120<sup>o</sup> (of alternator shaft rotation) after winding 2, which will hits its peak 120<sup>o</sup> after winding 1.  The magnet passes by each pole pair at different positions in the rotational movement of the shaft.  Where we decide to place the windings will dictate the amount of phase shift between the windings' AC voltage waveforms.  If we make winding 1 our &ldquo;reference&rdquo; voltage source for phase angle (0<sup>o</sup>), then winding 2 will have a phase angle of -120<sup>o</sup> (120<sup>o</sup> lagging, or 240<sup>o</sup> leading) and winding 3 an angle of -240<sup>o</sup> (or 120<sup>o</sup> leading). 
+</p>
+
+<p>
+This sequence of phase shifts has a definite order.  For clockwise rotation of the shaft, the order is 1-2-3 (winding 1 peaks first, them winding 2, then winding 3).  This order keeps repeating itself as long as we continue to rotate the alternator's shaft. (Figure <a href="#02181.png">  below</a>)
+</p>
+
+ 
+<a name="02181.png"></a> 
+<p> <img src="02181.png"> </p> 
+<p><i>Clockwise rotation phase sequence: 1-2-3.</i></p> 
+ 
+
+<p>
+However, if we <i>reverse</i> the rotation of the alternator's shaft (turn it counter-clockwise), the magnet will pass by the pole pairs in the opposite sequence.  Instead of 1-2-3, we'll have 3-2-1.  Now, winding 2's waveform will be <i>leading</i> 120<sup>o</sup> ahead of 1 instead of lagging, and 3 will be another 120<sup>o</sup> ahead of 2.  (Figure <a href="#02182.png">  below</a>) 
+</p>
+
+ 
+<a name="02182.png"></a> 
+<p> <img src="02182.png"> </p> 
+<p><i>Counterclockwise rotation phase sequence: 3-2-1.</i></p> 
+ 
+
+<a name="Phase sequence"></a>
+<a name="Sequence, phase"></a>
+
+<p>
+The order of voltage waveform sequences in a polyphase system is called <i>phase rotation</i> or <i>phase sequence</i>.  If we're using a polyphase voltage source to power resistive loads, phase rotation will make no difference at all.  Whether 1-2-3 or 3-2-1, the voltage and current magnitudes will all be the same.  There are some applications of three-phase power, as we will see shortly, that depend on having phase rotation being one way or the other.  Since voltmeters and ammeters would be useless in telling us what the phase rotation of an operating power system is, we need to have some other kind of instrument capable of doing the job.
+</p>
+
+<p>
+One ingenious circuit design uses a capacitor to introduce a phase shift between voltage and current, which is then used to detect the sequence by way of comparison between the brightness of two indicator lamps in Figure <a href="#02183.png">  below</a>.
+</p>
+
+ 
+<a name="02183.png"></a> 
+<p> <img src="02183.png"> </p> 
+<p><i>Phase sequence detector compares brightness of two lamps.</i></p> 
+ 
+
+<p>
+The two lamps are of equal filament resistance and wattage.  The capacitor is sized to have approximately the same amount of reactance at system frequency as each lamp's resistance.  If the capacitor were to be replaced by a resistor of equal value to the lamps' resistance, the two lamps would glow at equal brightness, the circuit being balanced.  However, the capacitor introduces a phase shift between voltage and current in the third leg of the circuit equal to 90<sup>o</sup>.  This phase shift, greater than 0<sup>o</sup> but less than 120<sup>o</sup>, skews the voltage and current values across the two lamps according to their phase shifts relative to phase 3.  The following SPICE analysis demonstrates what will happen:  (Figure <a href="#02184.png">  below</a>), "phase rotation detector -- sequence = v1-v2-v3"
+</p>
+
+ 
+<a name="02184.png"></a> 
+<p> <img src="02184.png"> </p> 
+<p><i>SPICE circuit for phase sequence detector.</i></p> 
+ 
+
+
+
+<pre>
+phase rotation detector -- sequence = v1-v2-v3
+v1 1 0 ac 120 0 sin     
+v2 2 0 ac 120 120 sin   
+v3 3 0 ac 120 240 sin   
+r1 1 4 2650     
+r2 2 4 2650     
+c1 3 4 1u       
+.ac lin 1 60 60 
+.print ac v(1,4) v(2,4) v(3,4)  
+.end    
+
+freq          v(1,4)      v(2,4)      v(3,4)          
+6.000E+01     4.810E+01   1.795E+02   1.610E+02
+</pre>
+
+
+
+<p>
+The resulting phase shift from the capacitor causes the voltage across phase 1 lamp (between nodes 1 and 4) to fall to 48.1 volts and the voltage across phase 2 lamp (between nodes 2 and 4) to rise to 179.5 volts, making the first lamp dim and the second lamp bright.  Just the opposite will happen if the phase sequence is reversed: "phase rotation detector -- sequence = v3-v2-v1 "
+</p>
+
+
+
+<pre>
+phase rotation detector -- sequence = v3-v2-v1 
+v1 1 0 ac 120 240 sin   
+v2 2 0 ac 120 120 sin   
+v3 3 0 ac 120 0 sin     
+r1 1 4 2650     
+r2 2 4 2650     
+c1 3 4 1u       
+.ac lin 1 60 60 
+.print ac v(1,4) v(2,4) v(3,4)  
+.end    
+
+freq          v(1,4)      v(2,4)      v(3,4)          
+6.000E+01     1.795E+02   4.810E+01   1.610E+02
+</pre>
+
+
+
+<p>
+Here,("phase rotation detector -- sequence = v3-v2-v1") the first lamp receives 179.5 volts while the second receives only 48.1 volts.
+</p>
+
+<p>
+We've investigated how phase rotation is produced (the order in which pole pairs get passed by the alternator's rotating magnet) and how it can be changed by reversing the alternator's shaft rotation.  However, reversal of the alternator's shaft rotation is not usually an option open to an end-user of electrical power supplied by a nationwide grid (&ldquo;the&rdquo; alternator actually being the combined total of all alternators in all power plants feeding the grid).  There is a <i>much</i> easier way to reverse phase sequence than reversing alternator rotation: just exchange any two of the three &ldquo;hot&rdquo; wires going to a three-phase load.
+</p>
+
+<p>
+This trick makes more sense if we take another look at a running phase sequence of a three-phase voltage source:
+</p>
+
+
+
+<pre>
+1-2-3 rotation:  1-2-3-1-2-3-1-2-3-1-2-3-1-2-3 . . .
+3-2-1 rotation:  3-2-1-3-2-1-3-2-1-3-2-1-3-2-1 . . .
+</pre>
+
+
+
+<p>
+What is commonly designated as a &ldquo;1-2-3&rdquo; phase rotation could just as well be called &ldquo;2-3-1&rdquo; or &ldquo;3-1-2,&rdquo; going from left to right in the number string above.  Likewise, the opposite rotation (3-2-1) could just as easily be called &ldquo;2-1-3&rdquo; or &ldquo;1-3-2.&rdquo;
+</p>
+
+<p>
+Starting out with a phase rotation of 3-2-1, we can try all the possibilities for swapping any two of the wires at a time and see what happens to the resulting sequence in  Figure <a href="#02185.png">  below</a>.
+</p>
+
+ 
+<a name="02185.png"></a> 
+<p> <img src="02185.png"> </p> 
+<p><i>All possibilities of swapping any two wires.</i></p> 
+ 
+
+<p>
+No matter which pair of &ldquo;hot&rdquo; wires out of the three we choose to swap, the phase rotation ends up being reversed (1-2-3 gets changed to 2-1-3, 1-3-2 or 3-2-1, all equivalent).
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Phase rotation</i>, or <i>phase sequence</i>, is the order in which the voltage waveforms of a polyphase AC source reach their respective peaks.  For a three-phase system, there are only two possible phase sequences: 1-2-3 and 3-2-1, corresponding to the two possible directions of alternator rotation.</li>
+<li>Phase rotation has no impact on resistive loads, but it will have impact on unbalanced reactive loads, as shown in the operation of a phase rotation detector circuit.</li>
+<li>Phase rotation can be reversed by swapping any two of the three &ldquo;hot&rdquo; leads supplying three-phase power to a three-phase load.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35103">Polyphase motor design</a></u></h2>
+
+<a name="Motor"></a>
+
+<p>
+Perhaps the most important benefit of polyphase AC power over single-phase is the design and operation of AC motors.  As we studied in the first chapter of this book, some types of AC motors are virtually identical in construction to their alternator (generator) counterparts, consisting of stationary wire windings and a rotating magnet assembly.  (Other AC motor designs are not quite this simple, but we will leave those details to another lesson).
+</p>
+
+ 
+<a name="02186.png"></a> 
+<p> <img src="02186.png"> </p> 
+<p><i>Clockwise AC motor operation.</i></p> 
+ 
+
+<p>
+If the rotating magnet is able to keep up with the frequency of the alternating current energizing the electromagnet windings (coils), it will continue to be pulled around clockwise. (Figure <a href="#02186.png">  above</a>)  However, clockwise is not the only valid direction for this motor's shaft to spin.
+<!--Split for multiple ref's in paragraph-->
+It could just as easily be powered in a  counter-clockwise direction by the same AC voltage waveform a in Figure <a href="#02187.png">  below</a>.
+</p>
+
+ 
+<a name="02187.png"></a> 
+<p> <img src="02187.png"> </p> 
+<p><i>Counterclockwise AC motor operation.</i></p> 
+ 
+
+<a name="Motor, induction"></a>
+<a name="Motor, synchronous"></a>
+
+<p>
+Notice that with the exact same sequence of polarity cycles (voltage, current, and magnetic poles produced by the coils), the magnetic rotor can spin in either direction.  This is a common trait of all single-phase AC &ldquo;induction&rdquo; and &ldquo;synchronous&rdquo; motors: they have no normal or &ldquo;correct&rdquo; direction of rotation.  The natural question should arise at this point: how can the motor get started in the intended direction if it can run either way just as well?  The answer is that these motors need a little help getting started.  Once helped to spin in a particular direction. they will continue to spin that way as long as AC power is maintained to the windings.
+</p>
+
+<p>
+Where that &ldquo;help&rdquo; comes from for a single-phase AC motor to get going in one direction can vary.  Usually, it comes from an additional set of windings positioned differently from the main set, and energized with an AC voltage that is out of phase with the main power. (Figure <a href="#02188.png">  below</a>)
+</p>
+
+ 
+<a name="02188.png"></a> 
+<p> <img src="02188.png"> </p> 
+<p><i>Unidirectional-starting AC two-phase motor.</i></p> 
+ 
+
+<p>
+These supplementary coils are typically connected in series with a capacitor to introduce a phase shift in current between the two sets of windings. (Figure <a href="#02189.png">  below</a>)
+</p>
+
+ 
+<a name="02189.png"></a> 
+<p> <img src="02189.png"> </p> 
+<p><i>Capacitor phase shift adds second phase.</i></p> 
+ 
+
+<p>
+That phase shift creates magnetic fields from coils 2a and 2b that are equally out of step with the fields from coils 1a and 1b.  The result is a set of magnetic fields with a definite phase rotation.  It is this phase rotation that pulls the rotating magnet around in a definite direction.
+</p>
+
+<a name="Rotating magnetic field"></a>
+<a name="Magnetic field, rotating"></a>
+<a name="Tesla, Nikola"></a>
+
+<p>
+Polyphase AC motors require no such trickery to spin in a definite direction.  Because their supply voltage waveforms already have a definite rotation sequence, so do the respective magnetic fields generated by the motor's stationary windings.  In fact, the combination of all three phase winding sets working together creates what is often called a <i>rotating magnetic field</i>.  It was this concept of a rotating magnetic field that inspired Nikola Tesla to design the world's first polyphase electrical systems (simply to make simpler, more efficient motors).  The line current and safety advantages of polyphase power over single phase power were discovered later.
+</p>
+
+<p>
+What can be a confusing concept is made much clearer through analogy.  Have you ever seen a row of blinking light bulbs such as the kind used in Christmas decorations?  Some strings appear to &ldquo;move&rdquo; in a definite direction as the bulbs alternately glow and darken in sequence.  Other strings just blink on and off with no apparent motion.  What makes the difference between the two types of bulb strings?  Answer: phase shift!
+</p>
+
+<p>
+Examine a string of lights where every other bulb is lit at any given time as in  (Figure <a href="#02190.png">  below</a>)
+</p>
+
+ 
+<a name="02190.png"></a> 
+<p> <img src="02190.png"> </p> 
+<p><i>Phase sequence 1-2-1-2: lamps appear to move.</i></p> 
+ 
+
+<p>
+When all of the &ldquo;1&rdquo; bulbs are lit, the &ldquo;2&rdquo; bulbs are dark, and vice versa.  With this blinking sequence, there is no definite &ldquo;motion&rdquo; to the bulbs' light.  Your eyes could follow a &ldquo;motion&rdquo; from left to right just as easily as from right to left.  Technically, the &ldquo;1&rdquo; and &ldquo;2&rdquo; bulb blinking sequences are 180<sup>o</sup> out of phase (exactly opposite each other).  This is analogous to the single-phase AC motor, which can run just as easily in either direction, but which cannot start on its own because its magnetic field alternation lacks a definite &ldquo;rotation.&rdquo;
+</p>
+
+<p>
+Now let's examine a string of lights where there are three sets of bulbs to be sequenced instead of just two, and these three sets are equally out of phase with each other in  Figure <a href="#02191.png">  below</a>.
+</p>
+
+ 
+<a name="02191.png"></a> 
+<p> <img src="02191.png"> </p> 
+<p><i>Phase sequence: 1-2-3: bulbs appear to move left to right.</i></p> 
+ 
+
+<p>
+If the lighting sequence is 1-2-3 (the sequence shown in  (Figure <a href="#02191.png">  above</a>)), the bulbs will appear to &ldquo;move&rdquo; from left to right.
+<!--Split for multiple ref's in paragraph-->
+Now imagine this blinking string of bulbs arranged into a circle as in Figure <a href="#02192.png">  below</a>.
+</p>
+
+ 
+<a name="02192.png"></a> 
+<p> <img src="02192.png"> </p> 
+<p><i>Circular arrangement; bulbs appear to rotate clockwise.</i></p> 
+ 
+
+<p>
+Now the lights in Figure <a href="#02192.png">  above</a> appear to be &ldquo;moving&rdquo; in a clockwise direction because they are arranged around a circle instead of a straight line.  It should come as no surprise that the appearance of motion will reverse if the phase sequence of the bulbs is reversed.
+</p>
+
+<p>
+The blinking pattern will either appear to move clockwise or counter-clockwise depending on the phase sequence.  This is analogous to a three-phase AC motor with three sets of windings energized by voltage sources of three different phase shifts in  Figure <a href="#02193.png">  below</a>.
+</p>
+
+ 
+<a name="02193.png"></a> 
+<p> <img src="02193.png"> </p> 
+<p><i>Three-phase AC motor: A phase sequence of 1-2-3 spins the magnet clockwise, 3-2-1 spins the magnet counterclockwise.</i></p> 
+ 
+
+<p>
+With phase shifts of less than 180<sup>o</sup> we get true rotation of the magnetic field.  With single-phase motors, the rotating magnetic field necessary for self-starting must to be created by way of capacitive phase shift.  With polyphase motors, the necessary phase shifts are there already.  Plus, the direction of shaft rotation for polyphase motors is very easily reversed: just swap any two &ldquo;hot&rdquo; wires going to the motor, and it will run in the opposite direction!
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>AC &ldquo;induction&rdquo; and &ldquo;synchronous&rdquo; motors work by having a rotating magnet follow the alternating magnetic fields produced by stationary wire windings.</li>
+<li>Single-phase AC motors of this type need help to get started spinning in a particular direction.</li>
+<li>By introducing a phase shift of less than 180<sup>o</sup> to the magnetic fields in such a motor, a definite direction of shaft rotation can be established.</li>
+<li>Single-phase induction motors often use an auxiliary winding connected in series with a capacitor to create the necessary phase shift.</li>
+<li>Polyphase motors don't need such measures; their direction of rotation is fixed by the phase sequence of the voltage they're powered by.</li>
+<li>Swapping any two &ldquo;hot&rdquo; wires on a polyphase AC motor will reverse its phase sequence, thus reversing its shaft rotation.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35104">Three-phase Y and Delta configurations</a></u></h2>
+
+<a name="Y configuration"></a>
+<a name="Star configuration"></a>
+<a name="Delta configuration"></a>
+
+<p>
+Initially we explored the idea of three-phase power systems by connecting three voltage sources together in what is commonly known as the &ldquo;Y&rdquo; (or &ldquo;star&rdquo;) configuration.  This configuration of voltage sources is characterized by a common connection point joining one side of each source. (Figure <a href="#02194.png">  below</a>)
+</p>
+
+ 
+<a name="02194.png"></a> 
+<p> <img src="02194.png"> </p> 
+<p><i>Three-phase &ldquo;Y&rdquo; connection has three voltage sources connected to a common point.</i></p> 
+ 
+
+<p>
+If we draw a circuit showing each voltage source to be a coil of wire (alternator or transformer winding) and do some slight rearranging, the &ldquo;Y&rdquo; configuration becomes more obvious in Figure <a href="#02195.png">  below</a>.
+</p>
+
+ 
+<a name="02195.png"></a> 
+<p> <img src="02195.png"> </p> 
+<p><i>Three-phase, four-wire &ldquo;Y&rdquo; connection uses a "common" fourth wire.</i></p> 
+ 
+
+<a name="Line, polyphase system"></a>
+
+<p>
+The three conductors leading away from the voltage sources (windings) toward a load are typically called <i>lines</i>, while the windings themselves are typically called <i>phases</i>.  In a Y-connected system, there may or may not (Figure <a href="#02196.png">  below</a>) be a neutral wire attached at the junction point in the middle, although it certainly helps alleviate potential problems should one element of a three-phase load fail open, as discussed earlier.
+</p>
+
+ 
+<a name="02196.png"></a> 
+<p> <img src="02196.png"> </p> 
+<p><i>Three-phase, three-wire &ldquo;Y&rdquo; connection does not use the neutral wire.</i></p> 
+ 
+
+<a name="Voltage, line"></a>
+<a name="Voltage, phase"></a>
+<a name="Current, line"></a>
+<a name="Current, phase"></a>
+
+<p>
+When we measure voltage and current in three-phase systems, we need to be specific as to <i>where</i> we're measuring.  <i>Line voltage</i> refers to the amount of voltage measured between any two line conductors in a balanced three-phase system.  With the above circuit, the line voltage is roughly 208 volts.  <i>Phase voltage</i> refers to the voltage measured across any one component (source winding or load impedance) in a balanced three-phase source or load.  For the circuit shown above, the phase voltage is 120 volts.  The terms <i>line current</i> and <i>phase current</i> follow the same logic: the former referring to current through any one line conductor, and the latter to current through any one component.
+</p>
+
+<p>
+Y-connected sources and loads always have line voltages greater than phase voltages, and line currents equal to phase currents.  If the Y-connected source or load is balanced, the line voltage will be equal to the phase voltage times the square root of 3:
+</p>
+
+<p> <img src="12115.png"> </p> 
+
+<p>
+However, the &ldquo;Y&rdquo; configuration is not the only valid one for connecting three-phase voltage source or load elements together.  Another configuration is known as the &ldquo;Delta,&rdquo; for its geometric resemblance to the Greek letter of the same name (&#916;).  Take close notice of the polarity for each winding in Figure <a href="#02197.png">  below</a>.
+</p>
+
+ 
+<a name="02197.png"></a> 
+<p> <img src="02197.png"> </p> 
+<p><i>Three-phase, three-wire &#916; connection has no common. </i></p> 
+ 
+
+<p>
+At first glance it seems as though three voltage sources like this would create a short-circuit, electrons flowing around the triangle with nothing but the internal impedance of the windings to hold them back.  Due to the phase angles of these three voltage sources, however, this is not the case.
+</p>
+
+<p>
+One quick check of this is to use Kirchhoff's Voltage Law to see if the three voltages around the loop add up to zero.  If they do, then there will be no voltage available to push current around and around that loop, and consequently there will be no circulating current.  Starting with the top winding and progressing counter-clockwise, our KVL expression looks something like this:
+</p>
+
+<p> <img src="12116.png"> </p> 
+
+<p>
+Indeed, if we add these three vector quantities together, they do add up to zero.  Another way to verify the fact that these three voltage sources can be connected together in a loop without resulting in circulating currents is to open up the loop at one junction point and calculate voltage across the break: (Figure <a href="#02198.png">  below</a>)
+</p>
+
+ 
+<a name="02198.png"></a> 
+<p> <img src="02198.png"> </p> 
+<p><i>Voltage across open &#916; should be zero.</i></p> 
+ 
+
+<p>
+Starting with the right winding (120 V &#8736; 120<sup>o</sup>) and progressing counter-clockwise, our KVL equation looks like this:
+</p>
+
+<p> <img src="12117.png"> </p> 
+
+<p>
+Sure enough, there will be zero voltage across the break, telling us that no current will circulate within the triangular loop of windings when that connection is made complete.
+</p>
+
+<p>
+Having established that a &#916;-connected three-phase voltage source will not burn itself to a crisp due to circulating currents, we turn to its practical use as a source of power in three-phase circuits.  Because each pair of line conductors is connected directly across a single winding in a &#916; circuit, the line voltage will be equal to the phase voltage.  Conversely, because each line conductor attaches at a node between two windings, the line current will be the vector sum of the two joining phase currents.  Not surprisingly, the resulting equations for a &#916; configuration are as follows:
+</p>
+
+<p> <img src="12118.png"> </p> 
+
+<p>
+Let's see how this works in an example circuit: (Figure <a href="#02199.png">  below</a>)
+</p>
+
+ 
+<a name="02199.png"></a> 
+<p> <img src="02199.png"> </p> 
+<p><i>The load on the &#916; source is wired in a &#916;.</i></p> 
+ 
+
+<p>
+With each load resistance receiving 120 volts from its respective phase winding at the source, the current in each phase of this circuit will be 83.33 amps:
+</p>
+
+<p> <img src="12119.png"> </p> 
+
+<p>
+So each line current in this three-phase power system is equal to 144.34 amps, which is substantially more than the line currents in the Y-connected system we looked at earlier.  One might wonder if we've lost all the advantages of three-phase power here, given the fact that we have such greater conductor currents, necessitating thicker, more costly wire.  The answer is no.  Although this circuit would require three number 1 gage copper conductors (at 1000 feet of distance between source and load this equates to a little over 750 pounds of copper for the whole system), it is still less than the 1000+ pounds of copper required for a single-phase system delivering the same power (30 kW) at the same voltage (120 volts conductor-to-conductor). 
+</p>
+
+<p>
+One distinct advantage of a &#916;-connected system is its lack of a neutral wire.  With a Y-connected system, a neutral wire was needed in case one of the phase loads were to fail open (or be turned off), in order to keep the phase voltages at the load from changing.  This is not necessary (or even possible!) in a &#916;-connected circuit.  With each load phase element directly connected across a respective source phase winding, the phase voltage will be constant regardless of open failures in the load elements.
+</p>
+
+<p>
+Perhaps the greatest advantage of the &#916;-connected source is its fault tolerance.  It is possible for one of the windings in a &#916;-connected three-phase source to fail open (Figure <a href="#02200.png">  below</a>) without affecting load voltage or current!
+</p>
+
+ 
+<a name="02200.png"></a> 
+<p> <img src="02200.png"> </p> 
+<p><i>Even with a source winding failure, the line voltage is still 120 V, and load phase voltage is still 120 V. The only difference is extra current in the remaining functional source windings.</i></p> 
+ 
+
+<p>
+The only consequence of a source winding failing open for a &#916;-connected source is increased phase current in the remaining windings.  Compare this fault tolerance with a Y-connected system suffering an open source winding in Figure <a href="#02201.png">  below</a>.
+</p>
+
+ 
+<a name="02201.png"></a> 
+<p> <img src="02201.png"> </p> 
+<p><i>Open &ldquo;Y&rdquo; source  winding halves the voltage on two loads of a &#916; connected load.</i></p> 
+ 
+
+<p>
+With a &#916;-connected load, two of the resistances suffer reduced voltage while one remains at the original line voltage, 208.  A Y-connected load suffers an even worse fate (Figure <a href="#02202.png">  below</a>) with the same winding failure in a Y-connected source
+</p>
+
+ 
+<a name="02202.png"></a> 
+<p> <img src="02202.png"> </p> 
+<p><i>Open source winding of a "Y-Y" system halves the voltage on two loads, and looses one load entirely.</i></p> 
+ 
+
+<p>
+In this case, two load resistances suffer reduced voltage while the third loses supply voltage completely!  For this reason, &#916;-connected sources are preferred for reliability.  However, if dual voltages are needed (e.g. 120/208) or preferred for lower line currents, Y-connected systems are the configuration of choice.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li>The conductors connected to the three points of a three-phase source or load are called <i>lines</i>.</li>
+<li>The three components comprising a three-phase source or load are called <i>phases</i>.</li>
+<li><i>Line voltage</i> is the voltage measured between any two lines in a three-phase circuit.</li>
+<li><i>Phase voltage</i> is the voltage measured across a single component in a three-phase source or load.</li>
+<li><i>Line current</i> is the current through any one line between a three-phase source and load.</li>
+<li><i>Phase current</i> is the current through any one component comprising a three-phase source or load.</li>
+<li>In balanced &ldquo;Y&rdquo; circuits, line voltage is equal to phase voltage times the square root of 3, while line current is equal to phase current.</li>
+<li>
+<p> <img src="12115.png"> </p> 
+</li>
+<li>In balanced &#916; circuits, line voltage is equal to phase voltage, while line current is equal to phase current times the square root of 3.</li>
+<li>
+<p> <img src="12118.png"> </p> 
+</li>
+<li>&#916;-connected three-phase voltage sources give greater reliability in the event of winding failure than Y-connected sources.  However, Y-connected sources can deliver the same amount of power with less line current than &#916;-connected sources.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35105">Three-phase transformer circuits</a></u></h2>
+
+<p>
+Since three-phase is used so often for power distribution systems, it makes sense that we would need three-phase transformers to be able to step voltages up or down.  This is only partially true, as regular single-phase transformers can be ganged together to transform power between two three-phase systems in a variety of configurations, eliminating the requirement for a special three-phase transformer.  However, special three-phase transformers are built for those tasks, and are able to perform with less material requirement, less size, and less weight than their modular counterparts.
+</p>
+
+<p>
+A three-phase transformer is made of three sets of primary and secondary windings, each set wound around one leg of an iron core assembly.   Essentially it looks like three single-phase transformers sharing a joined core as in Figure <a href="#02203.png">  below</a>.
+</p>
+
+ 
+<a name="02203.png"></a> 
+<p> <img src="02203.png"> </p> 
+<p><i>Three phase transformer core has three sets of windings.</i></p> 
+ 
+
+<p>
+Those sets of primary and secondary windings will be connected in either &#916; or Y configurations to form a complete unit.  The various combinations of ways that these windings can be connected together in will be the focus of this section.
+</p>
+
+<p>
+Whether the winding sets share a common core assembly or each winding pair is a separate transformer, the winding connection options are the same:
+</p>
+
+<ul>
+<li><b>Primary - Secondary</b></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#916;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&#916;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&#916;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#916;</li>
+</ul>
+
+<p>
+The reasons for choosing a Y or &#916; configuration for transformer winding connections are the same as for any other three-phase application: Y connections provide the opportunity for multiple voltages, while &#916; connections enjoy a higher level of reliability (if one winding fails open, the other two can still maintain full line voltages to the load).
+</p>
+
+<p>
+Probably the most important aspect of connecting three sets of primary and secondary windings together to form a three-phase transformer bank is paying attention to proper winding phasing (the dots used to denote &ldquo;polarity&rdquo; of windings). Remember the proper phase relationships between the phase windings of &#916; and Y: (Figure <a href="#02204.png">  below</a>)
+</p>
+
+ 
+<a name="02204.png"></a> 
+<p> <img src="02204.png"> </p> 
+<p><i>(Y) The center point of the &ldquo;Y&rdquo; must tie either all the &ldquo;-&rdquo; or all the &ldquo;+&rdquo; winding points together. (&#916;) The winding polarities must stack together in a complementary manner ( + to -).</i></p> 
+ 
+
+<p>
+Getting this phasing correct when the windings aren't shown in regular Y or &#916; configuration can be tricky.  Let me illustrate, starting with Figure <a href="#02205.png">  below</a>.
+</p>
+
+ 
+<a name="02205.png"></a> 
+<p> <img src="02205.png"> </p> 
+<p><i>Inputs A<sub>1</sub>, A<sub>2</sub>,  A<sub>3</sub> may be wired  either &ldquo;&#916;&rdquo; or &ldquo;Y&rdquo;, as may outputs  B<sub>1</sub>, B<sub>2</sub>,  B<sub>3</sub>.     </i></p> 
+ 
+
+<p>
+Three individual transformers are to be connected together to transform power from one three-phase system to another.  First, I'll show the wiring connections for a Y-Y configuration: Figure <a href="#02206.png">  below</a>
+</p>
+
+ 
+<a name="02206.png"></a> 
+<p> <img src="02206.png"> </p> 
+<p><i>Phase wiring for &ldquo;Y-Y&rdquo; transformer.</i></p> 
+ 
+
+<p>
+Note in Figure <a href="#02206.png">  above</a> how all the winding ends marked with dots are connected to their respective phases A, B, and C, while the non-dot ends are connected together to form the centers of each &ldquo;Y&rdquo;.  Having both primary and secondary winding sets connected in &ldquo;Y&rdquo; formations allows for the use of neutral conductors (N<sub>1</sub> and N<sub>2</sub>) in each power system.
+</p>
+
+<p>
+Now, we'll take a look at a Y-&#916; configuration: (Figure <a href="#02207.png">  below</a>)
+</p>
+
+ 
+<a name="02207.png"></a> 
+<p> <img src="02207.png"> </p> 
+<p><i>Phase wiring for &ldquo;Y-&#916;&rdquo; transformer.</i></p> 
+ 
+
+<p>
+Note how the secondary windings (bottom set, Figure <a href="#02207.png">  above</a>) are connected in a chain, the &ldquo;dot&rdquo; side of one winding connected to the &ldquo;non-dot&rdquo; side of the next, forming the &#916; loop.  At every connection point between pairs of windings, a connection is made to a line of the second power system (A, B, and C).
+</p>
+
+<p>
+Now, let's examine a &#916;-Y system in Figure <a href="#02208.png">  below</a>.
+</p>
+
+ 
+<a name="02208.png"></a> 
+<p> <img src="02208.png"> </p> 
+<p><i>Phase wiring for &ldquo;&#916;-Y&rdquo; transformer.</i></p> 
+ 
+
+<p>
+Such a configuration (Figure <a href="#02208.png">  above</a>) would allow for the provision of multiple voltages (line-to-line or line-to-neutral) in the second power system, from a source power system having no neutral.
+</p>
+
+<p>
+And finally, we turn to the &#916;-&#916; configuration: (Figure <a href="#02209.png">  below</a>)
+</p>
+
+ 
+<a name="02209.png"></a> 
+<p> <img src="02209.png"> </p> 
+<p><i>Phase wiring for &ldquo;&#916;-&#916;&rdquo; transformer.</i></p> 
+ 
+
+<p>
+When there is no need for a neutral conductor in the secondary power system, &#916;-&#916; connection schemes (Figure <a href="#02209.png">  above</a>) are preferred because of the inherent reliability of the &#916; configuration.
+</p>
+
+<p>
+Considering that a &#916; configuration can operate satisfactorily missing one winding, some power system designers choose to create a three-phase transformer bank with only two transformers, representing a &#916;-&#916; configuration with a missing winding in both the primary and secondary sides: (Figure <a href="#02210.png">  below</a>)
+</p>
+
+ 
+<a name="02210.png"></a> 
+<p> <img src="02210.png"> </p> 
+<p><i>&ldquo;V&rdquo; or &ldquo;open-&#916;&rdquo; provides 2-&#966; power with only two transformers.</i></p> 
+ 
+
+<p>
+This configuration is called &ldquo;V&rdquo; or &ldquo;Open-&#916;.&rdquo;  Of course, each of the two transformers have to be oversized to handle the same amount of power as three in a standard &#916; configuration, but the overall size, weight, and cost advantages are often worth it.  Bear in mind, however, that with one winding set missing from the &#916; shape, this system no longer provides the fault tolerance of a normal &#916;-&#916; system.  If one of the two transformers were to fail, the load voltage and current would definitely be affected.
+</p>
+
+<p>
+The following photograph (Figure <a href="#52011.jpg">  below</a>) shows a bank of step-up transformers at the Grand Coulee hydroelectric dam in Washington state.  Several transformers (green in color) may be seen from this vantage point, and they are grouped in threes: three transformers per hydroelectric generator, wired together in some form of three-phase configuration.  The photograph doesn't reveal the primary winding connections, but it appears the secondaries are connected in a Y configuration, being that there is only one large high-voltage insulator protruding from each transformer.  This suggests the other side of each transformer's secondary winding is at or near ground potential, which could only be true in a Y system.  The building to the left is the powerhouse, where the generators and turbines are housed.  On the right, the sloping concrete wall is the downstream face of the dam:
+</p>
+
+ 
+<a name="52011.jpg"></a> 
+<p> <img src="52011.jpg"> </p> 
+<p><i>Step-up transfromer bank at Grand Coulee hydroelectric dam, Washington state, USA.</i></p> 
+ 
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35106">Harmonics in polyphase power systems</a></u></h2>
+
+<a name="Harmonic"></a>
+
+<p>
+In the chapter on mixed-frequency signals, we explored the concept of <i>harmonics</i> in AC systems: frequencies that are integer multiples of the fundamental source frequency.  With AC power systems where the source voltage waveform coming from an AC generator (alternator) is supposed to be a single-frequency sine wave, undistorted, there should be no harmonic content . . . ideally.  
+</p>
+
+<a name="Nonlinear components"></a>
+
+<p>
+This would be true were it not for <i>nonlinear components</i>.  Nonlinear components draw current disproportionately with respect to the source voltage, causing non-sinusoidal current waveforms.  Examples of nonlinear components include gas-discharge lamps, semiconductor power-control devices (diodes, transistors, SCRs, TRIACs), transformers (primary winding magnetization current is usually non-sinusoidal due to the B/H saturation curve of the core), and electric motors (again, when magnetic fields within the motor's core operate near saturation levels).  Even incandescent lamps generate slightly nonsinusoidal currents, as the filament resistance changes throughout the cycle due to rapid fluctuations in temperature.  As we learned in the mixed-frequency chapter, <i>any</i> distortion of an otherwise sine-wave shaped waveform constitutes the presence of harmonic frequencies.
+</p>
+
+<a name="Harmonic, even vs. odd"></a>
+<a name="Harmonics and waveform symmetry"></a>
+<a name="Waveform symmetry and harmonics"></a>
+
+<p>
+When the nonsinusoidal waveform in question is symmetrical above and below its average centerline, the harmonic frequencies will be odd integer multiples of the fundamental source frequency only, with no even integer multiples.  (Figure <a href="#02293a.png">  below</a>) Most nonlinear loads produce current waveforms like this, and so even-numbered harmonics (2nd, 4th, 6th, 8th, 10th, 12th, etc.) are absent or only minimally present in most AC power systems.
+</p>
+
+ 
+<a name="02293a.png"></a> 
+<p> <img src="02293.png"> </p>  
+<p><i>Examples of symmetrical waveforms -- odd harmonics only.</i></p> 
+
+
+<p>
+Examples of nonsymmetrical waveforms with even harmonics present are shown for reference in Figure <a href="#02294a.png">  below</a>.
+
+</p>
+
+ 
+<a name="02294a.png"></a> 
+<p> <img src="02294.png"> </p>  
+<p><i>Examples of nonsymmetrical waveforms -- even harmonics present.</i></p> 
+
+
+<p>
+Even though half of the possible harmonic frequencies are eliminated by the typically symmetrical distortion of nonlinear loads, the odd harmonics can still cause problems.  Some of these problems are general to all power systems, single-phase or otherwise.  Transformer overheating due to eddy current losses, for example, can occur in <i>any</i> AC power system where there is significant harmonic content.  However, there are some problems caused by harmonic currents that are specific to polyphase power systems, and it is these problems to which this section is specifically devoted.
+</p>
+
+<p>
+It is helpful to be able to simulate nonlinear loads in SPICE so as to avoid a lot of complex mathematics and obtain a more intuitive understanding of harmonic effects.  First, we'll begin our simulation with a very simple AC circuit: a single sine-wave voltage source with a purely linear load and all associated resistances: (Figure <a href="#02322.png">  below</a>)
+</p>
+
+ 
+<a name="02322.png"></a> 
+<p> <img src="02322.png"> </p> 
+<p><i>SPICE circuit with single sine-wave source.</i></p> 
+ 
+
+<p>
+The R<sub>source</sub> and R<sub>line</sub> resistances in this circuit do more than just mimic the real world: they also provide convenient shunt resistances for measuring currents in the SPICE simulation: by reading voltage across a 1 &#937; resistance, you obtain a direct indication of current through it, since E = IR.
+</p>
+
+<p>
+A SPICE simulation of this circuit (SPICE listing: &ldquo;linear load simulation&rdquo;) with Fourier analysis on the voltage measured across R<sub>line</sub> should show us the harmonic content of this circuit's line current.  Being completely linear in nature, we should expect no harmonics other than the 1st (fundamental) of 60 Hz, assuming a 60 Hz source. See SPICE output &ldquo;Fourier components of transient response v(2,3)&rdquo; and  Figure <a href="#22041.png">  below</a>. 
+</p>
+
+
+
+<pre>
+linear load simulation
+vsource 1 0 sin(0 120 60 0 0)   
+rsource 1 2 1   
+rline 2 3 1     
+rload 3 0 1k    
+.options itl5=0 
+.tran 0.5m 30m 0 1u     
+.plot tran v(2,3)       
+.four 60 v(2,3) 
+.end    
+</pre>
+
+
+
+<pre>
+Fourier components of transient response v(2,3)  
+dc component =   4.028E-12
+harmonic frequency   Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000   -72.000       0.000
+2      1.200E+02   5.793E-12     0.000000    51.122     123.122
+3      1.800E+02   7.407E-12     0.000000   -34.624      37.376
+4      2.400E+02   9.056E-12     0.000000     4.267      76.267
+5      3.000E+02   1.651E-11     0.000000   -83.461     -11.461
+6      3.600E+02   3.931E-11     0.000000    36.399     108.399
+7      4.200E+02   2.338E-11     0.000000   -41.343      30.657
+8      4.800E+02   4.716E-11     0.000000    53.324     125.324
+9      5.400E+02   3.453E-11     0.000000    21.691      93.691
+total harmonic distortion =      0.000000  percent
+</pre>
+
+
+ 
+<a name="22041.png"></a> 
+<p> <img src="22041.png"> </p> 
+<p><i>Frequency domain plot of single frequency component. See SPICE  listing: &ldquo;linear load simulation&rdquo;.</i></p> 
+ 
+
+
+<p>
+A <tt>.plot</tt> command appears in the SPICE netlist, and normally this would result in a sine-wave graph output.  In this case, however, I've purposely omitted the waveform display for brevity's sake -- the <tt>.plot</tt> command is in the netlist simply to satisfy a quirk of SPICE's Fourier transform function.  
+</p>
+
+<p>
+No discrete Fourier transform is perfect, and so we see very small harmonic currents indicated (in the pico-amp range!) for all frequencies up to the 9th harmonic (in the table ), which is as far as SPICE goes in performing Fourier analysis.  We show 0.1198 amps (1.198E-01) for the &ldquo;Fourier component&rdquo; of the 1st harmonic, or the fundamental frequency, which is our expected load current: about 120 mA, given a source voltage of 120 volts and a load resistance of 1 k&#937;.
+</p>
+
+<p>
+Next, I'd like to simulate a nonlinear load so as to generate harmonic currents.  This can be done in two fundamentally different ways.  One way is to design a load using nonlinear components such as diodes or other semiconductor devices which are easy to simulate with SPICE. Another is to add some AC current sources in parallel with the load resistor. The latter method is often preferred by engineers for simulating harmonics, since current sources of known value lend themselves better to mathematical network analysis than components with highly complex response characteristics. Since we're letting SPICE do all the math work, the complexity of a semiconductor component would cause no trouble for us, but since current sources can be fine-tuned to produce any arbitrary amount of current (a convenient feature), I'll choose the latter approach shown in Figure <a href="#02323.png">  below</a> and SPICE listing: &ldquo;Nonlinear load simulation&rdquo;.
+</p>
+
+ 
+<a name="02323.png"></a> 
+<p> <img src="02323.png"> </p> 
+<p><i>SPICE circuit: 60 Hz source with 3rd harmonic added.</i></p> 
+ 
+
+
+
+<pre>
+Nonlinear load simulation                                                          
+vsource 1 0 sin(0 120 60 0 0)   
+rsource 1 2 1   
+rline 2 3 1     
+rload 3 0 1k    
+i3har 3 0 sin(0 50m 180 0 0)    
+.options itl5=0 
+.tran 0.5m 30m 0 1u     
+.plot tran v(2,3)       
+.four 60 v(2,3) 
+.end    
+</pre>
+
+
+
+<p>
+In this circuit, we have a current source of 50 mA magnitude and a frequency of 180 Hz, which is three times the source frequency of 60 Hz.  Connected in parallel with the 1 k&#937; load resistor, its current will add with the resistor's to make a nonsinusoidal total line current.  I'll show the waveform plot in Figure <a href="#22042.png">  below</a> just so you can see the effects of this 3rd-harmonic current on the total current, which would ordinarily be a plain sine wave.</p>
+
+
+
+
+<!--time        v(2,3)  -->
+<!--- - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - --->
+<!--0.000E+00  0.000E+00 .        .             *             .        .-->
+<!--5.000E-04  4.918E-02 .        .             .      *      .        .-->
+<!--1.000E-03  8.924E-02 .        .             .           * .        .-->
+<!--1.500E-03  1.137E-01 .        .             .             . *      .-->
+<!--2.000E-03  1.204E-01 .        .             .             .  *     .-->
+<!--2.500E-03  1.123E-01 .        .             .             . *      .-->
+<!--3.000E-03  9.595E-02 .        .             .            *.        .-->
+<!--3.500E-03  7.962E-02 .        .             .          *  .        .-->
+<!--4.000E-03  7.051E-02 .        .             .         *   .        .-->
+<!--4.500E-03  7.242E-02 .        .             .         *   .        .-->
+<!--5.000E-03  8.457E-02 .        .             .           * .        .-->
+<!--5.500E-03  1.018E-01 .        .             .             *        .-->
+<!--6.000E-03  1.163E-01 .        .             .             . *      .-->
+<!--6.500E-03  1.201E-01 .        .             .             .  *     .-->
+<!--7.000E-03  1.075E-01 .        .             .             .*       .-->
+<!--7.500E-03  7.738E-02 .        .             .          *  .        .-->
+<!--8.000E-03  3.338E-02 .        .             .    *        .        .-->
+<!--8.500E-03 -1.687E-02 .        .           * .             .        .-->
+<!--9.000E-03 -6.394E-02 .        .    *        .             .        .-->
+<!--9.500E-03 -9.932E-02 .        *             .             .        .-->
+<!--1.000E-02 -1.179E-01 .      * .             .             .        .-->
+<!--1.050E-02 -1.191E-01 .     *  .             .             .        .-->
+<!--1.100E-02 -1.074E-01 .       *.             .             .        .-->
+<!--1.150E-02 -9.010E-02 .        .*            .             .        .-->
+<!--1.200E-02 -7.551E-02 .        .  *          .             .        .-->
+<!--1.250E-02 -6.986E-02 .        .   *         .             .        .-->
+<!--1.300E-02 -7.551E-02 .        .  *          .             .        .-->
+<!--1.350E-02 -9.010E-02 .        .*            .             .        .-->
+<!--1.400E-02 -1.074E-01 .       *.             .             .        .-->
+<!--1.450E-02 -1.191E-01 .     *  .             .             .        .-->
+<!--1.500E-02 -1.179E-01 .      * .             .             .        .-->
+<!--1.550E-02 -9.932E-02 .        *             .             .        .-->
+<!--1.600E-02 -6.394E-02 .        .    *        .             .        .-->
+<!--1.650E-02 -1.687E-02 .        .           * .             .        .-->
+<!--- - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - --->
+
+
+
+
+ 
+<a name="22042.png"></a> 
+<p> <img src="22042.png"> </p> 
+<p><i>SPICE time-domain plot showing sum of 60 Hz source and 3rd harmonic of 180 Hz.</i></p> 
+ 
+
+
+
+<pre>
+Fourier components of transient response v(2,3)  
+dc component =   1.349E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000   -72.000       0.000
+2      1.200E+02   1.609E-11     0.000000    67.570     139.570
+3      1.800E+02   4.990E-02     0.416667   144.000     216.000
+4      2.400E+02   1.074E-10     0.000000  -169.546     -97.546
+5      3.000E+02   3.871E-11     0.000000   169.582     241.582
+6      3.600E+02   5.736E-11     0.000000   140.845     212.845
+7      4.200E+02   8.407E-11     0.000000   177.071     249.071
+8      4.800E+02   1.329E-10     0.000000   156.772     228.772
+9      5.400E+02   2.619E-10     0.000000   160.498     232.498
+total harmonic distortion =     41.666663  percent
+</pre>
+
+
+ 
+<a name="22043.png"></a> 
+<p> <img src="22043.png"> </p> 
+<p><i>SPICE Fourier plot showing  60 Hz source and 3rd harmonic of 180 Hz.</i></p> 
+ 
+
+
+
+<p>
+In the Fourier analysis, (See Figure <a href="#22043.png">  above</a> and &ldquo;Fourier components of transient response v(2,3)&rdquo;) the mixed frequencies are unmixed and presented separately.  Here we see the same 0.1198 amps of 60 Hz (fundamental) current as we did in the first simulation, but appearing in the 3rd harmonic row we see 49.9 mA: our 50 mA, 180 Hz current source at work.  Why don't we see the entire 50 mA through the line?  Because that current source is connected across the 1 k&#937; load resistor, so some of its current is shunted through the load and never goes through the line back to the source.  It's an inevitable consequence of this type of simulation, where one part of the load is &ldquo;normal&rdquo; (a resistor) and the other part is imitated by a current source.
+</p>
+
+<p>
+If we were to add more current sources to the &ldquo;load,&rdquo; we would see further distortion of the line current waveform from the ideal sine-wave shape, and each of those harmonic currents would appear in the Fourier analysis breakdown. See Figure <a href="#02324.png">  below</a> and SPICE listing: &ldquo;Nonlinear load simulation&rdquo;.
+</p>
+
+ 
+<a name="02324.png"></a> 
+<p> <img src="02324.png"> </p> 
+<p><i>Nonlinear load: 1st, 3rd, 5th, 7th, and 9th harmonics present. </i></p> 
+ 
+
+
+
+<pre>
+Nonlinear load simulation                                                       
+vsource 1 0 sin(0 120 60 0 0)   
+rsource 1 2 1   
+rline 2 3 1     
+rload 3 0 1k    
+i3har 3 0 sin(0 50m 180 0 0)    
+i5har 3 0 sin(0 50m 300 0 0)    
+i7har 3 0 sin(0 50m 420 0 0)    
+i9har 3 0 sin(0 50m 540 0 0)    
+.options itl5=0 
+.tran 0.5m 30m 0 1u     
+.plot tran v(2,3)       
+.four 60 v(2,3) 
+.end    
+</pre>
+
+
+
+<pre>
+Fourier components of transient response v(2,3)  
+dc component =   6.299E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000   -72.000       0.000
+2      1.200E+02   1.900E-09     0.000000   -93.908     -21.908
+3      1.800E+02   4.990E-02     0.416667   144.000     216.000
+4      2.400E+02   5.469E-09     0.000000  -116.873     -44.873
+5      3.000E+02   4.990E-02     0.416667     0.000      72.000
+6      3.600E+02   6.271E-09     0.000000    85.062     157.062
+7      4.200E+02   4.990E-02     0.416666  -144.000     -72.000
+8      4.800E+02   2.742E-09     0.000000   -38.781      33.219
+9      5.400E+02   4.990E-02     0.416666    72.000     144.000
+total harmonic distortion =     83.333296  percent
+</pre>
+
+ 
+<a name="22044.png"></a> 
+<p> <img src="22044.png"> </p> 
+<p><i>Fourier analysis: &ldquo;Fourier components of transient response v(2,3)&rdquo;.</i></p> 
+ 
+
+
+<p>
+As you can see from the Fourier analysis, (Figure <a href="#22044.png">  above</a>) every harmonic current source is equally represented in the line current, at 49.9 mA each.  So far, this is just a single-phase power system simulation.  Things get more interesting when we make it a three-phase simulation.  Two Fourier analyses will be performed: one for the voltage across a line resistor, and one for the voltage across the neutral resistor.  As before, reading voltages across fixed resistances of 1 &#937; each gives direct indications of current through those resistors. 
+<!--Split for multiple ref's in paragraph-->
+See Figure <a href="#02325.png">  below</a> and SPICE listing &ldquo;Y-Y source/load 4-wire system with harmonics&rdquo;.
+</p>
+
+ 
+<a name="02325.png"></a> 
+<p> <img src="02325.png"> </p> 
+<p><i>SPICE circuit: analysis of &ldquo;line current&rdquo; and &ldquo;neutral current&rdquo;, Y-Y source/load 4-wire system with harmonics.</i></p> 
+ 
+
+
+
+<pre>
+Y-Y source/load 4-wire system with harmonics                                             
+*       
+* phase1 voltage source and r (120 v /_ 0 deg)  
+vsource1 1 0 sin(0 120 60 0 0)  
+rsource1 1 2 1  
+*       
+* phase2 voltage source and r (120 v /_ 120 deg)
+vsource2 3 0 sin(0 120 60 5.55555m 0)   
+rsource2 3 4 1  
+*       
+* phase3 voltage source and r (120 v /_ 240 deg)
+vsource3 5 0 sin(0 120 60 11.1111m 0)   
+rsource3 5 6 1  
+*       
+* line and neutral wire resistances     
+rline1 2 8 1    
+rline2 4 9 1    
+rline3 6 10 1   
+rneutral 0 7 1  
+*       
+* phase 1 of load       
+rload1 8 7 1k   
+i3har1 8 7 sin(0 50m 180 0 0)   
+i5har1 8 7 sin(0 50m 300 0 0)   
+i7har1 8 7 sin(0 50m 420 0 0)   
+i9har1 8 7 sin(0 50m 540 0 0)   
+*       
+* phase 2 of load       
+rload2 9 7 1k   
+i3har2 9 7 sin(0 50m 180 5.55555m 0)    
+i5har2 9 7 sin(0 50m 300 5.55555m 0)    
+i7har2 9 7 sin(0 50m 420 5.55555m 0)    
+i9har2 9 7 sin(0 50m 540 5.55555m 0)    
+*       
+* phase 3 of load       
+rload3 10 7 1k  
+i3har3 10 7 sin(0 50m 180 11.1111m 0)   
+i5har3 10 7 sin(0 50m 300 11.1111m 0)   
+i7har3 10 7 sin(0 50m 420 11.1111m 0)   
+i9har3 10 7 sin(0 50m 540 11.1111m 0)   
+*       
+* analysis stuff
+.options itl5=0 
+.tran 0.5m 100m 12m 1u  
+.plot tran v(2,8)       
+.four 60 v(2,8) 
+.plot tran v(0,7)       
+.four 60 v(0,7) 
+.end    
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of line current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(2,8)  
+dc component =  -6.404E-12
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000     0.000       0.000
+2      1.200E+02   2.218E-10     0.000000   172.985     172.985
+3      1.800E+02   4.975E-02     0.415423     0.000       0.000
+4      2.400E+02   4.236E-10     0.000000   166.990     166.990
+5      3.000E+02   4.990E-02     0.416667     0.000       0.000
+6      3.600E+02   1.877E-10     0.000000  -147.146    -147.146
+7      4.200E+02   4.990E-02     0.416666     0.000       0.000
+8      4.800E+02   2.784E-10     0.000000  -148.811    -148.811
+9      5.400E+02   4.975E-02     0.415422     0.000       0.000
+total harmonic distortion =     83.209009  percent
+</pre>
+
+ 
+<a name="22045.png"></a> 
+<p> <img src="22045.png"> </p> 
+<p><i>Fourier analysis of line current in balanced Y-Y system</i></p> 
+ 
+
+
+<p>
+<b>Fourier analysis of neutral current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(0,7)  
+dc component =   1.819E-10
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   4.337E-07     1.000000    60.018       0.000
+2      1.200E+02   1.869E-10     0.000431    91.206      31.188
+3      1.800E+02   1.493E-01  344147.7638  -180.000    -240.018
+4      2.400E+02   1.257E-09     0.002898   -21.103     -81.121
+5      3.000E+02   9.023E-07     2.080596   119.981      59.963
+6      3.600E+02   3.396E-10     0.000783    15.882     -44.136
+7      4.200E+02   1.264E-06     2.913955    59.993      -0.025
+8      4.800E+02   5.975E-10     0.001378    35.584     -24.434
+9      5.400E+02   1.493E-01  344147.4889  -179.999    -240.017
+</pre>
+
+ 
+<a name="22046.png"></a> 
+<p> <img src="22046.png"> </p> 
+<p><i>Fourier analysis of neutral current shows other than no harmonics!  Compare to line current in Figure <a href="#22045.png">  above</a></i></p> 
+ 
+
+
+<p>
+This is a balanced Y-Y power system, each phase identical to the single-phase AC system simulated earlier.  Consequently, it should come as no surprise that the Fourier analysis for line current in one phase of the 3-phase system is nearly identical to the Fourier analysis for line current in the single-phase system: a fundamental (60 Hz) line current of 0.1198 amps, and odd harmonic currents of approximately 50 mA each. See Figure <a href="#22045.png">  above</a> and Fourier analysis: &ldquo;Fourier components of transient response v(2,8)&rdquo;
+</p>
+
+<p>
+What should be surprising here is the analysis for the neutral conductor's current, as determined by the voltage drop across the R<sub>neutral</sub> resistor between SPICE nodes 0 and 7.  (Figure <a href="#22046.png">  above</a>) In a balanced 3-phase Y load, we would expect the neutral current to be zero.  Each phase current -- which by itself would go through the neutral wire back to the supplying phase on the source Y -- should cancel each other in regard to the neutral conductor because they're all the same magnitude and all shifted 120<sup>o</sup> apart.  In a system with no harmonic currents, this <i>is</i> what happens, leaving zero current through the neutral conductor.  However, we cannot say the same for <i>harmonic</i> currents in the same system.
+</p>
+
+<p>
+Note that the fundamental frequency (60 Hz, or the 1st harmonic) current is virtually absent from the neutral conductor.  Our Fourier analysis shows only 0.4337 &#181;A of 1st harmonic when reading voltage across R<sub>neutral</sub>.  The same may be said about the 5th and 7th harmonics, both of those currents having negligible magnitude.  In contrast, the 3rd and 9th harmonics are strongly represented within the neutral conductor, with 149.3 mA (1.493E-01 volts across 1 &#937;) each!  This is very nearly 150 mA, or three times the current sources' values, individually.  With three sources per harmonic frequency in the load, it appears our 3rd and 9th harmonic currents in each phase are <i>adding</i> to form the neutral current. See Fourier analysis: &ldquo;Fourier components of transient response v(0,7) &rdquo;
+
+</p>
+
+<p>
+This is exactly what's happening, though it might not be apparent why this is so.  The key to understanding this is made clear in a time-domain graph of phase currents.  Examine this plot of balanced phase currents over time, with a phase sequence of 1-2-3.  (Figure <a href="#02181a.png">  below</a>)
+</p>
+
+ 
+<a name="02181a.png"></a> 
+<p> <img src="02181.png"> </p>  
+<p><i>Phase sequence 1-2-3-1-2-3-1-2-3 of equally spaced waves.</i></p> 
+
+
+<p>
+With the three fundamental waveforms equally shifted across the time axis of the graph, it is easy to see how they would cancel each other to give a resultant current of zero in the neutral conductor.  Let's consider, though, what a 3rd harmonic waveform for phase 1 would look like superimposed on the graph in Figure <a href="#02326.png">  below</a>.
+</p>
+
+ 
+<a name="02326.png"></a> 
+<p> <img src="02326.png"> </p> 
+<p><i>Third harmonic waveform for phase-1 superimposed on three-phase fundamental waveforms.</i></p> 
+ 
+
+<p>
+Observe how this harmonic waveform has the same phase relationship to the 2nd and 3rd fundamental waveforms as it does with the 1st: in each positive half-cycle of <i>any</i> of the fundamental waveforms, you will find exactly two positive half-cycles and one negative half-cycle of the harmonic waveform.  What this means is that the 3rd-harmonic waveforms of three 120<sup>o</sup> phase-shifted fundamental-frequency waveforms are actually <i>in phase</i> with each other.  The phase shift figure of 120<sup>o</sup> generally assumed in three-phase AC systems applies only to the fundamental frequencies, not to their harmonic multiples!
+</p>
+
+<p>
+If we were to plot all three 3rd-harmonic waveforms on the same graph, we would see them precisely overlap and appear as a single, unified waveform (shown in bold in  (Figure <a href="#02327.png">  below</a>) 
+</p>
+
+ 
+<a name="02327.png"></a> 
+<p> <img src="02327.png"> </p> 
+<p><i>Third harmonics for phases 1, 2, 3 all coincide when superimposed on the fundamental three-phase waveforms.</i></p> 
+ 
+
+<p>
+For the more mathematically inclined, this principle may be expressed symbolically.  Suppose that <b>A</b> represents one waveform and <b>B</b> another, both at the same frequency, but shifted 120<sup>o</sup> from each other in terms of phase.  Let's call the 3rd harmonic of each waveform <b>A'</b> and <b>B'</b>, respectively.  The phase shift between <b>A'</b> and <b>B'</b> is not 120<sup>o</sup> (that is the phase shift between <b>A</b> and <b>B</b>), but 3 times that, because the <b>A'</b> and <b>B'</b> waveforms alternate three times as fast as <b>A</b> and <b>B</b>.  The shift between waveforms is only accurately expressed in terms of <i>phase angle</i> when the same angular velocity is assumed.  When relating waveforms of different frequency, the most accurate way to represent phase shift is in terms of <i>time</i>; and the <i>time-shift</i> between <b>A'</b> and <b>B'</b> is equivalent to 120<sup>o</sup> at a frequency three times lower, or 360<sup>o</sup> at the frequency of <b>A'</b> and <b>B'</b>.  A phase shift of 360<sup>o</sup> is the same as a phase shift of 0<sup>o</sup>, which is to say no phase shift at all.  Thus, <b>A'</b> and <b>B'</b> must be in phase with each other:
+</p>
+
+<p> <img src="12141.png"> </p> 
+
+<p>
+This characteristic of the 3rd harmonic in a three-phase system also holds true for any integer multiples of the 3rd harmonic.  So, not only are the 3rd harmonic waveforms of each fundamental waveform in phase with each other, but so are the 6th harmonics, the 9th harmonics, the 12th harmonics, the 15th harmonics, the 18th harmonics, the 21st harmonics, and so on.  Since only odd harmonics appear in systems where waveform distortion is symmetrical about the centerline -- and most nonlinear loads create symmetrical distortion -- even-numbered multiples of the 3rd harmonic (6th, 12th, 18th, etc.) are generally not significant, leaving only the odd-numbered multiples (3rd, 9th, 15th, 21st, etc.) to significantly contribute to neutral currents.
+</p>
+
+<p>
+In polyphase power systems with some number of phases other than three, this effect occurs with harmonics of the same multiple.  For instance, the harmonic currents that add in the neutral conductor of a star-connected 4-phase system where the phase shift between fundamental waveforms is 90<sup>o</sup> would be the 4th, 8th, 12th, 16th, 20th, and so on.
+</p>
+
+<a name="Harmonics, triplen"></a>
+<a name="Triplen harmonics"></a>
+
+<p>
+Due to their abundance and significance in three-phase power systems, the 3rd harmonic and its multiples have their own special name: <i>triplen harmonics</i>.  All triplen harmonics add with each other in the neutral conductor of a 4-wire Y-connected load.  In power systems containing substantial nonlinear loading, the triplen harmonic currents may be of great enough magnitude to cause neutral conductors to overheat.  This is very problematic, as other safety concerns prohibit neutral conductors from having overcurrent protection, and thus there is no provision for automatic interruption of these high currents.
+</p>
+
+<a name="Angular velocity"></a>
+<a name="&#969;, symbol for angular velocity"></a>
+
+<p>
+The following illustration shows how triplen harmonic currents created at the load add within the neutral conductor.  The symbol &ldquo;&#969;&rdquo; is used to represent angular velocity, and is mathematically equivalent to 2&#960;f.  So, &ldquo;&#969;&rdquo; represents the fundamental frequency, &ldquo;3&#969; &rdquo; represents the 3rd harmonic, &ldquo;5&#969;&rdquo; represents the 5th harmonic, and so on:  (Figure <a href="#02328.png">  below</a>)
+</p>
+
+ 
+<a name="02328.png"></a> 
+<p> <img src="02328.png"> </p> 
+<p><i>&ldquo;Y-Y&rdquo;Triplen source/load: Harmonic currents add in neutral conductor.</i></p> 
+ 
+
+<p>
+In an effort to mitigate these additive triplen currents, one might be tempted to remove the neutral wire entirely.  If there is no neutral wire in which triplen currents can flow together, then they won't, right?  Unfortunately, doing so just causes a different problem: the load's &ldquo;Y&rdquo; center-point will no longer be at the same potential as the source's, meaning that each phase of the load will receive a different voltage than what is produced by the source.  We'll re-run the last SPICE simulation without the 1 &#937; R<sub>neutral</sub> resistor and see what happens:
+</p>
+
+
+
+<pre>
+Y-Y source/load (no neutral) with harmonics                                             
+*       
+* phase1 voltage source and r (120 v /_ 0 deg)  
+vsource1 1 0 sin(0 120 60 0 0)  
+rsource1 1 2 1  
+*       
+* phase2 voltage source and r (120 v /_ 120 deg)
+vsource2 3 0 sin(0 120 60 5.55555m 0)   
+rsource2 3 4 1  
+*       
+* phase3 voltage source and r (120 v /_ 240 deg)
+vsource3 5 0 sin(0 120 60 11.1111m 0)   
+rsource3 5 6 1  
+*       
+* line resistances     
+rline1 2 8 1    
+rline2 4 9 1    
+rline3 6 10 1   
+*       
+* phase 1 of load       
+rload1 8 7 1k   
+i3har1 8 7 sin(0 50m 180 0 0)   
+i5har1 8 7 sin(0 50m 300 0 0)   
+i7har1 8 7 sin(0 50m 420 0 0)   
+i9har1 8 7 sin(0 50m 540 0 0)   
+*       
+* phase 2 of load       
+rload2 9 7 1k   
+i3har2 9 7 sin(0 50m 180 5.55555m 0)    
+i5har2 9 7 sin(0 50m 300 5.55555m 0)    
+i7har2 9 7 sin(0 50m 420 5.55555m 0)    
+i9har2 9 7 sin(0 50m 540 5.55555m 0)    
+*       
+* phase 3 of load       
+rload3 10 7 1k  
+i3har3 10 7 sin(0 50m 180 11.1111m 0)   
+i5har3 10 7 sin(0 50m 300 11.1111m 0)   
+i7har3 10 7 sin(0 50m 420 11.1111m 0)   
+i9har3 10 7 sin(0 50m 540 11.1111m 0)   
+*       
+* analysis stuff
+.options itl5=0 
+.tran 0.5m 100m 12m 1u  
+.plot tran v(2,8)       
+.four 60 v(2,8) 
+.plot tran v(0,7)       
+.four 60 v(0,7) 
+.plot tran v(8,7)       
+.four 60 v(8,7) 
+.end    
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of line current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(2,8)  
+dc component =   5.423E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000     0.000       0.000
+2      1.200E+02   2.388E-10     0.000000   158.016     158.016
+3      1.800E+02   3.136E-07     0.000003   -90.009     -90.009
+4      2.400E+02   5.963E-11     0.000000  -111.510    -111.510
+5      3.000E+02   4.990E-02     0.416665     0.000       0.000
+6      3.600E+02   8.606E-11     0.000000  -124.565    -124.565
+7      4.200E+02   4.990E-02     0.416668     0.000       0.000
+8      4.800E+02   8.126E-11     0.000000  -159.638    -159.638
+9      5.400E+02   9.406E-07     0.000008   -90.005     -90.005
+total harmonic distortion =     58.925539  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of voltage between the two &ldquo;Y&rdquo; center-points:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(0,7)  
+dc component =   6.093E-08
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.453E-04     1.000000    60.018       0.000
+2      1.200E+02   6.263E-08     0.000431    91.206      31.188
+3      1.800E+02   5.000E+01  344147.7879  -180.000    -240.018
+4      2.400E+02   4.210E-07     0.002898   -21.103     -81.121
+5      3.000E+02   3.023E-04     2.080596   119.981      59.963
+6      3.600E+02   1.138E-07     0.000783    15.882     -44.136
+7      4.200E+02   4.234E-04     2.913955    59.993      -0.025
+8      4.800E+02   2.001E-07     0.001378    35.584     -24.434
+9      5.400E+02   5.000E+01  344147.4728  -179.999    -240.017
+total harmonic distortion =  ************  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of load phase voltage:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(8,7)  
+dc component =   6.070E-08
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E+02     1.000000     0.000       0.000
+2      1.200E+02   6.231E-08     0.000000    90.473      90.473
+3      1.800E+02   5.000E+01     0.417500  -180.000    -180.000
+4      2.400E+02   4.278E-07     0.000000   -19.747     -19.747
+5      3.000E+02   9.995E-02     0.000835   179.850     179.850
+6      3.600E+02   1.023E-07     0.000000    13.485      13.485
+7      4.200E+02   9.959E-02     0.000832   179.790     179.789
+8      4.800E+02   1.991E-07     0.000000    35.462      35.462
+9      5.400E+02   5.000E+01     0.417499  -179.999    -179.999
+total harmonic distortion =     59.043467  percent
+</pre>
+
+
+
+<p>
+Strange things are happening, indeed.  First, we see that the triplen harmonic currents (3rd and 9th) all but disappear in the lines connecting load to source.  The 5th and 7th harmonic currents are present at their normal levels (approximately 50 mA), but the 3rd and 9th harmonic currents are of negligible magnitude.  Second, we see that there is substantial harmonic voltage between the two &ldquo;Y&rdquo; center-points, between which the neutral conductor used to connect.  According to SPICE, there is 50 volts of both 3rd and 9th harmonic frequency between these two points, which is definitely not normal in a linear (no harmonics), balanced Y system.  Finally, the voltage as measured across one of the load's phases (between nodes 8 and 7 in the SPICE analysis) likewise shows strong triplen harmonic voltages of 50 volts each.
+</p>
+
+<p>
+Figure <a href="#02330.png">  below</a> is a graphical summary of the aforementioned effects.
+</p>
+
+ 
+<a name="02330.png"></a> 
+<p> <img src="02330.png"> </p> 
+<p><i>Three-wire &ldquo;Y-Y&rdquo; (no neutral) system: Triplen voltages appear between &ldquo;Y&rdquo; centers. Triplen voltages appear across load phases. Non-triplen currents appear in line conductors.</i></p> 
+ 
+
+<p>
+In summary, removal of the neutral conductor leads to a &ldquo;hot&rdquo; center-point on the load &ldquo;Y&rdquo;, and also to harmonic load phase voltages of equal magnitude, all comprised of triplen frequencies.  In the previous simulation where we had a 4-wire, Y-connected system, the undesirable effect from harmonics was excessive neutral <i>current</i>, but at least each phase of the load received voltage nearly free of harmonics.
+</p>
+
+<p>
+Since removing the neutral wire didn't seem to work in eliminating the problems caused by harmonics, perhaps switching to a &#916; configuration will.  Let's try a &#916; source instead of a Y, keeping the load in its present Y configuration, and see what happens.  The measured parameters will be line current (voltage across R<sub>line</sub>, nodes 0 and 8), load phase voltage (nodes 8 and 7), and source phase current (voltage across R<sub>source</sub>, nodes 1 and 2).  (Figure <a href="#02329.png">  below</a>)
+</p>
+
+ 
+<a name="02329.png"></a> 
+<p> <img src="02329.png"> </p> 
+<p><i>Delta-Y source/load with harmonics </i></p> 
+ 
+
+
+
+<pre>
+Delta-Y source/load with harmonics                                             
+*       
+* phase1 voltage source and r (120 v /_ 0 deg)  
+vsource1 1 0 sin(0 207.846 60 0 0)  
+rsource1 1 2 1  
+*       
+* phase2 voltage source and r (120 v /_ 120 deg)
+vsource2 3 2 sin(0 207.846 60 5.55555m 0)   
+rsource2 3 4 1  
+*       
+* phase3 voltage source and r (120 v /_ 240 deg)
+vsource3 5 4 sin(0 207.846 60 11.1111m 0)   
+rsource3 5 0 1  
+*       
+* line resistances     
+rline1 0 8 1    
+rline2 2 9 1    
+rline3 4 10 1   
+*       
+* phase 1 of load       
+rload1 8 7 1k
+i3har1 8 7 sin(0 50m 180 9.72222m 0)   
+i5har1 8 7 sin(0 50m 300 9.72222m 0)   
+i7har1 8 7 sin(0 50m 420 9.72222m 0)   
+i9har1 8 7 sin(0 50m 540 9.72222m 0)   
+*       
+* phase 2 of load       
+rload2 9 7 1k  
+i3har2 9 7 sin(0 50m 180 15.2777m 0)    
+i5har2 9 7 sin(0 50m 300 15.2777m 0)    
+i7har2 9 7 sin(0 50m 420 15.2777m 0)    
+i9har2 9 7 sin(0 50m 540 15.2777m 0)    
+*       
+* phase 3 of load       
+rload3 10 7 1k 
+i3har3 10 7 sin(0 50m 180 4.16666m 0)   
+i5har3 10 7 sin(0 50m 300 4.16666m 0)   
+i7har3 10 7 sin(0 50m 420 4.16666m 0)   
+i9har3 10 7 sin(0 50m 540 4.16666m 0)   
+*       
+* analysis stuff
+.options itl5=0 
+.tran 0.5m 100m 16m 1u  
+.plot tran v(0,8) v(8,7) v(1,2) 
+.four 60 v(0,8) v(8,7) v(1,2) 
+.end 
+</pre>
+
+
+
+<p>
+<i>Note: the following paragraph is for those curious readers who follow every detail of my SPICE netlists.  If you just want to find out what happens in the circuit, skip this paragraph!</i>  When simulating circuits having AC sources of differing frequency and differing phase, the only way to do it in SPICE is to set up the sources with a <i>delay time</i> or <i>phase offset</i> specified in seconds.  Thus, the 0<sup>o</sup> source has these five specifying figures: &ldquo;(0 207.846 60 0 0)&rdquo;, which means 0 volts DC offset, 207.846 volts peak amplitude (120 times the square root of three, to ensure the load phase voltages remain at 120 volts each), 60 Hz, 0 time delay, and 0 damping factor.  The 120<sup>o</sup> phase-shifted source has these figures: &ldquo;(0 207.846 60 5.55555m 0)&rdquo;, all the same as the first except for the time delay factor of 5.55555 milliseconds, or 1/3 of the full period of 16.6667 milliseconds for a 60 Hz waveform.  The 240<sup>o</sup> source must be time-delayed twice that amount, equivalent to a fraction of 240/360 of 16.6667 milliseconds, or 11.1111 milliseconds.  This is for the &#916;-connected source.  The Y-connected load, on the other hand, requires a different set of time-delay figures for its harmonic current sources, because the phase voltages in a Y load are not in phase with the phase voltages of a &#916; source.  If &#916; source voltages V<sub>AC</sub>, V<sub>BA</sub>, and V<sub>CB</sub> are referenced at 0<sup>o</sup>, 120<sup>o</sup>, and 240<sup>o</sup>, respectively, then &ldquo;Y&rdquo; load voltages V<sub>A</sub>, V<sub>B</sub>, and V<sub>C</sub> will have phase angles of -30<sup>o</sup>, 90<sup>o</sup>, and 210<sup>o</sup>, respectively.  This is an intrinsic property of all &#916;-Y circuits and not a quirk of SPICE.  Therefore, when I specified the delay times for the harmonic sources, I had to set them at 15.2777 milliseconds (-30<sup>o</sup>, or +330<sup>o</sup>), 4.16666 milliseconds (90<sup>o</sup>), and 9.72222 milliseconds (210<sup>o</sup>).  One final note: when delaying AC sources in SPICE, they don't &ldquo;turn on&rdquo; until their delay time has elapsed, which means any mathematical analysis up to that point in time will be in error.  Consequently, I set the <tt>.tran</tt> transient analysis line to hold off analysis until 16 milliseconds after start, which gives all sources in the netlist time to engage before any analysis takes place.
+</p>
+
+<p>
+The result of this analysis is almost as disappointing as the last.  (Figure <a href="#02331.png">  below</a>) Line currents remain unchanged (the only substantial harmonic content being the 5th and 7th harmonics), and load phase voltages remain unchanged as well, with a full 50 volts of triplen harmonic (3rd and 9th) frequencies across each load component.  Source phase current is a fraction of the line current, which should come as no surprise.  Both 5th and 7th harmonics are represented there, with negligible triplen harmonics:
+</p>
+
+
+
+<p>
+<b>Fourier analysis of line current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(0,8)  
+dc component =  -6.850E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E-01     1.000000   150.000       0.000
+2      1.200E+02   2.491E-11     0.000000   159.723       9.722
+3      1.800E+02   1.506E-06     0.000013     0.005    -149.996
+4      2.400E+02   2.033E-11     0.000000    52.772     -97.228
+5      3.000E+02   4.994E-02     0.416682    30.002    -119.998
+6      3.600E+02   1.234E-11     0.000000    57.802     -92.198
+7      4.200E+02   4.993E-02     0.416644   -29.998    -179.998
+8      4.800E+02   8.024E-11     0.000000  -174.200    -324.200
+9      5.400E+02   4.518E-06     0.000038  -179.995    -329.995
+total harmonic distortion =     58.925038  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of load phase voltage:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(8,7)  
+dc component =   1.259E-08
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.198E+02     1.000000   150.000       0.000
+2      1.200E+02   1.941E-07     0.000000    49.693    -100.307
+3      1.800E+02   5.000E+01     0.417222   -89.998    -239.998
+4      2.400E+02   1.519E-07     0.000000    66.397     -83.603
+5      3.000E+02   6.466E-02     0.000540  -151.112    -301.112
+6      3.600E+02   2.433E-07     0.000000    68.162     -81.838
+7      4.200E+02   6.931E-02     0.000578   148.548      -1.453
+8      4.800E+02   2.398E-07     0.000000  -174.897    -324.897
+9      5.400E+02   5.000E+01     0.417221    90.006     -59.995
+total harmonic distortion =     59.004109  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of source phase current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(1,2)  
+dc component =   3.564E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   6.906E-02     1.000000    -0.181       0.000
+2      1.200E+02   1.525E-11     0.000000  -156.674    -156.493
+3      1.800E+02   1.422E-06     0.000021  -179.996    -179.815
+4      2.400E+02   2.949E-11     0.000000  -110.570    -110.390
+5      3.000E+02   2.883E-02     0.417440  -179.996    -179.815
+6      3.600E+02   2.324E-11     0.000000   -91.926     -91.745
+7      4.200E+02   2.883E-02     0.417398  -179.994    -179.813
+8      4.800E+02   4.140E-11     0.000000   -39.875     -39.694
+9      5.400E+02   4.267E-06     0.000062     0.006       0.186
+total harmonic distortion =     59.031969  percent
+</pre>
+
+
+
+ 
+<a name="02331.png"></a> 
+<p> <img src="02331.png"> </p> 
+<p><i>&ldquo;&#916;-Y&rdquo; source/load: Triplen voltages appear across load phases. Non-triplen currents appear in line conductors and in source phase windings.</i></p> 
+ 
+
+<p>
+Really, the only advantage of the &#916;-Y configuration from the standpoint of harmonics is that there is no longer a center-point at the load posing a shock hazard.  Otherwise, the load components receive the same harmonically-rich voltages and the lines see the same currents as in a three-wire Y system.
+</p>
+
+<p>
+If we were to reconfigure the system into a &#916;-&#916; arrangement, (Figure <a href="#02332.png">  below</a>) that should guarantee that each load component receives non-harmonic voltage, since each load phase would be directly connected in parallel with each source phase.  The complete lack of any neutral wires or &ldquo;center points&rdquo; in a &#916;-&#916; system prevents strange voltages or additive currents from occurring.  It would seem to be the ideal solution.  Let's simulate and observe, analyzing line current, load phase voltage, and source phase current. See SPICE listing: &ldquo;Delta-Delta source/load with harmonics&rdquo;, &ldquo;Fourier analysis: Fourier components of transient response v(0,6)&rdquo;, and &ldquo;Fourier components of transient response v(2,1)&rdquo;. 
+</p>
+
+ 
+<a name="02332.png"></a> 
+<p> <img src="02332.png"> </p> 
+<p><i>Delta-Delta source/load with harmonics. </i></p> 
+ 
+
+
+
+<pre>
+Delta-Delta source/load with harmonics                                             
+*       
+* phase1 voltage source and r (120 v /_ 0 deg)  
+vsource1 1 0 sin(0 120 60 0 0)  
+rsource1 1 2 1  
+*       
+* phase2 voltage source and r (120 v /_ 120 deg)
+vsource2 3 2 sin(0 120 60 5.55555m 0)   
+rsource2 3 4 1  
+*       
+* phase3 voltage source and r (120 v /_ 240 deg)
+vsource3 5 4 sin(0 120 60 11.1111m 0)   
+rsource3 5 0 1  
+*       
+* line resistances     
+rline1 0 6 1    
+rline2 2 7 1    
+rline3 4 8 1   
+*       
+* phase 1 of load       
+rload1 7 6 1k
+i3har1 7 6 sin(0 50m 180 0 0)   
+i5har1 7 6 sin(0 50m 300 0 0)   
+i7har1 7 6 sin(0 50m 420 0 0)   
+i9har1 7 6 sin(0 50m 540 0 0)   
+*       
+* phase 2 of load       
+rload2 8 7 1k  
+i3har2 8 7 sin(0 50m 180 5.55555m 0)    
+i5har2 8 7 sin(0 50m 300 5.55555m 0)    
+i7har2 8 7 sin(0 50m 420 5.55555m 0)    
+i9har2 8 7 sin(0 50m 540 5.55555m 0)    
+*       
+* phase 3 of load       
+rload3 6 8 1k 
+i3har3 6 8 sin(0 50m 180 11.1111m 0)   
+i5har3 6 8 sin(0 50m 300 11.1111m 0)   
+i7har3 6 8 sin(0 50m 420 11.1111m 0)   
+i9har3 6 8 sin(0 50m 540 11.1111m 0)   
+*       
+* analysis stuff
+.options itl5=0 
+.tran 0.5m 100m 16m 1u  
+.plot tran v(0,6) v(7,6) v(2,1) i(3har1) 
+.four 60 v(0,6) v(7,6) v(2,1) 
+.end 
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of line current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(0,6)  
+dc component =  -6.007E-11
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   2.070E-01     1.000000   150.000       0.000
+2      1.200E+02   5.480E-11     0.000000   156.666       6.666
+3      1.800E+02   6.257E-07     0.000003    89.990     -60.010
+4      2.400E+02   4.911E-11     0.000000     8.187    -141.813
+5      3.000E+02   8.626E-02     0.416664  -149.999    -300.000
+6      3.600E+02   1.089E-10     0.000000   -31.997    -181.997
+7      4.200E+02   8.626E-02     0.416669   150.001       0.001
+8      4.800E+02   1.578E-10     0.000000   -63.940    -213.940
+9      5.400E+02   1.877E-06     0.000009    89.987     -60.013
+total harmonic distortion =     58.925538  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of load phase voltage:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(7,6)  
+dc component =  -5.680E-10
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.195E+02     1.000000     0.000       0.000
+2      1.200E+02   1.039E-09     0.000000   144.749     144.749
+3      1.800E+02   1.251E-06     0.000000    89.974      89.974
+4      2.400E+02   4.215E-10     0.000000    36.127      36.127
+5      3.000E+02   1.992E-01     0.001667  -180.000    -180.000
+6      3.600E+02   2.499E-09     0.000000    -4.760      -4.760
+7      4.200E+02   1.992E-01     0.001667  -180.000    -180.000
+8      4.800E+02   2.951E-09     0.000000  -151.385    -151.385
+9      5.400E+02   3.752E-06     0.000000    89.905      89.905
+total harmonic distortion =      0.235702  percent
+</pre>
+
+
+
+<p>
+<b>Fourier analysis of source phase current:</b>
+</p>
+
+<pre>
+Fourier components of transient response v(2,1)  
+dc component =  -1.923E-12
+harmonic  frequency  Fourier    normalized    phase    normalized
+no         (hz)     component    component    (deg)    phase (deg)
+1      6.000E+01   1.194E-01     1.000000   179.940       0.000
+2      1.200E+02   2.569E-11     0.000000   133.491     -46.449
+3      1.800E+02   3.129E-07     0.000003    89.985     -89.955
+4      2.400E+02   2.657E-11     0.000000    23.368    -156.571
+5      3.000E+02   4.980E-02     0.416918  -180.000    -359.939
+6      3.600E+02   4.595E-11     0.000000   -22.475    -202.415
+7      4.200E+02   4.980E-02     0.416921  -180.000    -359.939
+8      4.800E+02   7.385E-11     0.000000   -63.759    -243.699
+9      5.400E+02   9.385E-07     0.000008    89.991     -89.949
+total harmonic distortion =     58.961298  percent
+</pre>
+
+
+
+<p>
+As predicted earlier, the load phase voltage is almost a pure sine-wave, with negligible harmonic content, thanks to the direct connection with the source phases in a &#916;-&#916; system.  But what happened to the triplen harmonics?  The 3rd and 9th harmonic frequencies don't appear in any substantial amount in the line current, nor in the load phase voltage, nor in the source phase current!  We know that triplen currents exist, because the 3rd and 9th harmonic current sources are intentionally placed in the phases of the load, but where did those currents go?
+</p>
+
+<p>
+Remember that the triplen harmonics of 120<sup>o</sup> phase-shifted fundamental frequencies are in phase with each other.  Note the directions that the arrows of the current sources within the load phases are pointing, and think about what would happen if the 3rd and 9th harmonic sources were DC sources instead.  What we would have is current <i>circulating within the loop formed by the &#916;-connected phases</i>.  This is where the triplen harmonic currents have gone: they stay within the &#916; of the load, never reaching the line conductors or the windings of the source.  These results may be graphically summarized as such in Figure <a href="#02333.png">  below</a>.
+</p>
+
+ 
+<a name="02333.png"></a> 
+<p> <img src="02333.png"> </p> 
+<p><i>&#916;-&#916; source/load: Load phases receive undistorted sinewave voltages. Triplen currents are confined to circulate within load phases. Non-triplen currents apprear in line conductors and in source phase windings.</i></p> 
+ 
+
+<p>
+This is a major benefit of the &#916;-&#916; system configuration: triplen harmonic currents remain confined in whatever set of components create them, and do not &ldquo;spread&rdquo; to other parts of the system.
+</p>
+
+<ul>
+<li><b>REVIEW:</b></li>
+<li><i>Nonlinear</i> components are those that draw a non-sinusoidal (non-sine-wave) current waveform when energized by a sinusoidal (sine-wave) voltage.  Since any distortion of an originally pure sine-wave constitutes harmonic frequencies, we can say that nonlinear components generate harmonic currents.</li>
+<li>When the sine-wave distortion is symmetrical above and below the average centerline of the waveform, the only harmonics present will be <i>odd-numbered</i>, not even-numbered.</li>
+<li>The 3rd harmonic, and integer multiples of it (6th, 9th, 12th, 15th) are known as <i>triplen</i> harmonics.  They are in phase with each other, despite the fact that their respective fundamental waveforms are 120<sup>o</sup> out of phase with each other.</li>
+<li>In a 4-wire Y-Y system, triplen harmonic currents add within the neutral conductor.</li>
+<li>Triplen harmonic currents in a &#916;-connected set of components circulate within the loop formed by the &#916;.</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35107">Harmonic phase sequences</a></u></h2>
+
+<a name="Triplen harmonics"></a>
+<a name="Harmonics, triplen"></a>
+
+<p>
+In the last section, we saw how the 3rd harmonic and all of its integer multiples (collectively called <i>triplen</i> harmonics) generated by 120<sup>o</sup> phase-shifted fundamental waveforms are actually in phase with each other.  In a 60 Hz three-phase power system, where phases <b>A</b>, <b>B</b>, and <b>C</b> are 120<sup>o</sup> apart, the third-harmonic multiples of those frequencies (180 Hz) fall perfectly into phase with each other.  This can be thought of in graphical terms, (Figure <a href="#02335.png">  below</a>) and/or in mathematical terms:
+</p>
+
+ 
+<a name="02335.png"></a> 
+<p> <img src="02335.png"> </p> 
+<p><i>Harmonic currents of Phases A, B, C all coincide, that is, no rotation.</i></p> 
+ 
+
+<p>
+
+</p>
+
+
+
+<p> <img src="12141.png"> </p> 
+
+<p>
+If we extend the mathematical table to include higher odd-numbered harmonics, we will notice an interesting pattern develop with regard to the rotation or sequence of the harmonic frequencies:
+</p>
+
+<p> <img src="12142.png"> </p> 
+
+<a name="Positive sequence"></a>
+<a name="Negative sequence"></a>
+<a name="Zero sequence"></a>
+<a name="Harmonic sequence"></a>
+<a name="Sequence, harmonic"></a>
+
+<p>
+Harmonics such as the 7th, which &ldquo;rotate&rdquo; with the same sequence as the fundamental, are called <i>positive sequence</i>.  Harmonics such as the 5th, which &ldquo;rotate&rdquo; in the opposite sequence as the fundamental, are called <i>negative sequence</i>.  Triplen harmonics (3rd and 9th shown in this table) which don't &ldquo;rotate&rdquo; at all because they're in phase with each other, are called <i>zero sequence</i>.
+</p>
+
+<p>
+This pattern of positive-zero-negative-positive continues indefinitely for all odd-numbered harmonics, lending itself to expression in a table like this:
+</p>
+
+<p> <img src="12143.png"> </p> 
+
+<p>
+Sequence especially matters when we're dealing with AC motors, since the mechanical rotation of the rotor depends on the torque produced by the sequential &ldquo;rotation&rdquo; of the applied 3-phase power.  Positive-sequence frequencies work to push the rotor in the proper direction, whereas negative-sequence frequencies actually work <i>against</i> the direction of the rotor's rotation.  Zero-sequence frequencies neither contribute to nor detract from the rotor's torque.  An excess of negative-sequence harmonics (5th, 11th, 17th, and/or 23rd) in the power supplied to a three-phase AC motor will result in a degradation of performance and possible overheating.  Since the higher-order harmonics tend to be attenuated more by system inductances and magnetic core losses, and generally originate with less amplitude anyway, the primary harmonic of concern is the 5th, which is 300 Hz in 60 Hz power systems and 250 Hz in 50 Hz power systems.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid35108">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Ed Beroset</b> (May 6, 2002): Suggested better ways to illustrate the meaning of the prefix &ldquo;poly-&rdquo;.
+</p>
+
+<p>
+<b>Jason Starck</b> (June 2000): HTML document formatting, which led to a much better-looking second edition.
+</p>
+
+
+
+
+
+
+
+<!--Effects of negative phase sequences on three-phase motors.-->
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="AC_A3.html">Design Science License</a>.
+</p>
+
+<a href="AC_9.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="AC_11.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

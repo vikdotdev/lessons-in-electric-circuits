@@ -1,0 +1,705 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume V (Reference) - Chapter 1</title>
+  <meta name="description" content="Useful Equations and Conversion Factors">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, equations, formula, electronics equations, electronics formula, ohm's law, joule's law, kirchhoff's laws, series circuit, parallel circuit, capacitor calculation, inductor calculation, time constant, reactance, impedance, resonance, power calculation, power factor, decibel, decibels, metric prefix, metric prefixes, metric system, conversions, conversion factor, conversion constant, units, unit conversion"> 
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="index.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="REF_2.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume V</h1>
+<h1>Chapter 1</h1>
+
+
+comment>modified 10/29/2005 (DC) added torque conversions -->
+
+
+<h1>USEFUL EQUATIONS AND CONVERSION FACTORS</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid38300"><u>DC circuit equations and laws</u></a></li>
+<ul>
+<li><a href="#xtocid38301"><u>Ohm's and Joule's Laws</u></a></li>
+<li><a href="#xtocid38302"><u>Kirchhoff's Laws</u></a></li>
+</ul>
+<li><a href="#xtocid38303"><u>Series circuit rules</u></a></li>
+<li><a href="#xtocid38304"><u>Parallel circuit rules</u></a></li>
+<li><a href="#xtocid38305"><u>Series and parallel component equivalent values</u></a></li>
+<ul>
+<li><a href="#xtocid38306"><u>Series and parallel resistances</u></a></li>
+<li><a href="#xtocid38307"><u>Series and parallel inductances</u></a></li>
+<li><a href="#xtocid38308"><u>Series and Parallel Capacitances</u></a></li>
+</ul>
+<li><a href="#xtocid38309"><u>Capacitor sizing equation</u></a></li>
+<li><a href="#xtocid383010"><u>Inductor sizing equation</u></a></li>
+<li><a href="#xtocid383011"><u>Time constant equations</u></a></li>
+<ul>
+<li><a href="#xtocid383012"><u>Value of time constant in series RC and RL circuits</u></a></li>
+<li><a href="#xtocid383013"><u>Calculating voltage or current at specified time</u></a></li>
+<li><a href="#xtocid383014"><u>Calculating time at specified voltage or current</u></a></li>
+</ul>
+<li><a href="#xtocid383015"><u>AC circuit equations</u></a></li>
+<ul>
+<li><a href="#xtocid383016"><u>Inductive reactance</u></a></li>
+<li><a href="#xtocid383017"><u>Capacitive reactance</u></a></li>
+<li><a href="#xtocid383018"><u>Impedance in relation to R and X</u></a></li>
+<li><a href="#xtocid383019"><u>Ohm's Law for AC</u></a></li>
+<li><a href="#xtocid383020"><u>Series and Parallel Impedances</u></a></li>
+<li><a href="#xtocid383021"><u>Resonance</u></a></li>
+<li><a href="#xtocid383022"><u>AC power</u></a></li>
+</ul>
+<li><a href="#xtocid383023"><u>Decibels</u></a></li>
+<li><a href="#xtocid383024"><u>Metric prefixes and unit conversions</u></a></li>
+<li><a href="#xtocid383025"><u>Data</u></a></li>
+<li><a href="#xtocid383026"><u>Contributors</u></a></li></ul>
+
+<h2><u><a name="xtocid38300">DC circuit equations and laws</a></u></h2>
+
+
+<h3><u><a name="xtocid38301">Ohm's and Joule's Laws</a></u></h3>
+
+<a name="Ohm's Law"></a>
+<a name="Joule's Law"></a>
+<a name="E, symbol for voltage"></a>
+<a name="I, symbol for current"></a>
+<a name="R, symbol for resistance"></a>
+<a name="P, symbol for power"></a>
+
+<p> <img src="11001.png"> </p>
+
+<p>
+NOTE: the symbol "V" ("U" in Europe) is sometimes used to represent voltage instead of "E".  In some cases, an author or circuit designer may choose to exclusively use "V" for voltage, never using the symbol "E."  Other times the two symbols are used interchangeably, or "E" is used to represent voltage from a power source while "V" is used to represent voltage across a load (voltage "drop").  
+
+</p>
+                     
+<br> </br>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid38302">Kirchhoff's Laws</a></u></h3>
+                            
+<blockquote>
+
+<p>
+<i>"The algebraic sum of all voltages in a loop must equal zero."</i>
+</p>
+
+<p>
+<b>Kirchhoff's Voltage Law (KVL)</b>
+</p>
+
+</blockquote>
+
+<br> </br>
+
+                            
+<blockquote>
+
+<p>
+<i>"The algebraic sum of all currents entering and exiting a node must equal zero."</i>
+</p>
+
+<p>
+<b>Kirchhoff's Current Law (KCL)</b>
+</p>
+
+</blockquote>
+                                                               
+
+
+
+
+
+
+
+                                                                  
+
+<h2><u><a name="xtocid38303">Series circuit rules</a></u></h2>
+
+<ul>
+<li>Components in a series circuit share the same current.  I<sub>total</sub> = I<sub>1</sub> = I<sub>2</sub> = . . . I<sub>n</sub></li>
+<li>Total resistance in a series circuit is equal to the sum of the individual resistances, making it <i>greater</i> than any of the individual resistances.  R<sub>total</sub> = R<sub>1</sub> + R<sub>2</sub> + . . . R<sub>n</sub></li>
+<li>Total voltage in a series circuit is equal to the sum of the individual voltage drops.  E<sub>total</sub> = E<sub>1</sub> + E<sub>2</sub> + . . . E<sub>n</sub></li>
+</ul>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid38304">Parallel circuit rules</a></u></h2>
+
+<ul>
+<li>Components in a parallel circuit share the same voltage.  E<sub>total</sub> = E<sub>1</sub> = E<sub>2</sub> = . . . E<sub>n</sub></li>
+<li>Total resistance in a parallel circuit is <i>less</i> than any of the individual resistances.  R<sub>total</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + . . . 1/R<sub>n</sub>)</li>
+<li>Total current in a parallel circuit is equal to the sum of the individual branch currents.  I<sub>total</sub> = I<sub>1</sub> + I<sub>2</sub> + . . . I<sub>n</sub></li>
+</ul>
+
+
+
+
+
+ 
+
+<h2><u><a name="xtocid38305">Series and parallel component equivalent values</a></u></h2>
+
+<a name="Series circuits"></a>
+<a name="Parallel circuits"></a>
+
+
+<h3><u><a name="xtocid38306">Series and parallel resistances</a></u></h3>
+
+<p> <img src="11002.png"> </p>
+
+<br> </br>
+
+
+
+                                                                  
+ 
+
+<h3><u><a name="xtocid38307">Series and parallel inductances</a></u></h3>
+ 
+<p> <img src="11003.png"> </p>
+
+<br> </br>
+
+
+
+ 
+ 
+                                                                   
+
+<h3><u><a name="xtocid38308">Series and Parallel Capacitances</a></u></h3>
+
+<p> <img src="11004.png"> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid38309">Capacitor sizing equation</a></u></h2>
+
+<a name="Capacitance equation"></a>
+
+<p> <img src="10230.png"> </p>
+
+<p>
+<p> <img src="11095.png"> </p>
+</p>
+
+<p>
+<p> <img src="11096.png"> </p>
+</p>
+
+<p>
+A formula for capacitance in picofarads using practical dimensions:
+</p>
+
+<p> <img src="11097.png"> </p>
+
+
+
+
+ 
+
+                                                                     
+
+
+<h2><u><a name="xtocid383010">Inductor sizing equation</a></u></h2>
+
+<a name="Inductance equation"></a>
+
+<p> <img src="11102.png"> </p>
+
+ 
+<p>
+Wheeler's formulas for inductance of air core coils which follow are useful for radio frequency inductors. The following formula for the inductance of a single layer air core solenoid coil is accurate to approximately 1% for 2r/l &#60; 3. The thick coil formula is 1% accurate when the denominator terms are approximately equal. Wheeler's spiral formula is 1% accurate for c&#62;0.2r. While this is a "round wire" formula, it may still be applicable to printed circuit spiral inductors at reduced accuracy.
+</p>
+
+<p> <img src="11098.png"> </p>
+
+<p>
+The inductance in henries of a square printed circuit inductor is given by two formulas where p=q, and p&#8800;q.
+</p>
+
+<p> <img src="11100.png"> </p>
+
+<p>
+The wire table provides "turns per inch" for enamel magnet wire for use with the inductance formulas for coils.
+</p>
+
+<p> <img src="11099.png"> </p>
+
+
+
+
+
+
+ 
+
+
+
+
+<h2><u><a name="xtocid383011">Time constant equations</a></u></h2>
+
+<a name="Time constant equations"></a>
+
+ 
+
+<h3><u><a name="xtocid383012">Value of time constant in series RC and RL circuits</a></u></h3>
+
+<p>
+Time constant in seconds = RC
+</p>
+ 
+<p>
+Time constant in seconds = L/R
+</p>
+ 
+<br> </br>
+
+
+
+
+
+
+<h3><u><a name="xtocid383013">Calculating voltage or current at specified time</a></u></h3>
+
+<p> <img src="10245.png"> </p>
+
+ 
+<br> </br>
+
+
+
+
+
+
+<h3><u><a name="xtocid383014">Calculating time at specified voltage or current</a></u></h3>
+
+<p> <img src="10264.png"> </p>
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid383015">AC circuit equations</a></u></h2>
+
+<a name="Reactance"></a>
+<a name="Impedance"></a>
+<a name="Resonance"></a>
+<a name="Power factor"></a>
+   
+
+<h3><u><a name="xtocid383016">Inductive reactance</a></u></h3>
+
+<p> <img src="11005.png"> </p>
+
+ 
+<br> </br>
+
+
+
+
+                                                                 
+ 
+
+
+<h3><u><a name="xtocid383017">Capacitive reactance</a></u></h3>
+
+<p> <img src="11006.png"> </p>
+
+ 
+<br> </br>
+
+
+
+
+
+ 
+
+
+<h3><u><a name="xtocid383018">Impedance in relation to R and X</a></u></h3>
+
+<blockquote>
+Z<sub>L</sub> = R + jX<sub>L</sub>
+</blockquote>
+
+<blockquote>
+Z<sub>C</sub> = R - jX<sub>C</sub>
+</blockquote>
+
+<br> </br>
+
+
+
+
+
+ 
+
+
+<h3><u><a name="xtocid383019">Ohm's Law for AC</a></u></h3>
+
+<a name="Ohm's Law, AC"></a>
+
+<p> <img src="11009.png"> </p>
+
+ 
+<br> </br>
+
+
+
+
+ 
+
+
+
+<h3><u><a name="xtocid383020">Series and Parallel Impedances</a></u></h3>
+
+<p> <img src="11008.png"> </p>
+
+ 
+<p>
+NOTE: All impedances must be calculated in <i>complex</i> number form for these equations to work.
+</p>
+                                                   
+<br> </br>
+
+
+
+
+                                                      
+ 
+                                       
+
+<h3><u><a name="xtocid383021">Resonance</a></u></h3>
+
+<p> <img src="11010.png"> </p>
+
+ 
+<p>
+NOTE: This equation applies to a non-resistive LC circuit.  In circuits containing resistance as well as inductance and capacitance, this equation applies only to series configurations and to parallel configurations where R is very small. 
+</p>
+
+<br> </br>
+
+
+
+
+                                                   
+ 
+                                             
+                                                        
+
+<h3><u><a name="xtocid383022">AC power</a></u></h3>
+
+<p> <img src="12123.png"> </p>
+
+<p>
+
+</p>
+
+<br> </br>
+
+<p> <img src="11011.png"> </p>
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid383023">Decibels</a></u></h2>
+
+<p> <img src="11063.png"> </p>
+
+ 
+
+
+
+
+
+<br> </br>
+
+
+
+<h2><u><a name="xtocid383024">Metric prefixes and unit conversions</a></u></h2>
+
+<a name="Metric system"></a>
+<a name="Prefix, metric"></a>
+<a name="Conversion factor"></a>
+<a name="Factor, conversion"></a>
+
+<ul>
+<li><b>Metric prefixes</b></li>
+<li>Yotta = 10<sup>24</sup> Symbol: Y</li>
+<li>Zetta = 10<sup>21</sup> Symbol: Z</li>
+<li>Exa = 10<sup>18</sup> Symbol: E</li>
+<li>Peta = 10<sup>15</sup> Symbol: P</li>
+<li>Tera = 10<sup>12</sup> Symbol: T</li>
+<li>Giga = 10<sup>9</sup> Symbol: G</li>
+<li>Mega = 10<sup>6</sup> Symbol: M</li>
+<li>Kilo = 10<sup>3</sup> Symbol: k</li>
+<li>Hecto = 10<sup>2</sup> Symbol: h</li>
+<li>Deca = 10<sup>1</sup> Symbol: da</li>
+<li>Deci = 10<sup>-1</sup> Symbol: d</li>
+<li>Centi = 10<sup>-2</sup> Symbol: c</li>
+<li>Milli = 10<sup>-3</sup> Symbol: m</li>
+<li>Micro = 10<sup>-6</sup> Symbol: &#181;</li>
+<li>Nano = 10<sup>-9</sup> Symbol: n</li>
+<li>Pico = 10<sup>-12</sup> Symbol: p</li>
+<li>Femto = 10<sup>-15</sup> Symbol: f</li>
+<li>Atto = 10<sup>-18</sup> Symbol: a</li>
+<li>Zepto = 10<sup>-21</sup> Symbol: z</li>
+<li>Yocto = 10<sup>-24</sup> Symbol: y</li>
+</ul>
+
+<p> <img src="00356.png"> </p>
+
+
+<br> </br>
+
+<ul>
+<li><b>Conversion factors for temperature</b></li>
+<li><sup>o</sup>F = (<sup>o</sup>C)(9/5) + 32</li>
+<li><sup>o</sup>C = (<sup>o</sup>F - 32)(5/9)</li>
+<li><sup>o</sup>R = <sup>o</sup>F + 459.67</li>
+<li><sup>o</sup>K = <sup>o</sup>C + 273.15</li>
+</ul>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for volume</b>
+</p>
+
+<blockquote>
+1 US gallon (gal) = 231.0 cubic inches (in<sup>3</sup>) = 4 quarts (qt) = 8 pints (pt) = 128 fluid ounces (fl. oz.) = 3.7854 liters (l)
+</blockquote>
+
+<blockquote>
+1 Imperial gallon (gal) = 160 fluid ounces (fl. oz.) = 4.546 liters (l)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for distance</b>
+</p>
+<blockquote>
+1 inch (in) = 2.540000 centimeter (cm)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for velocity</b>
+</p>
+<blockquote>
+1 mile per hour (mi/h) = 88 feet per minute (ft/m) = 1.46667 feet per second (ft/s) = 1.60934 kilometer per hour (km/h) = 0.44704 meter per second (m/s) = 0.868976 knot (knot -- international)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for weight</b>
+</p>
+
+<blockquote>
+1 pound (lb) = 16 ounces (oz) = 0.45359 kilogram (kg)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for force</b>
+</p>
+
+<blockquote>
+1 pound-force (lbf) = 4.44822 newton (N)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Acceleration of gravity (free fall), Earth standard</b>
+</p>
+
+<blockquote>
+9.806650 meters per second per second (m/s<sup>2</sup>) = 32.1740 feet per second per second (ft/s<sup>2</sup>)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for area</b>
+</p>
+
+<blockquote>
+1 acre = 43560 square feet (ft<sup>2</sup>) = 4840 square yards (yd<sup>2</sup>) = 4046.86 square meters (m<sup>2</sup>)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for pressure</b>
+</p>
+
+<blockquote>
+1 pound per square inch (psi) = 2.03603 inches of mercury (in. Hg) = 27.6807 inches of water (in. W.C.) = 6894.757 pascals (Pa) = 0.0680460 atmospheres (Atm) = 0.0689476 bar (bar)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for energy or work</b>
+</p>
+
+<blockquote>
+1 british thermal unit (BTU -- "International Table") = 251.996 calories (cal -- "International Table") = 1055.06 joules (J) = 1055.06 watt-seconds (W-s) = 0.293071 watt-hour (W-hr) = 1.05506 x 10<sup>10</sup> ergs (erg) = 778.169 foot-pound-force (ft-lbf) 
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for power</b>
+</p>
+
+<blockquote>
+1 horsepower (hp -- 550 ft-lbf/s) = 745.7 watts (W) = 2544.43 british thermal units per hour (BTU/hr) = 0.0760181 boiler horsepower (hp -- boiler)
+</blockquote>
+
+<br> </br>
+
+<p>
+<b>Conversion equivalencies for motor torque</b>
+</p>
+
+<p> <img src="11094.png"> </p>
+
+<p>
+Locate the row corresponding to known unit of torque along the left of the table. Multiply by the factor under the column for the desired units. For example, to convert 2 oz-in torque to n-m, locate oz-in row at table left. Locate 7.062 x 10<sup>-3</sup>  at intersection of desired n-m units column. Multiply 2 oz-in x  (7.062 x 10<sup>-3</sup> ) =  14.12 x 10<sup>-3</sup> n-m. 
+</p>
+
+
+<br> </br>
+
+
+
+<p>
+Converting between units is easy if you have a set of equivalencies to work with.  Suppose we wanted to convert an energy quantity of 2500 calories into watt-hours.  What we would need to do is find a set of equivalent figures for those units.  In our reference here, we see that 251.996 calories is physically equal to 0.293071 watt hour.  To convert from calories into watt-hours, we must form a "unity fraction" with these physically equal figures (a fraction composed of different figures and different units, the numerator and denominator being <i>physically</i> equal to one another), placing the desired unit in the numerator and the initial unit in the denominator, and then multiply our initial value of calories by that fraction.
+</p>
+
+<p>
+Since both terms of the "unity fraction" are physically equal to one another, the fraction as a whole has a <i>physical</i> value of 1, and so does not change the true value of any figure when multiplied by it.  When units are canceled, however, there will be a change in units.  For example, 2500 calories multiplied by the unity fraction of (0.293071 w-hr / 251.996 cal) = 2.9075 watt-hours.
+</p>
+
+
+<p> <img src="11064.png"> </p>
+
+<p>
+The "unity fraction" approach to unit conversion may be extended beyond single steps.  Suppose we wanted to convert a fluid flow measurement of 175 gallons per hour into liters per day.  We have two units to convert here: gallons into liters, and hours into days.  Remember that the word "per" in mathematics means "divided by," so our initial figure of 175 gallons <i>per</i> hour means 175 gallons divided by hours.  Expressing our original figure as such a fraction, we multiply it by the necessary unity fractions to convert gallons to liters (3.7854 liters = 1 gallon), and hours to days (1 day = 24 hours).  The units must be arranged in the unity fraction in such a way that undesired units cancel each other out above and below fraction bars.  For this problem it means using a gallons-to-liters unity fraction of (3.7854 liters / 1 gallon) and a hours-to-days unity fraction of (24 hours / 1 day):
+</p>
+
+<p> <img src="11065.png"> </p>
+
+<p>
+Our final (converted) answer is 15898.68 liters per day.
+</p>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid383025">Data</a></u></h2>
+
+<p>
+Conversion factors were found in the 78<sup>th</sup> edition of the <i>CRC Handbook of Chemistry and Physics</i>, and the 3<sup>rd</sup> edition of Bela Liptak's <i>Instrument Engineers' Handbook -- Process Measurement and Analysis</i>. 
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid383026">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Gerald Gardner</b> (January 2003): Addition of Imperial gallons conversion.
+</p>
+
+
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="REF_A3.html">Design Science License</a>.
+</p>
+
+<a href="index.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="REF_2.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+

@@ -1,0 +1,733 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<html> 
+
+<head>
+
+<title>Lessons In Electric Circuits -- Volume V (Reference) - Chapter 8</title>
+  <meta name="description" content="Troubleshooting -- Theory and Practice">
+  <meta name="keywords" content="book, ebook, textbook, tutorial, copyleft, copylefted, free, educational, free book, free ebook, free textbook, free download, copyleft book, copylefted book, electricity, electronics, electric circuit, spice, spice2g6, design science license, kuphaldt, tony kuphaldt, troubleshooting, troubleshoot, repair, maintenance, failure, failure mode, passive component, active component, reliability, probablility, causality">
+
+</head>
+
+<body>
+
+<body bgColor=white>
+
+<a href="REF_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="REF_9.html"><img src=next.jpg alt="Next"></a>
+<hr>
+
+<h1>Lessons In Electric Circuits -- Volume V</h1>
+<h1>Chapter 8</h1>
+
+
+
+
+<h1>TROUBLESHOOTING -- THEORY AND PRACTICE</h1> 
+<!--minitoc-->
+
+
+
+ 
+
+<ul>
+<li><a href="#xtocid38860"><u> </u></a></li>
+<li><a href="#xtocid38861"><u>Questions to ask before proceeding</u></a></li>
+<li><a href="#xtocid38862"><u>General troubleshooting tips</u></a></li>
+<ul>
+<li><a href="#xtocid38863"><u>Prior occurrence</u></a></li>
+<li><a href="#xtocid38864"><u>Recent alterations</u></a></li>
+<li><a href="#xtocid38865"><u>Function vs. non-function</u></a></li>
+<li><a href="#xtocid38866"><u>Hypothesize</u></a></li>
+</ul>
+<li><a href="#xtocid38867"><u>Specific troubleshooting techniques</u></a></li>
+<ul>
+<li><a href="#xtocid38868"><u>Swap identical components</u></a></li>
+<li><a href="#xtocid38869"><u>Remove parallel components</u></a></li>
+<li><a href="#xtocid388610"><u>Divide system into sections and test those sections</u></a></li>
+<li><a href="#xtocid388611"><u>Simplify and rebuild</u></a></li>
+<li><a href="#xtocid388612"><u>Trap a signal</u></a></li>
+</ul>
+<li><a href="#xtocid388613"><u>Likely failures in proven systems</u></a></li>
+<ul>
+<li><a href="#xtocid388614"><u>Operator error</u></a></li>
+<li><a href="#xtocid388615"><u>Bad wire connections</u></a></li>
+<li><a href="#xtocid388616"><u>Power supply problems</u></a></li>
+<li><a href="#xtocid388617"><u>Active components</u></a></li>
+<li><a href="#xtocid388618"><u>Passive components</u></a></li>
+</ul>
+<li><a href="#xtocid388619"><u>Likely failures in unproven systems</u></a></li>
+<ul>
+<li><a href="#xtocid388620"><u>Wiring problems</u></a></li>
+<li><a href="#xtocid388621"><u>Power supply problems</u></a></li>
+<li><a href="#xtocid388622"><u>Defective components</u></a></li>
+<li><a href="#xtocid388623"><u>Improper system configuration</u></a></li>
+<li><a href="#xtocid388624"><u>Design error</u></a></li>
+</ul>
+<li><a href="#xtocid388625"><u>Potential pitfalls</u></a></li>
+<li><a href="#xtocid388626"><u>Contributors</u></a></li></ul>
+
+<h2><u> </u></h2>
+
+<a name="Troubleshooting"></a>
+
+<p>
+Perhaps the most valuable but difficult-to-learn skill any technical person could have is the ability to troubleshoot a system.  For those unfamiliar with the term, <i>troubleshooting</i> means the act of pinpointing and correcting problems in any kind of system.  For an auto mechanic, this means determining and fixing problems in cars based on the car's behavior.  For a doctor, this means correctly diagnosing a patient's malady and prescribing a cure.  For a business expert, this means identifying the source(s) of inefficiency in a corporation and recommending corrective measures.
+</p>
+
+<p>
+Troubleshooters must be able to determine the cause or causes of a problem simply by examining its effects.  Rarely does the source of a problem directly present itself for all to see.  Cause/effect relationships are often complex, even for seemingly simple systems, and often the proficient troubleshooter is regarded by others as something of a miracle-worker for their ability to quickly discern the root cause of a problem.  While some people are gifted with a natural talent for troubleshooting, it is a skill that can be learned like any other.
+</p>
+
+<p>
+Sometimes the system to be analyzed is in so bad a state of affairs that there is no hope of ever getting it working again.  When investigators sift through the wreckage of a crashed airplane, or when a doctor performs an autopsy, they must do their best to determine the cause of massive failure after the fact.  Fortunately, the task of the troubleshooter is usually not this grim.  Typically, a misbehaving system is still functioning to some degree and may be stimulated and adjusted by the troubleshooter as part of the diagnostic procedure.  In this sense, troubleshooting is a lot like scientific method: determining cause/effect relationships by means of live experimentation.
+</p>
+
+<p>
+Like science, troubleshooting is a mixture of standard procedure and personal creativity.  There are certain procedures employed as tools to discern cause(s) from effects, but they are impotent if not coupled with a creative and inquisitive mind.  In the course of troubleshooting, the troubleshooter may have to invent their own specific technique -- adapted to the particular system they're working on -- and/or modify tools to perform a special task.  Creativity is necessary in examining a problem from different perspectives: learning to ask different questions when the "standard" questions don't lead to fruitful answers.
+</p>
+
+<p>
+If there is one personality trait I've seen positively associated with excellent troubleshooting more than any other, its technical curiosity.  People fascinated by learning how things work, and who aren't discouraged by a challenging problem, tend to be better at troubleshooting than others.  Richard Feynman, the late physicist who taught at Caltech for many years, illustrates to me the ultimate troubleshooting personality.  Reading any of his (auto)biographical books is both educating and entertaining, and I recommend them to anyone seeking to develop their own scientific reasoning/troubleshooting skills.
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid38861">Questions to ask before proceeding</a></u></h2>
+
+<ul>
+<li>Has the system ever worked before?  If yes, has anything happened to it since then that could cause the problem?</li>
+<li>Has this system proven itself to be prone to certain types of failure?</li>
+<li>How urgent is the need for repair?</li>
+<li>What are the <i>safety concerns</i>, before I start troubleshooting?</li>
+<li>What are the process quality concerns, before I start troubleshooting (what can I do without causing interruptions in production)?</li>
+</ul>
+
+<p>
+These preliminary questions are not trivial.  Indeed, they are essential to expedient and safe troubleshooting.  They are especially important when the system to be trouble-shot is large, dangerous, and/or expensive.
+</p>
+
+<p>
+Sometimes the troubleshooter will be required to work on a system that is still in full operation (perhaps the ultimate example of this is a doctor diagnosing a live patient).  Once the cause or causes are determined to a high degree of certainty, there is the step of corrective action.  Correcting a system fault without significantly interrupting the operation of the system can be very challenging, and it deserves thorough planning.
+</p>
+
+<p>
+When there is high risk involved in taking corrective action, such as is the case with performing surgery on a patient or making repairs to an operating process in a chemical plant, it is essential for the worker(s) to plan ahead for possible trouble.  One question to ask before proceeding with repairs is, "how and at what point(s) can I abort the repairs if something goes wrong?"  In risky situations, it is vital to have planned "escape routes" in your corrective action, just in case things do not go as planned.  A surgeon operating on a patient knows if there are any "points of no return" in such a procedure, and stops to re-check the patient before proceeding past those points.  He or she also knows how to "back out" of a surgical procedure at those points if needed.
+</p>
+
+
+
+
+
+
+<h2><u><a name="xtocid38862">General troubleshooting tips</a></u></h2>
+
+<p>
+When first approaching a failed or otherwise misbehaving system, the new troubleshooter often doesn't know where to begin.  The following strategies are not exhaustive by any means, but provide the troubleshooter with a simple checklist of questions to ask in order to start isolating the problem.
+</p>
+
+<p>
+As tips, these troubleshooting suggestions are not comprehensive procedures: they serve as starting points only for the troubleshooting process.  An essential part of expedient troubleshooting is probability assessment, and these tips help the troubleshooter determine which possible points of failure are more or less likely than others.  Final isolation of the system failure is usually determined through more specific techniques (outlined in the next section -- <i>Specific Troubleshooting Techniques</i>).
+</p>
+
+
+
+<h3><u><a name="xtocid38863">Prior occurrence</a></u></h3>
+
+<p>
+If this device or process has been historically known to fail in a certain particular way, and the conditions leading to this common failure have not changed, check for this "way" first.  A corollary to this troubleshooting tip is the directive to keep detailed records of failure.  Ideally, a computer-based failure log is optimal, so that failures may be referenced by and correlated to a number of factors such as time, date, and environmental conditions.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example:</b>  <i>The car's engine is overheating.  The last two times this happened, the cause was low coolant level in the radiator.</i>
+</p>
+
+<p>
+<u>What to do:</u> Check the coolant level first.  Of course, past history by no means guarantees the present symptoms are caused by the same problem, but since this is more likely, it makes sense to check this first.
+</p>
+
+<p>
+If, however, the cause of routine failure in a system has been corrected (i.e. the leak causing low coolant level in the past has been repaired), then this may not be a probable cause of trouble this time.
+</p>
+
+
+<br> </br>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid38864">Recent alterations</a></u></h3>
+
+<p>
+If a system has been having problems immediately after some kind of maintenance or other change, the problems might be linked to those changes.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example:</b> <i>The mechanic recently tuned my car's engine, and now I hear a rattling noise that I didn't hear before I took the car in for repair.</i>  
+</p>
+
+<p>
+<u>What to do:</u> Check for something that may have been left loose by the mechanic after his or her tune-up work.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid38865">Function vs. non-function</a></u></h3>
+
+<p>
+If a system isn't producing the desired end result, look for what it <i>is</i> doing correctly; in other words, identify where the problem is <i>not</i>, and focus your efforts elsewhere.  Whatever components or subsystems necessary for the properly working parts to function are probably okay.  The degree of fault can often tell you what part of it is to blame.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example:</b> <i>The radio works fine on the AM band, but not on the FM band.</i>
+</p>
+
+<p>
+<u>What to do:</u> Eliminate from the list of possible causes, anything in the radio necessary for the AM band's function.  Whatever the source of the problem is, it is specific to the FM band and not to the AM band.  This eliminates the audio amplifier, speakers, fuse, power supply, and almost all external wiring.  Being able to eliminate sections of the system as possible failures reduces the scope of the problem and makes the rest of the troubleshooting procedure more efficient.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid38866">Hypothesize</a></u></h3>
+
+<p>
+Based on your knowledge of how a system works, think of various kinds of failures that would cause this problem (or these phenomena) to occur, and check for those failures (starting with the most likely based on circumstances, history, or knowledge of component weaknesses).
+</p>
+
+<br> </br>
+
+<p>
+<b>Example:</b> <i>The car's engine is overheating.</i> 
+</p>
+
+<p>
+<u>What to do:</u> Consider possible causes for overheating, based on what you know of engine operation.  Either the engine is generating too much heat, or not getting rid of the heat well enough (most likely the latter).  Brainstorm some possible causes: a loose fan belt, clogged radiator, bad water pump, low coolant level, etc.  Investigate each one of those possibilities before investigating alternatives.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid38867">Specific troubleshooting techniques</a></u></h2>
+
+<p>
+After applying some of the general troubleshooting tips to narrow the scope of a problem's location, there are techniques useful in further isolating it.  Here are a few:
+</p>
+
+
+<h3><u><a name="xtocid38868">Swap identical components</a></u></h3>
+
+<p>
+In a system with identical or parallel subsystems, swap components between those subsystems and see whether or not the problem moves with the swapped component.  If it does, you've just swapped the faulty component; if it doesn't, keep searching!
+</p>
+
+<p>
+This is a powerful troubleshooting method, because it gives you both a positive and a negative indication of the swapped component's fault: when the bad part is exchanged between identical systems, the formerly broken subsystem will start working again and the formerly good subsystem will fail.  
+</p>
+
+<p>
+I was once able to troubleshoot an elusive problem with an automotive engine ignition system using this method: I happened to have a friend with an automobile sharing the exact same model of ignition system.  We swapped parts between the engines (distributor, spark plug wires, ignition coil -- one at a time) until the problem moved to the other vehicle.  The problem happened to be a "weak" ignition coil, and it only manifested itself under heavy load (a condition that could not be simulated in my garage).  Normally, this type of problem could only be pinpointed using an ignition system analyzer (or oscilloscope) <i>and</i> a dynamometer to simulate loaded driving conditions.  This technique, however, confirmed the source of the problem with 100% accuracy, using no diagnostic equipment whatsoever.
+</p>
+
+<p>
+Occasionally you may swap a component and find that the problem still exists, but has changed in some way.  This tells you that the components you just swapped are <i>somehow different</i> (different calibration, different function), and nothing more.  However, don't dismiss this information just because it doesn't lead you straight to the problem -- look for other changes in the system as a whole as a result of the swap, and try to figure out what these changes tell you about the source of the problem.
+</p>
+
+<p>
+An important caveat to this technique is the possibility of causing further damage.  Suppose a component has failed because of another, less conspicuous failure in the system.  Swapping the failed component with a good component will cause the good component to fail as well.  For example, suppose that a circuit develops a short, which "blows" the protective fuse for that circuit.  The blown fuse is not evident by inspection, and you don't have a meter to electrically test the fuse, so you decide to swap the suspect fuse with one of the same rating from a working circuit.  As a result of this, the good fuse that you move to the shorted circuit blows as well, leaving you with two blown fuses and two non-working circuits.  At least you know for certain that the original fuse <i>was</i> blown, because the circuit it was moved to stopped working after the swap, but this knowledge was gained only through the loss of a good fuse and the additional "down time" of the second circuit.
+</p>
+
+<p>
+Another example to illustrate this caveat is the ignition system problem previously mentioned.  Suppose that the "weak" ignition coil had caused the engine to backfire, damaging the muffler.  If swapping ignition system components with another vehicle causes the problem to move to the other vehicle, damage may be done to the other vehicle's muffler as well.  As a general rule, the technique of swapping identical components should be used only when there is minimal chance of causing additional damage.  It is an excellent technique for isolating non-destructive problems.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example 1:</b> <i>You're working on a CNC machine tool with X, Y, and Z-axis drives.  The Y axis is not working, but the X and Z axes are working.  All three axes share identical components (feedback encoders, servo motor drives, servo motors).</i>
+</p>
+
+<p>
+<u>What to do:</u> Exchange these identical components, one at a time, Y axis and either one of the working axes (X or Z), and see after each swap whether or not the problem has moved with the swap.
+</p>
+
+<br> </br>
+
+
+<p>
+<b>Example 2:</b> <i>A stereo system produces no sound on the left speaker, but the right speaker works just fine.</i>
+</p>
+
+<p>
+<u>What to do:</u> Try swapping respective components between the two channels and see if the problem changes sides, from left to right.  When it does, you've found the defective component.  For instance, you could swap the speakers between channels: if the problem moves to the other side (i.e. the same speaker that was dead before is still dead, now that its connected to the right channel cable) then you know that speaker is bad.  If the problem stays on the same side (i.e. the speaker formerly silent is now producing sound after having been moved to the other side of the room and connected to the other cable), then you know the speakers are fine, and the problem must lie somewhere else (perhaps in the cable connecting the silent speaker to the amplifier, or in the amplifier itself).
+</p>
+
+<p>
+If the speakers have been verified as good, then you could check the cables using the same method.  Swap the cables so that each one now connects to the other channel of the amplifier and to the other speaker.  Again, if the problem changes sides (i.e. now the right speaker is now "dead" and the left speaker now produces sound), then the cable now connected to the right speaker must be defective.  If neither swap (the speakers nor the cables) causes the problem to change sides from left to right, then the problem must lie within the amplifier (i.e. the left channel output must be "dead").
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid38869">Remove parallel components</a></u></h3>
+
+<p>
+If a system is composed of several parallel or redundant components which can be removed without crippling the whole system, start removing these components (one at a time) and see if things start to work again.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example 1:</b> <i>A "star" topology communications network between several computers has failed.  None of the computers are able to communicate with each other.</i>
+</p>
+
+<p>
+<u>What to do:</u> Try unplugging the computers, one at a time from the network, and see if the network starts working again after one of them is unplugged.  If it does, then that last unplugged computer may be the one at fault (it may have been "jamming" the network by constantly outputting data or noise).
+</p>
+
+<br> </br>
+
+<p>
+<b>Example 2:</b> <i>A household fuse keeps blowing (or the breaker keeps tripping open) after a short amount of time.</i>
+</p>
+
+<p>
+<u>What to do:</u> Unplug appliances from that circuit until the fuse or breaker quits interrupting the circuit.  If you can eliminate the problem by unplugging a single appliance, then that appliance might be defective.  If you find that unplugging almost any appliance solves the problem, then the circuit may simply be overloaded by too many appliances, neither of them defective.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+<h3><u><a name="xtocid388610">Divide system into sections and test those sections</a></u></h3>
+
+<p>
+In a system with multiple sections or stages, carefully measure the variables going in and out of each stage until you find a stage where things don't look right.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example 1:</b> <i>A radio is not working (producing no sound at the speaker))</i>
+</p>
+
+<p>
+<u>What to do:</u> Divide the circuitry into stages: tuning stage, mixing stages, amplifier stage, all the way through to the speaker(s).  Measure signals at test points between these stages and tell whether or not a stage is working properly. 
+</p>
+
+<br> </br>
+
+<p>
+<b>Example 2:</b> <i>An analog summer circuit is not functioning properly.</i>  
+</p>
+
+<p> <img src="01034.png"> </p> 
+
+<p>
+<u>What to do:</u> I would test the passive averager network (the three resistors at the lower-left corner of the schematic) to see that the proper (averaged) voltage was seen at the noninverting input of the op-amp.  I would then measure the voltage at the inverting input to see if it was the same as at the noninverting input (or, alternatively, measure the voltage difference between the two inputs of the op-amp, as it should be zero).  Continue testing sections of the circuit (or just test points within the circuit) to see if you measure the expected voltages and currents.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+<h3><u><a name="xtocid388611">Simplify and rebuild</a></u></h3>
+
+<p>
+Closely related to the strategy of dividing a system into sections, this is actually a design and fabrication technique useful for new circuits, machines, or systems.  It's always easier begin the design and construction process in little steps, leading to larger and larger steps, rather than to build the whole thing at once and try to troubleshoot it as a whole.
+</p>
+
+<p>
+Suppose that someone were building a custom automobile.  He or she would be foolish to bolt all the parts together without checking and testing components and subsystems as they went along, expecting everything to work perfectly after its all assembled.  Ideally, the builder would check the proper operation of components along the way through the construction process: start and tune the engine <i>before</i> its connected to the drivetrain, check for wiring problems <i>before</i> all the cover panels are put in place, check the brake system in the driveway <i>before</i> taking it out on the road, etc.
+</p>
+
+<p>
+Countless times I've witnessed students build a complex experimental circuit and have trouble getting it to work because they didn't stop to check things along the way: test all resistors <i>before</i> plugging them into place, make sure the power supply is regulating voltage adequately <i>before</i> trying to power anything with it, etc.  It is human nature to rush to completion of a project, thinking that such checks are a waste of valuable time.  However, more time will be wasted in troubleshooting a malfunctioning circuit than would be spent checking the operation of subsystems throughout the process of construction.
+</p>
+
+<p>
+Take the example of the analog summer circuit in the previous section for example: what if it wasn't working properly?  How would you simplify it and test it in stages?  Well, you could reconnect the op-amp as a basic comparator and see if its responsive to differential input voltages, and/or connect it as a voltage follower (buffer) and see if it outputs the same analog voltage as what is input.  If it doesn't perform these simple functions, it will never perform its function in the summer circuit!  By stripping away the complexity of the summer circuit, paring it down to an (almost) bare op-amp, you can test that component's functionality and then build from there (add resistor feedback and check for voltage amplification, then add input resistors and check for voltage summing), checking for expected results along the way.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+<h3><u><a name="xtocid388612">Trap a signal</a></u></h3>
+
+<p>
+Set up instrumentation (such as a datalogger, chart recorder, or multimeter set on "record" mode) to monitor a signal over a period of time.  This is especially helpful when tracking down intermittent problems, which have a way of showing up the moment you've turned your back and walked away.
+</p>
+
+<p>
+This may be essential for proving what happens first in a fast-acting system.  Many fast systems (especially shutdown "trip" systems) have a "first out" monitoring capability to provide this kind of data.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example #1:</b> <i>A turbine control system shuts automatically in response to an abnormal condition.  By the time a technician arrives at the scene to survey the turbine's condition, however, everything is in a "down" state and its impossible to tell what signal or condition was responsible for the initial shutdown, as all operating parameters are now "abnormal."</i> 
+</p>
+
+<p>
+<u>What to do:</u> One technician I knew used a videocamera to record the turbine control panel, so he could see what happened (by indications on the gauges) first in an automatic-shutdown event.  Simply by looking at the panel after the fact, there was no way to tell <i>which</i> signal shut the turbine down, but the videotape playback would show what happened in sequence, down to a frame-by-frame time resolution.
+</p>
+
+<br> </br>
+
+<p>
+<b>Example #2</b>: <i>An alarm system is falsely triggering, and you suspect it may be due to a specific wire connection going bad.  Unfortunately, the problem never manifests itself while you're watching it!</i>
+</p>
+
+<p>
+<u>What to do:</u> Many modern digital multimeters are equipped with "record" settings, whereby they can monitor a voltage, current, or resistance over time and note whether that measurement deviates substantially from a regular value.  This is an invaluable tool for use in "intermittent" electronic system failures.
+</p>
+
+<br> </br>
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid388613">Likely failures in proven systems</a></u></h2>
+
+<p>
+The following problems are arranged in order from most likely to least likely, top to bottom.  This order has been determined largely from personal experience troubleshooting electrical and electronic problems in automotive, industry, and home applications.  This order also assumes a circuit or system that has been proven to function as designed and has failed after substantial operation time.  Problems experienced in newly assembled circuits and systems do not necessarily exhibit the same probabilities of occurrence.
+</p>
+
+
+
+<h3><u><a name="xtocid388614">Operator error</a></u></h3>
+
+<p>
+A frequent cause of system failure is error on the part of those human beings operating it.  This cause of trouble is placed at the top of the list, but of course the actual likelihood depends largely on the particular individuals responsible for operation.  When operator error is the cause of a failure, it is <i>unlikely</i> that it will be admitted prior to investigation.  I do not mean to suggest that operators are incompetent and irresponsible -- quite the contrary: these people are often your best teachers for learning system function and obtaining a history of failure -- but the reality of human error cannot be overlooked.  A positive attitude coupled with good interpersonal skills on the part of the troubleshooter goes a long way in troubleshooting when human error is the root cause of failure.
+</p>
+
+
+
+
+
+<h3><u><a name="xtocid388615">Bad wire connections</a></u></h3>
+
+<p>
+As incredible as this may sound to the new student of electronics, a high percentage of electrical and electronic system problems are caused by a very simple source of trouble: poor (i.e. open or shorted) wire connections.  This is especially true when the environment is hostile, including such factors as high vibration and/or a corrosive atmosphere.  Connection points found in any variety of plug-and-socket connector, terminal strip, or splice are at the greatest risk for failure.  The category of "connections" also includes mechanical switch contacts, which can be thought of as a high-cycle connector.  Improper wire termination lugs (such as a compression-style connector crimped on the end of a <u>solid</u> wire -- a definite <i>faux pas</i>) can cause high-resistance connections after a period of trouble-free service.
+</p>
+
+<a name="Wetting current"></a>
+
+<p>
+It should be noted that connections in low-voltage systems tend to be far more troublesome than connections in high-voltage systems.  The main reason for this is the effect of arcing across a discontinuity (circuit break) in higher-voltage systems tends to blast away insulating layers of dirt and corrosion, and may even weld the two ends together if sustained long enough.  Low-voltage systems tend not to generate such vigorous arcing across the gap of a circuit break, and also tend to be more sensitive to additional resistance in the circuit.  Mechanical switch contacts used in low-voltage systems benefit from having the recommended minimum <i>wetting current</i> conducted through them to promote a healthy amount of arcing upon opening, even if this level of current is not necessary for the operation of other circuit components.
+</p>
+
+<p>
+Although <i>open</i> failures tend to more common than <i>shorted</i> failures, "shorts" still constitute a substantial percentage of wiring failure modes.  Many shorts are caused by degradation of wire insulation.  This, again, is especially true when the environment is hostile, including such factors as high vibration, high heat, high humidity, or high voltage.  It is rare to find a mechanical switch contact that is failed shorted, except in the case of high-current contacts where contact "welding" may occur in overcurrent conditions.  Shorts may also be caused by conductive buildup across terminal strip sections or the backs of printed circuit boards.
+</p>
+
+<a name="Fault, ground"></a>
+<a name="Ground fault"></a>
+
+<p>
+A common case of shorted wiring is the <i>ground fault</i>, where a conductor accidently makes contact with either earth or chassis ground.  This may change the voltage(s) present between other conductors in the circuit and ground, thereby causing bizarre system malfunctions and/or personnel hazard.
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid388616">Power supply problems</a></u></h3>
+
+<p>
+These generally consist of tripped overcurrent protection devices or damage due to overheating.  Although power supply circuitry is usually less complex than the circuitry being powered, and therefore should figure to be less prone to failure on that basis alone, it generally handles more power than any other portion of the system and therefore must deal with greater voltages and/or currents.  Also, because of its relative design simplicity, a system's power supply may not receive the engineering attention it deserves, most of the engineering focus devoted to more glamorous parts of the system.
+</p>
+
+
+
+
+
+
+
+<h3><u><a name="xtocid388617">Active components</a></u></h3>
+
+<p>
+Active components (amplification devices) tend to fail with greater regularity than passive (non-amplifying) devices, due to their greater complexity and tendency to amplify overvoltage/overcurrent conditions.  Semiconductor devices are notoriously prone to failure due to electrical transient (voltage/current surge) overloading and thermal (heat) overloading.  Electron tube devices are far more resistant to both of these failure modes, but are generally more prone to mechanical failures due to their fragile construction.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid388618">Passive components</a></u></h3>
+
+<p>
+Non-amplifying components are the most rugged of all, their relative simplicity granting them a statistical advantage over active devices.  The following list gives an approximate relation of failure probabilities (again, top being the most likely and bottom being the least likely):
+</p>
+
+<ul>
+<li>Capacitors (shorted), especially <i>electrolytic</i> capacitors.  The paste electrolyte tends to lose moisture with age, leading to failure.  Thin dielectric layers may be punctured by overvoltage transients.</li>
+<li>Diodes open (rectifying diodes) or shorted (Zener diodes).</li>
+<li>Inductor and transformer windings open or shorted to conductive core.  Failures related to overheating (insulation breakdown) are easily detected by smell.</li>
+<li>Resistors open, almost never shorted.  Usually this is due to overcurrent heating, although it is less frequently caused by overvoltage transient (arc-over) or physical damage (vibration or impact).  Resistors may also change resistance value if overheated!</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid388619">Likely failures in unproven systems</a></u></h2>
+
+<blockquote>
+
+<p>
+<i>"All men are liable to error;"</i>
+</p>
+
+<p>
+<b>John Locke</b>
+</p>
+
+</blockquote>
+
+<p>
+Whereas the last section deals with component failures in systems that have been successfully operating for some time, this section concentrates on the problems plaguing brand-new systems.  In this case, failure modes are generally not of the aging kind, but are related to mistakes in design and assembly caused by human beings.
+</p>
+
+
+
+
+<h3><u><a name="xtocid388620">Wiring problems</a></u></h3>
+
+<p>
+In this case, bad connections are usually due to assembly error, such as connection to the wrong point or poor connector fabrication.  Shorted failures are also seen, but usually involve misconnections (conductors inadvertently attached to grounding points) or wires pinched under box covers.
+</p>
+
+<p>
+Another wiring-related problem seen in new systems is that of electrostatic or electromagnetic interference between different circuits by way of close wiring proximity.  This kind of problem is easily created by routing sets of wires too close to each other (especially routing signal cables close to power conductors), and tends to be very difficult to identify and locate with test equipment.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid388621">Power supply problems</a></u></h3>
+
+<p>
+Blown fuses and tripped circuit breakers are likely sources of trouble, especially if the project in question is an addition to an already-functioning system.  Loads may be larger than expected, resulting in overloading and subsequent failure of power supplies.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid388622">Defective components</a></u></h3>
+
+<p>
+In the case of a newly-assembled system, component fault probabilities are not as predictable as in the case of an operating system that fails with age.  <i>Any</i> type of component -- active or passive -- may be found defective or of imprecise value "out of the box" with roughly equal probability, barring any specific sensitivities in shipping (i.e fragile vacuum tubes or electrostatically sensitive semiconductor components).  Moreover, these types of failures are not always as easy to identify by sight or smell as an age- or transient-induced failure.
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid388623">Improper system configuration</a></u></h3>
+
+<p>
+Increasingly seen in large systems using microprocessor-based components, "programming" issues can still plague non-microprocessor systems in the form of incorrect time-delay relay settings, limit switch calibrations, and drum switch sequences.  Complex components having configuration "jumpers" or switches to control behavior may not be "programmed" properly.
+</p>
+
+<p>
+Components may be used in a new system outside of their tolerable ranges.  Resistors, for example, with too low of power ratings, of too great of tolerance, may have been installed.  Sensors, instruments, and controlling mechanisms may be uncalibrated, or calibrated to the wrong ranges.  
+</p>
+
+
+
+
+
+
+<h3><u><a name="xtocid388624">Design error</a></u></h3>
+
+<p>
+Perhaps the most difficult to pinpoint and the slowest to be recognized (especially by the chief designer) is the problem of design error, where the system fails to function simply because it <i>cannot</i> function as designed.  This may be as trivial as the designer specifying the wrong components in a system, or as fundamental as a system not working due to the designer's improper knowledge of physics.  
+</p>
+
+<p>
+I once saw a turbine control system installed that used a low-pressure switch on the lubrication oil tubing to shut down the turbine if oil pressure dropped to an insufficient level.  The oil pressure for lubrication was supplied by an oil pump turned by the turbine.  When installed, the turbine refused to start.  Why?  Because when it was stopped, the oil pump was not turning, thus there was no oil pressure to lubricate the turbine.  The low-oil-pressure switch detected this condition and the control system maintained the turbine in shutdown mode, preventing it from starting.  This is a classic example of a design flaw, and it could only be corrected by a change in the system logic.
+</p>
+
+<p>
+While most design flaws manifest themselves early in the operational life of the system, some remain hidden until just the right conditions exist to trigger the fault.  These types of flaws are the most difficult to uncover, as the troubleshooter usually overlooks the possibility of design error due to the fact that the system is assumed to be "proven."  The example of the turbine lubrication system was a design flaw impossible to ignore on start-up.  An example of a "hidden" design flaw might be a faulty emergency coolant system for a machine, designed to remain inactive until certain abnormal conditions are reached -- conditions which might never be experienced in the life of the system.
+</p>
+
+
+
+
+
+
+
+
+
+<h2><u><a name="xtocid388625">Potential pitfalls</a></u></h2>
+
+<p>
+Fallacious reasoning and poor interpersonal relations account for more failed or belabored troubleshooting efforts than any other impediments.  With this in mind, the aspiring troubleshooter needs to be familiar with a few common troubleshooting mistakes.
+</p>
+
+<br> </br>
+
+<p>
+<b>Trusting that a brand-new component will always be good.</b>  While it is generally true that a new component will be in good condition, it is not <i>always</i> true.  It is also possible that a component has been mis-labeled and may have the wrong value (usually this mis-labeling is a mistake made at the point of distribution or warehousing and not at the manufacturer, but again, <i>not always</i>!).
+</p>
+
+<br> </br>
+
+<p>
+<b>Not periodically checking your test equipment.</b>  This is especially true with battery-powered meters, as weak batteries may give spurious readings.  When using meters to safety-check for dangerous voltage, remember to test the meter on a known source of voltage both <i>before</i> and <i>after</i> checking the circuit to be serviced, to make sure the meter is in proper operating condition.
+</p>
+
+<br> </br>
+
+<p>
+<b>Assuming there is only one failure to account for the problem.</b>  Single-failure system problems are ideal for troubleshooting, but sometimes failures come in multiple numbers.  In some instances, the failure of one component may lead to a system condition that damages other components.  Sometimes a component in marginal condition goes undetected for a long time, then when another component fails the system suffers from problems with <i>both</i> components.
+</p>
+
+<br> </br>
+
+<p>
+<b>Mistaking coincidence for causality.</b>  Just because two events occurred at nearly the same time does <i>not</i> necessarily mean one event <i>caused</i> the other!  They may be both consequences of a common cause, or they may be totally unrelated!  If possible, try to duplicate the same condition suspected to be the cause and see if the event suspected to be the coincidence happens again.  If not, then there is either no causal relationship as assumed.  This may mean there is no causal relationship between the two events whatsoever, or that there is a causal relationship, but just not the one you expected.
+</p>
+
+<br> </br>
+
+<p>
+<b>Self-induced blindness.</b>  After a long effort at troubleshooting a difficult problem, you may become tired and begin to overlook crucial clues to the problem.  Take a break and let someone else look at it for a while.  You will be amazed at what a difference this can make.  On the other hand, it is generally a bad idea to solicit help at the start of the troubleshooting process.  Effective troubleshooting involves complex, multi-level thinking, which is not easily communicated with others.  More often than not, "team troubleshooting" takes more time and causes more frustration than doing it yourself.  An exception to this rule is when the knowledge of the troubleshooters is complementary: for example, a technician who knows electronics but not machine operation, teamed with an operator who knows machine function but not electronics.
+</p>
+
+<br> </br>
+
+<p>
+<b>Failing to question the troubleshooting work of others on the same job.</b>  This may sound rather cynical and misanthropic, but it is sound scientific practice.  Because it is easy to overlook important details, troubleshooting data received from another troubleshooter should be personally verified before proceeding.  This is a common situation when troubleshooters "change shifts" and a technician takes over for another technician who is leaving before the job is done.  It is important to exchange information, but do not assume the prior technician checked everything they said they did, or checked it perfectly.  I've been hindered in my troubleshooting efforts on many occasions by failing to verify what someone else told me they checked.
+</p>
+
+<br> </br>
+
+<p>
+<b>Being pressured to "hurry up."</b>  When an important system fails, there will be pressure from other people to fix the problem as quickly as possible.  As they say in business, "time is money."  Having been on the receiving end of this pressure many times, I can understand the need for expedience.  However, in many cases there is a higher priority: caution.  If the system in question harbors great danger to life and limb, the pressure to "hurry up" may result in injury or death.  At the very least, hasty repairs may result in further damage when the system is restarted.  Most failures can be recovered or at least temporarily repaired in short time if approached intelligently.  Improper "fixes" resulting in haste often lead to damage that <i>cannot</i> be recovered in short time, if ever.  If the potential for greater harm is present, the troubleshooter needs to politely address the pressure received from others, and maintain their perspective in the midst of chaos.  Interpersonal skills are just as important in this realm as technical ability!
+</p>
+
+<br> </br>
+
+<p>
+<b>Finger-pointing.</b>  It is all too easy to blame a problem on someone else, for reasons of ignorance, pride, laziness, or some other unfortunate facet of human nature.  When the responsibility for system maintenance is divided into departments or work crews, troubleshooting efforts are often hindered by blame cast between groups.  "It's a mechanical problem . . . its an electrical problem . . . its an instrument problem . . ." ad infinitum, ad nauseum, is all too common in the workplace.  I have found that a positive attitude does more to quench the fires of blame than anything else.  
+</p>
+
+<p>
+On one particular job, I was summoned to fix a problem in a hydraulic system assumed to be related to the electronic metering and controls.  My troubleshooting isolated the source of trouble to a faulty control valve, which was the domain of the millwright (mechanical) crew.  I knew that the millwright on shift was a contentious person, so I expected trouble if I simply passed the problem on to his department.  Instead, I politely explained to him and his supervisor the nature of the problem as well as a brief synopsis of my reasoning, then proceeded to help him replace the faulty valve, even though it wasn't "my" responsibility to do so.  As a result, the problem was fixed very quickly, and I gained the respect of the millwright.
+</p>
+
+
+
+
+
+
+
+<h2><u><a name="xtocid388626">Contributors</a></u></h2>
+
+<p>
+Contributors to this chapter are listed in chronological order of their contributions, from most recent to first.  See Appendix 2 (Contributor List) for dates and contact information.
+</p>
+
+<p>
+<b>Alejandro Gamero Divasto</b> (January 2002): contributed troubleshooting tips regarding potential hazards of swapping two similar components, avoiding pressure placed on the troubleshooter, perils of "team" troubleshooting, wisdom of recording system history, operator error as a cause of failure, and the perils of finger-pointing.
+</p>
+
+
+
+
+
+
+<br> </br>
+
+
+<hr>
+
+<p>
+<i>Lessons In Electric Circuits</i> copyright (C) 2000-2017 Tony R. Kuphaldt, under the terms and conditions of the <a href="REF_A3.html">Design Science License</a>.
+</p>
+
+<a href="REF_7.html"><img src=previous.jpg alt="Previous"></a>
+<a href="index.html"><img src=contents.jpg alt="Contents"></a>
+<a href="REF_9.html"><img src=next.jpg alt="Next"></a>
+
+</body>
+</html>
+
