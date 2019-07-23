@@ -52,27 +52,27 @@ function makeEpub(bookName, title) {
   const folders = [
     {
       name: 'DC',
-      title: 'Lessons In Electrical Circuits - Volume I'
+      title: 'Lessons In Electric Circuits - Volume I'
     },
     {
       name: 'AC',
-      title: 'Lessons In Electrical Circuits - Volume II'
+      title: 'Lessons In Electric Circuits - Volume II'
     },
     {
       name: 'Semi',
-      title: 'Lessons In Electrical Circuits - Volume III'
+      title: 'Lessons In Electric Circuits - Volume III'
     },
     {
       name: 'Digital',
-      title: 'Lessons In Electrical Circuits - Volume IV'
+      title: 'Lessons In Electric Circuits - Volume IV'
     },
     {
       name: 'Ref',
-      title: 'Lessons In Electrical Circuits - Volume V'
+      title: 'Lessons In Electric Circuits - Volume V'
     },
     {
       name: 'Exper',
-      title: 'Lessons In Electrical Circuits - Volume VI'
+      title: 'Lessons In Electric Circuits - Volume VI'
     }
   ];
 
