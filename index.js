@@ -1,13 +1,14 @@
 const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
+let globalBookName = '';
 
 function stripHead(file) {
   return file.replace(/<title>.+<\/title>/gi, '');
 }
 
 function replaceImagePath(file) {
-  return file.replace(/src="(\d+).(png|jpg)"/gi, 'src="html/DC/$1.$2"');
+  return file.replace(/src="(\d+).(png|jpg)"/gi, `src="html/${globalBookName}/$1.$2"`);
 }
 
 function getHtmlFiles(bookPath) {
@@ -20,6 +21,7 @@ function getHtmlFiles(bookPath) {
 
 
 function makeEpub(bookName, title) {
+  globalBookName = bookName;
   const htmlFiles = getHtmlFiles(`html/${bookName}`);
 
   const tempFileContents = htmlFiles
