@@ -9,6 +9,6 @@
   "author": "Viktor Habchak",
   "license": "DSL",
   "dependencies": {
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.5"
   }
 }
